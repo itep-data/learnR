@@ -1,2 +1,3 @@
 # learnR
-R training for environmental data
+
+R training for Environmental Data Analysis

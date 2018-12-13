@@ -17,7 +17,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [Params]
 #  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
-  themeColor = ".theme-base-08"
+  #themeColor = ".theme-base-08"
   subtitle = ""
   logo     = "images/BB8_rnd_icon.png"
   #favicon  = "images/BB8_rnd_icon.png"

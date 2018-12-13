@@ -1,4 +1,4 @@
-baseurl = "https://itep-learnr.netlify.com"
+baseurl = "https://itep-r.netlify.com"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Learn R"

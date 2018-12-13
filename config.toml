@@ -1,4 +1,4 @@
-baseurl = "https://dkvale.github.io"
+baseurl = "https://itep-learnr.netlify.com"
 DefaultContentLanguage = "en"
 #DefaultContentLanguage = "ja"
 title = "Learn R"

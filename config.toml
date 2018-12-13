@@ -1,0 +1,112 @@
+baseurl = "https://dkvale.github.io"
+DefaultContentLanguage = "en"
+#DefaultContentLanguage = "ja"
+title = "Learn R"
+theme = "beautifulhugo"
+summaryLength = 20
+metaDataFormat = "yaml"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+#pygmentsUseClassic = true
+#pygmentOptions = "linenos=inline"
+#disqusShortname = "XXX"
+#googleAnalytics = "XXX"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
+[Params]
+#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  themeColor = ".theme-base-08"
+  subtitle = ""
+  logo     = "images/BB8_rnd_icon.png"
+  #favicon  = "images/BB8_rnd_icon.png"
+  #logo    = "https://ui-avatars.com/api/?background=363636&color=fff&size=128&font-size=.6&name=R&rounded=true"
+  favicon = "https://ui-avatars.com/api/?background=2E2E2E&color=fff&font-size=.7&name=R&size=128&rounded=true"
+  dateFormat = "January 2, 2006"
+  showthedate = false
+  commit = false
+  showsocial = false
+  rss = false
+  comments = false
+  readingTime = false
+  wordCount = false
+  useHLJS = true
+  socialShare = false
+  delayDisqus = false
+  showRelatedPosts = false
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+
+#[[Params.bigimg]]
+#  src = "img/triangle.jpg"
+#  desc = "Triangle"
+#[[Params.bigimg]]
+#  src = "img/sphere.jpg"
+#  desc = "Sphere"
+#  # position: see values of CSS background-position.
+#  position = "center top"
+#[[Params.bigimg]]
+#  src = "img/hexagon.jpg"
+#  desc = "Hexagon"
+
+[Author]
+  name = "R2D2"
+  #email = "kvaled@gmail.com"
+  #github = "ITEP"
+  #twitter = "KvaleDor"
+  #gitlab = "username"
+
+[[menu.main]]
+    name = "Home"
+    url = ""
+    weight = 1
+
+[[menu.main]]
+    name = "Get R!"
+    url = "page/Install/"
+    weight = 3
+
+[[menu.main]]
+    identifier = "Training"
+    name = "Training"
+    weight = 4
+
+[[menu.main]]
+    parent = "Training"
+    name = "Class details"
+    url = "page/class_details"
+    weight = 1
+
+[[menu.main]]
+    parent = "Training"
+    name = "Agenda"
+    url = "page/agenda"
+    weight = 2
+
+[[menu.main]]
+    parent = "Training"
+    name = "Day-1"
+    url = "post/day-1"
+    weight = 2
+
+[[menu.main]]
+    parent = "Training"
+    name = "Day-2"
+    url = "post/day-2"
+    weight = 2
+
+[[menu.main]]
+    parent = "Training"
+    name = "Day-3"
+    url = "post/day-3"
+    weight = 3
+
+[[menu.main]]
+    name = "R Community"
+    url = "tags"
+    weight = 5
+
+[[menu.main]]
+    name = "Help"
+    url = "tags"
+    weight = 6

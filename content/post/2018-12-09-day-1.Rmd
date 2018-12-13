@@ -1,0 +1,23 @@
+---
+title: Day 1
+date: '2018-12-11'
+showDate: false
+showAuthor: false
+summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find and...'
+slug: 'day-1'
+categories: [training]
+tags: [training]
+type: ''
+subtitle: 'Power on'
+image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
+imageWidth: '30%'
+imageFloat: 'left'
+---
+
+![](https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png){style="float: left; margin-right: 20px; margin-bottom: 10px;"}
+
+Power on your droid young Jedi, it's time to get started. Junk Boss Plutt is up to no-good once again and we've got scrap to find and help salvage.
+
+<br><br>
+
+<div style="clear: left;">

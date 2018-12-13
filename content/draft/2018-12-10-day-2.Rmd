@@ -1,0 +1,24 @@
+---
+title: Day 2
+author: 'R2D2'
+date: '2018-12-10'
+showthedate: false
+slug: 'day-2'
+categories: [training]
+tags: [training]
+type: ''
+subtitle: 'Power on'
+image: 'https://mpca-air.github.io/RTrain/images/day2_bb8_sq.png' 
+imageWidth: '30%'
+imageFloat: 'left'
+draft: true
+hidden: true
+---
+
+![](https://mpca-air.github.io/RTrain/images/day2_bb8_sq.png){style="float: left; margin-right: 20px; margin-bottom: 10px;"}
+
+Power on your droid young Jedi, it's time to get started. Junk Boss Plutt is up to no-good once again and we've got some scrap to find.
+
+<br><br>
+
+<div style="clear: left;">

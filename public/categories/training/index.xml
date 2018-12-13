@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Training on Learn R</title>
+    <link>/categories/training/</link>
+    <description>Recent content in Training on Learn R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 12 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/training/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Agenda</title>
+      <link>/post/agenda/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/agenda/</guid>
+      <description>R for Environmental Data AnalysisFond du Lac Tribal and Community College
+2101 14th Street
+Cloquet, MN 55720
+Day 1Morning: 8:30am-11:45am</description>
+    </item>
+    
+    <item>
+      <title>Day 1</title>
+      <link>/post/day-1/</link>
+      <pubDate>Tue, 11 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/day-1/</guid>
+      <description>Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find and help salvage.</description>
+    </item>
+    
+    <item>
+      <title>Day 2</title>
+      <link>/draft/day-2/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/draft/day-2/</guid>
+      <description>Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got some scrap to find.</description>
+    </item>
+    
+    <item>
+      <title>Day 3</title>
+      <link>/draft/day-3/</link>
+      <pubDate>Sun, 09 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/draft/day-3/</guid>
+      <description>Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got some scrap to find.</description>
+    </item>
+    
+  </channel>
+</rss>

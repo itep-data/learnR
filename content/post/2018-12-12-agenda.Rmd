@@ -26,13 +26,17 @@ Cloquet, MN 55720
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-library(icon)
+library(icon, knitr)
 ```
 
-## Day 1
 
-**Morning:** _8:30am-11:45am_  
-`Planets visited: Jakku`
+# Day 1
+Planets visited: `Jakku`
+
+<div class = "row">
+<div class = "col-md-6">
+
+**Morning** | _8:30-11:45am_  
 
 Begin Jedi training. 
 
@@ -42,7 +46,7 @@ Begin Jedi training.
     - Start a new R project
     - Create an R script
 1. Tour and customize __RStudio__
-1. Decipher stolen code from the _Empire_
+1. Decipher code from the _Empire_
 1. Invent new/fake data
     - Variables, names, and lists oh my!
 1. Make a data table / __dataframe__  
@@ -58,46 +62,43 @@ Begin Jedi training.
 
 Packages: `readr`, `ggplot2`
 
+</div>
+<div class = "col-md-6">
 
-**Afternoon:** _1:15-5:00pm_  
-
-R _Bingo!_
+**Afternoon** | _1:15-5:00pm_  
 
 1. Explore data
-    - Column names, rows/observations, value types
+    - Column names, rows, observations, value types
     - Missing values
     - Mean, max, min, quantile 
 1. Data transformations with `dplyr`
     - Arrange, sort, and __filter__ data 
 1. Corrupt the _Empire's_ data   
-1. Send corrupted data back _(jokes on them)_    
+1. Send the corrupted data back   
     - Save data
     - Share data online
 1. Summarize data
-1. Make a summary for each __group__, site, or category within data 
-    - Create summaries for groups and categories within data
+1. Make a summary for each __group__, site, or category within the data 
     - Group by year and check for completeness
     - Plot seasonal means
     - Summarize by weekday, site, or region   
 
 > Help Rey get scrappy and solve a junk-data mystery     
-    
-1. Intermediate data manipulation
-    -	Join tables together
-    -	Flip tables from __wide__ to __long__ format
-        - Collapse data spread across many columns
-1. Adding and calculating new columns
-    - Unit conversions
-    - Make new columns based on a condition _(only include complete sites)_    
 
-Packages: `dplyr`
+Packages: `dplyr`    
+
+</div>
+</div>
 
 
-## Day 2
 
-**Morning:** _8:30am-11:45am_   
-`Planets visited: Endor`
+# Day 2
 
+<div class = "row">
+<div class = "col-md-6">
+
+**Morning** | _8:30-11:45am_   
+Planets visited: `Endor`
 
 _Questions and Review_
 
@@ -109,23 +110,33 @@ _Questions and Review_
     -	Reference lines 
 1.	Save charts to different formats 
 
->	**Exercise**
+>	**Exercise**  
 > Use plots and summaries to compare two data sets
 
-1. Plot the `pollution vs. meteorology` comparisons
+3. Plot `pollution` vs. `meteorology`
     - Scatter plots
         - Conc vs. Temp
-        - Conc vs. Time of day
-        - Temp vs. Time of day
-1. Working with dates `lubridate` 
+        - Conc vs. Hour of day
+        - Temp vs. Hour of day
+4. Working with dates `lubridate` 
     - Time/Twilight Zones
-1. Calendar plots
+5. Calendar plots
+6. Intermediate data manipulation
+    -	Join tables together
+    -	Flip tables from __wide__ to __long__ format
+        - Collapse data spread across many columns
+7. Adding and calculating new columns
+    - Unit conversions
+    - Make new columns based on a condition _(only complete sites)_ 
 
-Packages: `openair`
+Packages: `tidyair`, `openair`
 
-**Afternoon:** _1:15-5:00pm_  
+</div>
 
-> Play: _Star Wars - Guess Who_   
+<div class = "col-md-6">
+**Afternoon** | _1:15-5:00pm_  
+
+> _Star Wars - Guess Who_   
 
 1. More __plots__
     - Log transform
@@ -133,37 +144,46 @@ Packages: `openair`
 1. Time series plots with regression line and detection limits
 1. Data cleaning
 1. Working with difficult __data__
-    - Replacing NULL values like "-999" 
-    - Creating `tidyr` data
+    - Replacing NULL values, -999 
 1. Find outliers
 
->	Rey to the Rescue Game
-> 
+>	**Exercise**  
+> Rey to the Rescue 
 
-1. Let's map the data
+
+6. Let's map the data
     - Reading/Writing shapefiles
     - Interactive web maps  
-1. Choose your own adventure!
+7. Choose your own adventure!
     -	Select your own or Star Wars data
     - Clean the data 
     -	Create a summary table
     -	Compare years
     -	Chart & map the data 
-1. **Retrieving data from the web**
+8. **Retrieving data from the web**
     - Download NEI data from EPA
     - FTP sites
-1. NEI trend charts
-1. Saving plots 
-1. Create custom `functions(_)`
-    - `ozone_to_AQI(43)`
+9. NEI trend charts
+10. Saving plots 
+11. Create custom **functions()**
+    - `r knitr::inline_expr("convert_lbs_to_kgs()")`
+    - ` ozone_to_AQI() `
+    
+Packages: `sf`, `leaflet`
+
+</div>
+</div>
 
 
-## Day 3
+
+# Day 3
+Planets visited: `Ahch-To`
 
 > Your turn!
 
-**Morning:** _8:30am-11:45am_  
-`Planets visited: Ahch-To`
+<div class = "row">
+<div class = "col-md-6">
+**Morning** | _8:30-11:45am_  
 
 __Questions / Review__
 
@@ -174,9 +194,10 @@ It's time to CHOOSE a side.
 1. Summarize & save
 1. Multiple paths to choose from
 
-__PATHS__
-    - More functions: **Design values**
-    - Charts for publications and reports
+- __PATHS__
+    - Custom functions: 
+        - **Design values**   
+    - Charts for publications and reports  
     - Trend analysis
     - Site comparisons
         - Save the __porgs__
@@ -187,12 +208,16 @@ __PATHS__
         - Convert coordinate projections (ex. `Lat/Long` to `UTM`)
         - Load reference maps (Tribal boundaries, States, Counties)
         - Build interactive maps
-        - Packages: `leaflet`, `sf`, `tidycensus`, `tigris`
+        - Packages: `tidycensus`, `tigris`
     - Connect to __databases__
         - View tables
         - Read data
+        
 
-**Afternoon:** _1:15-5:00pm_   
+</div>
+
+<div class = "col-md-6">
+**Afternoon** | _1:15-5:00pm_   
 
 Share with the world
 
@@ -200,15 +225,10 @@ Share with the world
 1. Put script and results in __Rmarkdown__
 1. Generate Web, Word and PDF documents
 
+### Graduation!!
 
-<br>
-
-<details>
-<summary> **Click** to see *secret message*</summary> 
- 
-`You're doing great!`
-
-</details> 
+</div>
+</div>
 
 
-</br></br>
+</br>

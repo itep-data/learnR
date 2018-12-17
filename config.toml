@@ -56,15 +56,11 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   #twitter = "KvaleDor"
   #gitlab = "username"
 
-[[menu.main]]
-    name = "Home"
-    url = ""
-    weight = 1
 
 [[menu.main]]
     name = "Get R!"
-    url = "page/Install/"
-    weight = 3
+    url = "page/install/"
+    weight = 1
 
 [[menu.main]]
     identifier = "Training"
@@ -73,8 +69,8 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [[menu.main]]
     parent = "Training"
-    name = "Class details"
-    url = "page/class_details"
+    name = "Class info"
+    url = "page/class_info"
     weight = 1
 
 [[menu.main]]
@@ -94,12 +90,6 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     name = "Day-2"
     url = "post/day-2"
     weight = 2
-
-[[menu.main]]
-    parent = "Training"
-    name = "Day-3"
-    url = "post/day-3"
-    weight = 3
 
 [[menu.main]]
     name = "R Community"

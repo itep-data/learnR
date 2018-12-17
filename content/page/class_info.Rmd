@@ -1,12 +1,16 @@
 ---
-title: ""
+title: " "
 comments: false
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(icon)
+```
 
 <style> code {color: #535353 !important;} </style>
 
-![](../../images/TAMS_info_box_wide.png){style="max-width: 80%; width: 80%; margin-top: 0; margin-left: auto; margin-right: auto;"}
+![](../../images/TAMS_info_box_wide.png){style="max-width: 80%; width: 80%; margin-top: 0; margin-bottom: 28px; margin-left: auto; margin-right: auto;"}
 
 ## R for Environmental Data Analysis
 #### _January 15-17, 2019_
@@ -14,25 +18,21 @@ Fond du Lac Tribal and Community College
 2101 14th Street  
 Cloquet, MN 55720
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(icon)
-```
+
+![](../../images/Rstudio_ex.png){style="float: left; max-width: 28%; margin-top: 0; margin-left: 0; margin-right: 28px;"}
+
+<p style="margin-top: 44px; margin-bottom: 0px;">
+
+Join us for this 3-day series to learn the basics of importing data, using new packages, cleaning and summarizing data with tidy tools, and using R to make charts, maps, and other graphics. Besides Star Wars, examples will include tribal environmental data, with a focus on reporting trend analyses and evaluating outliers and potential exceptional events.
+
+No previous experience in R is required. However, this is a hands-on course geared towards those actively gathering or analyzing data (or those that want to be!). If you have any questions regarding your eligibility for this course, please contact Melinda Ronca-Battista at melinda.ronca-battista@nau.edu.
+
+</p>
 
 
-![](../../images/Rstudio_ex.png){style="float: left; max-width: 28%; margin-top: 18px; margin-left: 0; margin-right: 28px;"}
+## Learn to
 
-</br>
-
-This 3-day series teaches the basics of importing data, using new packages, cleaning and summarizing data with tidy tools, and using `R` to make charts, maps, and other graphics. Examples include tribal data, with a focus on reporting and analyzing for trend analyses and evaluating data for outliers and potential exceptional events.
-
-No previous experience with R is required. However, this is a hands-on course and is geared towards those actively gathering or analyzing data. If you have questions regarding your eligibility for this course, please contact Melinda Ronca-Battista at melinda.ronca-battista@nau.edu.
-
-
-
-### Learn to
-
-![](../../images/mon_cal.PNG){style="float: right; max-width: 40%; margin-top: -34px; margin-left: 12px; margin-right: 32px;"}
+![](../../images/mon_cal.PNG){style="float: right; max-width: 44%; margin-top: -24px; margin-left: 12px; margin-right: -12px;"}
 
 - Load data into RStudio from Excel, text files, shapefiles, and the internet    
 - Clean, process and summarize your own data  
@@ -40,9 +40,7 @@ No previous experience with R is required. However, this is a hands-on course an
 - Customize code to fit your needs for data processing, plots and summaries  
 - Find help   
 
-
-
-<div style="float: left; width: 60%; margin-right: 0px;">
+<div style="float: left; width: 56%; margin-right: 10px;">
 
 ### Where
 Fond du Lac Tribal and Community College  
@@ -51,14 +49,14 @@ _Cloquet, Minnesota  55720_
 
 </div>
 
-![](../../images/fdl_rd_map.png){style="float: left; margin-right: 14px; margin-left: -15px; max-width: 60%; margin-bottom: 10px;"}
+![](../../images/fdl_rd_map.png){style="float: left; margin-right: 22px; margin-left: -15px; max-width: 56%; margin-bottom: 10px; margin-top: 10px;"}
 
 <h3 style="margin-top: 30px;"> Per Diem </h3>
 
-`$41.00/day` (B=$9, L=$11, D=$21)  
+_$41.00/day_ (B=$9, L=$11, D=$21)  
 ITEP will calculate the amount based on your travel itinerary. We pay according to the state of Arizona’s allowable rate per location where the training is held. We cannot pay Federal rates. Adjustments are made for meals provided by either ITEP or the hotel.
 
-</br></br>
+</br></br></br>
 
 ### Lodging
 
@@ -70,14 +68,13 @@ Participants are responsible for booking their room reservations and for coverin
 | (218) 879-1231		      	          |	(218) 878-2327	       	|				
 
 
-
-<h3 style="margin-top: 30px;"> TAMS Contact </h3>
+<h3 style="margin-top: 34px;"> TAMS Contact </h3>
 Darlene Santos  
 (702) 784-8264  
 darlene.santos@nau.edu
 
 
-<div class="well" style="margin-top: 30px;"> 
+<div class="well" style="margin-top: 54px;"> 
 **Cancellations**   
-_Once you have confirmed your attendance at the course, please make every effort to attend. Last minute cancellations can create a financial burden for ITEP. Contact Darlene Santos directly at 702-784-8264 more than 72 hours in advance to cancel your hotel room. Please do not offer your reservation to someone else._   
+_Once you have confirmed your attendance at the course please make every effort to attend. Contact Darlene Santos directly 72 hours in advance to cancel. Please do not offer your reservation to someone else._   
 </div>  

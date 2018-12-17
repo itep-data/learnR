@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <hr>
 
-![](../../images/R_recipe.png){style="float: left; width: 41%; margin-top: 14px; margin-right: 30px;"}
+![](../../images/R_recipe.png){style="float: left; width: 41%; margin-top: 26px; margin-right: 28px; margin-bottom: 26px; margin-left: -12px;"}
 
-The R language and tools are built and contributed to by people from around the world. It helps you perform data analysis in a step-by-step fashion where everything is written down, kind of like you're following a recipe for cookies. Once you find your favorite recipe you can easily use it again and even share it with your collaborators.
+The R language and its tools are built by people from around the world. Together they help you perform data analysis in an easy to follow step-by-step fashion, just like you're following a recipe for cookies. And once you find your favorite recipe, you can easily use it over again on new data or even share it with your collaborators.
 
 
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">

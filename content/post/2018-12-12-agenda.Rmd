@@ -7,7 +7,7 @@ showDate: false
 showAuthor: false
 slug: 'agenda'
 categories: [training]
-tags: [training]
+tags: [agenda]
 type: ''
 image: 'images/Rstudio_ex.png' 
 imageWidth: '27%'
@@ -16,7 +16,7 @@ enableEmoji: true
 ---
 
 
-<img src="../images/maz_kanata.png", style="max-width: 50%; margin-left: 0; margin-right: auto; margin-top: -10px;">
+<div style="margin-top: -30px;">
 
 ## R for Environmental Data Analysis 
 
@@ -24,11 +24,20 @@ Fond du Lac Tribal and Community College
 2101 14th Street     
 Cloquet, MN 55720  
 
+</div>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 library(icon, knitr)
 ```
 
+<div style="margin-top: -10px;">
+
+![](../../images/Rstudio_ex.png){style="float: left; max-width: 30%; margin-top: 0px; margin-left: 0; margin-right: 20%;"}
+
+![](../../images/maz_kanata.png){style="max-width: 45%; margin-left: 0; padding-top: 49px;"}
+
+</div>
 
 # Day 1
 Planets visited: `Jakku`

@@ -76,7 +76,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
     parent = "Training"
     name = "Agenda"
-    url = "page/agenda"
+    url = "post/agenda"
     weight = 2
 
 [[menu.main]]

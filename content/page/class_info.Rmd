@@ -10,7 +10,7 @@ library(icon)
 
 <style> code {color: #535353 !important;} </style>
 
-![](../../images/TAMS_info_box_wide.png){style="max-width: 80%; width: 80%; margin-top: 0; margin-bottom: 28px; margin-left: auto; margin-right: auto;"}
+![](../../images/TAMS_info_box_wide.png){style="max-width: 80%; width: 80%; margin-top: 10px; margin-bottom: 28px; margin-left: auto; margin-right: auto;"}
 
 ## R for Environmental Data Analysis
 #### _January 15-17, 2019_

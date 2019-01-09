@@ -11,25 +11,17 @@ type: ''
 image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
 imageWidth: '30%'
 imageFloat: 'left'
-output: 
-  blogdown::html_page: 
-    highlight: tango
-    css: "css/camp_style.css"
-    number_sections: false
-    self_contained: false
-    fontsize: 18pt
-    monofont: Source Code Pro
 ---
 
 
-![](../images/day1_bb8_sq.png){width="240" style="float: right; margin-left: 34px; margin-top: 55px; margin-bottom: 64px;"}
+![](../images/day1_bb8_sq.png){width="240" style="float: right; margin-left: 34px; margin-top: 70px; margin-bottom: 64px;"}
 
 <h1 style="margin-top:-15px;"> Welcome to Jakku! </h1>
 <hr>
 
 You are BB8 and you've arrived to help just in time. The Junk boss Unkar is up to no-good once again and Rey needs some parts to repair a starship. With your help she can escape Jakku and join forces with the New Republic. 
 
-Luckily, you (BB8) were able to snag a transfer log from Unkar’s droid showing a list of recent scrap shipments. Our goal is to make some trouble for Unkar, and hopefully track down the ship parts Rey needs while we're at it. First, let’s power on our computers and learn some skills to make us faster and more efficient adversaries!
+Luckily for Rey, you were able to snag a transfer log from Unkar’s droid showing a list of recent scrap shipments. Our goal is to make some trouble for Unkar, and hopefully track down the ship parts Rey needs while we're at it. First, let’s power on our computers and learn some skills to make us faster and more efficient adversaries!
 
 
 # Blast off!
@@ -39,7 +31,4 @@ Luckily, you (BB8) were able to snag a transfer log from Unkar’s droid showing
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2](../page/day1_pm.html) (Afternoon)
 
 <br>
-
-Skimping on rations...
-
 

@@ -1,45 +1,45 @@
-"desc","pounds","units","price"
-"Acceleration compensator",1.5,"Items",843.46
-"Activation cylinder",25,"Items",576.61
-"Antishock field",153,"Items",1329.05
-"Atmospheric processor",467,"Items",31.58
-"Atmospheric thrusters",2697,"Items",56.21
-"Atomic drive",5001,"Items",316.5
-"Attitude thruster",1369,"Items",314.23
-"Aural sensor",NA,"Tons",145.27
-"Backup hyperdrive",45,"Items",2726.24
-"Black box",15,"Items",29.15
-"Bulkhead",321,"Cubic Yards",1004.83
-"Carbon-Durasteel Armor",4,"Items",480.21
-"Dedicated energy receptor",NA,"Tons",281.01
-"Dual-drive system",78,"Items",377.12
-"Electromagnetic discharge filter",NA,"Tons",188.28
-"Electrotelescope",198,"Items",849.79
-"Energy-wave detector",125,"Items",1563.2
-"Enviro filter",3,"Items",478.76
-"Flight recorder",NA,"Tons",590.93
-"Full-spectrum transceiver",457,"Items",4041.01
-"Hull Panel",641,"Cubic Yards",843.15
-"Hyperdrive",6021,"Items",965.87
-"Hyperdrive motivator",NA,"Tons",1485.28
-"Inertial compensator",687,"Items",1348.04
-"Ion drive",945,"Items",1168.53
-"Ion engine",NA,"TONS",1605.85
-"Landing jet",NA,"Tons",1496.74
-"Lateral thruster",NA,"Tons",1570.65
-"Magnetic turbine",6872,"Items",31.77
-"Main drive",789,"Items",597.85
-"Maneuvering jet",NA,"Tons",2167.84
-"Microthruster",39,"Items",506.62
-"Navigation computer",NA,"Tons",259.56
-"Optical transducer panel",1237,"Items",2596.89
-"Proximity sensor",NA,"Tons",1229.03
-"Reactant agitator injector",NA,"Tons",790.68
-"Repulsorlift array",467,"Cubic Yards",629.28
-"Repulsorlift generator",232,"Items",1254.64
-"Retrorocket",NA,"Tons",588.68
-"Starship sensor array",637,"Cubic Yards",1129.29
-"Sublight drive",NA,"Tons",420.36
-"Sublight engine",NA,"Tons",7211.01
-"Turbo injector",NA,"Tons",845.72
-"Vitus-Series Attitude Thrusters",NA,"Tons",225.54
+item,units,pounds
+Bulkhead,Cubic Yards,321
+Hull Panel,Cubic Yards,641
+Repulsorlift array,Cubic Yards,467
+Starship sensor array,Cubic Yards,637
+Acceleration compensator,Items,1.5
+Activation cylinder,Items,25
+Antishock field,Items,153
+Atmospheric processor,Items,467
+Atmospheric thrusters,Items,2697
+Atomic drive,Items,5001
+Attitude thruster,Items,1369
+Backup hyperdrive,Items,45
+Black box,Items,15
+Carbon-Durasteel Armor,Items,4
+Dual-drive system,Items,78
+Electrotelescope,Items,198
+Energy-wave detector,Items,125
+Enviro filter,Items,3
+Full-spectrum transceiver,Items,457
+Hyperdrive,Items,6021
+Inertial compensator,Items,687
+Ion drive,Items,945
+Magnetic turbine,Items,6872
+Main drive,Items,789
+Microthruster,Items,39
+Optical transducer panel,Items,1237
+Repulsorlift generator,Items,232
+Aural sensor,Tons,NA
+Dedicated energy receptor,Tons,NA
+Electromagnetic discharge filter,Tons,NA
+Flight recorder,Tons,NA
+Hyperdrive motivator,Tons,NA
+Ion engine,Tons,NA
+Landing jet,Tons,NA
+Lateral thruster,Tons,NA
+Maneuvering jet,Tons,NA
+Navigation computer,Tons,NA
+Proximity sensor,Tons,NA
+Reactant agitator injector,Tons,NA
+Retrorocket,Tons,NA
+Sublight drive,Tons,NA
+Sublight engine,Tons,NA
+Turbo injector,Tons,NA
+Vitus-Series Attitude Thrusters,Tons,NA

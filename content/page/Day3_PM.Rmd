@@ -1,0 +1,92 @@
+---
+title: "Day 3 | PM"
+output: 
+  html_document:
+    toc: false
+    toc_depth: 2
+    toc_float: true
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: true
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = F, message = F)
+knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
+# | Your turn
+
+<hr>
+
+Time to start putting what we've learned to use. Choose one of the paths below and use your new hard-earned R skills to explore data. When you feel ready, jump to the <i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-sm" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i>Grand Moff path and begin exploring and making a report for your __own__ data. 
+
+
+<div class="row3" style = "margin-top: 20px;">
+
+<div class="column3"><span style="margin-left: 2px;">
+<a href="level1_jakku_explore.html"><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __ENSIGN__ </a>
+</span></div> 
+
+<div class="column3"> <span style="margin-left: 2px; display: inline;">
+<a href="page/level2_porg_exposure.html"> <i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __COMMODORE__ </a> 
+</span></div> 
+
+<div class="column3"> <span style="margin-left: 2px;">
+<a href="page/level3_example_outline.html"><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __GRAND MOFF__ </a>
+</span></div>
+</div>
+
+
+<div class="row3">
+
+<div class="column3" style="height: 232px; max-height: 232px;">
+<div class="" style="border: 1px solid grey;">
+<a href="page/level1_jakku_explore.html"><img src="../images/jakku_sq.PNG" style="width: 290px;"></a>
+</div></div>
+
+<div class="column3" style="height: 232px; max-height: 232px;">
+<div class="" style="border: 1px solid grey;">
+<a href="page/level2_porg_exposure.html"><img src="../images/fly_porgs_sq.jpg" style="width: 290px;"></a>
+</div></div>
+
+<div class="column3" style="height: 232px; max-height: 232px;">
+<div class="" style="border: 1px solid grey;">
+<a href="page/level3_example_outline.html"><img src="../images/death_star_sq.PNG" style="width: 290px;"></a>
+</div></div>
+
+</div>
+
+
+<div class="row3" style = "margin-top: 22px;">
+<div class="column3">
+
+Explore the scrap and salvage economy on Jakku.
+
+Media: `solid waste`  
+Planet: `Jakku`
+</div>
+
+<div class="column3">
+Study the effects of jet-fuel on Porg reflexes.
+
+Media: `biological`  
+Planet: `Ahch-To`
+</div> 
+
+<div class="column3">
+Travel back to Earth and explore your own data set.
+
+Media: `all`  
+Planet: `Earth`
+</div>
+
+</div>
+ 
+<br>

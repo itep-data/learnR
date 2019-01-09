@@ -1,0 +1,230 @@
+---
+title: "Porg biomonitoring data"
+output:
+  html_document:
+    toc: false
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    fontsize: 14pt
+    monofont: Source Code Pro
+    monofontoptions: Scale = 1.3
+---
+
+
+![](images/fly_porgs_cut.PNG){width="520" style="margin: 0; margin-top: 24px;"}
+
+<br><br>
+
+> Remember what you should do first when you start your R session?
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r, warning = FALSE, message = FALSE}
+#load packages
+
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+</p></details>
+<br><br>
+
+> Start by reading in the data. Remember, when reading in data from the X drive, R reads forward slashes. The X drive location of the file is
+>
+> "X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv"
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r, warning = FALSE, message = FALSE}
+porg_data <- read_csv("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv")
+```
+
+</p></details>
+<br><br>
+
+> Take a couple of minutes to get an overview of the data. Do you remember some of the functions to do that?
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r, eval = F}
+view(porg_data)
+glimpse(porg_data)
+summary(porg_data)
+```
+
+</p></details>
+
+<br><br>
+
+![](images/porgs_lifecycle.jpg){width="520" style="margin: 0; margin-top: 24px;"}
+
+> What columns are there? What kinds of questions do you have about the data after looking at it. (Hint, I see some biomonotoring concentrations and some response times. Maybe Corundum is neurotoxic to porgs? Ask Dorian to find out for sure.)
+
+> Now create a scatterplot showing the relationship between conncetration and rxn_time.
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+ggplot(data = porg_data, aes(x = Concentration, y = rxn_time)) +
+  geom_point()
+```
+
+</p></details>
+<br><br>
+
+> What type of cleaning does this data set need? Let's take a look at the lowest and highest concentration levels and see if anything looks odd.
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r, warning = FALSE}
+porg_data <- arrange(porg_data, Concentration)
+porg_data <- arrange(porg_data, desc(Concentration))
+```
+
+</p></details>
+<br><br>
+
+> Hmmm. Looks like there's some negative numbers. Is that possible for Corundum measurements? We ask our team of Bot measurement analysts and they say NO! So, let's filter out the negative concentration values.
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+porg_data <- filter(porg_data, Concentration > 0)
+```
+
+</p></details>
+<br><br>
+
+> Let's look at the data set again. I see a units column. Are all the units the same? Looks like the Concentration units are in both ppb and ppm. Let's add a column with consistent concentration units, and convert the ppm concentrations into ppb.
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+porg_data <- mutate(porg_data, conc_ppb = ifelse(Conc_units == "ppm", Concentration * 1000, Concentration))
+```
+
+</p></details>
+<br><br>
+
+> Remember the rule of plotting data? Hint: Plot the data, Plot the data, Plot the data
+
+> So, let's re-plot the data
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+ggplot(data = porg_data, aes(x = conc_ppb, y = rxn_time)) +
+  geom_point()
+```
+
+</p></details>
+<br><br>
+
+
+
+> Let's calculate the mean concentration by island to determine if there might be Corundum concentration differences by island. Do you remeber which function to use here?
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+porg_island_summary <- group_by(porg_data, Island) %>%
+  summarise(mean_corundum = mean(conc_ppb))
+```
+
+</p></details>
+<br><br>
+
+> Maybe making a box plot would help answer this question more clearly? 
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+ggplot(data = porg_data, aes(x = Island, y =  conc_ppb)) +
+  geom_boxplot()
+```
+
+</p></details>
+<br><br>
+
+> Let's fill the boxplot with a different color for each island to make it look better.
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+ggplot(data = porg_data, aes(x = Island, y =  conc_ppb, fill = Island)) +
+  geom_boxplot()
+```
+
+</p></details>
+<br><br>
+
+![](images/porgs_4.jpg){width="520" style="margin: 0; margin-top: 24px;"}
+
+<br>
+
+> Let's make an individual scatterplot for each island. Remember which function to use?
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r}
+ggplot(data = porg_data, aes(x = conc_ppb, y =  rxn_time)) +
+  geom_point() +
+  facet_wrap("Island")
+```
+
+</p></details>
+<br><br>
+
+
+
+> Try an x-y scatter plot of conc_ppb and rxn_time and experiment with `geom_smooth(method = "loess")`
+
+<details>
+<summary class = "btn_code_blue">_Show solution_</summary>
+<p>
+
+```{r, warning = FALSE}
+ggplot(data = porg_data, aes(x = conc_ppb, y =  rxn_time)) +
+  geom_point() +
+  geom_smooth(method = "loess") +
+  facet_wrap(~Island)
+```
+
+</p></details>
+
+<br><br>
+
+
+> Nice work Jedi Master! You are ready to tackle your own data set, maps, images, statistics, the universe! 
+
+
+![](https://media1.tenor.com/images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398)
+
+
+

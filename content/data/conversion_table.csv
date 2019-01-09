@@ -26,20 +26,20 @@ Main drive,Items,789
 Microthruster,Items,39
 Optical transducer panel,Items,1237
 Repulsorlift generator,Items,232
-Aural sensor,Tons,NA
-Dedicated energy receptor,Tons,NA
-Electromagnetic discharge filter,Tons,NA
-Flight recorder,Tons,NA
-Hyperdrive motivator,Tons,NA
-Ion engine,Tons,NA
-Landing jet,Tons,NA
-Lateral thruster,Tons,NA
-Maneuvering jet,Tons,NA
-Navigation computer,Tons,NA
-Proximity sensor,Tons,NA
-Reactant agitator injector,Tons,NA
-Retrorocket,Tons,NA
-Sublight drive,Tons,NA
-Sublight engine,Tons,NA
-Turbo injector,Tons,NA
-Vitus-Series Attitude Thrusters,Tons,NA
+Aural sensor,Tons,200
+Dedicated energy receptor,Tons,200
+Electromagnetic discharge filter,Tons,200
+Flight recorder,Tons,200
+Hyperdrive motivator,Tons,200
+Ion engine,Tons,200
+Landing jet,Tons,200
+Lateral thruster,Tons,200
+Maneuvering jet,Tons,200
+Navigation computer,Tons,200
+Proximity sensor,Tons,200
+Reactant agitator injector,Tons,200
+Retrorocket,Tons,200
+Sublight drive,Tons,200
+Sublight engine,Tons,200
+Turbo injector,Tons,200
+Vitus-Series Attitude Thrusters,Tons,200

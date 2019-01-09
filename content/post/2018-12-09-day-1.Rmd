@@ -3,21 +3,43 @@ title: Day 1
 date: '2018-12-11'
 showDate: false
 showAuthor: false
-summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find and...'
+summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
 slug: 'day-1'
 categories: [training]
 tags: [training]
 type: ''
-subtitle: 'Power on'
 image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
 imageWidth: '30%'
 imageFloat: 'left'
+output: 
+  blogdown::html_page: 
+    highlight: tango
+    css: "css/camp_style.css"
+    number_sections: false
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
 ---
 
-![](https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png){style="float: left; margin-right: 20px; margin-bottom: 10px;"}
 
-Power on your droid young Jedi. Junk Boss Plutt is up to no-good once again and we've got scrap to find and help salvage.
+![](../images/day1_bb8_sq.png){width="240" style="float: right; margin-left: 34px; margin-top: 55px; margin-bottom: 64px;"}
 
-<br><br>
+<h1 style="margin-top:-15px;"> Welcome to Jakku! </h1>
+<hr>
 
-<div style="clear: left;">
+You are BB8 and you've arrived to help just in time. The Junk boss Unkar is up to no-good once again and Rey needs some parts to repair a starship. With your help she can escape Jakku and join forces with the New Republic. 
+
+Luckily, you (BB8) were able to snag a transfer log from Unkar’s droid showing a list of recent scrap shipments. Our goal is to make some trouble for Unkar, and hopefully track down the ship parts Rey needs while we're at it. First, let’s power on our computers and learn some skills to make us faster and more efficient adversaries!
+
+
+# Blast off!
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1](../page/day1_am.html) (Morning)
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2](../page/day1_pm.html) (Afternoon)
+
+<br>
+
+Skimping on rations...
+
+

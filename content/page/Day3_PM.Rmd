@@ -25,7 +25,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 <hr>
 
-Time to start putting what we've learned to use. Choose one of the paths below and use your new hard-earned R skills to explore data. When you feel ready, jump to the <i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-sm" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i>Grand Moff path and begin exploring and making a report for your __own__ data. 
+Time to start putting what we've learned to use. Choose one of the paths below and use your new hard-earned R skills to explore data. When you feel ready, jump to the <i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i>Grand Moff path and begin exploring and making a report for your __own__ data. 
 
 
 <div class="row3" style = "margin-top: 20px;">

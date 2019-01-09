@@ -1,0 +1,30 @@
+---
+title: "Help!"
+comments: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(icon)
+```
+
+<style> code {color: #535353 !important;} </style>
+
+__Learn more R__
+
+- In your browser: [DataCamp Intro](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1)
+- RStudio lessons: https://rstudio.github.io/learnr/examples.html
+- RStudio videos: https://tutorials.shinyapps.io/04-Programming-Basics/#section-welcome
+-	Learn inside R:  [swirlR](https://swirlstats.com/students.html)  
+- Coursera classes: [John Hopkins courses w/ Roger Peng](https://www.coursera.org/specializations/jhu-data-science)    
+
+__Books__    
+
+- [__R for Data Science__](http://r4ds.had.co.nz/): comprehensive & free book online
+- R Cookbook: https://www.cookbook-r.com     
+    
+__Searching online__
+
+- [google.com](www.google.com): include `r` or `rstats` + `the question`
+- [stackoverflow.com](https://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs) + use the `[r]` tag
+

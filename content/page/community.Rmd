@@ -1,0 +1,32 @@
+---
+title: "R community"
+comments: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(icon)
+```
+
+<style> code {color: #535353 !important;} </style>
+
+## You are not alone in the universe {-}
+
+![](../images/rladies_map.gif)
+
+<span style="float: right; margin-top: -2px;"> _Growth of R groups since 2011_ </span>
+
+<br>
+
+__Online__
+
+- R Bloggers: https://www.r-bloggers.com/
+- `#rstats` on Twitter
+- R Ladies: https://rladies.org/
+- RStudio forum: https://community.rstudio.com/
+
+
+<br>
+
+
+

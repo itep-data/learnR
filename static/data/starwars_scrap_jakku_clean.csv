@@ -1,0 +1,574 @@
+items,origin,destination,price_per_ton,amount_tons,total_price
+electrotelescope,outskirts,trade caravan,849.79,868.428,737981.4301199999
+atmospheric thrusters,cratertown,niima outpost,56.21,33978.1545,1909912.064445
+bulkhead,cratertown,raiders,1004.83,644.7285,647842.538655
+main drive,blowback town,trade caravan,597.85,1960.665,1172183.57025
+flight recorder,outskirts,niima outpost,590.93,887,524154.91
+proximity sensor,outskirts,raiders,1229.03,7081,8702761.43
+atmospheric thrusters,tuanul,trade caravan,56.21,6323.1165,355422.378465
+full-spectrum transceiver,cratertown,niima outpost,4041.01,2668.1945,10782200.656445
+vitus-series attitude thrusters,reestki,raiders,225.54,4901,1105371.54
+starship sensor array,outskirts,trade caravan,1129.29,397.8065,449238.902385
+starship sensor array,outskirts,niima outpost,1129.29,1412.229,1594816.08741
+aural sensor,tuanul,raiders,145.27,707,102705.89000000001
+atomic drive,blowback town,trade caravan,316.5,39015.3015,12348342.92475
+magnetic turbine,reestki,niima outpost,31.77,32848.16,1043586.0432000001
+electrotelescope,tuanul,raiders,849.79,224.829,191057.43591
+magnetic turbine,outskirts,trade caravan,31.77,11225.412,356631.33924
+electromagnetic discharge filter,tuanul,niima outpost,188.28,107,20145.96
+backup hyperdrive,blowback town,raiders,2726.24,15.2325,41527.4508
+proximity sensor,tuanul,trade caravan,1229.03,32109,39462924.269999996
+atmospheric thrusters,tuanul,niima outpost,56.21,10360.5255,582365.138355
+hull panel,cratertown,raiders,843.15,91.663,77285.65844999999
+hyperdrive motivator,tuanul,trade caravan,1485.28,862,1280311.3599999999
+landing jet,reestki,niima outpost,1496.74,13944,20870542.56
+electromagnetic discharge filter,cratertown,raiders,188.28,7788,1466324.64
+hyperdrive,cratertown,trade caravan,965.87,6114.3255,5905643.570685
+sublight engine,outskirts,niima outpost,7211.01,10642,76739568.42
+hyperdrive,reestki,raiders,965.87,3666.789,3541641.4914300004
+starship sensor array,cratertown,trade caravan,1129.29,97.1425,109702.053825
+sublight drive,cratertown,niima outpost,420.36,20652,8681274.72
+landing jet,blowback town,raiders,1496.74,2252,3370658.48
+flight recorder,blowback town,trade caravan,590.93,5428,3207568.0399999996
+attitude thruster,outskirts,niima outpost,314.23,373.737,117439.37751000002
+sublight engine,outskirts,raiders,7211.01,2377,17140570.77
+dual-drive system,outskirts,trade caravan,377.12,48.009,18105.15408
+antishock field,cratertown,niima outpost,1329.05,358.479,476436.51495
+sublight engine,cratertown,raiders,7211.01,6310,45501473.1
+microthruster,tuanul,trade caravan,506.62,195.2925,98939.08635
+attitude thruster,cratertown,niima outpost,314.23,1439.5035,452335.184805
+ion drive,reestki,raiders,1168.53,295.3125,345081.515625
+sublight engine,tuanul,trade caravan,7211.01,3984,28728663.84
+ion engine,blowback town,niima outpost,1605.85,2356,3783382.5999999996
+enviro filter,cratertown,raiders,478.76,0.7395,354.04302
+magnetic turbine,tuanul,trade caravan,31.77,18513.168,588163.34736
+electromagnetic discharge filter,reestki,niima outpost,188.28,150,28242
+dual-drive system,cratertown,raiders,377.12,123.162,46446.853440000006
+black box,tuanul,trade caravan,29.15,1.9725,57.498374999999996
+energy-wave detector,tuanul,niima outpost,1563.2,628.3125,982178.1
+vitus-series attitude thrusters,cratertown,raiders,225.54,1051,237042.53999999998
+attitude thruster,reestki,trade caravan,314.23,1852.257,582034.7171100001
+atmospheric thrusters,outskirts,niima outpost,56.21,3147.399,176915.29778999998
+attitude thruster,reestki,raiders,314.23,2319.7705,728941.4842150001
+maneuvering jet,tuanul,trade caravan,2167.84,690,1495809.6
+lateral thruster,outskirts,niima outpost,1570.65,20739,32573710.35
+starship sensor array,reestki,raiders,1129.29,1703.0195,1923202.891155
+main drive,blowback town,trade caravan,597.85,217.3695,129954.355575
+navigation computer,cratertown,niima outpost,259.56,11270,2925241.2
+hyperdrive motivator,reestki,raiders,1485.28,7392,10979189.76
+main drive,tuanul,trade caravan,597.85,728.247,435382.46895
+repulsorlift array,cratertown,niima outpost,629.28,3121.1945,1964105.27496
+proximity sensor,blowback town,raiders,1229.03,10083,12392309.49
+vitus-series attitude thrusters,cratertown,trade caravan,225.54,5785,1304748.9
+full-spectrum transceiver,blowback town,niima outpost,4041.01,791.067,3196709.65767
+dual-drive system,blowback town,raiders,377.12,284.856,107424.89472
+flight recorder,cratertown,trade caravan,590.93,2791,1649285.63
+acceleration compensator,reestki,niima outpost,843.46,2.676,2257.0989600000003
+backup hyperdrive,tuanul,raiders,2726.24,10.8,29443.392
+repulsorlift generator,tuanul,trade caravan,1254.64,1657.292,2079304.83488
+bulkhead,outskirts,niima outpost,1004.83,491.2905,493663.433115
+bulkhead,tuanul,raiders,1004.83,837.9705,842017.8975150001
+atmospheric processor,cratertown,trade caravan,31.58,289.073,9128.925339999998
+bulkhead,blowback town,niima outpost,1004.83,987.5565,992326.3978950001
+navigation computer,blowback town,raiders,259.56,3508,910536.48
+repulsorlift generator,outskirts,trade caravan,1254.64,14.616,18337.81824
+hyperdrive,blowback town,niima outpost,965.87,14670.1665,14169473.717355
+enviro filter,blowback town,raiders,478.76,1.221,584.56596
+bulkhead,outskirts,trade caravan,1004.83,188.2665,189175.82719500002
+atmospheric thrusters,blowback town,niima outpost,56.21,5469.516,307441.49436
+enviro filter,blowback town,raiders,478.76,3.717,1779.55092
+ion engine,tuanul,trade caravan,1605.85,3439,5522518.149999999
+black box,cratertown,niima outpost,29.15,2.61,76.08149999999999
+full-spectrum transceiver,outskirts,raiders,4041.01,1030.535,4164402.2403500006
+black box,blowback town,trade caravan,29.15,32.4675,946.427625
+hyperdrive motivator,outskirts,niima outpost,1485.28,1546,2296242.88
+electrotelescope,tuanul,raiders,849.79,99.891,84886.37289
+magnetic turbine,reestki,trade caravan,31.77,1250.704,39734.86608
+energy-wave detector,outskirts,niima outpost,1563.2,60.9375,95257.5
+electrotelescope,outskirts,raiders,849.79,2009.304,1707486.44616
+inertial compensator,reestki,trade caravan,1348.04,8744.823,11788371.19692
+navigation computer,tuanul,niima outpost,259.56,7187,1865457.72
+black box,outskirts,raiders,29.15,152.025,4431.52875
+flight recorder,tuanul,trade caravan,590.93,12768,7544994.239999999
+carbon-durasteel armor,tuanul,niima outpost,480.21,8.294,3982.8617400000003
+lateral thruster,cratertown,raiders,1570.65,7482,11751603.3
+backup hyperdrive,reestki,trade caravan,2726.24,75.825,206717.148
+retrorocket,cratertown,niima outpost,588.68,4275,2516607
+navigation computer,blowback town,raiders,259.56,8308,2156424.48
+main drive,tuanul,trade caravan,597.85,337.692,201889.16220000002
+lateral thruster,blowback town,niima outpost,1570.65,7883,12381433.950000001
+energy-wave detector,outskirts,raiders,1563.2,568.375,888483.8
+inertial compensator,reestki,trade caravan,1348.04,1803.375,2431021.635
+retrorocket,reestki,niima outpost,588.68,9288,5467659.84
+ion engine,tuanul,raiders,1605.85,6577,10561675.45
+repulsorlift array,tuanul,trade caravan,629.28,265.256,166920.29567999998
+dual-drive system,cratertown,niima outpost,377.12,72.423,27312.161760000003
+microthruster,cratertown,raiders,506.62,63.0825,31958.856150000003
+carbon-durasteel armor,cratertown,trade caravan,480.21,11.89,5709.6969
+landing jet,outskirts,niima outpost,1496.74,65,97288.1
+hyperdrive,tuanul,raiders,965.87,14134.2975,13651893.926325
+carbon-durasteel armor,reestki,trade caravan,480.21,22.922,11007.37362
+ion drive,cratertown,niima outpost,1168.53,308.07,359989.03709999996
+sublight drive,reestki,raiders,420.36,211,88695.96
+starship sensor array,cratertown,trade caravan,1129.29,416.598,470459.95542
+dedicated energy receptor,cratertown,niima outpost,281.01,5763,1619460.63
+electromagnetic discharge filter,cratertown,raiders,188.28,3650,687222
+vitus-series attitude thrusters,tuanul,trade caravan,225.54,7145,1611483.3
+lateral thruster,tuanul,niima outpost,1570.65,4312,6772642.800000001
+sublight engine,cratertown,raiders,7211.01,299,2156091.99
+hull panel,blowback town,trade caravan,843.15,712.792,600990.5748000001
+enviro filter,blowback town,niima outpost,478.76,0.837,400.72211999999996
+main drive,outskirts,raiders,597.85,3648.7305,2181393.5294250003
+attitude thruster,outskirts,trade caravan,314.23,1575.719,495138.18137000006
+ion engine,blowback town,niima outpost,1605.85,895,1437235.75
+bulkhead,outskirts,raiders,1004.83,756.7575,760412.6387250001
+turbo injector,tuanul,trade caravan,845.72,2728,2307124.16
+landing jet,reestki,niima outpost,1496.74,5192,7771074.08
+hyperdrive motivator,reestki,raiders,1485.28,1441,2140288.48
+enviro filter,cratertown,trade caravan,478.76,0.516,247.04016000000001
+retrorocket,blowback town,niima outpost,588.68,6672,3927672.9599999995
+energy-wave detector,outskirts,raiders,1563.2,281.6875,440333.9
+dedicated energy receptor,reestki,trade caravan,281.01,2980,837409.7999999999
+aural sensor,outskirts,niima outpost,145.27,3005,436536.35000000003
+aural sensor,tuanul,raiders,145.27,6204,901255.0800000001
+hyperdrive,blowback town,trade caravan,965.87,18358.029,17731469.47023
+carbon-durasteel armor,outskirts,niima outpost,480.21,2.91,1397.4111
+black box,cratertown,raiders,29.15,13.4175,391.120125
+main drive,reestki,trade caravan,597.85,3109.8435,1859219.936475
+antishock field,tuanul,niima outpost,1329.05,86.292,114686.3826
+maneuvering jet,reestki,raiders,2167.84,15578,33770611.52
+electrotelescope,outskirts,trade caravan,849.79,364.716,309932.00964
+enviro filter,outskirts,niima outpost,478.76,0.0105,5.02698
+repulsorlift array,cratertown,raiders,629.28,903.8785,568792.6624799999
+sublight drive,reestki,trade caravan,420.36,988,415315.68
+dedicated energy receptor,cratertown,niima outpost,281.01,2358,662621.58
+turbo injector,outskirts,raiders,845.72,2136,1806457.9200000002
+navigation computer,cratertown,trade caravan,259.56,12390,3215948.4
+maneuvering jet,tuanul,niima outpost,2167.84,9444,20473080.96
+antishock field,reestki,raiders,1329.05,993.6585,1320621.829425
+enviro filter,reestki,trade caravan,478.76,4.6635,2232.69726
+hyperdrive,reestki,niima outpost,965.87,28684.044,27705057.578280002
+ion drive,cratertown,raiders,1168.53,9751.9275,11395419.841574999
+maneuvering jet,reestki,trade caravan,2167.84,477,1034059.68
+sublight drive,tuanul,niima outpost,420.36,5070,2131225.2
+lateral thruster,tuanul,raiders,1570.65,10643,16716427.950000001
+flight recorder,reestki,trade caravan,590.93,2330,1376866.9
+inertial compensator,outskirts,niima outpost,1348.04,2192.904,2956122.30816
+antishock field,cratertown,raiders,1329.05,389.7675,518020.49587499996
+carbon-durasteel armor,cratertown,trade caravan,480.21,0.778,373.60338
+enviro filter,blowback town,niima outpost,478.76,4.7085,2254.2414599999997
+backup hyperdrive,blowback town,raiders,2726.24,3.7575,10243.8468
+repulsorlift array,tuanul,trade caravan,629.28,191.7035,120635.17847999999
+attitude thruster,blowback town,niima outpost,314.23,2263.6415,711304.068545
+reactant agitator injector,reestki,raiders,790.68,20834,16473027.12
+ion drive,outskirts,trade caravan,1168.53,1255.4325,1467010.5392249997
+main drive,blowback town,niima outpost,597.85,1877.4255,1122418.8351750001
+aural sensor,tuanul,raiders,145.27,3120,453242.4
+lateral thruster,reestki,trade caravan,1570.65,696,1093172.4000000001
+dual-drive system,tuanul,niima outpost,377.12,61.659,23252.84208
+microthruster,cratertown,raiders,506.62,172.7895,87538.61649
+enviro filter,cratertown,trade caravan,478.76,1.2705,608.26458
+turbo injector,blowback town,niima outpost,845.72,4943,4180393.96
+turbo injector,reestki,raiders,845.72,6392,5405842.24
+microthruster,blowback town,trade caravan,506.62,163.5465,82855.92783
+carbon-durasteel armor,outskirts,niima outpost,480.21,37.964,18230.69244
+black box,blowback town,raiders,29.15,45.5625,1328.146875
+landing jet,tuanul,trade caravan,1496.74,6913,10346963.62
+carbon-durasteel armor,cratertown,niima outpost,480.21,19.178,9209.46738
+inertial compensator,tuanul,raiders,1348.04,705.2055,950645.22222
+proximity sensor,reestki,trade caravan,1229.03,22294,27399994.82
+aural sensor,blowback town,niima outpost,145.27,2312,335864.24000000005
+enviro filter,tuanul,raiders,478.76,31.4265,15045.75114
+hull panel,blowback town,trade caravan,843.15,460.879,388590.12885
+retrorocket,cratertown,niima outpost,588.68,9339,5497682.52
+sublight drive,blowback town,raiders,420.36,1424,598592.64
+retrorocket,blowback town,trade caravan,588.68,3466,2040364.88
+main drive,cratertown,niima outpost,597.85,2343.7245,1401195.692325
+sublight engine,blowback town,raiders,7211.01,8582,61884887.82
+hyperdrive motivator,blowback town,trade caravan,1485.28,16489,24490781.919999998
+ion engine,reestki,niima outpost,1605.85,2735,4391999.75
+electromagnetic discharge filter,tuanul,raiders,188.28,5088,957968.64
+electrotelescope,outskirts,trade caravan,849.79,52.371,44504.35209
+acceleration compensator,blowback town,niima outpost,843.46,1.32225,1115.264985
+hyperdrive motivator,blowback town,raiders,1485.28,4012,5958943.36
+retrorocket,tuanul,trade caravan,588.68,17320,10195937.6
+acceleration compensator,cratertown,niima outpost,843.46,4.185,3529.8801
+atmospheric processor,reestki,raiders,31.58,71.6845,2263.7965099999997
+aural sensor,outskirts,trade caravan,145.27,6272,911133.4400000001
+optical transducer panel,tuanul,niima outpost,2596.89,2991.066,7767469.384739999
+navigation computer,reestki,raiders,259.56,1826,473956.56
+turbo injector,tuanul,trade caravan,845.72,4158,3516503.7600000002
+hull panel,reestki,niima outpost,843.15,2008.894,1693798.9760999999
+atmospheric processor,blowback town,raiders,31.58,252.8805,7985.96619
+magnetic turbine,outskirts,trade caravan,31.77,25804.36,819804.5172
+optical transducer panel,blowback town,niima outpost,2596.89,6631.557,17221424.05773
+attitude thruster,cratertown,raiders,314.23,65.0275,20433.591325
+enviro filter,cratertown,trade caravan,478.76,4.311,2063.9343599999997
+black box,outskirts,niima outpost,29.15,42.2925,1232.8263749999999
+antishock field,tuanul,raiders,1329.05,1557.693,2070251.8816499999
+enviro filter,tuanul,trade caravan,478.76,3.6915,1767.3425399999999
+antishock field,outskirts,niima outpost,1329.05,1393.677,1852266.41685
+black box,cratertown,raiders,29.15,28.17,821.1555
+antishock field,tuanul,trade caravan,1329.05,238.986,317624.34329999995
+main drive,blowback town,niima outpost,597.85,502.9875,300711.076875
+dual-drive system,cratertown,raiders,377.12,50.934,19208.230079999998
+atmospheric thrusters,blowback town,trade caravan,56.21,8473.974,476322.07854
+atmospheric processor,reestki,niima outpost,31.58,1091.379,34465.74881999999
+retrorocket,tuanul,raiders,588.68,2055,1209737.4
+optical transducer panel,tuanul,trade caravan,2596.89,3106.107,8066218.20723
+reactant agitator injector,cratertown,niima outpost,790.68,11452,9054867.36
+vitus-series attitude thrusters,cratertown,raiders,225.54,914,206143.56
+atmospheric thrusters,tuanul,trade caravan,56.21,12224.1525,687119.612025
+atmospheric thrusters,tuanul,niima outpost,56.21,3255.279,182979.23259
+reactant agitator injector,blowback town,raiders,790.68,4343,3433923.2399999998
+proximity sensor,cratertown,trade caravan,1229.03,1392,1710809.76
+acceleration compensator,outskirts,niima outpost,843.46,7.917,6677.67282
+proximity sensor,blowback town,raiders,1229.03,444,545689.32
+navigation computer,tuanul,trade caravan,259.56,5397,1400845.32
+lateral thruster,blowback town,niima outpost,1570.65,6878,10802930.700000001
+hyperdrive,outskirts,raiders,965.87,19059.4755,18408975.601185
+attitude thruster,blowback town,trade caravan,314.23,744.736,234018.39328000002
+acceleration compensator,tuanul,niima outpost,843.46,4.03125,3400.1981250000003
+full-spectrum transceiver,outskirts,raiders,4041.01,796.7795,3219793.9272950003
+hyperdrive,blowback town,trade caravan,965.87,60116.6745,58064892.399315
+enviro filter,tuanul,niima outpost,478.76,23.2335,11123.27046
+hull panel,blowback town,raiders,843.15,207.684,175108.7646
+microthruster,outskirts,trade caravan,506.62,21.2745,10778.08719
+antishock field,cratertown,niima outpost,1329.05,133.6455,177621.551775
+electrotelescope,reestki,raiders,849.79,685.674,582678.90846
+reactant agitator injector,reestki,trade caravan,790.68,1544,1220809.92
+repulsorlift array,reestki,niima outpost,629.28,144.303,90806.99183999999
+bulkhead,cratertown,raiders,1004.83,580.368,583171.1774400001
+electrotelescope,blowback town,trade caravan,849.79,1066.923,906660.4961699999
+repulsorlift generator,blowback town,niima outpost,1254.64,381.756,478966.34784
+repulsorlift generator,cratertown,raiders,1254.64,314.36,394408.6304
+dual-drive system,outskirts,trade caravan,377.12,63.102,23797.02624
+attitude thruster,blowback town,niima outpost,314.23,1952.194,613437.92062
+maneuvering jet,tuanul,raiders,2167.84,346,750072.64
+atmospheric thrusters,reestki,trade caravan,56.21,5400.7425,303575.73592500004
+activation cylinder,tuanul,niima outpost,576.61,27.775,16015.34275
+vitus-series attitude thrusters,blowback town,raiders,225.54,5592,1261219.68
+activation cylinder,outskirts,trade caravan,576.61,76.5,44110.665
+electromagnetic discharge filter,cratertown,niima outpost,188.28,13978,2631777.84
+sublight drive,outskirts,raiders,420.36,214,89957.04000000001
+lateral thruster,cratertown,trade caravan,1570.65,10656,16736846.4
+dedicated energy receptor,blowback town,niima outpost,281.01,129,36250.29
+navigation computer,cratertown,raiders,259.56,1421,368834.76
+repulsorlift array,blowback town,trade caravan,629.28,665.7085,418917.04487999994
+dual-drive system,outskirts,niima outpost,377.12,252.213,95114.56655999999
+hyperdrive,outskirts,raiders,965.87,4073.2065,3934187.962155
+maneuvering jet,tuanul,trade caravan,2167.84,4194,9091920.96
+magnetic turbine,tuanul,niima outpost,31.77,3838.012,121933.64124
+magnetic turbine,tuanul,raiders,31.77,2020.368,64187.09136
+vitus-series attitude thrusters,outskirts,trade caravan,225.54,15258,3441289.32
+flight recorder,cratertown,niima outpost,590.93,2453,1449551.2899999998
+atomic drive,reestki,raiders,316.5,25482.5955,8065241.47575
+inertial compensator,outskirts,trade caravan,1348.04,537.5775,724675.9731
+black box,cratertown,niima outpost,29.15,1.68,48.971999999999994
+hyperdrive,cratertown,raiders,965.87,4016.007,3878940.68109
+energy-wave detector,reestki,trade caravan,1563.2,73.5,114895.2
+vitus-series attitude thrusters,reestki,niima outpost,225.54,4164,939148.5599999999
+enviro filter,outskirts,raiders,478.76,13.2,6319.632
+bulkhead,tuanul,trade caravan,1004.83,809.562,813472.18446
+lateral thruster,reestki,niima outpost,1570.65,4932,7746445.800000001
+attitude thruster,outskirts,raiders,314.23,9935.5175,3122037.6640250003
+turbo injector,blowback town,trade caravan,845.72,256,216504.32
+hyperdrive motivator,blowback town,niima outpost,1485.28,968,1437751.04
+aural sensor,reestki,raiders,145.27,2421,351698.67000000004
+lateral thruster,cratertown,trade caravan,1570.65,289,453917.85000000003
+vitus-series attitude thrusters,tuanul,niima outpost,225.54,3664,826378.5599999999
+main drive,blowback town,raiders,597.85,1152.3345,688923.1808249999
+flight recorder,outskirts,trade caravan,590.93,1692,999853.5599999999
+electromagnetic discharge filter,reestki,niima outpost,188.28,9442,1777739.76
+repulsorlift array,blowback town,raiders,629.28,497.355,312975.5544
+attitude thruster,cratertown,trade caravan,314.23,8352.9535,2624748.578305
+backup hyperdrive,outskirts,niima outpost,2726.24,143.8875,392271.85799999995
+starship sensor array,tuanul,raiders,1129.29,688.597,777625.70613
+dual-drive system,cratertown,trade caravan,377.12,485.901,183242.98512
+electrotelescope,outskirts,niima outpost,849.79,388.773,330375.40767
+proximity sensor,outskirts,raiders,1229.03,10494,12897440.82
+backup hyperdrive,tuanul,trade caravan,2726.24,251.5725,685847.0123999999
+acceleration compensator,outskirts,niima outpost,843.46,0.94275,795.171915
+enviro filter,cratertown,raiders,478.76,0.8745,418.67562000000004
+hyperdrive,reestki,trade caravan,965.87,382.3335,369284.457645
+flight recorder,cratertown,niima outpost,590.93,381,225144.33
+electrotelescope,tuanul,raiders,849.79,595.287,505868.93973
+retrorocket,tuanul,trade caravan,588.68,566,333192.87999999995
+hull panel,cratertown,niima outpost,843.15,1520.1315,1281698.874225
+inertial compensator,reestki,raiders,1348.04,4116.8475,5549675.1038999995
+turbo injector,cratertown,trade caravan,845.72,2799,2367170.2800000003
+proximity sensor,reestki,niima outpost,1229.03,9661,11873658.83
+black box,cratertown,raiders,29.15,11.67,340.1805
+dual-drive system,tuanul,trade caravan,377.12,161.811,61022.16432
+turbo injector,outskirts,niima outpost,845.72,3575,3023449
+ion engine,tuanul,raiders,1605.85,1036,1663660.5999999999
+optical transducer panel,reestki,trade caravan,2596.89,1913.0205,4967903.806245
+energy-wave detector,outskirts,niima outpost,1563.2,27.5625,43085.700000000004
+optical transducer panel,blowback town,raiders,2596.89,11.7515,30517.352834999998
+inertial compensator,tuanul,trade caravan,1348.04,9186.564,12383855.73456
+sublight drive,cratertown,niima outpost,420.36,3169,1332120.84
+backup hyperdrive,cratertown,raiders,2726.24,63.495,173102.6088
+dedicated energy receptor,cratertown,trade caravan,281.01,1278,359130.77999999997
+atmospheric thrusters,cratertown,niima outpost,56.21,4365.0945,245361.961845
+black box,blowback town,raiders,29.15,21.555,628.3282499999999
+turbo injector,tuanul,trade caravan,845.72,1228,1038544.16
+dual-drive system,outskirts,niima outpost,377.12,54.21,20443.6752
+microthruster,cratertown,raiders,506.62,113.763,57634.61106
+proximity sensor,cratertown,trade caravan,1229.03,18141,22295833.23
+atmospheric thrusters,tuanul,niima outpost,56.21,11533.7205,648310.429305
+bulkhead,blowback town,raiders,1004.83,793.512,797344.66296
+carbon-durasteel armor,cratertown,trade caravan,480.21,10.762,5168.02002
+atmospheric thrusters,blowback town,niima outpost,56.21,2775.213,155994.72273
+atomic drive,tuanul,raiders,316.5,5538.6075,1752969.27375
+vitus-series attitude thrusters,outskirts,trade caravan,225.54,7916,1785374.64
+vitus-series attitude thrusters,reestki,niima outpost,225.54,1011,228020.94
+attitude thruster,reestki,raiders,314.23,2683.9245,843369.595635
+starship sensor array,blowback town,trade caravan,1129.29,1349.166,1523599.67214
+ion engine,outskirts,niima outpost,1605.85,1537,2468191.4499999997
+enviro filter,tuanul,raiders,478.76,6.036,2889.7953599999996
+full-spectrum transceiver,reestki,trade caravan,4041.01,486.705,1966779.77205
+microthruster,cratertown,niima outpost,506.62,22.113,11202.88806
+atmospheric processor,cratertown,raiders,31.58,1684.936,53210.27888
+electromagnetic discharge filter,blowback town,trade caravan,188.28,10998,2070703.44
+main drive,outskirts,niima outpost,597.85,503.382,300946.9287
+dual-drive system,blowback town,raiders,377.12,134.94,50888.5728
+repulsorlift array,outskirts,trade caravan,629.28,1646.8755,1036345.81464
+black box,blowback town,niima outpost,29.15,25.215,735.01725
+hyperdrive,tuanul,raiders,965.87,17192.9655,16606169.587484999
+dedicated energy receptor,tuanul,trade caravan,281.01,5110,1435961.0999999999
+backup hyperdrive,tuanul,niima outpost,2726.24,32.5575,88759.55879999998
+sublight engine,cratertown,raiders,7211.01,1768,12749065.68
+electromagnetic discharge filter,tuanul,trade caravan,188.28,8142,1532975.76
+hyperdrive,reestki,niima outpost,965.87,10413.3195,10057912.905465
+activation cylinder,cratertown,raiders,576.61,113.4,65387.57400000001
+ion drive,cratertown,trade caravan,1168.53,7967.7675,9310575.356774999
+magnetic turbine,cratertown,niima outpost,31.77,6937.284,220397.51267999999
+landing jet,outskirts,raiders,1496.74,185,276896.9
+electromagnetic discharge filter,blowback town,trade caravan,188.28,3788,713204.64
+starship sensor array,reestki,niima outpost,1129.29,310.219,350327.21450999996
+lateral thruster,blowback town,raiders,1570.65,2956,4642841.4
+dual-drive system,tuanul,trade caravan,377.12,73.827,27841.63824
+enviro filter,reestki,niima outpost,478.76,7.6215,3648.86934
+aural sensor,cratertown,raiders,145.27,3482,505830.14
+repulsorlift generator,tuanul,trade caravan,1254.64,47.444,59525.14016000001
+sublight engine,outskirts,niima outpost,7211.01,130,937431.3
+ion drive,outskirts,raiders,1168.53,1050.3675,1227385.934775
+electromagnetic discharge filter,cratertown,trade caravan,188.28,2698,507979.44
+vitus-series attitude thrusters,blowback town,niima outpost,225.54,1735,391311.89999999997
+bulkhead,reestki,raiders,1004.83,1645.767,1653716.0546100002
+landing jet,tuanul,trade caravan,1496.74,18423,27574441.02
+atmospheric thrusters,cratertown,niima outpost,56.21,6418.86,360804.12059999997
+hyperdrive,cratertown,raiders,965.87,3540.348,3419515.92276
+atmospheric thrusters,reestki,trade caravan,56.21,6617.0895,371946.60079500003
+aural sensor,tuanul,niima outpost,145.27,3519,511205.13000000006
+dedicated energy receptor,cratertown,raiders,281.01,2470,694094.7
+ion engine,tuanul,trade caravan,1605.85,4378,7030411.3
+navigation computer,blowback town,niima outpost,259.56,1601,415555.56
+aural sensor,cratertown,raiders,145.27,11105,1613223.35
+retrorocket,blowback town,trade caravan,588.68,778,457993.04
+microthruster,cratertown,niima outpost,506.62,15.522,7863.75564
+optical transducer panel,reestki,raiders,2596.89,718.697,1866377.0523299999
+attitude thruster,cratertown,trade caravan,314.23,512.6905,161102.73581500002
+electrotelescope,blowback town,niima outpost,849.79,189.783,161275.69556999998
+main drive,cratertown,raiders,597.85,4962.021,2966544.25485
+inertial compensator,reestki,trade caravan,1348.04,265.869,358402.04676000006
+electrotelescope,outskirts,niima outpost,849.79,664.686,564843.51594
+bulkhead,reestki,raiders,1004.83,275.739,277070.81937
+antishock field,cratertown,trade caravan,1329.05,314.874,418483.2897
+bulkhead,cratertown,niima outpost,1004.83,508.9455,511403.706765
+starship sensor array,reestki,raiders,1129.29,2467.738,2786791.8460199996
+reactant agitator injector,cratertown,trade caravan,790.68,6767,5350531.56
+navigation computer,reestki,niima outpost,259.56,7429,1928271.24
+attitude thruster,cratertown,raiders,314.23,824.8225,259183.974175
+atomic drive,cratertown,trade caravan,316.5,19096.3185,6043984.80525
+turbo injector,tuanul,niima outpost,845.72,5654,4781700.88
+full-spectrum transceiver,blowback town,raiders,4041.01,1620.2935,6547622.236435001
+hull panel,cratertown,trade caravan,843.15,2020.1115,1703257.011225
+aural sensor,tuanul,niima outpost,145.27,4937,717197.9900000001
+ion engine,cratertown,raiders,1605.85,1021,1639572.8499999999
+carbon-durasteel armor,cratertown,trade caravan,480.21,0.826,396.65345999999994
+bulkhead,cratertown,niima outpost,1004.83,141.24,141922.18920000002
+maneuvering jet,outskirts,raiders,2167.84,580,1257347.2000000002
+dedicated energy receptor,blowback town,trade caravan,281.01,6320,1775983.2
+reactant agitator injector,cratertown,niima outpost,790.68,3247,2567337.96
+atmospheric thrusters,cratertown,raiders,56.21,16094.3475,904663.272975
+repulsorlift array,reestki,trade caravan,629.28,921.1575,579665.9916
+flight recorder,tuanul,niima outpost,590.93,8226,4860990.18
+optical transducer panel,reestki,raiders,2596.89,1180.7165,3066190.8716849997
+main drive,tuanul,trade caravan,597.85,364.518,217927.0863
+full-spectrum transceiver,outskirts,niima outpost,4041.01,520.523,2103438.6482300004
+lateral thruster,outskirts,raiders,1570.65,1389,2181632.85
+acceleration compensator,blowback town,trade caravan,843.46,0.85875,724.321275
+black box,outskirts,niima outpost,29.15,129.375,3771.28125
+microthruster,outskirts,raiders,506.62,12.714,6441.16668
+black box,cratertown,trade caravan,29.15,6.5475,190.859625
+reactant agitator injector,cratertown,niima outpost,790.68,1286,1016814.48
+dual-drive system,reestki,raiders,377.12,47.541,17928.66192
+maneuvering jet,blowback town,trade caravan,2167.84,11979,25968555.360000003
+sublight engine,reestki,niima outpost,7211.01,11609,83712615.09
+atomic drive,reestki,raiders,316.5,4678.4355,1480724.8357499999
+atomic drive,blowback town,trade caravan,316.5,8259.1515,2614021.44975
+main drive,blowback town,niima outpost,597.85,3064.476,1832096.9766000002
+flight recorder,tuanul,raiders,590.93,2835,1675286.5499999998
+repulsorlift array,reestki,trade caravan,629.28,1213.266,763484.02848
+turbo injector,reestki,niima outpost,845.72,6031,5100537.32
+atmospheric processor,tuanul,raiders,31.58,43.431,1371.5509799999998
+hull panel,blowback town,trade caravan,843.15,3634.47,3064403.3805
+maneuvering jet,cratertown,niima outpost,2167.84,385,834618.4
+atmospheric processor,tuanul,raiders,31.58,353.7525,11171.503949999998
+vitus-series attitude thrusters,outskirts,trade caravan,225.54,14026,3163424.04
+carbon-durasteel armor,cratertown,niima outpost,480.21,29.8,14310.258
+antishock field,blowback town,raiders,1329.05,1257.5835,1671391.3506749999
+maneuvering jet,outskirts,trade caravan,2167.84,8370,18144820.8
+proximity sensor,outskirts,niima outpost,1229.03,4438,5454435.14
+electrotelescope,outskirts,raiders,849.79,252.252,214361.22708
+energy-wave detector,blowback town,trade caravan,1563.2,13.625,21298.600000000002
+dedicated energy receptor,blowback town,niima outpost,281.01,4245,1192887.45
+atmospheric processor,reestki,raiders,31.58,4177.0815,131912.23377
+energy-wave detector,tuanul,trade caravan,1563.2,105.1875,164429.1
+aural sensor,cratertown,niima outpost,145.27,10755,1562378.85
+inertial compensator,reestki,raiders,1348.04,1155.534,1557706.05336
+hyperdrive motivator,reestki,trade caravan,1485.28,7345,10909381.6
+sublight engine,tuanul,niima outpost,7211.01,1559,11241964.59
+electrotelescope,reestki,raiders,849.79,334.521,284272.60059
+hull panel,cratertown,trade caravan,843.15,1159.8895,977960.831925
+atmospheric processor,blowback town,niima outpost,31.58,1721.1285,54353.23803
+repulsorlift generator,reestki,raiders,1254.64,305.66,383493.26240000007
+enviro filter,tuanul,trade caravan,478.76,11.79,5644.5804
+navigation computer,tuanul,niima outpost,259.56,4760,1235505.6
+aural sensor,outskirts,raiders,145.27,582,84547.14
+hull panel,cratertown,trade caravan,843.15,2609.1905,2199938.970075
+optical transducer panel,outskirts,niima outpost,2596.89,279.562,725991.76218
+antishock field,tuanul,raiders,1329.05,464.049,616744.3234499999
+reactant agitator injector,tuanul,trade caravan,790.68,5658,4473667.4399999995
+dual-drive system,tuanul,niima outpost,377.12,176.241,66464.00592000001
+energy-wave detector,blowback town,raiders,1563.2,997.9375,1559975.9000000001
+dual-drive system,blowback town,trade caravan,377.12,29.835,11251.3752
+activation cylinder,outskirts,niima outpost,576.61,20.2375,11669.144875
+hyperdrive motivator,blowback town,raiders,1485.28,2844,4224136.32
+main drive,reestki,trade caravan,597.85,583.4655,348824.84917500004
+starship sensor array,tuanul,niima outpost,1129.29,2461.0495,2779238.589855
+activation cylinder,outskirts,raiders,576.61,61.225,35302.947250000005
+vitus-series attitude thrusters,blowback town,trade caravan,225.54,652,147052.08
+dual-drive system,reestki,niima outpost,377.12,154.284,58183.58208
+sublight engine,blowback town,raiders,7211.01,1753,12640900.530000001
+maneuvering jet,outskirts,trade caravan,2167.84,7453,16156911.520000001
+full-spectrum transceiver,cratertown,niima outpost,4041.01,1548.5445,6257683.809945
+reactant agitator injector,cratertown,raiders,790.68,4336,3428388.48
+activation cylinder,outskirts,trade caravan,576.61,50.4875,29111.597374999998
+navigation computer,outskirts,niima outpost,259.56,8194,2126834.64
+electrotelescope,blowback town,raiders,849.79,1233.936,1048586.4734399999
+repulsorlift array,tuanul,trade caravan,629.28,243.307,153108.22895999998
+inertial compensator,outskirts,niima outpost,1348.04,2232.063,3008910.20652
+dedicated energy receptor,cratertown,raiders,281.01,3967,1114766.67
+reactant agitator injector,reestki,trade caravan,790.68,7899,6245581.319999999
+atmospheric thrusters,reestki,niima outpost,56.21,194.184,10915.08264
+repulsorlift array,reestki,raiders,629.28,854.3765,537642.04392
+dedicated energy receptor,cratertown,trade caravan,281.01,26167,7353188.67
+optical transducer panel,outskirts,niima outpost,2596.89,4860.173,12621334.661969999
+turbo injector,reestki,raiders,845.72,986,833879.92
+atmospheric processor,cratertown,trade caravan,31.58,253.581,8008.087979999999
+repulsorlift generator,reestki,niima outpost,1254.64,76.908,96491.85312000001
+reactant agitator injector,tuanul,raiders,790.68,5015,3965260.1999999997
+energy-wave detector,blowback town,trade caravan,1563.2,1827.75,2857138.8000000003
+electromagnetic discharge filter,reestki,niima outpost,188.28,386,72676.08
+black box,tuanul,raiders,29.15,5.7975,168.997125
+ion engine,tuanul,trade caravan,1605.85,6793,10908539.049999999
+starship sensor array,outskirts,niima outpost,1129.29,730.002,824383.95858
+inertial compensator,cratertown,raiders,1348.04,254.877,343584.39108000003
+ion engine,tuanul,trade caravan,1605.85,776,1246139.5999999999
+main drive,cratertown,niima outpost,597.85,355.05,212266.64250000002
+inertial compensator,cratertown,raiders,1348.04,2504.115,3375647.1846
+hyperdrive motivator,outskirts,trade caravan,1485.28,1124,1669454.72
+acceleration compensator,blowback town,niima outpost,843.46,1.93575,1632.727695
+antishock field,cratertown,raiders,1329.05,311.4315,413908.035075
+sublight drive,blowback town,trade caravan,420.36,2625,1103445
+optical transducer panel,blowback town,niima outpost,2596.89,1747.881,4539054.69009
+backup hyperdrive,reestki,raiders,2726.24,223.245,608619.4488
+magnetic turbine,reestki,trade caravan,31.77,57735.108,1834244.3811599999
+magnetic turbine,cratertown,niima outpost,31.77,13060.236,414923.69772
+enviro filter,reestki,raiders,478.76,0.846,405.03096
+reactant agitator injector,outskirts,trade caravan,790.68,7042,5567968.56
+ion drive,cratertown,niima outpost,1168.53,768.7575,898316.201475
+retrorocket,tuanul,raiders,588.68,2840,1671851.2
+ion drive,outskirts,trade caravan,1168.53,1250.235,1460937.1045499998
+starship sensor array,reestki,niima outpost,1129.29,549.731,620805.72099
+ion engine,cratertown,raiders,1605.85,12539,20135753.15
+flight recorder,blowback town,trade caravan,590.93,3364,1987888.5199999998
+sublight engine,blowback town,niima outpost,7211.01,8729,62944906.29
+microthruster,reestki,raiders,506.62,436.293,221034.75966
+flight recorder,tuanul,trade caravan,590.93,4935,2916239.55
+acceleration compensator,outskirts,niima outpost,843.46,2.89425,2441.1841050000003
+ion drive,cratertown,raiders,1168.53,1537.0425,1796080.272525
+hyperdrive,blowback town,trade caravan,965.87,1333.6515,1288133.974305
+retrorocket,outskirts,niima outpost,588.68,1052,619291.36
+reactant agitator injector,cratertown,raiders,790.68,6471,5116490.279999999
+repulsorlift generator,reestki,trade caravan,1254.64,192.328,241302.40192000003
+energy-wave detector,tuanul,niima outpost,1563.2,167.25,261445.2
+retrorocket,outskirts,raiders,588.68,219,128920.91999999998
+attitude thruster,cratertown,trade caravan,314.23,4350.682,1367114.80486
+dedicated energy receptor,reestki,niima outpost,281.01,170,47771.7
+main drive,reestki,raiders,597.85,776.376,464156.39160000003
+vitus-series attitude thrusters,reestki,trade caravan,225.54,2278,513780.12
+ion engine,cratertown,niima outpost,1605.85,12007,19281440.95
+inertial compensator,reestki,raiders,1348.04,2201.148,2967235.54992
+antishock field,tuanul,trade caravan,1329.05,40.7745,54191.349225000005
+turbo injector,tuanul,niima outpost,845.72,4491,3798128.52
+atomic drive,blowback town,raiders,316.5,32401.479,10255068.1035
+atmospheric processor,reestki,trade caravan,31.58,4297.5675,135717.18164999998
+retrorocket,tuanul,niima outpost,588.68,1441,848287.8799999999
+hyperdrive motivator,outskirts,raiders,1485.28,10799,16039538.719999999
+electromagnetic discharge filter,cratertown,trade caravan,188.28,1298,244387.44
+starship sensor array,cratertown,niima outpost,1129.29,1762.579,1990462.83891
+activation cylinder,blowback town,raiders,576.61,72.825,41991.623250000004
+bulkhead,outskirts,trade caravan,1004.83,350.6925,352386.344775
+maneuvering jet,reestki,niima outpost,2167.84,8757,18983774.880000003
+black box,cratertown,raiders,29.15,75.57,2202.8655
+electromagnetic discharge filter,blowback town,trade caravan,188.28,2498,470323.44
+aural sensor,reestki,niima outpost,145.27,4087,593718.49
+reactant agitator injector,tuanul,raiders,790.68,10331,8168515.079999999
+attitude thruster,blowback town,trade caravan,314.23,2894.066,909402.35918
+repulsorlift array,tuanul,niima outpost,629.28,4710.8625,2964451.554
+electromagnetic discharge filter,reestki,raiders,188.28,2115,398212.2
+energy-wave detector,blowback town,trade caravan,1563.2,213.0625,333059.3
+lateral thruster,outskirts,niima outpost,1570.65,936,1470128.4000000001
+atmospheric thrusters,blowback town,raiders,56.21,9462.4245,531882.881145
+acceleration compensator,tuanul,trade caravan,843.46,1.13175,954.585855
+vitus-series attitude thrusters,reestki,niima outpost,225.54,570,128557.79999999999
+ion engine,blowback town,raiders,1605.85,7453,11968400.049999999
+proximity sensor,blowback town,trade caravan,1229.03,7920,9733917.6
+starship sensor array,cratertown,niima outpost,1129.29,561.834,634473.5178599999
+optical transducer panel,tuanul,raiders,2596.89,384.0885,997435.584765
+vitus-series attitude thrusters,cratertown,trade caravan,225.54,6277,1415714.5799999998
+activation cylinder,cratertown,niima outpost,576.61,1.925,1109.97425
+starship sensor array,blowback town,raiders,1129.29,648.7845,732665.8480049999
+retrorocket,tuanul,trade caravan,588.68,9167,5396429.56
+proximity sensor,tuanul,niima outpost,1229.03,5565,6839551.95
+energy-wave detector,outskirts,raiders,1563.2,1052.9375,1645951.9000000001
+activation cylinder,tuanul,trade caravan,576.61,100.425,57906.05925
+energy-wave detector,outskirts,niima outpost,1563.2,833.6875,1303220.3
+dedicated energy receptor,reestki,raiders,281.01,4069,1143429.69
+repulsorlift generator,outskirts,trade caravan,1254.64,720.94,904520.1616000001
+electrotelescope,outskirts,niima outpost,849.79,132.858,112901.39981999999
+dual-drive system,cratertown,raiders,377.12,80.769,30459.605280000003
+optical transducer panel,blowback town,trade caravan,2596.89,3083.841,8008395.854489999
+repulsorlift generator,cratertown,niima outpost,1254.64,64.728,81210.33792
+hull panel,outskirts,raiders,843.15,1873.9635,1580032.325025
+navigation computer,tuanul,trade caravan,259.56,4510,1170615.6
+atmospheric thrusters,tuanul,niima outpost,56.21,5760.792,323814.11832
+black box,blowback town,raiders,29.15,48.84,1423.686
+sublight engine,cratertown,trade caravan,7211.01,431,3107945.31
+optical transducer panel,cratertown,niima outpost,2596.89,564.072,1464832.93608
+repulsorlift array,outskirts,raiders,629.28,36.6595,23069.09016
+flight recorder,reestki,trade caravan,590.93,8052,4758168.359999999
+landing jet,cratertown,niima outpost,1496.74,4111,6153098.14
+reactant agitator injector,tuanul,raiders,790.68,3208,2536501.44
+starship sensor array,outskirts,trade caravan,1129.29,5390.294,6087205.11126
+energy-wave detector,reestki,niima outpost,1563.2,310.8125,485862.10000000003
+atmospheric processor,outskirts,raiders,31.58,799.504,25248.33632
+lateral thruster,tuanul,trade caravan,1570.65,15295,24023091.75
+navigation computer,outskirts,niima outpost,259.56,2919,757655.64
+atmospheric processor,reestki,raiders,31.58,7.005,221.2179
+dual-drive system,cratertown,trade caravan,377.12,138.957,52403.46384
+lateral thruster,tuanul,niima outpost,1570.65,3455,5426595.75
+optical transducer panel,outskirts,raiders,2596.89,1523.984,3957618.8097599996

@@ -1,4 +1,4 @@
-item,origin,destination,amount,units,price_per_ton
+item,origin,destination,amount,units,price_per_pound
 Bulkhead,Cratertown,Raiders,4017,Cubic Yards,1004.83
 Starship sensor array,Outskirts,Trade caravan,1249,Cubic Yards,1129.29
 Starship sensor array,Outskirts,Niima Outpost,4434,Cubic Yards,1129.29

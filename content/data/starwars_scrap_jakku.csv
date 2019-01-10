@@ -1,4 +1,4 @@
-item,origin,destination,amount,units,price_per_ton
+item,origin,destination,amount,units,price_per_pound
 Flight recorder,Outskirts,Niima Outpost,887,Tons,590.93
 Proximity sensor,Outskirts,Raiders,7081,Tons,1229.03
 Vitus-Series Attitude Thrusters,Reestki,Raiders,4901,Tons,225.54

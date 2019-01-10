@@ -1,8 +1,8 @@
 ---
 title: Agenda
 subtitle: 'January 15-17, 2019'
-date: '2018-12-12'
-summary: 'R for Environmental Data Analysis || Day 1 Morning: 9:00am-12:00 (3 hrs) || Planets visited: Jakku || Begin Jedi training. || 1. Power on your droid. Install and update R || 2. Project launch. Start a new R project. Create an R script...'
+date: '2018-12-08'
+summary: 'R for Environmental Data Analysis || Day 1 Morning: 9:00am-12:00 (3 hrs) || Planets visited: Jakku || Begin Jedi training. || 1. Install and update R || 2. Project launch. || Create an R script and...'
 showDate: false
 showAuthor: false
 slug: 'agenda'

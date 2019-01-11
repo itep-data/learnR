@@ -40,7 +40,7 @@ __Find new packages and functions__
 
 - Search packages in R with [CRANsearcher](https://github.com/RhoInc/CRANsearcher)
 - [ROpenSci](https://ropensci.org/packages/) has packages and data for all types of environmental and "scientific" work.
-- <i class="fa fa-raindrops"></i> For __water__, the [USGS](https://github.com/USGS-R) shares water quality focused packages on GitHub.
+- 🌊 For __water__, the [USGS](https://github.com/USGS-R) shares water quality focused packages on GitHub.
 
 __Books__    
 

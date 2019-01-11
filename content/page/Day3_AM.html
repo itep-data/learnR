@@ -8,7 +8,7 @@ output:
     #theme: readable
     highlight: tango
     css: css/camp_style.css
-    number_sections: true
+    number_sections: false
     self_contained: false
     fontsize: 18pt
     monofont: Source Code Pro
@@ -82,31 +82,47 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="TOC">
 <ul>
-<li><a href="#create-a-github-account"><span class="toc-section-number">1</span> Create a GitHub account</a><ul>
-<li><a href="#add-a-new-repository"><span class="toc-section-number">1.1</span> Add a new repository</a></li>
+<li><a href="#create-a-github-account">Create a GitHub account</a><ul>
+<li><a href="#add-a-new-repository">Add a new repository</a></li>
+<li><a href="#add-a-plot">Add a plot</a></li>
 </ul></li>
-<li><a href="#day-1-review"><span class="toc-section-number">2</span> | Day 1 review</a></li>
-<li><a href="#day-2-review"><span class="toc-section-number">3</span> | Day 2 review</a><ul>
-<li><a href="#porg-tables"><span class="toc-section-number">3.1</span> Porg tables</a></li>
-<li><a href="#ggplot-review"><span class="toc-section-number">3.2</span> <code>ggplot</code> review</a></li>
+<li><a href="#day-1-review">Day 1 review</a></li>
+<li><a href="#day-2-review">Day 2 review</a><ul>
+<li><a href="#porg-tables">Porg tables</a></li>
+<li><a href="#ggplot-review"><code>ggplot</code> review</a></li>
 </ul></li>
-<li><a href="#compare-years"><span class="toc-section-number">4</span> | Compare years</a></li>
+<li><a href="#looking-for-change">Looking for change 📉📈</a></li>
 </ul>
 </div>
 
 <div id="create-a-github-account" class="section level1">
-<h1><span class="header-section-number">1</span> Create a GitHub account</h1>
+<h1>Create a GitHub account</h1>
+<p>It’s time to share with the world. Let’s go public. <a href="https://github.com/">Join GitHub</a></p>
+<p><a href="https://github.com/"><img src="../images/join_github.png" /></a></p>
 <div id="add-a-new-repository" class="section level2">
-<h2><span class="header-section-number">1.1</span> Add a new repository</h2>
+<h2>Add a new repository</h2>
+<p>Now we can create a new <code>repository</code> to store some of our new R plots and scripts. Click the bright green <code>New</code> button to get started.</p>
+<p><img src="../images/new_repo.png" /></p>
+<ul>
+<li>Give it a short name like <code>Rplots</code></li>
+<li>Keep it public</li>
+<li>[x] Check the box to initialize with a README</li>
+<li>Click <code>[ Create repository ]</code></li>
+</ul>
+</div>
+<div id="add-a-plot" class="section level2">
+<h2>Add a plot</h2>
+<p>Click <code>Upload files</code> to add an image of an R plot or one of your scripts as an <code>.R</code> file.</p>
+<p><img src="../images/upload_files.png" /></p>
 </div>
 </div>
 <div id="day-1-review" class="section level1">
-<h1><span class="header-section-number">2</span> | Day 1 review</h1>
+<h1>Day 1 review</h1>
 </div>
 <div id="day-2-review" class="section level1">
-<h1><span class="header-section-number">3</span> | Day 2 review</h1>
+<h1>Day 2 review</h1>
 <div id="porg-tables" class="section level2 tabset">
-<h2><span class="header-section-number">3.1</span> Porg tables</h2>
+<h2>Porg tables</h2>
 <p>These porgs never sleep! Let’s review the <code>dplyr</code> functions one last time. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
 <pre class="sourceCode r"><code class="sourceCode r">porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
 <div id="porgs" class="section level3 unnumbered">
@@ -134,11 +150,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="ggplot-review" class="section level2">
-<h2><span class="header-section-number">3.2</span> <code>ggplot</code> review</h2>
+<h2><code>ggplot</code> review</h2>
 </div>
 </div>
-<div id="compare-years" class="section level1">
-<h1><span class="header-section-number">4</span> | Compare years</h1>
+<div id="looking-for-change" class="section level1">
+<h1>Looking for change 📉📈</h1>
+<p>Let’s compare the observations at a site for different years. We want to know if there was a shift in concentrations after a new highway project was completed.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># It requires the data to have columns “siteid”, “cas”, “Date”,  “Result”, and “Censored” (T/F depending on if the result &lt; MDL). </span>
 <span class="co"># The “site_number” argument in “site_compare” is the siteid that you want to compare the other sites in your data to.</span>
 

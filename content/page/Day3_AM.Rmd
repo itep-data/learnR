@@ -8,7 +8,7 @@ output:
     #theme: readable
     highlight: tango
     css: css/camp_style.css
-    number_sections: true
+    number_sections: false
     self_contained: false
     fontsize: 18pt
     monofont: Source Code Pro
@@ -22,14 +22,35 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Create a GitHub account
 
+It's time to share with the world. Let's go public. [Join GitHub](https://github.com/)
+
+[![](../images/join_github.png)](https://github.com/)
+
+
+
 ## Add a new repository
 
+Now we can create a new `repository` to store some of our new R plots and scripts. Click the bright green `New` button to get started.
 
-# | Day 1 review
+![](../images/new_repo.png)
+
+- Give it a short name like `Rplots`
+- Keep it public
+- [x] Check the box to initialize with a README 
+- Click `[ Create repository ]`
+
+## Add a plot
+
+Click `Upload files` to add an image of an R plot or one of your scripts as an `.R` file.
+
+![](../images/upload_files.png)
+
+# Day 1 review
 
 
+# Day 2 review
 
-# | Day 2 review
+
 
 ## Porg tables {.tabset}
 
@@ -67,7 +88,9 @@ porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
 ## `ggplot` review
 
 
-# | Compare years
+# Looking for change 📉📈
+
+Let's compare the observations at a site for different years. We want to know if there was a shift in concentrations after a new highway project was completed.
 
 ```{r, eval=F}
 

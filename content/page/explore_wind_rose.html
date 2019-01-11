@@ -2,10 +2,8 @@
 title: "Air, wind and roses"
 output: 
   blogdown::html_page: 
-    toc: true
+    toc: false
     toc_depth: 2
-    #toc_float: true
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     number_sections: false
@@ -78,20 +76,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
-<div id="TOC">
-<ul>
-<li><a href="#download-the-data">Download the data</a></li>
-<li><a href="#install-packages">Install packages</a></li>
-<li><a href="#load-the-data">Load the data</a></li>
-<li><a href="#explore-the-data">Explore the data</a></li>
-<li><a href="#simplify-the-column-names">Simplify the column names</a></li>
-<li><a href="#plot-the-data">Plot the data</a></li>
-<li><a href="#lets-focus-on-pm2.5">Let’s focus on PM2.5</a></li>
-<li><a href="#wind-rose">Wind rose</a></li>
-<li><a href="#pollution-rose">Pollution rose</a></li>
-<li><a href="#time-series">Time series</a></li>
-</ul>
-</div>
 
 <p>Let’s take a look at some air pollution data stored in an Excel file.</p>
 <div id="download-the-data" class="section level2">
@@ -168,13 +152,26 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p>Use filter to select only the <code>parameter</code> code <code>88101</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span>??)</code></pre>
 </div>
+<div id="clean-ship" class="section level2">
+<h2>Clean ship</h2>
+<p>Let’s drop the non-sense values. We can’t use the rows that have a missing windspeed or wind direction observation.</p>
+<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
+                   <span class="op">!</span><span class="kw">is.na</span>(wind_mph), 
+                   <span class="op">!</span><span class="kw">is.na</span>(wind_dir),
+                   ws <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
+</div>
 <div id="wind-rose" class="section level2">
 <h2>Wind rose</h2>
 <p>Now let’s make some wind roses.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data</span>
 <span class="kw">windRose</span>(air_data, <span class="dt">ws =</span> <span class="st">&quot;wind_mph&quot;</span>, <span class="dt">wd =</span> <span class="st">&quot;wind_dir&quot;</span>)
 
-<span class="kw">polarFreq</span>(air_data)</code></pre>
+<span class="kw">polarFreq</span>(air_data)
+
+<span class="co">#-- Make chart</span>
+<span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="dv">5</span>, <span class="dt">ws.upper =</span> <span class="dv">35</span>)
+
+<span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="fl">0.8</span>, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">30</span>))</code></pre>
 </div>
 <div id="pollution-rose" class="section level2">
 <h2>Pollution rose</h2>
@@ -182,14 +179,20 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data, </span>
 <span class="co"># Replace the windspeed column with the PM2.5 column</span>
 <span class="kw">windRose</span>(air_data,
-         <span class="dt">ws =</span> <span class="st">&quot;pm25&quot;</span>,
+         <span class="dt">ws =</span> <span class="st">&quot;conc&quot;</span>,
          <span class="dt">wd =</span> <span class="st">&quot;wind_dir&quot;</span>,
          <span class="dt">paddle =</span> F)
 
 <span class="kw">pollutionRose</span>(air_data, 
-              <span class="dt">pollutant =</span> <span class="st">&quot;pm25&quot;</span>
+              <span class="dt">pollutant =</span> <span class="st">&quot;conc&quot;</span>
               <span class="co">#wd        = &quot;wd&quot;</span>
-              )</code></pre>
+              )
+
+<span class="kw">pollutionRose</span>(data_sub, 
+              <span class="dt">pollutant =</span> <span class="st">&quot;conc&quot;</span>,
+              <span class="dt">statistic =</span> <span class="st">&quot;abs.count&quot;</span>,  
+              <span class="dt">key.footer =</span> <span class="st">&quot;&quot;</span>, 
+              <span class="dt">breaks =</span> breaks_site)</code></pre>
 </div>
 <div id="time-series" class="section level2">
 <h2>Time series</h2>
@@ -213,13 +216,13 @@ air_data &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>Now we can add a confidence band behind the line showing the upper and lower 10th percentile of the observations.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span><span class="st">&quot;loess&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p><strong>What happens when you increase the <code>level = 0.90</code> up to <code>0.999</code>, making the shaded band a 99% confidence interval?</strong></p>
 <p><strong>Try adding another confidence band, but make it a linear model: <code>method = "lm"</code>, and set the color to “black”. Does the new line predict the concentration to be going down or up at each site?</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
@@ -227,6 +230,6 @@ air_data &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p><br></p>
 </div>

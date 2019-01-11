@@ -2,10 +2,8 @@
 title: "Air, wind and roses"
 output: 
   blogdown::html_page: 
-    toc: true
+    toc: false
     toc_depth: 2
-    #toc_float: true
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     number_sections: false
@@ -132,6 +130,18 @@ air_data <- filter(air_data, parameter == ??)
 air_data <- filter(air_data, parameter == 88101)
 ```
 
+
+## Clean ship
+
+Let's drop the non-sense values. We can't use the rows that have a missing windspeed or wind direction observation.
+
+```{r, eval=F}
+air_data <- filter(air_data, 
+                   !is.na(wind_mph), 
+                   !is.na(wind_dir),
+                   ws > 0)
+```
+
 ## Wind rose
 
 Now let's make some wind roses.
@@ -142,6 +152,11 @@ Now let's make some wind roses.
 windRose(air_data, ws = "wind_mph", wd = "wind_dir")
 
 polarFreq(air_data)
+
+#-- Make chart
+polarFreq(air_data, ws.int =5, ws.upper = 35)
+
+polarFreq(air_data, ws.int =0.8, breaks = seq(2:30))
 
 ```
 
@@ -155,14 +170,21 @@ To make a pollution rose we can replace the name of the wind speed column with t
 # Plot the data, 
 # Replace the windspeed column with the PM2.5 column
 windRose(air_data,
-         ws = "pm25",
+         ws = "conc",
          wd = "wind_dir",
          paddle = F)
 
 pollutionRose(air_data, 
-              pollutant = "pm25"
+              pollutant = "conc"
               #wd        = "wd"
               )
+
+pollutionRose(data_sub, 
+              pollutant = "conc",
+              statistic = "abs.count",  
+              key.footer = "", 
+              breaks = breaks_site)
+              
 ```
 
 

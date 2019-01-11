@@ -60,7 +60,7 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 Now that we're back on Earth, let's look at some data to get reacclimated. Choose one of the data exercises below to begin. 
 
 
-<div class="row3" style = "margin-top: 20px;">
+<div class="row3" style="margin-top: 20px;">
 
 <div class="column3"><div align="center" style="margin-left: -18px;">
 <a href="explore_wind_rose.html"> __Air and Wind__ </a>

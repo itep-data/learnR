@@ -1,6 +1,7 @@
 ---
 title: Install & Update
 comments: false
+tags: [install, update]
 output:
   blogdown::html_page:
     toc: true
@@ -13,10 +14,11 @@ output:
 <li><a href="#install-rstudio">Install <code>RStudio</code></a></li>
 <li><a href="#update-r">Update <code>R</code></a></li>
 <li><a href="#update-rstudio">Update <code>RStudio</code></a></li>
+<li><a href="#update-your-r-packages">Update your R packages</a></li>
 </ul>
 </div>
 
-<style> code {color: #535353 !important;} </style>
+<style> code {color: #FF69B4 !important;} </style>
 <p></br></p>
 <div id="install-r" class="section level1">
 <h1>Install <code>R</code></h1>
@@ -40,9 +42,9 @@ output:
 <ol style="list-style-type: decimal">
 <li>Navigate to R’s download page -&gt; <a href="https://cran.r-project.org/bin/windows/base/">Windows</a><br />
 </li>
-<li>Click <code>Download R 3.*.* for Windows</code> the highest numbered file
+<li>Click <code>Download R 3.*.* for Windows</code>
 <ul>
-<li>ex. <code>R-3.5.1-win.exe</code></li>
+<li>ex. <code>R-3.5.*-win.exe</code></li>
 </ul></li>
 <li>Save the file and install with the default options.</li>
 </ol>
@@ -54,7 +56,7 @@ output:
 <li>Navigate to R’s download page -&gt; <a href="https://cran.r-project.org/bin/macosx/">Mac</a></li>
 <li>Scroll down and download the first file under <em>Latest release:</em>
 <ul>
-<li>ex. <code>R-3.5.1.pkg</code></li>
+<li>ex. <code>R-3.5.*.pkg</code></li>
 </ul></li>
 <li>Save the file and install with the default options.</li>
 </ol>
@@ -92,7 +94,7 @@ output:
 <hr>
 <p><img src="../../images/Rstudio_ex.png" style="float: left; width: 22%; margin-top: -6px; margin-right: 28px;" /></p>
 <p></br></p>
-<p>Windows users can update R with the <code>installR</code> package, and Mac users can use the <code>updateR</code> package. Linux users can go to the <a href="https://cran.r-project.org/">R Archive</a> and follow the download links for their operating system.</p>
+<p>The R software receives periodic updates, about once a year. Windows users can update R with the <code>installR</code> package, and Mac users can use the <code>updateR</code> package. Linux users can go to the <a href="https://cran.r-project.org/">R Archive</a> and follow the download links for their operating system.</p>
 <p></br></p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 12px;">
 <li class="nav-item active">
@@ -130,6 +132,7 @@ output:
 <h3 id="on-macapple">On Mac/Apple</h3>
 </div>
 </div>
+<p><br></p>
 </div>
 <div id="update-rstudio" class="section level1">
 <h1>Update <code>RStudio</code></h1>
@@ -144,5 +147,22 @@ output:
 <li>Select <code>Check for Updates</code></li>
 <li>Follow the installation instructions</li>
 </ol>
+</div>
+<p><br></p>
+</div>
+<div id="update-your-r-packages" class="section level1">
+<h1>Update your R packages</h1>
+<hr>
+<p>There are two places where you can udpate R packages within R Studio.</p>
+<p><br></p>
+<div id="in-the-files-and-plots-area-in-the-bottom-right-under-the-packages-tab" class="section level4">
+<h4>1. In the <code>Files and Plots</code> area in the bottom right, under the <code>Packages</code> tab:</h4>
+<p><img src="../images/updatepackages_1.PNG" style="width: 50%;"></p>
+<p><br></p>
+</div>
+<div id="in-the-tools-tab-above-at-the-top-above-the-code-editor" class="section level4">
+<h4>2. In the <code>Tools</code> tab above at the top above the Code Editor:</h4>
+<p><img src="../images/updatepackages_2.PNG" style="width: 50%;"></p>
+<p><br></p>
 </div>
 </div>

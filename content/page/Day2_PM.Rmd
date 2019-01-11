@@ -1,0 +1,492 @@
+---
+title: "Day 2 - PM"
+highlightjsLang: ["r"]
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: readable
+    highlight: tango
+    css: "css/camp_style.css"
+    number_sections: true
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
+knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+<br>
+
+# _Guess the Star Wars Character_ {-}
+<br>
+
+![](../images/guess-who-game.jpg){width="350" align="right" style="margin-top: -20px; margin-left: 20px; margin-right: 36px;"}
+
+> Are you the best Jedi detective out there? Let's play a game to find out. In the past day and a half, we have learned a lot of the `dplyr()` functions. Guess what else comes with the `dplyr()` package? A **Star Wars data set**!
+
+<br>
+
+Open that data set now by completing the following steps.
+
+<br>
+
+1. First, as always, you will load the dplyr library
+1. Second, you will pull the Star Wars dataset into your environment.
+I called the data **starwars_guess_who**
+<br><br>
+```{r, echo = T, eval = T}
+
+library(dplyr)
+
+starwars_guess_who <- starwars
+```
+
+<br>
+
+__The rules__  
+<br>
+
+1. Scroll through the Star Wars dataset and find a character you find interesting.
+   - Or run `sample_n(starwars, 1)` to chose your character randomly.
+
+<br>
+
+__Don't let your neighbor see the character you chose.__
+
+<br>
+
+1. Take turns asking each other questions about your neighbor's Star Wars character. 
+1. Use the answers you receive to build a `filter()` function to narrow down the potential characters. 
+1. _Elusive_ answers are encouraged.
+    - For example, if someone asks you _What is your character's mass?_ 
+    - You can respond _My character's mass is equal to one less than their age._ 
+    - Or if you're feeling generous you can give a more straight forward answer such as _My character's mass is definitely more than 100 and less that 104._
+1. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. So, some of your filter statements might be `is.na(hair_color)` or `is.na(mass)`. 
+1. The winner is the first to guess their neighbor's Star Wars character.
+
+<br>
+
+__Want a rematch? Let's make it best of 3.__
+
+<br>
+
+Here is an example filter statement that narrows down the Star Wars data to the character _Plo Koon_.
+
+<br>
+
+```{r, eval = F}
+mr_koon <- filter(starwars,
+                  mass       < 100,
+                  eye_color  != "blue",
+                  gender     == "male",
+                  homeworld  == "Dorin",
+                  birth_year > 20)
+
+```
+
+<br>
+
+![](../images/Star-Wars-Data.png){width="430" align="right" style="margin-left: 20px; margin-right: 6px;"}
+
+## Plot the data! {-}   
+
+## Plot the data! {-}  
+
+## Plot the data! {-}  
+
+<br><br><br>
+
+<div style="clear: both;"></div>
+<hr>
+
+# Plots with _ggplot2_
+<hr>
+
+<br>
+
+![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 30px; margin-top: -28px;"}
+
+
+<br>
+
+
+# | `ggplot()` sandwich
+<hr>
+
+![](../images/auto_plot.gif){style="margin-top: -22px; max-width: 108%;"}
+
+<span class="h6" style="font-size: 28px; font-weight: bold;"> The 3 ingredients in a `ggplot` </span>
+
+
+### 1. The base plot {-}
+```{r, echo = F}
+library(ggplot2)
+```
+
+
+```{r, echo = F}
+library(dplyr)
+library(readr)
+
+# Read in the conversion data
+convert_url <- "https://itep-r.netlify.com/data/conversion_table.csv"
+
+convert <- read_csv(convert_url)
+
+# Read in scrap data
+scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv")
+
+# Join the scrap to the conversion table
+scrap <- left_join(scrap, convert)
+
+# Calculate the number of credits
+scrap <- scrap %>% 
+         mutate(credits = amount * pounds * price_per_pound)
+
+```
+
+```{r, echo = T, eval = T}
+ggplot(scrap)
+```
+
+<br>
+
+> Note when we load the package it's `library ("ggplot2")`, but the function to make a plot is `ggplot(scrap)`. We admit, it is a bit silly.
+
+
+### 2. The the X, Y _aesthetics_  {-}
+
+The _aesthetics_ assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.
+
+```{r, eval = F}
+ggplot(scrap, aes(x = destination, y = credits)) 
+```
+
+
+### 3. The layers or _geometries_  {-}
+```{r, eval = F}
+ggplot(scrap, aes(x = destination, y = credits)) + geom_point()
+```
+
+<br>
+
+
+#### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
+
+Try making a scatterplot of any two columns.
+
+_Hint: Numeric variables will be more informative._
+
+```{r, eval = F}
+ggplot(scrap, aes(x = __column1__, y = __column2__)) + geom_point()
+```
+
+## Colors {-}
+<hr>
+
+
+Now let's use color to show the origins of the scrap
+```{r, eval = F}
+ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
+  geom_point()
+```
+
+
+<br>
+
+This is a too much detail. Let's make a bar chart and add up the sales to make it easier to understand.
+```{r, eval = F}
+ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_bar(stat = "sum")
+```
+
+<br>
+
+This is the same as `geom_col()`.
+```{r, eval=F}
+ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_col()
+```
+
+<br>
+
+What if we want to make it easier to compare sales by origin? Let's change the position.
+```{r, eval = F}
+ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
+  geom_bar(stat = "sum", position = "dodge")
+```
+
+
+# Homeworld training {-}
+
+![](../images/porg.png){style="float: right; margin-top: -10px;"}
+
+1. Load one of the data sets below into R
+    - Porg contamination on Ahch-To: https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/Porg_samples.csv
+    - Planet Endor air samples: https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/air_endor.csv
+    - Or use data from a recent project of yours  
+
+<br>
+  
+2. Create 2 plots using the data. _Don't worry if it looks really weird. Consider it art._  
+  
+<br>
+
+
+
+# More Plots with _ggplot2_
+
+
+### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+> When you add more layers using `+` remember to place it at the end of each line.
+
+```{r, eval=F}
+# This will work
+ggplot(scrap, aes(x = origin, y = credits)) +
+  geom_point()
+
+# So will this
+ggplot(scrap, aes(x = origin, y = credits)) + geom_point()
+
+# But this won't
+ggplot(scrap, aes(x = origin, y = credits))
+  + geom_point()
+
+```
+
+
+
+## Colors {-}
+<hr>
+
+
+Now let's use color to show the destinations of the scrap.
+
+<br>
+
+```{r, eval = F}
+ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
+  geom_point()
+```
+
+<br>
+
+### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+> An easy way to experiment with colors is to add layers like `scale_fill_brewer` or `scale_colour_brewer` to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.
+
+<br>
+
+## Bar charts {-}
+
+This is a too much detail. Let's make a bar chart and add up the sales to make it easier to understand. Note that we use fill in aes() instead of color. If we used color, we'd get a colorful outline and grey (or is it gray?) bars.
+
+<br>
+
+```{r, eval = F}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col()
+```
+
+<br>
+
+What if we want to make it easier to compare sales by destination for each origin? Let's change the position of the bars. Remember, you can use `help(geom_col)` to learn about different options for the function. You can do the same with any other `ggplot2` function.
+
+<br>
+
+```{r, eval = F}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = "dodge")
+```
+
+<br>
+
+## Facet wrap {-}
+
+What if we want to make the chart less crowded? Let's use the `facet wrap` function to put each origin on a separate chart.
+
+<br>
+
+```{r, eval = F}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination")
+```
+
+<br>
+
+
+## Themes {-}
+
+You may not like the appearance of these plots. `ggplot2` uses `theme` functions to change the appearance of a plot. Try some different themes out.
+
+<br>
+
+```{r, eval = F}
+ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination") +
+  theme_bw()
+```
+
+<br>
+
+## Labels {-}
+
+You can also change the axis and title labels using the `labs` function
+
+<br>
+
+```{r, eval = F}
+ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination") +
+  theme_bw() +
+  labs(title = "Scrap sales by origin and destination", 
+       x     = "Origin", 
+       y     = "Total sales")
+```
+
+<br>
+
+## Drop scientific notation {-}
+
+Want to get rid of that ugly scientific notation? We can use `options(scipen = 999)`. Note that this is a general setting in R and not part of `ggplot`. Once you use `options(scipen = 999)` in your current session, you don't have to use it again (like loading a package, you only need to run the line once when you start a new R session).
+
+<br>
+
+
+```{r, eval = F}
+options(scipen = 999)
+
+ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination") +
+  theme_bw() +
+  labs(title = "Scrap sales by origin and destination", 
+       x     = "Origin", 
+       y     = "Total sales")
+```
+
+<br>
+
+What if we don't like the zeros and want the labels in millions? Any ideas?
+
+<br><br>
+
+
+#### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
+
+We've covered how to do a scatterplot with `geom_point` and a bar chart with `geom_col`, but now we want to do a boxplot of the total price for each destination. But we're not telling you which function to use. You're on your own here. Feel free to add colors ,`facet_wrap`, `theme`, and `labs` to your boxplots. May the force be with you.
+
+<br>
+
+
+## Save plots {-}
+
+You've (hopefully) had fun making all of these plots, so let's learn to save them so we can cherish them forever. There's a function called `ggsave` to do just that. How do we `ggsave` our plots? HELP! (no really, we can type `help(ggsave)`)
+
+```{r ggsave, eval = F}
+# Get help
+help(ggsave)
+?ggsave
+
+# Copy and paste the r code of your favorite plot here
+ggplot(data, aes()) +
+   .... +
+   ....
+
+
+# Save your plot to a png file of your choosing
+ggsave("your_results_folder/plot_name.png")
+```
+
+
+<br>
+
+
+### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+> What if you don't want to save just the last plot you've made? Instead, you want to make a plot and save it for later. 
+
+```{r ggsave objects, eval = F}
+
+# The ggplot you want to save
+my_plot <- ggplot(...)
+  
+# The name of the file the chart will be saved to.
+where_to_save_it <- "___.png"
+
+# Save it!
+ggsave(filename = where_to_save_it, plot = my_plot)
+```
+
+<br>
+
+_Learn more about saving plots:_ [http://stat545.com/](http://stat545.com/block017_write-figure-to-file.html)
+
+
+# | Glossary
+
+__Table of `aesthetics`__
+
+| aes()         |    |  
+|:--------------|:---|  
+| `x = `        |    |  
+| `y = `        |    |  
+| `alpha = `    |    | 
+| `fill = `     |    |  
+| `color = `    |    |   
+| `size = `     |    |   
+| `linetype = ` |    |    
+
+
+<br>
+
+__Table of `geoms`__
+
+![](../images/geoms_1var.png)
+
+![](../images/geoms_diagram.png)
+
+<br>
+
+__Table of `themes`__
+
+You can customize the look of your plot by adding a `theme()` function.
+
+![](../images/ggplot_themes.png)
+
+
+# | Big Questions 
+
+<div style="font-size: 16px;">
+
+- How to modify the gridlines behind your chart?
+    - Try the different themes at the end of this lesson: `theme_light()` or `theme_bw()`.
+    - Or modify the color and size with `theme(panel.grid.minor = element_line(colour = "white", size = 0.5))`.
+    - There's even `theme_excel()`
+- How do you set the x and y scale manually?
+    - Here is an example with a scatter plot: `ggplot() + geom_point() + xlim(beginning, end) + ylim(beginning, end)`
+    - __Warning:__ Values above or below the limits you set will not be shown. This is another great way to lie with data. 
+- How do you get rid of the legend if you don't need it?
+    - `geom_point(aes(color = facility_name), show.legend = FALSE)`
+    - The R cookbook shows a number of ways to get rid of legends: http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/
+- I only like dashed lines. How do you change the linetype to a _dashed_ line? 
+    - `geom_line(aes(color = facility_name), linetype = "dashed")`
+    - You can also try `"dotted"` and `"dotdash"`, or even`"twodash"`
+  
+- How many colors are there in R? How does R know `hotpink` is a color?
+    - There is an R color cheatsheet: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf 
+    - As well as some basic color names here: http://www.r-graph-gallery.com/42-colors-names/
+    - `library(viridis)` provides some great default color palettes for charts and maps.
+    - This web tool has palette ideas and color Hex numbers: http://colorbrewer2.org/#type=sequential&scheme=BuGn&n=3
+- Keyboard shortcuts for R
+    - There is a shortcut cheatsheet: https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf
+    - In RStudio you can go to _Help_ > _Keyboard Shortcuts Help_
+
+</div>
+
+# <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](index.html) {-}

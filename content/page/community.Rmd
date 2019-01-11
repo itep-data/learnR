@@ -1,32 +1,56 @@
 ---
 title: "R community"
 comments: false
+tags: [community]
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-library(icon)
-```
 
-<style> code {color: #535353 !important;} </style>
+<div align="center">
 
-## You are not alone in the universe {-}
+## You are not alone in the universe 
 
-![](../images/rladies_map.gif)
+![](../images/rladies_map.gif){style="width: 90%;"}
 
-<span style="float: right; margin-top: -2px;"> _Growth of R groups since 2011_ </span>
+</div>
+
+<div align="right" style="margin-top: -4px; margin-bottom: -10px;"> _Growth of R groups since 2011_ </div>
 
 <br>
 
-__Online__
+__Online Communities__
 
-- R Bloggers: https://www.r-bloggers.com/
-- `#rstats` on Twitter
+![](../images/rladies_sf_tweet.png){style="width: 50%; float: right; margin-left: 20px; margin-top: -26px;"}
+
+- `#rstats` on [Twitter](https://twitter.com/search?q=%23rstats&src=typd&lang=en)
+- [ROpenSci](https://ropensci.org/)
+    - [Packages & Data](https://ropensci.org/packages/)
+    - [Open Calls](https://ropensci.org/commcalls/)
+- [RStudio's forum](https://community.rstudio.com/)
 - R Ladies: https://rladies.org/
-- RStudio forum: https://community.rstudio.com/
+    - R Ladies Global [Twitter](https://twitter.com/rladiesglobal?lang=en)
+- [R Weekly](https://rweekly.org/) shares weekly highlights from across the R world 
+- R Bloggers: https://www.r-bloggers.com/
+
+<div style="margin-top: 4px; clear:both;"> </div>
+
+<div style="width: 43%; max-width: 43%; float: left; margin-top: 12px; overflow:hidden;">
+
+![](../images/useR_2018.png)
+
+</div>
 
 
+<div style="margin-left: 38px; margin-top: 20px; float: left;">
+
+__Face-to-face__
+
+- useR Conference - [2019 Toulouse, France](http://www.user2019.fr/)
+    - 2018 in [Brisbane, Australia](https://user2018.r-project.org/)
+- RStudio [Conferences & workshops](https://www.rstudio.com/conference/)
+</div>
+
+<div style="margin-top: 5px; clear:both;"> 
 <br>
+</div>
 
-
-
+##

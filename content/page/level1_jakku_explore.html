@@ -1,0 +1,327 @@
+---
+title: "Jakku scrap economy"
+output:
+  html_document:
+    toc: false
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    fontsize: 18pt
+    monofont: Source Code Pro
+    monofontoptions: Scale = 1.3
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+
+
+<p><img src="images/jakku_capture.jpg" style="margin: 0; margin-top: 24px;" width="540" /></p>
+<p><br></p>
+<blockquote>
+<p>Remember what you should do first when you start your R session?
+First we load the packages we will need.</p>
+</blockquote>
+<p><br></p>
+<pre class="r"><code>#Load packages
+
+library(readr)
+library(dplyr)
+library(ggplot2)</code></pre>
+<p><br></p>
+<blockquote>
+<p>Start by reading in the data.
+The scrap data you will use is on the X-drive.
+It is a clean version of the scrap data we’ve been using.
+Remember, when reading in data from the X-drive, R reads forward slashes.</p>
+</blockquote>
+<blockquote>
+<p>The X drive location of the file is
+"X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/starwars_scrap_jakku_clean.csv".</p>
+</blockquote>
+<blockquote>
+<p><em>Notice</em> that we are including comments in the R script so that your future self can follow along and see what you did.</p>
+</blockquote>
+<p><br></p>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>#Read in data
+clean_scrap &lt;- read_csv(&quot;X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/starwars_scrap_jakku_clean.csv&quot;)
+
+head(clean_scrap)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   items         origin    destination price_per_ton amount_tons total_price
+##   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1 electroteles~ outskirts trade cara~         850.         868.     737981.
+## 2 atmospheric ~ craterto~ niima outp~          56.2      33978.    1909912.
+## 3 bulkhead      craterto~ raiders            1005.         645.     647843.
+## 4 main drive    blowback~ trade cara~         598.        1961.    1172184.
+## 5 flight recor~ outskirts niima outp~         591.         887      524155.
+## 6 proximity se~ outskirts raiders            1229.        7081     8702761.</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Did it load successfully?
+Look in your environment.
+You should see “clean_scrap”.
+There should be 6 variables and 573 rows.</p>
+</blockquote>
+<p><br></p>
+<blockquote>
+<p>Take a couple of minutes to get an overview of the data.
+Open and look at your data in at least two ways.
+Do you remember some of the functions to do that?
+<br>
+1. Click on the data name in the environment to open the window.
+1. Use glimpse() to look at your data.</p>
+</blockquote>
+<p><br></p>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>#View the data
+glimpse(clean_scrap)</code></pre>
+<pre><code>## Observations: 573
+## Variables: 6
+## $ items         &lt;chr&gt; &quot;electrotelescope&quot;, &quot;atmospheric thrusters&quot;, &quot;bu...
+## $ origin        &lt;chr&gt; &quot;outskirts&quot;, &quot;cratertown&quot;, &quot;cratertown&quot;, &quot;blowba...
+## $ destination   &lt;chr&gt; &quot;trade caravan&quot;, &quot;niima outpost&quot;, &quot;raiders&quot;, &quot;tr...
+## $ price_per_ton &lt;dbl&gt; 849.79, 56.21, 1004.83, 597.85, 590.93, 1229.03,...
+## $ amount_tons   &lt;dbl&gt; 868.4280, 33978.1545, 644.7285, 1960.6650, 887.0...
+## $ total_price   &lt;dbl&gt; 737981.43, 1909912.06, 647842.54, 1172183.57, 52...</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Look at a summary of your data using <em>summary()</em>.</p>
+</blockquote>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>#View a summary of the data
+summary(clean_scrap)</code></pre>
+<pre><code>##     items              origin          destination       
+##  Length:573         Length:573         Length:573        
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+##                                                          
+##  price_per_ton      amount_tons        total_price      
+##  Min.   :  29.15   Min.   :    0.01   Min.   :       5  
+##  1st Qu.: 314.23   1st Qu.:  238.99   1st Qu.:  128921  
+##  Median : 629.28   Median : 1298.00   Median :  757656  
+##  Mean   :1010.85   Mean   : 3724.23   Mean   : 3483802  
+##  3rd Qu.:1329.05   3rd Qu.: 4678.44   3rd Qu.: 2631778  
+##  Max.   :7211.01   Max.   :60116.67   Max.   :83712615</code></pre>
+</p>
+</details>
+<p><br></p>
+<p><img src="images/Unkar_Plutt.png" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<blockquote>
+<p>What if you only want to keep the items and amount_tons fields?
+Use <em>select()</em> to create a new data frame keeping only those columns and save it as an object called <code>select_scrap</code>.</p>
+</blockquote>
+<p><br></p>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>select_scrap &lt;- select(clean_scrap, items, amount_tons)</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Order the data frame you just created by amount_tons from highest to lowest. Which item had the highest weight?</p>
+</blockquote>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>select_scrap &lt;- arrange(select_scrap, desc(items))</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Filter your select data set to all items with an amount higher than 1000. Call the dataset <em>‘filter_scrap’</em></p>
+</blockquote>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>filter_scrap &lt;- filter(select_scrap, amount_tons &gt; 1000)</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Add a filter to to the amount_tons &gt; 1000 dataset. Include only “proximity sensor” and “hyperdrive”</p>
+</blockquote>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<p>You will need <code>%in%</code>, <code>c()</code> and <code>filter</code>.</p>
+</p>
+</details>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>filter_scrap &lt;- filter(select_scrap, amount_tons &gt; 1000,
+                       items %in% c(&quot;proximity sensor&quot;, &quot;hyperdrive&quot;))</code></pre>
+</p>
+</details>
+<p><br></p>
+<p><img src="images/WattoHS.jpg" style="margin: 0; margin-top: 24px;" width="440" /></p>
+<blockquote>
+<p>Add a column with your favorite Star Wars character to your filtered data frame.</p>
+</blockquote>
+<p><br></p>
+</p>
+</details>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>filter_scrap &lt;- mutate(filter_scrap, my_favorite_character = &quot;Admiral Ackbar&quot;)</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>We’ve got all the amount of items in tons in our data set, and we have our favorite StarWars character, but we want to include the amount of items in pounds.
+Use <em>mutate()</em> to calculate the number of pounds in your filtered dataset. Call that column <em>‘amount_pounds’</em>.</p>
+</blockquote>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>filter_scrap &lt;- mutate(filter_scrap, amount_pounds = amount_tons * 2000)</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>We want to make a table of recommendations to our Junk Boss Unkar Plutt. In our filtered dataset, we want to buy scrap if if it is a <code>Hyperdrive</code> and ignore scrap if its a <code>Proximity sensor</code>.
+Remember, we filtered our table to only those two types of scrap.
+Use <em>mutate()</em> to make a column that reports “buy” if the item is a <code>hyperdrive</code> and “ignore” if the item is a <code>proximity sensor</code>. Call this new column <code>do_this</code>. You will need both <em>ifelse()</em> and <em>mutate()</em> for this task.</p>
+</blockquote>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>filter_scrap &lt;- mutate(filter_scrap, do_this = ifelse(items == &quot;hyperdrive&quot;, &quot;buy&quot;, &quot;ignore&quot;))</code></pre>
+</p>
+</details>
+<p><br></p>
+<p><img src="images/Junk_Droid.jpg" style="margin: 0; margin-top: 24px;" width="440" />
+<br>
+&gt; Let’s take a closer look at our full dataset now (clean_scrap). We want to give the Junk Boss a summary of all of this data. He doesn’t have the patience to really look at a lot of data. He hates numbers! He likes money. He wants to know the following things:</p>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>The sum of all the money potentially earned by item.</li>
+<li>The maximum money potentially earned by item.</li>
+<li>The number of reports of each item.</li>
+<li>The 35th percentile of the price by item.</li>
+</ol>
+</blockquote>
+<p><strong>[We don’t even know how he learned about “quantile”, we are pretty sure someone told him about this just to test our abilities. If we don’t provide this summarized dataset, Unkar Plutt is likely going to shoot us into space rendering us…dead. We don’t want that. Let’s make a summary table.]</strong></p>
+<br>
+<br>
+<details>
+<summary class = "btn_code_green"> <strong>Hint: </strong> </summary>
+<p>
+<p>You will need the pipe <code>%&gt;%</code>, <code>group_by()</code>, <code>summarise()</code>, <code>sum()</code>, <code>max()</code>, <code>quantile()</code>, and <code>n()</code>.</p>
+</p>
+</details>
+<p><br></p>
+<p><br>
+<br></p>
+<details>
+<summary class = "btn_code_green"> <strong>Hint # 2! </strong> </summary>
+<p>
+<pre class="r"><code>summary_scrap &lt;- clean_scrap %&gt;%
+                group_by() %&gt;%
+                summarise()</code></pre>
+</p>
+</details>
+<p><br></p>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>summary_scrap &lt;- clean_scrap %&gt;%
+  group_by(items) %&gt;%
+  summarise(sum_price = sum(total_price),
+            max_price = max(total_price),
+            count_price = n(),
+            price_35th = quantile(total_price, 0.35))</code></pre>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Oh boy, old Unkar just learned about plots. What will he want next? He wants a plot of the maximum total prices by item. We must create this plot or perish. Try both geom_col() and geom_point(0) to see which make a more simple look at the price maxima.</p>
+</blockquote>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = summary_scrap, aes(items, max_price)) +
+  geom_col()</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+</p>
+</details>
+<p><br></p>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = summary_scrap, aes(items, max_price)) +
+  geom_point()</code></pre>
+<p><img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Try <em><code>coord_flip()</code></em> to make the plot more readable. If you’re interested in learning more about <em><code>coord_flip()</code></em>, ask R for help! <em><code>?coord_flip</code></em></p>
+</blockquote>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = summary_scrap, aes(items, max_price)) +
+  geom_col() +
+  coord_flip()</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>This plot might look a lot better if the maximum data were sorted. Try <em>reorder()</em> to make this chart way more readable. <em>Type “?reorder” to learn more about that function.</em></p>
+</blockquote>
+<br>
+<br>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = summary_scrap, aes(reorder(items, max_price), max_price)) +
+  geom_col() +
+  coord_flip()</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+</p>
+</details>
+<p><br></p>
+<blockquote>
+<p>Nice work!!
+You may now move on to the Commodore level analysis.
+<img src="images/congrats.jpg" width="300" /></p>
+</blockquote>
+<div id="return-to-rcamp" class="section level1 unnumbered">
+<h1>Return to <a href="index.html">RCamp</a></h1>
+<p><br></p>
+</div>

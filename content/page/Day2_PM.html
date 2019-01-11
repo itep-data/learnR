@@ -1,0 +1,393 @@
+---
+title: "Day 2 - PM"
+highlightjsLang: ["r"]
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: readable
+    highlight: tango
+    css: "css/camp_style.css"
+    number_sections: true
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+
+
+<p><br></p>
+<div id="guess-the-star-wars-character" class="section level1 unnumbered">
+<h1><em>Guess the Star Wars Character</em></h1>
+<p><br></p>
+<p><img src="../images/guess-who-game.jpg" align="right" style="margin-top: -20px; margin-left: 20px; margin-right: 36px;" width="350" /></p>
+<blockquote>
+<p>Are you the best Jedi detective out there? Let’s play a game to find out. In the past day and a half, we have learned a lot of the <code>dplyr()</code> functions. Guess what else comes with the <code>dplyr()</code> package? A <strong>Star Wars data set</strong>!</p>
+</blockquote>
+<p><br></p>
+<p>Open that data set now by completing the following steps.</p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>First, as always, you will load the dplyr library</li>
+<li>Second, you will pull the Star Wars dataset into your environment.
+I called the data <strong>starwars_guess_who</strong>
+<br><br></li>
+</ol>
+<pre class="r"><code>library(dplyr)
+
+starwars_guess_who &lt;- starwars</code></pre>
+<p><br></p>
+<p><strong>The rules</strong><br />
+<br></p>
+<ol style="list-style-type: decimal">
+<li>Scroll through the Star Wars dataset and find a character you find interesting.
+<ul>
+<li>Or run <code>sample_n(starwars, 1)</code> to chose your character randomly.</li>
+</ul></li>
+</ol>
+<p><br></p>
+<p><strong>Don’t let your neighbor see the character you chose.</strong></p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>Take turns asking each other questions about your neighbor’s Star Wars character.</li>
+<li>Use the answers you receive to build a <code>filter()</code> function to narrow down the potential characters.</li>
+<li><em>Elusive</em> answers are encouraged.
+<ul>
+<li>For example, if someone asks you <em>What is your character’s mass?</em></li>
+<li>You can respond <em>My character’s mass is equal to one less than their age.</em></li>
+<li>Or if you’re feeling generous you can give a more straight forward answer such as <em>My character’s mass is definitely more than 100 and less that 104.</em></li>
+</ul></li>
+<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. So, some of your filter statements might be <code>is.na(hair_color)</code> or <code>is.na(mass)</code>.</li>
+<li>The winner is the first to guess their neighbor’s Star Wars character.</li>
+</ol>
+<p><br></p>
+<p><strong>Want a rematch? Let’s make it best of 3.</strong></p>
+<p><br></p>
+<p>Here is an example filter statement that narrows down the Star Wars data to the character <em>Plo Koon</em>.</p>
+<p><br></p>
+<pre class="r"><code>mr_koon &lt;- filter(starwars,
+                  mass       &lt; 100,
+                  eye_color  != &quot;blue&quot;,
+                  gender     == &quot;male&quot;,
+                  homeworld  == &quot;Dorin&quot;,
+                  birth_year &gt; 20)</code></pre>
+<p><br></p>
+<p><img src="../images/Star-Wars-Data.png" align="right" style="margin-left: 20px; margin-right: 6px;" width="430" /></p>
+<div id="plot-the-data" class="section level2 unnumbered">
+<h2>Plot the data!</h2>
+</div>
+<div id="plot-the-data-1" class="section level2 unnumbered">
+<h2>Plot the data!</h2>
+</div>
+<div id="plot-the-data-2" class="section level2 unnumbered">
+<h2>Plot the data!</h2>
+<p><br><br><br></p>
+<div style="clear: both;">
+
+</div>
+<hr>
+</div>
+</div>
+<div id="plots-with-ggplot2" class="section level1">
+<h1>Plots with <em>ggplot2</em></h1>
+<hr>
+<p><br></p>
+<p><img src="../images/ggplot2_hex.png" align="right" style="margin-right: 30px; margin-top: -28px;" width="145" /></p>
+<p><br></p>
+</div>
+<div id="ggplot-sandwich" class="section level1">
+<h1>| <code>ggplot()</code> sandwich</h1>
+<hr>
+<p><img src="../images/auto_plot.gif" style="margin-top: -22px; max-width: 108%;" /></p>
+<p><span class="h6" style="font-size: 28px; font-weight: bold;"> The 3 ingredients in a <code>ggplot</code> </span></p>
+<div id="the-base-plot" class="section level3 unnumbered">
+<h3>1. The base plot</h3>
+<pre class="r"><code>ggplot(scrap)</code></pre>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><br></p>
+<blockquote>
+<p>Note when we load the package it’s <code>library ("ggplot2")</code>, but the function to make a plot is <code>ggplot(scrap)</code>. We admit, it is a bit silly.</p>
+</blockquote>
+</div>
+<div id="the-the-x-y-aesthetics" class="section level3 unnumbered">
+<h3>2. The the X, Y <em>aesthetics</em></h3>
+<p>The <em>aesthetics</em> assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.</p>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits)) </code></pre>
+</div>
+<div id="the-layers-or-geometries" class="section level3 unnumbered">
+<h3>3. The layers or <em>geometries</em></h3>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits)) + geom_point()</code></pre>
+<p><br></p>
+<div id="exercise" class="section level4 unnumbered">
+<h4><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h4>
+<p>Try making a scatterplot of any two columns.</p>
+<p><em>Hint: Numeric variables will be more informative.</em></p>
+<pre class="r"><code>ggplot(scrap, aes(x = __column1__, y = __column2__)) + geom_point()</code></pre>
+</div>
+</div>
+<div id="colors" class="section level2 unnumbered">
+<h2>Colors</h2>
+<hr>
+<p>Now let’s use color to show the origins of the scrap</p>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
+  geom_point()</code></pre>
+<p><br></p>
+<p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand.</p>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_bar(stat = &quot;sum&quot;)</code></pre>
+<p><br></p>
+<p>This is the same as <code>geom_col()</code>.</p>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_col()</code></pre>
+<p><br></p>
+<p>What if we want to make it easier to compare sales by origin? Let’s change the position.</p>
+<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
+  geom_bar(stat = &quot;sum&quot;, position = &quot;dodge&quot;)</code></pre>
+</div>
+</div>
+<div id="homeworld-training" class="section level1 unnumbered">
+<h1>Homeworld training</h1>
+<p><img src="../images/porg.png" style="float: right; margin-top: -10px;" /></p>
+<ol style="list-style-type: decimal">
+<li>Load one of the data sets below into R
+<ul>
+<li>Porg contamination on Ahch-To: <a href="https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/Porg_samples.csv" class="uri">https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/Porg_samples.csv</a></li>
+<li>Planet Endor air samples: <a href="https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/air_endor.csv" class="uri">https://raw.githubusercontent.com/MPCA-air/RTrain/master/data/air_endor.csv</a></li>
+<li>Or use data from a recent project of yours</li>
+</ul></li>
+</ol>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create 2 plots using the data. <em>Don’t worry if it looks really weird. Consider it art.</em></li>
+</ol>
+<p><br></p>
+</div>
+<div id="more-plots-with-ggplot2" class="section level1">
+<h1>More Plots with <em>ggplot2</em></h1>
+<div id="pro-tip" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<blockquote>
+<p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
+</blockquote>
+<pre class="r"><code># This will work
+ggplot(scrap, aes(x = origin, y = credits)) +
+  geom_point()
+
+# So will this
+ggplot(scrap, aes(x = origin, y = credits)) + geom_point()
+
+# But this won&#39;t
+ggplot(scrap, aes(x = origin, y = credits))
+  + geom_point()</code></pre>
+</div>
+<div id="colors-1" class="section level2 unnumbered">
+<h2>Colors</h2>
+<hr>
+<p>Now let’s use color to show the destinations of the scrap.</p>
+<p><br></p>
+<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
+  geom_point()</code></pre>
+<p><br></p>
+<div id="pro-tip-1" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<blockquote>
+<p>An easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="bar-charts" class="section level2 unnumbered">
+<h2>Bar charts</h2>
+<p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand. Note that we use fill in aes() instead of color. If we used color, we’d get a colorful outline and grey (or is it gray?) bars.</p>
+<p><br></p>
+<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col()</code></pre>
+<p><br></p>
+<p>What if we want to make it easier to compare sales by destination for each origin? Let’s change the position of the bars. Remember, you can use <code>help(geom_col)</code> to learn about different options for the function. You can do the same with any other <code>ggplot2</code> function.</p>
+<p><br></p>
+<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = &quot;dodge&quot;)</code></pre>
+<p><br></p>
+</div>
+<div id="facet-wrap" class="section level2 unnumbered">
+<h2>Facet wrap</h2>
+<p>What if we want to make the chart less crowded? Let’s use the <code>facet wrap</code> function to put each origin on a separate chart.</p>
+<p><br></p>
+<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(&quot;destination&quot;)</code></pre>
+<p><br></p>
+</div>
+<div id="themes" class="section level2 unnumbered">
+<h2>Themes</h2>
+<p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some different themes out.</p>
+<p><br></p>
+<pre class="r"><code>ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(&quot;destination&quot;) +
+  theme_bw()</code></pre>
+<p><br></p>
+</div>
+<div id="labels" class="section level2 unnumbered">
+<h2>Labels</h2>
+<p>You can also change the axis and title labels using the <code>labs</code> function</p>
+<p><br></p>
+<pre class="r"><code>ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(&quot;destination&quot;) +
+  theme_bw() +
+  labs(title = &quot;Scrap sales by origin and destination&quot;, 
+       x     = &quot;Origin&quot;, 
+       y     = &quot;Total sales&quot;)</code></pre>
+<p><br></p>
+</div>
+<div id="drop-scientific-notation" class="section level2 unnumbered">
+<h2>Drop scientific notation</h2>
+<p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R and not part of <code>ggplot</code>. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again (like loading a package, you only need to run the line once when you start a new R session).</p>
+<p><br></p>
+<pre class="r"><code>options(scipen = 999)
+
+ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+  geom_col(position = &quot;dodge&quot;) +
+  facet_wrap(&quot;destination&quot;) +
+  theme_bw() +
+  labs(title = &quot;Scrap sales by origin and destination&quot;, 
+       x     = &quot;Origin&quot;, 
+       y     = &quot;Total sales&quot;)</code></pre>
+<p><br></p>
+<p>What if we don’t like the zeros and want the labels in millions? Any ideas?</p>
+<p><br><br></p>
+<div id="exercise-1" class="section level4 unnumbered">
+<h4><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h4>
+<p>We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but now we want to do a boxplot of the total price for each destination. But we’re not telling you which function to use. You’re on your own here. Feel free to add colors ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code> to your boxplots. May the force be with you.</p>
+<p><br></p>
+</div>
+</div>
+<div id="save-plots" class="section level2 unnumbered">
+<h2>Save plots</h2>
+<p>You’ve (hopefully) had fun making all of these plots, so let’s learn to save them so we can cherish them forever. There’s a function called <code>ggsave</code> to do just that. How do we <code>ggsave</code> our plots? HELP! (no really, we can type <code>help(ggsave)</code>)</p>
+<pre class="r"><code># Get help
+help(ggsave)
+?ggsave
+
+# Copy and paste the r code of your favorite plot here
+ggplot(data, aes()) +
+   .... +
+   ....
+
+
+# Save your plot to a png file of your choosing
+ggsave(&quot;your_results_folder/plot_name.png&quot;)</code></pre>
+<p><br></p>
+<div id="pro-tip-2" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<blockquote>
+<p>What if you don’t want to save just the last plot you’ve made? Instead, you want to make a plot and save it for later.</p>
+</blockquote>
+<pre class="r"><code># The ggplot you want to save
+my_plot &lt;- ggplot(...)
+  
+# The name of the file the chart will be saved to.
+where_to_save_it &lt;- &quot;___.png&quot;
+
+# Save it!
+ggsave(filename = where_to_save_it, plot = my_plot)</code></pre>
+<p><br></p>
+<p><em>Learn more about saving plots:</em> <a href="http://stat545.com/block017_write-figure-to-file.html">http://stat545.com/</a></p>
+</div>
+</div>
+</div>
+<div id="glossary" class="section level1">
+<h1>| Glossary</h1>
+<p><strong>Table of <code>aesthetics</code></strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">aes()</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>x =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>y =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>alpha =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>fill =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>color =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><code>size =</code></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>linetype =</code></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Table of <code>geoms</code></strong></p>
+<p><img src="../images/geoms_1var.png" /></p>
+<p><img src="../images/geoms_diagram.png" /></p>
+<p><br></p>
+<p><strong>Table of <code>themes</code></strong></p>
+<p>You can customize the look of your plot by adding a <code>theme()</code> function.</p>
+<p><img src="../images/ggplot_themes.png" /></p>
+</div>
+<div id="big-questions" class="section level1">
+<h1>| Big Questions</h1>
+<div style="font-size: 16px;">
+<ul>
+<li>How to modify the gridlines behind your chart?
+<ul>
+<li>Try the different themes at the end of this lesson: <code>theme_light()</code> or <code>theme_bw()</code>.</li>
+<li>Or modify the color and size with <code>theme(panel.grid.minor = element_line(colour = "white", size = 0.5))</code>.</li>
+<li>There’s even <code>theme_excel()</code></li>
+</ul></li>
+<li>How do you set the x and y scale manually?
+<ul>
+<li>Here is an example with a scatter plot: <code>ggplot() + geom_point() + xlim(beginning, end) + ylim(beginning, end)</code></li>
+<li><strong>Warning:</strong> Values above or below the limits you set will not be shown. This is another great way to lie with data.</li>
+</ul></li>
+<li>How do you get rid of the legend if you don’t need it?
+<ul>
+<li><code>geom_point(aes(color = facility_name), show.legend = FALSE)</code></li>
+<li>The R cookbook shows a number of ways to get rid of legends: <a href="http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/" class="uri">http://www.cookbook-r.com/Graphs/Legends_(ggplot2)/</a></li>
+</ul></li>
+<li>I only like dashed lines. How do you change the linetype to a <em>dashed</em> line?
+<ul>
+<li><code>geom_line(aes(color = facility_name), linetype = "dashed")</code></li>
+<li>You can also try <code>"dotted"</code> and <code>"dotdash"</code>, or even<code>"twodash"</code></li>
+</ul></li>
+<li>How many colors are there in R? How does R know <code>hotpink</code> is a color?
+<ul>
+<li>There is an R color cheatsheet: <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf</a></li>
+<li>As well as some basic color names here: <a href="http://www.r-graph-gallery.com/42-colors-names/" class="uri">http://www.r-graph-gallery.com/42-colors-names/</a></li>
+<li><code>library(viridis)</code> provides some great default color palettes for charts and maps.</li>
+<li>This web tool has palette ideas and color Hex numbers: <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" class="uri">http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3</a></li>
+</ul></li>
+<li>Keyboard shortcuts for R
+<ul>
+<li>There is a shortcut cheatsheet: <a href="https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2016/01/rstudio-IDE-cheatsheet.pdf</a></li>
+<li>In RStudio you can go to <em>Help</em> &gt; <em>Keyboard Shortcuts Help</em></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="return-to-homebase" class="section level1 unnumbered">
+<h1><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="index.html">Homebase</a></h1>
+</div>

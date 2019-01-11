@@ -1,14 +1,14 @@
 ---
-title: "Day 3 | PM"
+title: "Day 3 - PM"
 output: 
-  html_document:
+  blogdown::html_page: 
     toc: false
     toc_depth: 2
-    toc_float: true
-    theme: readable
+    #toc_float: true
+    #theme: readable
     highlight: tango
     css: css/camp_style.css
-    number_sections: true
+    number_sections: false
     self_contained: false
     fontsize: 18pt
     monofont: Source Code Pro
@@ -21,7 +21,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 
-# | Your turn
+# Your turn
 
 <hr>
 

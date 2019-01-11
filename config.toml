@@ -5,18 +5,22 @@ title = "Learn R"
 theme = "beautifulhugo"
 summaryLength = 20
 metaDataFormat = "yaml"
-pygmentsStyle = "trac"
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
+#pygmentsStyle = "trac"
+#pygmentsUseClasses = true
+#pygmentsCodeFences = true
+#pygmentsCodefencesGuessSyntax = false
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
-ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+#highlightjsLang = ["r"]
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "static/data/*", "content/page/data/*", "page/data/*"]
+#relativeURLs = true
+uglyURLs = true
 
 [Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  #useHLJS = true
+  #homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
   #themeColor = ".theme-base-08"
   subtitle = ""
   logo     = "images/BB8_rnd_icon.png"
@@ -31,23 +35,19 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   comments = false
   readingTime = false
   wordCount = false
-  useHLJS = true
   socialShare = false
   delayDisqus = false
   showRelatedPosts = false
-#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+  #relativeURLs = true
+  uglyURLs = true
+  highlightjsVersion = "9.13.1"
+  highlightjsCDN = "//cdn.bootcss.com"
+  highlightjsLang = ["r"]
+  highlightjsTheme = "github"
+  #MathJaxCDN = "//cdn.bootcss.com"
+  #MathJaxVersion = "2.7.1"
+ #gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
-#[[Params.bigimg]]
-#  src = "img/triangle.jpg"
-#  desc = "Triangle"
-#[[Params.bigimg]]
-#  src = "img/sphere.jpg"
-#  desc = "Sphere"
-#  # position: see values of CSS background-position.
-#  position = "center top"
-#[[Params.bigimg]]
-#  src = "img/hexagon.jpg"
-#  desc = "Hexagon"
 
 [Author]
   name = "R2D2"
@@ -59,7 +59,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [[menu.main]]
     name = "Get R!"
-    url = "page/install/"
+    url = "page/install.html"
     weight = 1
 
 [[menu.main]]
@@ -70,33 +70,44 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 [[menu.main]]
     parent = "Training"
     name = "Class info"
-    url = "page/class_info"
+    url = "page/class_info.html"
     weight = 1
 
 [[menu.main]]
     parent = "Training"
     name = "Agenda"
-    url = "post/agenda"
+    url = "post/agenda.html"
     weight = 2
 
 [[menu.main]]
     parent = "Training"
     name = "Day-1"
-    url = "post/day-1"
+    url = "post/day-1.html"
     weight = 2
 
 [[menu.main]]
     parent = "Training"
     name = "Day-2"
-    url = "post/day-2"
+    url = "post/day-2.html"
     weight = 2
 
 [[menu.main]]
+    parent = "Training"
+    name = "Day-3"
+    url = "post/day-3.html"
+    weight = 3
+
+[[menu.main]]
     name = "R Community"
-    url = "tags"
+    url = "page/community.html"
     weight = 5
 
 [[menu.main]]
     name = "Help"
-    url = "tags"
+    url = "page/help.html"
     weight = 6
+
+#[[menu.main]]
+#    name = "tags"
+#    url = "tags"
+#    weight = 7

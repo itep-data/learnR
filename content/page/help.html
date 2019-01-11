@@ -1,0 +1,81 @@
+---
+title: "Help!"
+comments: false
+tags: [help]
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+
+
+<p><strong>Cheatsheets</strong></p>
+<p><a href="https://www.rstudio.com/wp-content/uploads/2018/08/data-visualization-2.1.png">
+<img src="../images/cheatsheet_ggplot.jpg" style="width: 47%; float: right; margin-left: 20px; margin-top: -16px;" />
+</a></p>
+<p>Use cheatsheets to refresh your memory and find new functions or plots.</p>
+<ul>
+<li>In RStudio go to <code>Help &gt; Cheatsheets &gt;</code>
+<ul>
+<li><strong>Data Transformation</strong> - Helpful functions for cleaning and arranging your data.<br />
+</li>
+<li><strong>Data Visualization</strong> - Great reference for all your <code>ggplot</code>’ing options.</li>
+</ul></li>
+</ul>
+<p><strong>Learn more R</strong></p>
+<ul>
+<li>In your browser: <a href="https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1">DataCamp Intro</a>
+<ul>
+<li>Review the tidyverse functions with David Robinson <a href="https://campus.datacamp.com/courses/introduction-to-the-tidyverse/data-wrangling-1">DataCamp tidyverse</a></li>
+</ul></li>
+<li>RStudio lessons: <a href="https://rstudio.github.io/learnr/examples.html" class="uri">https://rstudio.github.io/learnr/examples.html</a></li>
+<li>RStudio videos: <a href="https://tutorials.shinyapps.io/04-Programming-Basics/" class="uri">https://tutorials.shinyapps.io/04-Programming-Basics/</a></li>
+<li>Learn directly in <code>R</code> with: <a href="https://swirlstats.com/students.html">swirlR</a><br />
+</li>
+<li>Coursera classes: <a href="https://www.coursera.org/specializations/jhu-data-science">John Hopkins courses w/ Roger Peng</a></li>
+</ul>
+<p><strong>Find new packages and functions</strong></p>
+<ul>
+<li>Search packages in R with <a href="https://github.com/RhoInc/CRANsearcher">CRANsearcher</a></li>
+<li><a href="https://ropensci.org/packages/">ROpenSci</a> has packages and data for all types of environmental and “scientific” work.</li>
+<li><i class="fa fa-raindrops"></i> For <strong>water</strong>, the <a href="https://github.com/USGS-R">USGS</a> shares water quality focused packages on GitHub.</li>
+</ul>
+<p><strong>Books</strong></p>
+<ul>
+<li><a href="http://r4ds.had.co.nz/">R for Data Science</a>: comprehensive &amp; free book online.</li>
+<li>R Cookbook: <a href="https://www.cookbook-r.com" class="uri">https://www.cookbook-r.com</a></li>
+</ul>
+<p><strong>Searching online</strong></p>
+<ul>
+<li><a href="www.google.com">google.com</a>: include <code>r</code> or <code>rstats</code> + <code>the question</code></li>
+<li><a href="https://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs">stackoverflow.com</a> + use the <code>[r]</code> tag</li>
+</ul>
+<p><strong>Inside R</strong></p>
+<ul>
+<li>Get function help and package info in R with <code>?arrange()</code> or <code>help(dplyr)</code></li>
+</ul>
+<p><br></p>
+<div id="troubleshooting" class="section level2">
+<h2>Troubleshooting</h2>
+<p>These are a few of the things we personally forget to do all the time and cause 90% of our errors. They’re good first checks if R starts throwing errors or behaving strangely.</p>
+<ul>
+<li>Make sure all parentheses are balanced so that every opening <code>(</code> has a corresponding closing <code>)</code>.</li>
+<li>R doesn’t love <code>\</code> backward slashes like <em>Windows</em>, check that they didn’t sneak into your expression somewhere. When in doubt use the <code>/</code> forward slash.</li>
+<li>If you think you have completed typing your code, and instead of seeing the <code>&gt;</code> command prompt at the console you see the <code>+</code> character instead. That’s a good sign that either R is still thinking very-very hard, or it is still waiting for you to complete your expression. You can hit <code>Esc</code> or <code>Ctrl-C</code> to force your way back to the console and try typing your code again.</li>
+<li>In <code>ggplot</code> we build up plots one piece at a time by adding expressions to one another with the <code>+</code> character. When doing this, make sure the <code>+</code> goes at the end of each line, and not the beginning.</li>
+</ul>
+<p>Put the <code>+</code> sign here to make <code>ggplot</code> happy:</p>
+<pre class="r"><code>ggplot(data = mpg, aes(x = displ, y = hwy)) +
+    geom_point()</code></pre>
+<p>Put it on the next line to make <code>ggplot</code> sad:</p>
+<pre class="r"><code>ggplot(data = mpg, aes(x = displ, y = hwy))
+  + geom_point()</code></pre>
+<p><br></p>
+</div>
+<div id="error-messages" class="section level2">
+<h2>Error messages</h2>
+<p>Not all error messages are helpful or easy to interpret, but they do seem to be getting better in many R packages. When googling an error message it can help to put the entire message in quotes. For the error below we would search for <code>"Error in fit[5, 100, ] : subscript out of bounds"</code>.</p>
+<div align="center" style="margin-top: 24px;">
+<p><img src="../images/warnings%20and%20errors.jpeg" style="width: 50%;" /></p>
+</div>
+<p><br></p>
+</div>

@@ -1,0 +1,184 @@
+---
+title: "Porg biomonitoring data"
+output:
+  html_document:
+    toc: false
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    fontsize: 14pt
+    monofont: Source Code Pro
+    monofontoptions: Scale = 1.3
+---
+
+
+
+<p><img src="images/fly_porgs_cut.PNG" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<p><br><br></p>
+<blockquote>
+<p>Remember what you should do first when you start your R session?</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>#load packages
+
+library(readr)
+library(dplyr)
+library(ggplot2)</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Start by reading in the data. Remember, when reading in data from the X drive, R reads forward slashes. The X drive location of the file is</p>
+<p>"X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv"</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>porg_data &lt;- read_csv(&quot;X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv&quot;)</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Take a couple of minutes to get an overview of the data. Do you remember some of the functions to do that?</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>view(porg_data)
+glimpse(porg_data)
+summary(porg_data)</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<p><img src="images/porgs_lifecycle.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<blockquote>
+<p>What columns are there? What kinds of questions do you have about the data after looking at it. (Hint, I see some biomonotoring concentrations and some response times. Maybe Corundum is neurotoxic to porgs? Ask Dorian to find out for sure.)</p>
+</blockquote>
+<blockquote>
+<p>Now create a scatterplot showing the relationship between conncetration and rxn_time.</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = Concentration, y = rxn_time)) +
+  geom_point()</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>What type of cleaning does this data set need? Let’s take a look at the lowest and highest concentration levels and see if anything looks odd.</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>porg_data &lt;- arrange(porg_data, Concentration)
+porg_data &lt;- arrange(porg_data, desc(Concentration))</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Hmmm. Looks like there’s some negative numbers. Is that possible for Corundum measurements? We ask our team of Bot measurement analysts and they say NO! So, let’s filter out the negative concentration values.</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>porg_data &lt;- filter(porg_data, Concentration &gt; 0)</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Let’s look at the data set again. I see a units column. Are all the units the same? Looks like the Concentration units are in both ppb and ppm. Let’s add a column with consistent concentration units, and convert the ppm concentrations into ppb.</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>porg_data &lt;- mutate(porg_data, conc_ppb = ifelse(Conc_units == &quot;ppm&quot;, Concentration * 1000, Concentration))</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Remember the rule of plotting data? Hint: Plot the data, Plot the data, Plot the data</p>
+</blockquote>
+<blockquote>
+<p>So, let’s re-plot the data</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = conc_ppb, y = rxn_time)) +
+  geom_point()</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Let’s calculate the mean concentration by island to determine if there might be Corundum concentration differences by island. Do you remeber which function to use here?</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>porg_island_summary &lt;- group_by(porg_data, Island) %&gt;%
+  summarise(mean_corundum = mean(conc_ppb))</code></pre>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Maybe making a box plot would help answer this question more clearly?</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = Island, y =  conc_ppb)) +
+  geom_boxplot()</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Let’s fill the boxplot with a different color for each island to make it look better.</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = Island, y =  conc_ppb, fill = Island)) +
+  geom_boxplot()</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<p><img src="images/porgs_4.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<p><br></p>
+<blockquote>
+<p>Let’s make an individual scatterplot for each island. Remember which function to use?</p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = conc_ppb, y =  rxn_time)) +
+  geom_point() +
+  facet_wrap(&quot;Island&quot;)</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Try an x-y scatter plot of conc_ppb and rxn_time and experiment with <code>geom_smooth(method = "loess")</code></p>
+</blockquote>
+<details>
+<summary class = "btn_code_blue"><em>Show solution</em></summary>
+<p>
+<pre class="r"><code>ggplot(data = porg_data, aes(x = conc_ppb, y =  rxn_time)) +
+  geom_point() +
+  geom_smooth(method = &quot;loess&quot;) +
+  facet_wrap(~Island)</code></pre>
+<p><img src="/page/level2_porg_exposure_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+</p>
+</details>
+<p><br><br></p>
+<blockquote>
+<p>Nice work Jedi Master! You are ready to tackle your own data set, maps, images, statistics, the universe!</p>
+</blockquote>
+<p><img src="https://media1.tenor.com/images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398" /></p>

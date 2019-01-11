@@ -1,16 +1,18 @@
 ---
 title: Install & Update
 comments: false
+tags: [install, update]
 output:
   blogdown::html_page:
     toc: true
 ---
 
+<style> code {color: #FF69B4 !important;} </style>
 
-<style> code {color: #535353 !important;} </style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+#<style> code {color: #535353 !important;} </style>
 ```
 
 </br>
@@ -42,8 +44,8 @@ The R language and its tools are built by people from around the world. Together
 #### Windows 
 
 1. Navigate to R's download page -> [Windows](https://cran.r-project.org/bin/windows/base/)  
-1. Click `Download R 3.*.* for Windows` the highest numbered file
-    - ex. `R-3.5.1-win.exe`
+1. Click `Download R 3.*.* for Windows`
+    - ex. `R-3.5.*-win.exe`
 1. Save the file and install with the default options.
 
 For a __video__ walk through see [Installing R on Windows](http://youtu.be/mfGFv-iB724)
@@ -56,7 +58,7 @@ For a __video__ walk through see [Installing R on Windows](http://youtu.be/mfGFv
 
 1. Navigate to R's download page ->  [Mac](https://cran.r-project.org/bin/macosx/)
 1. Scroll down and download the first file under _Latest release:_ 
-    - ex. `R-3.5.1.pkg`
+    - ex. `R-3.5.*.pkg`
 1. Save the file and install with the default options.
 
 For a __video__ walk through see [Installing R on Mac](http://youtu.be/Icawuhf0Yqo)
@@ -104,7 +106,7 @@ __Install RStudio__
 
 </br>
 
-Windows users can update R with the `installR` package, and Mac users can use the `updateR` package. Linux users can go to the [R Archive](https://cran.r-project.org/) and follow the download links for their operating system.
+The R software receives periodic updates, about once a year. Windows users can update R with the `installR` package, and Mac users can use the `updateR` package. Linux users can go to the [R Archive](https://cran.r-project.org/) and follow the download links for their operating system.
 
 </br>
 
@@ -158,6 +160,8 @@ updateR::updateR(admin_password = "Admin user password")
 
 </div></div>
   
+<br>
+
 # Update `RStudio`
 <hr>
 
@@ -175,4 +179,25 @@ __Instructions__
 1. Follow the installation instructions
 
 </div>
+
+<br>
+
+# Update your R packages
+<hr>
+
+There are two places where you can udpate R packages within R Studio.
+
+<br>
+
+#### 1. In the `Files and Plots` area in the bottom right, under the `Packages` tab:
+
+<img src="../images/updatepackages_1.PNG" style="width: 50%;">
+
+<br>
+
+#### 2. In the `Tools` tab above at the top above the Code Editor:
+
+<img src="../images/updatepackages_2.PNG" style="width: 50%;">
+
+<br>
 

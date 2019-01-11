@@ -1,40 +1,50 @@
 ---
 title: "Help!"
 comments: false
+tags: [help]
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set()
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 library(icon)
+#<style> code {color: #535353 !important;} </style>
 ```
 
-<style> code {color: #535353 !important;} </style>
 
 
 __Cheatsheets__
 
-Use __Cheatsheets__ to find common functions: 
+<a href="https://www.rstudio.com/wp-content/uploads/2018/08/data-visualization-2.1.png">
+![](../images/cheatsheet_ggplot.jpg){style="width: 47%; float: right; margin-left: 20px; margin-top: -16px;"}
+</a>
 
-- In RStudio go to _Help_ > _Cheatsheets_ 
-    - _Data Transformation_ | Helpful functions for cleaning and arranging your data.  
-    - _Data Visualization_ | Quick reference for all `ggplot`-ing options. 
+Use cheatsheets to refresh your memory and find new functions or plots. 
+
+- In RStudio go to `Help > Cheatsheets >`
+    - __Data Transformation__ - Helpful functions for cleaning and arranging your data.  
+    - __Data Visualization__ - Great reference for all your `ggplot`'ing options. 
 
 
 __Learn more R__
 
 - In your browser: [DataCamp Intro](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1)
+   - Review the tidyverse functions with David Robinson [DataCamp tidyverse](https://campus.datacamp.com/courses/introduction-to-the-tidyverse/data-wrangling-1)
 - RStudio lessons: https://rstudio.github.io/learnr/examples.html
-- RStudio videos: https://tutorials.shinyapps.io/04-Programming-Basics/#section-welcome
--	Learn inside R:  [swirlR](https://swirlstats.com/students.html)  
+- RStudio videos: https://tutorials.shinyapps.io/04-Programming-Basics/
+-	Learn directly in `R` with: [swirlR](https://swirlstats.com/students.html)  
 - Coursera classes: [John Hopkins courses w/ Roger Peng](https://www.coursera.org/specializations/jhu-data-science)    
+
 
 __Find new packages and functions__
 
-- To search packages in R get: [CRANsearcher](https://github.com/RhoInc/CRANsearcher)
+- Search packages in R with [CRANsearcher](https://github.com/RhoInc/CRANsearcher)
+- [ROpenSci](https://ropensci.org/packages/) has packages and data for all types of environmental and "scientific" work.
+- <i class="fa fa-raindrops"></i> For __water__, the [USGS](https://github.com/USGS-R) shares water quality focused packages on GitHub.
 
 __Books__    
 
-- [__R for Data Science__](http://r4ds.had.co.nz/): comprehensive & free book online
+- [R for Data Science](http://r4ds.had.co.nz/): comprehensive & free book online.
 - R Cookbook: https://www.cookbook-r.com     
     
 __Searching online__
@@ -42,42 +52,47 @@ __Searching online__
 - [google.com](www.google.com): include `r` or `rstats` + `the question`
 - [stackoverflow.com](https://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs) + use the `[r]` tag
 
+__Inside R__
 
+- Get function help and package info in R with `?arrange()` or `help(dplyr)`
+
+<br>
 
 ## Troubleshooting
 
-- Get function help inside R: `?arrange()` 
-
-Here are few things we forget to do all the time and are good first things to check for when you run into problems.
+These are a few of the things we personally forget to do all the time and cause 90% of our errors. They're good first checks if R starts throwing errors or behaving strangely.
   
-- Make sure all parentheses are balanced so that every opening "`(`" has a corresponding closing "`)`".
-- Be sure you complete your expressions. If you think you have completed typing your code, but instead of seeing the `>` command prompt at the console you see the `+` character instead, then either R is still thinking or it is still waiting for you to complete your expression. You can hit `Esc` or `Ctrl-C` to force your way back to the console and try typing your code again. 
-- In `ggplot` we build up plots a piece at a time by adding expressions to one another. When doing this, make sure the `+` character goes at the end of each line, and not the beginning. 
+- Make sure all parentheses are balanced so that every opening `(` has a corresponding closing `)`.
 - R doesn't love `\` backward slashes like _Windows_, check that they didn't sneak into your expression somewhere. When in doubt use the `/` forward slash.
-  
+- If you think you have completed typing your code, and instead of seeing the `>` command prompt at the console you see the `+` character instead. That's a good sign that either R is still thinking very-very hard, or it is still waiting for you to complete your expression. You can hit `Esc` or `Ctrl-C` to force your way back to the console and try typing your code again. 
+- In `ggplot` we build up plots one piece at a time by adding expressions to one another with the `+` character. When doing this, make sure the `+` goes at the end of each line, and not the beginning. 
 
-This makes `ggplot` happy:
+
+Put the `+` sign here to make `ggplot` happy:
 
 ```{r trouble_gg1, echo=TRUE, eval=FALSE}
 ggplot(data = mpg, aes(x = displ, y = hwy)) +
     geom_point()
 ```
 
-This makes `ggplot` sad:
+Put it on the next line to make `ggplot` sad:
 
 ```{r trouble_gg2, echo=TRUE, eval=FALSE}
 ggplot(data = mpg, aes(x = displ, y = hwy))
-+ geom_point()
+  + geom_point()
 ```
 
 <br>
 
 ## Error messages
 
-<div align="center">
-![](../images/warnings and errors.jpeg){width="450"}
+Not all error messages are helpful or easy to interpret, but they do seem to be getting better in many R packages. When googling an error message it can help to put the entire message in quotes. For the error below we would search for `"Error in fit[5, 100, ] : subscript out of bounds"`.
+
+<div align="center" style="margin-top: 24px;">
+
+![](../images/warnings and errors.jpeg){style="width: 50%;"}
+
 </div>
 
-_Not all error messages are as helpful or easy to interpret, but they are getting better._
 
 <br>

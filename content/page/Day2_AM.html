@@ -1,0 +1,583 @@
+---
+title: "Day 2 | AM"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: true
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+
+
+<div id="good-morning-young-jedis" class="section level1 unnumbered">
+<h1>Good morning, young Jedis!</h1>
+<hr>
+<p><img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" /></p>
+<div id="day-2-morning-schedule" class="section level2 unnumbered">
+<h2>Day 2 morning schedule</h2>
+<pre><code>- Review of Day 1
+- Add a column with a condition
+- Summarize your data
+- String together many functions
+- Group or categorize your data
+- Save data</code></pre>
+<p><br></p>
+</div>
+<div id="review-of-day-1" class="section level2 unnumbered">
+<h2>Review of Day 1</h2>
+<hr>
+</div>
+</div>
+<div id="porg-review" class="section level1 tabset">
+<h1>| Porg review</h1>
+<p>The <em>poggle</em> of porgs will once again help us review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
+<pre class="r"><code>library(readr)
+porgs &lt;- read_csv(&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;)</code></pre>
+<div id="porgs" class="section level2 unnumbered">
+<h2><code>porgs</code></h2>
+<p><img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="select" class="section level2 unnumbered">
+<h2><code>select</code></h2>
+<p><img src="../images/porgs/select.png" style="width: 65%;" /></p>
+<p><img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
+<p><br><br></p>
+<p><img src="../images/porgs/select_drop.png" style="width: 65%;" /></p>
+<p><img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="arrange" class="section level2 unnumbered">
+<h2><code>arrange</code></h2>
+<p><img src="../images/porgs/arrange.png" style="width: 65%;" /></p>
+<p><img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
+<p><br><br></p>
+<p><img src="../images/porgs/arrange_desc.png" style="width: 57%;" /></p>
+<p><img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="filter" class="section level2 unnumbered">
+<h2><code>filter</code></h2>
+<p><img src="../images/porgs/filter.png" style="width: 65%;" /></p>
+<p><img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
+<p><br><br></p>
+<p><img src="../images/porgs/filter2.png" style="width: 75%;" /></p>
+<p><img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="mutate" class="section level2 unnumbered">
+<h2><code>mutate</code></h2>
+<p><img src="../images/porgs/mutate.png" style="width: 77%;" /></p>
+<p><br></p>
+<p><img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="summarize" class="section level2 unnumbered">
+<h2><code>summarize</code></h2>
+<p><img src="../images/porgs/summarize.png" style="width: 77%;" /></p>
+<p><br></p>
+<p><img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+<div id="group_by" class="section level2 unnumbered">
+<h2><code>group_by</code></h2>
+<p><img src="../images/porgs/groupby.png" style="width: 77%;" /></p>
+<p><br></p>
+<p><img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /></p>
+<br>
+<hr>
+<p><br></p>
+</div>
+</div>
+<div id="ifelse" class="section level1">
+<h1>| <code>ifelse()</code></h1>
+<p><br></p>
+<p>##<code>mutate()</code> PLUS <code>ifelse()</code> is powerful!{-}</p>
+<p><img src="https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja" align="center" style="margin-right: 28px;" width="480" /></p>
+<p><br>
+Sometimes you may want the value of a new column to depend on the value of an existing column, in other words you want to <code>mutate()</code> conditionally. We use <code>ifelse()</code> to do this.</p>
+<div id="ifelseif-this-is-true-do-this-otherwise-do-this-thing" class="section level3 unnumbered">
+<h3><code>ifelse(If this is true, "Do this", "Otherwise do this thing")</code></h3>
+<p><br></p>
+<pre class="r"><code>library(dplyr)
+library(readr)
+
+#Get the data
+scrap &lt;- read_csv(&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;)
+
+# Convert the TONS in all capital letters to title case &quot;Tons&quot;
+# On Day 1 we did this using tolower()
+
+scrap &lt;- scrap %&gt;% 
+         mutate(units = ifelse(units == &quot;TONS&quot;, &quot;Tons&quot;, units))</code></pre>
+<p><br></p>
+<p>Congratulations of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!</p>
+</div>
+</div>
+<div id="left_join" class="section level1">
+<h1>| <code>left_join()</code></h1>
+<div id="join-2-tables" class="section level2 unnumbered">
+<h2>Join 2 tables</h2>
+<div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
+<h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
+<p><br></p>
+<p><img src="../images/left_join_image.png" style="width: 85%; max-width: 85%;" /></p>
+<p><br><br>
+<strong>BB8 found a unit converter table while surfing the web.</strong> How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let’s talk about left_join()</p>
+<p><br></p>
+</div>
+</div>
+<div id="joining-star-wars-characters" class="section level2 unnumbered">
+<h2>Joining Star Wars characters</h2>
+<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -30px; margin-left: 40px; margin-right: 5px;" width="380" /></p>
+<strong>left_join()</strong> is used to add columns to your table. Imagine you have the 2 Star Wars tables below. One is a table includes character names and heights; the second names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
+<br>
+<style type="text/css"> .table {width: 30%;} </style>
+<p><br></p>
+<p><code>starwars_heights</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="right">height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="right">172</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+</tr>
+<tr class="odd">
+<td align="left">Darth Vader</td>
+<td align="right">202</td>
+</tr>
+<tr class="even">
+<td align="left">Leia Organa</td>
+<td align="right">150</td>
+</tr>
+<tr class="odd">
+<td align="left">Greedo</td>
+<td align="right">246</td>
+</tr>
+</tbody>
+</table>
+<p><code>starwars_homeworlds</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="left">homeworld</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">Darth Vader</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">Leia Organa</td>
+<td align="left">Alderaan</td>
+</tr>
+<tr class="odd">
+<td align="left">Ayla Secura</td>
+<td align="left">Ryloth</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>Uh oh!</strong> There’s no “Ayla Secura” in the height table and there’s no “Greedo” in the homeworld table. Can we still join the tables? Run the code below to see what happens.</p>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="right">height</th>
+<th align="left">homeworld</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="right">172</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">Darth Vader</td>
+<td align="right">202</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">Leia Organa</td>
+<td align="right">150</td>
+<td align="left">Alderaan</td>
+</tr>
+<tr class="odd">
+<td align="left">Greedo</td>
+<td align="right">246</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+Did it work? Yes. When <strong>left_join</strong> added the height column to the <em>starwars_homeworlds</em> table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as <em>NA</em>.</p>
+<p><br></p>
+<p>Now let’s imagine that the <code>starwars_height</code> table has two characters named <em>Darth Vader</em> with different heights. What will happen when you join the tables?</p>
+<p><br></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="right">height</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="right">172</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+</tr>
+<tr class="odd">
+<td align="left">Darth Vader</td>
+<td align="right">202</td>
+</tr>
+<tr class="even">
+<td align="left">Darth Vader</td>
+<td align="right">246</td>
+</tr>
+<tr class="odd">
+<td align="left">Leia Organa</td>
+<td align="right">150</td>
+</tr>
+<tr class="even">
+<td align="left">Greedo</td>
+<td align="right">173</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>When you run the code below you’ll see that <strong>left_join</strong> is very thorough and adds each height it finds for <em>Darth Vader</em> as a new row in the joined table.</p>
+<pre class="r"><code># Create new tables 
+starwars_heights &lt;- data_frame(starwars_name = c(&quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;Darth Vader&quot;, &quot;Darth Vader&quot;, &quot;Leia Organa&quot;, &quot;Greedo&quot;), height  = c(172,167,202,246, 150, 173))
+
+
+starwars_homeworlds   &lt;- data_frame(starwars_name = c(&quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;Darth Vader&quot;, &quot;Leia Organa&quot;, &quot;Ayla Secura&quot;), homeworld = c(&quot;Tatooine&quot;,&quot;Tatooine&quot;,&quot;Tatooine&quot;, &quot;Alderaan&quot;, &quot;Ryloth&quot;))
+
+# Join the tables together by Star Wars character name
+height_and_homeworld &lt;- left_join(starwars_heights, starwars_homeworlds, by = c(&quot;starwars_name&quot; = &quot;starwars_name&quot; ))
+
+# Check number of rows
+nrow(height_and_homeworld)
+
+height_and_homeworld</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="right">height</th>
+<th align="left">homeworld</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="right">172</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">Darth Vader</td>
+<td align="right">202</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">Darth Vader</td>
+<td align="right">246</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">Leia Organa</td>
+<td align="right">150</td>
+<td align="left">Alderaan</td>
+</tr>
+<tr class="even">
+<td align="left">Greedo</td>
+<td align="right">173</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+<p>This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you’re using <strong>left_join</strong>. In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like <em>Darth Vader’s</em> age). In this situation, we’d want to find out whether we really had two Star Wars characters named <em>Darth Vader</em>, or if someone made two different guesses about <em>Darth Vader’s</em> age.</p>
+<p><br><br></p>
+<p><strong>Back to the scrap data! We don’t have time for scuttlebutt, we have actual work to do and need to help Rey.</strong> BUT, we can do that way more efficiently now that we know <code>left_join()</code>! Remember that BB8 found a unit converter table while surfing the web. If we join our scrap data to the unit converter table we can start really digging into what would be most profitable for Rey.</p>
+</div>
+<div id="getting-data-directly-from-the-internet" class="section level2 unnumbered">
+<h2>Getting data directly from the internet</h2>
+<pre class="r"><code>library(readr)
+
+# The data&#39;s url
+convert_url &lt;- &quot;https://itep-r.netlify.com/data/conversion_table.csv&quot;
+
+# Read in the conversion data
+convert &lt;- read_csv(convert_url)
+
+head(convert, 3)</code></pre>
+<pre><code>## # A tibble: 3 x 3
+##   item               units       pounds
+##   &lt;chr&gt;              &lt;chr&gt;        &lt;dbl&gt;
+## 1 Bulkhead           Cubic Yards    321
+## 2 Hull Panel         Cubic Yards    641
+## 3 Repulsorlift array Cubic Yards    467</code></pre>
+<p><br></p>
+<pre class="r"><code>library(readr)
+library(dplyr)
+
+# Read in the larger scrap database
+# Note this data set has items that are in units other than tons. 
+
+scrap &lt;- read_csv(&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;)
+
+# Run the following code to investigate what units are in the dataset.
+unique(scrap$units)</code></pre>
+<pre><code>## [1] &quot;Cubic Yards&quot; &quot;Items&quot;       &quot;Tons&quot;</code></pre>
+<pre class="r"><code># Join the scrap to the conversion table
+scrap &lt;- left_join(scrap, convert, by = c(&quot;item&quot; = &quot;item&quot;, &quot;units&quot; = &quot;units&quot;))
+
+# Since our column names are the same, left_join will find the matching column names
+# AND R tells you what columns it joined.
+scrap &lt;- left_join(scrap, convert)
+
+head(scrap, 5)</code></pre>
+<pre><code>## # A tibble: 5 x 7
+##   item          origin   destination  amount units   price_per_pound pounds
+##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Bulkhead      Cratert~ Raiders        4017 Cubic ~           1005.    321
+## 2 Starship sen~ Outskir~ Trade carav~   1249 Cubic ~           1129.    637
+## 3 Starship sen~ Outskir~ Niima Outpo~   4434 Cubic ~           1129.    637
+## 4 Hull Panel    Cratert~ Raiders         286 Cubic ~            843.    641
+## 5 Starship sen~ Cratert~ Trade carav~    305 Cubic ~           1129.    637</code></pre>
+<p><br></p>
+<p><strong>Help!</strong> Remember to type <code>?left_join</code> if you are wondering what the arguments are.</p>
+<div id="exercise" class="section level3 tabset">
+<h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<div id="total-price" class="section level4 unnumbered">
+<h4>Total price</h4>
+<p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the price per pound. We want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<p><br></p>
+<pre class="r"><code># Calculate the total credits for each transaction
+scrap &lt;- scrap %&gt;% 
+         mutate(_______ = _______________)</code></pre>
+</div>
+<div id="show-hint" class="section level4 unnumbered">
+<h4>Show hint</h4>
+<p><strong>Total price</strong></p>
+<p>We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<p><br></p>
+<pre class="r"><code># Calculate the total credits for each transaction
+scrap &lt;- scrap %&gt;% 
+         mutate(credits = _______ * _______ * ________)</code></pre>
+</div>
+<div id="show-code" class="section level4 unnumbered">
+<h4>Show code</h4>
+<p><strong>Total price</strong></p>
+<p>We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<p><br></p>
+<pre class="r"><code># Calculate the total credits for each transaction
+scrap &lt;- scrap %&gt;% 
+         mutate(credits = amount * pounds * price_per_pound)</code></pre>
+<br><br>
+<hr>
+<p>We as data analysts often get questions like, What’s the highest number? What’s the lowest number? What is the mean tonnage from Cratertown? So, let us move on to <code>summarize()</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="summarize-this" class="section level1">
+<h1>| <code>summarize()</code> this</h1>
+<hr>
+<p><img src="../images/summarize_diagram.png" width="490" /></p>
+<p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse your data down to a single row. To really dig into <code>summarize</code> you’ll want to know some common summary functions, such as <code>sum()</code>, <code>mean()</code>, <code>median()</code>, <code>min()</code>, and <code>max()</code>.</p>
+<div id="sum" class="section level2 unnumbered">
+<h2><code>sum()</code></h2>
+<p>Use <code>summarize()</code> and <code>sum()</code> to find the total credits from all Salvage.</p>
+<pre class="r"><code>summarize(scrap, total_credits = sum(credits))</code></pre>
+</div>
+<div id="mean" class="section level2 unnumbered">
+<h2><code>mean()</code></h2>
+<p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> price_per_pound in the Salvage report.</p>
+<pre class="r"><code>summarize(scrap, mean_price = mean(price_per_pound, na.rm = T))</code></pre>
+<p><br></p>
+<blockquote>
+<p>Note the <code>na.rm = TRUE</code> in the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ when it finds a missing value in the data.</p>
+</blockquote>
+</div>
+<div id="median" class="section level2 unnumbered">
+<h2><code>median()</code></h2>
+<p>Use summarize to calculate the <em>median</em> price_per_pound in the Salvage report.</p>
+<p><code>summarize(scrap, median_price = median(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="max" class="section level2 unnumbered">
+<h2><code>max()</code></h2>
+<p>Use summarize to calculate the <em>maximum</em> price per pound any scrapper got for their Salvage.</p>
+<p><code>summarize(scrap, max_price = max(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="min" class="section level2 unnumbered">
+<h2><code>min()</code></h2>
+<p>Use summarize to calculate the <em>minimum</em> price per pound any scrapper got for their Salvage.</p>
+<p><code>summarize(scrap, min_price = min(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="nth" class="section level2 unnumbered">
+<h2><code>nth()</code></h2>
+<p>Use <code>summarize()</code> and <code>nth(Origin, 12)</code> to find the name of the Origin City that got the <em>12th</em> highest scrapper haul.</p>
+<p><em>Hint: Use <code>arrange()</code> first.</em></p>
+<p><code>arrange(scrap, desc(credits)) %&gt;% summarize(price_12 = nth(origin, 12))</code></p>
+</div>
+<div id="sd" class="section level2 unnumbered">
+<h2><code>sd()</code></h2>
+<p>What is the <em>standard deviation</em> of the credits?</p>
+<p><code>summarize(scrap, stdev_credits = sd(credits))</code></p>
+</div>
+<div id="quantile" class="section level2 unnumbered">
+<h2><code>quantile()</code></h2>
+<p><em>Quantiles</em> are useful for finding the upper or lower range of a column. Use the <code>quantile()</code> function to find the the 5th and 95th quantile of the prices.</p>
+<pre class="r"><code>summarize(scrap, 
+          price_5th_pctile  = quantile(price_per_pound, 0.05, na.rm = T),
+          price_95th_pctile = quantile(price_per_pound, 0.95))</code></pre>
+<p><em>Hint: add <code>na.rm = T</code> to <code>quantile()</code>.</em></p>
+</div>
+<div id="n" class="section level2 unnumbered">
+<h2><code>n()</code></h2>
+<p><code>n()</code> stands for <em>count</em>.</p>
+<p>Use summarize and <code>n()</code> to count the number of reported Salvage records going to a Niima outpost.</p>
+<p><em>Hint: Use <code>filter()</code> first.</em></p>
+<pre class="r"><code>niima_scrap &lt;- filter(scrap, destination == &quot;Niima Outpost&quot;) 
+niima_scrap &lt;- summarize(niima_scrap, salvage_records = n())</code></pre>
+<p><br></p>
+<div id="exercise-1" class="section level3 unnumbered">
+<h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is <em>just</em> an example.</p>
+<pre class="r"><code>summary &lt;- summarize(scrap, 
+                     max_credits      = __________,
+                     weight_90th_pct  = quantile(Weight, 0.90),
+                     count_records    = __________,</code></pre>
+<p><br>
+What if I want to string several of these data processing functions together? Do I have to keep writing <strong>scrap</strong> so many times? I have now written <strong>scrap</strong> like a million times and I am sick of it. Mother of moons! I have rebels to protect and I haven’t eaten in 2 days!</p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="the-pipe" class="section level1">
+<h1>| The pipe <code>%&gt;%</code></h1>
+<p><strong>Use the <code>%&gt;%</code> young Padawan.</strong></p>
+<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px;" width="155" /></p>
+<p><br></p>
+<p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you can chain functions together and do everything in one go.</p>
+<p><br><br></p>
+<pre class="r"><code>my_scrap &lt;- scrap %&gt;%
+            filter(item == &quot;Acceleration compensator&quot;) %&gt;%
+            arrange(desc(amount))</code></pre>
+</div>
+<div id="group_by-1" class="section level1">
+<h1>| <code>group_by()</code></h1>
+<hr>
+<blockquote>
+<p>Wouldn’t it be nice if we could easily find the mean price at every Origin City? Let’s really wookie this thing. It’s time for <code>group_by()</code>!</p>
+</blockquote>
+<p><br></p>
+<p>Use <code>group_by</code> with the column <em>Origin</em> again, but this time use <code>summarize</code> to find the <code>mean(price_per_pound)</code> for each Origin City.</p>
+<pre class="r"><code>scrap_summary &lt;- group_by(scrap, origin) %&gt;% 
+                 summarize(mean_price =  mean(price_per_pound, na.rm = T)) </code></pre>
+<p><br></p>
+<details>
+<summary class="btn_code"> Rounding digits </summary>
+<p>
+<p>You can round the prices to a certain number of digits using the <code>round()</code> function. We can finish by adding the <code>arrange()</code> function to sort the table by our new column.</p>
+<pre class="r"><code>scrap_means &lt;- group_by(scrap, origin) %&gt;% 
+                 summarize(mean_price       =  mean(price_per_pound, na.rm = T),
+                           mean_price_round = round(mean_price, digits = 2)) %&gt;%  
+                 arrange(mean_price_round) %&gt;%
+                 ungroup()</code></pre>
+<p><br></p>
+<p><strong>NOTE:</strong> The <code>round()</code> function in R does not automatically round values ending in 5 up, instead it uses scientific rounding. It rounds values ending in 5 to the nearest even number, so 2.5 rounded to the nearest whole number using <code>round()</code> is 2, and 3.5 rounded to the nearest whole number is 4. If you want to round all values ending in 5 up, then you’ll have to use a rounding function from another package.</p>
+</p>
+</details>
+<p><br></p>
+<p>Try using <code>group_by</code> with the column <em>origin</em> and then use <code>summarize</code> to count the number of Salvage reports from each city.</p>
+<pre class="r"><code>scrap_counts &lt;- group_by(scrap, origin) %&gt;% 
+                summarize(origin_count  =  n()) %&gt;% 
+                ungroup()</code></pre>
+<p><br></p>
+<div id="pro-tip" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<blockquote>
+<p>Ending with <code>ungroup()</code> is good practice. This will prevent your data from staying grouped after the summarizing has been completed.</p>
+</blockquote>
+</div>
+</div>
+<div id="save-files" class="section level1">
+<h1>| Save files</h1>
+<hr>
+<p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can print it to have it <strong>transmitted through Droid courier</strong> to Rey. To save a data frame we’ll use the <code>write_csv()</code> function from our favorite <em>readr</em> package.</p>
+<pre class="r"><code># Write the file to your results folder
+write_csv(scrap_means, &quot;results/Mean_prices_by_origin.csv&quot;)</code></pre>
+<div id="pro-tip-1" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<blockquote>
+<p><strong>Warning!</strong> By default, R will overwrite a file if the file already exists in a folder. It will not ask for confirmation. To be safe, do not save processed data to your <code>data/</code> folder.</p>
+</blockquote>
+<p><br></p>
+</div>
+</div>
+<div id="grouped-mutate" class="section level1">
+<h1>| Grouped <code>mutate()</code></h1>
+<br>
+<hr>
+<p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by country to the whole table.</p>
+<p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group.</p>
+<pre class="r"><code>group_by(scrap, origin) %&gt;% mutate(origin_mean_price = mean(price_per_pound, na.rm = T)) %&gt;% ungroup()</code></pre>
+<p><br></p>
+</div>

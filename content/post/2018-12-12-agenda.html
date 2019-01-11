@@ -29,7 +29,7 @@ Cloquet, MN 55720</p>
 </div>
 <div id="day-1" class="section level1">
 <h1>Day 1</h1>
-<p>Planets visited: <code>Jakku</code></p>
+<p>Planets visited: <code>Endor and Jakku</code></p>
 <div class="row">
 <div class="col-md-6">
 <p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
@@ -66,7 +66,6 @@ Cloquet, MN 55720</p>
 <ul>
 <li>Plot the data, plot the data, plot the data!</li>
 <li>Look for errors and outliers</li>
-<li>Add trend lines <i class="fas  fa-chart-line "></i></li>
 </ul></li>
 </ol>
 <p>Packages: <code>readr</code>, <code>ggplot2</code></p>
@@ -84,23 +83,23 @@ Cloquet, MN 55720</p>
 <ul>
 <li>Arrange, sort, and <strong>filter</strong> data</li>
 </ul></li>
-<li>Corrupt the <em>Empire’s</em> data<br />
-</li>
-<li>Send the corrupted data back
-<ul>
-<li>Save data</li>
-<li>Share data online</li>
-</ul></li>
 <li>Summarize data</li>
+<li>Find the most profitable scrap for Rey<br />
+</li>
 <li>Make a summary for each <strong>group</strong>, site, or category within the data
 <ul>
-<li>Group by year and check for completeness</li>
-<li>Plot seasonal means</li>
-<li>Summarize by weekday, site, or region</li>
+<li>Summarize by location<br />
+</li>
+<li>Check for the number of data points in a group (you can use this to check for completeness!)</li>
+</ul></li>
+<li><p>Introduction to working with dates <code>lubridate</code></p>
+<ul>
+<li>Plot data by dates (Calendar plots)</li>
 </ul></li>
 </ol>
 <blockquote>
-<p>Help Rey get scrappy and solve a junk-data mystery</p>
+<p>Help Rey get scrappy and solve a junk-data mystery
+Travel to Endor and investigate if the Wookies ever even had a chance.</p>
 </blockquote>
 <p>Packages: <code>dplyr</code></p>
 </div>
@@ -111,8 +110,27 @@ Cloquet, MN 55720</p>
 <div class="row">
 <div class="col-md-6">
 <p><strong>Morning</strong> | <em>8:30-11:45am</em><br />
-Planets visited: <code>Endor</code></p>
+Planets visited: <code>Endor and Jakku</code></p>
 <p><em>Questions and Review</em></p>
+<ol style="list-style-type: decimal">
+<li>Intermediate data manipulation
+<ul>
+<li>Join tables together</li>
+<li>Adding and calculating new columns</li>
+<li>Unit conversions</li>
+<li>Make new columns based on a condition</li>
+</ul></li>
+<li>Learn summary functions: mean, median, max, min, nth, etc.</li>
+<li>String many functions together for less typing.</li>
+<li>Save files.</li>
+</ol>
+<p>Packages: <code>tidyair</code>, <code>openair</code></p>
+</div>
+<div class="col-md-6">
+<p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
+<blockquote>
+<p><em>Star Wars - Guess Who</em></p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li>Plot like a Jedi!
 <ul>
@@ -121,6 +139,7 @@ Planets visited: <code>Endor</code></p>
 <li>Histograms</li>
 <li>Highlight individual points</li>
 <li>Reference lines</li>
+<li>Add trend lines <i class="fas  fa-chart-line "></i></li>
 </ul></li>
 <li>Save charts to different formats</li>
 </ol>
@@ -138,33 +157,6 @@ Use plots and summaries to compare two data sets</p>
 <li>Temp vs. Hour of day</li>
 </ul></li>
 </ul></li>
-<li>Working with dates <code>lubridate</code>
-<ul>
-<li>Time/Twilight Zones</li>
-</ul></li>
-<li>Calendar plots</li>
-<li>Intermediate data manipulation
-<ul>
-<li>Join tables together</li>
-<li>Flip tables from <strong>wide</strong> to <strong>long</strong> format
-<ul>
-<li>Collapse data spread across many columns</li>
-</ul></li>
-</ul></li>
-<li>Adding and calculating new columns
-<ul>
-<li>Unit conversions</li>
-<li>Make new columns based on a condition <em>(only complete sites)</em></li>
-</ul></li>
-</ol>
-<p>Packages: <code>tidyair</code>, <code>openair</code></p>
-</div>
-<div class="col-md-6">
-<p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
-<blockquote>
-<p><em>Star Wars - Guess Who</em></p>
-</blockquote>
-<ol style="list-style-type: decimal">
 <li>More <strong>plots</strong>
 <ul>
 <li>Log transform</li>
@@ -182,34 +174,6 @@ Use plots and summaries to compare two data sets</p>
 <p><strong>Exercise</strong><br />
 Rey to the Rescue</p>
 </blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>Let’s map the data
-<ul>
-<li>Reading/Writing shapefiles</li>
-<li>Interactive web maps<br />
-</li>
-</ul></li>
-<li>Choose your own adventure!
-<ul>
-<li>Select your own or Star Wars data</li>
-<li>Clean the data</li>
-<li>Create a summary table</li>
-<li>Compare years</li>
-<li>Chart &amp; map the data</li>
-</ul></li>
-<li><strong>Retrieving data from the web</strong>
-<ul>
-<li>Download NEI data from EPA</li>
-<li>FTP sites</li>
-</ul></li>
-<li>NEI trend charts</li>
-<li>Saving plots</li>
-<li>Create custom <strong>functions()</strong>
-<ul>
-<li><code>r convert_lbs_to_kgs()</code></li>
-<li><code>ozone_to_AQI()</code></li>
-</ul></li>
-</ol>
 <p>Packages: <code>sf</code>, <code>leaflet</code></p>
 </div>
 </div>
@@ -223,13 +187,28 @@ Rey to the Rescue</p>
 <div class="row">
 <div class="col-md-6">
 <p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
+<ol style="list-style-type: decimal">
+<li>Share your data and code.</li>
+</ol>
 <p><strong>Questions / Review</strong></p>
 <p>It’s time to CHOOSE a side.</p>
 <ol style="list-style-type: decimal">
-<li>Load <em>YOUR</em> very own data</li>
+<li>Choose your own adventure!
+<ul>
+<li>Select your own or Star Wars data</li>
 <li>Clean the data</li>
-<li>Summarize &amp; save</li>
+<li>Create a summary table</li>
+<li>Compare years</li>
+<li>Chart &amp; map the data</li>
 <li>Multiple paths to choose from</li>
+</ul></li>
+<li><strong>Retrieving data from the web</strong>
+<ul>
+<li>Download NEI data from EPA</li>
+<li>FTP sites</li>
+</ul></li>
+<li>NEI trend charts</li>
+<li>Saving plots</li>
 </ol>
 <ul>
 <li><strong>PATHS</strong>

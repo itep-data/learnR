@@ -609,19 +609,32 @@ _Yes!! The FORCE is strong with you!_
 
 The text in the scripts with the `#` in front are called comments. A line that starts with a `#` is ignored and won't be run as R code. You can use the `#` to add notes in your script to make it easier for others and yourself to understand what is happening and why. You can also use comments to add warnings or instructions for others using your code.
 
-## Functions
+<br><br><br>
 
-Now that you know what objects are and how to create them, let's learn how to use them in _functions_. _Functions_ take one or more inputs called _arguments_. They perform steps based on the _arguments_ and usually return an output object. 
+<hr>
+
+<br><br><br>
+
+<details>
+<summary class = "btn_code_blue"> __Explore Functions Here!__ </summary>
+<p>
+
+_Functions_ perform steps based on inputs called _arguments_ and usually return an output object. There are _functions_ in R that are really complex but most boil down to the same general setup:
+
+```{r, eval=F}
+new_output <- function(argument_input1, argument_input2)
+```
+
+You can make your own functions in R and name them almost anything you like, even `my_amazing_starwars_function()`.
 
 <br>
 
-<details>
-<summary class = "btn_code_blue">_Clone Trooper function_</summary>
-<p>
-
-You can think of a _function_ like a plan for making Clone Troopers.
 
 ![](../images/clonetrooper_fathead.png){width="220" style="float: left; margin-right: 36px; margin-top: -2px;"}
+
+<br>
+
+You can think of a _function_ like a plan for making Clone Troopers.
 
 <br>
 
@@ -631,22 +644,20 @@ create_clones(host       = "Jango Fett",
               n_troopers = 2000)
 ```
 
-<br><br>
+<br>
 
 The _function_ above creates Clone Troopers based on two _arguments_: the `host` and `n_troopers`. When we have more than one _argument_, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.
 
 <br><br><br><br><br>
 
-<hr>
-
-</p></details>
 
 
 <br>
 
-### The `sum()` function  {-}
+__The `sum()` function__
 
-We already covered two functions: `c()` and `data.frame()`. Now let's use the `sum()` function to find the sum age of our Star Wars characters.
+We can use the `sum()` function to find the sum age of our Star Wars characters.
+
 ```{r}
 
 # Call the sum function with starwars_ages as input
@@ -659,7 +670,7 @@ ages_sum
 
 <br>
 
-The `sum()` function takes the _starwars_ages_ vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name `ages_sum`. If we don't assign the output object it will be printed to the console and won't be saved. Sometimes that's what we want, especially when we're exploring the data. 
+The `sum()` function takes the _starwars_ages_ vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name `ages_sum`. If we do not assign the output object it is printed to the console and not saved. Sometimes that's what we want, especially when we're exploring the data. 
 
 ```{r}
 # Alternative without assigning output
@@ -668,7 +679,7 @@ sum(starwars_ages)
 
 <br>
 
-> __NOTE:__ The original `starwars_ages` vector hasn't changed. Each function has its own "environment" and its calculations happen inside a bubble. In general, what happens inside a function won't change your objects outside of the function. 
+> __NOTE:__ The original `starwars_ages` vector has not changed. Each function has its own "environment" and its calculations happen inside a bubble. In general, what happens inside a function won't change your objects outside of the function. 
 
 
 ```{r}
@@ -676,35 +687,7 @@ starwars_ages
 ```
 
 
-
-## Function summary {-}
-
-There are functions in R that are more complex but most boil down to the same general setup:
-
-```{r, eval=F}
-new_output <- function(argument_input1, argument_input2)
-```
-
-We call a function and then add input arguments inside the parentheses. In exchange, the function returns an output object. You can make your own functions in R and name them almost anything you like, even `my_amazing_starwars_function()`.
-
 <br>
-
-<details>
-<summary class = "btn_code_blue"> __EXPLORE:__ What __arguments__ does my function have? </summary>
-<p>
-
-<div class="note">
-Functions often have more than one argument. Type `?read_csv` into your console to see help in the lower-right pane that describes all of the function's arguments and what they do. 
-
-Many of the options have default arguments (such as `col_names = TRUE`) that the function uses if you don't provide an alternative. A short scroll down in the help window will show you more details about the arguments and the values they take.
-
-`function(arg1 = input1, arg2 = input2, arg3...)`
-
-The _file_ argument tells us that the function expects a path to a file. It can be given many types of files, even a _ZIP_ file. Below that, you'll see the _col_names_ argument. This argument takes either `TRUE`, `FALSE`, or a character vector of column names. The default is `TRUE`, which means the first row in the CSV will be used for the column names of your table. 
-</div>
-
-</p></details>
-
 
 <div class="quiz">
 
@@ -726,8 +709,15 @@ __Which of these is a valid function call?__
 <p>
 <i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `replicate(100000000, "clones")`  
 _Correct! You are ready to audit a Junk dealer._
+
 </p></details>
 </div>
+
+<p>
+
+<br><br><br>
+
+<hr>
 
 
 # | Read data
@@ -1068,8 +1058,8 @@ Hmmm... Looks like there is an **All** category that we should look into more.
 
 # Key terms {-}
 
-|   |     |
-|--|---------|
+|   |          |
+|:--|:---------|
 |`package  `| An add-on for R that contains new functions that someone created to help you. It's like an App for R.  |
 |`library  `| The name of the folder that stores all your packages, and the function used to load a package.  |
 |`function  `| Functions perform an operation on your data and returns a result. The function `sum()` takes a series of values and returns the sum for you.  |

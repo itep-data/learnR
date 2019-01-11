@@ -136,7 +136,7 @@ porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
 
 <br>
 
-##`mutate()` PLUS `ifelse()` is powerful!{-}
+##`mutate()` PLUS `ifelse()` is powerful! {-}
 
 ![](https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja){width="480" align="center" style="margin-right: 28px;"}
 
@@ -182,7 +182,7 @@ __BB8 found a unit converter table while surfing the web.__ How does BB8 keep do
 
 <br>
 
-## Joining Star Wars characters{-}
+## Joining Star Wars characters {-}
 
 
 ![](../images/left_join_cheat.png){width="380" align="right" style="margin-top: -30px; margin-left: 40px; margin-right: 5px;"}

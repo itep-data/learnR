@@ -38,7 +38,7 @@ library(icon, knitr)
 </div>
 
 # Day 1
-Planets visited: `Jakku`
+Planets visited: `Endor and Jakku`
 
 <div class = "row">
 <div class = "col-md-6">
@@ -65,8 +65,7 @@ Begin Jedi training.
 1. Get visual with `ggplot2`
     - Plot the data, plot the data, plot the data!
     - Look for errors and outliers
-    - Add trend lines `r icon::fa("chart-line", size = 1)`
-
+    
 Packages: `readr`, `ggplot2`
 
 </div>
@@ -80,17 +79,18 @@ Packages: `readr`, `ggplot2`
     - Mean, max, min, quantile 
 1. Data transformations with `dplyr`
     - Arrange, sort, and __filter__ data 
-1. Corrupt the _Empire's_ data   
-1. Send the corrupted data back   
-    - Save data
-    - Share data online
 1. Summarize data
+1. Find the most profitable scrap for Rey   
 1. Make a summary for each __group__, site, or category within the data 
-    - Group by year and check for completeness
-    - Plot seasonal means
-    - Summarize by weekday, site, or region   
+    - Summarize by location  
+    - Check for the number of data points in a group (you can use this to check for completeness!)
+1. Introduction to working with dates `lubridate` 
+    
 
-> Help Rey get scrappy and solve a junk-data mystery     
+    - Plot data by dates (Calendar plots)
+
+> Help Rey get scrappy and solve a junk-data mystery
+> Travel to Endor and investigate if the Wookies ever even had a chance.     
 
 Packages: `dplyr`    
 
@@ -105,36 +105,18 @@ Packages: `dplyr`
 <div class = "col-md-6">
 
 **Morning** | _8:30-11:45am_   
-Planets visited: `Endor`
+Planets visited: `Endor and Jakku`
 
 _Questions and Review_
 
-1. Plot like a Jedi!
-    -	Make Scatter plots and box plots 
-    -	Add titles, colors, and labels 
-    -	Histograms 
-    -	Highlight individual points 
-    -	Reference lines 
-1.	Save charts to different formats 
-
->	**Exercise**  
-> Use plots and summaries to compare two data sets
-
-3. Plot `pollution` vs. `meteorology`
-    - Scatter plots
-        - Conc vs. Temp
-        - Conc vs. Hour of day
-        - Temp vs. Hour of day
-4. Working with dates `lubridate` 
-    - Time/Twilight Zones
-5. Calendar plots
-6. Intermediate data manipulation
+1. Intermediate data manipulation
     -	Join tables together
-    -	Flip tables from __wide__ to __long__ format
-        - Collapse data spread across many columns
-7. Adding and calculating new columns
+    -	Adding and calculating new columns
     - Unit conversions
-    - Make new columns based on a condition _(only complete sites)_ 
+    - Make new columns based on a condition
+1. Learn summary functions: mean, median, max, min, nth, etc.
+1. String many functions together for less typing.
+1. Save files.
 
 Packages: `tidyair`, `openair`
 
@@ -145,6 +127,23 @@ Packages: `tidyair`, `openair`
 
 > _Star Wars - Guess Who_   
 
+1. Plot like a Jedi!
+    -	Make Scatter plots and box plots 
+    -	Add titles, colors, and labels 
+    -	Histograms 
+    -	Highlight individual points 
+    -	Reference lines 
+    - Add trend lines `r icon::fa("chart-line", size = 1)`
+1.	Save charts to different formats 
+
+>	**Exercise**  
+> Use plots and summaries to compare two data sets
+
+3. Plot `pollution` vs. `meteorology`
+    - Scatter plots
+        - Conc vs. Temp
+        - Conc vs. Hour of day
+        - Temp vs. Hour of day
 1. More __plots__
     - Log transform
     - Reference lines
@@ -158,24 +157,6 @@ Packages: `tidyair`, `openair`
 > Rey to the Rescue 
 
 
-6. Let's map the data
-    - Reading/Writing shapefiles
-    - Interactive web maps  
-7. Choose your own adventure!
-    -	Select your own or Star Wars data
-    - Clean the data 
-    -	Create a summary table
-    -	Compare years
-    -	Chart & map the data 
-8. **Retrieving data from the web**
-    - Download NEI data from EPA
-    - FTP sites
-9. NEI trend charts
-10. Saving plots 
-11. Create custom **functions()**
-    - `r knitr::inline_expr("convert_lbs_to_kgs()")`
-    - ` ozone_to_AQI() `
-    
 Packages: `sf`, `leaflet`
 
 </div>
@@ -192,14 +173,24 @@ Planets visited: `Ahch-To`
 <div class = "col-md-6">
 **Morning** | _8:30-11:45am_  
 
+1. Share your data and code.
+
 __Questions / Review__
 
 It's time to CHOOSE a side.
 
-1. Load *YOUR* very own data
-1. Clean the data
-1. Summarize & save
-1. Multiple paths to choose from
+1. Choose your own adventure!
+    -	Select your own or Star Wars data
+    - Clean the data 
+    -	Create a summary table
+    -	Compare years
+    -	Chart & map the data 
+    - Multiple paths to choose from
+1. **Retrieving data from the web**
+    - Download NEI data from EPA
+    - FTP sites
+1. NEI trend charts
+1. Saving plots 
 
 - __PATHS__
     - Custom functions: 

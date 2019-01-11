@@ -1,0 +1,384 @@
+---
+title: "GIS and Shapefiles"
+output: 
+ html_document:
+    toc: true
+    toc_depth: 2
+    #toc_float: true
+    #theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    self_contained: false
+    fontsize: 14pt
+    monofont: Source Code Pro
+    monofontoptions: Scale = 1.1
+---
+
+<style> code {color: #535353 !important;} </style>
+
+```{r setup, include = F}
+knitr::opts_chunk$set(echo = T, error = T, message = F, warning = F)
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+dt_options <- list(scrollX = T, autoWidth = T, searching = F, ordering = F, lengthChange = F, paginate = F, info = F)
+```
+
+
+<img src="images/map_Hennepin.PNG" width="340" style="margin-top: -25px; margin-right: 0; margin-left: 30px; float: right;">
+
+<br>
+
+# The `sf` package
+
+The `sf` _(simple features)_ package can read and save shapefiles, and it plays nicely with the _dpylr_ functions you've been learning. Let's install it.
+
+```{r, eval=F}
+install.packages("sf")
+```
+
+<br>
+
+To load a shapefile, use the function `st_read()`. The __st__ stands for _spatial and temporal_ data.
+
+```{r sf, warning = F, message = F}
+library(dplyr)
+library(sf)
+
+census <- st_read("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Student Folder/Sample data/Shapefile poverty/Census2010_med_household_income.shp", stringsAsFactors = F)
+```
+
+<br>
+
+When you view the data you will see all the attributes of the shapefile stored in the first columns, and the spatial information stored in a final column named `geometry`.
+
+```{r sf2, warning = F, message = F}
+# View your new spatial data table
+glimpse(census)
+```
+
+
+Try `plot(census)` to see an overview of all the shapefile's attributes.
+
+# Quick plots
+
+## Plot all variables
+```{r}
+# Colors each polygon by attribute
+census %>% plot(max.plot = 10)
+```
+
+
+## Plot a single variable
+```{r}
+# Use select() to pick a single attribute
+census %>% select(HHold_MedI) %>% plot()
+```
+
+
+## Add grid lines
+```{r}
+# Add graticules
+census %>% select(HHold_MedI) %>% plot(graticule = T, axes = T)
+```
+
+
+## Plot with _ggplot2_ and _viridis_ colors.
+
+Run the code below to get the latest development version of _ggplot2_ and the _viridis_ color palette.
+```{r, eval = F}
+
+install.packages("devtools")
+  
+devtools::install_github("tidyverse/ggplot2")
+  
+install.packages("viridis")
+
+```
+
+<br>
+
+Now you're ready to make some _ggplot_ maps.
+
+```{r}
+# Load updated ggplot2 and colors
+library(ggplot2)
+library(viridis)
+
+ggplot(census) + 
+  geom_sf(aes(fill = HHold_MedI)) + 
+  scale_fill_viridis() +
+  labs(title = "Median Household Income by Census tract")
+
+```
+
+
+# Transform coordinates
+
+## Current coordinate reference system (CRS)
+```{r}
+census %>% st_crs()
+```
+
+## EPSG number for lat/long web coordinates - `4326`
+
+Web maps like _Google_ and _OpenStreets_ use the spherical Mercator projected coordinate system: __EPSG\#:__ `3857`. 
+
+(See https://epsg.io/3857)
+
+However, the coordinates shown to the user are primarily in : __EPSG\#:__ `4326`. 
+
+(See https://epsg.io/4326)
+
+
+> To make Anne Morris' day, ask her a question about coordinate reference systems.
+
+
+## EPSG number for UTM coordinates - `26915`
+
+Minnesota tends to use UTM coordinates for official business. They look like really big numbers, kind of like this: ` 475340, 5010480 `. They're easy to put in the wrong order, so it helps to remember that the latitude / Y-direction is the one with an extra digit. 
+
+UTM coordinates are broken up into different zones to help reduce the errors of mapping a sphere to a flat surface. Minnesota uses __UTM zone 15N__. If you're serious about maps, you should go ahead and get this tatooed to your right shoulder.
+
+The EPSG code for __UTM zone 15N__ is ` 26915 `.  
+
+(See https://epsg.io/26915)
+
+<i class="fa fa-warning" aria-hidden="true"></i> _Warning:_ When you save UTM coordinates in Excel or R, it's best to switch the columns to text. It will save you from finding all of your coordinates being rounded by an overly helpful computer.
+
+
+## Create a new map in _UTM_ coordinates
+```{r}
+
+# Transform coordinates
+census_utm <- census %>% st_transform(26915)
+
+
+# Quick plot
+census_utm %>% select(HHold_MedI) %>% plot()
+```
+
+> Wow! Can you see the difference?
+
+
+# Centroids
+```{r}
+
+# Calculate Census tract centroids
+tract_centers <- census_utm %>% st_centroid()
+
+# Quick plot
+tract_centers %>% plot()
+
+```
+
+
+## Add UTM centroid coordinates as new data columns
+```{r}
+
+# Get centroid coordinates
+center_coords <- st_coordinates(tract_centers) %>% as_data_frame()
+
+# Add centroid coordinates as columns to polygon data
+census_utm <- census_utm %>%  
+                    mutate(utm_x = center_coords$X,
+                           utm_y = center_coords$Y)
+
+# Check if it worked
+names(census_utm)
+
+glimpse(census_utm)
+
+```
+
+
+
+# Area calculations with `st_area()`
+```{r}
+
+# Add area column for each Census tracts
+census_utm <- census_utm %>% mutate(area = st_area(geometry))
+
+# Quick plot of BIGGEST 3 tracts
+census_utm %>% 
+   filter(rank(area) > 433) %>%
+   select(HHold_MedI) %>% 
+   plot()
+
+# Filter to top 3
+big_tracts <- filter(census_utm, rank(area) > 433)
+
+
+# Convert to a normal plain data_frame
+big_tracts <- as_data_frame(big_tracts)
+
+
+# Put a big dots to the 3 largest Census tracts
+ggplot(census_utm) + 
+  geom_sf(aes(fill = HHold_MedI)) + 
+  geom_point(data = big_tracts, aes(x = utm_x, y = utm_y), size = 7) +
+  scale_fill_viridis() +
+  labs(title = "Median Household Income by Census tract")
+
+
+```
+
+
+# Interactive map with `leaflet`
+
+Install the _leaflet_ package to make quick interactive maps.
+
+`install.packages("leaflet")`
+
+__A map you can zoom and click on!__
+```{r}
+library(leaflet)
+
+# Leaflet uses coordinates in the normal lat/long Google map flavor.
+# EPSG 
+census <- st_transform(census, 4326)
+
+# Check coordinate system
+# You want "+datum=WGS84"
+st_crs(census)
+
+# Create a color legend based on HHold_MedI
+legend_colors <- colorQuantile("Blues", census$HHold_MedI, n = 7)
+
+# Polygon map colored by HHold_MedI
+web_map <- leaflet(census) %>%
+            addProviderTiles(providers$OpenStreetMap) %>% 
+            addPolygons(fillColor = ~legend_colors(HHold_MedI), 
+                        fillOpacity = 0.75,
+                        color       = "white", # Border color
+                        weight      = 1,       # Border width
+                        popup = paste("Census Tract: ", census$GEOID,
+                                      "<br> Median HH Income: ", census$HHold_MedI)) 
+ 
+
+# Show map
+web_map
+
+# Click on it.
+
+```
+
+<br>
+
+__Let's make the background gray, and add special marker and a legend.__
+```{r}
+  
+# Add gray base map and a marker for your favorite Tract
+web_map <- web_map %>%
+              addProviderTiles(providers$CartoDB.Positron, options = providerTileOptions(opacity = 0.5)) %>%
+              addMarkers(lng = census$INTPTLON10[1] %>% as.numeric(), 
+                         lat = census$INTPTLAT10[1] %>% as.numeric(), 
+                         label = "You are not here.",
+                         labelOptions = labelOptions(noHide = T),
+                         popup = paste("These people make more $ than you.")) 
+
+
+# Add a floating legend
+web_map <- web_map %>%
+             addLegend("topleft",
+                       pal = legend_colors,
+                       values = ~HHold_MedI,
+                       title = "Median HH Income %ile")
+ 
+# Reprint map
+web_map
+```
+
+
+# Distance calculations with `st_distance()`
+```{r}
+
+# Find distance between the center of first 3 Census tracts
+distances <- census_utm[1:3, ] %>% st_distance()
+
+census_utm[1:3, ] %>% select("HHold_MedI") %>% plot(pch = 19)
+
+
+# Using the centroids we calculated earlier,
+## Find distance between the center of first census tract and all other census tracts
+distances <- tract_centers %>% st_distance()
+
+
+# Add all distances to the polygon dataframe
+census_utm <- census_utm %>% mutate(distance = distances[1, ]) 
+
+# Take a look
+## Apparently it is a total distance of 0 meters away from itself.
+glimpse(census_utm)
+
+```
+
+
+
+# Download Census data
+
+The _tigris_ package is great for Census boundary files, and the _tidycensus_ provides access to all of the updated ACS demographic data. With their powers combined you can make __all__ the maps.
+
+## Spatial polygons
+
+Let's install the _tigris_ package.
+
+`install.packages(tigris)`
+
+### Minnesota tracts
+```{r, results='hide', message=F, warning=F}
+library(tigris)
+
+# Load geography
+mn_tracts <- tracts(state = "MN", cb = TRUE)
+
+# Plot map
+plot(mn_tracts)
+```
+
+
+### Midwest Counties
+
+```{r, results='hide', message=F, warning=F}
+# Load geography
+midw_counties <- counties(state = c("MN","SD","ND", "WI"), cb = TRUE)
+
+plot(midw_counties, col = midw_counties$STATEFP, stroke = "white")
+```
+
+
+# American Community Survey (ACS) 
+
+Let's install the _tidycensus_ package.
+
+`install.packages(tidycensus)`
+
+## Download population data for 2015 _(5 year average)_
+```{r}
+library(tidycensus)
+
+# Load Census key so the Govt. can track you when you get data
+census_api_key(readLines("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Student Folder/census_key.txt"))
+
+# View all 2015 ACS variables you can choose from
+acs_variables <- load_variables(2015, "acs5", cache = TRUE)
+
+# Get the population data fro all MN Census Tracts
+pops <- get_acs(geography = "tract", state = "MN", variables = "B01003_001E", survey = "acs5", year = 2015)
+
+
+# Show top 6 rows
+select(pops, -GEOID) %>% head()
+
+```
+
+
+<br>
+
+_Reference:_ [UseR2017 | reading and writing spatial data](https://edzer.github.io/UseR2017/#reading-and-writing-spatial-data)
+
+<br>
+
+_You've reached the end of the dusty path. You look around and all you see is an old worn scrap of leather. Maybe it used to be a shoe? You can pick it up and take it with you if you like. The choice is yours._ 
+
+Return to the homepage and continue your adventure.
+
+

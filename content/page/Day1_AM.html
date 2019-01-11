@@ -98,8 +98,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#multiple-items"><span class="toc-section-number">3.2</span> Multiple items</a></li>
 <li><a href="#make-a-table"><span class="toc-section-number">3.3</span> Make a table</a></li>
 <li><a href="#leave-a-comment"><span class="toc-section-number">3.4</span> Leave a <code>#comment</code></a></li>
-<li><a href="#functions"><span class="toc-section-number">3.5</span> Functions</a></li>
-<li><a href="#function-summary">Function summary</a></li>
 </ul></li>
 <li><a href="#read-data"><span class="toc-section-number">4</span> | Read data</a><ul>
 <li><a href="#new-message-1">New Message <em>(1)</em></a></li>
@@ -251,34 +249,34 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">2016-06-05</td>
+<td align="right">17</td>
+<td align="right">65.0</td>
+</tr>
+<tr class="even">
 <td align="left">27-137-7554</td>
-<td align="left">2017-06-13</td>
-<td align="right">6</td>
-<td align="right">68.6</td>
+<td align="left">2017-08-01</td>
+<td align="right">24</td>
+<td align="right">75.8</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2017-06-07</td>
+<td align="right">8</td>
+<td align="right">64.4</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">2017-10-07</td>
-<td align="right">10</td>
-<td align="right">47.0</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">2016-07-23</td>
-<td align="right">20</td>
-<td align="right">74.0</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">2018-05-14</td>
+<td align="left">2018-10-18</td>
 <td align="right">5</td>
-<td align="right">48.8</td>
+<td align="right">48.2</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">2018-05-15</td>
-<td align="right">3</td>
-<td align="right">43.4</td>
+<td align="left">2017-05-24</td>
+<td align="right">12</td>
+<td align="right">82.4</td>
 </tr>
 </tbody>
 </table>
@@ -634,29 +632,28 @@ starwars_df<span class="op">$</span>ages</code></pre>
 <div id="leave-a-comment" class="section level2">
 <h2><span class="header-section-number">3.4</span> Leave a <code>#comment</code></h2>
 <p>The text in the scripts with the <code>#</code> in front are called comments. A line that starts with a <code>#</code> is ignored and won’t be run as R code. You can use the <code>#</code> to add notes in your script to make it easier for others and yourself to understand what is happening and why. You can also use comments to add warnings or instructions for others using your code.</p>
-</div>
-<div id="functions" class="section level2">
-<h2><span class="header-section-number">3.5</span> Functions</h2>
-<p>Now that you know what objects are and how to create them, let’s learn how to use them in <em>functions</em>. <em>Functions</em> take one or more inputs called <em>arguments</em>. They perform steps based on the <em>arguments</em> and usually return an output object.</p>
-<p><br></p>
+<p><br><br><br></p>
+<hr>
+<p><br><br><br></p>
 <details>
-<summary class = "btn_code_blue"><em>Clone Trooper function</em></summary>
+<summary class = "btn_code_blue"> <strong>Explore Functions Here!</strong> </summary>
 <p>
-<p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
+<p><em>Functions</em> perform steps based on inputs called <em>arguments</em> and usually return an output object. There are <em>functions</em> in R that are really complex but most boil down to the same general setup:</p>
+<pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre>
+<p>You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
+<p><br></p>
 <p><img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" /></p>
+<p><br></p>
+<p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
               <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre>
-<p><br><br></p>
+<p><br></p>
 <p>The <em>function</em> above creates Clone Troopers based on two <em>arguments</em>: the <code>host</code> and <code>n_troopers</code>. When we have more than one <em>argument</em>, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.</p>
 <p><br><br><br><br><br></p>
-<hr>
-</p>
-</details>
 <p><br></p>
-<div id="the-sum-function" class="section level3 unnumbered">
-<h3>The <code>sum()</code> function</h3>
-<p>We already covered two functions: <code>c()</code> and <code>data.frame()</code>. Now let’s use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
+<p><strong>The <code>sum()</code> function</strong></p>
+<p>We can use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call the sum function with starwars_ages as input</span>
 ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages) <span class="co"># Assigns the output to starwars_ages_sum</span>
 
@@ -664,35 +661,17 @@ ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages
 ages_sum</code></pre>
 <pre><code>## [1] 63</code></pre>
 <p><br></p>
-<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name <code>ages_sum</code>. If we don’t assign the output object it will be printed to the console and won’t be saved. Sometimes that’s what we want, especially when we’re exploring the data.</p>
+<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name <code>ages_sum</code>. If we do not assign the output object it is printed to the console and not saved. Sometimes that’s what we want, especially when we’re exploring the data.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
 <span class="kw">sum</span>(starwars_ages) </code></pre>
 <pre><code>## [1] 63</code></pre>
 <p><br></p>
 <blockquote>
-<p><strong>NOTE:</strong> The original <code>starwars_ages</code> vector hasn’t changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
+<p><strong>NOTE:</strong> The original <code>starwars_ages</code> vector has not changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
 </blockquote>
 <pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre>
 <pre><code>## [1] 19 19 25</code></pre>
-</div>
-</div>
-<div id="function-summary" class="section level2 unnumbered">
-<h2>Function summary</h2>
-<p>There are functions in R that are more complex but most boil down to the same general setup:</p>
-<pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre>
-<p>We call a function and then add input arguments inside the parentheses. In exchange, the function returns an output object. You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
 <p><br></p>
-<details>
-<summary class = "btn_code_blue"> <strong>EXPLORE:</strong> What <strong>arguments</strong> does my function have? </summary>
-<p>
-<div class="note">
-<p>Functions often have more than one argument. Type <code>?read_csv</code> into your console to see help in the lower-right pane that describes all of the function’s arguments and what they do.</p>
-<p>Many of the options have default arguments (such as <code>col_names = TRUE</code>) that the function uses if you don’t provide an alternative. A short scroll down in the help window will show you more details about the arguments and the values they take.</p>
-<p><code>function(arg1 = input1, arg2 = input2, arg3...)</code></p>
-<p>The <em>file</em> argument tells us that the function expects a path to a file. It can be given many types of files, even a <em>ZIP</em> file. Below that, you’ll see the <em>col_names</em> argument. This argument takes either <code>TRUE</code>, <code>FALSE</code>, or a character vector of column names. The default is <code>TRUE</code>, which means the first row in the CSV will be used for the column names of your table.</p>
-</div>
-</p>
-</details>
 <div class="quiz">
 <h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
 <p><strong>Which of these is a valid function call?</strong></p>
@@ -705,11 +684,14 @@ ages_sum</code></pre>
 <details>
 <p><summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
-<i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code><br />
-<em>Correct! You are ready to audit a Junk dealer.</em>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code><br />
+<em>Correct! You are ready to audit a Junk dealer.</em></p>
 </p>
 </details>
 </div>
+<p>
+<p><br><br><br></p>
+<hr>
 </div>
 </div>
 <div id="read-data" class="section level1">
@@ -1026,25 +1008,25 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <h1>Key terms</h1>
 <table>
 <colgroup>
-<col width="18%" />
-<col width="81%" />
+<col width="23%" />
+<col width="76%" />
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><code>package</code></td>
-<td>An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
+<td align="left"><code>package</code></td>
+<td align="left">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
 </tr>
 <tr class="even">
-<td><code>library</code></td>
-<td>The name of the folder that stores all your packages, and the function used to load a package.</td>
+<td align="left"><code>library</code></td>
+<td align="left">The name of the folder that stores all your packages, and the function used to load a package.</td>
 </tr>
 <tr class="odd">
-<td><code>function</code></td>
-<td>Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
+<td align="left"><code>function</code></td>
+<td align="left">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
 </tr>
 <tr class="even">
-<td><code>argument</code></td>
-<td>Options or inputs that you pass to a function that determine how it behaves. The argument <code>skip = 1</code> tells the the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
+<td align="left"><code>argument</code></td>
+<td align="left">Options or inputs that you pass to a function that determine how it behaves. The argument <code>skip = 1</code> tells the the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
 </tr>
 </tbody>
 </table>

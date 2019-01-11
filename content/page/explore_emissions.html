@@ -1,0 +1,312 @@
+---
+title: "R Workshops | Tidy data"
+output: 
+ html_document:
+    toc: false
+    toc_depth: 2
+    toc_float: true
+    theme: readable
+    highlight: tango
+    css: css/camp_style.css
+fontsize: 14pt
+monofont: Source Code Pro
+monofontoptions: Scale = 1.1
+---
+
+
+
+<style> code {color: #535353 !important;} </style>
+<hr>
+<p>This workshop is available online at</p>
+<blockquote>
+<p><a href="https://mpca-air.github.io/RCamp" class="uri">https://mpca-air.github.io/RCamp</a></p>
+</blockquote>
+<p>The messy data examples can be downloaded from here</p>
+<blockquote>
+<p><a href="https://github.com/MPCA-air/RCamp/tree/master/data/messy_data" class="uri">https://github.com/MPCA-air/RCamp/tree/master/data/messy_data</a></p>
+</blockquote>
+<div id="tidy-data" class="section level1">
+<h1>Tidy data</h1>
+<hr>
+<pre class="r"><code>#------------------------------------------------------------------------#
+# Tidy data script
+# Demonstrates cleaning up the messiest data / Excel files you can find
+#------------------------------------------------------------------------#
+
+# Install these packages
+install.packages(&quot;readxl&quot;)    # For importing Excel data
+install.packages(&quot;tidyr&quot;)     # For re-organizing your data frames
+install.packages(&quot;lubridate&quot;) # For dates
+install.packages(&quot;stringr&quot;) # Cleans spaces and character strings
+install.packages(&quot;forcats&quot;)   # For assigning an order to character data c(&quot;Gold&quot;, &quot;Silver&quot;, &quot;Bronze&quot;)
+                 
+# Load these packages
+library(&quot;dplyr&quot;)
+library(&quot;readr&quot;)
+library(&quot;ggplot2&quot;)
+library(&quot;tidyr&quot;)     
+library(&quot;readxl&quot;)    
+library(&quot;lubridate&quot;) 
+library(&quot;stringr&quot;)
+library(&quot;forcats&quot;)   
+
+
+#------------------------------------------------------------------------#
+# Wide tables
+#------------------------------------------------------------------------#
+
+# Let&#39;s start with a really WIDEEEEE Excel table with lots of columns
+
+#1. Load emissions Excel file
+folder &lt;- &quot;messy_data/&quot;
+
+wide_data &lt;- read_excel(paste0(folder, &quot;emissions_2015.xlsx&quot;))
+
+#2. Lowercase names
+names(wide_data) &lt;- tolower(names(wide_data))
+
+names(wide_data)
+
+#3. Gather all the pollutant columns into one
+long_data &lt;- wide_data %&gt;% 
+                gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
+
+#4. Drop the missing values and zero emissions
+long_data &lt;- filter(long_data, !is.na(emissions), emissions &gt; 0)
+
+
+#5. Plot emissions for *ALL* pollutants
+long_data %&gt;% ggplot(aes(x = pollutant, y = emissions)) + 
+                geom_boxplot() + 
+                scale_y_log10()
+
+#6. Plot GHGs
+long_data &lt;- filter(long_data, pollutant %in% c(&quot;co2&quot;, &quot;co2-b&quot;, &quot;methane&quot;, &quot;nitrous oxid&quot;, &quot;hfc-134a&quot;))
+
+long_data %&gt;% 
+  ggplot(aes(x = pollutant, y = emissions)) + 
+    geom_boxplot() + 
+    scale_y_log10()
+
+
+#6. Arrange plots in descending order
+long_data &lt;- long_data %&gt;% arrange(desc(emissions))
+
+# See the new pollutant order
+unique(long_data$pollutant)
+
+# Use fct_inorder() to tell ggplot to respect your pollutant order.
+long_data %&gt;% 
+  ggplot(aes(x = fct_inorder(pollutant), y = emissions)) + 
+    geom_boxplot() + 
+    scale_y_log10() +
+    labs(x = &quot;Pollutant&quot;)
+
+
+# **Bonus** 
+# Flip your data back to wide format using 
+## spread(data, column_to_spread, column_to_use_for_values)
+wide_again &lt;- spread(long_data, pollutant, emissions)  
+
+
+#------------------------------------------------------------------------#
+# Looping through files
+#------------------------------------------------------------------------#
+
+# Example &quot;for loop&quot;
+num &lt;- 1:10
+
+num
+
+# Pi loop
+for (i in num) {
+  
+  print(i + pi)
+  
+}
+
+
+# Save answers in Pi loop
+answers &lt;- c()
+
+for (i in num) {
+  
+  temp &lt;- i + pi
+  
+  print(temp)
+  
+  answers &lt;- c(temp, answers)
+  
+}
+
+answers
+
+# For loop of air monitoring files
+files_2016 &lt;- list.files(&quot;messy_data/60min/&quot;)
+
+
+# Loop through each file
+for (i in files_2016) {
+  
+  print(i)
+
+}
+
+# Read each file and add to master table &quot;data_2016&quot;
+data_2016 &lt;- data_frame()
+
+
+for (i in files_2016) {
+  
+  print(i)
+  
+  # Read in a single file
+  temp &lt;- read_csv(paste0(&quot;messy_data/60min/&quot;, i))
+ 
+  # Select only 2 columns and date/time
+  temp &lt;- select(temp, `Date&amp;Time`, `BC1(370)`, `BC6(880)`)
+  
+  # Add to master table of all files  
+  data_2016 &lt;- bind_rows(temp, data_2016)
+
+}
+
+
+# Fix column names
+names(data_2016)
+
+# str_trim() removes empty spaces at the beginning and end of a string
+str_trim(&quot; excel_column &quot;)
+
+# gsub() finds and replaces values in strings. 
+# Use ?gsub for more information on how to supply arguments.
+
+# gsub(character_to_search_for, what_toreplace_with, your_string)
+# The line below searches for any space and replaces it with nothing &quot;&quot;.
+gsub(&quot; &quot;, &quot;&quot;, &quot; excel column &quot;)
+
+
+# Parenthesis are special.
+# When replacing special characters, you must use [ ] around them or you&#39;ll get an error like this.
+gsub(&quot;(&quot;, &quot;&quot;, names(data_2016))
+
+# Drop left
+gsub(&quot;[(]&quot;, &quot;&quot;, names(data_2016))
+
+# Drop right
+gsub(&quot;[)]&quot;, &quot;&quot;, names(data_2016))
+
+# Drop both with the &quot;or&quot; operator |
+# Hint: it&#39;s the vertical line above the Enter key on the keybord
+names(data_2016) &lt;- gsub(&quot;[()]|[)]&quot;, &quot;&quot;, names(data_2016))
+
+names(data_2016)
+
+# Drop the M&amp;M symbol
+names(data_2016) &lt;- gsub(&quot;&amp;&quot;, &quot;&quot;, names(data_2016))
+
+names(data_2016)
+
+# Make lowercase
+names(data_2016) &lt;- tolower(names(data_2016))
+
+names(data_2016)
+
+# Check date coverage
+range(data_2016$datetime)
+
+
+# Use function from lubridate package to convert to &quot;date&quot;
+# Use mdy_hm because the dates are in Month, Day, Year, Hour, Minute order
+data_2016 &lt;- mutate(data_2016, date = mdy_hm(datetime)) 
+
+range(data_2016$date)
+
+# Now extract the individual time components
+data_2016 &lt;- mutate(data_2016,
+                    year    = year(date),
+                    quarter = quarter(date),
+                    month   = month(date),
+                    week    = week(date),
+                    day     = day(date),
+                    hour    = hour(date),
+                    minute  = minute(date))
+
+
+# Now you can group_by the different time components
+group_by(data_2016, quarter) %&gt;% summarize(med_bc1270 = median(bc1370, na.rm = T),
+                                           med_bc6880 = median(bc6880, na.rm = T)) 
+
+
+
+# View final table
+View(data_2016)
+
+
+
+#------------------------------------------------------------------------#
+# Anne&#39;s scary landfill data ;( 
+#------------------------------------------------------------------------#
+
+# Excel range example and sheet selection
+folder &lt;- &quot;messy_data/&quot;
+
+permitted &lt;- read_excel(paste0(folder, &quot;2016 Demo Retrac Report.xlsx&quot;), 
+                        sheet = &quot;2014&quot;, 
+                        range = &quot;A4:I102&quot;, 
+                        col_names = T)
+
+ultimate &lt;- read_excel(paste0(folder, &quot;2016 Demo Retrac Report.xlsx&quot;), 
+                       sheet = &quot;2014&quot;, 
+                       range = &quot;K4:N102&quot;, 
+                       col_names = T)
+
+# left_join()
+one_table &lt;- left_join(permitted, ultimate)
+
+
+#------------------------------------------------------------------------#
+# Blank rows in Excel
+#------------------------------------------------------------------------#
+
+# See what directory you&#39;re in
+list.files(&quot;messy_data/&quot;)
+
+# Read the PTE tab - &quot;Potential emissions&quot;
+emits &lt;- read_excel(&quot;messy_data/emission_calcs.xlsx&quot;, &quot;PTE - Pollutant Summary&quot;)
+
+
+# Where do the column names start? Let&#39;s &quot;skip&quot; the top 3 info rows.
+
+
+# Skip first 3 rows
+emits &lt;- read_excel(&quot;messy_data/emission_calcs.xlsx&quot;, 
+                    sheet = &quot;PTE - Pollutant Summary&quot;, 
+                    skip = 3)
+
+View(emits)
+
+# Why are pollutant names only listed once in table? Maybe it seemed like a good idea at the time, but can create problems when sorting.
+
+#-------------------------------------------#
+# How can we fill in the empty rows?
+#-------------------------------------------#
+
+# -&gt; Don&#39;t worry you don&#39;t need to paste in Excel! 
+# -&gt; R is your friend and will help you.
+
+
+# Fill empty rows using fill() from the tidyr package
+emits &lt;- fill(emits, Pollutant)
+
+View(emits)
+
+#------------------------------------------------------------------------#
+# Look out messy data, R is coming for you.
+#------------------------------------------------------------------------#
+
+
+############
+# THE END  #
+############</code></pre>
+</div>

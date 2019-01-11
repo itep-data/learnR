@@ -1,0 +1,233 @@
+---
+title: "Air, wind and roses"
+output: 
+  blogdown::html_page: 
+    toc: true
+    toc_depth: 2
+    #toc_float: true
+    #theme: readable
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: false
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+
+Let's take a look at some air pollution data stored in an Excel file.
+
+## Download the data
+
+## Install packages
+
+```{r, eval=F}
+
+# Get devtools for installing new packages from GitHub
+install.packages("devtools", dependencies = TRUE)
+
+# Load the devtools library 
+library(devtools)
+
+# Install openair for windrose functions
+install_github('davidcarslaw/openair')
+```
+
+
+## Load the data
+```{r}
+
+# Load packages
+library(openair)
+library(readxl)
+library(ggplot2)
+library(dplyr)
+library(lubridate)
+
+# Set the path to your the Excel file
+excel_path <- "data/2014_AQS_FondduLac.xlsx"
+```
+
+```{r, include=F}
+# Website path
+#excel_path <- "../data/la_jolla_pm25_wind_data.xls"
+excel_path <- "../data/2014_AQS_FondduLac.xlsx"
+
+#Drop the sites -7417 and -7550
+
+if(F) {
+air_data <- air_data %>% 
+            rename(site       = site_catid,
+                   wind_dir   = "Wind Direction (Degrees)",
+                   wind_mph   = "Wind Speed (mph)",
+                   pm25       = "PM2.5 Conc (ug/m3)") %>%
+            rename_all(tolower)
+
+}
+
+```
+
+```{r}
+# Read the file
+air_data <- read_excel(excel_path)
+```
+
+## Explore the data
+
+What are the column names? What is the range of values in each column? Are there missing values?
+
+```{r, eval=F}
+
+names(air_data)
+
+glimpse(air_data)
+
+summary(air_data)
+
+```
+
+
+
+## Simplify the column names
+```{r}
+
+# Drop special characters and shorten names
+# Set all names to lowercase
+air_data <- air_data %>% 
+            rename(site       = site_catid
+                  # wind_dir   = "Wind Direction (Degrees)",
+                   #wind_mph   = "Wind Speed (mph)",
+                  # ozone      = Conc
+                  ) %>%
+            rename_all(tolower)
+
+```
+
+
+## Plot the data
+
+Create a plot to show the distribution of each of the columns containing observations: `wind speed`, `wind direction`, and `concentration`.
+
+
+```{r, eval=F}
+
+ggplot(air_data, aes(x = ?, y = ?)) + geom_point()
+
+
+```
+
+
+## Let's focus on PM2.5
+
+Use filter to select only the `parameter` code `88101`.
+
+```{r, eval=F}
+
+air_data <- filter(air_data, parameter == ??)
+```
+
+
+```{r, include=F}
+
+air_data <- filter(air_data, parameter == 88101)
+```
+
+## Wind rose
+
+Now let's make some wind roses.
+
+```{r, eval=F}
+
+# Plot the data
+windRose(air_data, ws = "wind_mph", wd = "wind_dir")
+
+polarFreq(air_data)
+
+```
+
+
+## Pollution rose
+
+To make a pollution rose we can replace the name of the wind speed column with the name of PM2.5 column - `"PM2.5 Conc (ug/m3)"`
+
+```{r, eval=F}
+
+# Plot the data, 
+# Replace the windspeed column with the PM2.5 column
+windRose(air_data,
+         ws = "pm25",
+         wd = "wind_dir",
+         paddle = F)
+
+pollutionRose(air_data, 
+              pollutant = "pm25"
+              #wd        = "wd"
+              )
+```
+
+
+
+## Time series
+
+Let's summarize the observations by day and then make a time series chart to see how the pollution concentrations are changing over time.
+
+__Add monthly statistics__
+```{r}
+
+# Add a month column
+air_data <- air_data %>% 
+            mutate(day   = day(date),
+                   month = month(date),
+                   year  = year(date))
+
+
+# Find average PM25 concentration for each day
+#   - And upper and lower 10th percentile concentration
+air_data <- group_by(air_data, site, year, month, day, date) %>%
+            summarize(conc_avg  = mean(conc, na.rm = T),
+                      conc_10th = quantile(conc, 0.10, na.rm = T),
+                      conc_90th = quantile(conc, 0.90, na.rm = T)) %>%
+            ungroup()
+
+
+```
+
+
+__Plot a line chart__
+```{r}
+
+ggplot(air_data, aes(x = date, y = conc_avg)) +
+   geom_line() +
+   facet_wrap(~ site)
+
+```
+
+
+Now we can add a confidence band behind the line showing the upper and lower 10th percentile of the observations.
+
+```{r}
+
+ggplot(air_data, aes(x = date, y = conc_avg)) + 
+   geom_smooth(method ="loess", level = 0.90) +
+   geom_line(color = "tomato") +
+   facet_wrap(~site)
+
+```
+
+
+__What happens when you increase the `level = 0.90` up to `0.999`, making the shaded band a 99% confidence interval?__
+
+__Try adding another confidence band, but make it a linear model: `method = "lm"`, and set the color to "black". Does the new line predict the concentration to be going down or up at each site?__
+
+
+```{r}
+
+ggplot(air_data, aes(x = date, y = conc_avg)) + 
+   geom_smooth(method = "loess", level = 0.999) +
+   geom_line(color = "tomato") +
+   geom_smooth(method = "lm", level = 0.90, color = "black") +
+   facet_wrap(~site)
+
+```
+
+<br>

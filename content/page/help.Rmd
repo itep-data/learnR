@@ -47,8 +47,7 @@ __Find new packages and functions__
 
 __Books__    
 
-- [R for Data Science](http://r4ds.had.co.nz/): comprehensive & free book online.
-- R Cookbook: https://www.cookbook-r.com     
+- [R for Data Science](http://r4ds.had.co.nz/): comprehensive & free book online.    
     
 __Searching online__
 

@@ -5,12 +5,6 @@ title = "Learn R"
 theme = "beautifulhugo"
 summaryLength = 20
 metaDataFormat = "yaml"
-#pygmentsStyle = "trac"
-#pygmentsUseClasses = true
-#pygmentsCodeFences = true
-#pygmentsCodefencesGuessSyntax = false
-#pygmentsUseClassic = true
-#pygmentOptions = "linenos=inline"
 #disqusShortname = "XXX"
 #googleAnalytics = "XXX"
 #highlightjsLang = ["r"]
@@ -106,8 +100,3 @@ uglyURLs = true
     name = "Help"
     url = "page/help.html"
     weight = 6
-
-#[[menu.main]]
-#    name = "tags"
-#    url = "tags"
-#    weight = 7

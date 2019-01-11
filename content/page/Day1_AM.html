@@ -132,18 +132,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="all-together-now" class="section level2 unnumbered">
 <h2>All together now</h2>
 <p>Let’s launch ourselves into the unknown and use R to make a <code>Word Cloud</code>. With a little copy and pasting we can make a cool image out of everyone’s name in the class. Consider this an RStudio warm-up.</p>
-<p>We are going to make this graphic, and you are going to make your name really <strong>BIG</strong>.</p>
-<p><img src="../images/name_cloud.png" style="width:65.0%" /></p>
+<p>We’re going to make this graphic, and you’re going to make your name really <span style="font-size: 26px;"> <strong>BIG</strong> </span>.</p>
+<p><img src="../images/name_cloud_fdl.png" style="width: 100%; margin-top: 12px;" /></p>
 <ol style="list-style-type: decimal">
 <li>Open R Studio</li>
 </ol>
-<p><img src="../images/rstudio_open.png" style="width:35.0%" /></p>
+<p><img src="../images/rstudio_open.png" style="width: 35%;" /></p>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Copy the script below into your console in R Studio. Start with the line <code>install.packages</code> and end with the line <code>color = 'random-dark')</code>.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;wordcloud2&quot;</span>)
-<span class="kw">library</span>(<span class="st">&quot;wordcloud2&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;dplyr&quot;</span>))
+<span class="kw">library</span>(wordcloud2)
 <span class="kw">library</span>(dplyr)
 
 class &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Kari&quot;</span>     =<span class="st"> </span><span class="dv">8</span>, 
@@ -206,7 +206,7 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 <h1>Introductions</h1>
 <hr>
 <p>Let’s introduce ourselves and the data we love <em>(or don’t)</em>.</p>
-<p><img src="../images/starwars_group.jpg" align="right" style="width: 54%; margin-left: 26px;" /></p>
+<p><img src="../images/starwars_group.jpg" align="right" style="width: 54%; margin-left: 26px; margin-top: 10px;" /></p>
 <p><strong>Please share:</strong></p>
 <div class="note" style="margin-top: -2px;">
 <ul>
@@ -237,58 +237,19 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 </div>
 <div id="read-the-data" class="section level3 unnumbered">
 <h3>1. Read the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-
-air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">SITE</th>
-<th align="left">Date</th>
-<th align="right">OZONE</th>
-<th align="right">TEMP_F</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">2016-08-24</td>
-<td align="right">12</td>
-<td align="right">71.0</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">2016-07-01</td>
-<td align="right">3</td>
-<td align="right">66.2</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">2016-10-15</td>
-<td align="right">9</td>
-<td align="right">56.6</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">2018-07-23</td>
-<td align="right">10</td>
-<td align="right">74.0</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">2016-09-25</td>
-<td align="right">17</td>
-<td align="right">65.6</td>
-</tr>
-</tbody>
-</table>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
+<pre><code>## Error: package or namespace load failed for &#39;tidyverse&#39; in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
+##  there is no package called &#39;dplyr&#39;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
+<pre><code>## Error in read_csv(&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;): could not find function &quot;read_csv&quot;</code></pre>
+<pre><code>## Error in air_data %&gt;% sample_n(5) %&gt;% select(SITE, Date, OZONE, TEMP_F) %&gt;% : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="plot-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.1</span> 2. Plot the data</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
-<p><img src="/page/Day1_AM_files/figure-html/view-1.png" width="1152" /></p>
+<pre><code>## Error in ggplot(air_data, aes(x = TEMP_F, y = OZONE)): could not find function &quot;ggplot&quot;</code></pre>
 </div>
 <div id="clean-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.2</span> 3. Clean the data</h3>
@@ -308,7 +269,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>SITE) <span class="op">+</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ozone increases with temperature&quot;</span>, 
          <span class="dt">subtitle =</span> <span class="st">&quot;Observations from 2015-2017&quot;</span>)</code></pre>
-<p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
+<pre><code>## Error in ggplot(air_data, aes(x = TEMP_F, y = OZONE)): could not find function &quot;ggplot&quot;</code></pre>
 </div>
 <div id="summarize-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.4</span> 5. Summarize the data</h3>
@@ -316,54 +277,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="st">            </span><span class="kw">group_by</span>(SITE, YEAR) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">summarize</span>(<span class="dt">AVG_OZONE =</span> <span class="kw">mean</span>(OZONE) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>),
                       <span class="dt">AVG_TEMP  =</span> <span class="kw">mean</span>(TEMP_F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">SITE</th>
-<th align="right">YEAR</th>
-<th align="right">AVG_OZONE</th>
-<th align="right">AVG_TEMP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="right">2016</td>
-<td align="right">11.49</td>
-<td align="right">60.67</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7001</td>
-<td align="right">2017</td>
-<td align="right">11.28</td>
-<td align="right">60.71</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="right">2018</td>
-<td align="right">11.15</td>
-<td align="right">61.07</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="right">2016</td>
-<td align="right">12.69</td>
-<td align="right">60.66</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="right">2017</td>
-<td align="right">12.18</td>
-<td align="right">61.24</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="right">2018</td>
-<td align="right">12.14</td>
-<td align="right">61.18</td>
-</tr>
-</tbody>
-</table>
+<pre><code>## Error in air_data %&gt;% group_by(SITE, YEAR) %&gt;% summarize(AVG_OZONE = mean(OZONE) %&gt;% : could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## Error in air_data %&gt;% kable(): could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="save-the-results" class="section level3">
 <h3><span class="header-section-number">1.0.5</span> 6. Save the results</h3>
@@ -1015,9 +930,9 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <div id="a-first-plot" class="section level2 unnumbered">
 <h2>A first plot</h2>
 <p>Here’s a quick chart of how many of each item we have in the dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-17-1.png" width="1152" /></p>
 <p>Hmmm… Looks like there is an <strong>All</strong> category that we should look into more.</p>
 </div>

@@ -11,14 +11,6 @@ type: ''
 image: 'https://mpca-air.github.io/RTrain/images/day2_bb8_sq.png' 
 imageWidth: '27%'
 imageFloat: 'left'
-output: 
-  blogdown::html_page: 
-    highlight: tango
-    css: "/css/camp_style.css"
-    number_sections: false
-    self_contained: false
-    fontsize: 18pt
-    monofont: Source Code Pro
 ---
 
 
@@ -33,9 +25,10 @@ We are blasting off to a new planet where our journey continues. New friends and
 
 ## Blast off!
 
-### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1](../page/day2_am.html) (Morning)
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1  (Morning)](../page/day2_am.html)
 
-### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2](../page/day2_pm.html) (Afternoon)
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/day2_pm.html) 
 
 <br>
 

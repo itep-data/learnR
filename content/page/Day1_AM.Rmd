@@ -47,21 +47,21 @@ We aren't related.
 
 Let's launch ourselves into the unknown and use R to make a `Word Cloud`. With a little copy and pasting we can make a cool image out of everyone's name in the class. Consider this an RStudio warm-up.
 
-We are going to make this graphic, and you are going to make your name really __BIG__.
+We're going to make this graphic, and you're going to make your name really <span style="font-size: 26px;"> __BIG__ </span>.
 
-![](../images/name_cloud.png){width="65%"}
+![](../images/name_cloud_fdl.png){style="width: 100%; margin-top: 12px;"}
 
 1. Open R Studio
 
-![](../images/rstudio_open.png){width="35%"}
+![](../images/rstudio_open.png){style="width: 35%;"}
 
 <br>
 
 2. Copy the script below into your console in R Studio. Start with the line `install.packages` and end with the line `color = 'random-dark')`.
 
 ```{r wordcloud, eval=F}
-install.packages("wordcloud2")
-library("wordcloud2")
+install.packages(c("wordcloud2", "dplyr"))
+library(wordcloud2)
 library(dplyr)
 
 class <- c("Kari"     = 8, 
@@ -127,7 +127,7 @@ wordcloud2(data.frame(word = names(class), freq = class),
 
 Let's introduce ourselves and the data we love _(or don't)_.
 
-![](../images/starwars_group.jpg){align="right" style="width: 54%; margin-left: 26px;"}
+![](../images/starwars_group.jpg){align="right" style="width: 54%; margin-left: 26px; margin-top: 10px;"}
 
 __Please share:__  
 

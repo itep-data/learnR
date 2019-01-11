@@ -23,14 +23,16 @@ You are BB8 and you've arrived to just in time. Rey needs your help!
 
 The Junk boss Unkar is up to no-good once again and Rey needs some parts to repair a starship. With your help she can escape Jakku and join forces with the New Republic. 
 
-Lucky for Rey, you just snagged a transfer log from Unkar’s droid showing a list of recent scrap shipments. Our goal is to make some trouble for Unkar and track down some of those ship parts Rey needs while we're at it. 
+Lucky for Rey, you just snagged a transfer log from Unkar’s droid showing a list of recent scrap shipments. Our goal is to make some trouble for Unkar and track down those ship parts Rey needs while we're at it. 
 
 
 ## Blast off!
 
-### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1](../page/day1_am.html) (Morning)
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1 (Morning)](../page/day1_am.html) 
 
-### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2](../page/day1_pm.html) (Afternoon)
+`Lunch break` <i class="fa fa-utensils"></i> ☕
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/day1_pm.html) 
 
 <br>
 

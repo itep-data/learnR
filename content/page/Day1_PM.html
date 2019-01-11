@@ -154,8 +154,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3>Data frame info</h3>
 <table>
 <colgroup>
-<col width="43%" />
-<col width="56%" />
+<col width="20%" />
+<col width="80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -169,20 +169,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">column names</td>
 </tr>
 <tr class="even">
-<td align="left"><code>nrow(scrap)</code></td>
+<td align="left"><code>nrow(...)</code></td>
 <td align="left">number of rows</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>ncol(scrap)</code></td>
+<td align="left"><code>ncol(...)</code></td>
 <td align="left">number of columns</td>
 </tr>
 <tr class="even">
-<td align="left"><code>summary(scrap)</code></td>
-<td align="left">summary of all columns</td>
+<td align="left"><code>summary(...)</code></td>
+<td align="left">summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>glimpse(scrap)</code></td>
-<td align="left">column names + a glimpse of first few values (requires loading <em>dplyr</em> package)</td>
+<td align="left"><code>glimpse(...)</code></td>
+<td align="left">column names + a glimpse of first values (requires <em>dplyr</em> package)</td>
 </tr>
 </tbody>
 </table>
@@ -784,13 +784,17 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 <span class="kw">library</span>(dplyr)
 
 air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/air_endor.csv&quot;</span>)</code></pre>
+<p><img src="../images/planet_endor.jpg" align="right" style="width: 58%; margin-top: 78px;" /></p>
 </div>
 </div>
 <div id="welcome-to-endor" class="section level1">
 <h1><span class="header-section-number">11</span> | Welcome to Endor!</h1>
-<div id="lets-look-at-the-dataset.-remember-the-different-ways" class="section level3 unnumbered">
-<h3>Let’s look at the dataset. Remember the different ways?</h3>
-<p>Hint: <code>summary()</code>, <code>glimpse()</code></p>
+<p><br><br></p>
+<div style="clear:both;">
+<br>
+</div>
+<p><strong>Let’s look at the dataset.</strong> Remember the different ways?</p>
+<p>Hint: <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(air_endor)</code></pre>
 <pre><code>## Observations: 1,190
@@ -804,7 +808,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## $ Planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
 ## $ Result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
 <p><br></p>
-<p><strong>I see that there are more analytes than we need. We only want to know about <code>magentic_field</code> data, so let’s filter to that analyte.</strong></p>
+<p><strong>I see that there are more analytes than we need. We only want to know about <code>magentic_field</code> data. Let’s filter to that analyte.</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre>
 <p><br></p>
@@ -815,13 +819,12 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
 
 mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
-<p><br></p>
-</div>
 </div>
 <div id="calendar-plots" class="section level1">
 <h1><span class="header-section-number">12</span> | Calendar plots</h1>
-<p>Let’s make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint when magnetic storms are happening.</p>
-<p>There is a calendar plot function built into the openair package. We load the openair package, and use <code>calendarplot()</code> to make a pretty plot. We hope!</p>
+<p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 8px; margin-right: 34px; margin-bottom: 10px;" /></p>
+<p>Let’s make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint what days these magnetic storms are happening.</p>
+<p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install the <code>openair</code> package and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;openair&quot;) </span>
 <span class="kw">library</span>(openair) 
@@ -840,7 +843,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-3-1.png" width="2880" /></p>
 <div id="mission-accomplished" class="section level3 unnumbered">
 <h3>Mission accomplished!</h3>
-<p>It looks like we had really high magentic field readings in November, galactic year 9917.</p>
+<p>It looks like there were really high magentic field readings in November, Galactic year 9917.</p>
 <p><br></p>
 </div>
 <div id="return-to-homebase" class="section level3 unnumbered">

@@ -55,13 +55,13 @@ Use these quick functions to describe your data frame.
 
 ### Data frame info {-}
 
-| Function          | Information             |  
-|:------------------|:------------------------|  
-| `names(scrap)`    | column names            |  
-| `nrow(scrap)`     | number of rows          |  
-| `ncol(scrap)`     | number of columns       | 
-| `summary(scrap)`  | summary of all columns  | 
-| `glimpse(scrap)`  | column names + a glimpse of first few values (requires loading _dplyr_ package)   |  
+| Function | Information             |  
+|:------|:---------------------------|  
+| `names(scrap)`  | column names            |  
+| `nrow(...)`     | number of rows          |  
+| `ncol(...)`     | number of columns       | 
+| `summary(...)`  | summary of all column values (ex. _max_, _mean_, _median_)  | 
+| `glimpse(...)`  | column names + a glimpse of first values (requires _dplyr_ package)   |  
 
 
 # | `glimpse()` and `summary()`
@@ -609,13 +609,21 @@ air_endor <- read_csv("https://itep-r.netlify.com/data/air_endor.csv")
 ```
 
 
+![](../images/planet_endor.jpg){align="right" style="width: 58%; margin-top: 78px;"}
+
 # | Welcome to Endor! 
 
-### Let's look at the dataset. Remember the different ways? {-}
+<br><br>
 
-Hint: `summary()`, `glimpse()`
+<div style="clear:both;"> <br> </div>
+
+
+__Let's look at the dataset.__ Remember the different ways?
+
+Hint: `summary()`, `glimpse()`, `nrow()`
 
 <br>
+
 
 ```{r, endor-air2}
 
@@ -624,7 +632,7 @@ glimpse(air_endor)
 
 <br>
 
-__I see that there are more analytes than we need. We only want to know about `magentic_field` data, so let's filter to that analyte.__ 
+__I see that there are more analytes than we need. We only want to know about `magentic_field` data. Let's filter to that analyte.__ 
 
 <br>
 
@@ -649,13 +657,14 @@ library(lubridate)
 mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 ```
 
-<br>
 
 # | Calendar plots
 
-Let's make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint when magnetic storms are happening.
+![](../images/endor_lego_sq.PNG){align="left" style="width: 23%; margin-top: 8px; margin-right: 34px; margin-bottom: 10px;"}
 
-There is a calendar plot function built into the openair package. We load the openair package, and use `calendarplot()` to make a pretty plot. We hope!
+Let's make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint what days these magnetic storms are happening.
+
+There is a calendar plot function built into a package called `openair`. Let's install the `openair` package and then use `calendarplot()` to make a calendar of the observations.
 
 ```{r, set-theme, echo = F}
 library(ggplot2)
@@ -684,7 +693,7 @@ calendarPlot(mag_endor,
 
 ### Mission accomplished! {-}
 
-It looks like we had really high magentic field readings in November, galactic year 9917. 
+It looks like there were really high magentic field readings in November, Galactic year 9917. 
 
 <br>
 

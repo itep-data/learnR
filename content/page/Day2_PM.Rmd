@@ -1,14 +1,11 @@
 ---
 title: "Day 2 - PM"
-highlightjsLang: ["r"]
 output: 
-  html_document:
+  blogdown::html_page: 
     toc: true
     toc_depth: 2
-    #toc_float: true
-    theme: readable
     highlight: tango
-    css: "css/camp_style.css"
+    css: css/camp_style.css
     number_sections: true
     self_contained: false
     fontsize: 18pt
@@ -23,12 +20,12 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 <br>
 
-# _Guess the Star Wars Character_ {-}
+# Guess Who! _Star Wars edition_ {-}
 <br>
 
 ![](../images/guess-who-game.jpg){width="350" align="right" style="margin-top: -20px; margin-left: 20px; margin-right: 36px;"}
 
-> Are you the best Jedi detective out there? Let's play a game to find out. In the past day and a half, we have learned a lot of the `dplyr()` functions. Guess what else comes with the `dplyr()` package? A **Star Wars data set**!
+> Are you the best Jedi detective out there? Let's play a game to find out. In the past day and a half, we have learned a lot of the `dplyr` functions. Guess what else comes with the `dplyr` package? A **Star Wars data set**!
 
 <br>
 
@@ -36,9 +33,9 @@ Open that data set now by completing the following steps.
 
 <br>
 
-1. First, as always, you will load the dplyr library
-1. Second, you will pull the Star Wars dataset into your environment.
-I called the data **starwars_guess_who**
+1. First, load the `dplyr` package from your `library()`
+1. Second, pull the Star Wars dataset into your environment.
+    - I'm very literal so I named the data: **starwars_guess_who**
 <br><br>
 ```{r, echo = T, eval = T}
 
@@ -53,7 +50,7 @@ __The rules__
 <br>
 
 1. Scroll through the Star Wars dataset and find a character you find interesting.
-   - Or run `sample_n(starwars, 1)` to chose your character randomly.
+   - Or run `sample_n(starwars, 1)` to choose your character at random.
 
 <br>
 
@@ -62,17 +59,20 @@ __Don't let your neighbor see the character you chose.__
 <br>
 
 1. Take turns asking each other questions about your neighbor's Star Wars character. 
-1. Use the answers you receive to build a `filter()` function to narrow down the potential characters. 
+1. Use the answers you receive to build a `filter()` function and narrow down the potential characters your neighbor may have chosen. 
 1. _Elusive_ answers are encouraged.
-    - For example, if someone asks you _What is your character's mass?_ 
-    - You can respond _My character's mass is equal to one less than their age._ 
-    - Or if you're feeling generous you can give a more straight forward answer such as _My character's mass is definitely more than 100 and less that 104._
+    - For example, if someone asks: _What is your character's mass?_ 
+    - You can respond: _My character's mass is equal to one less than their age._ 
+    - If you're feeling generous you can give a more straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
 1. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. So, some of your filter statements might be `is.na(hair_color)` or `is.na(mass)`. 
-1. The winner is the first to guess their neighbor's Star Wars character.
+
+__WINNER!__
+
+- The winner is the first to guess their neighbor's Star Wars character.
 
 <br>
 
-__Want a rematch? Let's make it best of 3.__
+__Want a rematch? How about you make it best of 3 games.__
 
 <br>
 

@@ -1,12 +1,9 @@
 ---
 title: "Day 1 - PM"
-highlightjsLang: "r"
 output: 
   blogdown::html_page: 
     toc: true   
     toc_depth: 2
-    #toc_float: true
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -16,7 +13,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library("rmarkdown")
 knitr::opts_chunk$set(echo=TRUE, error=F, warning=F)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```

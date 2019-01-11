@@ -1,14 +1,11 @@
 ---
 title: "Day 2 - PM"
-highlightjsLang: ["r"]
 output: 
-  html_document:
+  blogdown::html_page: 
     toc: true
     toc_depth: 2
-    #toc_float: true
-    theme: readable
     highlight: tango
-    css: "css/camp_style.css"
+    css: css/camp_style.css
     number_sections: true
     self_contained: false
     fontsize: 18pt
@@ -17,35 +14,125 @@ output:
 
 <link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+  <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
+<div id="TOC">
+<ul>
+<li><a href="#guess-who-star-wars-edition">Guess Who! <em>Star Wars edition</em></a><ul>
+<li><a href="#plot-the-data">Plot the data!</a></li>
+<li><a href="#plot-the-data-1">Plot the data!</a></li>
+<li><a href="#plot-the-data-2">Plot the data!</a></li>
+</ul></li>
+<li><a href="#plots-with-ggplot2"><span class="toc-section-number">1</span> Plots with <em>ggplot2</em></a></li>
+<li><a href="#ggplot-sandwich"><span class="toc-section-number">2</span> | <code>ggplot()</code> sandwich</a><ul>
+<li><a href="#colors">Colors</a></li>
+</ul></li>
+<li><a href="#homeworld-training">Homeworld training</a></li>
+<li><a href="#more-plots-with-ggplot2"><span class="toc-section-number">3</span> More Plots with <em>ggplot2</em></a><ul>
+<li><a href="#colors-1">Colors</a></li>
+<li><a href="#bar-charts">Bar charts</a></li>
+<li><a href="#facet-wrap">Facet wrap</a></li>
+<li><a href="#themes">Themes</a></li>
+<li><a href="#labels">Labels</a></li>
+<li><a href="#drop-scientific-notation">Drop scientific notation</a></li>
+<li><a href="#save-plots">Save plots</a></li>
+</ul></li>
+<li><a href="#glossary"><span class="toc-section-number">4</span> | Glossary</a></li>
+<li><a href="#big-questions"><span class="toc-section-number">5</span> Big Questions</a></li>
+</ul>
+</div>
 
 <p><br></p>
-<div id="guess-the-star-wars-character" class="section level1 unnumbered">
-<h1><em>Guess the Star Wars Character</em></h1>
+<div id="guess-who-star-wars-edition" class="section level1 unnumbered">
+<h1>Guess Who! <em>Star Wars edition</em></h1>
 <p><br></p>
 <p><img src="../images/guess-who-game.jpg" align="right" style="margin-top: -20px; margin-left: 20px; margin-right: 36px;" width="350" /></p>
 <blockquote>
-<p>Are you the best Jedi detective out there? Let’s play a game to find out. In the past day and a half, we have learned a lot of the <code>dplyr()</code> functions. Guess what else comes with the <code>dplyr()</code> package? A <strong>Star Wars data set</strong>!</p>
+<p>Are you the best Jedi detective out there? Let’s play a game to find out. In the past day and a half, we have learned a lot of the <code>dplyr</code> functions. Guess what else comes with the <code>dplyr</code> package? A <strong>Star Wars data set</strong>!</p>
 </blockquote>
 <p><br></p>
 <p>Open that data set now by completing the following steps.</p>
 <p><br></p>
 <ol style="list-style-type: decimal">
-<li>First, as always, you will load the dplyr library</li>
-<li>Second, you will pull the Star Wars dataset into your environment.
-I called the data <strong>starwars_guess_who</strong>
+<li>First, load the <code>dplyr</code> package from your <code>library()</code></li>
+<li>Second, pull the Star Wars dataset into your environment.
+<ul>
+<li>I’m very literal so I named the data: <strong>starwars_guess_who</strong>
 <br><br></li>
+</ul></li>
 </ol>
-<pre class="r"><code>library(dplyr)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
-starwars_guess_who &lt;- starwars</code></pre>
+starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <p><br></p>
 <p><strong>The rules</strong><br />
 <br></p>
 <ol style="list-style-type: decimal">
 <li>Scroll through the Star Wars dataset and find a character you find interesting.
 <ul>
-<li>Or run <code>sample_n(starwars, 1)</code> to chose your character randomly.</li>
+<li>Or run <code>sample_n(starwars, 1)</code> to choose your character at random.</li>
 </ul></li>
 </ol>
 <p><br></p>
@@ -53,27 +140,30 @@ starwars_guess_who &lt;- starwars</code></pre>
 <p><br></p>
 <ol style="list-style-type: decimal">
 <li>Take turns asking each other questions about your neighbor’s Star Wars character.</li>
-<li>Use the answers you receive to build a <code>filter()</code> function to narrow down the potential characters.</li>
+<li>Use the answers you receive to build a <code>filter()</code> function and narrow down the potential characters your neighbor may have chosen.</li>
 <li><em>Elusive</em> answers are encouraged.
 <ul>
-<li>For example, if someone asks you <em>What is your character’s mass?</em></li>
-<li>You can respond <em>My character’s mass is equal to one less than their age.</em></li>
-<li>Or if you’re feeling generous you can give a more straight forward answer such as <em>My character’s mass is definitely more than 100 and less that 104.</em></li>
+<li>For example, if someone asks: <em>What is your character’s mass?</em></li>
+<li>You can respond: <em>My character’s mass is equal to one less than their age.</em></li>
+<li>If you’re feeling generous you can give a more straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
 </ul></li>
 <li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. So, some of your filter statements might be <code>is.na(hair_color)</code> or <code>is.na(mass)</code>.</li>
-<li>The winner is the first to guess their neighbor’s Star Wars character.</li>
 </ol>
+<p><strong>WINNER!</strong></p>
+<ul>
+<li>The winner is the first to guess their neighbor’s Star Wars character.</li>
+</ul>
 <p><br></p>
-<p><strong>Want a rematch? Let’s make it best of 3.</strong></p>
+<p><strong>Want a rematch? How about you make it best of 3 games.</strong></p>
 <p><br></p>
 <p>Here is an example filter statement that narrows down the Star Wars data to the character <em>Plo Koon</em>.</p>
 <p><br></p>
-<pre class="r"><code>mr_koon &lt;- filter(starwars,
-                  mass       &lt; 100,
-                  eye_color  != &quot;blue&quot;,
-                  gender     == &quot;male&quot;,
-                  homeworld  == &quot;Dorin&quot;,
-                  birth_year &gt; 20)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mr_koon &lt;-<span class="st"> </span><span class="kw">filter</span>(starwars,
+                  mass       <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>,
+                  eye_color  <span class="op">!=</span><span class="st"> &quot;blue&quot;</span>,
+                  gender     <span class="op">==</span><span class="st"> &quot;male&quot;</span>,
+                  homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
+                  birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre>
 <p><br></p>
 <p><img src="../images/Star-Wars-Data.png" align="right" style="margin-left: 20px; margin-right: 6px;" width="430" /></p>
 <div id="plot-the-data" class="section level2 unnumbered">
@@ -92,20 +182,20 @@ starwars_guess_who &lt;- starwars</code></pre>
 </div>
 </div>
 <div id="plots-with-ggplot2" class="section level1">
-<h1>Plots with <em>ggplot2</em></h1>
+<h1><span class="header-section-number">1</span> Plots with <em>ggplot2</em></h1>
 <hr>
 <p><br></p>
 <p><img src="../images/ggplot2_hex.png" align="right" style="margin-right: 30px; margin-top: -28px;" width="145" /></p>
 <p><br></p>
 </div>
 <div id="ggplot-sandwich" class="section level1">
-<h1>| <code>ggplot()</code> sandwich</h1>
+<h1><span class="header-section-number">2</span> | <code>ggplot()</code> sandwich</h1>
 <hr>
 <p><img src="../images/auto_plot.gif" style="margin-top: -22px; max-width: 108%;" /></p>
 <p><span class="h6" style="font-size: 28px; font-weight: bold;"> The 3 ingredients in a <code>ggplot</code> </span></p>
 <div id="the-base-plot" class="section level3 unnumbered">
 <h3>1. The base plot</h3>
-<pre class="r"><code>ggplot(scrap)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap)</code></pre>
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
 <p><br></p>
 <blockquote>
@@ -115,35 +205,35 @@ starwars_guess_who &lt;- starwars</code></pre>
 <div id="the-the-x-y-aesthetics" class="section level3 unnumbered">
 <h3>2. The the X, Y <em>aesthetics</em></h3>
 <p>The <em>aesthetics</em> assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.</p>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits)) </code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits)) </code></pre>
 </div>
 <div id="the-layers-or-geometries" class="section level3 unnumbered">
 <h3>3. The layers or <em>geometries</em></h3>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits)) + geom_point()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
 <p><br></p>
 <div id="exercise" class="section level4 unnumbered">
 <h4><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h4>
 <p>Try making a scatterplot of any two columns.</p>
 <p><em>Hint: Numeric variables will be more informative.</em></p>
-<pre class="r"><code>ggplot(scrap, aes(x = __column1__, y = __column2__)) + geom_point()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> __column1__, <span class="dt">y =</span> __column2__)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
 </div>
 </div>
 <div id="colors" class="section level2 unnumbered">
 <h2>Colors</h2>
 <hr>
 <p>Now let’s use color to show the origins of the scrap</p>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
-  geom_point()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">color =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <p><br></p>
 <p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand.</p>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_bar(stat = &quot;sum&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;sum&quot;</span>)</code></pre>
 <p><br></p>
 <p>This is the same as <code>geom_col()</code>.</p>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_col()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><br></p>
 <p>What if we want to make it easier to compare sales by origin? Let’s change the position.</p>
-<pre class="r"><code>ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
-  geom_bar(stat = &quot;sum&quot;, position = &quot;dodge&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;sum&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
 </div>
 </div>
 <div id="homeworld-training" class="section level1 unnumbered">
@@ -164,30 +254,30 @@ starwars_guess_who &lt;- starwars</code></pre>
 <p><br></p>
 </div>
 <div id="more-plots-with-ggplot2" class="section level1">
-<h1>More Plots with <em>ggplot2</em></h1>
+<h1><span class="header-section-number">3</span> More Plots with <em>ggplot2</em></h1>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <blockquote>
 <p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
 </blockquote>
-<pre class="r"><code># This will work
-ggplot(scrap, aes(x = origin, y = credits)) +
-  geom_point()
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()
 
-# So will this
-ggplot(scrap, aes(x = origin, y = credits)) + geom_point()
+<span class="co"># So will this</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
 
-# But this won&#39;t
-ggplot(scrap, aes(x = origin, y = credits))
-  + geom_point()</code></pre>
+<span class="co"># But this won&#39;t</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits))
+  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
 </div>
 <div id="colors-1" class="section level2 unnumbered">
 <h2>Colors</h2>
 <hr>
 <p>Now let’s use color to show the destinations of the scrap.</p>
 <p><br></p>
-<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
-  geom_point()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">color =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <p><br></p>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
@@ -201,60 +291,60 @@ ggplot(scrap, aes(x = origin, y = credits))
 <h2>Bar charts</h2>
 <p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand. Note that we use fill in aes() instead of color. If we used color, we’d get a colorful outline and grey (or is it gray?) bars.</p>
 <p><br></p>
-<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
-  geom_col()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>()</code></pre>
 <p><br></p>
 <p>What if we want to make it easier to compare sales by destination for each origin? Let’s change the position of the bars. Remember, you can use <code>help(geom_col)</code> to learn about different options for the function. You can do the same with any other <code>ggplot2</code> function.</p>
 <p><br></p>
-<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
-  geom_col(position = &quot;dodge&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
 <p><br></p>
 </div>
 <div id="facet-wrap" class="section level2 unnumbered">
 <h2>Facet wrap</h2>
 <p>What if we want to make the chart less crowded? Let’s use the <code>facet wrap</code> function to put each origin on a separate chart.</p>
 <p><br></p>
-<pre class="r"><code>ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
-  geom_col(position = &quot;dodge&quot;) +
-  facet_wrap(&quot;destination&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>)</code></pre>
 <p><br></p>
 </div>
 <div id="themes" class="section level2 unnumbered">
 <h2>Themes</h2>
 <p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some different themes out.</p>
 <p><br></p>
-<pre class="r"><code>ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
-  geom_col(position = &quot;dodge&quot;) +
-  facet_wrap(&quot;destination&quot;) +
-  theme_bw()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(clean_data, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> total_price, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
 <p><br></p>
 </div>
 <div id="labels" class="section level2 unnumbered">
 <h2>Labels</h2>
 <p>You can also change the axis and title labels using the <code>labs</code> function</p>
 <p><br></p>
-<pre class="r"><code>ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
-  geom_col(position = &quot;dodge&quot;) +
-  facet_wrap(&quot;destination&quot;) +
-  theme_bw() +
-  labs(title = &quot;Scrap sales by origin and destination&quot;, 
-       x     = &quot;Origin&quot;, 
-       y     = &quot;Total sales&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(clean_data, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> total_price, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
+       <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
+       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
 <p><br></p>
 </div>
 <div id="drop-scientific-notation" class="section level2 unnumbered">
 <h2>Drop scientific notation</h2>
 <p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R and not part of <code>ggplot</code>. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again (like loading a package, you only need to run the line once when you start a new R session).</p>
 <p><br></p>
-<pre class="r"><code>options(scipen = 999)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)
 
-ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
-  geom_col(position = &quot;dodge&quot;) +
-  facet_wrap(&quot;destination&quot;) +
-  theme_bw() +
-  labs(title = &quot;Scrap sales by origin and destination&quot;, 
-       x     = &quot;Origin&quot;, 
-       y     = &quot;Total sales&quot;)</code></pre>
+<span class="kw">ggplot</span>(clean_data, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> total_price, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
+       <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
+       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
 <p><br></p>
 <p>What if we don’t like the zeros and want the labels in millions? Any ideas?</p>
 <p><br><br></p>
@@ -267,39 +357,39 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
 <div id="save-plots" class="section level2 unnumbered">
 <h2>Save plots</h2>
 <p>You’ve (hopefully) had fun making all of these plots, so let’s learn to save them so we can cherish them forever. There’s a function called <code>ggsave</code> to do just that. How do we <code>ggsave</code> our plots? HELP! (no really, we can type <code>help(ggsave)</code>)</p>
-<pre class="r"><code># Get help
-help(ggsave)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get help</span>
+<span class="kw">help</span>(ggsave)
 ?ggsave
 
-# Copy and paste the r code of your favorite plot here
-ggplot(data, aes()) +
-   .... +
-   ....
+<span class="co"># Copy and paste the r code of your favorite plot here</span>
+<span class="kw">ggplot</span>(data, <span class="kw">aes</span>()) <span class="op">+</span>
+<span class="st">   </span>.... <span class="op">+</span>
+<span class="st">   </span>....
 
 
-# Save your plot to a png file of your choosing
-ggsave(&quot;your_results_folder/plot_name.png&quot;)</code></pre>
+<span class="co"># Save your plot to a png file of your choosing</span>
+<span class="kw">ggsave</span>(<span class="st">&quot;your_results_folder/plot_name.png&quot;</span>)</code></pre>
 <p><br></p>
 <div id="pro-tip-2" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <blockquote>
 <p>What if you don’t want to save just the last plot you’ve made? Instead, you want to make a plot and save it for later.</p>
 </blockquote>
-<pre class="r"><code># The ggplot you want to save
-my_plot &lt;- ggplot(...)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The ggplot you want to save</span>
+my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...)
   
-# The name of the file the chart will be saved to.
-where_to_save_it &lt;- &quot;___.png&quot;
+<span class="co"># The name of the file the chart will be saved to.</span>
+where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
 
-# Save it!
-ggsave(filename = where_to_save_it, plot = my_plot)</code></pre>
+<span class="co"># Save it!</span>
+<span class="kw">ggsave</span>(<span class="dt">filename =</span> where_to_save_it, <span class="dt">plot =</span> my_plot)</code></pre>
 <p><br></p>
 <p><em>Learn more about saving plots:</em> <a href="http://stat545.com/block017_write-figure-to-file.html">http://stat545.com/</a></p>
 </div>
 </div>
 </div>
 <div id="glossary" class="section level1">
-<h1>| Glossary</h1>
+<h1><span class="header-section-number">4</span> | Glossary</h1>
 <p><strong>Table of <code>aesthetics</code></strong></p>
 <table>
 <thead>
@@ -349,7 +439,7 @@ ggsave(filename = where_to_save_it, plot = my_plot)</code></pre>
 <p><img src="../images/ggplot_themes.png" /></p>
 </div>
 <div id="big-questions" class="section level1">
-<h1>Big Questions</h1>
+<h1><span class="header-section-number">5</span> Big Questions</h1>
 <div style="font-size: 16px;">
 <ul>
 <li>How to modify the gridlines behind your chart?

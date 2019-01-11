@@ -10,8 +10,6 @@ output:
     monofont: Source Code Pro
     toc: true
     toc_depth: 2
-    #toc_float: true
-    #theme: readable
 ---
 
 ```{r setup, include=FALSE}

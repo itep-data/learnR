@@ -1,11 +1,9 @@
 ---
-title: "Day 2 | AM"
+title: "Day 2 - AM"
 output: 
-  html_document:
+  blogdown::html_page: 
     toc: true
     toc_depth: 2
-    toc_float: true
-    theme: readable
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -25,6 +23,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ![](../images/day2_bb8_sq.png){width="260" style="float: left; margin-right: 60px; margin-top: -10px;"}
 
+<br>
 
 ## Day 2 morning schedule  {-}
 
@@ -35,12 +34,12 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
     - Group or categorize your data
     - Save data
 
-<br>
+<br><br>
 
-## Review of Day 1 {-}
+# Review of Day 1 {-}
 <hr>
 
-# | Porg review {.tabset}
+## Porg review {.tabset -}
 
 The _poggle_ of porgs will once again help us review the `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
 
@@ -136,7 +135,7 @@ porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
 
 <br>
 
-##`mutate()` PLUS `ifelse()` is powerful! {-}
+## `mutate()` PLUS `ifelse()` is powerful! {-}
 
 ![](https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja){width="480" align="center" style="margin-right: 28px;"}
 

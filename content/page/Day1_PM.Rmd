@@ -685,3 +685,10 @@ calendarPlot(mag_endor,
 ### Mission accomplished! {-}
 
 It looks like we had really high magentic field readings in November, galactic year 9917. 
+
+<br>
+
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
+
+<br>
+

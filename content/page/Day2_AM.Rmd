@@ -610,3 +610,7 @@ group_by(scrap, origin) %>% mutate(origin_mean_price = mean(price_per_pound, na.
 
 <br>
 
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}
+
+<br>
+

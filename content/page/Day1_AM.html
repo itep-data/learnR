@@ -237,19 +237,58 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 </div>
 <div id="read-the-data" class="section level3 unnumbered">
 <h3>1. Read the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
-<pre><code>## Error: package or namespace load failed for &#39;tidyverse&#39; in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]):
-##  there is no package called &#39;dplyr&#39;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
-<pre><code>## Error in read_csv(&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;): could not find function &quot;read_csv&quot;</code></pre>
-<pre><code>## Error in air_data %&gt;% sample_n(5) %&gt;% select(SITE, Date, OZONE, TEMP_F) %&gt;% : could not find function &quot;%&gt;%&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+
+air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">SITE</th>
+<th align="left">Date</th>
+<th align="right">OZONE</th>
+<th align="right">TEMP_F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2017-06-13</td>
+<td align="right">6</td>
+<td align="right">68.6</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="left">2017-10-07</td>
+<td align="right">10</td>
+<td align="right">47.0</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2016-07-23</td>
+<td align="right">20</td>
+<td align="right">74.0</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">2018-05-14</td>
+<td align="right">5</td>
+<td align="right">48.8</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2018-05-15</td>
+<td align="right">3</td>
+<td align="right">43.4</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="plot-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.1</span> 2. Plot the data</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
-<pre><code>## Error in ggplot(air_data, aes(x = TEMP_F, y = OZONE)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="/page/Day1_AM_files/figure-html/view-1.png" width="1152" /></p>
 </div>
 <div id="clean-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.2</span> 3. Clean the data</h3>
@@ -269,7 +308,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>SITE) <span class="op">+</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ozone increases with temperature&quot;</span>, 
          <span class="dt">subtitle =</span> <span class="st">&quot;Observations from 2015-2017&quot;</span>)</code></pre>
-<pre><code>## Error in ggplot(air_data, aes(x = TEMP_F, y = OZONE)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
 </div>
 <div id="summarize-the-data" class="section level3">
 <h3><span class="header-section-number">1.0.4</span> 5. Summarize the data</h3>
@@ -277,8 +316,54 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="st">            </span><span class="kw">group_by</span>(SITE, YEAR) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">summarize</span>(<span class="dt">AVG_OZONE =</span> <span class="kw">mean</span>(OZONE) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>),
                       <span class="dt">AVG_TEMP  =</span> <span class="kw">mean</span>(TEMP_F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>))</code></pre>
-<pre><code>## Error in air_data %&gt;% group_by(SITE, YEAR) %&gt;% summarize(AVG_OZONE = mean(OZONE) %&gt;% : could not find function &quot;%&gt;%&quot;</code></pre>
-<pre><code>## Error in air_data %&gt;% kable(): could not find function &quot;%&gt;%&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">SITE</th>
+<th align="right">YEAR</th>
+<th align="right">AVG_OZONE</th>
+<th align="right">AVG_TEMP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="right">2016</td>
+<td align="right">11.49</td>
+<td align="right">60.67</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="right">2017</td>
+<td align="right">11.28</td>
+<td align="right">60.71</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="right">2018</td>
+<td align="right">11.15</td>
+<td align="right">61.07</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="right">2016</td>
+<td align="right">12.69</td>
+<td align="right">60.66</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="right">2017</td>
+<td align="right">12.18</td>
+<td align="right">61.24</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="right">2018</td>
+<td align="right">12.14</td>
+<td align="right">61.18</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="save-the-results" class="section level3">
 <h3><span class="header-section-number">1.0.5</span> 6. Save the results</h3>
@@ -930,20 +1015,42 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <div id="a-first-plot" class="section level2 unnumbered">
 <h2>A first plot</h2>
 <p>Here’s a quick chart of how many of each item we have in the dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-17-1.png" width="1152" /></p>
 <p>Hmmm… Looks like there is an <strong>All</strong> category that we should look into more.</p>
 </div>
 </div>
 <div id="key-terms" class="section level1 unnumbered">
 <h1>Key terms</h1>
-<hr>
-<p>|——-|—–|
-| | |
-|<code>package</code>| - An add-on for R that contains new functions that someone created to help you. It’s like an App for R. |
-|<code>library</code>| - The name of the folder that stores all your packages, and the function used to load a package. |
-|<code>function</code>| - Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you. |
-|<code>argument</code>| - These are options or inputs that you pass to a function that determine how it behaves. The argument <code>skip = 1</code> tells the the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console. |</p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="81%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>package</code></td>
+<td>An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
+</tr>
+<tr class="even">
+<td><code>library</code></td>
+<td>The name of the folder that stores all your packages, and the function used to load a package.</td>
+</tr>
+<tr class="odd">
+<td><code>function</code></td>
+<td>Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
+</tr>
+<tr class="even">
+<td><code>argument</code></td>
+<td>Options or inputs that you pass to a function that determine how it behaves. The argument <code>skip = 1</code> tells the the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="return-to-homebase" class="section level3 unnumbered">
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-1.html">Homebase</a></h3>
+<p><br></p>
+</div>
 </div>

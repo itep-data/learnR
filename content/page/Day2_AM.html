@@ -580,4 +580,8 @@ write_csv(scrap_means, &quot;results/Mean_prices_by_origin.csv&quot;)</code></pr
 <p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group.</p>
 <pre class="r"><code>group_by(scrap, origin) %&gt;% mutate(origin_mean_price = mean(price_per_pound, na.rm = T)) %&gt;% ungroup()</code></pre>
 <p><br></p>
+<div id="return-to-homebase" class="section level3 unnumbered">
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>
+<p><br></p>
+</div>
 </div>

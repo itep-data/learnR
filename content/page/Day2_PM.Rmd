@@ -5,7 +5,7 @@ output:
   html_document:
     toc: true
     toc_depth: 2
-    toc_float: true
+    #toc_float: true
     theme: readable
     highlight: tango
     css: "css/camp_style.css"
@@ -460,7 +460,7 @@ You can customize the look of your plot by adding a `theme()` function.
 ![](../images/ggplot_themes.png)
 
 
-# | Big Questions 
+# Big Questions 
 
 <div style="font-size: 16px;">
 
@@ -489,4 +489,7 @@ You can customize the look of your plot by adding a `theme()` function.
 
 </div>
 
-# <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](index.html) {-}
+<br>
+
+
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}

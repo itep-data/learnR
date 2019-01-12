@@ -113,35 +113,52 @@ Congratulations of galactic proportions to you. We have a clean and tidy data se
 
 <br>
 
-Remember our porg friends? How rude of us not to share their names. Here's a table or their names.
+### Adding porg names {-}
 
-![](../images/porg_names.png){style="width: 85%; max-width: 85%;"}
+Remember our porg friends? How rude of us not to share their names. __Wups!__
 
-
-__Hey now!__ That's not very helpful. Who's who? Let's join them!
-
-
-![](../images/left_join_porgs.png){style="width: 85%; max-width: 85%;"}
-
-
-![](../images/left_join_image.png){style="width: 85%; max-width: 85%;"}
+<div style="float: right; margin-left: 20px; margin-right: 20%; margin-top: 24px; width: 37%; max-width: 37%;">
+![](../images/porgs/porg_names_tbl.png){}
+</div>
 
 <br><br>
 
-__BB8 found a unit converter table while surfing the web.__ How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let's talk about `left_join()`.
+Here's a table of their names.
+
+
+
+<div style="clear: both;"></div>
 
 <br>
 
-## Joining Star Wars characters {-}
+__Hey now!__ That's not very helpful. Who's who? Let's join their names to the rest of the data.
 
 
-![](../images/left_join_cheat.png){width="380" align="right" style="margin-top: -30px; margin-left: 40px; margin-right: 5px;"}
+![](../images/porgs/porg_join.png){style="width: 90%; max-width: 85%;"}
 
-**left_join()** is used to add columns to your table. Imagine you have the 2 Star Wars tables below. One is a table includes character names and heights; the second names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. 
+<br>
+
+### __What's the result?__ {-}
+
+![](../images/porgs/porgs_and_names.png){style="width: 85%; max-width: 85%;"}
+
+<br><br>
+
+
+## More joining
+
+### Joining Star Wars characters {-}
+
+
+![](../images/left_join_cheat.png){width="380" align="right" style="margin-top: 0px; margin-left: 40px; margin-right: 5px;"}
+
+**left_join()** is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. 
 <br>
 <style type="text/css"> .table {width: 30%;} </style>
 
 <br>
+
+<div style="float: left;">
 
 `starwars_heights`
 
@@ -160,10 +177,18 @@ kable(starwars_heights)
 
 ```
 
+</div>
+
+<div style="float: left; margin-left: 15%;">
+
 `starwars_homeworlds`
 ```{r, echo =F, warning=F, message=F}
 kable(starwars_homeworlds)
 ```
+
+</div>
+
+<div style="clear: both;"> </div>
 
 <br>
 
@@ -171,7 +196,7 @@ __Uh oh!__ There's no "Ayla Secura" in the height table and there's no "Greedo" 
 
 <br>
 
-```{r, warning=F, message=F, results='hide', echo=F}
+```{r, warning=F, message=F, results='hide', echo=T}
 library(dplyr)
    
 # Create new tables 
@@ -186,6 +211,7 @@ height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, by = c(
 height_and_homeworld
 ```
 
+<br>
 
 ```{r, echo = F}
 kable(height_and_homeworld)
@@ -239,11 +265,14 @@ In this situation, we'd want to find out whether we really had two Star Wars cha
 
 </div>
 
-<br>
+# | Back to Jakku!
 
-__Back to the scrap data! We don't have time for scuttlebutt, we have actual work to do and need to help Rey.__ BUT, we can do that way more efficiently now that we know `left_join()`! Remember that BB8 found a unit converter table while surfing the web. If we join our scrap data to the unit converter table we can start really digging into what would be most profitable for Rey. 
+__That's enough scuttlebutt, we have actual work to do and need to help Rey.__
 
-## Getting data directly from the internet {-}
+__BB8 found a scrap mass conversion table from his droid buddies.__ How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be most profitable for Rey. And we can do that much more efficiently now that we know `left_join()`!  
+
+
+## Read the conversion table from the Galactic interwebs {-}
 
 ```{r read-convert, eval = T, message = F}
 
@@ -261,7 +290,7 @@ head(convert, 3)
 
 <br>
 
-```{r join-convert, eval = T}
+```{r join-convert, eval=T}
 
 library(readr)
 library(dplyr)

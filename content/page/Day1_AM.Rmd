@@ -188,6 +188,11 @@ aqs <- aqs %>%
               TEMP_F = max(TEMP_F, na.rm = T)) %>% 
        slice(1)
 
+aqs$UNITS <- "PPB"
+
+aqs$UNITS[6] <- "PPM"
+aqs$OZONE[6] <- aqs$OZONE[6] / 1000
+
 write_csv(aqs, "../data/OZONE_samples.csv")
 ```
 

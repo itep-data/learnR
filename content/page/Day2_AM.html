@@ -91,10 +91,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#left_join"><span class="toc-section-number">2</span> | <code>left_join()</code></a><ul>
 <li><a href="#join-2-tables">Join 2 tables</a></li>
-<li><a href="#joining-star-wars-characters">Joining Star Wars characters</a></li>
-<li><a href="#getting-data-directly-from-the-internet">Getting data directly from the internet</a></li>
+<li><a href="#more-joining"><span class="toc-section-number">2.1</span> More joining</a></li>
 </ul></li>
-<li><a href="#summarize-this"><span class="toc-section-number">3</span> | <code>summarize()</code> this</a><ul>
+<li><a href="#back-to-jakku"><span class="toc-section-number">3</span> | Back to Jakku!</a><ul>
+<li><a href="#read-the-conversion-table-from-the-galactic-interwebs">Read the conversion table from the Galactic interwebs</a></li>
+</ul></li>
+<li><a href="#summarize-this"><span class="toc-section-number">4</span> | <code>summarize()</code> this</a><ul>
 <li><a href="#sum"><code>sum()</code></a></li>
 <li><a href="#mean"><code>mean()</code></a></li>
 <li><a href="#median"><code>median()</code></a></li>
@@ -105,10 +107,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#quantile"><code>quantile()</code></a></li>
 <li><a href="#n"><code>n()</code></a></li>
 </ul></li>
-<li><a href="#the-pipe"><span class="toc-section-number">4</span> | The pipe <code>%&gt;%</code></a></li>
-<li><a href="#group_by"><span class="toc-section-number">5</span> | <code>group_by()</code></a></li>
-<li><a href="#save-files"><span class="toc-section-number">6</span> | Save files</a></li>
-<li><a href="#grouped-mutate"><span class="toc-section-number">7</span> | Grouped <code>mutate()</code></a></li>
+<li><a href="#the-pipe"><span class="toc-section-number">5</span> | The pipe <code>%&gt;%</code></a></li>
+<li><a href="#group_by"><span class="toc-section-number">6</span> | <code>group_by()</code></a></li>
+<li><a href="#save-files"><span class="toc-section-number">7</span> | Save files</a></li>
+<li><a href="#grouped-mutate"><span class="toc-section-number">8</span> | Grouped <code>mutate()</code></a></li>
 </ul>
 </div>
 
@@ -224,23 +226,39 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
 <h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
 <p><br></p>
-<p>Remember our porg friends? How rude of us not to share their names. Here’s a table or their names.</p>
-<p><img src="../images/porg_names.png" style="width: 85%; max-width: 85%;" /></p>
-<p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join them!</p>
-<p><img src="../images/left_join_porgs.png" style="width: 85%; max-width: 85%;" /></p>
-<p><img src="../images/left_join_image.png" style="width: 85%; max-width: 85%;" /></p>
+</div>
+<div id="adding-porg-names" class="section level3 unnumbered">
+<h3>Adding porg names</h3>
+<p>Remember our porg friends? How rude of us not to share their names. <strong>Wups!</strong></p>
+<div style="float: right; margin-left: 20px; margin-right: 20%; margin-top: 24px; width: 37%; max-width: 37%;">
+<p><img src="../images/porgs/porg_names_tbl.png" /></p>
+</div>
 <p><br><br></p>
-<p><strong>BB8 found a unit converter table while surfing the web.</strong> How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let’s talk about <code>left_join()</code>.</p>
+<p>Here’s a table of their names.</p>
+<div style="clear: both;">
+
+</div>
+<p><br></p>
+<p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
+<p><img src="../images/porgs/porg_join.png" style="width: 90%; max-width: 85%;" /></p>
 <p><br></p>
 </div>
+<div id="whats-the-result" class="section level3 unnumbered">
+<h3><strong>What’s the result?</strong></h3>
+<p><img src="../images/porgs/porgs_and_names.png" style="width: 85%; max-width: 85%;" /></p>
+<p><br><br></p>
 </div>
-<div id="joining-star-wars-characters" class="section level2 unnumbered">
-<h2>Joining Star Wars characters</h2>
-<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -30px; margin-left: 40px; margin-right: 5px;" width="380" /></p>
-<strong>left_join()</strong> is used to add columns to your table. Imagine you have the 2 Star Wars tables below. One is a table includes character names and heights; the second names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
+</div>
+<div id="more-joining" class="section level2">
+<h2><span class="header-section-number">2.1</span> More joining</h2>
+<div id="joining-star-wars-characters" class="section level3 unnumbered">
+<h3>Joining Star Wars characters</h3>
+<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: 0px; margin-left: 40px; margin-right: 5px;" width="380" /></p>
+<strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
 <br>
 <style type="text/css"> .table {width: 30%;} </style>
 <p><br></p>
+<div style="float: left;">
 <p><code>starwars_heights</code></p>
 <table>
 <thead>
@@ -272,6 +290,8 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </tr>
 </tbody>
 </table>
+</div>
+<div style="float: left; margin-left: 15%;">
 <p><code>starwars_homeworlds</code></p>
 <table>
 <thead>
@@ -303,8 +323,25 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </tr>
 </tbody>
 </table>
+</div>
+<div style="clear: both;">
+
+</div>
 <p><br></p>
 <p><strong>Uh oh!</strong> There’s no “Ayla Secura” in the height table and there’s no “Greedo” in the homeworld table. Can we still join the tables? Run the code below to see what happens.</p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+   
+<span class="co"># Create new tables </span>
+starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">150</span>, <span class="dv">246</span>))      
+
+starwars_homeworlds   &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
+
+<span class="co"># Join the tables together by starwars_name</span>
+<span class="co">## Tell left_join which columns to use as the key with:  by = c(&quot;key_left&quot; = &quot;key_right&quot;)</span>
+height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span>))
+
+height_and_homeworld</code></pre>
 <p><br></p>
 <table>
 <thead>
@@ -442,11 +479,15 @@ height_and_homeworld</code></pre>
 <p>This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you’re using <strong>left_join</strong>. In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like <em>Darth Vader’s</em> age).</p>
 <p>In this situation, we’d want to find out whether we really had two Star Wars characters named <em>Darth Vader</em>, or if someone made two different guesses about <em>Darth Vader’s</em> age.</p>
 </div>
-<p><br></p>
-<p><strong>Back to the scrap data! We don’t have time for scuttlebutt, we have actual work to do and need to help Rey.</strong> BUT, we can do that way more efficiently now that we know <code>left_join()</code>! Remember that BB8 found a unit converter table while surfing the web. If we join our scrap data to the unit converter table we can start really digging into what would be most profitable for Rey.</p>
 </div>
-<div id="getting-data-directly-from-the-internet" class="section level2 unnumbered">
-<h2>Getting data directly from the internet</h2>
+</div>
+</div>
+<div id="back-to-jakku" class="section level1">
+<h1><span class="header-section-number">3</span> | Back to Jakku!</h1>
+<p><strong>That’s enough scuttlebutt, we have actual work to do and need to help Rey.</strong></p>
+<p><strong>BB8 found a scrap mass conversion table from his droid buddies.</strong> How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be most profitable for Rey. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
+<div id="read-the-conversion-table-from-the-galactic-interwebs" class="section level2 unnumbered">
+<h2>Read the conversion table from the Galactic interwebs</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
 <span class="co"># The data&#39;s url</span>
@@ -527,7 +568,7 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </div>
 </div>
 <div id="summarize-this" class="section level1">
-<h1><span class="header-section-number">3</span> | <code>summarize()</code> this</h1>
+<h1><span class="header-section-number">4</span> | <code>summarize()</code> this</h1>
 <hr>
 <p><img src="../images/summarize_diagram.png" width="490" /></p>
 <p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse your data down to a single row. To really dig into <code>summarize</code> you’ll want to know some common summary functions, such as <code>sum()</code>, <code>mean()</code>, <code>median()</code>, <code>min()</code>, and <code>max()</code>.</p>
@@ -601,7 +642,7 @@ What if I want to string several of these data processing functions together? Do
 </div>
 </div>
 <div id="the-pipe" class="section level1">
-<h1><span class="header-section-number">4</span> | The pipe <code>%&gt;%</code></h1>
+<h1><span class="header-section-number">5</span> | The pipe <code>%&gt;%</code></h1>
 <p><strong>Use the <code>%&gt;%</code> young Padawan.</strong></p>
 <p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px;" width="155" /></p>
 <p><br></p>
@@ -612,7 +653,7 @@ What if I want to string several of these data processing functions together? Do
 <span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
 </div>
 <div id="group_by" class="section level1">
-<h1><span class="header-section-number">5</span> | <code>group_by()</code></h1>
+<h1><span class="header-section-number">6</span> | <code>group_by()</code></h1>
 <hr>
 <blockquote>
 <p>Wouldn’t it be nice if we could easily find the mean price at every Origin City? Let’s really wookie this thing. It’s time for <code>group_by()</code>!</p>
@@ -651,7 +692,7 @@ What if I want to string several of these data processing functions together? Do
 </div>
 </div>
 <div id="save-files" class="section level1">
-<h1><span class="header-section-number">6</span> | Save files</h1>
+<h1><span class="header-section-number">7</span> | Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can print it to have it <strong>transmitted through Droid courier</strong> to Rey. To save a data frame we’ll use the <code>write_csv()</code> function from our favorite <em>readr</em> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
@@ -665,7 +706,7 @@ What if I want to string several of these data processing functions together? Do
 </div>
 </div>
 <div id="grouped-mutate" class="section level1">
-<h1><span class="header-section-number">7</span> | Grouped <code>mutate()</code></h1>
+<h1><span class="header-section-number">8</span> | Grouped <code>mutate()</code></h1>
 <br>
 <hr>
 <p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by country to the whole table.</p>

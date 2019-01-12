@@ -127,21 +127,6 @@ porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
 cat(readLines("porg_tabs.txt"))
 ```
 
-
-```{r porg-tabs-fn, results='asis', echo=F, include=F}
-source("insert_tabs.R")
-
-tab_names <- "porgs"
-
-tab_content <- '![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
-
-<br><br>'
-
-tab_html <- add_tabs(tab_names, tab_content)
-
-cat(tab_html)
-```
-
 # | `select()`
 <hr>
 

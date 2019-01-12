@@ -132,17 +132,23 @@ porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
 
 # | `ifelse()`
 
+Maybe you have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way `ifelse` is the tool for you.
 
-<br>
-
-## `mutate()` PLUS `ifelse()` is powerful! {-}
+## `mutate()` + `ifelse()` is powerful! {-}
 
 ![](https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja){width="480" align="center" style="margin-right: 28px;"}
 
 <br>
-Sometimes you may want the value of a new column to depend on the value of an existing column, in other words you want to `mutate()` conditionally. We use `ifelse()` to do this.
 
-### `ifelse(If this is true, "Do this", "Otherwise do this thing")` {-}
+Sometimes you want the value of a new column to depend on the value of an existing column, in other words you want the new value to depend on a condition. We use `ifelse()` to do this.
+
+`ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")`
+
+
+> __For example:__
+>
+> `ifelse( [ The M&M is red ], "Eat it!", "Otherwise - Yuk! throw it out!.")`
+
 
 <br>
 ```{r ifelse, eval = F}
@@ -177,7 +183,8 @@ Congratulations of galactic proportions to you. We have a clean and tidy data se
 ![](../images/left_join_image.png){style="width: 85%; max-width: 85%;"}
 
 <br><br>
-__BB8 found a unit converter table while surfing the web.__ How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let's talk about left_join()
+
+__BB8 found a unit converter table while surfing the web.__ How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let's talk about `left_join()`.
 
 <br>
 
@@ -198,9 +205,11 @@ __BB8 found a unit converter table while surfing the web.__ How does BB8 keep do
 library(dplyr)
 library(knitr)
 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), height = c(172,167,202,150, 246))       
+starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
+                               height = c(172, 167, 202, 150, 246))       
 
-starwars_homeworlds   <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
+starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
+                                  homeworld = c("Tatooine", "Tatooine", "Tatooine", "Alderaan", "Ryloth"))
 
 
 kable(starwars_heights)

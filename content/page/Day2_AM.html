@@ -94,7 +94,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#group_by"><code>group_by</code></a></li>
 </ul></li>
 <li><a href="#ifelse"><span class="toc-section-number">1</span> | <code>ifelse()</code></a><ul>
-<li><a href="#mutate-plus-ifelse-is-powerful"><code>mutate()</code> PLUS <code>ifelse()</code> is powerful!</a></li>
+<li><a href="#mutate-ifelse-is-powerful"><code>mutate()</code> + <code>ifelse()</code> is powerful!</a></li>
 </ul></li>
 <li><a href="#left_join"><span class="toc-section-number">2</span> | <code>left_join()</code></a><ul>
 <li><a href="#join-2-tables">Join 2 tables</a></li>
@@ -214,14 +214,17 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 <div id="ifelse" class="section level1">
 <h1><span class="header-section-number">1</span> | <code>ifelse()</code></h1>
-<p><br></p>
-<div id="mutate-plus-ifelse-is-powerful" class="section level2 unnumbered">
-<h2><code>mutate()</code> PLUS <code>ifelse()</code> is powerful!</h2>
+<p>Maybe you have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way <code>ifelse</code> is the tool for you.</p>
+<div id="mutate-ifelse-is-powerful" class="section level2 unnumbered">
+<h2><code>mutate()</code> + <code>ifelse()</code> is powerful!</h2>
 <p><img src="https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja" align="center" style="margin-right: 28px;" width="480" /></p>
-<p><br>
-Sometimes you may want the value of a new column to depend on the value of an existing column, in other words you want to <code>mutate()</code> conditionally. We use <code>ifelse()</code> to do this.</p>
-<div id="ifelseif-this-is-true-do-this-otherwise-do-this-thing" class="section level3 unnumbered">
-<h3><code>ifelse(If this is true, "Do this", "Otherwise do this thing")</code></h3>
+<p><br></p>
+<p>Sometimes you want the value of a new column to depend on the value of an existing column, in other words you want the new value to depend on a condition. We use <code>ifelse()</code> to do this.</p>
+<p><code>ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")</code></p>
+<blockquote>
+<p><strong>For example:</strong></p>
+<p><code>ifelse( [ The M&amp;M is red ], "Eat it!", "Otherwise - Yuk! throw it out!.")</code></p>
+</blockquote>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
@@ -238,7 +241,6 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <p>Congratulations of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!</p>
 </div>
 </div>
-</div>
 <div id="left_join" class="section level1">
 <h1><span class="header-section-number">2</span> | <code>left_join()</code></h1>
 <div id="join-2-tables" class="section level2 unnumbered">
@@ -247,8 +249,8 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
 <p><br></p>
 <p><img src="../images/left_join_image.png" style="width: 85%; max-width: 85%;" /></p>
-<p><br><br>
-<strong>BB8 found a unit converter table while surfing the web.</strong> How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let’s talk about left_join()</p>
+<p><br><br></p>
+<p><strong>BB8 found a unit converter table while surfing the web.</strong> How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let’s talk about <code>left_join()</code>.</p>
 <p><br></p>
 </div>
 </div>

@@ -128,10 +128,10 @@ cat(readLines("porg_tabs.txt"))
 ```
 
 
-```{r porg-tabs-fn, results='asis', echo=F}
+```{r porg-tabs-fn, results='asis', echo=F, include=F}
 source("insert_tabs.R")
 
-tab_names <- "porgies"
+tab_names <- "porgs"
 
 tab_content <- '![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
 

@@ -333,13 +333,16 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
    
 <span class="co"># Create new tables </span>
-starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">150</span>, <span class="dv">246</span>))      
+starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
+                               <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">150</span>, <span class="dv">246</span>))      
 
-starwars_homeworlds   &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
+starwars_homeworlds &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), 
+                                  <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
 
 <span class="co"># Join the tables together by starwars_name</span>
 <span class="co">## Tell left_join which columns to use as the key with:  by = c(&quot;key_left&quot; = &quot;key_right&quot;)</span>
-height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span>))
+height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, 
+                                  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span>))
 
 height_and_homeworld</code></pre>
 <p><br></p>
@@ -421,13 +424,16 @@ height_and_homeworld</code></pre>
 <p><br></p>
 <p>When you run the code below you’ll see that <strong>left_join</strong> is very thorough and adds each height it finds for <em>Darth Vader</em> as a new row in the joined table.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new tables </span>
-starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), <span class="dt">height  =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">246</span>, <span class="dv">150</span>, <span class="dv">173</span>))
+starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
+                               <span class="dt">height  =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">246</span>, <span class="dv">150</span>, <span class="dv">173</span>))
 
 
-starwars_homeworlds   &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
+starwars_homeworlds   &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), 
+                                    <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
 
 <span class="co"># Join the tables together by Star Wars character name</span>
-height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span> ))
+height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, 
+                                  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span> ))
 
 <span class="co"># Check number of rows</span>
 <span class="kw">nrow</span>(height_and_homeworld)

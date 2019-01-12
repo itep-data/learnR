@@ -200,13 +200,16 @@ __Uh oh!__ There's no "Ayla Secura" in the height table and there's no "Greedo" 
 library(dplyr)
    
 # Create new tables 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), height = c(172,167,202,150, 246))      
+starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
+                               height = c(172,167,202,150, 246))      
 
-starwars_homeworlds   <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
+starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
+                                  homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
 
 # Join the tables together by starwars_name
 ## Tell left_join which columns to use as the key with:  by = c("key_left" = "key_right")
-height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, by = c("starwars_name" = "starwars_name"))
+height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, 
+                                  by = c("starwars_name" = "starwars_name"))
 
 height_and_homeworld
 ```
@@ -228,7 +231,8 @@ Now let's imagine that the `starwars_height` table has two characters named _Dar
 <br>
 
 ```{r, echo=F}
-kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), height  = c(172, 167, 202, 246, 150, 173)))
+kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), 
+                 height  = c(172, 167, 202, 246, 150, 173)))
 ```
 
 <br>
@@ -237,13 +241,16 @@ When you run the code below you'll see that **left_join** is very thorough and a
 
 ```{r, warning=F, message=F, results='hide'}
 # Create new tables 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), height  = c(172,167,202,246, 150, 173))
+starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), 
+                               height  = c(172,167,202,246, 150, 173))
 
 
-starwars_homeworlds   <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
+starwars_homeworlds   <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
+                                    homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
 
 # Join the tables together by Star Wars character name
-height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, by = c("starwars_name" = "starwars_name" ))
+height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, 
+                                  by = c("starwars_name" = "starwars_name" ))
 
 # Check number of rows
 nrow(height_and_homeworld)

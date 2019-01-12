@@ -360,8 +360,8 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </tr>
 </tbody>
 </table>
-<p><br>
-Did it work? Yes. When <strong>left_join</strong> added the height column to the <em>starwars_homeworlds</em> table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as <em>NA</em>.</p>
+<p><br></p>
+<p>Did it work? When <strong>left_join</strong> added the height column to the <em>starwars_homeworlds</em> table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as <em>NA</em>.</p>
 <p><br></p>
 <p>Now let’s imagine that the <code>starwars_height</code> table has two characters named <em>Darth Vader</em> with different heights. What will happen when you join the tables?</p>
 <p><br></p>
@@ -455,8 +455,12 @@ height_and_homeworld</code></pre>
 </tr>
 </tbody>
 </table>
-<p>This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you’re using <strong>left_join</strong>. In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like <em>Darth Vader’s</em> age). In this situation, we’d want to find out whether we really had two Star Wars characters named <em>Darth Vader</em>, or if someone made two different guesses about <em>Darth Vader’s</em> age.</p>
-<p><br><br></p>
+<p><br></p>
+<div class="note">
+<p>This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you’re using <strong>left_join</strong>. In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like <em>Darth Vader’s</em> age).</p>
+<p>In this situation, we’d want to find out whether we really had two Star Wars characters named <em>Darth Vader</em>, or if someone made two different guesses about <em>Darth Vader’s</em> age.</p>
+</div>
+<p><br></p>
 <p><strong>Back to the scrap data! We don’t have time for scuttlebutt, we have actual work to do and need to help Rey.</strong> BUT, we can do that way more efficiently now that we know <code>left_join()</code>! Remember that BB8 found a unit converter table while surfing the web. If we join our scrap data to the unit converter table we can start really digging into what would be most profitable for Rey.</p>
 </div>
 <div id="getting-data-directly-from-the-internet" class="section level2 unnumbered">

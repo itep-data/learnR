@@ -218,7 +218,7 @@ __Uh oh!__ There's no "Ayla Secura" in the height table and there's no "Greedo" 
 
 <br>
 
-```{r, warning=F, message=F, results = 'hide', echo = F}
+```{r, warning=F, message=F, results='hide', echo=F}
 library(dplyr)
    
 # Create new tables 
@@ -239,7 +239,8 @@ kable(height_and_homeworld)
 ```
 
 <br>
-Did it work? Yes. When **left_join** added the height column to the *starwars_homeworlds* table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn't find "Greedo" in the homeworld table, the Star Wars character's homeworld was recorded as _NA_.  
+
+Did it work? When **left_join** added the height column to the *starwars_homeworlds* table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn't find "Greedo" in the homeworld table, the Star Wars character's homeworld was recorded as _NA_.  
 
 <br>
 
@@ -247,7 +248,7 @@ Now let's imagine that the `starwars_height` table has two characters named _Dar
 
 <br>
 
-```{r, echo =F}
+```{r, echo=F}
 kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), height  = c(172, 167, 202, 246, 150, 173)))
 ```
 
@@ -276,9 +277,16 @@ height_and_homeworld
 kable(height_and_homeworld)
 ```
 
-This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you're using **left_join**. In practice, when you see this you'll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like _Darth Vader's_ age). In this situation, we'd want to find out whether we really had two Star Wars characters named _Darth Vader_, or if someone made two different guesses about _Darth Vader's_ age. 
+<br>
 
-<br><br>
+<div class="note">
+This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you're using **left_join**. In practice, when you see this you'll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like _Darth Vader's_ age). 
+
+In this situation, we'd want to find out whether we really had two Star Wars characters named _Darth Vader_, or if someone made two different guesses about _Darth Vader's_ age. 
+
+</div>
+
+<br>
 
 __Back to the scrap data! We don't have time for scuttlebutt, we have actual work to do and need to help Rey.__ BUT, we can do that way more efficiently now that we know `left_join()`! Remember that BB8 found a unit converter table while surfing the web. If we join our scrap data to the unit converter table we can start really digging into what would be most profitable for Rey. 
 

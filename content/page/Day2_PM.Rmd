@@ -432,15 +432,15 @@ _Learn more about saving plots:_ [http://stat545.com/](http://stat545.com/block0
 
 __Table of `aesthetics`__
 
-| aes()         |    |  
-|:--------------|:---|  
-| `x = `        |    |  
-| `y = `        |    |  
-| `alpha = `    |    | 
-| `fill = `     |    |  
-| `color = `    |    |   
-| `size = `     |    |   
-| `linetype = ` |    |    
+| aes()         |    
+|:--------------|  
+| `x = `        |     
+| `y = `        |      
+| `alpha = `    |     
+| `fill = `     |      
+| `color = `    |    
+| `size = `     |     
+| `linetype = ` |      
 
 
 <br>

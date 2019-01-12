@@ -86,11 +86,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#plot-the-data-2">Plot the data!</a></li>
 </ul></li>
 <li><a href="#plots-with-ggplot2"><span class="toc-section-number">1</span> Plots with <em>ggplot2</em></a></li>
-<li><a href="#ggplot-sandwich"><span class="toc-section-number">2</span> | <code>ggplot()</code> sandwich</a><ul>
+<li><a href="#the-ggplot-sandwich"><span class="toc-section-number">2</span> | The <code>ggplot()</code> sandwich</a><ul>
 <li><a href="#colors">Colors</a></li>
 </ul></li>
 <li><a href="#homeworld-training">Homeworld training</a></li>
-<li><a href="#more-plots-with-ggplot2"><span class="toc-section-number">3</span> More Plots with <em>ggplot2</em></a><ul>
+<li><a href="#more-plots"><span class="toc-section-number">3</span> | More Plots</a><ul>
 <li><a href="#colors-1">Colors</a></li>
 <li><a href="#bar-charts">Bar charts</a></li>
 <li><a href="#facet-wrap">Facet wrap</a></li>
@@ -113,8 +113,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Are you the best Jedi detective out there? Let’s play a game to find out. In the past day and a half, we have learned a lot of the <code>dplyr</code> functions. Guess what else comes with the <code>dplyr</code> package? A <strong>Star Wars data set</strong>!</p>
 </blockquote>
 <p><br></p>
-<p>Open that data set now by completing the following steps.</p>
-<p><br></p>
+<p>Open the data set now by completing the following steps:</p>
 <ol style="list-style-type: decimal">
 <li>First, load the <code>dplyr</code> package from your <code>library()</code></li>
 <li>Second, pull the Star Wars dataset into your environment.
@@ -155,9 +154,7 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 </ul>
 <p><br></p>
 <p><strong>Want a rematch? How about you make it best of 3 games.</strong></p>
-<p><br></p>
 <p>Here is an example filter statement that narrows down the Star Wars data to the character <em>Plo Koon</em>.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mr_koon &lt;-<span class="st"> </span><span class="kw">filter</span>(starwars,
                   mass       <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>,
                   eye_color  <span class="op">!=</span><span class="st"> &quot;blue&quot;</span>,
@@ -186,10 +183,9 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <hr>
 <p><br></p>
 <p><img src="../images/ggplot2_hex.png" align="right" style="margin-right: 30px; margin-top: -28px;" width="145" /></p>
-<p><br></p>
 </div>
-<div id="ggplot-sandwich" class="section level1">
-<h1><span class="header-section-number">2</span> | <code>ggplot()</code> sandwich</h1>
+<div id="the-ggplot-sandwich" class="section level1">
+<h1><span class="header-section-number">2</span> | The <code>ggplot()</code> sandwich</h1>
 <hr>
 <p><img src="../images/auto_plot.gif" style="margin-top: -22px; max-width: 108%;" /></p>
 <p><span class="h6" style="font-size: 28px; font-weight: bold;"> The 3 ingredients in a <code>ggplot</code> </span></p>
@@ -251,10 +247,9 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Create 2 plots using the data. <em>Don’t worry if it looks really weird. Consider it art.</em></li>
 </ol>
-<p><br></p>
 </div>
-<div id="more-plots-with-ggplot2" class="section level1">
-<h1><span class="header-section-number">3</span> More Plots with <em>ggplot2</em></h1>
+<div id="more-plots" class="section level1">
+<h1><span class="header-section-number">3</span> | More Plots</h1>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <blockquote>
@@ -284,7 +279,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <blockquote>
 <p>An easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
 </blockquote>
-<p><br></p>
 </div>
 </div>
 <div id="bar-charts" class="section level2 unnumbered">
@@ -298,7 +292,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
-<p><br></p>
 </div>
 <div id="facet-wrap" class="section level2 unnumbered">
 <h2>Facet wrap</h2>
@@ -307,7 +300,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>)</code></pre>
-<p><br></p>
 </div>
 <div id="themes" class="section level2 unnumbered">
 <h2>Themes</h2>
@@ -317,7 +309,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
-<p><br></p>
 </div>
 <div id="labels" class="section level2 unnumbered">
 <h2>Labels</h2>
@@ -330,7 +321,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
        <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
-<p><br></p>
 </div>
 <div id="drop-scientific-notation" class="section level2 unnumbered">
 <h2>Drop scientific notation</h2>
@@ -351,7 +341,6 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <div id="exercise-1" class="section level4 unnumbered">
 <h4><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h4>
 <p>We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but now we want to do a boxplot of the total price for each destination. But we’re not telling you which function to use. You’re on your own here. Feel free to add colors ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code> to your boxplots. May the force be with you.</p>
-<p><br></p>
 </div>
 </div>
 <div id="save-plots" class="section level2 unnumbered">

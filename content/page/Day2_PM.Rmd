@@ -29,9 +29,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 <br>
 
-Open that data set now by completing the following steps.
-
-<br>
+Open the data set now by completing the following steps:
 
 1. First, load the `dplyr` package from your `library()`
 1. Second, pull the Star Wars dataset into your environment.
@@ -74,11 +72,7 @@ __WINNER!__
 
 __Want a rematch? How about you make it best of 3 games.__
 
-<br>
-
 Here is an example filter statement that narrows down the Star Wars data to the character _Plo Koon_.
-
-<br>
 
 ```{r, eval = F}
 mr_koon <- filter(starwars,
@@ -113,10 +107,7 @@ mr_koon <- filter(starwars,
 ![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 30px; margin-top: -28px;"}
 
 
-<br>
-
-
-# | `ggplot()` sandwich
+# | The `ggplot()` sandwich
 <hr>
 
 ![](../images/auto_plot.gif){style="margin-top: -22px; max-width: 108%;"}
@@ -233,12 +224,10 @@ ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
 <br>
   
 2. Create 2 plots using the data. _Don't worry if it looks really weird. Consider it art._  
-  
-<br>
 
 
 
-# More Plots with _ggplot2_
+# | More Plots
 
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
@@ -278,7 +267,6 @@ ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
 > An easy way to experiment with colors is to add layers like `scale_fill_brewer` or `scale_colour_brewer` to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.
 
-<br>
 
 ## Bar charts {-}
 
@@ -302,7 +290,6 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge")
 ```
 
-<br>
 
 ## Facet wrap {-}
 
@@ -316,7 +303,6 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   facet_wrap("destination")
 ```
 
-<br>
 
 
 ## Themes {-}
@@ -332,7 +318,6 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
   theme_bw()
 ```
 
-<br>
 
 ## Labels {-}
 
@@ -350,7 +335,6 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
        y     = "Total sales")
 ```
 
-<br>
 
 ## Drop scientific notation {-}
 
@@ -381,8 +365,6 @@ What if we don't like the zeros and want the labels in millions? Any ideas?
 #### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
 
 We've covered how to do a scatterplot with `geom_point` and a bar chart with `geom_col`, but now we want to do a boxplot of the total price for each destination. But we're not telling you which function to use. You're on your own here. Feel free to add colors ,`facet_wrap`, `theme`, and `labs` to your boxplots. May the force be with you.
-
-<br>
 
 
 ## Save plots {-}

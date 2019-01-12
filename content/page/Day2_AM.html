@@ -512,8 +512,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 ## 5 Starship sen~ Cratert~ Trade carav~    305 Cubic ~           1129.    637</code></pre>
 <p><br></p>
 <p><strong>Help!</strong> Remember to type <code>?left_join</code> if you are wondering what the arguments are.</p>
-<div id="exercise" class="section level3 tabset">
-<h3><span class="header-section-number">2.0.1</span> <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<div id="exercise" class="section level3 unnumbered tabset">
+<h3><i class="fas fa-starwars" style="color: green"></i> Exercise</h3>
 <div id="total-price" class="section level4 unnumbered">
 <h4>Total price</h4>
 <p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the price per pound. We want to know the total amount of credits for each transaction. How would we calculate that?</p>
@@ -643,7 +643,8 @@ What if I want to string several of these data processing functions together? Do
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) </code></pre>
 <p><br></p>
 <details>
-<summary class="btn_code"> Rounding digits </summary>
+<p><summary class="btn_code_blue"> Rounding digits </summary></p>
+<div class="note">
 <p>
 <p>You can round the prices to a certain number of digits using the <code>round()</code> function. We can finish by adding the <code>arrange()</code> function to sort the table by our new column.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
@@ -654,6 +655,7 @@ What if I want to string several of these data processing functions together? Do
 <p><br></p>
 <p><strong>NOTE:</strong> The <code>round()</code> function in R does not automatically round values ending in 5 up, instead it uses scientific rounding. It rounds values ending in 5 to the nearest even number, so 2.5 rounded to the nearest whole number using <code>round()</code> is 2, and 3.5 rounded to the nearest whole number is 4. If you want to round all values ending in 5 up, then you’ll have to use a rounding function from another package.</p>
 </p>
+</div>
 </details>
 <p><br></p>
 <p>Try using <code>group_by</code> with the column <em>origin</em> and then use <code>summarize</code> to count the number of Salvage reports from each city.</p>

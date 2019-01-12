@@ -119,7 +119,7 @@ Planet: `Earth`
 
 # Looking for change 📉📈
 
-Let's compare the observations at a site for different years. We want to know if there was a shift in concentrations after a new highway project was completed.
+Let's compare the observations at a monitoring site for different years. For this example, we will see if we can detect a shift in concentrations after a new highway project was completed.
 
 ```{r, eval=F}
 

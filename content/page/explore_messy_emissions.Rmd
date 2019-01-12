@@ -1,16 +1,13 @@
 ---
-title: "R Workshops | Tidy data"
+title: "From Messy to Tidy data"
 output: 
- html_document:
+  blogdown::html_page: 
     toc: false
     toc_depth: 2
-    toc_float: true
-    theme: readable
     highlight: tango
     css: css/camp_style.css
-fontsize: 14pt
-monofont: Source Code Pro
-monofontoptions: Scale = 1.1
+    fontsize: 14pt
+    monofont: Source Code Pro
 ---
 
 <style> code {color: #535353 !important;} </style>

@@ -248,46 +248,46 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">2017-04-22</td>
-<td align="right">8</td>
-<td align="right">51.2</td>
+<td align="left">2018-07-26</td>
+<td align="right">24</td>
+<td align="right">84.2</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">2016-07-08</td>
+<td align="left">2017-05-05</td>
 <td align="right">10</td>
-<td align="right">63.2</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">2017-09-05</td>
-<td align="right">6</td>
-<td align="right">64.4</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7001</td>
-<td align="left">2017-05-07</td>
-<td align="right">9</td>
-<td align="right">47.0</td>
+<td align="right">48.2</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">2017-08-22</td>
-<td align="right">12</td>
-<td align="right">66.2</td>
+<td align="left">2017-05-02</td>
+<td align="right">10</td>
+<td align="right">51.8</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">2018-05-01</td>
+<td align="right">2</td>
+<td align="right">43.4</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2018-06-23</td>
+<td align="right">24</td>
+<td align="right">79.4</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="plot-the-data" class="section level3">
-<h3><span class="header-section-number">1.0.1</span> 2. Plot the data</h3>
+<div id="plot-the-data" class="section level3 unnumbered">
+<h3>2. Plot the data</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/view-1.png" width="1152" /></p>
 </div>
-<div id="clean-the-data" class="section level3">
-<h3><span class="header-section-number">1.0.2</span> 3. Clean the data</h3>
+<div id="clean-the-data" class="section level3 unnumbered">
+<h3>3. Clean the data</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(OZONE <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, TEMP_F <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) 
 
@@ -296,8 +296,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">OZONE =</span> <span class="kw">ifelse</span>(UNITS <span class="op">==</span><span class="st"> &quot;PPM&quot;</span>, OZONE <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>, 
                                   OZONE)) </code></pre>
 </div>
-<div id="view-the-data-closer" class="section level3">
-<h3><span class="header-section-number">1.0.3</span> 4. View the data closer</h3>
+<div id="view-the-data-closer" class="section level3 unnumbered">
+<h3>4. View the data <strong>closer</strong></h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
@@ -306,8 +306,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
          <span class="dt">subtitle =</span> <span class="st">&quot;Observations from 2015-2017&quot;</span>)</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
 </div>
-<div id="summarize-the-data" class="section level3">
-<h3><span class="header-section-number">1.0.4</span> 5. Summarize the data</h3>
+<div id="summarize-the-data" class="section level3 unnumbered">
+<h3>5. Summarize the data</h3>
 <pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">group_by</span>(SITE, YEAR) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">summarize</span>(<span class="dt">AVG_OZONE =</span> <span class="kw">mean</span>(OZONE) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>),
@@ -361,16 +361,16 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 </tbody>
 </table>
 </div>
-<div id="save-the-results" class="section level3">
-<h3><span class="header-section-number">1.0.5</span> 6. Save the results</h3>
+<div id="save-the-results" class="section level3 unnumbered">
+<h3>6. Save the results</h3>
 <p><strong>Save the final data table</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r">air_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">write_csv</span>(<span class="st">&quot;results/2015-17_ozone_summary.csv&quot;</span>)</code></pre>
 <p><br></p>
 <p><strong>Save the site plot</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;results/2015-2017 - Ozone vs Temp.pdf&quot;</span>)</code></pre>
 </div>
-<div id="share-it-with-the-world" class="section level3">
-<h3><span class="header-section-number">1.0.6</span> 7. Share it with the world</h3>
+<div id="share-with-the-world" class="section level3 unnumbered">
+<h3>7. Share with the world</h3>
 <p><a href = "https://github.com/dKvale/ex__OZONE__Project">
 <img src="../images/github_example_ozone.png" style="width: 95%;" />
 </a></p>
@@ -398,8 +398,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 </div>
 <div id="customize-r-studio" class="section level2 unnumbered">
 <h2>2. | Customize R Studio</h2>
-<div id="make-it-your-own" class="section level4">
-<h4><span class="header-section-number">2.0.0.1</span> Make it your own</h4>
+<div id="make-it-your-own" class="section level4 unnumbered">
+<h4>Make it your own</h4>
 <p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
 <ol style="list-style-type: decimal">
 <li>Go to <strong>Tools</strong> on the top navigation bar.</li>
@@ -582,19 +582,15 @@ starwars_df</code></pre>
 </ul>
 <br><br>
 <hr>
-</div>
-<div id="show-hint" class="section level4 unnumbered">
-<h4>Show hint</h4>
+<p><strong>Show hint</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character   =</span> starwars_character,
                           <span class="dt">ages    =</span> starwars_ages,
                           <span class="dt">fathers =</span> _____________)</code></pre>
 <br><br>
 <hr>
-</div>
-<div id="show-code" class="section level4 unnumbered">
-<h4>Show code</h4>
-<p><br></p>
+<p><strong>Show code</strong>
+<br></p>
 <pre class="sourceCode r"><code class="sourceCode r">starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character   =</span> starwars_character,
                           <span class="dt">ages    =</span> starwars_ages,
                           <span class="dt">fathers =</span> <span class="kw">c</span>(<span class="st">&quot;Darth&quot;</span>,<span class="st">&quot;Darth&quot;</span>, <span class="st">&quot;Unknown&quot;</span>))</code></pre>
@@ -796,15 +792,15 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 </p>
 </details>
 <p><br></p>
-<div id="add-new-packages-r-apps" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> 3. | Add new packages 📦 <em>(R Apps)</em></h3>
+<div id="add-new-packages-r-apps" class="section level3 unnumbered">
+<h3>3. | Add new packages 📦 <em>(R Apps)</em></h3>
 <hr>
 <blockquote>
 <p><strong>What is a package?</strong></p>
 </blockquote>
 <p>A <em>package</em> is a small add-on for R, like a phone App for your phone. They add capabilities like statistical functions, mapping powers, and special charts. In order to use a new package we first need to install it.</p>
-<div id="readr" class="section level4">
-<h4><span class="header-section-number">4.1.1.1</span> <em>readr</em></h4>
+<div id="readr" class="section level4 unnumbered">
+<h4><code>readr</code></h4>
 <p><img src="../images/readr-hexbin-sticker-from-rstudio.png" align="left" style="margin-right:18px;" width="145" /></p>
 <p><br></p>
 <p>The <em>readr</em> package helps import data into R in different formats. It does extra work for you like cleaning the data of extra white space and formatting tricky dates. Your packages are stored in your R <em>library</em>.</p>
@@ -912,8 +908,8 @@ scrap</code></pre>
 <p>What if we want <code>read_csv</code> to ignore the first row of data? Let’s look through the help window and try to find an argument that can help us. The <code>skip</code> argument looks like it could be helpful. Sure enough, the description is exactly what we’re looking for here. The default is <code>skip = 0</code> (read every line), but we can skip the first line by providing <code>skip = 1</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)</code></pre>
 </div>
-<div id="limit-the-number-of-rows-you-pull-in" class="section level3 unnumbered">
-<h3>Limit the number of rows you pull in</h3>
+<div id="limit-the-total-number-of-rows" class="section level3 unnumbered">
+<h3>Limit the total number of rows</h3>
 <p>Other types of data have wierd last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you are worried about space on your c drive. Let’s look through the help window and try to find an argument that can help us. The <code>n_max</code> argument looks like it could be helpful. Sure enough, the description is exactly what we’re looking for here. The default is <code>n_max = Inf</code> (read every line), but we can limit the lines we pull in to only a million by <code>n_max = 1000000</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>, <span class="dt">n_max =</span> <span class="dv">1000000</span>)</code></pre>
 <p><br></p>
@@ -982,8 +978,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <div id="ggplot2" class="section level1">
 <h1><span class="header-section-number">5</span> | ggplot2</h1>
 <hr>
-<div id="plot-the-data-plot-the-data-plot-the-data" class="section level4 unnumbered">
-<h4><em>Plot the data, Plot the data, Plot the data</em></h4>
+<div id="plot-the-data-plot-the-data-plot-the-data" class="section level3 unnumbered">
+<h3><em>Plot the data, Plot the data, Plot the data</em></h3>
 <p><img src="../images/ggplot2_hex.png" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;" width="164" /></p>
 <p><br></p>
 <p>In data analysis it is really important to look at your data early and often. For that, let’s add a new package called <strong>ggplot2</strong>!

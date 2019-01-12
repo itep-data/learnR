@@ -312,6 +312,15 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
 </div>
 </div>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="porgies-tab" data-toggle="tab" href="#porgies" role="tab" aria-controls="porgies" aria-selected="true">porgies</a>
+</li>
+</ul>
+<pre><code>                 &lt;div class=&quot;well tab-content&quot; id=&quot;myTabContent&quot; style=&quot;background-color: white;&quot;&gt;&lt;div class=&quot;tab-pane fade active in&quot; id=&quot;porgies&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;porgies-tab&quot;&gt;![](../images/porgs/porgs_tbl.png){style=&quot;width: 85%;&quot;}</code></pre>
+<br><br>
+</div>
+</div>
 </div>
 <div id="select" class="section level1">
 <h1><span class="header-section-number">5</span> | <code>select()</code></h1>
@@ -665,8 +674,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <div id="add-a-calculated-column" class="section level2 unnumbered">
 <h2>Add a calculated column</h2>
 <p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the pounds for scavenge items that are reported in tons.</p>
-<div id="tons-to-pounds-conversions" class="section level3 unnumbered">
-<h3>Tons to pounds conversions</h3>
+<div id="tons----pounds-conversions" class="section level3 unnumbered">
+<h3>Tons <code>--&gt;</code> pounds conversions</h3>
 <p>Use <code>filter()</code> to subset the data to the items reported in <code>"tons"</code>. Then use <code>mutate()</code> to convert the <code>amount</code> column to pounds. We can also change the <code>units</code> column to “pounds” to avoid any confusion.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
@@ -693,7 +702,7 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap,
 </div>
 <div id="first-mission-complete" class="section level1">
 <h1><span class="header-section-number">9</span> | First mission complete!</h1>
-<p>Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for a Starfighter and <em>we are free to FLY TO ENDOR for our next mission</em>!</p>
+<p>Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for her ship and <strong>we are free to FLY TO ENDOR for our next mission!</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
 

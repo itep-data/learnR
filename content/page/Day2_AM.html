@@ -197,15 +197,15 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <p><br></p>
 <p>Sometimes you want the value of a new column to depend on the value of an existing column, in other words you want the new value to depend on a condition. We use <code>ifelse()</code> to do this.</p>
 <p><code>ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")</code></p>
-<blockquote>
+<div class="well">
 <p><strong>For example:</strong></p>
-<p><code>ifelse( [ The M&amp;M is red ], "Eat it!", "Otherwise - Yuk! throw it out!.")</code></p>
-</blockquote>
+<p><code>ifelse( [ The M&amp;M is</code> <span style="color: red;"> <code>red</code> </span> <code>], "</code> <span style="color: red;"> <code>Eat it!</code> </span> <code>", "Otherwise - Yuk! throw it out!.")</code></p>
+</div>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
 
-<span class="co">#Get the data</span>
+<span class="co"># Get the data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
 
 <span class="co"># Convert the TONS in all capital letters to title case &quot;Tons&quot;</span>
@@ -224,6 +224,10 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
 <h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
 <p><br></p>
+<p>Remember our porg friends? How rude of us not to share their names. Here’s a table or their names.</p>
+<p><img src="../images/porg_names.png" style="width: 85%; max-width: 85%;" /></p>
+<p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join them!</p>
+<p><img src="../images/left_join_porgs.png" style="width: 85%; max-width: 85%;" /></p>
 <p><img src="../images/left_join_image.png" style="width: 85%; max-width: 85%;" /></p>
 <p><br><br></p>
 <p><strong>BB8 found a unit converter table while surfing the web.</strong> How does BB8 keep doing that!? If we join our scrap data to the unit converter table we can really start digging into what would be most profitable for Rey. First, let’s talk about <code>left_join()</code>.</p>

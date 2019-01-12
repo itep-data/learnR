@@ -76,10 +76,12 @@ Sometimes you want the value of a new column to depend on the value of an existi
 `ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")`
 
 
-> __For example:__
->
-> `ifelse( [ The M&M is red ], "Eat it!", "Otherwise - Yuk! throw it out!.")`
+<div class="well">
+__For example:__
+ 
+`ifelse( [ The M&M is ` <span style="color: red;"> `red` </span> `], "` <span style="color: red;"> `Eat it! ` </span> `", "Otherwise - Yuk! throw it out!.")`
 
+</div>
 
 <br>
 ```{r ifelse, eval = F}
@@ -87,7 +89,7 @@ Sometimes you want the value of a new column to depend on the value of an existi
 library(dplyr)
 library(readr)
 
-#Get the data
+# Get the data
 scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
 
 # Convert the TONS in all capital letters to title case "Tons"
@@ -110,6 +112,17 @@ Congratulations of galactic proportions to you. We have a clean and tidy data se
 ### `left_join(table1, table2, by = c("columns to join by"))` {-}
 
 <br>
+
+Remember our porg friends? How rude of us not to share their names. Here's a table or their names.
+
+![](../images/porg_names.png){style="width: 85%; max-width: 85%;"}
+
+
+__Hey now!__ That's not very helpful. Who's who? Let's join them!
+
+
+![](../images/left_join_porgs.png){style="width: 85%; max-width: 85%;"}
+
 
 ![](../images/left_join_image.png){style="width: 85%; max-width: 85%;"}
 
@@ -522,6 +535,7 @@ scrap_counts <- group_by(scrap, origin) %>%
 <br>
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 > Ending with `ungroup()` is good practice. This will prevent your data from staying grouped after the summarizing has been completed.
 
 
@@ -541,6 +555,7 @@ write_csv(scrap_means, "results/Mean_prices_by_origin.csv")
 
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 > __Warning!__ By default, R will overwrite a file if the file already exists in a folder. It will not ask for confirmation. To be safe, do not save processed data to your `data/` folder.
 >
 

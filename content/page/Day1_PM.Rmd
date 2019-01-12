@@ -128,6 +128,20 @@ cat(readLines("porg_tabs.txt"))
 ```
 
 
+```{r porg-tabs-fn, results='asis', echo=F}
+source("insert_tabs.R")
+
+tab_names <- "porgies"
+
+tab_content <- '![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
+
+<br><br>'
+
+tab_html <- add_tabs(tab_names, tab_content)
+
+cat(tab_html)
+```
+
 # | `select()`
 <hr>
 
@@ -419,7 +433,7 @@ scrap <- mutate(scrap, units = tolower(units))
 In our work we often use `mutate` to calculate new units for measurements. In this case, let's estimate the pounds for scavenge items that are reported in tons. 
 
 
-### Tons to pounds conversions {-}
+### Tons `-->` pounds conversions {-}
 
 Use `filter()` to subset the data to the items reported in `"tons"`. Then use `mutate()` to convert the `amount` column to pounds. We can also change the `units` column to "pounds" to avoid any confusion.
 
@@ -442,9 +456,9 @@ scrap_pounds <- mutate(scrap,
 
 # | First mission complete!
 
-Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for a Starfighter and _we are free to FLY TO ENDOR for our next mission_!
+Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for her ship and __we are free to FLY TO ENDOR for our next mission!__
 
-```{r arrange final, eval = T, message = F}
+```{r arrange final, eval=T, message=F}
 
 # Get data
 scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")

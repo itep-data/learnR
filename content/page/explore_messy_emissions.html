@@ -1,0 +1,372 @@
+---
+title: "From Messy to Tidy data"
+output: 
+  blogdown::html_page: 
+    toc: false
+    toc_depth: 2
+    highlight: tango
+    css: css/camp_style.css
+    fontsize: 14pt
+    monofont: Source Code Pro
+---
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+  <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
+
+
+<style> code {color: #535353 !important;} </style>
+<hr>
+<p>This workshop is available online at</p>
+<blockquote>
+<p><a href="https://mpca-air.github.io/RCamp" class="uri">https://mpca-air.github.io/RCamp</a></p>
+</blockquote>
+<p>The messy data examples can be downloaded from here</p>
+<blockquote>
+<p><a href="https://github.com/MPCA-air/RCamp/tree/master/data/messy_data" class="uri">https://github.com/MPCA-air/RCamp/tree/master/data/messy_data</a></p>
+</blockquote>
+<div id="tidy-data" class="section level1">
+<h1>Tidy data</h1>
+<hr>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Tidy data script</span>
+<span class="co"># Demonstrates cleaning up the messiest data / Excel files you can find</span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+<span class="co"># Install these packages</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)    <span class="co"># For importing Excel data</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)     <span class="co"># For re-organizing your data frames</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;lubridate&quot;</span>) <span class="co"># For dates</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;stringr&quot;</span>) <span class="co"># Cleans spaces and character strings</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;forcats&quot;</span>)   <span class="co"># For assigning an order to character data c(&quot;Gold&quot;, &quot;Silver&quot;, &quot;Bronze&quot;)</span>
+                 
+<span class="co"># Load these packages</span>
+<span class="kw">library</span>(<span class="st">&quot;dplyr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;ggplot2&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;tidyr&quot;</span>)     
+<span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)    
+<span class="kw">library</span>(<span class="st">&quot;lubridate&quot;</span>) 
+<span class="kw">library</span>(<span class="st">&quot;stringr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;forcats&quot;</span>)   
+
+
+<span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Wide tables</span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+<span class="co"># Let&#39;s start with a really WIDEEEEE Excel table with lots of columns</span>
+
+<span class="co">#1. Load emissions Excel file</span>
+folder &lt;-<span class="st"> &quot;messy_data/&quot;</span>
+
+wide_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="kw">paste0</span>(folder, <span class="st">&quot;emissions_2015.xlsx&quot;</span>))
+
+<span class="co">#2. Lowercase names</span>
+<span class="kw">names</span>(wide_data) &lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(wide_data))
+
+<span class="kw">names</span>(wide_data)
+
+<span class="co">#3. Gather all the pollutant columns into one</span>
+long_data &lt;-<span class="st"> </span>wide_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                </span><span class="kw">gather</span>(<span class="dt">key =</span> pollutant, <span class="dt">value =</span> emissions, <span class="st">`</span><span class="dt">222trifluoroetha</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">solv in coat</span><span class="st">`</span>)
+
+<span class="co">#4. Drop the missing values and zero emissions</span>
+long_data &lt;-<span class="st"> </span><span class="kw">filter</span>(long_data, <span class="op">!</span><span class="kw">is.na</span>(emissions), emissions <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+
+
+<span class="co">#5. Plot emissions for *ALL* pollutants</span>
+long_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> pollutant, <span class="dt">y =</span> emissions)) <span class="op">+</span><span class="st"> </span>
+<span class="st">                </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">                </span><span class="kw">scale_y_log10</span>()
+
+<span class="co">#6. Plot GHGs</span>
+long_data &lt;-<span class="st"> </span><span class="kw">filter</span>(long_data, pollutant <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;co2&quot;</span>, <span class="st">&quot;co2-b&quot;</span>, <span class="st">&quot;methane&quot;</span>, <span class="st">&quot;nitrous oxid&quot;</span>, <span class="st">&quot;hfc-134a&quot;</span>))
+
+long_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> pollutant, <span class="dt">y =</span> emissions)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_y_log10</span>()
+
+
+<span class="co">#6. Arrange plots in descending order</span>
+long_data &lt;-<span class="st"> </span>long_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(emissions))
+
+<span class="co"># See the new pollutant order</span>
+<span class="kw">unique</span>(long_data<span class="op">$</span>pollutant)
+
+<span class="co"># Use fct_inorder() to tell ggplot to respect your pollutant order.</span>
+long_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">fct_inorder</span>(pollutant), <span class="dt">y =</span> emissions)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">scale_y_log10</span>() <span class="op">+</span>
+<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Pollutant&quot;</span>)
+
+
+<span class="co"># **Bonus** </span>
+<span class="co"># Flip your data back to wide format using </span>
+<span class="co">## spread(data, column_to_spread, column_to_use_for_values)</span>
+wide_again &lt;-<span class="st"> </span><span class="kw">spread</span>(long_data, pollutant, emissions)  
+
+
+<span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Looping through files</span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+<span class="co"># Example &quot;for loop&quot;</span>
+num &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
+
+num
+
+<span class="co"># Pi loop</span>
+<span class="cf">for</span> (i <span class="cf">in</span> num) {
+  
+  <span class="kw">print</span>(i <span class="op">+</span><span class="st"> </span>pi)
+  
+}
+
+
+<span class="co"># Save answers in Pi loop</span>
+answers &lt;-<span class="st"> </span><span class="kw">c</span>()
+
+<span class="cf">for</span> (i <span class="cf">in</span> num) {
+  
+  temp &lt;-<span class="st"> </span>i <span class="op">+</span><span class="st"> </span>pi
+  
+  <span class="kw">print</span>(temp)
+  
+  answers &lt;-<span class="st"> </span><span class="kw">c</span>(temp, answers)
+  
+}
+
+answers
+
+<span class="co"># For loop of air monitoring files</span>
+files_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;messy_data/60min/&quot;</span>)
+
+
+<span class="co"># Loop through each file</span>
+<span class="cf">for</span> (i <span class="cf">in</span> files_<span class="dv">2016</span>) {
+  
+  <span class="kw">print</span>(i)
+
+}
+
+<span class="co"># Read each file and add to master table &quot;data_2016&quot;</span>
+data_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">data_frame</span>()
+
+
+<span class="cf">for</span> (i <span class="cf">in</span> files_<span class="dv">2016</span>) {
+  
+  <span class="kw">print</span>(i)
+  
+  <span class="co"># Read in a single file</span>
+  temp &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="kw">paste0</span>(<span class="st">&quot;messy_data/60min/&quot;</span>, i))
+ 
+  <span class="co"># Select only 2 columns and date/time</span>
+  temp &lt;-<span class="st"> </span><span class="kw">select</span>(temp, <span class="st">`</span><span class="dt">Date&amp;Time</span><span class="st">`</span>, <span class="st">`</span><span class="dt">BC1(370)</span><span class="st">`</span>, <span class="st">`</span><span class="dt">BC6(880)</span><span class="st">`</span>)
+  
+  <span class="co"># Add to master table of all files  </span>
+  data_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">bind_rows</span>(temp, data_<span class="dv">2016</span>)
+
+}
+
+
+<span class="co"># Fix column names</span>
+<span class="kw">names</span>(data_<span class="dv">2016</span>)
+
+<span class="co"># str_trim() removes empty spaces at the beginning and end of a string</span>
+<span class="kw">str_trim</span>(<span class="st">&quot; excel_column &quot;</span>)
+
+<span class="co"># gsub() finds and replaces values in strings. </span>
+<span class="co"># Use ?gsub for more information on how to supply arguments.</span>
+
+<span class="co"># gsub(character_to_search_for, what_toreplace_with, your_string)</span>
+<span class="co"># The line below searches for any space and replaces it with nothing &quot;&quot;.</span>
+<span class="kw">gsub</span>(<span class="st">&quot; &quot;</span>, <span class="st">&quot;&quot;</span>, <span class="st">&quot; excel column &quot;</span>)
+
+
+<span class="co"># Parenthesis are special.</span>
+<span class="co"># When replacing special characters, you must use [ ] around them or you&#39;ll get an error like this.</span>
+<span class="kw">gsub</span>(<span class="st">&quot;(&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="co"># Drop left</span>
+<span class="kw">gsub</span>(<span class="st">&quot;[(]&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="co"># Drop right</span>
+<span class="kw">gsub</span>(<span class="st">&quot;[)]&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="co"># Drop both with the &quot;or&quot; operator |</span>
+<span class="co"># Hint: it&#39;s the vertical line above the Enter key on the keybord</span>
+<span class="kw">names</span>(data_<span class="dv">2016</span>) &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;[()]|[)]&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="kw">names</span>(data_<span class="dv">2016</span>)
+
+<span class="co"># Drop the M&amp;M symbol</span>
+<span class="kw">names</span>(data_<span class="dv">2016</span>) &lt;-<span class="st"> </span><span class="kw">gsub</span>(<span class="st">&quot;&amp;&quot;</span>, <span class="st">&quot;&quot;</span>, <span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="kw">names</span>(data_<span class="dv">2016</span>)
+
+<span class="co"># Make lowercase</span>
+<span class="kw">names</span>(data_<span class="dv">2016</span>) &lt;-<span class="st"> </span><span class="kw">tolower</span>(<span class="kw">names</span>(data_<span class="dv">2016</span>))
+
+<span class="kw">names</span>(data_<span class="dv">2016</span>)
+
+<span class="co"># Check date coverage</span>
+<span class="kw">range</span>(data_<span class="dv">2016</span><span class="op">$</span>datetime)
+
+
+<span class="co"># Use function from lubridate package to convert to &quot;date&quot;</span>
+<span class="co"># Use mdy_hm because the dates are in Month, Day, Year, Hour, Minute order</span>
+data_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_<span class="dv">2016</span>, <span class="dt">date =</span> <span class="kw">mdy_hm</span>(datetime)) 
+
+<span class="kw">range</span>(data_<span class="dv">2016</span><span class="op">$</span>date)
+
+<span class="co"># Now extract the individual time components</span>
+data_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">mutate</span>(data_<span class="dv">2016</span>,
+                    <span class="dt">year    =</span> <span class="kw">year</span>(date),
+                    <span class="dt">quarter =</span> <span class="kw">quarter</span>(date),
+                    <span class="dt">month   =</span> <span class="kw">month</span>(date),
+                    <span class="dt">week    =</span> <span class="kw">week</span>(date),
+                    <span class="dt">day     =</span> <span class="kw">day</span>(date),
+                    <span class="dt">hour    =</span> <span class="kw">hour</span>(date),
+                    <span class="dt">minute  =</span> <span class="kw">minute</span>(date))
+
+
+<span class="co"># Now you can group_by the different time components</span>
+<span class="kw">group_by</span>(data_<span class="dv">2016</span>, quarter) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarize</span>(<span class="dt">med_bc1270 =</span> <span class="kw">median</span>(bc1370, <span class="dt">na.rm =</span> T),
+                                           <span class="dt">med_bc6880 =</span> <span class="kw">median</span>(bc6880, <span class="dt">na.rm =</span> T)) 
+
+
+
+<span class="co"># View final table</span>
+<span class="kw">View</span>(data_<span class="dv">2016</span>)
+
+
+
+<span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Anne&#39;s scary landfill data ;( </span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+<span class="co"># Excel range example and sheet selection</span>
+folder &lt;-<span class="st"> &quot;messy_data/&quot;</span>
+
+permitted &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="kw">paste0</span>(folder, <span class="st">&quot;2016 Demo Retrac Report.xlsx&quot;</span>), 
+                        <span class="dt">sheet =</span> <span class="st">&quot;2014&quot;</span>, 
+                        <span class="dt">range =</span> <span class="st">&quot;A4:I102&quot;</span>, 
+                        <span class="dt">col_names =</span> T)
+
+ultimate &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="kw">paste0</span>(folder, <span class="st">&quot;2016 Demo Retrac Report.xlsx&quot;</span>), 
+                       <span class="dt">sheet =</span> <span class="st">&quot;2014&quot;</span>, 
+                       <span class="dt">range =</span> <span class="st">&quot;K4:N102&quot;</span>, 
+                       <span class="dt">col_names =</span> T)
+
+<span class="co"># left_join()</span>
+one_table &lt;-<span class="st"> </span><span class="kw">left_join</span>(permitted, ultimate)
+
+
+<span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Blank rows in Excel</span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+<span class="co"># See what directory you&#39;re in</span>
+<span class="kw">list.files</span>(<span class="st">&quot;messy_data/&quot;</span>)
+
+<span class="co"># Read the PTE tab - &quot;Potential emissions&quot;</span>
+emits &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;messy_data/emission_calcs.xlsx&quot;</span>, <span class="st">&quot;PTE - Pollutant Summary&quot;</span>)
+
+
+<span class="co"># Where do the column names start? Let&#39;s &quot;skip&quot; the top 3 info rows.</span>
+
+
+<span class="co"># Skip first 3 rows</span>
+emits &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;messy_data/emission_calcs.xlsx&quot;</span>, 
+                    <span class="dt">sheet =</span> <span class="st">&quot;PTE - Pollutant Summary&quot;</span>, 
+                    <span class="dt">skip =</span> <span class="dv">3</span>)
+
+<span class="kw">View</span>(emits)
+
+<span class="co"># Why are pollutant names only listed once in table? Maybe it seemed like a good idea at the time, but can create problems when sorting.</span>
+
+<span class="co">#-------------------------------------------#</span>
+<span class="co"># How can we fill in the empty rows?</span>
+<span class="co">#-------------------------------------------#</span>
+
+<span class="co"># -&gt; Don&#39;t worry you don&#39;t need to paste in Excel! </span>
+<span class="co"># -&gt; R is your friend and will help you.</span>
+
+
+<span class="co"># Fill empty rows using fill() from the tidyr package</span>
+emits &lt;-<span class="st"> </span><span class="kw">fill</span>(emits, Pollutant)
+
+<span class="kw">View</span>(emits)
+
+<span class="co">#------------------------------------------------------------------------#</span>
+<span class="co"># Look out messy data, R is coming for you.</span>
+<span class="co">#------------------------------------------------------------------------#</span>
+
+
+<span class="co">############</span>
+<span class="co"># THE </span><span class="re">END</span><span class="co">  #</span>
+<span class="co">############</span></code></pre>
+</div>

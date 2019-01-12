@@ -231,6 +231,7 @@ ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
 
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 > When you add more layers using `+` remember to place it at the end of each line.
 
 ```{r, eval=F}
@@ -265,6 +266,7 @@ ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
 <br>
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 > An easy way to experiment with colors is to add layers like `scale_fill_brewer` or `scale_colour_brewer` to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.
 
 
@@ -391,6 +393,7 @@ ggsave("your_results_folder/plot_name.png")
 
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 > What if you don't want to save just the last plot you've made? Instead, you want to make a plot and save it for later. 
 
 ```{r ggsave objects, eval = F}

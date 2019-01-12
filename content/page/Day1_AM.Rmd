@@ -206,7 +206,7 @@ air_data %>% sample_n(5) %>% select(SITE, Date, OZONE, TEMP_F) %>% kable()
 ```
 
 
-### 2. Plot the data
+### 2. Plot the data {-}
 ```{r view, message=F, fig.width=12, fig.height=4}
 ggplot(air_data, aes(x = TEMP_F, y = OZONE)) + 
     geom_point(alpha = 0.2) +
@@ -214,7 +214,7 @@ ggplot(air_data, aes(x = TEMP_F, y = OZONE)) +
 ```
 
 
-### 3. Clean the data
+### 3. Clean the data {-}
 ```{r clean, eval=F}
 # Drop values out of range
 air_data <- air_data %>% filter(OZONE > 0, TEMP_F < 199) 
@@ -226,7 +226,7 @@ air_data <- air_data %>%
 ```
 
 
-### 4. View the data closer
+### 4. View the data __closer__ {-}
 ```{r, fig.width=12, fig.height=4}
 ggplot(air_data, aes(x = TEMP_F, y = OZONE)) + 
     geom_point(alpha = 0.2, size = 3) +
@@ -237,7 +237,7 @@ ggplot(air_data, aes(x = TEMP_F, y = OZONE)) +
 ```
 
 
-### 5. Summarize the data
+### 5. Summarize the data {-}
 ```{r summary}
 air_data <- air_data %>% 
             group_by(SITE, YEAR) %>% 
@@ -251,7 +251,7 @@ air_data %>% kable()
 ```
 
 
-###  6. Save the results
+###  6. Save the results {-}
 
 __Save the final data table__
 ```{r save-csv, eval=F}
@@ -267,7 +267,7 @@ ggsave("results/2015-2017 - Ozone vs Temp.pdf")
 ```
 
 
-### 7. Share it with the world
+### 7. Share with the world {-}
 
 <a href = "https://github.com/dKvale/ex__OZONE__Project">
 ![](../images/github_example_ozone.png){style="width: 95%;"}
@@ -310,7 +310,7 @@ These tabs allow you to view and open files in your current directory, view plot
 
 ## 2. | Customize R Studio {-}
 
-#### Make it your own
+#### Make it your own {-}
 
 Let's add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme: 
 
@@ -540,13 +540,15 @@ starwars_df
 ### {- .tabset}
 
 #### <i class="fa fa-astronaut" aria-hidden="true" style="color: green"></i> Exercise {-}
+
 <br>
 
 - Create the same table above with a 3rd column showing the character's father's names: `c("Darth", "Darth", "Unknown")`
 
 <br><br><hr>
 
-#### Show hint {-}
+__Show hint__
+
 <br>
 ```{r, eval = F}
 starwars_df <- data.frame(character   = starwars_character,
@@ -555,7 +557,7 @@ starwars_df <- data.frame(character   = starwars_character,
 ```
 <br><br><hr>
 
-#### Show code {-}
+__Show code__
 <br>
 ```{r, eval = F}
 starwars_df <- data.frame(character   = starwars_character,
@@ -809,7 +811,7 @@ Return to RStudio and open your project. Look at your _Files_ tab in the lower r
 
 <br>
 
-### 3. | Add new packages &#x1F4E6; *(R Apps)* 
+### 3. | Add new packages &#x1F4E6; *(R Apps)*  {-}
 
 <hr>
 
@@ -818,7 +820,7 @@ Return to RStudio and open your project. Look at your _Files_ tab in the lower r
 A _package_ is a small add-on for R, like a phone App for your phone. They add capabilities like statistical functions, mapping powers, and special charts. In order to use a new package we first need to install it. 
 
 
-#### _readr_ 
+#### `readr` {-}
 
 ![](../images/readr-hexbin-sticker-from-rstudio.png){align="left" width="145" style="margin-right:18px;"}
 
@@ -922,7 +924,7 @@ read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv", skip = 1)
 
 ```
 
-###  Limit the number of rows you pull in {-}
+###  Limit the total number of rows {-}
 
 Other types of data have wierd last rows that are a _subtotal_ or just report "END OF DATA". Sometimes we want `read_csv` to ignore the last row, or only pull in a million lines because you are worried about space on your c drive. Let's look through the help window and try to find an argument that can help us. The `n_max` argument looks like it could be helpful. Sure enough, the description is exactly what we're looking for here. The default is `n_max = Inf` (read every line), but we can limit the lines we pull in to only a million by `n_max = 1000000`.
 
@@ -1023,7 +1025,7 @@ _Excellent! Keep the streak going._
 # | ggplot2
 <hr>
 
-#### _Plot the data, Plot the data, Plot the data_ {-}
+### _Plot the data, Plot the data, Plot the data_ {-}
 
 
 ![](../images/ggplot2_hex.png){width="164" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;"}

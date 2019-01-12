@@ -86,29 +86,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#get-to-know-your-data-frame">Get to know your data frame</a></li>
 </ul></li>
 <li><a href="#glimpse-and-summary"><span class="toc-section-number">3</span> | <code>glimpse()</code> and <code>summary()</code></a></li>
-<li><a href="#porg-tables"><span class="toc-section-number">4</span> | Porg tables</a><ul>
-<li><a href="#porgs"><code>porgs</code></a></li>
-<li><a href="#select"><code>select</code></a></li>
-<li><a href="#arrange"><code>arrange</code></a></li>
-<li><a href="#filter"><code>filter</code></a></li>
-<li><a href="#mutate"><code>mutate</code></a></li>
-<li><a href="#summarize"><code>summarize</code></a></li>
-<li><a href="#group_by"><code>group_by</code></a></li>
-</ul></li>
-<li><a href="#select-1"><span class="toc-section-number">5</span> | <code>select()</code></a><ul>
+<li><a href="#porg-tables"><span class="toc-section-number">4</span> | Porg tables</a></li>
+<li><a href="#select"><span class="toc-section-number">5</span> | <code>select()</code></a><ul>
 <li><a href="#drop-columns-with-a-minus-sign--column_name">Drop columns with a minus sign: <code>-column_name</code></a></li>
 <li><a href="#drop-multiple-columns-with--ccol_1-col_2-or--col1--col2">Drop multiple columns with <code>-c(col_1, col_2)</code> or <code>-col1, -col2</code></a></li>
 <li><a href="#keep-only-three-columns">Keep only three columns</a></li>
 <li><a href="#everything"><code>everything()</code></a></li>
 </ul></li>
-<li><a href="#arrange-1"><span class="toc-section-number">6</span> | <code>arrange()</code></a><ul>
+<li><a href="#arrange"><span class="toc-section-number">6</span> | <code>arrange()</code></a><ul>
 <li><a href="#big-things-first-desc">Big things first: <code>desc()</code></a></li>
 </ul></li>
-<li><a href="#filter-1"><span class="toc-section-number">7</span> | <code>filter()</code></a><ul>
+<li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a><ul>
 <li><a href="#comparisons"><span class="toc-section-number">7.1</span> Comparisons</a></li>
 <li><a href="#multiple-filters"><span class="toc-section-number">7.2</span> Multiple filters</a></li>
 </ul></li>
-<li><a href="#mutate-1"><span class="toc-section-number">8</span> | <code>mutate()</code></a><ul>
+<li><a href="#mutate"><span class="toc-section-number">8</span> | <code>mutate()</code></a><ul>
 <li><a href="#add-a-column">Add a column</a></li>
 <li><a href="#add-several-columns">Add several columns</a></li>
 <li><a href="#change-a-column">Change a column</a></li>
@@ -268,79 +260,60 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 </div>
-<div id="porg-tables" class="section level1 tabset">
+<div id="porg-tables" class="section level1">
 <h1><span class="header-section-number">4</span> | Porg tables</h1>
 <p>A group of porgs <em>(a poggle)</em> will help to demo the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
-<pre class="sourceCode r"><code class="sourceCode r">porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
-<div id="porgs" class="section level2 unnumbered">
-<h2><code>porgs</code></h2>
-<p><img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /></p>
-<br>
-<hr>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
 <p><br></p>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="false"> <code>select</code> </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="arrange-tab" data-toggle="tab" href="#arrange" role="tab" aria-controls="arrange" aria-selected="false"> <code>arrange</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="group_by-tab" data-toggle="tab" href="#group_by" role="tab" aria-controls="group_by" aria-selected="false"> <code>group_by</code></a>
+</li>
+</ul>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="porgs" class="tab-pane fade active in" role="tabpanel" aria-labelledby="porgs-tab">
+<img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
-<div id="select" class="section level2 unnumbered">
-<h2><code>select</code></h2>
-<p><img src="../images/porgs/select.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/select_drop.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
+<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="arrange" class="section level2 unnumbered">
-<h2><code>arrange</code></h2>
-<p><img src="../images/porgs/arrange.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/arrange_desc.png" style="width: 57%;" /></p>
-<p><img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
+<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="filter" class="section level2 unnumbered">
-<h2><code>filter</code></h2>
-<p><img src="../images/porgs/filter.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/filter2.png" style="width: 75%;" /></p>
-<p><img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
+<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="mutate" class="section level2 unnumbered">
-<h2><code>mutate</code></h2>
-<p><img src="../images/porgs/mutate.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="summarize" class="section level2 unnumbered">
-<h2><code>summarize</code></h2>
-<p><img src="../images/porgs/summarize.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
+<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="group_by" class="section level2 unnumbered">
-<h2><code>group_by</code></h2>
-<p><img src="../images/porgs/groupby.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
+<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
 </div>
 </div>
-<div id="select-1" class="section level1">
+</div>
+<div id="select" class="section level1">
 <h1><span class="header-section-number">5</span> | <code>select()</code></h1>
 <hr>
 <p>Use the <code>select()</code> function to:</p>
@@ -433,7 +406,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## # ... with 212 more rows</code></pre>
 </div>
 </div>
-<div id="arrange-1" class="section level1">
+<div id="arrange" class="section level1">
 <h1><span class="header-section-number">6</span> | <code>arrange()</code></h1>
 <hr>
 <p>That’s helpful, but Rey wants to know what the highest priced item items are. Use <code>arrange()</code> to find the origin city with the most highest priced salvaged item.</p>
@@ -489,7 +462,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 </div>
 </div>
 </div>
-<div id="filter-1" class="section level1">
+<div id="filter" class="section level1">
 <h1><span class="header-section-number">7</span> | <code>filter()</code></h1>
 <hr>
 <p>The <code>filter()</code> function creates a subset of the data based on the value of one or more columns. Let’s take a look at the “All” category records.</p>
@@ -610,7 +583,7 @@ outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(
 <p>Let’s calculate some new columns to help prioritize Rey’s scavenging work.</p>
 </div>
 </div>
-<div id="mutate-1" class="section level1">
+<div id="mutate" class="section level1">
 <h1><span class="header-section-number">8</span> | <code>mutate()</code></h1>
 <hr>
 <p><code>mutate()</code>can edit existing columns in a data frame or add new columns calculated from the existing data.</p>

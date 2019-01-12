@@ -85,13 +85,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#review-of-day-1">Review of Day 1</a><ul>
 <li><a href="#porg-review">Porg review</a></li>
-<li><a href="#porgs"><code>porgs</code></a></li>
-<li><a href="#select"><code>select</code></a></li>
-<li><a href="#arrange"><code>arrange</code></a></li>
-<li><a href="#filter"><code>filter</code></a></li>
-<li><a href="#mutate"><code>mutate</code></a></li>
-<li><a href="#summarize"><code>summarize</code></a></li>
-<li><a href="#group_by"><code>group_by</code></a></li>
 </ul></li>
 <li><a href="#ifelse"><span class="toc-section-number">1</span> | <code>ifelse()</code></a><ul>
 <li><a href="#mutate-ifelse-is-powerful"><code>mutate()</code> + <code>ifelse()</code> is powerful!</a></li>
@@ -113,7 +106,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#n"><code>n()</code></a></li>
 </ul></li>
 <li><a href="#the-pipe"><span class="toc-section-number">4</span> | The pipe <code>%&gt;%</code></a></li>
-<li><a href="#group_by-1"><span class="toc-section-number">5</span> | <code>group_by()</code></a></li>
+<li><a href="#group_by"><span class="toc-section-number">5</span> | <code>group_by()</code></a></li>
 <li><a href="#save-files"><span class="toc-section-number">6</span> | Save files</a></li>
 <li><a href="#grouped-mutate"><span class="toc-section-number">7</span> | Grouped <code>mutate()</code></a></li>
 </ul>
@@ -138,83 +131,66 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="review-of-day-1" class="section level1 unnumbered">
 <h1>Review of Day 1</h1>
 <hr>
-<div id="porg-review" class="section level2 tabset unnumbered">
+<div id="porg-review" class="section level2 unnumbered">
 <h2>Porg review</h2>
-<p>The <em>poggle</em> of porgs will once again help us review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
+<p>The <em>poggle</em> of porgs has returned to help us review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
+<p><br></p>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="false"> <code>select</code> </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="arrange-tab" data-toggle="tab" href="#arrange" role="tab" aria-controls="arrange" aria-selected="false"> <code>arrange</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="group_by-tab" data-toggle="tab" href="#group_by" role="tab" aria-controls="group_by" aria-selected="false"> <code>group_by</code></a>
+</li>
+</ul>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="porgs" class="tab-pane fade active in" role="tabpanel" aria-labelledby="porgs-tab">
+<img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
-<div id="porgs" class="section level2 unnumbered">
-<h2><code>porgs</code></h2>
-<p><img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
+<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="select" class="section level2 unnumbered">
-<h2><code>select</code></h2>
-<p><img src="../images/porgs/select.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/select_drop.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
+<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="arrange" class="section level2 unnumbered">
-<h2><code>arrange</code></h2>
-<p><img src="../images/porgs/arrange.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/arrange_desc.png" style="width: 57%;" /></p>
-<p><img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
+<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="filter" class="section level2 unnumbered">
-<h2><code>filter</code></h2>
-<p><img src="../images/porgs/filter.png" style="width: 65%;" /></p>
-<p><img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<p><br><br></p>
-<p><img src="../images/porgs/filter2.png" style="width: 75%;" /></p>
-<p><img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="mutate" class="section level2 unnumbered">
-<h2><code>mutate</code></h2>
-<p><img src="../images/porgs/mutate.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
+<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="summarize" class="section level2 unnumbered">
-<h2><code>summarize</code></h2>
-<p><img src="../images/porgs/summarize.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+<div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
+<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="group_by" class="section level2 unnumbered">
-<h2><code>group_by</code></h2>
-<p><img src="../images/porgs/groupby.png" style="width: 77%;" /></p>
-<p><br></p>
-<p><img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /></p>
-<br>
-<hr>
-<p><br></p>
+</div>
 </div>
 </div>
 <div id="ifelse" class="section level1">
 <h1><span class="header-section-number">1</span> | <code>ifelse()</code></h1>
-<p>Maybe you have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way <code>ifelse</code> is the tool for you.</p>
+<div class="quiz">
+<p>Is it? Or isn’t it?</p>
+</div>
+<p>Sometimes you may have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way <code>ifelse</code> is the tool for you.</p>
 <div id="mutate-ifelse-is-powerful" class="section level2 unnumbered">
 <h2><code>mutate()</code> + <code>ifelse()</code> is powerful!</h2>
 <p><img src="https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja" align="center" style="margin-right: 28px;" width="480" /></p>
@@ -631,7 +607,7 @@ What if I want to string several of these data processing functions together? Do
 <span class="st">            </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Acceleration compensator&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
 </div>
-<div id="group_by-1" class="section level1">
+<div id="group_by" class="section level1">
 <h1><span class="header-section-number">5</span> | <code>group_by()</code></h1>
 <hr>
 <blockquote>

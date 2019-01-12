@@ -21,7 +21,7 @@ dt_options <- list(scrollX = T, autoWidth = T, searching = F, ordering = F, leng
 ```
 
 
-<img src="../images/map_Hennepin.PNG" width="340" style="margin-top: -25px; margin-right: 0; margin-left: 30px; float: right;">
+<img src="../images/map_Hennepin.png" width="340" style="margin-top: -25px; margin-right: 0; margin-left: 30px; float: right;">
 
 <br>
 

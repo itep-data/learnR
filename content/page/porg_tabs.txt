@@ -1,0 +1,123 @@
+
+
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+  <a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="false"> `select` </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="arrange-tab" data-toggle="tab" href="#arrange" role="tab" aria-controls="arrange" aria-selected="false"> `arrange`</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> `filter`</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> `mutate`</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> `summarize`</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" id="group_by-tab" data-toggle="tab" href="#group_by" role="tab" aria-controls="group_by" aria-selected="false"> `group_by`</a>
+</li>
+</ul>
+
+<div class="well tab-content" id="myTabContent" style="background-color: white;">
+  <div class="tab-pane fade active in" id="porgs" role="tabpanel" aria-labelledby="porgs-tab">
+
+
+![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="select" role="tabpanel" aria-labelledby="select-tab">
+
+![](../images/porgs/select.png){style="width: 65%;"}
+
+![](../images/porgs/select_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+
+<br><br>
+
+![](../images/porgs/select_drop.png){style="width: 65%;"}
+
+![](../images/porgs/select_drop_tbl.png){style="width: 80%; margin-left: 5%; margin-top: 12px;"}
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="arrange" role="tabpanel" aria-labelledby="arrange-tab">
+
+![](../images/porgs/arrange.png){style="width: 65%;"}
+
+![](../images/porgs/arrange_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+
+<br><br>
+
+![](../images/porgs/arrange_desc.png){style="width: 57%;"}
+
+![](../images/porgs/arrange_tbl_desc.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="filter" role="tabpanel" aria-labelledby="filter-tab">
+
+![](../images/porgs/filter.png){style="width: 65%;"}
+
+![](../images/porgs/filter_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+
+<br><br>
+
+![](../images/porgs/filter2.png){style="width: 75%;"}
+
+![](../images/porgs/filter2_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="mutate" role="tabpanel" aria-labelledby="mutate-tab">
+
+
+![](../images/porgs/mutate.png){style="width: 77%;"}
+
+<br>
+
+![](../images/porgs/mutate_tbl.png){style="width: 88%; margin-left: 4%; margin-top: 12px;"}
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="summarize" role="tabpanel" aria-labelledby="summarize-tab">
+
+![](../images/porgs/summarize.png){style="width: 77%;"}
+
+<br>
+
+![](../images/porgs/summarize_tbl.png){style="width: 88%; margin-left: 4%; margin-top: 12px;"}
+
+<br><br>
+
+</div>
+
+<div class="tab-pane fade" id="group_by" role="tabpanel" aria-labelledby="group_by-tab">
+
+![](../images/porgs/groupby.png){style="width: 77%;"}
+
+<br>
+
+![](../images/porgs/groupby_tbl.png){style="width: 94%; margin-left: 2%; margin-top: 12px;"}
+
+<br><br>
+
+</div></div>
+
+

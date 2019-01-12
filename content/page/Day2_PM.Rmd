@@ -191,7 +191,7 @@ ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
 
 <br>
 
-This is a too much detail. Let's make a bar chart and add up the sales to make it easier to understand.
+This is a **A LOT** of detail. Let's make a bar chart and add up the sales to make it easier to understand.
 ```{r, eval = F}
 ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_bar(stat = "sum")
 ```
@@ -336,7 +336,7 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
 ```
 
 
-## Drop scientific notation {-}
+## Drop `2.2e+06` scientific notation {-}
 
 Want to get rid of that ugly scientific notation? We can use `options(scipen = 999)`. Note that this is a general setting in R and not part of `ggplot`. Once you use `options(scipen = 999)` in your current session, you don't have to use it again (like loading a package, you only need to run the line once when you start a new R session).
 

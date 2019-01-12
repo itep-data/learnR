@@ -4,8 +4,6 @@ output:
   blogdown::html_page: 
     toc: true
     toc_depth: 2
-    #toc_float: true
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     number_sections: false
@@ -51,8 +49,7 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 # Day 2 review
 
 
-
-## `ggplot` review
+### `ggplot` 
 
 
 # On Earth
@@ -117,9 +114,8 @@ Planet: `Earth`
 Media: `social-human`   
 Planet: `Earth`
 
-</div>
+</div></div>
 
-</div>
 
 # Looking for change 📉📈
 
@@ -282,7 +278,6 @@ site_compare = function(data, site_number, Boot_Repeats = 1000) {
   
 ```
   
-}
 
 
 <br>

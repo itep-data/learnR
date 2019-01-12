@@ -96,7 +96,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#facet-wrap">Facet wrap</a></li>
 <li><a href="#themes">Themes</a></li>
 <li><a href="#labels">Labels</a></li>
-<li><a href="#drop-scientific-notation">Drop scientific notation</a></li>
+<li><a href="#drop-2.2e06-scientific-notation">Drop <code>2.2e+06</code> scientific notation</a></li>
 <li><a href="#save-plots">Save plots</a></li>
 </ul></li>
 <li><a href="#glossary"><span class="toc-section-number">4</span> | Glossary</a></li>
@@ -221,7 +221,7 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">color =</span> origin)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
 <p><br></p>
-<p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand.</p>
+<p>This is a <strong>A LOT</strong> of detail. Let’s make a bar chart and add up the sales to make it easier to understand.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;sum&quot;</span>)</code></pre>
 <p><br></p>
 <p>This is the same as <code>geom_col()</code>.</p>
@@ -322,8 +322,8 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
        <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
 </div>
-<div id="drop-scientific-notation" class="section level2 unnumbered">
-<h2>Drop scientific notation</h2>
+<div id="drop-2.2e06-scientific-notation" class="section level2 unnumbered">
+<h2>Drop <code>2.2e+06</code> scientific notation</h2>
 <p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R and not part of <code>ggplot</code>. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again (like loading a package, you only need to run the line once when you start a new R session).</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)

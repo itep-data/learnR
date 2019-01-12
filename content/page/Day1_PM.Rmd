@@ -112,95 +112,20 @@ __Your new analysis toolbox__
 </div>
 
 
-# | Porg tables {.tabset}
+# | Porg tables 
 
 A group of porgs _(a poggle)_ will help to demo the `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
 
 ```{r, eval = F}
+library(readr)
 porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
-
 ```
 
-
-## `porgs` {-}
-
-![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
-
-<br><hr><br>
-
-## `select`    {-}
-
-![](../images/porgs/select.png){style="width: 65%;"}
-
-![](../images/porgs/select_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
-
-<br><br>
-
-![](../images/porgs/select_drop.png){style="width: 65%;"}
-
-![](../images/porgs/select_drop_tbl.png){style="width: 80%; margin-left: 5%; margin-top: 12px;"}
-
-<br><hr><br>
-
-## `arrange` {-}
-
-![](../images/porgs/arrange.png){style="width: 65%;"}
-
-![](../images/porgs/arrange_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
-
-<br><br>
-
-![](../images/porgs/arrange_desc.png){style="width: 57%;"}
-
-![](../images/porgs/arrange_tbl_desc.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
-
-<br><hr><br>
-
-## `filter` {-}
-
-![](../images/porgs/filter.png){style="width: 65%;"}
-
-![](../images/porgs/filter_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
-
-<br><br>
-
-![](../images/porgs/filter2.png){style="width: 75%;"}
-
-![](../images/porgs/filter2_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
-
-
-<br><hr><br>
-
-## `mutate` {-}
-
-![](../images/porgs/mutate.png){style="width: 77%;"}
-
 <br>
 
-![](../images/porgs/mutate_tbl.png){style="width: 88%; margin-left: 4%; margin-top: 12px;"}
-
-<br><hr><br>
-
-## `summarize` {-}
-
-![](../images/porgs/summarize.png){style="width: 77%;"}
-
-<br>
-
-![](../images/porgs/summarize_tbl.png){style="width: 88%; margin-left: 4%; margin-top: 12px;"}
-
-<br><hr><br>
-
-## `group_by` {-}
-
-![](../images/porgs/groupby.png){style="width: 77%;"}
-
-<br>
-
-![](../images/porgs/groupby_tbl.png){style="width: 94%; margin-left: 2%; margin-top: 12px;"}
-
-<br><hr><br>
-
+```{r porg-tabs, results='asis', echo=F}
+cat(readLines("porg_tabs.txt"))
+```
 
 
 # | `select()`

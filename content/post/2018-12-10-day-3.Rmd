@@ -13,7 +13,7 @@ imageWidth: '27%'
 imageFloat: 'left'
 ---
 
-![](https://mpca-air.github.io/RTrain/images/day3_sq.png){width="240" style="float: left; margin-right: 20px; margin-top: 88px; margin-bottom: 88px;"}
+![](https://mpca-air.github.io/RTrain/images/day3_sq.png){width="240" style="float: left; margin-right: 20px; margin-top: 94px; margin-bottom: 88px;"}
 
 <h1 style="margin-top:-15px;"> Return to Earth! </h1>
 <hr>

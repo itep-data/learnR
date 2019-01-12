@@ -266,7 +266,7 @@ air_data %>% write_csv("results/2015-17_ozone_summary.csv")
 
 <br>
 
-__Save the site plot__
+__Save the site plot to PDF__
 ```{r save-pdf, eval=F}
 ggsave("results/2015-2017 - Ozone vs Temp.pdf")
 ```

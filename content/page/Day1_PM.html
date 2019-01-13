@@ -472,12 +472,12 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 ## 5 Sublight engine Tuanul     Trade caravan    3984 Tons            7211.
 ## 6 Sublight engine Cratertown Raiders           299 Tons            7211.</code></pre>
 <p><br></p>
-<div id="exercise" class="section level3 unnumbered">
-<h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<div class="data">
+<h3 id="exercise" class="unnumbered"><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
 <p>Try arranging by more than one column, such as <code>price_per_pound</code> and <code>amount</code>. What happens?</p>
 <p><strong>HINT:</strong> You can view the entire table by clicking on it in the upper-right <em>Environment</em> tab.</p>
-<p><br></p>
 </div>
+<p><br></p>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <div class="well">
@@ -485,8 +485,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 </div>
 <p><br></p>
 </div>
-<div id="need-a-break-how-about-a" class="section level3 unnumbered">
-<h3>Need a break? How about a …</h3>
+<div id="need-a-refreshing-break-how-about-a" class="section level3 unnumbered">
+<h3>Need a refreshing break? How about a…</h3>
 <p><br></p>
 <p><img src="../images/boba_tea.jpg" width="300" /></p>
 </div>
@@ -495,15 +495,16 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <div id="filter" class="section level1">
 <h1><span class="header-section-number">7</span> | <code>filter()</code></h1>
 <hr>
-<p>The <code>filter()</code> function creates a subset of the data based on the value of one or more columns. Let’s take a look at the “All” category records.</p>
+<p>The <code>filter()</code> function creates a subset of the data based on the value of one or more columns. Let’s take a look at the records with the origin <code>"All"</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(scrap, origin <span class="op">==</span><span class="st"> &quot;All&quot;</span>)</code></pre>
 <pre><code>## # A tibble: 1 x 6
 ##   item  origin destination  amount units price_per_pound
 ##   &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
 ## 1 Total All    All         2971601 Tons          579215.</code></pre>
+<p><br></p>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
+<div class="data">
 <p>We use a <code>==</code> (double equals sign) for comparing values. A <code>==</code> makes the comparison “is it equal to?” and returns a True or False answer. So the code above returns all the rows where the condition <code>origin == "All"</code> is TRUE.</p>
 <p>A single equals sign <code>=</code> is used within functions to set options, for example <code>read_csv(file = "starwars_scrap_jakku.csv")</code>. Don’t worry too much. If you use the wrong symbol R is often helpful and will let you know which one is needed.</p>
 </div>
@@ -511,7 +512,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <div id="comparisons" class="section level2">
 <h2><span class="header-section-number">7.1</span> Comparisons</h2>
 <hr>
-<p>Processing data requires many types of filtering. You will want to know how to select observations in your table by making various comparisons.</p>
+<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons.</p>
 <p><strong>Key comparison operators</strong></p>
 <table>
 <thead>
@@ -554,7 +555,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <p><br></p>
 <div id="dropping-rows" class="section level3 unnumbered">
 <h3>Dropping rows</h3>
-<p>Now let’s look at the data without that pesky <em>All</em> category. Look in the table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origin values that are <code>NOT equal to</code> “All”.</p>
+<p>Let’s look at the data without that pesky <em>All</em> category. Look in the table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origins that are <code>NOT equal to</code> “All”.</p>
+<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)</code></pre>
 <p><br></p>
 <p>We can arrange the data in descending order by <code>amount</code> to confirm that the “All” category is gone.</p>
@@ -585,7 +587,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> units, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/ggplot-Units-1.png" width="672" /></p>
 <p><br></p>
-<p>There is still an issue with the data. The item “tons” is written two ways. This can happen when multiple labs collect data. Let’s deal with this a bit later.</p>
+<p>Interesting. The item “tons” is written two ways. This can happen when multiple labs collect data. Let’s make a note to deal with this a bit later.</p>
 </div>
 </div>
 <div id="multiple-filters" class="section level2">
@@ -615,7 +617,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <h2>Add several columns</h2>
 <p>We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let’s add new columns to document the data measurement method and the averaging time.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Add your name as a column and</span>
-<span class="co">#  some information about your sampling method.</span>
+<span class="co">#  some information about your sampling method</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>,
                 <span class="dt">measurement_method  =</span> <span class="st">&quot;REM&quot;</span>,
                 <span class="dt">averaging_time      =</span> <span class="st">&quot;24 hours&quot;</span>)
@@ -685,17 +687,7 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 
 <span class="co"># Save data as a CSV file to results folder</span>
 <span class="co">#write_csv(scrap_pounds, &quot;results/scrap_in_pounds.csv&quot;)</span></code></pre>
-<div id="pro-tip-2" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
-<p><strong>Error!</strong></p>
-<p><code>Error in mutate_impl(.data, dots) :</code></p>
-<p>If you use <code>mutate()</code> and provide a single value for a column such as <code>5</code>, every row in the new column will have that value.</p>
-<p>If you provide a vector of values, such as <code>lbs = amount * 2000</code>, then a unique value will be calculated for each row.</p>
-<p>An <code>Error</code> will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you need to provide a single value or enough values to match the length of your data frame.</p>
-</div>
 <p><br></p>
-</div>
 <div id="time-to-get-off-this-dusty-planet-were-flying-to-endor" class="section level3 unnumbered">
 <h3>Time to get off this dusty planet, we’re flying to Endor!</h3>
 <p><img src="..\images\blast_off_ship_jakku.gif" style="margin-left: auto; margin-right: auto; margin-top: 18px; margin-bottom: 12px;" width="500" /></p>
@@ -703,9 +695,9 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 </div>
 <div id="bb8-has-a-new-mission" class="section level2 unnumbered">
 <h2>BB8 has a new mission</h2>
+<p>BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.</p>
 <div id="were-going-to-be-storm-chasers" class="section level4 unnumbered">
 <h4>We’re going to be STORM CHASERS!</h4>
-<p>BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.</p>
 <p><strong>Get the dataset</strong></p>
 <p>While we’re relaxing and flying to Endor let’s get set up with our new data.</p>
 <p><a href="https://itep-r.netlify.com/data/air_endor.csv">
@@ -726,7 +718,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 </div>
 <div id="welcome-to-endor" class="section level1">
 <h1><span class="header-section-number">11</span> | Welcome to Endor!</h1>
-<p><img src="../images/planet_endor.jpg" align="center" style="width: 58%; margin-top: -4px;" /></p>
+<p><img src="../images/planet_endor.jpg" align="center" style="width: 62%; margin-top: -4px;" /></p>
 <p><strong>Let’s get acquainted with the new data set.</strong> Remember the different ways?</p>
 <p>Hint: <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code></p>
 <p><br></p>

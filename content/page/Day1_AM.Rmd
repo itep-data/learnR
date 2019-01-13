@@ -507,8 +507,6 @@ We can add multiple values inside `c()` to make a vector of items. It's like a c
   
 Let's use `c()` to create a few vectors of names.
 
-<br>
-
 ```{r vectors}
 
 # Create a character vector and name it starwars_characters
@@ -524,7 +522,6 @@ starwars_ages  <- c(19,19,25)
 starwars_ages
 ```
 
-<br>
 
 ## Make a table
 
@@ -550,7 +547,8 @@ starwars_df
 
 <br>
 
-### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}    
+### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}  
+
 ```{r exer-tabs, results='asis', echo=F}
 source("insert_tabs.R")
 
@@ -886,7 +884,7 @@ The same thing goes for `read_csv()`. In `read_csv(scrap_file, column_names, ski
 
 
 ### <i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
-<div class="well">
+<div class="data">
 One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as ` read_csv( `. Now press `TAB` on the keyboard. This will bring up a drop-down menu of all the available arguments.
 </div>
 
@@ -1070,12 +1068,13 @@ In data analysis it is really important to look at your data early and often. Fo
 
 Install it using: `install.packages("ggplot2")`
 
-<br><br><br>
+<br><br>
 
+<div class="note">
 __NOTE:__ You can also install packages from the `Packages` tab on the lower right window of RStudio.
+</div>
 
-
-## A first plot {-}
+## A column plot {-}
 
 Here's a quick chart of how many of each item we have in the dataset.
 
@@ -1086,7 +1085,7 @@ ggplot(scrap, aes(x = origin, y = amount)) + geom_col()
 
 ```
 
-Well, well, well. It looks like there is an **All** category we should look into more. Either there's a town hogging all the scrap or we got a bit of cleaning to do.
+Well, well, well. It looks like there is an **All** category we should look into more. Either there's a town hogging all the scrap or the data needs some cleaning.
 
 
 # Key terms {-}

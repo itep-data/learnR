@@ -242,12 +242,13 @@ head(scrap)
 
 <br>
 
-
-### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
+<div class="data">
+### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
 
 Try arranging by more than one column, such as `price_per_pound` and `amount`. What happens?
 
 __HINT:__ You can view the entire table by clicking on it in the upper-right _Environment_ tab.
+</div>
 
 <br>
 
@@ -260,7 +261,7 @@ When you save an arranged data table it maintains its order. This is perfect for
 
 <br>
 
-### Need a break? How about a ... {-}
+### Need a refreshing break? How about a... {-}
 
 <br>
 
@@ -271,17 +272,19 @@ When you save an arranged data table it maintains its order. This is perfect for
 # | `filter()`
 <hr>
 
-The `filter()` function creates a subset of the data based on the value of one or more columns. Let's take a look at the "All" category records.
+The `filter()` function creates a subset of the data based on the value of one or more columns. Let's take a look at the records with the origin `"All"`.
 
-```{r filter12, eval = T}
+```{r filter12, eval=T}
 
 filter(scrap, origin == "All")
 
 ```
 
 
+<br>
+
 ### <i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
-<div class="well">
+<div class="data">
 
 We use a `==` (double equals sign) for comparing values. A `==` makes the comparison "is it equal to?" and returns a True or False answer. So the code above returns all the rows where the condition `origin == "All"` is TRUE.
 
@@ -292,7 +295,7 @@ A single equals sign `=` is used within functions to set options, for example `r
 ## Comparisons
 <hr>
 
-Processing data requires many types of filtering. You will want to know how to select observations in your table by making various comparisons.
+Processing data requires many types of filtering. You'll want to know how to select observations in your table by making various comparisons.
 
 __Key comparison operators__
 
@@ -310,7 +313,9 @@ __Key comparison operators__
 
 ### Dropping rows {-}
 
-Now let's look at the data without that pesky _All_ category. Look in the table above to find the `NOT` operator. We're going to filter the data to keep only the origin values that are `NOT equal to` "All".
+Let's look at the data without that pesky _All_ category. Look in the table above to find the `NOT` operator. We're going to filter the data to keep only the origins that are `NOT equal to` "All".
+
+<br>
 
 ```{r filter-all}
 scrap <- filter(scrap, origin != "All")
@@ -352,7 +357,7 @@ ggplot(scrap, aes(x = units, y = amount)) + geom_col()
 
 <br>
 
-There is still an issue with the data. The item "tons" is written two ways. This can happen when multiple labs collect data. Let's deal with this a bit later. 
+Interesting. The item "tons" is written two ways. This can happen when multiple labs collect data. Let's make a note to deal with this a bit later. 
 
 
 ## Multiple filters 
@@ -399,7 +404,7 @@ We are environmental quality technical staff for the Rebellion, and there are a 
 ```{r mutate2columns, echo=T, eval=T}
 
 #  Add your name as a column and
-#  some information about your sampling method.
+#  some information about your sampling method
 scrap <- mutate(scrap, scrap_finder = "BB8",
                 measurement_method  = "REM",
                 averaging_time      = "24 hours")
@@ -489,20 +494,6 @@ write_csv(scrap_pounds, "scrap_in_pounds.csv")
 
 ```
 
-### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
-<div class="well">
-
-__Error!__  
-
-`Error in mutate_impl(.data, dots) : `
-
-If you use `mutate()` and provide a single value for a column such as `5`, every row in the new column will have that value. 
-
-If you provide a vector of values, such as `lbs = amount * 2000`, then a unique value will be calculated for each row. 
-
-An `Error` will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you need to provide a single value or enough values to match the length of your data frame.
-
-</div>
 
 <br>
 
@@ -515,9 +506,9 @@ An `Error` will occur if you provide a vector that is longer than 1, but has a d
 
 ## BB8 has a new mission {-}
 
-#### We're going to be STORM CHASERS! {-}
-
 BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.
+
+#### We're going to be STORM CHASERS! {-}
 
 
 __Get the dataset__
@@ -550,7 +541,7 @@ air_endor <- read_csv("https://itep-r.netlify.com/data/air_endor.csv")
 
 # | Welcome to Endor! 
 
-![](../images/planet_endor.jpg){align="center" style="width: 58%; margin-top: -4px;"}
+![](../images/planet_endor.jpg){align="center" style="width: 62%; margin-top: -4px;"}
 
 
 __Let's get acquainted with the new data set.__ Remember the different ways?

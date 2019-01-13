@@ -106,7 +106,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#saving-file-paths"><span class="toc-section-number">4.4</span> Saving file paths</a></li>
 </ul></li>
 <li><a href="#ggplot2"><span class="toc-section-number">5</span> | ggplot2</a><ul>
-<li><a href="#a-first-plot">A first plot</a></li>
+<li><a href="#a-column-plot">A column plot</a></li>
 </ul></li>
 <li><a href="#key-terms">Key terms</a></li>
 </ul>
@@ -248,34 +248,34 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">9/13/2017</td>
-<td align="right">12</td>
-<td align="right">53.6</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">10/5/2017</td>
-<td align="right">7</td>
-<td align="right">47.6</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">6/20/2017</td>
-<td align="right">11</td>
-<td align="right">55.4</td>
+<td align="left">27-137-7001</td>
+<td align="left">8/7/2017</td>
+<td align="right">16</td>
+<td align="right">73.4</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">9/6/2018</td>
-<td align="right">7</td>
-<td align="right">70.4</td>
+<td align="left">6/14/2016</td>
+<td align="right">10</td>
+<td align="right">57.8</td>
 </tr>
 <tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">5/11/2016</td>
-<td align="right">3</td>
-<td align="right">48.2</td>
+<td align="left">27-137-7001</td>
+<td align="left">4/9/2017</td>
+<td align="right">14</td>
+<td align="right">53.6</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="left">9/16/2018</td>
+<td align="right">8</td>
+<td align="right">66.8</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">5/4/2018</td>
+<td align="right">12</td>
+<td align="right">53.6</td>
 </tr>
 </tbody>
 </table>
@@ -541,7 +541,6 @@ bb8 &lt;-<span class="st"> &quot;droid&quot;</span></code></pre>
 <h2><span class="header-section-number">3.2</span> Multiple items</h2>
 <p>We can add multiple values inside <code>c()</code> to make a vector of items. It’s like a chain of items, where each additional item is connected by a comma. The <code>c</code> stands for to concatenate or to combine values into a vector.</p>
 <p>Let’s use <code>c()</code> to create a few vectors of names.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a character vector and name it starwars_characters</span>
 starwars_characters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Leia&quot;</span>, <span class="st">&quot;Han Solo&quot;</span>)
 
@@ -554,7 +553,6 @@ starwars_ages  &lt;-<span class="st"> </span><span class="kw">c</span>(<span cla
 <span class="co"># Print the ages to the console</span>
 starwars_ages</code></pre>
 <pre><code>## [1] 19 19 25</code></pre>
-<p><br></p>
 </div>
 <div id="make-a-table" class="section level2">
 <h2><span class="header-section-number">3.3</span> Make a table</h2>
@@ -597,20 +595,20 @@ Create the same table above, but add a <strong>3rd</strong> column that lists th
 <p><br></p>
 </div>
 <div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
-<pre class="sourceCode r"><code class="sourceCode r">
+<pre class="sourceCode r">
 
 starwars_df <- data.frame(character   = starwars_character, 
                           ages        = starwars_ages, 
                           fathers     = __________________)
-</code></pre>
+</pre>
 </div>
 <div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
-<pre class="sourceCode r"><code class="sourceCode r">
+<pre class="sourceCode r">
 
 starwars_df <- data.frame(character   = starwars_character, 
                           ages        = starwars_ages, 
                           fathers     = c("Darth", "Darth", "Unknown"))
-</code></pre>
+</pre>
 </div>
 </div>
 <p><br></p>
@@ -908,7 +906,7 @@ small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span 
 </div>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
+<div class="data">
 <p>One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as <code>read_csv(</code>. Now press <code>TAB</code> on the keyboard. This will bring up a drop-down menu of all the available arguments.</p>
 </div>
 </div>
@@ -1029,17 +1027,19 @@ Pop Quiz!
 <p>In data analysis it is really important to look at your data early and often. For that, let’s add a new package called <strong>ggplot2</strong>!
 <br><br></p>
 <p>Install it using: <code>install.packages("ggplot2")</code></p>
-<p><br><br><br></p>
+<p><br><br></p>
+<div class="note">
 <p><strong>NOTE:</strong> You can also install packages from the <code>Packages</code> tab on the lower right window of RStudio.</p>
 </div>
-<div id="a-first-plot" class="section level2 unnumbered">
-<h2>A first plot</h2>
+</div>
+<div id="a-column-plot" class="section level2 unnumbered">
+<h2>A column plot</h2>
 <p>Here’s a quick chart of how many of each item we have in the dataset.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-16-1.png" width="1152" /></p>
-<p>Well, well, well. It looks like there is an <strong>All</strong> category we should look into more. Either there’s a town hogging all the scrap or we got a bit of cleaning to do.</p>
+<p>Well, well, well. It looks like there is an <strong>All</strong> category we should look into more. Either there’s a town hogging all the scrap or the data needs some cleaning.</p>
 </div>
 </div>
 <div id="key-terms" class="section level1 unnumbered">

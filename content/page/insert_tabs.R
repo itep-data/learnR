@@ -42,11 +42,11 @@ add_tabs <- function(tab_names, tab_content) {
   # Sub in <code> for backticks ```
   code_starts <- grep("code_start", text_out)
 
-  text_out[code_starts] <- '<pre class="sourceCode r"><code class="sourceCode r">'
+  text_out[code_starts] <- '<pre class="sourceCode r">'
 
   code_ends <- grep("code_end", text_out)
 
-  text_out[code_ends] <- '</code></pre>'
+  text_out[code_ends] <- '</pre>'
 
 
   return(text_out)

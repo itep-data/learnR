@@ -104,11 +104,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#add-a-column">Add a column</a></li>
 <li><a href="#add-several-columns">Add several columns</a></li>
 <li><a href="#change-a-column">Change a column</a></li>
-<li><a href="#add-a-calculated-column">Add a calculated column</a></li>
+<li><a href="#add-calculated-columns">Add calculated columns</a></li>
 </ul></li>
 <li><a href="#first-mission-complete"><span class="toc-section-number">9</span> | First mission complete!</a></li>
 <li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a><ul>
-<li><a href="#bb8-has-a-new-mission">BB8 has a new mission!</a></li>
+<li><a href="#bb8-has-a-new-mission">BB8 has a new mission</a></li>
 </ul></li>
 <li><a href="#welcome-to-endor"><span class="toc-section-number">11</span> | Welcome to Endor!</a></li>
 <li><a href="#calendar-plots"><span class="toc-section-number">12</span> | Calendar plots</a></li>
@@ -119,13 +119,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="lets-play-r-bingo" class="section level1">
 <h1><span class="header-section-number">1</span> Let’s play R BINGO!</h1>
 <ol style="list-style-type: decimal">
-<li>Sorry, there are no free spaces</li>
-<li>You will learn all of these functions in this class, so be impressed!</li>
-<li>We are going to call R functions using an R function.</li>
+<li>No free spaces! We are mean.</li>
+<li>You will soon know all of these functions.</li>
+<li>We are going to call-out these functions using an R function.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r">bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;median()&quot;</span>, <span class="st">&quot;nrow()&quot;</span>, <span class="st">&quot;glimpse()&quot;</span>, <span class="st">&quot;sum()&quot;</span>, <span class="st">&quot;head()&quot;</span>, <span class="st">&quot;tail()&quot;</span>, <span class="st">&quot;arrange()&quot;</span>, <span class="st">&quot;write_csv()&quot;</span>, <span class="st">&quot;geom_col()&quot;</span>, <span class="st">&quot;filter()&quot;</span>, <span class="st">&quot;ncol()&quot;</span>, <span class="st">&quot;sd()&quot;</span>, <span class="st">&quot;summarise()&quot;</span>, <span class="st">&quot;quantile()&quot;</span>, <span class="st">&quot;install.packages()&quot;</span>, <span class="st">&quot;geom_point()&quot;</span>, <span class="st">&quot;unique()&quot;</span>, <span class="st">&quot;select()&quot;</span>, <span class="st">&quot;mean()&quot;</span>, <span class="st">&quot;min()&quot;</span>, <span class="st">&quot;left_join()&quot;</span>, <span class="st">&quot;read_csv()&quot;</span>, <span class="st">&quot;nth()&quot;</span>, <span class="st">&quot;ggplot()&quot;</span>, <span class="st">&quot;library()&quot;</span>, <span class="st">&quot;n()&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get pretty colors</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)
+<span class="kw">library</span>(viridis)
+<span class="kw">library</span>(ggplot2)
 
-<span class="kw">sample</span>(bingo_words, <span class="dv">1</span>)</code></pre>
+<span class="co"># List of all the functions</span>
+bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;median()&quot;</span>, <span class="st">&quot;nrow()&quot;</span>, <span class="st">&quot;glimpse()&quot;</span>, <span class="st">&quot;sum()&quot;</span>, <span class="st">&quot;head()&quot;</span>, <span class="st">&quot;tail()&quot;</span>, <span class="st">&quot;arrange()&quot;</span>, <span class="st">&quot;write_csv()&quot;</span>, <span class="st">&quot;geom_col()&quot;</span>, <span class="st">&quot;filter()&quot;</span>, <span class="st">&quot;ncol()&quot;</span>, <span class="st">&quot;sd()&quot;</span>, <span class="st">&quot;summarise()&quot;</span>, <span class="st">&quot;quantile()&quot;</span>, <span class="st">&quot;install.packages()&quot;</span>, <span class="st">&quot;geom_point()&quot;</span>, <span class="st">&quot;unique()&quot;</span>, <span class="st">&quot;select()&quot;</span>, <span class="st">&quot;mean()&quot;</span>, <span class="st">&quot;min()&quot;</span>, <span class="st">&quot;left_join()&quot;</span>, <span class="st">&quot;read_csv()&quot;</span>, <span class="st">&quot;nth()&quot;</span>, <span class="st">&quot;ggplot()&quot;</span>, <span class="st">&quot;library()&quot;</span>, <span class="st">&quot;n()&quot;</span>)
+
+<span class="co"># Shuffle the words randomly</span>
+bingo_words &lt;-<span class="st"> </span><span class="kw">sample</span>(bingo_words)
+
+<span class="co"># Set the number to draw</span>
+n &lt;-<span class="st"> </span><span class="dv">20</span>
+
+<span class="co"># Plot the word</span>
+<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>,<span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_void</span>()</code></pre>
 </div>
 <div id="data-exploration" class="section level1 unnumbered">
 <h1>Data exploration</h1>
@@ -136,9 +153,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="../images/hex-dplyr.png" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;" width="128" /></p>
 <p><br></p>
 <p><em>You’ve unlocked a new package!</em></p>
+<p><br></p>
+<div style="clear: both; margin-top: 22px;">
+
+</div>
+<p>The <em>dplyr</em> package is the go-to tool for exploring, re-arranging, and summarizing data.</p>
+<p>Use <code>install.packages("dplyr")</code> to add <em>dplyr</em> to your library.</p>
 <div id="get-to-know-your-data-frame" class="section level2 unnumbered">
 <h2>Get to know your data frame</h2>
-<p>Use these quick functions to describe your data frame.</p>
+<p>Use these simple functions to describe your data.</p>
 <div id="data-frame-info" class="section level3 unnumbered">
 <h3>Data frame info</h3>
 <table>
@@ -183,8 +206,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
 <p>Use the <code>summary()</code> function to get a quick report on your numeric data.</p>
-<div id="lets-read-our-data-back-in-and-look-at-it-in-the-ways-listed-about" class="section level3 unnumbered">
-<h3>Let’s read our data back in and look at it in the ways listed about</h3>
+<div id="lets-read-our-data-into-r-and-try-some-of-these-functions." class="section level3 unnumbered">
+<h3>Let’s read our data into R and try some of these functions.</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
 
@@ -216,10 +239,13 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ##  Mean   :  18751                      Mean   :  3811.7  
 ##  3rd Qu.:   7475                      3rd Qu.:  1496.7  
 ##  Max.   :2971601                      Max.   :579215.3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try nrow(), ncol(), and names() on your own.</span></code></pre>
-<p><br></p>
-<p>The <em>dplyr</em> package is the go-to tool for exploring, re-arranging, and summarizing data.</p>
-<p>Use <code>install.packages("dplyr")</code> to add <em>dplyr</em> to your library.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try the rest on your own, I dare you!</span>
+
+<span class="kw">nrow</span>()
+
+<span class="kw">ncol</span>()
+
+<span class="kw">names</span>()</code></pre>
 <p><br></p>
 <p><strong>Your new analysis toolbox</strong></p>
 <div class="notes">
@@ -409,8 +435,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <div id="arrange" class="section level1">
 <h1><span class="header-section-number">6</span> | <code>arrange()</code></h1>
 <hr>
-<p>That’s helpful, but Rey wants to know what the highest priced item items are. Use <code>arrange()</code> to find the origin city with the most highest priced salvaged item.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># find the least expensive salvaged items</span>
+<p>That’s helpful, but Rey wants to know what the highest priced item items are. Use <code>arrange()</code> to find the origin city with the most highest priced scrap item.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the least expensive scrap items</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price_per_pound)
 
 <span class="co"># View the top 6 rows using head()</span>
@@ -425,12 +451,12 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price
 ## 5 Aural sensor Blowback Town Niima Outpost   2312 Tons             145.
 ## 6 Aural sensor Outskirts     Trade caravan   6272 Tons             145.</code></pre>
 <p><br></p>
-<div id="well-darn-thats-not-a-very-impressive-price." class="section level4 unnumbered">
-<h4>Well darn, that’s not a very impressive price.</h4>
+<div id="well-shucks-only-145-credits.-thats-not-a-very-impressive-price-at-all." class="section level4 unnumbered">
+<h4>Well shucks, only <code>145 credits</code>. That’s not a very impressive price at all.</h4>
 </div>
 <div id="big-things-first-desc" class="section level2 unnumbered">
 <h2>Big things first: <code>desc()</code></h2>
-<p>To arrange a column in descending order we use: <code>desc(price_per_pound)</code></p>
+<p>To arrange a column in descending order with the biggest numbers on top, we use: <code>desc(price_per_pound)</code></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put most expensive items on top</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(price_per_pound))
 
@@ -448,16 +474,20 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <p><br></p>
 <div id="exercise" class="section level3 unnumbered">
 <h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
-<p>Try arranging by more than one column (such as <code>price_per_pound</code> and <code>amount</code>). What happens?</p>
+<p>Try arranging by more than one column, such as <code>price_per_pound</code> and <code>amount</code>. What happens?</p>
 <p><strong>HINT:</strong> You can view the entire table by clicking on it in the upper-right <em>Environment</em> tab.</p>
 <p><br></p>
 </div>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
+<div class="well">
 <p>When you save an arranged data table it maintains its order. This is perfect for sending people a quick <strong>Top 10</strong> list of pollutants or sites.</p>
-</blockquote>
-<p><br><br></p>
+</div>
+<p><br></p>
+</div>
+<div id="need-a-break-how-about-a" class="section level3 unnumbered">
+<h3>Need a break? How about a …</h3>
+<p><br></p>
 <p><img src="../images/boba_tea.jpg" width="300" /></p>
 </div>
 </div>
@@ -473,16 +503,15 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 ## 1 Total All    All         2971601 Tons          579215.</code></pre>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
+<div class="well">
 <p>We use a <code>==</code> (double equals sign) for comparing values. A <code>==</code> makes the comparison “is it equal to?” and returns a True or False answer. So the code above returns all the rows where the condition <code>origin == "All"</code> is TRUE.</p>
 <p>A single equals sign <code>=</code> is used within functions to set options, for example <code>read_csv(file = "starwars_scrap_jakku.csv")</code>. Don’t worry too much. If you use the wrong symbol R is often helpful and will let you know which one is needed.</p>
-</blockquote>
+</div>
 </div>
 <div id="comparisons" class="section level2">
 <h2><span class="header-section-number">7.1</span> Comparisons</h2>
 <hr>
-<p>Processing data requires many types of filtering. You will want to know how to select observations using various comparison operators.</p>
-<p><br></p>
+<p>Processing data requires many types of filtering. You will want to know how to select observations in your table by making various comparisons.</p>
 <p><strong>Key comparison operators</strong></p>
 <table>
 <thead>
@@ -514,7 +543,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 </tr>
 <tr class="even">
 <td align="left"><code>!=</code></td>
-<td align="left">not equal to</td>
+<td align="left">NOT equal to</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>%in%</code></td>
@@ -523,21 +552,12 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 </tbody>
 </table>
 <p><br></p>
-<p>Now let’s look at that data again WITHOUT the <em>All</em> category. Then we will more easily be able to see the amounts. Look in the table above and find the <code>NOT</code> operator.</p>
+<div id="dropping-rows" class="section level3 unnumbered">
+<h3>Dropping rows</h3>
+<p>Now let’s look at the data without that pesky <em>All</em> category. Look in the table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origin values that are <code>NOT equal to</code> “All”.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)</code></pre>
 <p><br></p>
-<p>Now we’ll arrange the data in descending order by <code>amount</code> and then look at the data using the <code>head()</code> function to confirm that the “All” category is gone.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   item = col_character(),
-##   origin = col_character(),
-##   destination = col_character(),
-##   amount = col_double(),
-##   units = col_character(),
-##   price_per_pound = col_double()
-## )</code></pre>
+<p>We can arrange the data in descending order by <code>amount</code> to confirm that the “All” category is gone.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
 
@@ -564,22 +584,19 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <p>Something still might be hidden in the data that is unexpected. Take a look at the amount of items in each units category.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> units, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/ggplot-Units-1.png" width="672" /></p>
-<p>There is still an issue with the data. The item “tons” is written two ways. This happens when multiple field technicians collect data! We will deal with this a bit later.</p>
+<p><br></p>
+<p>There is still an issue with the data. The item “tons” is written two ways. This can happen when multiple labs collect data. Let’s deal with this a bit later.</p>
+</div>
 </div>
 <div id="multiple-filters" class="section level2">
 <h2><span class="header-section-number">7.2</span> Multiple filters</h2>
 <hr>
 <p>We can add multiple comparisons to <code>filter()</code> to further restrict the data we pull from a larger data set. Only the records that pass the conditions of all the comparisons will be pulled into the new data frame.</p>
 <p>The code below filters the data to only scrap records originating in the <code>Outskirts</code> <strong>AND</strong> destined for <code>Niima Outpost</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
-
-<span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
-
-outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
-                             origin <span class="op">==</span><span class="st"> &quot;Outskirts&quot;</span>, 
+<pre class="sourceCode r"><code class="sourceCode r">outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
+                             origin        <span class="op">==</span><span class="st"> &quot;Outskirts&quot;</span>, 
                              destination   <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>)</code></pre>
+<p><br></p>
 <p>Let’s calculate some new columns to help prioritize Rey’s scavenging work.</p>
 </div>
 </div>
@@ -590,99 +607,43 @@ outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(
 <div id="add-a-column" class="section level2 unnumbered">
 <h2>Add a column</h2>
 <hr>
-<p>First let’s add a column with our names, so that Rey will thank us personally on Liberation Day.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(dplyr)
-
-<span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   item = col_character(),
-##   origin = col_character(),
-##   destination = col_character(),
-##   amount = col_double(),
-##   units = col_character(),
-##   price_per_pound = col_double()
-## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
-
-<span class="co">## Add your name as a column</span>
-scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;Your name&quot;</span>)</code></pre>
+<p>First let’s add a column with our names. That way Rey can thank us personally when her ship is up and running.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Add your name as a column</span>
+scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>)</code></pre>
 </div>
 <div id="add-several-columns" class="section level2 unnumbered">
 <h2>Add several columns</h2>
 <p>We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let’s add new columns to document the data measurement method and the averaging time.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(dplyr)
-
-<span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   item = col_character(),
-##   origin = col_character(),
-##   destination = col_character(),
-##   amount = col_double(),
-##   units = col_character(),
-##   price_per_pound = col_double()
-## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
-
-<span class="co">## Add your name as a column as well as some information about your sampling method.</span>
-scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;Your name&quot;</span>,
-                <span class="dt">measurement_method =</span> <span class="st">&quot;REM&quot;</span>,
-                <span class="dt">averaging_time =</span> <span class="st">&quot;24 hours&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Add your name as a column and</span>
+<span class="co">#  some information about your sampling method.</span>
+scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>,
+                <span class="dt">measurement_method  =</span> <span class="st">&quot;REM&quot;</span>,
+                <span class="dt">averaging_time      =</span> <span class="st">&quot;24 hours&quot;</span>)
 
 <span class="co">## REM = Rebellion Equivalent Method</span></code></pre>
 </div>
 <div id="change-a-column" class="section level2 unnumbered">
 <h2>Change a column</h2>
 <hr>
-<p>Remember how that unit of Tons was written two ways: “TONS” and “Tons”? We can use <code>mutate()</code> together with <code>tolower()</code> to make sure all of the Salvage scrap is written in lower case. Case matters in R!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   item = col_character(),
-##   origin = col_character(),
-##   destination = col_character(),
-##   amount = col_double(),
-##   units = col_character(),
-##   price_per_pound = col_double()
-## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
-
-
+<p>Remember how that unit of Tons was written two ways: “TONS” and “Tons”? We can use <code>mutate()</code> together with <code>tolower()</code> to make sure all of the scrap units are written in lower case. Case matters in R!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set units to all lower-case</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">units =</span> <span class="kw">tolower</span>(units))
-<span class="co"># toupper() will change all of the letters in a column to upper case.</span></code></pre>
+
+<span class="co"># toupper() will change all of the letters in a column to upper-case.</span></code></pre>
 </div>
-<div id="add-a-calculated-column" class="section level2 unnumbered">
-<h2>Add a calculated column</h2>
-<p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the pounds for scavenge items that are reported in tons.</p>
-<div id="tons----pounds-conversions" class="section level3 unnumbered">
-<h3>Tons <code>--&gt;</code> pounds conversions</h3>
+<div id="add-calculated-columns" class="section level2 unnumbered">
+<h2>Add calculated columns</h2>
+<p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the total pounds for the scrap items that are reported in tons.</p>
+<div id="tons----pounds-conversion" class="section level3 unnumbered">
+<h3>Tons <code>--&gt;</code> Pounds conversion</h3>
 <p>Use <code>filter()</code> to subset the data to the items reported in <code>"tons"</code>. Then use <code>mutate()</code> to convert the <code>amount</code> column to pounds. We can also change the <code>units</code> column to “pounds” to avoid any confusion.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
-<pre><code>## Parsed with column specification:
-## cols(
-##   item = col_character(),
-##   origin = col_character(),
-##   destination = col_character(),
-##   amount = col_double(),
-##   units = col_character(),
-##   price_per_pound = col_double()
-## )</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Re-load the data</span>
+scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
+
+<span class="co"># Clean data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
                 origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>, 
-                units <span class="op">==</span><span class="st"> &quot;tons&quot;</span>)
+                units  <span class="op">==</span><span class="st"> &quot;tons&quot;</span>)
 
 scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
                        <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>,
@@ -710,7 +671,7 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap,
 scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, 
                        <span class="kw">desc</span>(amount_lbs))
 
-<span class="co"># Return the origin of the highest amount of salvage</span>
+<span class="co"># Return the origin of the highest weight amount of scrap</span>
 <span class="kw">head</span>(scrap_pounds, <span class="dv">1</span>)</code></pre>
 <pre><code>## # A tibble: 0 x 6
 ## # ... with 6 variables: item &lt;chr&gt;, origin &lt;chr&gt;, destination &lt;chr&gt;,
@@ -718,35 +679,41 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 </div>
 <div id="save-new-data" class="section level1">
 <h1><span class="header-section-number">10</span> | Save new data</h1>
-<p>You can’t break your original dataset if you always name it something else. We will use the <code>readr</code> package to create a new csv of the tons data converted to pounds.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;data/scrap_in_pounds.csv&quot;</span>)</code></pre>
+<p>You can’t break your original dataset if you always name it something else. Let’s use the <code>readr</code> package to save our new CSV with the tons converted to pounds.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file </span>
+<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;scrap_in_pounds.csv&quot;</span>)
+
+<span class="co"># Save data as a CSV file to results folder</span>
+<span class="co">#write_csv(scrap_pounds, &quot;results/scrap_in_pounds.csv&quot;)</span></code></pre>
 <div id="pro-tip-2" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
-<p><strong>Error!</strong><br />
-<code>Error in mutate_impl(.data, dots) :</code></p>
+<div class="well">
+<p><strong>Error!</strong></p>
+<p><code>Error in mutate_impl(.data, dots) :</code></p>
 <p>If you use <code>mutate()</code> and provide a single value for a column such as <code>5</code>, every row in the new column will have that value.</p>
 <p>If you provide a vector of values, such as <code>lbs = amount * 2000</code>, then a unique value will be calculated for each row.</p>
-<p>An <code>Error</code> will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you must provide a vector that is either a single value or the same length as your data frame.</p>
-</blockquote>
+<p>An <code>Error</code> will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you need to provide a single value or enough values to match the length of your data frame.</p>
+</div>
 <p><br></p>
 </div>
-<div id="time-to-get-off-this-desert-planet-were-flying-to-endor" class="section level3 unnumbered">
-<h3>Time to get off this desert planet, we’re flying to Endor!</h3>
+<div id="time-to-get-off-this-dusty-planet-were-flying-to-endor" class="section level3 unnumbered">
+<h3>Time to get off this dusty planet, we’re flying to Endor!</h3>
 <p><img src="..\images\blast_off_ship_jakku.gif" style="margin-left: auto; margin-right: auto; margin-top: 18px; margin-bottom: 12px;" width="500" /></p>
 <p><br></p>
 </div>
 <div id="bb8-has-a-new-mission" class="section level2 unnumbered">
-<h2>BB8 has a new mission!</h2>
-<p>BB8 received data suggesting there was a large magnetic storm right before the Battle Site 1 tower burned down on Endor. Let’s clean this new data set and make a chart to check if there was a magnetic storm and when it ocurred.</p>
+<h2>BB8 has a new mission</h2>
+<div id="were-going-to-be-storm-chasers" class="section level4 unnumbered">
+<h4>We’re going to be STORM CHASERS!</h4>
+<p>BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.</p>
 <p><strong>Get the dataset</strong></p>
-<p>While flying to Endor let’s get set up with our next data set.</p>
+<p>While we’re relaxing and flying to Endor let’s get set up with our new data.</p>
 <p><a href="https://itep-r.netlify.com/data/air_endor.csv">
 <span class="btn_code_blue" style="margin-bottom: 10px;"> <strong>DOWNLOAD</strong> </span></a> - Endor Air data</p>
 <ol style="list-style-type: decimal">
 <li>Download the data above.</li>
 <li>Create a folder in your project folder called “data”.</li>
-<li>Save this data set in that data folder.</li>
+<li>Move the Endor data to this folder.</li>
 <li>Create a new R script called <code>endor_air.R</code></li>
 <li>Read in the data from the data folder.</li>
 </ol>
@@ -754,16 +721,13 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 <span class="kw">library</span>(dplyr)
 
 air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/air_endor.csv&quot;</span>)</code></pre>
-<p><img src="../images/planet_endor.jpg" align="right" style="width: 58%; margin-top: 78px;" /></p>
+</div>
 </div>
 </div>
 <div id="welcome-to-endor" class="section level1">
 <h1><span class="header-section-number">11</span> | Welcome to Endor!</h1>
-<p><br><br></p>
-<div style="clear:both;">
-<br>
-</div>
-<p><strong>Let’s look at the dataset.</strong> Remember the different ways?</p>
+<p><img src="../images/planet_endor.jpg" align="center" style="width: 58%; margin-top: -4px;" /></p>
+<p><strong>Let’s get acquainted with the new data set.</strong> Remember the different ways?</p>
 <p>Hint: <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(air_endor)</code></pre>
@@ -778,27 +742,35 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## $ Planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
 ## $ Result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
 <p><br></p>
-<p><strong>I see that there are more analytes than we need. We only want to know about <code>magentic_field</code> data. Let’s filter to that analyte.</strong></p>
+<p><strong>I see that there are more analytes than we need. We only want to know about <code>magentic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre>
 <p><br></p>
-<p><img src="../images/lubridate.png" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 10px;" width="150" /></p>
-<p><br></p>
-<p>This type of time series data requires R to know which column is the <strong>date</strong> column. Dates come in many formats, the preferred format for R is <code>2019-01-15</code>. We will use the <code>lubridate</code> package to modify and format dates.</p>
-<p><br><br></p>
+<blockquote>
+<p><strong>Boom!</strong> How many rows are left now?</p>
+</blockquote>
+<p><img src="../images/lubridate.png" align="left" style="margin-right: 32px; margin-top: 14px; margin-bottom: 20px;" width="150" /></p>
+<div style="margin-top: 44px;">
+
+</div>
+<p>When you have this type of time series data it’s helpful for R to know which column is the <strong>date</strong> column. Dates come in many formats and the preferred format in R is <code>2019-01-15</code>. We can use the <code>lubridate</code> package to help modify and format dates.</p>
+<div style="clear: both;">
+
+</div>
+<p>Install the <code>lubridate</code> package and use the <code>mdy()</code> function to turn the <code>Start_Run_Date</code> column into a nicely formatted date.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
 
 mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
 </div>
 <div id="calendar-plots" class="section level1">
 <h1><span class="header-section-number">12</span> | Calendar plots</h1>
-<p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 8px; margin-right: 34px; margin-bottom: 10px;" /></p>
-<p>Let’s make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint what days these magnetic storms are happening.</p>
-<p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install the <code>openair</code> package and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
+<p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" /></p>
+<p>We can make a calendar plot to see when higher magnetic field values occur. Maybe we can pinpoint what day a magnetic storm occurred.</p>
+<p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install <code>openair</code> and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;openair&quot;) </span>
-<span class="kw">library</span>(openair) 
-<span class="kw">library</span>(lubridate)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>) </code></pre>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(openair) 
 
 <span class="kw">calendarPlot</span>(mag_endor, 
              <span class="dt">pollutant    =</span> <span class="st">&quot;Result&quot;</span>, 
@@ -807,13 +779,13 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
              <span class="dt">annotate     =</span> <span class="st">&quot;date&quot;</span>,
              <span class="dt">digits       =</span> <span class="dv">0</span>, 
              <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>, 
-             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">22</span>), 
-                                                <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">-1</span>)),
+             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">34</span>), 
+                                 <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
              <span class="dt">main =</span> <span class="st">&quot;Magentic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre>
-<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-3-1.png" width="2880" /></p>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-4-1.png" width="2880" /></p>
 <div id="mission-accomplished" class="section level3 unnumbered">
 <h3>Mission accomplished!</h3>
-<p>It looks like there were really high magentic field readings in November, Galactic year 9917.</p>
+<p>It looks like there really were high magentic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
 <p><br></p>
 </div>
 <div id="return-to-homebase" class="section level3 unnumbered">

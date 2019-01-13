@@ -258,6 +258,7 @@ nrow(height_and_homeworld)
 height_and_homeworld
 ```
 
+<br>
 
 ```{r, echo = F}
 kable(height_and_homeworld)
@@ -328,54 +329,68 @@ head(scrap, 5)
 __Help!__ Remember to type `?left_join` if you are wondering what the arguments are.
 
 
-### <i class="fas fa-starwars" style="color: green"></i> Exercise {- .tabset}
+#### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
 
-#### Total price {-}
+```{r exer-tabs, results='asis', echo=F}
+source("insert_tabs.R")
 
-We now have the amounts sold, we know how much of that amount is in pounds, and we know the the price per pound. We want to know the total amount of credits for each transaction. How would we calculate that?
+tabs <- c("Total credits", "Show hint", "Show code")
 
-<br>
-```{r, eval=F}
+content <- c(Exercise = '<h4> Total credits </h4>
+
+We now have the amounts sold, we know how much of that amount is in pounds, and we know the the credits per pound. We want to know the total amount of credits for each transaction. How can we calculate that?
+
+code_start
 
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(_______ = _______________)
-```
+         
+code_end',
 
+show_hint = '<h4> Total credits </h4>
 
-#### Show hint {-}
+We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
 
-__Total price__
+code_start
 
-We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
-
-<br>
-```{r, eval=F}
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(credits = _______ * _______ * ________)
 
-```
+code_end',
 
-#### Show code {-}
+show_code = '<h4> Total credits </h4>
 
-__Total price__
+We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
 
-We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
+code_start
 
-<br>
-```{r, eval = F}
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(credits = amount * pounds * price_per_pound)
+         
+code_end')
 
+tab_html <- add_tabs(tabs, content)
+
+cat(paste0(tab_html, collapse = "\n"))
 ```
 
-<br><br><hr>
+<br>
 
+<div class="note">
 
+Data analysts often get asked questions similar to:
 
-We as data analysts often get questions like, What's the highest number? What's the lowest number? What is the mean tonnage from Cratertown? So, let us move on to `summarize()`.
+- What's the highest number? 
+- What's the lowest number? 
+- So what's the average tonnage of scrap from Cratertown this year? 
+- Who's making the most money this year?
+
+So, let us move on to `summarize()`.
+
+</div>
 
 
 # | `summarize()` this
@@ -389,7 +404,7 @@ We as data analysts often get questions like, What's the highest number? What's 
 
 ## `sum()` {-}
 
-Use `summarize()` and `sum()` to find the total credits from all Salvage.
+Use `summarize()` and `sum()` to find the total credits from all the scrap.
 
 ```{r, eval = F}
 summarize(scrap, total_credits = sum(credits))
@@ -397,7 +412,7 @@ summarize(scrap, total_credits = sum(credits))
 
 
 ## `mean()` {-}
-Use `summarize()` and `mean()` to calculate the _mean_ price_per_pound in the Salvage report.
+Use `summarize()` and `mean()` to calculate the _mean_ `price_per_pound` in the scrap report.
 
 ```{r, eval = F}
 
@@ -407,21 +422,21 @@ summarize(scrap, mean_price = mean(price_per_pound, na.rm = T))
 
 <br>
 
-> Note the `na.rm = TRUE` in the `mean()` function. This tells R to ignore empty cells or missing values that show up in R as `NA`. If you leave `na.rm` out, the _mean_ function will return 'NA' when it finds a missing value in the data.
+> Note the `na.rm = TRUE` in the `mean()` function. This tells R to ignore empty cells or missing values that show up in R as `NA`. If you leave `na.rm` out, the _mean_ function will return 'NA' if it finds a missing value in the data.
 
 
 ## `median()` {-}
-Use summarize to calculate the _median_ price_per_pound in the Salvage report.
+Use summarize to calculate the _median_ price_per_pound in the scrap report.
 
 `summarize(scrap, median_price = median(price_per_pound, na.rm = T))`
 
 ## `max()` {-}
-Use summarize to calculate the _maximum_ price per pound any scrapper got for their Salvage.
+Use summarize to calculate the _maximum_ price per pound any scrapper got for their scrap.
 
 `summarize(scrap, max_price = max(price_per_pound, na.rm = T))`
 
 ## `min()` {-}
-Use summarize to calculate the _minimum_ price per pound any scrapper got for their Salvage.
+Use summarize to calculate the _minimum_ price per pound any scrapper got for their scrap.
 
 `summarize(scrap, min_price = min(price_per_pound, na.rm = T))`
 
@@ -449,20 +464,24 @@ summarize(scrap,
           price_95th_pctile = quantile(price_per_pound, 0.95))
 ```
 
-_Hint: add `na.rm = T` to `quantile()`._
+
+__Hint:__ Add `na.rm = T` to `quantile()`.
 
 
 ## `n()` {-}
 
 `n()` stands for _count_.
 
-Use summarize and `n()` to count the number of reported Salvage records going to a Niima outpost. 
+Use summarize and `n()` to count the number of reported scrap records going to `Niima outpost`. 
 
-_Hint: Use `filter()` first._  
+__Hint:__ Use `filter()` first.
 
-```{r, eval = F}
+<br>
+
+```{r, eval=F}
 niima_scrap <- filter(scrap, destination == "Niima Outpost") 
-niima_scrap <- summarize(niima_scrap, salvage_records = n())
+
+niima_scrap <- summarize(niima_scrap, scrap_records = n())
 
 ```
 
@@ -471,7 +490,7 @@ niima_scrap <- summarize(niima_scrap, salvage_records = n())
 
 ### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
 
-Create a summary of the scrap data that includes 3 of the summary functions above. The following is _just_ an example.
+Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.
 
 ```{r, eval = F}
 
@@ -483,21 +502,23 @@ summary <- summarize(scrap,
 ```
 
 <br>
-What if I want to string several of these data processing functions together? Do I have to keep writing __scrap__ so many times? I have now written __scrap__ like a million times and I am sick of it. Mother of moons! I have rebels to protect and I haven't eaten in 2 days!
 
-<br>
+What if I want to string several of these data processing functions together? Do I have to keep writing `scrap` so many times? I mean I have now written __scrap__ like a million times and my fingers hurt. Mother of moons! I have rebels to protect and I haven't eaten in 2 days!
+
 
 # | The pipe `%>%`
 
-__Use the `%>%` young Padawan.__
+__Let the `%>%` guide you young Padawan.__
 
-![](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png){width="155" align="left" style="margin-right: 28px;"}
+![](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png){width="155" align="left" style="margin-right: 28px; margin-bottom: 22px;"}
 
 <br>
 
 Luckily, you __don't__ have to do ALL that typing. The pipe let's you can chain functions together and do everything in one go. 
 
-<br><br>
+<br>
+
+<div style="clear:both;"></div>
 
 ```{r pipe-time, eval = F}
 
@@ -508,15 +529,27 @@ my_scrap <- scrap %>%
 ```
 
 
+<br>
+
+
+> __Shut me down!__ 
+>
+> That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
+>
+> It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
+
+<br>
+
+
+### It's time for `group_by()`! {-}
+
 
 # | `group_by()`
 <hr>
 
-> Wouldn't it be nice if we could easily find the mean price at every Origin City? Let's really wookie this thing. It's time for `group_by()`!
+## Bargain hunters {-}
 
-<br>
-
-Use `group_by` with the column _Origin_ again, but this time use `summarize` to find the `mean(price_per_pound)` for each Origin City. 
+Who's selling goods for cheap? Use `group_by` with the column _Origin_, and then use`summarize` to find the `mean(price_per_pound)` at each Origin City. 
 
 ```{r mean_price-by-origin, eval = F}
 
@@ -548,7 +581,10 @@ scrap_means <- group_by(scrap, origin) %>%
 
 <br>
 
-__NOTE:__ The `round()` function in R does not automatically round values ending in 5 up, instead it uses scientific rounding. It rounds values ending in 5 to the nearest even number, so 2.5 rounded to the nearest whole number using `round()` is 2, and 3.5 rounded to the nearest whole number is 4. If you want to round all values ending in 5 up, then you'll have to use a rounding function from another package.
+
+__NOTE:__ 
+
+The `round()` function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.
 
 </p>
 </div>
@@ -557,7 +593,7 @@ __NOTE:__ The `round()` function in R does not automatically round values ending
 
 <br>
 
-Try using `group_by` with the column _origin_ and then use `summarize` to count the number of Salvage reports from each city.  
+Who's making lots of transactions? Try using `group_by` with the column _origin_ and then `summarize` to count the number of scrap records at each city.  
 
 ```{r grp-by-origin, eval = FALSE}
 
@@ -571,44 +607,51 @@ scrap_counts <- group_by(scrap, origin) %>%
 <br>
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> Ending with `ungroup()` is good practice. This will prevent your data from staying grouped after the summarizing has been completed.
+Ending with `ungroup()` is good practice. This prevents your data from staying grouped after the summarizing has been completed.
 
+</div>
 
 
 # | Save files
 <hr>
 
-Let's save the mean price summary table we created to a _CSV_. That way we can print it to have it __transmitted through Droid courier__ to Rey. To save a data frame we'll use the `write_csv()` function from our favorite _readr_ package. 
+Let's save the mean price summary table we created to a _CSV_. That way we can transfer it to a _droid courier_ for delivery to Rey. To save a data frame we can use the `write_csv()` function from our favorite `readr` package. 
 
 ```{r, eval = F}
 
 # Write the file to your results folder
-write_csv(scrap_means, "results/Mean_prices_by_origin.csv")
+write_csv(scrap_summary, "results/prices_by_origin.csv")
 
 ```
 
-
-
-### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
-
-> __Warning!__ By default, R will overwrite a file if the file already exists in a folder. It will not ask for confirmation. To be safe, do not save processed data to your `data/` folder.
->
-
 <br>
+
+### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> __Warning!__ {-}
+<div class="well">
+
+By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called `results/` and not to your raw `data/` folder.
+
+</div>
 
 
 # | Grouped `mutate()` 
 <br><hr>
 
-We can bring back `mutate` to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by country to the whole table.  
+We can bring back `mutate` to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point. 
 
-When you combine `group_by` and `mutate` the new column will be calculated based on the values within each group. 
+> How does the price of Item X compare to the average price?  
 
-```{r mutate-price, eval = F}
+When you combine `group_by` and `mutate` the new column will be calculated based on the values within each group. Let's group by `origin` to find the `mean()` price per pound at each origin. 
 
-group_by(scrap, origin) %>% mutate(origin_mean_price = mean(price_per_pound, na.rm = T)) %>% ungroup()
+<br>
 
+```{r mutate-price, eval=F}
+
+scrap <- group_by(scrap, origin) %>% 
+            mutate(origin_mean_price = mean(price_per_pound, na.rm = T)) %>% 
+            ungroup()
 ```
 
 <br>

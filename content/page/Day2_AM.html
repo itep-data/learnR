@@ -108,7 +108,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#n"><code>n()</code></a></li>
 </ul></li>
 <li><a href="#the-pipe"><span class="toc-section-number">5</span> | The pipe <code>%&gt;%</code></a></li>
-<li><a href="#group_by"><span class="toc-section-number">6</span> | <code>group_by()</code></a></li>
+<li><a href="#group_by"><span class="toc-section-number">6</span> | <code>group_by()</code></a><ul>
+<li><a href="#bargain-hunters">Bargain hunters</a></li>
+</ul></li>
 <li><a href="#save-files"><span class="toc-section-number">7</span> | Save files</a></li>
 <li><a href="#grouped-mutate"><span class="toc-section-number">8</span> | Grouped <code>mutate()</code></a></li>
 </ul>
@@ -439,6 +441,7 @@ height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</s
 <span class="kw">nrow</span>(height_and_homeworld)
 
 height_and_homeworld</code></pre>
+<p><br></p>
 <table>
 <thead>
 <tr class="header">
@@ -539,36 +542,70 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 ## 5 Starship sen~ Cratert~ Trade carav~    305 Cubic ~           1129.    637</code></pre>
 <p><br></p>
 <p><strong>Help!</strong> Remember to type <code>?left_join</code> if you are wondering what the arguments are.</p>
-<div id="exercise" class="section level3 unnumbered tabset">
-<h3><i class="fas fa-starwars" style="color: green"></i> Exercise</h3>
-<div id="total-price" class="section level4 unnumbered">
-<h4>Total price</h4>
-<p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the price per pound. We want to know the total amount of credits for each transaction. How would we calculate that?</p>
-<p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the total credits for each transaction</span>
-scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">_______ =</span> _______________)</code></pre>
+<div id="exercise" class="section level4 unnumbered">
+<h4><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h4>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="totalcredits-tab" data-toggle="tab" href="#totalcredits" role="tab" aria-controls="totalcredits" aria-selected="true">Total credits</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="showhint-tab" data-toggle="tab" href="#showhint" role="tab" aria-controls="showhint" aria-selected="false">Show hint</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="showcode-tab" data-toggle="tab" href="#showcode" role="tab" aria-controls="showcode" aria-selected="false">Show code</a>
+</li>
+</ul>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="totalcredits" class="tab-pane fade active in" role="tabpanel" aria-labelledby="totalcredits-tab">
+<h4>
+Total credits
+</h4>
+<p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the credits per pound. We want to know the total amount of credits for each transaction. How can we calculate that?</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+
+# Calculate the total credits for each transaction
+scrap <- scrap %>% 
+         mutate(_______ = _______________)
+         
+</code></pre>
 </div>
-<div id="show-hint" class="section level4 unnumbered">
-<h4>Show hint</h4>
-<p><strong>Total price</strong></p>
-<p>We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
-<p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the total credits for each transaction</span>
-scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">credits =</span> _______ <span class="op">*</span><span class="st"> </span>_______ <span class="op">*</span><span class="st"> </span>________)</code></pre>
+<div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
+<h4>
+Total credits
+</h4>
+<p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+
+# Calculate the total credits for each transaction
+scrap <- scrap %>% 
+         mutate(credits = _______ * _______ * ________)
+
+</code></pre>
 </div>
-<div id="show-code" class="section level4 unnumbered">
-<h4>Show code</h4>
-<p><strong>Total price</strong></p>
-<p>We now have the amount sold, the conversion to pounds, and the price per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
+<h4>
+Total credits
+</h4>
+<p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<pre class="sourceCode r"><code class="sourceCode r">
+
+# Calculate the total credits for each transaction
+scrap <- scrap %>% 
+         mutate(credits = amount * pounds * price_per_pound)
+         
+</code></pre>
+</div>
+</div>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the total credits for each transaction</span>
-scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">credits =</span> amount <span class="op">*</span><span class="st"> </span>pounds <span class="op">*</span><span class="st"> </span>price_per_pound)</code></pre>
-<br><br>
-<hr>
-<p>We as data analysts often get questions like, What’s the highest number? What’s the lowest number? What is the mean tonnage from Cratertown? So, let us move on to <code>summarize()</code>.</p>
+<div class="note">
+<p>Data analysts often get asked questions similar to:</p>
+<ul>
+<li>What’s the highest number?</li>
+<li>What’s the lowest number?</li>
+<li>So what’s the average tonnage of scrap from Cratertown this year?</li>
+<li>Who’s making the most money this year?</li>
+</ul>
+<p>So, let us move on to <code>summarize()</code>.</p>
 </div>
 </div>
 </div>
@@ -580,31 +617,31 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse your data down to a single row. To really dig into <code>summarize</code> you’ll want to know some common summary functions, such as <code>sum()</code>, <code>mean()</code>, <code>median()</code>, <code>min()</code>, and <code>max()</code>.</p>
 <div id="sum" class="section level2 unnumbered">
 <h2><code>sum()</code></h2>
-<p>Use <code>summarize()</code> and <code>sum()</code> to find the total credits from all Salvage.</p>
+<p>Use <code>summarize()</code> and <code>sum()</code> to find the total credits from all the scrap.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">total_credits =</span> <span class="kw">sum</span>(credits))</code></pre>
 </div>
 <div id="mean" class="section level2 unnumbered">
 <h2><code>mean()</code></h2>
-<p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> price_per_pound in the Salvage report.</p>
+<p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> <code>price_per_pound</code> in the scrap report.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre>
 <p><br></p>
 <blockquote>
-<p>Note the <code>na.rm = TRUE</code> in the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ when it finds a missing value in the data.</p>
+<p>Note the <code>na.rm = TRUE</code> in the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ if it finds a missing value in the data.</p>
 </blockquote>
 </div>
 <div id="median" class="section level2 unnumbered">
 <h2><code>median()</code></h2>
-<p>Use summarize to calculate the <em>median</em> price_per_pound in the Salvage report.</p>
+<p>Use summarize to calculate the <em>median</em> price_per_pound in the scrap report.</p>
 <p><code>summarize(scrap, median_price = median(price_per_pound, na.rm = T))</code></p>
 </div>
 <div id="max" class="section level2 unnumbered">
 <h2><code>max()</code></h2>
-<p>Use summarize to calculate the <em>maximum</em> price per pound any scrapper got for their Salvage.</p>
+<p>Use summarize to calculate the <em>maximum</em> price per pound any scrapper got for their scrap.</p>
 <p><code>summarize(scrap, max_price = max(price_per_pound, na.rm = T))</code></p>
 </div>
 <div id="min" class="section level2 unnumbered">
 <h2><code>min()</code></h2>
-<p>Use summarize to calculate the <em>minimum</em> price per pound any scrapper got for their Salvage.</p>
+<p>Use summarize to calculate the <em>minimum</em> price per pound any scrapper got for their scrap.</p>
 <p><code>summarize(scrap, min_price = min(price_per_pound, na.rm = T))</code></p>
 </div>
 <div id="nth" class="section level2 unnumbered">
@@ -624,48 +661,60 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, 
           <span class="dt">price_5th_pctile  =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.05</span>, <span class="dt">na.rm =</span> T),
           <span class="dt">price_95th_pctile =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.95</span>))</code></pre>
-<p><em>Hint: add <code>na.rm = T</code> to <code>quantile()</code>.</em></p>
+<p><strong>Hint:</strong> Add <code>na.rm = T</code> to <code>quantile()</code>.</p>
 </div>
 <div id="n" class="section level2 unnumbered">
 <h2><code>n()</code></h2>
 <p><code>n()</code> stands for <em>count</em>.</p>
-<p>Use summarize and <code>n()</code> to count the number of reported Salvage records going to a Niima outpost.</p>
-<p><em>Hint: Use <code>filter()</code> first.</em></p>
+<p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
+<p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
+<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
-niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">salvage_records =</span> <span class="kw">n</span>())</code></pre>
+
+niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre>
 <p><br></p>
 <div id="exercise-1" class="section level3 unnumbered">
 <h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
-<p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is <em>just</em> an example.</p>
+<p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.</p>
 <pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
                      <span class="dt">max_credits      =</span> __________,
                      <span class="dt">weight_90th_pct  =</span> <span class="kw">quantile</span>(Weight, <span class="fl">0.90</span>),
                      <span class="dt">count_records    =</span> __________,</code></pre>
-<p><br>
-What if I want to string several of these data processing functions together? Do I have to keep writing <strong>scrap</strong> so many times? I have now written <strong>scrap</strong> like a million times and I am sick of it. Mother of moons! I have rebels to protect and I haven’t eaten in 2 days!</p>
 <p><br></p>
+<p>What if I want to string several of these data processing functions together? Do I have to keep writing <code>scrap</code> so many times? I mean I have now written <strong>scrap</strong> like a million times and my fingers hurt. Mother of moons! I have rebels to protect and I haven’t eaten in 2 days!</p>
 </div>
 </div>
 </div>
 <div id="the-pipe" class="section level1">
 <h1><span class="header-section-number">5</span> | The pipe <code>%&gt;%</code></h1>
-<p><strong>Use the <code>%&gt;%</code> young Padawan.</strong></p>
-<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px;" width="155" /></p>
+<p><strong>Let the <code>%&gt;%</code> guide you young Padawan.</strong></p>
+<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" /></p>
 <p><br></p>
 <p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you can chain functions together and do everything in one go.</p>
-<p><br><br></p>
+<p><br></p>
+<div style="clear:both;">
+
+</div>
 <pre class="sourceCode r"><code class="sourceCode r">my_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Acceleration compensator&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
+<p><br></p>
+<blockquote>
+<p><strong>Shut me down!</strong></p>
+<p>That was a whole lot of summarizing. Do we really have to filter to the Origin City that we’re interested in every time?</p>
+<p>It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.</p>
+</blockquote>
+<p><br></p>
+<div id="its-time-for-group_by" class="section level3 unnumbered">
+<h3>It’s time for <code>group_by()</code>!</h3>
+</div>
 </div>
 <div id="group_by" class="section level1">
 <h1><span class="header-section-number">6</span> | <code>group_by()</code></h1>
 <hr>
-<blockquote>
-<p>Wouldn’t it be nice if we could easily find the mean price at every Origin City? Let’s really wookie this thing. It’s time for <code>group_by()</code>!</p>
-</blockquote>
-<p><br></p>
-<p>Use <code>group_by</code> with the column <em>Origin</em> again, but this time use <code>summarize</code> to find the <code>mean(price_per_pound)</code> for each Origin City.</p>
+<div id="bargain-hunters" class="section level2 unnumbered">
+<h2>Bargain hunters</h2>
+<p>Who’s selling goods for cheap? Use <code>group_by</code> with the column <em>Origin</em>, and then use<code>summarize</code> to find the <code>mean(price_per_pound)</code> at each Origin City.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) </code></pre>
 <p><br></p>
@@ -680,44 +729,52 @@ What if I want to string several of these data processing functions together? Do
 <span class="st">                 </span><span class="kw">arrange</span>(mean_price_round) <span class="op">%&gt;%</span>
 <span class="st">                 </span><span class="kw">ungroup</span>()</code></pre>
 <p><br></p>
-<p><strong>NOTE:</strong> The <code>round()</code> function in R does not automatically round values ending in 5 up, instead it uses scientific rounding. It rounds values ending in 5 to the nearest even number, so 2.5 rounded to the nearest whole number using <code>round()</code> is 2, and 3.5 rounded to the nearest whole number is 4. If you want to round all values ending in 5 up, then you’ll have to use a rounding function from another package.</p>
+<p><strong>NOTE:</strong></p>
+<p>The <code>round()</code> function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.</p>
 </p>
 </div>
 </details>
 <p><br></p>
-<p>Try using <code>group_by</code> with the column <em>origin</em> and then use <code>summarize</code> to count the number of Salvage reports from each city.</p>
+<p>Who’s making lots of transactions? Try using <code>group_by</code> with the column <em>origin</em> and then <code>summarize</code> to count the number of scrap records at each city.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap_counts &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                </span><span class="kw">summarize</span>(<span class="dt">origin_count  =</span>  <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                </span><span class="kw">ungroup</span>()</code></pre>
 <p><br></p>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
-<p>Ending with <code>ungroup()</code> is good practice. This will prevent your data from staying grouped after the summarizing has been completed.</p>
-</blockquote>
+<div class="well">
+<p>Ending with <code>ungroup()</code> is good practice. This prevents your data from staying grouped after the summarizing has been completed.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="save-files" class="section level1">
 <h1><span class="header-section-number">7</span> | Save files</h1>
 <hr>
-<p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can print it to have it <strong>transmitted through Droid courier</strong> to Rey. To save a data frame we’ll use the <code>write_csv()</code> function from our favorite <em>readr</em> package.</p>
+<p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
-<span class="kw">write_csv</span>(scrap_means, <span class="st">&quot;results/Mean_prices_by_origin.csv&quot;</span>)</code></pre>
-<div id="pro-tip-1" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
-<p><strong>Warning!</strong> By default, R will overwrite a file if the file already exists in a folder. It will not ask for confirmation. To be safe, do not save processed data to your <code>data/</code> folder.</p>
-</blockquote>
+<span class="kw">write_csv</span>(scrap_summary, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre>
 <p><br></p>
+<div id="warning" class="section level3 unnumbered">
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> <strong>Warning!</strong></h3>
+<div class="well">
+<p>By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called <code>results/</code> and not to your raw <code>data/</code> folder.</p>
+</div>
 </div>
 </div>
 <div id="grouped-mutate" class="section level1">
 <h1><span class="header-section-number">8</span> | Grouped <code>mutate()</code></h1>
 <br>
 <hr>
-<p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by country to the whole table.</p>
-<p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>()</code></pre>
+<p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point.</p>
+<blockquote>
+<p>How does the price of Item X compare to the average price?</p>
+</blockquote>
+<p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group. Let’s group by <code>origin</code> to find the <code>mean()</code> price per pound at each origin.</p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">ungroup</span>()</code></pre>
 <p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>

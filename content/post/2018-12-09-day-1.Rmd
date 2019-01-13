@@ -28,11 +28,14 @@ Lucky for Rey, you just snagged a transfer log from Unkar’s droid showing a li
 
 ## Blast off!
 
+<div style="margin-left: 4%;">
+
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1 (Morning)](../page/day1_am.html) 
 
 `Lunch break` <i class="fa fa-utensils"></i> ☕
 
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/day1_pm.html) 
 
+</div>
 <br>
 

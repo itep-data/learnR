@@ -22,14 +22,31 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Let's play R BINGO!
 
-1. Sorry, there are no free spaces
-1. You will learn all of these functions in this class, so be impressed!
-1. We are going to call R functions using an R function.
+1. No free spaces! We are mean.
+1. You will soon know all of these functions.
+1. We are going to call-out these functions using an R function.
 
 ```{r bingo, eval=F}
+# Get pretty colors
+install.packages("viridis")
+library(viridis)
+library(ggplot2)
+
+# List of all the functions
 bingo_words <- c("median()", "nrow()", "glimpse()", "sum()", "head()", "tail()", "arrange()", "write_csv()", "geom_col()", "filter()", "ncol()", "sd()", "summarise()", "quantile()", "install.packages()", "geom_point()", "unique()", "select()", "mean()", "min()", "left_join()", "read_csv()", "nth()", "ggplot()", "library()", "n()")
 
-sample(bingo_words, 1)
+# Shuffle the words randomly
+bingo_words <- sample(bingo_words)
+
+# Set the number to draw
+n <- 20
+
+# Plot the word
+ggplot(data_frame(x = 1,y = 1), aes(x = 1, y = 1)) + 
+      geom_point(color = sample(viridis_pal()(30), 1), size = 177) + 
+      geom_label(label = bingo_words[n], size = 12) +
+      labs(x = NULL, y = NULL) +
+      theme_void()
 ```
 
 
@@ -44,10 +61,18 @@ sample(bingo_words, 1)
 
 _You've unlocked a new package!_  
 
+<br>
+
+<div style="clear: both; margin-top: 22px;"></div>
+
+The _dplyr_ package is the go-to tool for exploring, re-arranging, and summarizing data.  
+
+Use `install.packages("dplyr")` to add _dplyr_ to your library.  
+
 
 ## Get to know your data frame {-}
 
-Use these quick functions to describe your data frame.
+Use these simple functions to describe your data.
 
 ### Data frame info {-}
 
@@ -67,7 +92,7 @@ Use the `glimpse()` function to find out what type and how much data you have.
 
 Use the `summary()` function to get a quick report on your numeric data.
 
-### Let's read our data back in and look at it in the ways listed about {-}
+### Let's read our data into R and try some of these functions. {-}
 
 ```{r glimpse, warning = F, message = F}
 library(dplyr)
@@ -82,19 +107,22 @@ glimpse(scrap)
 ```{r summary-scrap, warning = F, message = F}
 # Use the summary function to get a quick of idea of means and maxima for your numeric data
 summary(scrap)
+```
 
-# Try nrow(), ncol(), and names() on your own.
+```{r summary-try, eval=F}
+
+# Try the rest on your own, I dare you!
+
+nrow()
+
+ncol()
+
+names()
 
 ```
 
-
 <br>
 
-The _dplyr_ package is the go-to tool for exploring, re-arranging, and summarizing data.  
-
-Use `install.packages("dplyr")` to add _dplyr_ to your library.  
-
-<br>
 
 __Your new analysis toolbox__  
 
@@ -183,10 +211,10 @@ select(scrap, item, units, amount, everything())
 # | `arrange()` 
 <hr>
 
-That's helpful, but Rey wants to know what the highest priced item items are. Use `arrange()` to find the origin city with the most highest priced salvaged item.
+That's helpful, but Rey wants to know what the highest priced item items are. Use `arrange()` to find the origin city with the most highest priced scrap item.
 
 ```{r select-arrange, warning = F}
-# find the least expensive salvaged items
+# Find the least expensive scrap items
 scrap <- arrange(scrap, price_per_pound)
 
 # View the top 6 rows using head()
@@ -196,12 +224,12 @@ head(scrap)
 
 <br>
 
-#### Well darn, that's not a very impressive price. {-}
+#### Well shucks, only `145 credits`. That's not a very impressive price at all. {-}
 
 
 ## Big things first: `desc()`  {-}
 
-To arrange a column in descending order we use: `desc(price_per_pound)`
+To arrange a column in descending order with the biggest numbers on top, we use: `desc(price_per_pound)`
 
 ```{r descend, warning = F}
 # Put most expensive items on top
@@ -217,17 +245,24 @@ head(scrap)
 
 ### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
 
-Try arranging by more than one column (such as `price_per_pound` and `amount`). What happens?
+Try arranging by more than one column, such as `price_per_pound` and `amount`. What happens?
 
 __HINT:__ You can view the entire table by clicking on it in the upper-right _Environment_ tab.
 
 <br>
 
 ### <i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> When you save an arranged data table it maintains its order. This is perfect for sending people a quick __Top 10__ list of pollutants or sites.
+When you save an arranged data table it maintains its order. This is perfect for sending people a quick __Top 10__ list of pollutants or sites.
 
-<br><br>
+</div>
+
+<br>
+
+### Need a break? How about a ... {-}
+
+<br>
 
 
 ![](../images/boba_tea.jpg){width="300"}
@@ -246,18 +281,18 @@ filter(scrap, origin == "All")
 
 
 ### <i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> We use a `==` (double equals sign) for comparing values. A `==` makes the comparison "is it equal to?" and returns a True or False answer. So the code above returns all the rows where the condition `origin == "All"` is TRUE.
->
-> A single equals sign `=` is used within functions to set options, for example `read_csv(file = "starwars_scrap_jakku.csv")`. Don't worry too much. If you use the wrong symbol R is often helpful and will let you know which one is needed.
+We use a `==` (double equals sign) for comparing values. A `==` makes the comparison "is it equal to?" and returns a True or False answer. So the code above returns all the rows where the condition `origin == "All"` is TRUE.
 
+A single equals sign `=` is used within functions to set options, for example `read_csv(file = "starwars_scrap_jakku.csv")`. Don't worry too much. If you use the wrong symbol R is often helpful and will let you know which one is needed.
+
+</div>
 
 ## Comparisons
 <hr>
 
-Processing data requires many types of filtering. You will want to know how to select observations using various comparison operators.
-
-<br>
+Processing data requires many types of filtering. You will want to know how to select observations in your table by making various comparisons.
 
 __Key comparison operators__
 
@@ -268,28 +303,25 @@ __Key comparison operators__
 | `<`   | less than                |
 | `<=`  | less than or equal to    |
 | `==`  | equal to                 |
-| `!=`  | not equal to             |
+| `!=`  | NOT equal to             |
 | `%in%`| value is in a list       |
 
 <br>
 
-Now let's look at that data again WITHOUT the _All_ category. Then we will more easily be able to see the amounts. Look in the table above and find the `NOT` operator.
+### Dropping rows {-}
+
+Now let's look at the data without that pesky _All_ category. Look in the table above to find the `NOT` operator. We're going to filter the data to keep only the origin values that are `NOT equal to` "All".
 
 ```{r filter-all}
-
 scrap <- filter(scrap, origin != "All")
-
 ```
 
 
 <br>
 
-Now we'll arrange the data in descending order by `amount` and then look at the data using the `head()` function to confirm that the "All" category is gone.
+We can arrange the data in descending order by `amount` to confirm that the "All" category is gone.
 
-```{r filter-arrange}
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
+```{r filter-arrange, message=F, warning=F}
 # Clean data
 scrap <- filter(scrap, origin != "All")
 
@@ -318,7 +350,9 @@ Something still might be hidden in the data that is unexpected. Take a look at t
 ggplot(scrap, aes(x = units, y = amount)) + geom_col()
 ```
 
-There is still an issue with the data. The item "tons" is written two ways. This happens when multiple field technicians collect data! We will deal with this a bit later. 
+<br>
+
+There is still an issue with the data. The item "tons" is written two ways. This can happen when multiple labs collect data. Let's deal with this a bit later. 
 
 
 ## Multiple filters 
@@ -329,18 +363,14 @@ We can add multiple comparisons to `filter()` to further restrict the data we pu
 The code below filters the data to only scrap records originating in the `Outskirts` __AND__ destined for `Niima Outpost`.
 
 ```{r filter-multi, eval=F}
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Clean data
-scrap <- filter(scrap, origin != "All")
 
 outskirts_to_niima <- filter(scrap, 
-                             origin == "Outskirts", 
+                             origin        == "Outskirts", 
                              destination   == "Niima Outpost")
 ```
 
 
+<br>
 
 Let's calculate some new columns to help prioritize Rey's scavenging work.
 
@@ -353,84 +383,63 @@ Let's calculate some new columns to help prioritize Rey's scavenging work.
 ## Add a column {-}
 <hr>
 
-First let's add a column with our names, so that Rey will thank us personally on Liberation Day. 
-```{r mutate-1}
-library(readr)
-library(ggplot2)
-library(dplyr)
-
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Clean data
-scrap <- filter(scrap, origin != "All")
+First let's add a column with our names. That way Rey can thank us personally when her ship is up and running. 
+```{r mutate-1, warning=F, message=F}
 
 ## Add your name as a column
-scrap <- mutate(scrap, scrap_finder = "Your name")
+scrap <- mutate(scrap, scrap_finder = "BB8")
 
 ```
+
 
 ## Add several columns {-}
 
 We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let's add new columns to document the data measurement method and the averaging time.
 
 ```{r mutate2columns, echo=T, eval=T}
-library(readr)
-library(ggplot2)
-library(dplyr)
 
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Clean data
-scrap <- filter(scrap, origin != "All")
-
-## Add your name as a column as well as some information about your sampling method.
-scrap <- mutate(scrap, scrap_finder = "Your name",
-                measurement_method = "REM",
-                averaging_time = "24 hours")
+#  Add your name as a column and
+#  some information about your sampling method.
+scrap <- mutate(scrap, scrap_finder = "BB8",
+                measurement_method  = "REM",
+                averaging_time      = "24 hours")
 
 ## REM = Rebellion Equivalent Method
-
 ```
 
 
 ## Change a column  {-}
 <hr>
 
-Remember how that unit of Tons was written two ways: "TONS" and "Tons"? We can use `mutate()` together with `tolower()` to make sure all of the Salvage scrap is written in lower case. Case matters in R!
+Remember how that unit of Tons was written two ways: "TONS" and "Tons"? We can use `mutate()` together with `tolower()` to make sure all of the scrap units are written in lower case. Case matters in R!
 
-```{r mutate-2}
+```{r mutate-2000}
 
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Clean data
-scrap <- filter(scrap, origin != "All")
-
-
+# Set units to all lower-case
 scrap <- mutate(scrap, units = tolower(units))
-# toupper() will change all of the letters in a column to upper case.
+
+# toupper() will change all of the letters in a column to upper-case.
 ```
 
 
-## Add a calculated column {-}
-In our work we often use `mutate` to calculate new units for measurements. In this case, let's estimate the pounds for scavenge items that are reported in tons. 
+## Add calculated columns {-}
+
+In our work we often use `mutate` to calculate new units for measurements. In this case, let's estimate the total pounds for the scrap items that are reported in tons. 
 
 
-### Tons `-->` pounds conversions {-}
+### Tons `-->` Pounds conversion {-}
 
 Use `filter()` to subset the data to the items reported in `"tons"`. Then use `mutate()` to convert the `amount` column to pounds. We can also change the `units` column to "pounds" to avoid any confusion.
 
-```{r}
+```{r, message=F, warning=F}
 
-# Get data
+# Re-load the data
 scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
 
 # Clean data
 scrap <- filter(scrap, 
                 origin != "All", 
-                units == "tons")
+                units  == "tons")
 
 scrap_pounds <- mutate(scrap, 
                        amount_lbs = amount * 2000,
@@ -443,7 +452,7 @@ scrap_pounds <- mutate(scrap,
 
 Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for her ship and __we are free to FLY TO ENDOR for our next mission!__
 
-```{r arrange final, eval=T, message=F}
+```{r arrange final, eval=T, message=F, warning=F}
 
 # Get data
 scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
@@ -461,56 +470,66 @@ scrap_pounds <- mutate(scrap,
 scrap_pounds <- arrange(scrap, 
                        desc(amount_lbs))
 
-# Return the origin of the highest amount of salvage
+# Return the origin of the highest weight amount of scrap
 head(scrap_pounds, 1)
 
 ```
 
 # | Save new data
 
-You can't break your original dataset if you always name it something else. We will use the `readr` package to create a new csv of the tons data converted to pounds.
+You can't break your original dataset if you always name it something else. Let's use the `readr` package to save our new CSV with the tons converted to pounds.
 
 ```{r write-csv1, eval=F}
 
-write_csv(scrap_pounds, "data/scrap_in_pounds.csv")
+# Save data as a CSV file 
+write_csv(scrap_pounds, "scrap_in_pounds.csv")
+
+# Save data as a CSV file to results folder
+#write_csv(scrap_pounds, "results/scrap_in_pounds.csv")
 
 ```
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> __Error!__  
->`Error in mutate_impl(.data, dots) : `
->
-> If you use `mutate()` and provide a single value for a column such as `5`, every row in the new column will have that value. 
->
-> If you provide a vector of values, such as `lbs = amount * 2000`, then a unique value will be calculated for each row. 
->
-> An `Error` will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you must provide a vector that is either a single value or the same length as your data frame.
+__Error!__  
+
+`Error in mutate_impl(.data, dots) : `
+
+If you use `mutate()` and provide a single value for a column such as `5`, every row in the new column will have that value. 
+
+If you provide a vector of values, such as `lbs = amount * 2000`, then a unique value will be calculated for each row. 
+
+An `Error` will occur if you provide a vector that is longer than 1, but has a different length than the number of rows in your data frame. The error message is a helpful reminder that you need to provide a single value or enough values to match the length of your data frame.
+
+</div>
 
 <br>
 
-### Time to get off this desert planet, we're flying to Endor! {-}
+### Time to get off this dusty planet, we're flying to Endor! {-}
 
 ![](..\images\blast_off_ship_jakku.gif){width="500" style="margin-left: auto; margin-right: auto; margin-top: 18px; margin-bottom: 12px;"}
 
 <br>
 
 
-## BB8 has a new mission! {-}
+## BB8 has a new mission {-}
 
-BB8 received data suggesting there was a large magnetic storm right before the Battle Site 1 tower burned down on Endor. Let's clean this new data set and make a chart to check if there was a magnetic storm and when it ocurred.
+#### We're going to be STORM CHASERS! {-}
+
+BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.
 
 
 __Get the dataset__
 
-While flying to Endor let's get set up with our next data set.
+While we're relaxing and flying to Endor let's get set up with our new data.
 
 <a href="https://itep-r.netlify.com/data/air_endor.csv">
 <span class="btn_code_blue" style="margin-bottom: 10px;"> __DOWNLOAD__  </span></a> -  Endor Air data
 
 1. Download the data above.
 1. Create a folder in your project folder called "data".
-1. Save this data set in that data folder.
+1. Move the Endor data to this folder.
 1. Create a new R script called `endor_air.R`
 1. Read in the data from the data folder.
 
@@ -529,16 +548,12 @@ air_endor <- read_csv("https://itep-r.netlify.com/data/air_endor.csv")
 ```
 
 
-![](../images/planet_endor.jpg){align="right" style="width: 58%; margin-top: 78px;"}
-
 # | Welcome to Endor! 
 
-<br><br>
-
-<div style="clear:both;"> <br> </div>
+![](../images/planet_endor.jpg){align="center" style="width: 58%; margin-top: -4px;"}
 
 
-__Let's look at the dataset.__ Remember the different ways?
+__Let's get acquainted with the new data set.__ Remember the different ways?
 
 Hint: `summary()`, `glimpse()`, `nrow()`
 
@@ -552,7 +567,7 @@ glimpse(air_endor)
 
 <br>
 
-__I see that there are more analytes than we need. We only want to know about `magentic_field` data. Let's filter to that analyte.__ 
+__I see that there are more analytes than we need. We only want to know about `magentic_field` data. Let's filter the data down to only that analyte.__ 
 
 <br>
 
@@ -563,15 +578,19 @@ mag_endor <- filter(air_endor, Analyte == "magnetic_field")
 
 <br>
 
-![](../images/lubridate.png){width="150" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 10px;"}
+> __Boom!__ How many rows are left now?
 
-<br>
+![](../images/lubridate.png){width="150" align="left" style="margin-right: 32px; margin-top: 14px; margin-bottom: 20px;"}
 
-This type of time series data requires R to know which column is the __date__ column. Dates come in many formats, the preferred format for R is `2019-01-15`. We will use the `lubridate` package to modify and format dates.
+<div style="margin-top: 44px;"></div>
 
-<br><br>
+When you have this type of time series data it's helpful for R to know which column is the __date__ column. Dates come in many formats and the preferred format in R is `2019-01-15`. We can use the `lubridate` package to help modify and format dates.
 
-```{r, endor-air-mutate, message = F}
+<div style="clear: both;"></div>
+
+Install the `lubridate` package and use the `mdy()` function to turn the `Start_Run_Date` column into a nicely formatted date.
+
+```{r, endor-air-mutate, message=F}
 library(lubridate)
 
 mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
@@ -580,23 +599,29 @@ mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 
 # | Calendar plots
 
-![](../images/endor_lego_sq.PNG){align="left" style="width: 23%; margin-top: 8px; margin-right: 34px; margin-bottom: 10px;"}
+![](../images/endor_lego_sq.PNG){align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;"}
 
-Let's make a calendar plot to see if we can see when higher magnetic field values occur. Maybe we can pinpoint what days these magnetic storms are happening.
+We can make a calendar plot to see when higher magnetic field values occur. Maybe we can pinpoint what day a magnetic storm occurred.
 
-There is a calendar plot function built into a package called `openair`. Let's install the `openair` package and then use `calendarplot()` to make a calendar of the observations.
+There is a calendar plot function built into a package called `openair`. Let's install `openair` and then use `calendarplot()` to make a calendar of the observations.
 
-```{r, set-theme, echo = F}
+
+```{r, set-theme, echo=F, eval=F}
 library(ggplot2)
 theme_set(theme_grey(base_size = 35)) 
 ```
  
+ 
+<br>
+
+```{r, eval=F}
+install.packages("openair") 
+```
+
 <br>
 
 ```{r, message=F, warning=F, fig.width=30, fig.height=10}
-#install.packages("openair") 
 library(openair) 
-library(lubridate)
 
 calendarPlot(mag_endor, 
              pollutant    = "Result", 
@@ -605,15 +630,16 @@ calendarPlot(mag_endor,
              annotate     = "date",
              digits       = 0, 
              key.footer   = "nT", 
-             par.settings = list(fontsize = list(text = 22), 
-                                                layout.heights = list(top.padding = -1)),
+             par.settings = list(fontsize       = list(text = 34), 
+                                 layout.heights = list(top.padding = 1)),
              main = "Magentic Field Strength at Endor Battle Site 1")
 
 ```
 
+
 ### Mission accomplished! {-}
 
-It looks like there were really high magentic field readings in November, Galactic year 9917. 
+It looks like there really were high magentic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.
 
 <br>
 

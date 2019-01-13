@@ -89,7 +89,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#a-new-day"><span class="toc-section-number">2</span> | A new day</a><ul>
 <li><a href="#customize-r-studio">2. | Customize R Studio</a></li>
-<li><a href="#start-an-r-project"><span class="toc-section-number">2.1</span> 3. | Start an R project</a></li>
+<li><a href="#start-an-r-project">3. Start an R project</a></li>
 </ul></li>
 <li><a href="#first-steps"><span class="toc-section-number">3</span> | First steps</a><ul>
 <li><a href="#give-it-a-name"><span class="toc-section-number">3.1</span> Give it a name</a></li>
@@ -100,9 +100,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#read-data"><span class="toc-section-number">4</span> | Read data</a><ul>
 <li><a href="#new-message-1">New Message <em>(1)</em></a></li>
 <li><a href="#csv-to-the-rescue"><span class="toc-section-number">4.1</span> CSV to the rescue</a></li>
-<li><a href="#read-the-data-1"><span class="toc-section-number">4.2</span> Read the data</a></li>
+<li><a href="#add-new-packages-r-apps"><span class="toc-section-number">4.2</span> Add new packages 📦 <em>(R Apps)</em></a></li>
+<li><a href="#read-the-data-1"><span class="toc-section-number">4.3</span> Read the data</a></li>
 <li><a href="#name-your-data-frame">Name your <strong>Data Frame</strong></a></li>
-<li><a href="#saving-file-paths"><span class="toc-section-number">4.3</span> Saving file paths</a></li>
+<li><a href="#saving-file-paths"><span class="toc-section-number">4.4</span> Saving file paths</a></li>
 </ul></li>
 <li><a href="#ggplot2"><span class="toc-section-number">5</span> | ggplot2</a><ul>
 <li><a href="#a-first-plot">A first plot</a></li>
@@ -248,33 +249,33 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">4/16/2016</td>
-<td align="right">4</td>
-<td align="right">26.6</td>
+<td align="left">9/10/2017</td>
+<td align="right">11</td>
+<td align="right">51.2</td>
 </tr>
 <tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">8/22/2017</td>
-<td align="right">12</td>
-<td align="right">66.2</td>
+<td align="left">27-137-7001</td>
+<td align="left">8/29/2018</td>
+<td align="right">7</td>
+<td align="right">64.4</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">10/21/2016</td>
-<td align="right">7</td>
-<td align="right">47.0</td>
+<td align="left">9/29/2018</td>
+<td align="right">5</td>
+<td align="right">53.0</td>
 </tr>
 <tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">5/9/2017</td>
+<td align="left">27-137-7001</td>
+<td align="left">9/13/2018</td>
 <td align="right">7</td>
-<td align="right">45.2</td>
+<td align="right">54.2</td>
 </tr>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">6/19/2018</td>
-<td align="right">14</td>
-<td align="right">54.8</td>
+<td align="left">27-137-7554</td>
+<td align="left">5/10/2016</td>
+<td align="right">2</td>
+<td align="right">37.4</td>
 </tr>
 </tbody>
 </table>
@@ -381,10 +382,10 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <h1><span class="header-section-number">2</span> | A new day</h1>
 <hr>
 <p><img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" /></p>
-<p><br><br><br><br><br><br></p>
+<p><br><br><br><br><br></p>
 <div id="lets-take-a-tour" class="section level3 unnumbered">
 <h3>Let’s take a tour!</h3>
-<p><br><br></p>
+<p><br><br><br></p>
 <p><img src="../images/rstudio.png" width="570"></p>
 <p><br></p>
 <p><strong>1. Code editor</strong></p>
@@ -416,8 +417,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p>While BB8 works on tracking down some data for us from his droid friends, let’s get to know our way around his internal computer.</p>
 </div>
 </div>
-<div id="start-an-r-project" class="section level2">
-<h2><span class="header-section-number">2.1</span> 3. | Start an R project</h2>
+<div id="start-an-r-project" class="section level2 unnumbered">
+<h2>3. Start an R project</h2>
 <p>Let’s make a new project for our <code>Jakku</code> mischief.</p>
 <p><strong>Step 1:</strong> Start a new project</p>
 <ul>
@@ -429,7 +430,6 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <li>Select <em>Browse…</em> and choose a folder where you normally perform your work.</li>
 <li>Click <em>Create Project</em></li>
 </ul>
-<p><br></p>
 </div>
 </div>
 <div id="first-steps" class="section level1">
@@ -445,22 +445,22 @@ droid
 
 wookie &lt;-<span class="st"> &quot;Chewbacca&quot;</span>
 
-wookie
-
-
-<span class="co"># To save text to a character object you need quotation marks: &quot;text&quot;</span>
-<span class="co"># Try this:</span>
-wookie &lt;-<span class="st"> </span>Chewbacca
-
-
-<span class="co"># Without quotes, R looks for an object called Chewbacca, </span>
-<span class="co"># and then lets you know that it couldn&#39;t find one. </span></code></pre>
+wookie</code></pre>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To copy an object save it to a new name.</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To save text to a character object you need quotation marks: &quot;text&quot;</span>
+
+<span class="co"># Try this:</span>
+wookie &lt;-<span class="st"> </span>Chewbacca</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;Chewbacca&#39; not found</code></pre>
+<div class="note">
+<p>Without quotes, R looks for an object called Chewbacca, and then lets you know that it couldn’t find one.</p>
+</div>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To copy an object, assign it to a new name</span>
 wookie2 &lt;-<span class="st"> </span>wookie
 
 
-<span class="co"># Or overwrite an object</span>
+<span class="co"># Or overwrite an object with new &quot;text&quot;</span>
 wookie &lt;-<span class="st"> &quot;Tarfful&quot;</span>
   
 wookie
@@ -472,7 +472,6 @@ wookie2  </code></pre>
 <div id="drop-and-remove-data" class="section level3 unnumbered">
 <h3>Drop and remove data</h3>
 <p>You can drop objects with the remove function <code>rm()</code>. Try it out on some of your wookies.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Delete objects to clean-up your environment</span>
 <span class="kw">rm</span>(wookie)
 
@@ -495,8 +494,9 @@ wookie2  </code></pre>
 <p>Everything has a name in R and you can name things almost anything you like. You can even name your data <code>TOP_SECRET_shhhhhh...</code> or <code>Luke_I_am_your_father</code> or <code>data_McData_face</code>.</p>
 <p>Sadly, there are a <em>few</em> minor restrictions. Names cannot include spaces or special characters that might be found in math equations, like <code>+</code>, <code>-</code>, <code>*</code>, <code>\</code>, <code>/</code>, <code>=</code>, <code>!</code>, or <code>)</code>.</p>
 <div id="exercise" class="section level3 unnumbered">
-<h3><i class="fa fa-astronaut" aria-hidden="true" style="color: green"></i> Exercise!</h3>
-<p>Try running some of these examples in your R console. Find new ways to create errors. The more broken the more better!</p>
+<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color: green"></i> Exercise!</h3>
+<p>Try running some of these examples in your R console. Find new ways to create errors. The more broken the better!</p>
+<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">n wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 
 n<span class="op">*</span>wookies &lt;-<span class="st"> </span><span class="dv">5</span>
@@ -530,7 +530,8 @@ bb8 &lt;-<span class="st"> &quot;droid&quot;</span></code></pre>
 <summary class = "btn_code_blue"> <strong>EXPLORE:</strong> What happens when we create <strong>n_wookies</strong> the second time? </summary>
 <p>
 <blockquote>
-<p>When we create a new object that has the same name as something that already exists, the new object replaces the old one. Sometimes we’ll want to update an existing object and replace the old version. Other times we may want to copy an object to a new name to preserve the original. This is similar to choosing between <code>Save</code> and <code>Save As</code> when we save a file.</p>
+<p>When we create a new object with the same name as something that already exists, the new object replaces the old one. Sometimes we want to update an existing object and replace the old version. Other times we may want to copy an object to a new name to preserve the original.</p>
+<p>This is similar to choosing between <code>Save</code> and <code>Save As</code> when saving a file.</p>
 </blockquote>
 </p>
 </details>
@@ -560,7 +561,7 @@ starwars_ages</code></pre>
 <p>A table in R is known as a <strong>data frame</strong>. We can think of it as a group of columns, where each column is made from a vector. Data frames in R have columns of data that are all the same length.</p>
 <p><img src="../images/vector_to_dataframe.png" style="margin-left: 100px;" width="510" /></p>
 <p><br></p>
-<p>Let’s make a data frame with two columns to hold the characters and their ages from above.</p>
+<p>Let’s make a data frame with two columns to hold the character names and their ages.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create table with columns &quot;character&quot; and &quot;ages&quot; with values from the starwars_names and starwars_ages vectors</span>
 starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character =</span> starwars_characters,
                           <span class="dt">ages  =</span> starwars_ages)
@@ -572,34 +573,50 @@ starwars_df</code></pre>
 ## 2      Leia   19
 ## 3  Han Solo   25</code></pre>
 <p><br></p>
-<div id="section" class="section level3 unnumbered tabset">
-<h3></h3>
-<div id="exercise-1" class="section level4 unnumbered">
-<h4><i class="fa fa-astronaut" aria-hidden="true" style="color: green"></i> Exercise</h4>
-<p><br></p>
-<ul>
-<li>Create the same table above with a 3rd column showing the character’s father’s names: <code>c("Darth", "Darth", "Unknown")</code></li>
+<div id="exercise-1" class="section level3 unnumbered">
+<h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="addacolumn-tab" data-toggle="tab" href="#addacolumn" role="tab" aria-controls="addacolumn" aria-selected="true">Add a column</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="showhint-tab" data-toggle="tab" href="#showhint" role="tab" aria-controls="showhint" aria-selected="false">Show hint</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="showcode-tab" data-toggle="tab" href="#showcode" role="tab" aria-controls="showcode" aria-selected="false">Show code</a>
+</li>
 </ul>
-<br><br>
-<hr>
-<p><strong>Show hint</strong></p>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="addacolumn" class="tab-pane fade active in" role="tabpanel" aria-labelledby="addacolumn-tab">
+<h4>
+Create the same table above, but add a <strong>3rd</strong> column that lists their father names:
+</h4>
+<ul>
+<li><code>c("Darth", "Darth", "Unknown")</code></li>
+</ul>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r">starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character   =</span> starwars_character,
-                          <span class="dt">ages    =</span> starwars_ages,
-                          <span class="dt">fathers =</span> _____________)</code></pre>
-<br><br>
-<hr>
-<p><strong>Show code</strong>
-<br></p>
-<pre class="sourceCode r"><code class="sourceCode r">starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character   =</span> starwars_character,
-                          <span class="dt">ages    =</span> starwars_ages,
-                          <span class="dt">fathers =</span> <span class="kw">c</span>(<span class="st">&quot;Darth&quot;</span>,<span class="st">&quot;Darth&quot;</span>, <span class="st">&quot;Unknown&quot;</span>))</code></pre>
-<br><br>
-<hr>
+</div>
+<div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
+<pre class="sourceCode r"><code class="sourceCode r">
+
+starwars_df <- data.frame(character   = starwars_character, 
+                          ages        = starwars_ages, 
+                          fathers     = __________________)
+</code></pre>
+</div>
+<div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
+<pre class="sourceCode r"><code class="sourceCode r">
+
+starwars_df <- data.frame(character   = starwars_character, 
+                          ages        = starwars_ages, 
+                          fathers     = c("Darth", "Darth", "Unknown"))
+</code></pre>
 </div>
 </div>
-<div id="get-values-from-a-column_name" class="section level3 unnumbered">
-<h3>Get values from a <code>$column_name</code></h3>
+<p><br></p>
+</div>
+<div id="show-all-values-in-column_name" class="section level3 unnumbered">
+<h3>Show all values in <code>$column_name</code></h3>
 <p>Use the <code>$</code> sign after the name of your table to see the values in one of your columns.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># View the &quot;ages&quot; column in starwars_df</span>
 starwars_df<span class="op">$</span>ages</code></pre>
@@ -617,81 +634,24 @@ starwars_df<span class="op">$</span>ages</code></pre>
 <p><summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
 <p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>my_wookies55</code></p>
-<em>Yes!! The FORCE is strong with you!</em>
+<p><em>Yes!! The FORCE is strong with you!</em></p>
 </p>
 </details>
+</div>
+<div style="clear: both;">
+
 </div>
 </div>
 </div>
 <div id="leave-a-comment" class="section level2">
 <h2><span class="header-section-number">3.4</span> Leave a <code>#comment</code></h2>
-<p>The text in the scripts with the <code>#</code> in front are called comments. A line that starts with a <code>#</code> is ignored and won’t be run as R code. You can use the <code>#</code> to add notes in your script to make it easier for others and yourself to understand what is happening and why. You can also use comments to add warnings or instructions for others using your code.</p>
-<p><br><br><br></p>
-<hr>
-<p><br><br><br></p>
-<details>
-<summary class = "btn_code_blue"> <strong>Explore Functions Here!</strong> </summary>
-<p>
-<p><em>Functions</em> perform steps based on inputs called <em>arguments</em> and usually return an output object. There are <em>functions</em> in R that are really complex but most boil down to the same general setup:</p>
-<pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre>
-<p>You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
-<p><br></p>
-<p><img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" /></p>
-<p><br></p>
-<p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
-<p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
-              <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre>
-<p><br></p>
-<p>The <em>function</em> above creates Clone Troopers based on two <em>arguments</em>: the <code>host</code> and <code>n_troopers</code>. When we have more than one <em>argument</em>, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.</p>
-<p><br><br><br><br><br></p>
-<p><br></p>
-<p><strong>The <code>sum()</code> function</strong></p>
-<p>We can use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call the sum function with starwars_ages as input</span>
-ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages) <span class="co"># Assigns the output to starwars_ages_sum</span>
-
-<span class="co"># Print the starwars_ages_sum value to the console</span>
-ages_sum</code></pre>
-<pre><code>## [1] 63</code></pre>
-<p><br></p>
-<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name <code>ages_sum</code>. If we do not assign the output object it is printed to the console and not saved. Sometimes that’s what we want, especially when we’re exploring the data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
-<span class="kw">sum</span>(starwars_ages) </code></pre>
-<pre><code>## [1] 63</code></pre>
-<p><br></p>
-<blockquote>
-<p><strong>NOTE:</strong> The original <code>starwars_ages</code> vector has not changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
-</blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre>
-<pre><code>## [1] 19 19 25</code></pre>
-<p><br></p>
-<div class="quiz">
-<h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
-<p><strong>Which of these is a valid function call?</strong></p>
-<p><input type="radio"> <em>train(“concentrate” “Force”)</em> <br>
-<input type="radio"> <em>shoot, “lightsaber”, “Death Ray”</em> <br>
-<input type="radio"> <em>replicate(100000000, “clones”)</em> <br>
-<input type="radio"> <em>fight(until Empire conquered)</em> <br>
-<input type="radio"> <em>scrap(100 Datapads, “Hyperdrives”)</em> <br></p>
-<p><br></p>
-<details>
-<p><summary class = "btn_code"><em>Show solution</em></summary></p>
-<p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code><br />
-<em>Correct! You are ready to audit a Junk dealer.</em></p>
-</p>
-</details>
-</div>
-<p>
-<p><br><br><br></p>
-<hr>
+<p>The lines of code in the scripts that start with a <code>#</code> in front are called comments. Every line that starts with a <code>#</code> is ignored and won’t be run as R code. You can use the <code>#</code> to add notes in your script to make it easier for others and yourself to understand what is happening and why. You can also use comments to add warnings or instructions for others using your code.</p>
 </div>
 </div>
 <div id="read-data" class="section level1">
 <h1><span class="header-section-number">4</span> | Read data</h1>
 <hr>
-<p>The first step of a good scrap audit is reading/loading some data and figuring out where all the scrap is going. Here is a small dataset showing the scrap from Jakku. It was salvaged from a crash site and the transfer was incomplete.</p>
+<p>The first step of a good scrap audit is reading/loading some data to figure out where all the scrap is going. Here is a small dataset showing the scrap from Jakku. It was salvaged from a crash site and the transfer was incomplete.</p>
 <table>
 <thead>
 <tr class="header">
@@ -740,7 +700,7 @@ ages_sum</code></pre>
 <p>
 <div class="tip">
 <p><strong>BB8:</strong> <em>Beep boop Beep.</em></p>
-<p><strong>BB8:</strong> <em>I intercepted a large scrapper data set from droid 4 of Junk Boss Plutt.</em></p>
+<p><strong>BB8:</strong> <em>I intercepted a large scrapper data set from droid 4P-L of Junk Boss Plutt.</em></p>
 <p><br></p>
 <p>Receiving data now…</p>
 <details>
@@ -766,10 +726,11 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <p>The main data format used in R is the <strong>CSV</strong> <em>(comma-separated values)</em>. A <strong>CSV</strong> is a simple text file that can be opened in R and most other stats software, including Excel. It looks squished together as plain text, but that’s okay! When opened in R, the text becomes a familiar looking table with columns and rows. But before we launch ahead, let’s add a <em>package</em> to R that will help us read <strong>CSV</strong> files.</p>
 <p><br></p>
 <details>
-<summary class = "btn_code_blue"> How to save a CSV from Excel </summary>
+<p><summary class = "btn_code_blue"> How to save a CSV from Excel </summary></p>
+<div class="note">
 <p>
 <p><strong>Step 1:</strong> Open your Excel file.</p>
-<p><strong>Step 2:</strong></p>
+<p><strong>Step 2:</strong> Save as CSV</p>
 <ul>
 <li>Go to <em>File</em><br />
 </li>
@@ -790,21 +751,24 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <p><br></p>
 <hr>
 </p>
+</div>
 </details>
 <p><br></p>
-<div id="add-new-packages-r-apps" class="section level3 unnumbered">
-<h3>3. | Add new packages 📦 <em>(R Apps)</em></h3>
+</div>
+<div id="add-new-packages-r-apps" class="section level2">
+<h2><span class="header-section-number">4.2</span> Add new packages 📦 <em>(R Apps)</em></h2>
 <hr>
 <blockquote>
 <p><strong>What is a package?</strong></p>
 </blockquote>
 <p>A <em>package</em> is a small add-on for R, like a phone App for your phone. They add capabilities like statistical functions, mapping powers, and special charts. In order to use a new package we first need to install it.</p>
-<div id="readr" class="section level4 unnumbered">
-<h4><code>readr</code></h4>
-<p><img src="../images/readr-hexbin-sticker-from-rstudio.png" align="left" style="margin-right:18px;" width="145" /></p>
-<p><br></p>
+<p><img src="../images/readr-hexbin-sticker-from-rstudio.png" align="left" style="margin-right:18px; margin-bottom: 12px;" width="145" /></p>
+<div style="margin-top: 32px;">
 <p>The <em>readr</em> package helps import data into R in different formats. It does extra work for you like cleaning the data of extra white space and formatting tricky dates. Your packages are stored in your R <em>library</em>.</p>
-<p><br> <br></p>
+</div>
+<div style="clear: both;">
+
+</div>
 <p><strong>Add a package to your library</strong></p>
 <ol style="list-style-type: decimal">
 <li>Open <em>RStudio</em></li>
@@ -818,12 +782,9 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 </ol>
 <p><br></p>
 <p>The packages tab only shows the available packages that are installed. To use one of them, you will need to load it. Loading a package is like opening an App on your phone. To load a package we need to use the <code>library()</code> function. After loading the <em>readr</em> package you can read the Jakku scrap data with the brand new function <code>read_csv()</code>.</p>
-<p><br></p>
-</div>
-</div>
 </div>
 <div id="read-the-data-1" class="section level2">
-<h2><span class="header-section-number">4.2</span> Read the data</h2>
+<h2><span class="header-section-number">4.3</span> Read the data</h2>
 <hr>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)
 
@@ -852,7 +813,9 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 ## 10 Sublight engine       Outskir~ Niima Outpo~  10642 Tons            7211.
 ## # ... with 212 more rows</code></pre>
 <p><br></p>
-<p><strong>NOTE:</strong> When your project is open, RStudio sets the working directory to your project folder. When reading in files or data from a folder outside of your project, you will need to use the full file path location. For example: <code>X://Programs/Air_Quality_Programs/Traffic_data.csv</code></p>
+<div class="data">
+<p><strong>NOTE:</strong> When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you’ll need to use the full file path location. For example: <code>C://Programs/Air_Quality/Ozone_data.csv</code></p>
+</div>
 </div>
 <div id="name-your-data-frame" class="section level2 unnumbered">
 <h2>Name your <strong>Data Frame</strong></h2>
@@ -879,15 +842,19 @@ scrap</code></pre>
 <p><br></p>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
+<div class="well">
 <p>Did you notice the row of <three> letter abbreviations under the column names? These describe the data type of each column.</p>
-<blockquote>
-<p><code>chr</code> stands for <strong>character</strong> vector, or a string of characters. Examples: <em>“apple”</em>, <em>“apple5”</em>, <em>“5 red apples”</em><br />
-<code>int</code> stands for <strong>integer</strong>. Examples: <em>5</em>, <em>34</em>, <em>1071</em><br />
-<code>dbl</code> stands for <strong>double</strong>. Examples: <em>5.0000</em>, <em>3.4E-6</em>, <em>10.7106</em></p>
-</blockquote>
+<ul>
+<li><code>chr</code> stands for <strong>character</strong> vector or a string of characters. Examples: <em>“apple”</em>, <em>“apple5”</em>, <em>“5 red apples”</em><br />
+</li>
+<li><code>int</code> stands for <strong>integer</strong>. Examples: <em>5</em>, <em>34</em>, <em>1071</em><br />
+</li>
+<li><code>dbl</code> stands for <strong>double</strong>. Examples: <em>5.0000</em>, <em>3.4E-6</em>, <em>10.7106</em></li>
+</ul>
 <p>We will discover more data types later on, such as <code>dates</code> and <code>logical</code> (TRUE/FALSE).</p>
+</div>
 <div class="quiz">
-<h3 id="pop-quiz-1" class="unnumbered">Pop Quiz!</h3>
+<h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
 <p><strong>What data type is the <code>destination</code> column?</strong></p>
 <p><input type="radio"> <em>letters</em> <br>
 <input type="radio"> <em>character</em> <br>
@@ -902,38 +869,52 @@ scrap</code></pre>
 </p>
 </details>
 </div>
+<p><br></p>
 </div>
 <div id="skip-a-row" class="section level3 unnumbered">
 <h3>Skip a row</h3>
-<p>What if we want <code>read_csv</code> to ignore the first row of data? Let’s look through the help window and try to find an argument that can help us. The <code>skip</code> argument looks like it could be helpful. Sure enough, the description is exactly what we’re looking for here. The default is <code>skip = 0</code> (read every line), but we can skip the first line by providing <code>skip = 1</code>.</p>
+<p>What if we want to ignore the first row of data?</p>
+<p>Let’s open the help window with <code>?read_csv</code> and try to find an argument that can help us. There’s a lot of them! But the <code>skip</code> argument looks like it could be helpful. Take a look at the description near the bottom. The default is <code>skip = 0</code>, which reads every line, but we can skip the first line by writing <code>skip = 1</code>. Let’s give it a go.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)</code></pre>
+<p><br></p>
 </div>
 <div id="limit-the-total-number-of-rows" class="section level3 unnumbered">
 <h3>Limit the total number of rows</h3>
-<p>Other types of data have wierd last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you are worried about space on your c drive. Let’s look through the help window and try to find an argument that can help us. The <code>n_max</code> argument looks like it could be helpful. Sure enough, the description is exactly what we’re looking for here. The default is <code>n_max = Inf</code> (read every line), but we can limit the lines we pull in to only a million by <code>n_max = 1000000</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>, <span class="dt">n_max =</span> <span class="dv">1000000</span>)</code></pre>
+<p>Other types of data have wierd last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you don’t want to bog down the memory on an old laptop.</p>
+<p>Let’s look through the help window to find an argument that can help us. Type <code>?read_csv</code> and scroll down.</p>
+<p>The <code>n_max</code> argument looks like it could be helpful. The default is <code>n_max = Inf</code>, which means it will read every line, but we can limit the lines we read to only one hundred by using <code>n_max = 100</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in 100 rows</span>
+small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>, <span class="dt">n_max =</span> <span class="dv">100</span>)
+
+<span class="co"># Remove the data</span>
+<span class="kw">rm</span>(small_data)</code></pre>
 <p><br></p>
 <details>
-<summary class = "btn_code_blue"> <strong>EXPLORE:</strong> Does the order of arguments matter? </summary>
+<p><summary class="btn_code_blue">
+<strong>EXPLORE:</strong> Does the order of arguments matter? </summary></p>
+<div class="note">
 <p>
 <p>You may be wondering why we included <code>skip =</code> for the skip argument, but only provided the objects for the other two arguments. When you pass inputs to a function, R assumes you’ve entered them in the same order that is shown on the ?help page. Let’s say you had a function called <code>feed_creatures()</code> with 3 arguments:</p>
 <blockquote>
 <p><code>feed_creatures(porg = "small fish", ewok = "vegetables", tauntaun = "lichen")</code>.</p>
 </blockquote>
-<p>A shorthand way to write this would be <code>feed_creatures("small fish", "vegetables", "lichen")</code>. This works becuase all the arguments remain in the default order.</p>
+<p>A shorthand to write this would be <code>feed_creatures("small fish", "vegetables", "lichen")</code>. This works becuase all the arguments remain in the default order.</p>
 <p>However, if we write <code>feed_creatures("vegetables", "lichen", "small fish")</code>, the function will send <em>vegetables</em> to the porgs and <em>lichen</em> to the Ewoks. That’s no good. If we really want to write “lichen” second, we need to tell R which food item belongs to each animal, such as <code>feed_creatures("small fish", tauntaun = "lichen", ewok = "vegetables")</code>.</p>
 <p>The same thing goes for <code>read_csv()</code>. In <code>read_csv(scrap_file, column_names, skip = 1)</code>, R assumes the file is <code>scrap_file</code> and that the col_names should be set to <code>column_names</code>. The <code>skip =</code> argument has to be included explicitly because <em>skip</em> is the <strong>10th</strong> argument in <code>read_csv()</code>. If we don’t include <code>skip =</code>, R will assume the value we entered is meant for the function’s <strong>3rd</strong> argument.</p>
 </p>
+</div>
 </details>
 <p><br></p>
 </div>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<p>A shortcut to see all possible function arguments is to enter its name in the console followed by the first parenthesis, such as <code>read_csv(</code>. Now press <code>TAB</code> on the keyboard. This will bring up a drop-down menu of all the available arguments for that function.</p>
+<div class="well">
+<p>One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as <code>read_csv(</code>. Now press <code>TAB</code> on the keyboard. This will bring up a drop-down menu of all the available arguments.</p>
+</div>
 </div>
 </div>
 <div id="saving-file-paths" class="section level2">
-<h2><span class="header-section-number">4.3</span> Saving file paths</h2>
+<h2><span class="header-section-number">4.4</span> Saving file paths</h2>
 <hr>
 <p>You can also save file paths as objects, such as <code>file_path &lt;- "data/starwars_scrap_jakku.csv"</code>. Now you can use it as a shortcut to the location of your data. When you want to load the scrap table you can write <code>read_csv(file_path)</code>. This handy trick makes it easier for you or your coworker to update your code and use it with new data.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save the file path to an object you can use later</span>
@@ -941,7 +922,7 @@ file_path &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/starwars_
 
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)</code></pre>
 <div class="quiz">
-<h3 id="pop-quiz-2" class="unnumbered">Pop Quiz!</h3>
+<h3 id="pop-quiz-1" class="unnumbered">Pop Quiz!</h3>
 <p><strong>What package does <code>read_csv()</code> come from?</strong></p>
 <p><input type="radio"> <em>dinosaur</em> <br>
 <input type="radio"> <em>get_data</em> <br>
@@ -973,6 +954,69 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 </p>
 </details>
 </div>
+<p><br></p>
+<details>
+<p><summary class = "btn_code_blue"> <strong>EXPLORE: More about function arguments</strong> </summary></p>
+<p>
+<div class="well" style="background-color: lightblue;">
+<p><em>Functions</em> perform steps based on inputs called <em>arguments</em> and usually return an output object. There are <em>functions</em> in R that are really complex but most boil down to the same general setup:</p>
+<pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre>
+<p>You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
+<p><br></p>
+<p><img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" /></p>
+<p><br></p>
+<p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
+              <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre>
+<p><br></p>
+<p>The <em>function</em> above creates Clone Troopers based on two <em>arguments</em>: the <code>host</code> and <code>n_troopers</code>. When we have more than one <em>argument</em>, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.</p>
+<div style="clear: both;">
+
+</div>
+<p><strong>The <code>sum()</code> function</strong></p>
+<p>We can use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call the sum function with starwars_ages as input</span>
+ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages) <span class="co"># Assigns the output to starwars_ages_sum</span>
+
+<span class="co"># Print the starwars_ages_sum value to the console</span>
+ages_sum</code></pre>
+<pre><code>## [1] 63</code></pre>
+<p><br></p>
+<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name <code>ages_sum</code>. If we do not assign the output object it is printed to the console and not saved. Sometimes that’s what we want, especially when we’re exploring the data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
+<span class="kw">sum</span>(starwars_ages) </code></pre>
+<pre><code>## [1] 63</code></pre>
+<p><br></p>
+<blockquote>
+<p><strong>NOTE:</strong> The original <code>starwars_ages</code> vector has not changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
+</blockquote>
+<pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre>
+<pre><code>## [1] 19 19 25</code></pre>
+<p><br></p>
+<div class="quiz">
+<h3>
+Pop Quiz!
+</h3>
+<p><strong>Which of these is a valid function call?</strong></p>
+<p><input type="radio"> <em>train(“concentrate” “Force”)</em> <br>
+<input type="radio"> <em>shoot, “lightsaber”, “Death Ray”</em> <br>
+<input type="radio"> <em>replicate(100000000, “clones”)</em> <br>
+<input type="radio"> <em>fight(until Empire conquered)</em> <br>
+<input type="radio"> <em>scrap(100 Datapads, “Hyperdrives”)</em> <br></p>
+<p><br></p>
+<details>
+<p><summary class = "btn_code"><em>Show solution</em></summary></p>
+<p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code><br />
+<em>Correct! You are ready to audit a Junk dealer.</em></p>
+<p><br></p>
+</p>
+</details>
+</div>
+</div>
+</p>
+</details>
 </div>
 </div>
 <div id="ggplot2" class="section level1">
@@ -994,8 +1038,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
-<p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-17-1.png" width="1152" /></p>
-<p>Hmmm… Looks like there is an <strong>All</strong> category that we should look into more.</p>
+<p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-16-1.png" width="1152" /></p>
+<p>Well, well, well. It looks like there is an <strong>All</strong> category we should look into more. Either there’s a town hogging all the scrap or we got a bit of cleaning to do.</p>
 </div>
 </div>
 <div id="key-terms" class="section level1 unnumbered">

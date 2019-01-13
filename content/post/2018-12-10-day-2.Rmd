@@ -23,12 +23,15 @@ imageFloat: 'left'
 We are blasting off to a new planet where our journey continues. New friends and challenges await!
 
 
+<div style="margin-left: 4%;">
+
 ## Blast off!
 
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1  (Morning)](../page/day2_am.html)
 
-
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/day2_pm.html) 
+
+</div>
 
 <br>
 

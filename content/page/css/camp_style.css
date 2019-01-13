@@ -1,5 +1,5 @@
 
-code {color: #535353 !important;}
+code {color: #535353}
 
 hr {
   margin-top: -24px;
@@ -48,6 +48,7 @@ blockquote
      background-color: #f0f7fb;
      border-radius: 15px;
      font-size: 17px;
+     font-style: normal;
      line-height: 19px;
      overflow: hidden;
      padding: 10px;
@@ -92,10 +93,15 @@ blockquote
      padding-left: 22px;
 }
 
+table {margin-top: 20px; margin-bottom: 18px;}
+
+.sourceCode {margin-top: 22px; margin-bottom: 22px;}
+
 .data
 {
      background-color: #d2f0c6;
      border-left: solid 5px #86af49;
+     border-radius: 25px;
      font-size: 17px;
      line-height: 18px;
      overflow: hidden;

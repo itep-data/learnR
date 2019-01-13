@@ -23,11 +23,15 @@ Onward and upward. It's time for you to head out on your own.
 
 <br>
 
+<div style="margin-left: 4%;">
+
 # Blast off!
 
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1 (Morning)](../page/day3_am.html) 
 
 ### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/day3_pm.html) 
+
+</div>
 
 <br>
 

@@ -247,14 +247,10 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Create 2 plots using the data. <em>Don’t worry if it looks really weird. Consider it art.</em></li>
 </ol>
-</div>
-<div id="more-plots" class="section level1">
-<h1><span class="header-section-number">3</span> | More Plots</h1>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
+<div class="well">
 <p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
-</blockquote>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()
@@ -266,6 +262,10 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits))
   <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
 </div>
+</div>
+</div>
+<div id="more-plots" class="section level1">
+<h1><span class="header-section-number">3</span> | More Plots</h1>
 <div id="colors-1" class="section level2 unnumbered">
 <h2>Colors</h2>
 <hr>
@@ -276,9 +276,9 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <p><br></p>
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
+<div class="well">
 <p>An easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
-</blockquote>
+</div>
 </div>
 </div>
 <div id="bar-charts" class="section level2 unnumbered">
@@ -361,9 +361,8 @@ starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
 <p><br></p>
 <div id="pro-tip-2" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<blockquote>
+<div class="well">
 <p>What if you don’t want to save just the last plot you’ve made? Instead, you want to make a plot and save it for later.</p>
-</blockquote>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The ggplot you want to save</span>
 my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...)
   
@@ -372,6 +371,7 @@ where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
 
 <span class="co"># Save it!</span>
 <span class="kw">ggsave</span>(<span class="dt">filename =</span> where_to_save_it, <span class="dt">plot =</span> my_plot)</code></pre>
+</div>
 <p><br></p>
 <p><em>Learn more about saving plots:</em> <a href="http://stat545.com/block017_write-figure-to-file.html">http://stat545.com/</a></p>
 </div>

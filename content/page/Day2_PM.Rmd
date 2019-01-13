@@ -227,12 +227,11 @@ ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
 
 
 
-# | More Plots
-
-
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
 
-> When you add more layers using `+` remember to place it at the end of each line.
+<div class="well">
+
+When you add more layers using `+` remember to place it at the end of each line.
 
 ```{r, eval=F}
 # This will work
@@ -248,6 +247,11 @@ ggplot(scrap, aes(x = origin, y = credits))
 
 ```
 
+</div>
+
+
+
+# | More Plots
 
 
 ## Colors {-}
@@ -266,9 +270,11 @@ ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
 <br>
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> An easy way to experiment with colors is to add layers like `scale_fill_brewer` or `scale_colour_brewer` to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.
+An easy way to experiment with colors is to add layers like `scale_fill_brewer` or `scale_colour_brewer` to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.
 
+</div>
 
 ## Bar charts {-}
 
@@ -393,8 +399,9 @@ ggsave("your_results_folder/plot_name.png")
 
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+<div class="well">
 
-> What if you don't want to save just the last plot you've made? Instead, you want to make a plot and save it for later. 
+What if you don't want to save just the last plot you've made? Instead, you want to make a plot and save it for later. 
 
 ```{r ggsave objects, eval = F}
 
@@ -407,6 +414,8 @@ where_to_save_it <- "___.png"
 # Save it!
 ggsave(filename = where_to_save_it, plot = my_plot)
 ```
+
+</div>
 
 <br>
 

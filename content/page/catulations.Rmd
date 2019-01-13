@@ -1,0 +1,79 @@
+---
+title: "catulations"
+author: "KMEllickson"
+date: "January 12, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#Graduation Ceremony
+
+```{r, eval = T, echo = F}
+library(cowsay)
+
+say(what = "Congratulations. You are eggcelent Kari", by = "chicken", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Purrfect work Shane", by = "cat", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Your R work has been Bitening Phil", by = "shark", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. You have got to be kitten me your R work is so good Vallen", by = "cat", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. You are owl in with R Nick", by = "owl", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Mooooove over little data Tyler is onto HUGE data", by = "cow", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Leapin lizards that was great work Sarah", by = "frog", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Yoda woman Brandy!", by = "yoda", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. fANTastic work Nathan!", by = "ant", type = "message")
+```
+
+<br><br><br>
+
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. Some bunny rocked this class (It was Carma)", by = "rabbit", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations. You spun some genius in this class Eric", by = "spider", type = "message")
+```

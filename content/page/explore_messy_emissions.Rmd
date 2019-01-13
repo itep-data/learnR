@@ -2,40 +2,53 @@
 title: "From Messy to Tidy data"
 output: 
   blogdown::html_page: 
-    toc: false
+    toc: true
     toc_depth: 2
     highlight: tango
     css: css/camp_style.css
-    fontsize: 14pt
+    number_sections: true
+    self_contained: false
+    fontsize: 18pt
     monofont: Source Code Pro
 ---
 
-<style> code {color: #535353 !important;} </style>
-
-```{r setup, include = F}
-knitr::opts_chunk$set(echo = T, error = T, message = F, warning = F)
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
+knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
+
+
+# Tidy data
 
 <hr>
 
-This workshop is available online at 
+This __From Messy to Tidy data__ exercise is available online at 
 
-> https://mpca-air.github.io/RCamp
+<br>
+
+> https://itep-r.netlify.com/
+
+<br>
 
 The messy data examples can be downloaded from here
 
+<br>
+
 > https://github.com/MPCA-air/RCamp/tree/master/data/messy_data
 
-# Tidy data
+<br>
+
+
 <hr>
 
-```{r, eval=F}
+<br>
 
-#------------------------------------------------------------------------#
-# Tidy data script
-# Demonstrates cleaning up the messiest data / Excel files you can find
-#------------------------------------------------------------------------#
+> First we load and/or install the necessary libraries.
+
+<br>
+
+```{r, eval=F, echo = F}
 
 # Install these packages
 install.packages("readxl")    # For importing Excel data
@@ -43,7 +56,10 @@ install.packages("tidyr")     # For re-organizing your data frames
 install.packages("lubridate") # For dates
 install.packages("stringr") # Cleans spaces and character strings
 install.packages("forcats")   # For assigning an order to character data c("Gold", "Silver", "Bronze")
-                 
+install.packages("openxlsx") #To pull Excel files straight from a website
+```
+
+```{r, eval = T, echo = T}                 
 # Load these packages
 library("dplyr")
 library("readr")
@@ -52,38 +68,91 @@ library("tidyr")
 library("readxl")    
 library("lubridate") 
 library("stringr")
-library("forcats")   
+library("forcats") 
+library("openxlsx")
+
+```
+
+<br>
+
+<a href="https://itep-r.netlify.com/data/emissions_data.xlsx?raw=true">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Many WIDE emissions data files
+
+## Read the data
+<br>
 
 
-#------------------------------------------------------------------------#
-# Wide tables
-#------------------------------------------------------------------------#
+```{r, echo = T, eval = T}
 
-# Let's start with a really WIDEEEEE Excel table with lots of columns
+#Change folder path to the location where you downloaded the emissions files
 
-#1. Load emissions Excel file
-folder <- "messy_data/"
+# Load emissions Excel file
+wide_data <- read_excel("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/ITEP/Web/learnR/content/data/emissions_data.xlsx")
 
-wide_data <- read_excel(paste0(folder, "emissions_2015.xlsx"))
+```
 
-#2. Lowercase names
-names(wide_data) <- tolower(names(wide_data))
+<br>
+##Look at all of these columns. This is real life. {-}
+<br>
+
+```{r, eval = T, echo = T}
 
 names(wide_data)
 
+```
+
+<br>
+##Clean the data.
+<br>
+
+```{r, eval = T, echo = T}
+#2. Make all names Lowercase
+wide_data <- wide_data %>%
+  rename_all(tolower)
+
+```
+
+<br>
+
+![](../images/tidyr.png){width="350" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;"}
+
+##Now we are going to zip all of these columns into one __pollutant__ column. This is a function in the `tidyr` package called `gather()` {-}
+
+<br>
+
+```{r, echo = T, eval = T}
+
 #3. Gather all the pollutant columns into one
+
 long_data <- wide_data %>% 
                 gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
 
+```
+
+<br>
+##We still have some cleaning to do. {-}
+<br>
+
+```{r, echo = T, eval = T}
 #4. Drop the missing values and zero emissions
 long_data <- filter(long_data, !is.na(emissions), emissions > 0)
+```
 
+<br>
+##Plot the data   Plot the data   Plot the data
+<br>
 
+```{r, echo = T, eval = T}
 #5. Plot emissions for *ALL* pollutants
 long_data %>% ggplot(aes(x = pollutant, y = emissions)) + 
                 geom_boxplot() + 
-                scale_y_log10()
+                scale_y_log10() +
+                theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
 
+<br>
+
+```{r, echo = T, eval = T}
 #6. Plot GHGs
 long_data <- filter(long_data, pollutant %in% c("co2", "co2-b", "methane", "nitrous oxid", "hfc-134a"))
 
@@ -105,18 +174,28 @@ long_data %>%
     geom_boxplot() + 
     scale_y_log10() +
     labs(x = "Pollutant")
+```
+
+<br>
+
+## **Bonus** 
+<br>
+```{r, echo = T, eval = T}
 
 
-# **Bonus** 
 # Flip your data back to wide format using 
 ## spread(data, column_to_spread, column_to_use_for_values)
 wide_again <- spread(long_data, pollutant, emissions)  
 
+```
 
-#------------------------------------------------------------------------#
-# Looping through files
-#------------------------------------------------------------------------#
 
+###But, what if I get an entire folder of WIDE data and I need to look at all of it by next Friday???? {-}
+
+## Looping through files
+
+
+```{r, echo = T, eval = T}
 # Example "for loop"
 num <- 1:10
 
@@ -128,190 +207,91 @@ for (i in num) {
   print(i + pi)
   
 }
+```
 
 
-# Save answers in Pi loop
-answers <- c()
+<br>
 
-for (i in num) {
-  
-  temp <- i + pi
-  
-  print(temp)
-  
-  answers <- c(temp, answers)
-  
-}
+###Download these files into a folder called "messy_data" {-}
 
-answers
-
-# For loop of air monitoring files
-files_2016 <- list.files("messy_data/60min/")
+<a href="https://itep-r.netlify.com/data/messy_data.zip?raw=true">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  A WIDE emissions data file
 
 
-# Loop through each file
-for (i in files_2016) {
-  
-  print(i)
+##`list.files`
 
-}
-
-# Read each file and add to master table "data_2016"
-data_2016 <- data_frame()
+<br>
+####`list.files()` is your friend. It provides a list of all of the file names in a folder. {-}
+<br>
 
 
-for (i in files_2016) {
+
+```{r, echo = T, eval = T}
+
+#Type in the folder where you just downloaded messy data folder
+#R will look for your data there
+
+folder_path <- "X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/ITEP/Web/learnR/content/data/messy_data"
+
+folder_emissions <- list.files(folder_path)
+
+# If you can't remember what directory you are in this function will help.
+
+list.files("../")
+
+```
+
+<br>
+## `for()` loop
+
+<br>
+
+```{r, echo = T, eval = T}
+
+##Set up an empty data frame
+data_emissions <- data.frame()
+
+## for loop for WIDE emission files
+
+for (i in folder_emissions) {
   
   print(i)
   
   # Read in a single file
-  temp <- read_csv(paste0("messy_data/60min/", i))
+  temp <- read_xlsx(paste0(folder_path, "/", i))
  
-  # Select only 2 columns and date/time
-  temp <- select(temp, `Date&Time`, `BC1(370)`, `BC6(880)`)
-  
   # Add to master table of all files  
-  data_2016 <- bind_rows(temp, data_2016)
+  data_emissions <- bind_rows(temp, data_emissions)
 
 }
 
+```
+
+<br>
+###Now for all of those WIDE emissions files we only have to process and clean the data once. {-}
+<br>
+
+```{r, echo = T, eval = T}
 
 # Fix column names
-names(data_2016)
+data_emissions <- data_emissions %>%
+  rename_all(tolower)
 
-# str_trim() removes empty spaces at the beginning and end of a string
-str_trim(" excel_column ")
+names(data_emissions)
 
-# gsub() finds and replaces values in strings. 
-# Use ?gsub for more information on how to supply arguments.
+# Gather into the long format
+long_data <- wide_data %>% 
+                gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
 
-# gsub(character_to_search_for, what_toreplace_with, your_string)
-# The line below searches for any space and replaces it with nothing "".
-gsub(" ", "", " excel column ")
-
-
-# Parenthesis are special.
-# When replacing special characters, you must use [ ] around them or you'll get an error like this.
-gsub("(", "", names(data_2016))
-
-# Drop left
-gsub("[(]", "", names(data_2016))
-
-# Drop right
-gsub("[)]", "", names(data_2016))
-
-# Drop both with the "or" operator |
-# Hint: it's the vertical line above the Enter key on the keybord
-names(data_2016) <- gsub("[()]|[)]", "", names(data_2016))
-
-names(data_2016)
-
-# Drop the M&M symbol
-names(data_2016) <- gsub("&", "", names(data_2016))
-
-names(data_2016)
-
-# Make lowercase
-names(data_2016) <- tolower(names(data_2016))
-
-names(data_2016)
-
-# Check date coverage
-range(data_2016$datetime)
-
-
-# Use function from lubridate package to convert to "date"
-# Use mdy_hm because the dates are in Month, Day, Year, Hour, Minute order
-data_2016 <- mutate(data_2016, date = mdy_hm(datetime)) 
-
-range(data_2016$date)
-
-# Now extract the individual time components
-data_2016 <- mutate(data_2016,
-                    year    = year(date),
-                    quarter = quarter(date),
-                    month   = month(date),
-                    week    = week(date),
-                    day     = day(date),
-                    hour    = hour(date),
-                    minute  = minute(date))
-
-
-# Now you can group_by the different time components
-group_by(data_2016, quarter) %>% summarize(med_bc1270 = median(bc1370, na.rm = T),
-                                           med_bc6880 = median(bc6880, na.rm = T)) 
-
-
+# Drop the missing values and zero emissions
+long_data <- filter(long_data, !is.na(emissions), emissions > 0)
 
 # View final table
-View(data_2016)
-
-
-
-#------------------------------------------------------------------------#
-# Anne's scary landfill data ;( 
-#------------------------------------------------------------------------#
-
-# Excel range example and sheet selection
-folder <- "messy_data/"
-
-permitted <- read_excel(paste0(folder, "2016 Demo Retrac Report.xlsx"), 
-                        sheet = "2014", 
-                        range = "A4:I102", 
-                        col_names = T)
-
-ultimate <- read_excel(paste0(folder, "2016 Demo Retrac Report.xlsx"), 
-                       sheet = "2014", 
-                       range = "K4:N102", 
-                       col_names = T)
-
-# left_join()
-one_table <- left_join(permitted, ultimate)
-
-
-#------------------------------------------------------------------------#
-# Blank rows in Excel
-#------------------------------------------------------------------------#
-
-# See what directory you're in
-list.files("messy_data/")
-
-# Read the PTE tab - "Potential emissions"
-emits <- read_excel("messy_data/emission_calcs.xlsx", "PTE - Pollutant Summary")
-
-
-# Where do the column names start? Let's "skip" the top 3 info rows.
-
-
-# Skip first 3 rows
-emits <- read_excel("messy_data/emission_calcs.xlsx", 
-                    sheet = "PTE - Pollutant Summary", 
-                    skip = 3)
-
-View(emits)
-
-# Why are pollutant names only listed once in table? Maybe it seemed like a good idea at the time, but can create problems when sorting.
-
-#-------------------------------------------#
-# How can we fill in the empty rows?
-#-------------------------------------------#
-
-# -> Don't worry you don't need to paste in Excel! 
-# -> R is your friend and will help you.
-
-
-# Fill empty rows using fill() from the tidyr package
-emits <- fill(emits, Pollutant)
-
-View(emits)
-
-#------------------------------------------------------------------------#
-# Look out messy data, R is coming for you.
-#------------------------------------------------------------------------#
-
-
-############
-# THE END  #
-############
-
+glimpse(data_emissions)
 ```
+
+<br>
+
+
+![](../images/chucknorris.png){style="float: right; margin-top: -10px;"}
+## Look out messy data, R is coming for you.

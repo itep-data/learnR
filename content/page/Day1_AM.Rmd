@@ -441,12 +441,12 @@ Everything has a name in R and you can name things almost anything you like. You
 
 Sadly, there are a _few_ minor restrictions. Names cannot include spaces or special characters that might be found in math equations, like `+`, `-`, `*`, `\`, `/`, `=`, `!`, or `)`. 
 
+<br>
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color: green"></i> Exercise! {-}
 
 Try running some of these examples in your R console. Find new ways to create errors. The more broken the better!
 
-<br>
 
 ```{r, eval = F}
 

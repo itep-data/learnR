@@ -15,9 +15,27 @@ imageFloat: 'left'
 enableEmoji: true
 ---
 
-<link href="/rmarkdown-libs/font-awesome/css/fontawesome-all.min.css" rel="stylesheet" />
 
 
+<style type="text/css">
+
+.data {
+     background-color: #d2f0c6;
+     border-left: solid 5px #86af49;
+     border-radius: 15px;
+     font-size: 17px;
+     line-height: 18px;
+     overflow: hidden;
+     padding: 5px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-top: 10px;
+     margin-bottom: 12px;
+     padding-left: 22px;
+     margin-right: 8px;
+}
+
+</style>
 <div style="margin-top: -30px;">
 <h2 id="r-for-environmental-data-analysis">R for Environmental Data Analysis</h2>
 <p>Fond du Lac Tribal and Community College<br />
@@ -33,7 +51,10 @@ Cloquet, MN 55720</p>
 <div class="row">
 <div class="col-md-6">
 <p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
-<p>Begin Jedi training.</p>
+<blockquote>
+<p>Begin Jedi training<br />
+ </p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li>Power on your droid
 <ul>
@@ -45,10 +66,9 @@ Cloquet, MN 55720</p>
 <li>Create an R script</li>
 </ul></li>
 <li>Tour and customize <strong>RStudio</strong></li>
-<li>Decipher code from the <em>Empire</em></li>
 <li>Invent new/fake data
 <ul>
-<li>Variables, names, and lists oh my!</li>
+<li>Variables, names, and lists</li>
 </ul></li>
 <li>Make a data table / <strong>dataframe</strong><br />
 </li>
@@ -72,6 +92,9 @@ Cloquet, MN 55720</p>
 </div>
 <div class="col-md-6">
 <p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
+<blockquote>
+<p>Get scrappy and solve a junk-data mystery</p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li>Explore data
 <ul>
@@ -84,47 +107,57 @@ Cloquet, MN 55720</p>
 <li>Arrange, sort, and <strong>filter</strong> data</li>
 </ul></li>
 <li>Summarize data</li>
-<li>Find the most profitable scrap for Rey<br />
+<li>Find the most profitable scrap<br />
 </li>
-<li>Make a summary for each <strong>group</strong>, site, or category within the data
+<li>Summarize each <strong>group</strong>, site, or category within the data
 <ul>
 <li>Summarize by location<br />
 </li>
 <li>Check for the number of data points in a group (you can use this to check for completeness!)</li>
 </ul></li>
-<li><p>Introduction to working with dates <code>lubridate</code></p>
-<ul>
-<li>Plot data by dates (Calendar plots)</li>
-</ul></li>
 </ol>
 <blockquote>
-<p>Help Rey get scrappy and solve a junk-data mystery
-Travel to Endor and investigate if the Wookies ever even had a chance.</p>
+<p>Travel to Endor to investigate magnetic storms</p>
 </blockquote>
-<p>Packages: <code>dplyr</code></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Introduction to data with dates</li>
+<li>Plot time series</li>
+</ol>
+<p>Packages: <code>dplyr</code>, <code>lubridate</code></p>
 </div>
 </div>
 </div>
 <div id="day-2" class="section level1">
 <h1>Day 2</h1>
+<p>Planets visited: <code>Endor and Jakku</code></p>
 <div class="row">
 <div class="col-md-6">
-<p><strong>Morning</strong> | <em>8:30-11:45am</em><br />
-Planets visited: <code>Endor and Jakku</code></p>
-<p><em>Questions and Review</em></p>
+<p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
+<blockquote>
+<p>Questions and Review</p>
+</blockquote>
 <ol style="list-style-type: decimal">
+<li>Calendar Plots 📅
+<ul>
+<li>Plot data by day of the week</li>
+</ul></li>
 <li>Intermediate data manipulation
 <ul>
 <li>Join tables together</li>
 <li>Adding and calculating new columns</li>
 <li>Unit conversions</li>
-<li>Make new columns based on a condition</li>
+<li>Add new columns based on a condition</li>
 </ul></li>
-<li>Learn summary functions: mean, median, max, min, nth, etc.</li>
-<li>String many functions together for less typing.</li>
-<li>Save files.</li>
+<li>Learn summary functions: mean, median, max, min, nth</li>
+<li>Use the with pipe <code>%&gt;%</code> to string your functions together for less typing</li>
+<li>Save files</li>
+<li>Working with difficult <strong>data</strong>
+<ul>
+<li>Replacing NULL values, -999</li>
+<li>Missing values <code>NA</code></li>
+</ul></li>
 </ol>
-<p>Packages: <code>tidyair</code>, <code>openair</code></p>
+<p>Packages: <code>openair</code></p>
 </div>
 <div class="col-md-6">
 <p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
@@ -134,20 +167,13 @@ Planets visited: <code>Endor and Jakku</code></p>
 <ol style="list-style-type: decimal">
 <li>Plot like a Jedi!
 <ul>
-<li>Make Scatter plots and box plots</li>
+<li>Scatter plots and boxplots</li>
 <li>Add titles, colors, and labels</li>
 <li>Histograms</li>
-<li>Highlight individual points</li>
 <li>Reference lines</li>
-<li>Add trend lines <i class="fas  fa-chart-line "></i></li>
+<li>Add trend lines 📈</li>
 </ul></li>
 <li>Save charts to different formats</li>
-</ol>
-<blockquote>
-<p><strong>Exercise</strong><br />
-Use plots and summaries to compare two data sets</p>
-</blockquote>
-<ol start="3" style="list-style-type: decimal">
 <li>Plot <code>pollution</code> vs. <code>meteorology</code>
 <ul>
 <li>Scatter plots
@@ -163,24 +189,13 @@ Use plots and summaries to compare two data sets</p>
 <li>Reference lines</li>
 </ul></li>
 <li>Time series plots with regression line and detection limits</li>
-<li>Data cleaning</li>
-<li>Working with difficult <strong>data</strong>
-<ul>
-<li>Replacing NULL values, -999</li>
-</ul></li>
-<li>Find outliers</li>
 </ol>
-<blockquote>
-<p><strong>Exercise</strong><br />
-Rey to the Rescue</p>
-</blockquote>
-<p>Packages: <code>sf</code>, <code>leaflet</code></p>
 </div>
 </div>
 </div>
 <div id="day-3" class="section level1">
 <h1>Day 3</h1>
-<p>Planets visited: <code>Ahch-To</code></p>
+<p>Planets visited: <code>Ahch-To</code>, <code>Earth</code></p>
 <blockquote>
 <p>Your turn!</p>
 </blockquote>
@@ -188,45 +203,21 @@ Rey to the Rescue</p>
 <div class="col-md-6">
 <p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
 <ol style="list-style-type: decimal">
-<li>Share your data and code.</li>
+<li>Join GitHub</li>
+<li>Share your data, code, and plots</li>
 </ol>
 <p><strong>Questions / Review</strong></p>
-<p>It’s time to CHOOSE a side.</p>
 <ol style="list-style-type: decimal">
 <li>Choose your own adventure!
 <ul>
 <li>Select your own or Star Wars data</li>
-<li>Clean the data</li>
-<li>Create a summary table</li>
-<li>Compare years</li>
-<li>Chart &amp; map the data</li>
-<li>Multiple paths to choose from</li>
 </ul></li>
-<li><strong>Retrieving data from the web</strong>
-<ul>
-<li>Download NEI data from EPA</li>
-<li>FTP sites</li>
-</ul></li>
-<li>NEI trend charts</li>
-<li>Saving plots</li>
-</ol>
-<ul>
 <li><strong>PATHS</strong>
 <ul>
-<li>Custom functions:
-<ul>
-<li><strong>Design values</strong><br />
-</li>
-</ul></li>
-<li>Charts for publications and reports<br />
-</li>
-<li>Trend analysis</li>
-<li>Site comparisons
-<ul>
-<li>Save the <strong>porgs</strong></li>
-</ul></li>
+<li>Wind and Pollution roses</li>
 <li>Messy data
 <ul>
+<li>Gather a wide table with hundreds of columns into 1 column</li>
 <li>Read an entire folder of files and combine into 1 table</li>
 </ul></li>
 <li>More maps and shapefiles
@@ -235,25 +226,34 @@ Rey to the Rescue</p>
 <li>Convert coordinate projections (ex. <code>Lat/Long</code> to <code>UTM</code>)</li>
 <li>Load reference maps (Tribal boundaries, States, Counties)</li>
 <li>Build interactive maps</li>
-<li>Packages: <code>tidycensus</code>, <code>tigris</code></li>
-</ul></li>
-<li>Connect to <strong>databases</strong>
-<ul>
-<li>View tables</li>
-<li>Read data</li>
 </ul></li>
 </ul></li>
-</ul>
+</ol>
+<p>Packages: <code>tidycensus</code>, <code>tigris</code>, <code>sf</code>, <code>leaflet</code></p>
 </div>
 <div class="col-md-6">
 <p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
-<p>Share with the world</p>
 <ol style="list-style-type: decimal">
-<li>Build a report</li>
-<li>Put script and results in <strong>Rmarkdown</strong></li>
+<li>Select your own or Star Wars data</li>
+<li>Build a report
+<ul>
+<li>Clean the data</li>
+<li>Create a summary table</li>
+<li>Compare years or sites</li>
+<li>Chart &amp; map the data</li>
+<li>Multiple paths to choose from</li>
+</ul></li>
+<li>Put script and results in <strong>Rmarkdown</strong><br />
+</li>
+<li>Share with the world
+<ul>
 <li>Generate Web, Word and PDF documents</li>
+</ul></li>
 </ol>
-<h3 id="graduation">Graduation!!</h3>
+<h3 id="concatulations">🐈🐈 Concatulations!! 🐱🐱</h3>
+<div class="data">
+<p>Receive your well deserved accolades and certificates</p>
+</div>
 </div>
 </div>
 <p></br></p>

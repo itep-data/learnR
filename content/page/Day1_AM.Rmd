@@ -143,6 +143,8 @@ __Hint:__ _Maybe this is something you can automate on the third day._
 # | Why R? 
 <hr>
 
+See the [R Community](community.html) page!
+
 ## Data analysis in 7 steps {-}
 
 <div class="note">

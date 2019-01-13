@@ -33,24 +33,28 @@ __Online Communities__
 
 <div style="margin-top: 4px; clear:both;"> </div>
 
-<div style="width: 43%; max-width: 43%; float: left; margin-top: 12px; overflow:hidden;">
+<div style="float: left; width: 43%; max-width: 43%; margin-top: 12px; overflow:hidden;">
 
 ![](../images/useR_2018.png)
 
 </div>
 
 
-<div style="margin-left: 38px; margin-top: 20px; float: left;">
+<div style="margin-top: 20px; float: left; width: 50%; margin-left: 5%;">
 
 __Face-to-face__
 
-- useR Conference - [2019 Toulouse, France](http://www.user2019.fr/)
+- useR Conferences
+    - 2019 in [Toulouse, France](http://www.user2019.fr/)
     - 2018 in [Brisbane, Australia](https://user2018.r-project.org/)
 - RStudio [Conferences & workshops](https://www.rstudio.com/conference/)
+
 </div>
 
-<div style="margin-top: 5px; clear:both;"> 
+
+<div style="margin-top: 5px; clear:both;"> </div>
+
+
 <br>
-</div>
 
 ##

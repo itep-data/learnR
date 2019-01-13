@@ -15,6 +15,26 @@ imageFloat: 'left'
 enableEmoji: true
 ---
 
+<style type="text/css">
+
+.data {
+     background-color: #d2f0c6;
+     border-left: solid 5px #86af49;
+     border-radius: 15px;
+     font-size: 17px;
+     line-height: 18px;
+     overflow: hidden;
+     padding: 5px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-top: 10px;
+     margin-bottom: 12px;
+     padding-left: 22px;
+     margin-right: 8px;
+}
+
+</style>
+
 
 <div style="margin-top: -30px;">
 
@@ -45,7 +65,8 @@ Planets visited: `Endor and Jakku`
 
 **Morning** | _8:30-11:45am_  
 
-Begin Jedi training. 
+> Begin Jedi training   
+> &nbsp;
 
 1. Power on your droid
     - Install and update R
@@ -53,9 +74,8 @@ Begin Jedi training.
     - Start a new R project
     - Create an R script
 1. Tour and customize __RStudio__
-1. Decipher code from the _Empire_
 1. Invent new/fake data
-    - Variables, names, and lists oh my!
+    - Variables, names, and lists
 1. Make a data table / __dataframe__  
 1. Upgrade your droid    
     - Add new R packages    
@@ -73,6 +93,8 @@ Packages: `readr`, `ggplot2`
 
 **Afternoon** | _1:15-5:00pm_  
 
+> Get scrappy and solve a junk-data mystery
+   
 1. Explore data
     - Column names, rows, observations, value types
     - Missing values
@@ -80,19 +102,18 @@ Packages: `readr`, `ggplot2`
 1. Data transformations with `dplyr`
     - Arrange, sort, and __filter__ data 
 1. Summarize data
-1. Find the most profitable scrap for Rey   
-1. Make a summary for each __group__, site, or category within the data 
+1. Find the most profitable scrap  
+1. Summarize each __group__, site, or category within the data 
     - Summarize by location  
     - Check for the number of data points in a group (you can use this to check for completeness!)
-1. Introduction to working with dates `lubridate` 
-    
 
-    - Plot data by dates (Calendar plots)
+> Travel to Endor to investigate magnetic storms
 
-> Help Rey get scrappy and solve a junk-data mystery
-> Travel to Endor and investigate if the Wookies ever even had a chance.     
+6. Introduction to data with dates
+7. Plot time series    
 
-Packages: `dplyr`    
+
+Packages: `dplyr`, `lubridate`    
 
 </div>
 </div>
@@ -101,24 +122,30 @@ Packages: `dplyr`
 
 # Day 2
 
+Planets visited: `Endor and Jakku`
+
 <div class = "row">
 <div class = "col-md-6">
 
 **Morning** | _8:30-11:45am_   
-Planets visited: `Endor and Jakku`
 
-_Questions and Review_
+> Questions and Review
 
+1. Calendar Plots 📅
+    - Plot data by day of the week
 1. Intermediate data manipulation
-    -	Join tables together
-    -	Adding and calculating new columns
+    - Join tables together
+    - Adding and calculating new columns
     - Unit conversions
-    - Make new columns based on a condition
-1. Learn summary functions: mean, median, max, min, nth, etc.
-1. String many functions together for less typing.
-1. Save files.
+    - Add new columns based on a condition
+1. Learn summary functions: mean, median, max, min, nth
+1. Use the  with pipe `%>%` to string your functions together for less typing
+1. Save files
+1. Working with difficult __data__
+    - Replacing NULL values, -999 
+    - Missing values `NA`
 
-Packages: `tidyair`, `openair`
+Packages: `openair`
 
 </div>
 
@@ -128,18 +155,13 @@ Packages: `tidyair`, `openair`
 > _Star Wars - Guess Who_   
 
 1. Plot like a Jedi!
-    -	Make Scatter plots and box plots 
-    -	Add titles, colors, and labels 
-    -	Histograms 
-    -	Highlight individual points 
-    -	Reference lines 
-    - Add trend lines `r icon::fa("chart-line", size = 1)`
+    - Scatter plots and boxplots 
+    - Add titles, colors, and labels 
+    - Histograms 
+    - Reference lines 
+    - Add trend lines 📈
 1.	Save charts to different formats 
-
->	**Exercise**  
-> Use plots and summaries to compare two data sets
-
-3. Plot `pollution` vs. `meteorology`
+1. Plot `pollution` vs. `meteorology`
     - Scatter plots
         - Conc vs. Temp
         - Conc vs. Hour of day
@@ -148,16 +170,7 @@ Packages: `tidyair`, `openair`
     - Log transform
     - Reference lines
 1. Time series plots with regression line and detection limits
-1. Data cleaning
-1. Working with difficult __data__
-    - Replacing NULL values, -999 
-1. Find outliers
 
->	**Exercise**  
-> Rey to the Rescue 
-
-
-Packages: `sf`, `leaflet`
 
 </div>
 </div>
@@ -165,7 +178,7 @@ Packages: `sf`, `leaflet`
 
 
 # Day 3
-Planets visited: `Ahch-To`
+Planets visited: `Ahch-To`, `Earth`
 
 > Your turn!
 
@@ -173,57 +186,48 @@ Planets visited: `Ahch-To`
 <div class = "col-md-6">
 **Morning** | _8:30-11:45am_  
 
-1. Share your data and code.
+1. Join GitHub
+1. Share your data, code, and plots
 
 __Questions / Review__
 
-It's time to CHOOSE a side.
-
 1. Choose your own adventure!
-    -	Select your own or Star Wars data
-    - Clean the data 
-    -	Create a summary table
-    -	Compare years
-    -	Chart & map the data 
-    - Multiple paths to choose from
-1. **Retrieving data from the web**
-    - Download NEI data from EPA
-    - FTP sites
-1. NEI trend charts
-1. Saving plots 
-
-- __PATHS__
-    - Custom functions: 
-        - **Design values**   
-    - Charts for publications and reports  
-    - Trend analysis
-    - Site comparisons
-        - Save the __porgs__
+    - Select your own or Star Wars data
+    
+2. __PATHS__
+    - Wind and Pollution roses
     - Messy data 
+        - Gather a wide table with hundreds of columns into 1 column
         - Read an entire folder of files and combine into 1 table
     - More maps and shapefiles
         - Read and save shapefiles
         - Convert coordinate projections (ex. `Lat/Long` to `UTM`)
         - Load reference maps (Tribal boundaries, States, Counties)
         - Build interactive maps
-        - Packages: `tidycensus`, `tigris`
-    - Connect to __databases__
-        - View tables
-        - Read data
-        
+
+Packages: `tidycensus`, `tigris`, `sf`, `leaflet`
 
 </div>
 
 <div class = "col-md-6">
 **Afternoon** | _1:15-5:00pm_   
 
-Share with the world
-
+1. Select your own or Star Wars data
 1. Build a report
-1. Put script and results in __Rmarkdown__
-1. Generate Web, Word and PDF documents
+    - Clean the data 
+    - Create a summary table
+    - Compare years or sites
+    - Chart & map the data 
+    - Multiple paths to choose from
+1. Put script and results in __Rmarkdown__  
+1. Share with the world
+    - Generate Web, Word and PDF documents
 
-### Graduation!!
+### 🐈🐈 Concatulations!! 🐱🐱
+
+<div class="data">
+Receive your well deserved accolades and certificates
+</div>
 
 </div>
 </div>

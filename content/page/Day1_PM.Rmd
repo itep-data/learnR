@@ -634,6 +634,10 @@ It looks like there really were high magentic field readings in November of Gala
 
 <br>
 
+# | Operation Shut Down
+
+When you close R for the first time you will see some options about saving a `.Rdata` files.
+
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
 
 <br>

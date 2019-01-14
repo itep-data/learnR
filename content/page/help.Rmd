@@ -60,7 +60,7 @@ __Inside R__
 
 __E-mail__
 
-- Post a question on [ITEP's R hub](https://github.com/itep-data/R-questions/issues)
+- Post a question on the [ITEP R hub](https://github.com/itep-data/R-questions/issues)  
 - Ask the R class _(coming soon...)_
 - Ask us!
     - Kristie Ellickson [✉️](mailto:kristie.ellickson@state.mn.us?Subject=I%20have%20a%20R%20question)

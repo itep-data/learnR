@@ -86,14 +86,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#review-of-day-1">Review of Day 1</a><ul>
 <li><a href="#porg-review">Porg review</a></li>
 </ul></li>
-<li><a href="#the-pipe"><span class="toc-section-number">1</span> | The pipe <code>%&gt;%</code></a></li>
-<li><a href="#left_join"><span class="toc-section-number">2</span> | <code>left_join()</code></a><ul>
+<li><a href="#join-tables-with-left_join"><span class="toc-section-number">1</span> | Join tables with <code>left_join()</code></a><ul>
 <li><a href="#join-2-tables">Join 2 tables</a></li>
-<li><a href="#more-joining"><span class="toc-section-number">2.1</span> More joining</a></li>
+<li><a href="#more-joining"><span class="toc-section-number">1.1</span> More joining</a></li>
 </ul></li>
-<li><a href="#finn-needs-us"><span class="toc-section-number">3</span> | Finn needs us!</a></li>
-<li><a href="#more-jakku-scrap"><span class="toc-section-number">4</span> | More Jakku scrap</a></li>
-<li><a href="#summarize-this"><span class="toc-section-number">5</span> | <code>summarize()</code> this</a><ul>
+<li><a href="#finn-needs-us"><span class="toc-section-number">2</span> | Finn needs us!</a></li>
+<li><a href="#the-pipe"><span class="toc-section-number">3</span> | The pipe <code>%&gt;%</code></a></li>
+<li><a href="#update-from-bb8"><span class="toc-section-number">4</span> | Update from BB8!</a></li>
+<li><a href="#more-jakku-scrap"><span class="toc-section-number">5</span> | More Jakku scrap</a><ul>
+<li><a href="#good-news">Good news</a></li>
+</ul></li>
+<li><a href="#summarize-this"><span class="toc-section-number">6</span> | <code>summarize()</code> this</a><ul>
 <li><a href="#sum"><code>sum()</code></a></li>
 <li><a href="#mean"><code>mean()</code></a></li>
 <li><a href="#median"><code>median()</code></a></li>
@@ -104,11 +107,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#quantile"><code>quantile()</code></a></li>
 <li><a href="#n"><code>n()</code></a></li>
 </ul></li>
-<li><a href="#group_by"><span class="toc-section-number">6</span> | <code>group_by()</code></a><ul>
+<li><a href="#group_by"><span class="toc-section-number">7</span> | <code>group_by()</code></a><ul>
 <li><a href="#bargain-hunters">Bargain hunters</a></li>
 </ul></li>
-<li><a href="#save-files"><span class="toc-section-number">7</span> | Save files</a></li>
-<li><a href="#grouped-mutate"><span class="toc-section-number">8</span> | Grouped <code>mutate()</code></a></li>
+<li><a href="#save-files"><span class="toc-section-number">8</span> | Save files</a></li>
+<li><a href="#grouped-mutate"><span class="toc-section-number">9</span> | Grouped <code>mutate()</code></a></li>
 </ul>
 </div>
 
@@ -184,30 +187,15 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <p><br></p>
-<p><strong>What if I want to string several of these data processing functions together? Do I have to keep writing <code>scrap</code> so many times? I mean I have now written <code>scrap</code> like a million times and my fingers hurt. Mother of moons! I have rebels to protect and I haven’t eaten in 2 days!</strong></p>
-<p><br></p>
 </div>
 </div>
-<div id="the-pipe" class="section level1">
-<h1><span class="header-section-number">1</span> | The pipe <code>%&gt;%</code></h1>
-<p><strong>Let the <code>%&gt;%</code> guide you young Padawan.</strong></p>
-<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" /></p>
+<div id="join-tables-with-left_join" class="section level1">
+<h1><span class="header-section-number">1</span> | Join tables with <code>left_join()</code></h1>
+<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -20px; margin-left: 40px; margin-right: 5px;" width="384" /></p>
 <p><br></p>
-<p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you chain functions together and do everything in one go.</p>
-<p><br></p>
-<div style="clear:both;">
-
-</div>
-<pre class="sourceCode r"><code class="sourceCode r">my_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Acceleration compensator&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
-<p><br></p>
-</div>
-<div id="left_join" class="section level1">
-<h1><span class="header-section-number">2</span> | <code>left_join()</code></h1>
-<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -40px; margin-left: 40px; margin-right: 5px;" width="384" /></p>
 <div id="join-2-tables" class="section level2 unnumbered">
 <h2>Join 2 tables</h2>
+<p><br></p>
 <div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
 <h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
 <p><br></p>
@@ -233,7 +221,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <div id="more-joining" class="section level2">
-<h2><span class="header-section-number">2.1</span> More joining</h2>
+<h2><span class="header-section-number">1.1</span> More joining</h2>
 <div id="star-wars-characters" class="section level3 unnumbered">
 <h3>Star Wars characters</h3>
 <strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
@@ -526,17 +514,50 @@ height_and_homeworld</code></pre>
 </div>
 </div>
 <div id="finn-needs-us" class="section level1">
-<h1><span class="header-section-number">3</span> | Finn needs us!</h1>
+<h1><span class="header-section-number">2</span> | Finn needs us!</h1>
 <p>That’s enough <em>scuttlebutting</em> around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he’s being held ransom by Junk Boss Plutt. We’ll need to act fast to get to him before the Empire does. <strong>Blast off!</strong></p>
 <p><img src="../images/finn_run.gif" /></p>
+<p><br></p>
+<div class="note">
+<p>Did you get tired of writing <code>scrap</code> so many times yesterday? Let’s learn to chain several functions together. I mean I have now written <code>scrap</code> like a million times and my fingers hurt. Mother of moons!</p>
+</div>
+</div>
+<div id="the-pipe" class="section level1">
+<h1><span class="header-section-number">3</span> | The pipe <code>%&gt;%</code></h1>
+<p><strong>Let the <code>%&gt;%</code> guide you young Padawan.</strong></p>
+<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" /></p>
+<p><br></p>
+<p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you chain functions together and do everything in one go.</p>
+<p><br></p>
+<div style="clear:both;">
+
+</div>
+</div>
+<div id="update-from-bb8" class="section level1">
+<h1><span class="header-section-number">4</span> | Update from BB8!</h1>
+<hr>
+<p><img src="../images/rey_bb8.jpg" align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;" /></p>
+<p>BB8 was able to recover the <strong>full</strong> scrap data from the notorious Junk Boss Unkar Plutt. We will experiment with pipe using the <code>starwars_scrap_jakku_full.csv</code> dataset.</p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># Read in the larger scrap database</span>
+<span class="co"># Note: The data set has items that are in units other than tons. </span>
+scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;</span>)
+
+
+ion_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Ion engine&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
+<p><br></p>
 </div>
 <div id="more-jakku-scrap" class="section level1">
-<h1><span class="header-section-number">4</span> | More Jakku scrap</h1>
+<h1><span class="header-section-number">5</span> | More Jakku scrap</h1>
 <p>Plutt is demanding <strong>10,000 items</strong> of scrap for Finn. Lucky for us he didn’t clarify the exact items. Let’s find the scrap that weighs the least per item to make this transaction as easy as possible.</p>
-<div id="good-news" class="section level4 unnumbered">
-<h4>Good news</h4>
+<div id="good-news" class="section level2 unnumbered">
+<h2>Good news</h2>
 <p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
-</div>
 <div id="get-the-conversion-table" class="section level3 unnumbered">
 <h3>Get the conversion table</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
@@ -665,8 +686,9 @@ scrap <- scrap %>%
 </div>
 </div>
 </div>
+</div>
 <div id="summarize-this" class="section level1">
-<h1><span class="header-section-number">5</span> | <code>summarize()</code> this</h1>
+<h1><span class="header-section-number">6</span> | <code>summarize()</code> this</h1>
 <hr>
 <p><img src="../images/summarize_diagram.png" width="490" /></p>
 <p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse your data down to a single row. To really dig into <code>summarize</code> you’ll want to know some common summary functions, such as <code>sum()</code>, <code>mean()</code>, <code>median()</code>, <code>min()</code>, and <code>max()</code>.</p>
@@ -745,7 +767,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="group_by" class="section level1">
-<h1><span class="header-section-number">6</span> | <code>group_by()</code></h1>
+<h1><span class="header-section-number">7</span> | <code>group_by()</code></h1>
 <hr>
 <div id="bargain-hunters" class="section level2 unnumbered">
 <h2>Bargain hunters</h2>
@@ -784,7 +806,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="save-files" class="section level1">
-<h1><span class="header-section-number">7</span> | Save files</h1>
+<h1><span class="header-section-number">8</span> | Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
@@ -798,7 +820,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="grouped-mutate" class="section level1">
-<h1><span class="header-section-number">8</span> | Grouped <code>mutate()</code></h1>
+<h1><span class="header-section-number">9</span> | Grouped <code>mutate()</code></h1>
 <br>
 <hr>
 <p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point.</p>

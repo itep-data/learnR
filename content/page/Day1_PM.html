@@ -106,7 +106,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#change-a-column">Change a column</a></li>
 <li><a href="#add-calculated-columns">Add calculated columns</a></li>
 </ul></li>
-<li><a href="#first-mission-complete"><span class="toc-section-number">9</span> | First mission complete!</a></li>
+<li><a href="#last-steps"><span class="toc-section-number">9</span> | Last steps!</a><ul>
+<li><a href="#first-mission-complete"><span class="toc-section-number">9.1</span> First mission complete!</a></li>
+</ul></li>
 <li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a><ul>
 <li><a href="#bb8-has-a-new-mission">BB8 has a new mission</a></li>
 </ul></li>
@@ -565,10 +567,7 @@ n &lt;-<span class="st"> </span><span class="dv">20</span>
 <pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)</code></pre>
 <p><br></p>
 <p>We can arrange the data in descending order by <code>amount</code> to confirm that the “All” category is gone.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
-
-<span class="co"># Arrange data</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(amount))
 
 <span class="co">#Look at the first 6 rows of the data</span>
@@ -623,9 +622,10 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <p>We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let’s add new columns to document the data measurement method and the averaging time.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Add your name as a column and</span>
 <span class="co">#  some information about your sampling method</span>
-scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>,
-                <span class="dt">measurement_method  =</span> <span class="st">&quot;REM&quot;</span>,
-                <span class="dt">averaging_time      =</span> <span class="st">&quot;24 hours&quot;</span>)
+scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
+                <span class="dt">scrap_finder    =</span> <span class="st">&quot;BB8&quot;</span>,
+                <span class="dt">measure_method  =</span> <span class="st">&quot;REM&quot;</span>,
+                <span class="dt">averaging_time  =</span> <span class="st">&quot;24 hours&quot;</span>)
 
 <span class="co">## REM = Rebellion Equivalent Method</span></code></pre>
 </div>
@@ -643,46 +643,46 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the total pounds for the scrap items that are reported in tons.</p>
 <div id="tons----pounds-conversion" class="section level3 unnumbered">
 <h3>Tons <code>--&gt;</code> Pounds conversion</h3>
-<p>Use <code>filter()</code> to subset the data to the items reported in <code>"tons"</code>. Then use <code>mutate()</code> to convert the <code>amount</code> column to pounds. We can also change the <code>units</code> column to “pounds” to avoid any confusion.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Re-load the data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
-
-<span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
-                origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>, 
-                units  <span class="op">==</span><span class="st"> &quot;tons&quot;</span>)
-
-scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
-                       <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>,
-                       <span class="dt">units      =</span> <span class="st">&quot;pounds&quot;</span>)</code></pre>
+<p>Use <code>mutate()</code> to convert the <code>amount</code> column to pounds.</p>
+<pre class="sourceCode r"><code class="sourceCode r">scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
+                       <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre>
 <p><br></p>
 </div>
 </div>
 </div>
-<div id="first-mission-complete" class="section level1">
-<h1><span class="header-section-number">9</span> | First mission complete!</h1>
-<p>Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for her ship and <strong>we are free to FLY TO ENDOR for our next mission!</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
-
-<span class="co"># Clean data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
-                origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>, 
-                units <span class="op">==</span><span class="st"> &quot;tons&quot;</span>)
-
-scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
-                       <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>,
-                       <span class="dt">units      =</span> <span class="st">&quot;pounds&quot;</span>)
-
-<span class="co"># Arrange (sort) data</span>
-scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, 
-                       <span class="kw">desc</span>(amount_lbs))
+<div id="last-steps" class="section level1">
+<h1><span class="header-section-number">9</span> | Last steps!</h1>
+<p>Rey needs an <code>Ion engine</code>. Filter the data to only that item.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Pull-out only items named `Ion engine`</span>
+scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap_pounds, <span class="dt">item =</span> <span class="st">&quot;Ion engine&quot;</span>)</code></pre>
+<p>Arrange the data in descending order of pounds so Rey knows where the highest amount of scrap comes from. Then she can go there, trade for some discounted parts and <strong>we’re free to FLY TO ENDOR!</strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange data</span>
+scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap_pounds, <span class="kw">desc</span>(amount_lbs))
 
 <span class="co"># Return the origin of the highest weight amount of scrap</span>
 <span class="kw">head</span>(scrap_pounds, <span class="dv">1</span>)</code></pre>
-<pre><code>## # A tibble: 0 x 6
-## # ... with 6 variables: item &lt;chr&gt;, origin &lt;chr&gt;, destination &lt;chr&gt;,
-## #   amount &lt;dbl&gt;, units &lt;chr&gt;, price_per_pound &lt;dbl&gt;</code></pre>
+<div class="quiz">
+<h3 id="pop-quiz-hotshot" class="unnumbered">Pop Quiz, hotshot!</h3>
+<p><strong>For the item <code>Ion engine</code>, which origin had the most ?</strong></p>
+<p><input type="radio"> <em>Tuanul</em> <br>
+<input type="radio"> <em>Cratertown</em> <br>
+<input type="radio"> <em>Outskirts</em> <br>
+<input type="radio"> <em>Reestki</em> <br></p>
+<p><br></p>
+<details>
+<p><summary class = "btn_code"><em>Show solution</em></summary></p>
+<p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Tuanul</code></p>
+<p><em>Yes!! You receive the ship parts to repair Rey’s Millennium Falcon. Onward!</em></p>
+</p>
+</details>
+</div>
+<div style="clear: both;">
+
+</div>
+<div id="first-mission-complete" class="section level2">
+<h2><span class="header-section-number">9.1</span> First mission complete!</h2>
+</div>
 </div>
 <div id="save-new-data" class="section level1">
 <h1><span class="header-section-number">10</span> | Save new data</h1>

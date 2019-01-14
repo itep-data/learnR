@@ -57,41 +57,17 @@ cat(readLines("porg_tabs.txt"))
 
 <br>
 
-__What if I want to string several of these data processing functions together? Do I have to keep writing `scrap` so many times? I mean I have now written `scrap` like a million times and my fingers hurt. Mother of moons! I have rebels to protect and I haven't eaten in 2 days!__
+
+# | Join tables with `left_join()`
+
+
+![](../images/left_join_cheat.png){width="384" align="right" style="margin-top: -20px; margin-left: 40px; margin-right: 5px;"}
 
 <br>
-
-# | The pipe `%>%`
-
-__Let the `%>%` guide you young Padawan.__
-
-![](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png){width="155" align="left" style="margin-right: 28px; margin-bottom: 22px;"}
-
-<br>
-
-Luckily, you __don't__ have to do ALL that typing. The pipe let's you chain functions together and do everything in one go. 
-
-<br>
-
-<div style="clear:both;"></div>
-
-```{r pipe-time, eval = F}
-
-my_scrap <- scrap %>%
-            filter(item == "Acceleration compensator") %>%
-            arrange(desc(amount))
-
-```
-
-
-<br>
-
-# | `left_join()`
-
-
-![](../images/left_join_cheat.png){width="384" align="right" style="margin-top: -40px; margin-left: 40px; margin-right: 5px;"}
 
 ## Join 2 tables {-}
+
+<br>
 
 ### `left_join(table1, table2, by = c("columns to join by"))` {-}
 
@@ -299,11 +275,64 @@ That's enough _scuttlebutting_ around on Endor, Finn needs us back on Jakku. It 
 ![](../images/finn_run.gif)
 
 
+<br>
+
+<div class="note">
+
+Did you get tired of writing `scrap` so many times yesterday? Let's learn to chain several functions together. I mean I have now written `scrap` like a million times and my fingers hurt. Mother of moons! 
+
+</div>
+
+
+# | The pipe `%>%`
+
+__Let the `%>%` guide you young Padawan.__
+
+![](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png){width="155" align="left" style="margin-right: 28px; margin-bottom: 22px;"}
+
+<br>
+
+Luckily, you __don't__ have to do ALL that typing. The pipe let's you chain functions together and do everything in one go. 
+
+<br>
+
+<div style="clear:both;"></div>
+
+
+# | Update from BB8! 
+<hr>
+
+![](../images/rey_bb8.jpg){align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;"}
+
+BB8 was able to recover the __full__ scrap data from the notorious Junk Boss Unkar Plutt. We will experiment with pipe using the `starwars_scrap_jakku_full.csv` dataset.
+
+<br>
+
+```{r pipe-time, eval=T, echo=T}
+
+library(readr)
+library(dplyr)
+
+# Read in the larger scrap database
+# Note: The data set has items that are in units other than tons. 
+scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv")
+
+
+ion_scrap <- scrap %>%
+             filter(item == "Ion engine") %>%
+             arrange(desc(amount))
+
+```
+
+
+<br>
+
 # | More Jakku scrap
 
 Plutt is demanding __10,000 items__ of scrap for Finn. Lucky for us he didn't clarify the exact items. Let's find the scrap that weighs the least per item to make this transaction as easy as possible.
 
-#### Good news {-}
+
+## Good news {-}
 
 BB8 tracked down a scrap `Mass conversion table` from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know `left_join()`!  
 

@@ -29,7 +29,8 @@ __Online Communities__
 - R Ladies: https://rladies.org/
     - R Ladies Global [Twitter](https://twitter.com/rladiesglobal?lang=en)
 - [R Weekly](https://rweekly.org/) shares weekly highlights from across the R world 
-- R Bloggers: https://www.r-bloggers.com/
+- [R Bloggers](https://www.r-bloggers.com/)
+- Watch for updates on [ITEP R hub](https://github.com/itep-data/R-questions/issues)
 
 <div style="margin-top: 4px; clear:both;"> </div>
 

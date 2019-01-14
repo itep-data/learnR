@@ -57,7 +57,7 @@ starwars_guess_who <- starwars
     - If you're feeling generous you can give a more straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
 1. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. So, some of your filter statements might be `is.na(hair_color)` or `is.na(mass)`. 
 
-<span class="btn_code_green" style="margin-top: 18px;"> __WINNER!__ </span>
+<span style="margin-top: 18px; color: green;"> __WINNER!__ </span>
 
 - The winner is the first to guess their neighbor's character.
 
@@ -77,15 +77,30 @@ mr_koon <- filter(starwars,
 
 <br>
 
+<details>
+<summary class = "btn_code_green"> __WINNERS Click here for cuteness!__ </summary>
+
+<div class="data">
+<p>
+
+![](../images/ruby.png)
+
+</p></div>
+</details>
+
+
+<br>
+
 <div class="data">
 
 #### Want a rematch? {-}
 
-How about you make it best of __3__ games.
+How about we make it best of __3__ games.
 
 </div>
 
-<br><br>
+
+<br>
 
 # | `ifelse()`
 
@@ -160,9 +175,7 @@ scrap <- scrap %>%
 __Congratulations__ of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!
 </div>
 
-
 <br>
-
 
 
 ![](../images/Star-Wars-Data.png){align="right" style="width: 50%; margin-left: 20px; margin-right: 12px; margin-top: 40px;"}

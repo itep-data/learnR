@@ -685,7 +685,7 @@ Electromagnetic filter,Tuanul,Niima Outpost,107,Tons,188.2
 
 <br>
 
-__You:__ _This looks like a mess! What do I do with this BB8?_
+__You:__ _Yikes! This looks like a mess! What can I do with this?_
 
 </p></details></p></details>
 </tip>

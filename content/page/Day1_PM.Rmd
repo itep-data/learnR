@@ -276,9 +276,7 @@ ggplot(data_frame(x = 1,y = 1), aes(x = 1, y = 1)) +
 The `filter()` function creates a subset of the data based on the value of one or more columns. Let's take a look at the records with the origin `"All"`.
 
 ```{r filter12, eval=T}
-
 filter(scrap, origin == "All")
-
 ```
 
 
@@ -328,8 +326,6 @@ scrap <- filter(scrap, origin != "All")
 We can arrange the data in descending order by `amount` to confirm that the "All" category is gone.
 
 ```{r filter-arrange, message=F, warning=F}
-# Clean data
-scrap <- filter(scrap, origin != "All")
 
 # Arrange data
 scrap <- arrange(scrap, desc(amount))
@@ -406,9 +402,10 @@ We are environmental quality technical staff for the Rebellion, and there are a 
 
 #  Add your name as a column and
 #  some information about your sampling method
-scrap <- mutate(scrap, scrap_finder = "BB8",
-                measurement_method  = "REM",
-                averaging_time      = "24 hours")
+scrap <- mutate(scrap, 
+                scrap_finder    = "BB8",
+                measure_method  = "REM",
+                averaging_time  = "24 hours")
 
 ## REM = Rebellion Equivalent Method
 ```
@@ -435,51 +432,69 @@ In our work we often use `mutate` to calculate new units for measurements. In th
 
 ### Tons `-->` Pounds conversion {-}
 
-Use `filter()` to subset the data to the items reported in `"tons"`. Then use `mutate()` to convert the `amount` column to pounds. We can also change the `units` column to "pounds" to avoid any confusion.
+Use `mutate()` to convert the `amount` column to pounds.
 
 ```{r, message=F, warning=F}
 
-# Re-load the data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Clean data
-scrap <- filter(scrap, 
-                origin != "All", 
-                units  == "tons")
-
 scrap_pounds <- mutate(scrap, 
-                       amount_lbs = amount * 2000,
-                       units      = "pounds")
+                       amount_lbs = amount * 2000)
 ```
 
 <br>
 
-# | First mission complete!
+# | Last steps!
 
-Arrange the data in descending order of pounds so that Rey knows what the highest amount of scrap was. Then she can sell the scrap, buy parts for her ship and __we are free to FLY TO ENDOR for our next mission!__
+Rey needs an `Ion engine`. Filter the data to only that item.
 
-```{r arrange final, eval=T, message=F, warning=F}
+```{r filter-ion, warning=F, message=F}
 
-# Get data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
+## Pull-out only items named `Ion engine`
+scrap_pounds <- mutate(scrap_pounds, item = "Ion engine")
 
-# Clean data
-scrap <- filter(scrap, 
-                origin != "All", 
-                units == "tons")
+```
 
-scrap_pounds <- mutate(scrap, 
-                       amount_lbs = amount * 2000,
-                       units      = "pounds")
 
-# Arrange (sort) data
-scrap_pounds <- arrange(scrap, 
-                       desc(amount_lbs))
+Arrange the data in descending order of pounds so Rey knows where the highest amount of scrap comes from. Then she can go there, trade for some discounted parts and __we're free to FLY TO ENDOR!__
+
+```{r arrange-final, eval=F, message=F, warning=F}
+
+# Arrange data
+scrap_pounds <- arrange(scrap_pounds, desc(amount_lbs))
 
 # Return the origin of the highest weight amount of scrap
 head(scrap_pounds, 1)
 
 ```
+
+
+<div class="quiz">
+
+### Pop Quiz, hotshot! {-}
+
+__For the item `Ion engine`, which origin had the most ?__
+
+<input type="radio"> _Tuanul_              <br> 
+<input type="radio"> _Cratertown_          <br> 
+<input type="radio"> _Outskirts_           <br> 
+<input type="radio"> _Reestki_             <br> 
+
+<br>
+
+<details>
+<summary class = "btn_code">_Show solution_</summary>
+
+<p>
+<i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `Tuanul`  
+
+_Yes!! You receive the ship parts to repair Rey's Millennium Falcon. Onward!_
+
+</p>
+</details></div>
+
+<div style="clear: both;"> </div>
+
+
+## First mission complete!
 
 # | Save new data
 

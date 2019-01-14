@@ -17,38 +17,6 @@ knitr::opts_chunk$set(echo=TRUE, error=F, warning=F)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-![](../images/star-wars-bingo-image.jpg){width="350" align="center" style="margin-top: 12px; margin-bottom: -34px;"}
-
-
-# Let's play R BINGO!
-
-1. No free spaces! We are mean.
-1. You will soon know all of these functions.
-1. We are going to call-out these functions using an R function.
-
-```{r bingo, eval=F}
-# Get pretty colors
-install.packages("viridis")
-library(viridis)
-library(ggplot2)
-
-# List of all the functions
-bingo_words <- c("median()", "nrow()", "glimpse()", "sum()", "head()", "tail()", "arrange()", "write_csv()", "geom_col()", "filter()", "ncol()", "sd()", "summarise()", "quantile()", "install.packages()", "geom_point()", "unique()", "select()", "mean()", "min()", "left_join()", "read_csv()", "nth()", "ggplot()", "library()", "n()")
-
-# Shuffle the words randomly
-bingo_words <- sample(bingo_words)
-
-# Set the number to draw
-n <- 20
-
-# Plot the word
-ggplot(data_frame(x = 1,y = 1), aes(x = 1, y = 1)) + 
-      geom_point(color = sample(viridis_pal()(30), 1), size = 177) + 
-      geom_label(label = bingo_words[n], size = 12) +
-      labs(x = NULL, y = NULL) +
-      theme_void()
-```
-
 
 # Data exploration {-} 
 
@@ -267,6 +235,39 @@ When you save an arranged data table it maintains its order. This is perfect for
 
 
 ![](../images/boba_tea.jpg){width="300"}
+
+<br>
+
+# Let's play R BINGO!
+
+![](../images/star-wars-bingo-image.jpg){width="350" align="center" style="margin-top: 0px; margin-bottom: 4px;"}
+
+1. No free spaces! We are mean.
+1. You will soon know all of these functions.
+1. We are going to call-out these functions using an R function.
+
+```{r bingo, eval=F}
+# Get pretty colors
+install.packages("viridis")
+library(viridis)
+library(ggplot2)
+
+# List of all the functions
+bingo_words <- c("median()", "nrow()", "glimpse()", "sum()", "head()", "tail()", "arrange()", "write_csv()", "geom_col()", "filter()", "ncol()", "sd()", "summarise()", "quantile()", "install.packages()", "geom_point()", "unique()", "select()", "mean()", "min()", "left_join()", "read_csv()", "nth()", "ggplot()", "library()", "n()")
+
+# Shuffle the words randomly
+bingo_words <- sample(bingo_words)
+
+# Set the number to draw
+n <- 20
+
+# Plot the word
+ggplot(data_frame(x = 1,y = 1), aes(x = 1, y = 1)) + 
+      geom_point(color = sample(viridis_pal()(30), 1), size = 177) + 
+      geom_label(label = bingo_words[n], size = 12) +
+      labs(x = NULL, y = NULL) +
+      theme_void()
+```
 
 
 # | `filter()`
@@ -558,7 +559,7 @@ glimpse(air_endor)
 
 <br>
 
-__I see that there are more analytes than we need. We only want to know about `magentic_field` data. Let's filter the data down to only that analyte.__ 
+__I see that there are more analytes than we need. We only want to know about `magnetic_field` data. Let's filter the data down to only that analyte.__ 
 
 <br>
 
@@ -581,11 +582,21 @@ When you have this type of time series data it's helpful for R to know which col
 
 Install the `lubridate` package and use the `mdy()` function to turn the `Start_Run_Date` column into a nicely formatted date.
 
-```{r, endor-air-mutate, message=F}
+```{r endor-air-mutate, message=F}
 library(lubridate)
 
 mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 ```
+
+
+
+# | Time series
+```{r endor-time, message=F}
+library(lubridate)
+
+mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
+```
+
 
 
 # | Calendar plots
@@ -623,20 +634,30 @@ calendarPlot(mag_endor,
              key.footer   = "nT", 
              par.settings = list(fontsize       = list(text = 34), 
                                  layout.heights = list(top.padding = 1)),
-             main = "Magentic Field Strength at Endor Battle Site 1")
+             main = "Magnetic Field Strength at Endor Battle Site 1")
 
 ```
 
 
 ### Mission accomplished! {-}
 
-It looks like there really were high magentic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.
+It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.
 
 <br>
 
 # | Operation Shut Down
 
-When you close R for the first time you will see some options about saving `.Rdata` files.
+When you close R for the first time you will see some options about saving your workspace and other files. In general, we advise against saving these files. It's easy enough to re-run your script next time you open your project. This will help RStudio open a fresh and clean environment every time you start it.
+
+Follow these steps to set these options permanently.
+
+__Turn off “Save Workspace”__
+
+1. Go to ` Tools > Global Options.... `  on the top RStudio navigation bar
+1. On the first screen:
+    - [ ] Uncheck Restore .Rdata into workspace at startup
+    - Set _Save workspace to .RData on exit_ to ["Never”].
+    - [ ] Uncheck Always save history
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
 

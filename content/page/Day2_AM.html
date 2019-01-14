@@ -81,21 +81,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="TOC">
 <ul>
 <li><a href="#good-morning-young-jedis">Good morning, young Jedis!</a><ul>
-<li><a href="#day-2-morning-schedule">Day 2 morning schedule</a></li>
+<li><a href="#schedule">Schedule</a></li>
 </ul></li>
 <li><a href="#review-of-day-1">Review of Day 1</a><ul>
 <li><a href="#porg-review">Porg review</a></li>
 </ul></li>
-<li><a href="#ifelse"><span class="toc-section-number">1</span> | <code>ifelse()</code></a><ul>
-<li><a href="#mutate-ifelse-is-powerful"><code>mutate()</code> + <code>ifelse()</code> is powerful!</a></li>
-</ul></li>
-<li><a href="#left_join"><span class="toc-section-number">2</span> | <code>left_join()</code></a><ul>
+<li><a href="#left_join"><span class="toc-section-number">1</span> | <code>left_join()</code></a><ul>
 <li><a href="#join-2-tables">Join 2 tables</a></li>
-<li><a href="#more-joining"><span class="toc-section-number">2.1</span> More joining</a></li>
+<li><a href="#more-joining"><span class="toc-section-number">1.1</span> More joining</a></li>
 </ul></li>
-<li><a href="#back-to-jakku"><span class="toc-section-number">3</span> | Back to Jakku!</a><ul>
-<li><a href="#read-the-conversion-table-from-the-galactic-interwebs">Read the conversion table from the Galactic interwebs</a></li>
-</ul></li>
+<li><a href="#finn-needs-us"><span class="toc-section-number">2</span> | Finn needs us!</a></li>
+<li><a href="#more-jakku-scrap"><span class="toc-section-number">3</span> | More Jakku scrap</a></li>
 <li><a href="#summarize-this"><span class="toc-section-number">4</span> | <code>summarize()</code> this</a><ul>
 <li><a href="#sum"><code>sum()</code></a></li>
 <li><a href="#mean"><code>mean()</code></a></li>
@@ -113,6 +109,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#save-files"><span class="toc-section-number">7</span> | Save files</a></li>
 <li><a href="#grouped-mutate"><span class="toc-section-number">8</span> | Grouped <code>mutate()</code></a></li>
+<li><a href="#ifelse"><span class="toc-section-number">9</span> | <code>ifelse()</code></a><ul>
+<li><a href="#mutate-ifelse-is-powerful"><code>mutate()</code> + <code>ifelse()</code> is powerful!</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -120,14 +119,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1>Good morning, young Jedis!</h1>
 <hr>
 <p><img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" /></p>
-<p><br></p>
-<div id="day-2-morning-schedule" class="section level2 unnumbered">
-<h2>Day 2 morning schedule</h2>
+<div id="schedule" class="section level2 unnumbered">
+<h2>Schedule</h2>
 <pre><code>- Review of Day 1
-- Add a column with a condition
 - Summarize your data
 - String together many functions
-- Group or categorize your data
+- Add new column that depends on values of another column
+- Summarize by group or category in your data
 - Save data</code></pre>
 <p><br><br></p>
 </div>
@@ -189,40 +187,9 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 </div>
-<div id="ifelse" class="section level1">
-<h1><span class="header-section-number">1</span> | <code>ifelse()</code></h1>
-<div class="quiz">
-<p>Is it? Or isn’t it?</p>
-</div>
-<p>Sometimes you may have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way <code>ifelse</code> is the tool for you.</p>
-<div id="mutate-ifelse-is-powerful" class="section level2 unnumbered">
-<h2><code>mutate()</code> + <code>ifelse()</code> is powerful!</h2>
-<p><img src="https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja" align="center" style="margin-right: 28px;" width="480" /></p>
-<p><br></p>
-<p>Sometimes you want the value of a new column to depend on the value of an existing column, in other words you want the new value to depend on a condition. We use <code>ifelse()</code> to do this.</p>
-<p><code>ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")</code></p>
-<div class="well">
-<p><strong>For example:</strong></p>
-<p><code>ifelse( [ The M&amp;M is</code> <span style="color: red;"> <code>red</code> </span> <code>], "</code> <span style="color: red;"> <code>Eat it!</code> </span> <code>", "Otherwise - Yuk! throw it out!.")</code></p>
-</div>
-<p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(readr)
-
-<span class="co"># Get the data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
-
-<span class="co"># Convert the TONS in all capital letters to title case &quot;Tons&quot;</span>
-<span class="co"># On Day 1 we did this using tolower()</span>
-
-scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">units =</span> <span class="kw">ifelse</span>(units <span class="op">==</span><span class="st"> &quot;TONS&quot;</span>, <span class="st">&quot;Tons&quot;</span>, units))</code></pre>
-<p><br></p>
-<p>Congratulations of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!</p>
-</div>
-</div>
 <div id="left_join" class="section level1">
-<h1><span class="header-section-number">2</span> | <code>left_join()</code></h1>
+<h1><span class="header-section-number">1</span> | <code>left_join()</code></h1>
+<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -40px; margin-left: 40px; margin-right: 5px;" width="384" /></p>
 <div id="join-2-tables" class="section level2 unnumbered">
 <h2>Join 2 tables</h2>
 <div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
@@ -232,15 +199,13 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <div id="adding-porg-names" class="section level3 unnumbered">
 <h3>Adding porg names</h3>
 <p>Remember our porg friends? How rude of us not to share their names. <strong>Wups!</strong></p>
-<div style="float: right; margin-left: 20px; margin-right: 20%; margin-top: 24px; width: 37%; max-width: 37%;">
+<p>Here’s a table of their names.</p>
+<div style="float: right; margin-left: 20px; margin-right: 30%; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
 <p><img src="../images/porgs/porg_names_tbl.png" /></p>
 </div>
-<p><br><br></p>
-<p>Here’s a table of their names.</p>
 <div style="clear: both;">
 
 </div>
-<p><br></p>
 <p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
 <p><img src="../images/porgs/porg_join.png" style="width: 90%; max-width: 85%;" /></p>
 <p><br></p>
@@ -252,10 +217,9 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </div>
 </div>
 <div id="more-joining" class="section level2">
-<h2><span class="header-section-number">2.1</span> More joining</h2>
-<div id="joining-star-wars-characters" class="section level3 unnumbered">
-<h3>Joining Star Wars characters</h3>
-<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: 0px; margin-left: 40px; margin-right: 5px;" width="380" /></p>
+<h2><span class="header-section-number">1.1</span> More joining</h2>
+<div id="star-wars-characters" class="section level3 unnumbered">
+<h3>Star Wars characters</h3>
 <strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
 <br>
 <style type="text/css"> .table {width: 30%;} </style>
@@ -336,13 +300,14 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
    
 <span class="co"># Create new tables </span>
 starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
-                               <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">150</span>, <span class="dv">246</span>))      
+                               <span class="dt">height =</span> <span class="kw">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">202</span>, <span class="dv">150</span>, <span class="dv">246</span>))      
 
 starwars_homeworlds &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), 
-                                  <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
+                                  <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
 
 <span class="co"># Join the tables together by starwars_name</span>
-<span class="co">## Tell left_join which columns to use as the key with:  by = c(&quot;key_left&quot; = &quot;key_right&quot;)</span>
+<span class="co">## Tell left_join which columns to use as the key with:  </span>
+<span class="co">##     by = c(&quot;key_left&quot; = &quot;key_right&quot;)</span>
 height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, 
                                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span>))
 
@@ -385,10 +350,25 @@ height_and_homeworld</code></pre>
 </tbody>
 </table>
 <p><br></p>
-<p>Did it work? When <strong>left_join</strong> added the height column to the <em>starwars_homeworlds</em> table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as <em>NA</em>.</p>
+<div id="did-it-work" class="section level4 unnumbered">
+<h4>Did it work?</h4>
+<p>When <strong>left_join</strong> adds the <code>homeworlds</code> column to the <em>starwars_heights</em> table it only adds a value for the characters when the tables have a matching character name. When R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as missing or <em><code>NA</code></em>.</p>
 <p><br></p>
-<p>Now let’s imagine that the <code>starwars_height</code> table has two characters named <em>Darth Vader</em> with different heights. What will happen when you join the tables?</p>
+</div>
+</div>
+<div id="multiple-records" class="section level3 unnumbered">
+<h3>Multiple records</h3>
+<div>
+<p><img src="../images/c3po.png" style="width: 13%; float: left; margin-top: 12px; margin-right: 4px;" /> <img src="../images/c3po.png" style="width: 13%; float: left; margin-top: 12px; margin-right: 28px;" /></p>
+</div>
 <p><br></p>
+<p>Now imagine the table <code>starwars_homeworld</code> has two records for C-3PO, each with a different homeworld listed.</p>
+<p>What will happen when you join the two tables?</p>
+<div style="clear: both;">
+<br>
+</div>
+<div style="float: left;">
+<p><code>starwars_heights</code></p>
 <table>
 <thead>
 <tr class="header">
@@ -410,32 +390,68 @@ height_and_homeworld</code></pre>
 <td align="right">202</td>
 </tr>
 <tr class="even">
-<td align="left">Darth Vader</td>
-<td align="right">246</td>
-</tr>
-<tr class="odd">
 <td align="left">Leia Organa</td>
 <td align="right">150</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Greedo</td>
-<td align="right">173</td>
+<td align="right">246</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div style="float: left; margin-left: 15%;">
+<p><code>starwars_homeworlds</code></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">starwars_name</th>
+<th align="left">homeworld</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Luke Skywalker</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="even">
+<td align="left">C-3PO</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">C-3PO</td>
+<td align="left">Tantive IV</td>
+</tr>
+<tr class="even">
+<td align="left">Darth Vader</td>
+<td align="left">Tatooine</td>
+</tr>
+<tr class="odd">
+<td align="left">Leia Organa</td>
+<td align="left">Alderaan</td>
+</tr>
+<tr class="even">
+<td align="left">Ayla Secura</td>
+<td align="left">Ryloth</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="clear: both;">
+
+</div>
 <p><br></p>
-<p>When you run the code below you’ll see that <strong>left_join</strong> is very thorough and adds each height it finds for <em>Darth Vader</em> as a new row in the joined table.</p>
+<p>When you run the code below you’ll see that <strong>left_join</strong> is very thorough and adds each additional homeworld it finds for <em>C-3PO</em> as a new row in the joined table.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new tables </span>
-starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
-                               <span class="dt">height  =</span> <span class="kw">c</span>(<span class="dv">172</span>,<span class="dv">167</span>,<span class="dv">202</span>,<span class="dv">246</span>, <span class="dv">150</span>, <span class="dv">173</span>))
+starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
+                               <span class="dt">height  =</span> <span class="kw">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">202</span>, <span class="dv">150</span>, <span class="dv">173</span>))
 
 
-starwars_homeworlds   &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), 
-                                    <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>,<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
+starwars_homeworlds &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Ayla Secura&quot;</span>), 
+                                  <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tantive IV&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
 
 <span class="co"># Join the tables together by Star Wars character name</span>
-height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, 
-                                  <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span> ))
+height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds)
 
 <span class="co"># Check number of rows</span>
 <span class="kw">nrow</span>(height_and_homeworld)
@@ -462,13 +478,13 @@ height_and_homeworld</code></pre>
 <td align="left">Tatooine</td>
 </tr>
 <tr class="odd">
-<td align="left">Darth Vader</td>
-<td align="right">202</td>
-<td align="left">Tatooine</td>
+<td align="left">C-3PO</td>
+<td align="right">167</td>
+<td align="left">Tantive IV</td>
 </tr>
 <tr class="even">
 <td align="left">Darth Vader</td>
-<td align="right">246</td>
+<td align="right">202</td>
 <td align="left">Tatooine</td>
 </tr>
 <tr class="odd">
@@ -485,18 +501,28 @@ height_and_homeworld</code></pre>
 </table>
 <p><br></p>
 <div class="note">
-<p>This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you’re using <strong>left_join</strong>. In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like <em>Darth Vader’s</em> age).</p>
-<p>In this situation, we’d want to find out whether we really had two Star Wars characters named <em>Darth Vader</em>, or if someone made two different guesses about <em>Darth Vader’s</em> age.</p>
+<p>This results in a table with one extra row than we started with in our heights table. So growing table sizes are a sign of duplicate records when using <strong>left_join()</strong>.</p>
+<p>In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different, as it was for <em>C-3PO’s</em> homeword.</p>
+<p>Are there really two different Star Wars characters named <em>C-3PO</em>, or maybe someone made two different guesses about the droid’s homeworld, or maybe the data simply has a mistake.</p>
+</div>
+<p><br></p>
 </div>
 </div>
 </div>
+<div id="finn-needs-us" class="section level1">
+<h1><span class="header-section-number">2</span> | Finn needs us!</h1>
+<p>That’s enough <em>scuttlebutting</em> around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he’s being held ransom by Junk Boss Plutt. We’ll need to act fast to get to him before the Empire does. <strong>Blast off!</strong></p>
+<p><img src="../images/finn_run.gif" /></p>
 </div>
-<div id="back-to-jakku" class="section level1">
-<h1><span class="header-section-number">3</span> | Back to Jakku!</h1>
-<p><strong>That’s enough scuttlebutt, we have actual work to do and need to help Rey.</strong></p>
-<p><strong>BB8 found a scrap mass conversion table from his droid buddies.</strong> How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be most profitable for Rey. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
-<div id="read-the-conversion-table-from-the-galactic-interwebs" class="section level2 unnumbered">
-<h2>Read the conversion table from the Galactic interwebs</h2>
+<div id="more-jakku-scrap" class="section level1">
+<h1><span class="header-section-number">3</span> | More Jakku scrap</h1>
+<p>Plutt is demanding <strong>10,000 items</strong> of scrap for Finn. Lucky for us he didn’t clarify the exact items. Let’s find the scrap that weighs the least per item to make this transaction as easy as possible.</p>
+<div id="good-news" class="section level4 unnumbered">
+<h4>Good news</h4>
+<p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
+</div>
+<div id="get-the-conversion-table" class="section level3 unnumbered">
+<h3>Get the conversion table</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
 <span class="co"># The data&#39;s url</span>
@@ -513,35 +539,48 @@ convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_u
 ## 2 Hull Panel         Cubic Yards    641
 ## 3 Repulsorlift array Cubic Yards    467</code></pre>
 <p><br></p>
+</div>
+<div id="re-read-the-full-scrap-data" class="section level3 unnumbered">
+<h3>Re-read the full scrap data</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 
 <span class="co"># Read in the larger scrap database</span>
-<span class="co"># Note this data set has items that are in units other than tons. </span>
-
+<span class="co"># Note: The data set has items that are in units other than tons. </span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;</span>)
 
-<span class="co"># Run the following code to investigate what units are in the dataset.</span>
+<span class="co"># Run either of the following to see </span>
+<span class="co"># what -unit- types are in the data </span>
 <span class="kw">unique</span>(scrap<span class="op">$</span>units)</code></pre>
 <pre><code>## [1] &quot;Cubic Yards&quot; &quot;Items&quot;       &quot;Tons&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(scrap, units)</code></pre>
+<pre><code>## # A tibble: 3 x 1
+##   units      
+##   &lt;chr&gt;      
+## 1 Cubic Yards
+## 2 Items      
+## 3 Tons</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Join the scrap to the conversion table</span>
-scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span> =<span class="st"> &quot;item&quot;</span>, <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))
+scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert, 
+                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span> =<span class="st"> &quot;item&quot;</span>, <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))</code></pre>
+<p><br></p>
+<blockquote>
+<p>Want to skimp on typing?</p>
+</blockquote>
+<p>When the 2 tables share column names that are the same, <code>left_join()</code> will automatically search for matching columns if you don’t use the <code>by=</code> argument. So the code below does the same as above.</p>
+<pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert)
 
-<span class="co"># Since our column names are the same, left_join will find the matching column names</span>
-<span class="co"># AND R tells you what columns it joined.</span>
-scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert)
-
-<span class="kw">head</span>(scrap, <span class="dv">5</span>)</code></pre>
-<pre><code>## # A tibble: 5 x 7
+<span class="kw">head</span>(scrap, <span class="dv">4</span>)</code></pre>
+<pre><code>## # A tibble: 4 x 7
 ##   item          origin   destination  amount units   price_per_pound pounds
 ##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;
 ## 1 Bulkhead      Cratert~ Raiders        4017 Cubic ~           1005.    321
 ## 2 Starship sen~ Outskir~ Trade carav~   1249 Cubic ~           1129.    637
 ## 3 Starship sen~ Outskir~ Niima Outpo~   4434 Cubic ~           1129.    637
-## 4 Hull Panel    Cratert~ Raiders         286 Cubic ~            843.    641
-## 5 Starship sen~ Cratert~ Trade carav~    305 Cubic ~           1129.    637</code></pre>
+## 4 Hull Panel    Cratert~ Raiders         286 Cubic ~            843.    641</code></pre>
 <p><br></p>
-<p><strong>Help!</strong> Remember to type <code>?left_join</code> if you are wondering what the arguments are.</p>
+<p><strong>Help!</strong> You can type <code>?left_join</code> to see all the arguments and options.</p>
+<p><br></p>
 <div id="exercise" class="section level4 unnumbered">
 <h4><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h4>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
@@ -561,39 +600,39 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 Total credits
 </h4>
 <p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the credits per pound. We want to know the total amount of credits for each transaction. How can we calculate that?</p>
-<pre class="sourceCode r"><code class="sourceCode r">
+<pre class="sourceCode r">
 
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(_______ = _______________)
          
-</code></pre>
+</pre>
 </div>
 <div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
 <h4>
 Total credits
 </h4>
 <p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
-<pre class="sourceCode r"><code class="sourceCode r">
+<pre class="sourceCode r">
 
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(credits = _______ * _______ * ________)
 
-</code></pre>
+</pre>
 </div>
 <div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
 <h4>
 Total credits
 </h4>
 <p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
-<pre class="sourceCode r"><code class="sourceCode r">
+<pre class="sourceCode r">
 
 # Calculate the total credits for each transaction
 scrap <- scrap %>% 
          mutate(credits = amount * pounds * price_per_pound)
          
-</code></pre>
+</pre>
 </div>
 </div>
 <p><br></p>
@@ -605,7 +644,7 @@ scrap <- scrap %>%
 <li>So what’s the average tonnage of scrap from Cratertown this year?</li>
 <li>Who’s making the most money this year?</li>
 </ul>
-<p>So, let us move on to <code>summarize()</code>.</p>
+<h4 id="so-let-us-move-on-to-summarize." class="unnumbered">So let us move on to <code>summarize()</code>.</h4>
 </div>
 </div>
 </div>
@@ -668,13 +707,12 @@ scrap <- scrap %>%
 <p><code>n()</code> stands for <em>count</em>.</p>
 <p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
 <p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
 
 niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre>
 <p><br></p>
 <div id="exercise-1" class="section level3 unnumbered">
-<h3><i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
 <p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.</p>
 <pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
                      <span class="dt">max_credits      =</span> __________,
@@ -699,14 +737,11 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <span class="st">            </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Acceleration compensator&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
 <p><br></p>
-<blockquote>
-<p><strong>Shut me down!</strong></p>
+<div class="note">
+<h4 id="shut-me-down" class="unnumbered"><strong>Shut me down!</strong></h4>
 <p>That was a whole lot of summarizing. Do we really have to filter to the Origin City that we’re interested in every time?</p>
 <p>It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.</p>
-</blockquote>
-<p><br></p>
-<div id="its-time-for-group_by" class="section level3 unnumbered">
-<h3>It’s time for <code>group_by()</code>!</h3>
+<h4 id="its-time-for-group_by" class="unnumbered">It’s time for <code>group_by()</code>!</h4>
 </div>
 </div>
 <div id="group_by" class="section level1">
@@ -776,8 +811,61 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">ungroup</span>()</code></pre>
 <p><br></p>
+</div>
+<div id="ifelse" class="section level1">
+<h1><span class="header-section-number">9</span> | <code>ifelse()</code></h1>
+<div id="if-this-thing-is-true-do-this-otherwise-do-this" class="section level3 unnumbered">
+<h3><code>[If this thing is true]</code>, <code>"Do this"</code>, <code>"Otherwise do this"</code></h3>
+<p><br></p>
+<p>Here’s a handy <code>ifelse</code> statement to help you identify lightsabers.</p>
+<p><img src="../images/yoda_lightsaber.jpg" style="width: 40%; margin-top: -8px; margin-bottom: 12px;" align="center" /></p>
+<div class="well">
+<p><code>ifelse(</code><strong>Is lightsaber</strong> <span style="color: green;"><strong>GREEN</strong>?</span>, <strong>Yes!</strong><code>Then it's Yoda's,</code> <strong>No!</strong><code>Then it's not Yoda's)</code></p>
+</div>
+<p>Sometimes you’ll want the value of a new column to depend on the value of an existing column. In other words you want the new value to depend on a condition. We use <code>ifelse()</code> to do this.</p>
+<p>When you have measurements in both PPB and PPM you may only want to convert the “PPM” measurements. Or if you have expensive and inexpensive ion engines you may only want to flag those that cost less than 500 credits. In both cases <code>ifelse</code> is the tool for you.</p>
+</div>
+<div id="mutate-ifelse-is-powerful" class="section level2 unnumbered">
+<h2><code>mutate()</code> + <code>ifelse()</code> is powerful!</h2>
+<p><img src="../images/yoda_rise_sm.png" style="width: 65%;" align="center" /></p>
+<p><br></p>
+<div id="units-update" class="section level3 unnumbered">
+<h3>Units update</h3>
+<p>Let’s use <code>ifelse</code> to update the units column to all be written as “Tons”.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(readr)
+
+<span class="co"># Get the data</span>
+scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
+
+<span class="co"># Convert the TONS in all capital letters to title case &quot;Tons&quot;</span>
+<span class="co"># On Day 1 we did this using tolower()</span>
+
+scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">units =</span> <span class="kw">ifelse</span>(units <span class="op">==</span><span class="st"> &quot;TONS&quot;</span>, <span class="st">&quot;Tons&quot;</span>, units))</code></pre>
+<p><br></p>
+</div>
+<div id="calibration-error" class="section level3 unnumbered">
+<h3>Calibration error</h3>
+<p><img src="../images/cratertown.png" align="left" style="width: 44%; margin-top: 18px; margin-right: 24px;" /></p>
+<p>We just received news that <strong>Cratertown’s</strong> scale was rigged. It was miscalibrated to overestimate the tons of outgoing scrap. Smart! But that means we have some junk data mixed in with our scrap data. Let’s use <code>ifelse</code> to reduce the tonnage by <code>10%</code>, but only for the scrap from <code>Cratertown</code>.</p>
+<p><br></p>
+<div style="clear: both;">
+
+</div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Reduce the amount of scrap from Cratertown by 10%</span>
+<span class="co">## Multiply the column &quot;amount&quot; * 0.90 </span>
+<span class="co">## Use ifelse() to only select rows where the origin == &quot;Cratertown&quot;</span>
+scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">amount =</span> <span class="kw">ifelse</span>(origin <span class="op">==</span><span class="st"> &quot;Cratertown&quot;</span>, amount <span class="op">*</span><span class="st"> </span><span class="fl">0.90</span>, amount))</code></pre>
+<p><br></p>
+<div class="data" style="clear: both;">
+<p><strong>Congratulations</strong> of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!</p>
+</div>
+</div>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>
 <p><br></p>
+</div>
 </div>
 </div>

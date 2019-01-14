@@ -80,22 +80,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="TOC">
 <ul>
-<li><a href="#lets-play-r-bingo"><span class="toc-section-number">1</span> Let’s play R BINGO!</a></li>
 <li><a href="#data-exploration">Data exploration</a></li>
-<li><a href="#dplyr"><span class="toc-section-number">2</span> | dplyr</a><ul>
+<li><a href="#dplyr"><span class="toc-section-number">1</span> | dplyr</a><ul>
 <li><a href="#get-to-know-your-data-frame">Get to know your data frame</a></li>
 </ul></li>
-<li><a href="#glimpse-and-summary"><span class="toc-section-number">3</span> | <code>glimpse()</code> and <code>summary()</code></a></li>
-<li><a href="#porg-tables"><span class="toc-section-number">4</span> | Porg tables</a></li>
-<li><a href="#select"><span class="toc-section-number">5</span> | <code>select()</code></a><ul>
+<li><a href="#glimpse-and-summary"><span class="toc-section-number">2</span> | <code>glimpse()</code> and <code>summary()</code></a></li>
+<li><a href="#porg-tables"><span class="toc-section-number">3</span> | Porg tables</a></li>
+<li><a href="#select"><span class="toc-section-number">4</span> | <code>select()</code></a><ul>
 <li><a href="#drop-columns-with-a-minus-sign--column_name">Drop columns with a minus sign: <code>-column_name</code></a></li>
 <li><a href="#drop-multiple-columns-with--ccol_1-col_2-or--col1--col2">Drop multiple columns with <code>-c(col_1, col_2)</code> or <code>-col1, -col2</code></a></li>
 <li><a href="#keep-only-three-columns">Keep only three columns</a></li>
 <li><a href="#everything"><code>everything()</code></a></li>
 </ul></li>
-<li><a href="#arrange"><span class="toc-section-number">6</span> | <code>arrange()</code></a><ul>
+<li><a href="#arrange"><span class="toc-section-number">5</span> | <code>arrange()</code></a><ul>
 <li><a href="#big-things-first-desc">Big things first: <code>desc()</code></a></li>
 </ul></li>
+<li><a href="#lets-play-r-bingo"><span class="toc-section-number">6</span> Let’s play R BINGO!</a></li>
 <li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a><ul>
 <li><a href="#comparisons"><span class="toc-section-number">7.1</span> Comparisons</a></li>
 <li><a href="#multiple-filters"><span class="toc-section-number">7.2</span> Multiple filters</a></li>
@@ -111,45 +111,17 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#bb8-has-a-new-mission">BB8 has a new mission</a></li>
 </ul></li>
 <li><a href="#welcome-to-endor"><span class="toc-section-number">11</span> | Welcome to Endor!</a></li>
-<li><a href="#calendar-plots"><span class="toc-section-number">12</span> | Calendar plots</a></li>
-<li><a href="#operation-shut-down"><span class="toc-section-number">13</span> | Operation Shut Down</a></li>
+<li><a href="#time-series"><span class="toc-section-number">12</span> | Time series</a></li>
+<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a></li>
+<li><a href="#operation-shut-down"><span class="toc-section-number">14</span> | Operation Shut Down</a></li>
 </ul>
 </div>
 
-<p><img src="../images/star-wars-bingo-image.jpg" align="center" style="margin-top: 12px; margin-bottom: -34px;" width="350" /></p>
-<div id="lets-play-r-bingo" class="section level1">
-<h1><span class="header-section-number">1</span> Let’s play R BINGO!</h1>
-<ol style="list-style-type: decimal">
-<li>No free spaces! We are mean.</li>
-<li>You will soon know all of these functions.</li>
-<li>We are going to call-out these functions using an R function.</li>
-</ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get pretty colors</span>
-<span class="kw">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)
-<span class="kw">library</span>(viridis)
-<span class="kw">library</span>(ggplot2)
-
-<span class="co"># List of all the functions</span>
-bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;median()&quot;</span>, <span class="st">&quot;nrow()&quot;</span>, <span class="st">&quot;glimpse()&quot;</span>, <span class="st">&quot;sum()&quot;</span>, <span class="st">&quot;head()&quot;</span>, <span class="st">&quot;tail()&quot;</span>, <span class="st">&quot;arrange()&quot;</span>, <span class="st">&quot;write_csv()&quot;</span>, <span class="st">&quot;geom_col()&quot;</span>, <span class="st">&quot;filter()&quot;</span>, <span class="st">&quot;ncol()&quot;</span>, <span class="st">&quot;sd()&quot;</span>, <span class="st">&quot;summarise()&quot;</span>, <span class="st">&quot;quantile()&quot;</span>, <span class="st">&quot;install.packages()&quot;</span>, <span class="st">&quot;geom_point()&quot;</span>, <span class="st">&quot;unique()&quot;</span>, <span class="st">&quot;select()&quot;</span>, <span class="st">&quot;mean()&quot;</span>, <span class="st">&quot;min()&quot;</span>, <span class="st">&quot;left_join()&quot;</span>, <span class="st">&quot;read_csv()&quot;</span>, <span class="st">&quot;nth()&quot;</span>, <span class="st">&quot;ggplot()&quot;</span>, <span class="st">&quot;library()&quot;</span>, <span class="st">&quot;n()&quot;</span>)
-
-<span class="co"># Shuffle the words randomly</span>
-bingo_words &lt;-<span class="st"> </span><span class="kw">sample</span>(bingo_words)
-
-<span class="co"># Set the number to draw</span>
-n &lt;-<span class="st"> </span><span class="dv">20</span>
-
-<span class="co"># Plot the word</span>
-<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>,<span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">theme_void</span>()</code></pre>
-</div>
 <div id="data-exploration" class="section level1 unnumbered">
 <h1>Data exploration</h1>
 </div>
 <div id="dplyr" class="section level1">
-<h1><span class="header-section-number">2</span> | dplyr</h1>
+<h1><span class="header-section-number">1</span> | dplyr</h1>
 <hr>
 <p><img src="../images/hex-dplyr.png" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;" width="128" /></p>
 <p><br></p>
@@ -203,7 +175,7 @@ n &lt;-<span class="st"> </span><span class="dv">20</span>
 </div>
 </div>
 <div id="glimpse-and-summary" class="section level1">
-<h1><span class="header-section-number">3</span> | <code>glimpse()</code> and <code>summary()</code></h1>
+<h1><span class="header-section-number">2</span> | <code>glimpse()</code> and <code>summary()</code></h1>
 <hr>
 <p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
 <p>Use the <code>summary()</code> function to get a quick report on your numeric data.</p>
@@ -288,7 +260,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <div id="porg-tables" class="section level1">
-<h1><span class="header-section-number">4</span> | Porg tables</h1>
+<h1><span class="header-section-number">3</span> | Porg tables</h1>
 <p>A group of porgs <em>(a poggle)</em> will help to demo the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
@@ -341,7 +313,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <div id="select" class="section level1">
-<h1><span class="header-section-number">5</span> | <code>select()</code></h1>
+<h1><span class="header-section-number">4</span> | <code>select()</code></h1>
 <hr>
 <p>Use the <code>select()</code> function to:</p>
 <ul>
@@ -434,7 +406,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <div id="arrange" class="section level1">
-<h1><span class="header-section-number">6</span> | <code>arrange()</code></h1>
+<h1><span class="header-section-number">5</span> | <code>arrange()</code></h1>
 <hr>
 <p>That’s helpful, but Rey wants to know what the highest priced item items are. Use <code>arrange()</code> to find the origin city with the most highest priced scrap item.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the least expensive scrap items</span>
@@ -490,8 +462,38 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <h3>Need a refreshing break? How about a…</h3>
 <p><br></p>
 <p><img src="../images/boba_tea.jpg" width="300" /></p>
+<p><br></p>
 </div>
 </div>
+</div>
+<div id="lets-play-r-bingo" class="section level1">
+<h1><span class="header-section-number">6</span> Let’s play R BINGO!</h1>
+<p><img src="../images/star-wars-bingo-image.jpg" align="center" style="margin-top: 0px; margin-bottom: 4px;" width="350" /></p>
+<ol style="list-style-type: decimal">
+<li>No free spaces! We are mean.</li>
+<li>You will soon know all of these functions.</li>
+<li>We are going to call-out these functions using an R function.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get pretty colors</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)
+<span class="kw">library</span>(viridis)
+<span class="kw">library</span>(ggplot2)
+
+<span class="co"># List of all the functions</span>
+bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;median()&quot;</span>, <span class="st">&quot;nrow()&quot;</span>, <span class="st">&quot;glimpse()&quot;</span>, <span class="st">&quot;sum()&quot;</span>, <span class="st">&quot;head()&quot;</span>, <span class="st">&quot;tail()&quot;</span>, <span class="st">&quot;arrange()&quot;</span>, <span class="st">&quot;write_csv()&quot;</span>, <span class="st">&quot;geom_col()&quot;</span>, <span class="st">&quot;filter()&quot;</span>, <span class="st">&quot;ncol()&quot;</span>, <span class="st">&quot;sd()&quot;</span>, <span class="st">&quot;summarise()&quot;</span>, <span class="st">&quot;quantile()&quot;</span>, <span class="st">&quot;install.packages()&quot;</span>, <span class="st">&quot;geom_point()&quot;</span>, <span class="st">&quot;unique()&quot;</span>, <span class="st">&quot;select()&quot;</span>, <span class="st">&quot;mean()&quot;</span>, <span class="st">&quot;min()&quot;</span>, <span class="st">&quot;left_join()&quot;</span>, <span class="st">&quot;read_csv()&quot;</span>, <span class="st">&quot;nth()&quot;</span>, <span class="st">&quot;ggplot()&quot;</span>, <span class="st">&quot;library()&quot;</span>, <span class="st">&quot;n()&quot;</span>)
+
+<span class="co"># Shuffle the words randomly</span>
+bingo_words &lt;-<span class="st"> </span><span class="kw">sample</span>(bingo_words)
+
+<span class="co"># Set the number to draw</span>
+n &lt;-<span class="st"> </span><span class="dv">20</span>
+
+<span class="co"># Plot the word</span>
+<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>,<span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_void</span>()</code></pre>
 </div>
 <div id="filter" class="section level1">
 <h1><span class="header-section-number">7</span> | <code>filter()</code></h1>
@@ -735,7 +737,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## $ Planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
 ## $ Result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
 <p><br></p>
-<p><strong>I see that there are more analytes than we need. We only want to know about <code>magentic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
+<p><strong>I see that there are more analytes than we need. We only want to know about <code>magnetic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre>
 <p><br></p>
@@ -755,8 +757,14 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 
 mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
 </div>
+<div id="time-series" class="section level1">
+<h1><span class="header-section-number">12</span> | Time series</h1>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+
+mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
+</div>
 <div id="calendar-plots" class="section level1">
-<h1><span class="header-section-number">12</span> | Calendar plots</h1>
+<h1><span class="header-section-number">13</span> | Calendar plots</h1>
 <p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" /></p>
 <p>We can make a calendar plot to see when higher magnetic field values occur. Maybe we can pinpoint what day a magnetic storm occurred.</p>
 <p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install <code>openair</code> and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
@@ -774,17 +782,28 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
              <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>, 
              <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">34</span>), 
                                  <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
-             <span class="dt">main =</span> <span class="st">&quot;Magentic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre>
+             <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-4-1.png" width="2880" /></p>
 <div id="mission-accomplished" class="section level3 unnumbered">
 <h3>Mission accomplished!</h3>
-<p>It looks like there really were high magentic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
+<p>It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
 <p><br></p>
 </div>
 </div>
 <div id="operation-shut-down" class="section level1">
-<h1><span class="header-section-number">13</span> | Operation Shut Down</h1>
-<p>When you close R for the first time you will see some options about saving a <code>.Rdata</code> files.</p>
+<h1><span class="header-section-number">14</span> | Operation Shut Down</h1>
+<p>When you close R for the first time you will see some options about saving your workspace and other files. In general, we advise against saving these files. It’s easy enough to re-run your script next time you open your project. This will help RStudio open a fresh and clean environment every time you start it.</p>
+<p>Follow these steps to set these options permanently.</p>
+<p><strong>Turn off “Save Workspace”</strong></p>
+<ol style="list-style-type: decimal">
+<li>Go to <code>Tools &gt; Global Options....</code> on the top RStudio navigation bar</li>
+<li>On the first screen:
+<ul>
+<li>[ ] Uncheck Restore .Rdata into workspace at startup</li>
+<li>Set <em>Save workspace to .RData on exit</em> to [“Never”].</li>
+<li>[ ] Uncheck Always save history</li>
+</ul></li>
+</ol>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-1.html">Homebase</a></h3>
 <p><br></p>

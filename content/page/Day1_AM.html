@@ -250,33 +250,33 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">8/24/2018</td>
-<td align="right">21</td>
-<td align="right">66.2</td>
+<td align="left">4/17/2018</td>
+<td align="right">6</td>
+<td align="right">30.2</td>
 </tr>
 <tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">5/1/2016</td>
-<td align="right">3</td>
-<td align="right">43.4</td>
+<td align="left">27-137-7001</td>
+<td align="left">6/23/2017</td>
+<td align="right">10</td>
+<td align="right">80.0</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7001</td>
+<td align="left">10/19/2017</td>
+<td align="right">10</td>
+<td align="right">62.6</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
 <td align="left">9/18/2016</td>
-<td align="right">5</td>
-<td align="right">48.2</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">8/25/2016</td>
-<td align="right">18</td>
-<td align="right">72.8</td>
+<td align="right">8</td>
+<td align="right">48.8</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">9/23/2018</td>
-<td align="right">13</td>
-<td align="right">69.8</td>
+<td align="left">7/20/2016</td>
+<td align="right">17</td>
+<td align="right">79.7</td>
 </tr>
 </tbody>
 </table>
@@ -376,6 +376,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p><a href = "https://github.com/dKvale/ex__OZONE__Project">
 <img src="../images/github_example_ozone.png" style="width: 95%;" />
 </a></p>
+<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you’ll be able to tell them. And when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.</p>
 </div>
 </div>
 </div>
@@ -650,48 +651,49 @@ starwars_df<span class="op">$</span>ages</code></pre>
 <div id="read-data" class="section level1">
 <h1><span class="header-section-number">4</span> | Read data</h1>
 <hr>
-<p>The first step of a good scrap audit is reading/loading some data to figure out where all the scrap is going. Here is a small dataset showing the scrap from Jakku. It was salvaged from a crash site and the transfer was incomplete.</p>
+<p>The first step of a good scrap audit is reading in some data to figure out where all the scrap is coming from. Here is a small dataset showing the scrap economy on Jakku. It was salvaged from a crash site, but the transfer was incomplete.</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">source</th>
+<th align="left">origin</th>
 <th align="left">destination</th>
 <th align="left">item</th>
-<th align="right">quantity</th>
-<th align="right">price</th>
+<th align="right">amount</th>
+<th align="left">price_d</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Coruscant</td>
-<td align="left">Jakuu</td>
-<td align="left">hyperdrives</td>
-<td align="right">3</td>
-<td align="right">300</td>
+<td align="left">Outskirts</td>
+<td align="left">Raiders</td>
+<td align="left">Bulkhead</td>
+<td align="right">332</td>
+<td align="left">300</td>
 </tr>
 <tr class="even">
-<td align="left">Tatooine</td>
-<td align="left">Jakuu</td>
-<td align="left">datapads</td>
-<td align="right">100</td>
-<td align="right">25</td>
+<td align="left">Niima Outpost</td>
+<td align="left">Trade caravan</td>
+<td align="left">Hull panels</td>
+<td align="right">1120</td>
+<td align="left">286</td>
 </tr>
 <tr class="odd">
-<td align="left">Naboo</td>
-<td align="left">Jakuu</td>
-<td align="left">hyperdrives</td>
+<td align="left">Cratertown</td>
+<td align="left">Plutt</td>
+<td align="left">Hyperdrives</td>
 <td align="right">45</td>
-<td align="right">45</td>
+<td align="left">45</td>
 </tr>
 <tr class="even">
-<td align="left">Endor</td>
-<td align="left">Jakuu</td>
-<td align="left">hyperdrives</td>
+<td align="left">Tro—-</td>
+<td align="left">Ta—-</td>
+<td align="left">So—*</td>
 <td align="right">1</td>
-<td align="right">10000000</td>
+<td align="left">10—-</td>
 </tr>
 </tbody>
 </table>
+<p>This looks like it could be useful. If only we had some more data to work with…</p>
 <div id="new-message-1" class="section level2 unnumbered">
 <h2>New Message <em>(1)</em></h2>
 <details>
@@ -879,7 +881,7 @@ scrap</code></pre>
 </div>
 <div id="limit-the-total-number-of-rows" class="section level3 unnumbered">
 <h3>Limit the total number of rows</h3>
-<p>Other types of data have wierd last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you don’t want to bog down the memory on an old laptop.</p>
+<p>Other types of data have weird last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you don’t want to bog down the memory on an old laptop.</p>
 <p>Let’s look through the help window to find an argument that can help us. Type <code>?read_csv</code> and scroll down.</p>
 <p>The <code>n_max</code> argument looks like it could be helpful. The default is <code>n_max = Inf</code>, which means it will read every line, but we can limit the lines we read to only one hundred by using <code>n_max = 100</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in 100 rows</span>
@@ -897,7 +899,7 @@ small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span 
 <blockquote>
 <p><code>feed_creatures(porg = "small fish", ewok = "vegetables", tauntaun = "lichen")</code>.</p>
 </blockquote>
-<p>A shorthand to write this would be <code>feed_creatures("small fish", "vegetables", "lichen")</code>. This works becuase all the arguments remain in the default order.</p>
+<p>A shorthand to write this would be <code>feed_creatures("small fish", "vegetables", "lichen")</code>. This works because all the arguments remain in the default order.</p>
 <p>However, if we write <code>feed_creatures("vegetables", "lichen", "small fish")</code>, the function will send <em>vegetables</em> to the porgs and <em>lichen</em> to the Ewoks. That’s no good. If we really want to write “lichen” second, we need to tell R which food item belongs to each animal, such as <code>feed_creatures("small fish", tauntaun = "lichen", ewok = "vegetables")</code>.</p>
 <p>The same thing goes for <code>read_csv()</code>. In <code>read_csv(scrap_file, column_names, skip = 1)</code>, R assumes the file is <code>scrap_file</code> and that the col_names should be set to <code>column_names</code>. The <code>skip =</code> argument has to be included explicitly because <em>skip</em> is the <strong>10th</strong> argument in <code>read_csv()</code>. If we don’t include <code>skip =</code>, R will assume the value we entered is meant for the function’s <strong>3rd</strong> argument.</p>
 </p>
@@ -1007,8 +1009,8 @@ Pop Quiz!
 <details>
 <p><summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code><br />
-<em>Correct! You are ready to audit a Junk dealer.</em></p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code></p>
+<p><em>Correct! You are ready to audit a Junk dealer.</em></p>
 <p><br></p>
 </p>
 </details>

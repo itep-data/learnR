@@ -23,15 +23,13 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ![](../images/day2_bb8_sq.png){width="260" style="float: left; margin-right: 60px; margin-top: -10px;"}
 
-<br>
-
-## Day 2 morning schedule  {-}
+## Schedule  {-}
 
     - Review of Day 1
-    - Add a column with a condition
     - Summarize your data
     - String together many functions
-    - Group or categorize your data
+    - Add new column that depends on values of another column
+    - Summarize by group or category in your data
     - Save data
 
 <br><br>
@@ -57,55 +55,10 @@ cat(readLines("porg_tabs.txt"))
 ```
 
 
-# | `ifelse()`
-
-<div class="quiz">
-Is it? Or isn't it? 
-</div>
-
-Sometimes you may have measurements in both PPB and PPM and you only want to convert the PPB rows to PPM units. Or maybe you only want to flag the ion engines that cost less than 500 as a great buy. Either way `ifelse` is the tool for you.
-
-## `mutate()` + `ifelse()` is powerful! {-}
-
-![](https://vignette2.wikia.nocookie.net/starwars/images/2/24/PowerSurge-HOBS.png/revision/latest?cb=20170513041246u0026path-prefix=ja){width="480" align="center" style="margin-right: 28px;"}
-
-<br>
-
-Sometimes you want the value of a new column to depend on the value of an existing column, in other words you want the new value to depend on a condition. We use `ifelse()` to do this.
-
-`ifelse( [If this thing is true] , "Do this", "Otherwise do this thing")`
-
-
-<div class="well">
-__For example:__
- 
-`ifelse( [ The M&M is ` <span style="color: red;"> `red` </span> `], "` <span style="color: red;"> `Eat it! ` </span> `", "Otherwise - Yuk! throw it out!.")`
-
-</div>
-
-<br>
-```{r ifelse, eval = F}
-
-library(dplyr)
-library(readr)
-
-# Get the data
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
-
-# Convert the TONS in all capital letters to title case "Tons"
-# On Day 1 we did this using tolower()
-
-scrap <- scrap %>% 
-         mutate(units = ifelse(units == "TONS", "Tons", units))
-
-```
-
-<br>
-
-Congratulations of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!
-
-
 # | `left_join()`
+
+
+![](../images/left_join_cheat.png){width="384" align="right" style="margin-top: -40px; margin-left: 40px; margin-right: 5px;"}
 
 ## Join 2 tables {-}
 
@@ -117,19 +70,13 @@ Congratulations of galactic proportions to you. We have a clean and tidy data se
 
 Remember our porg friends? How rude of us not to share their names. __Wups!__
 
-<div style="float: right; margin-left: 20px; margin-right: 20%; margin-top: 24px; width: 37%; max-width: 37%;">
+Here's a table of their names.
+
+<div style="float: right; margin-left: 20px; margin-right: 30%; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
 ![](../images/porgs/porg_names_tbl.png){}
 </div>
 
-<br><br>
-
-Here's a table of their names.
-
-
-
 <div style="clear: both;"></div>
-
-<br>
 
 __Hey now!__ That's not very helpful. Who's who? Let's join their names to the rest of the data.
 
@@ -147,10 +94,7 @@ __Hey now!__ That's not very helpful. Who's who? Let's join their names to the r
 
 ## More joining
 
-### Joining Star Wars characters {-}
-
-
-![](../images/left_join_cheat.png){width="380" align="right" style="margin-top: 0px; margin-left: 40px; margin-right: 5px;"}
+### Star Wars characters {-}
 
 **left_join()** is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. 
 <br>
@@ -161,7 +105,6 @@ __Hey now!__ That's not very helpful. Who's who? Let's join their names to the r
 <div style="float: left;">
 
 `starwars_heights`
-
 ```{r, echo=F, warning=F, message=F}
 library(dplyr)
 library(knitr)
@@ -201,13 +144,14 @@ library(dplyr)
    
 # Create new tables 
 starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height = c(172,167,202,150, 246))      
+                               height = c(172, 167, 202, 150, 246))      
 
 starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                  homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
+                                  homeworld = c("Tatooine", "Tatooine", "Tatooine", "Alderaan", "Ryloth"))
 
 # Join the tables together by starwars_name
-## Tell left_join which columns to use as the key with:  by = c("key_left" = "key_right")
+## Tell left_join which columns to use as the key with:  
+##     by = c("key_left" = "key_right")
 height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, 
                                   by = c("starwars_name" = "starwars_name"))
 
@@ -222,35 +166,75 @@ kable(height_and_homeworld)
 
 <br>
 
-Did it work? When **left_join** added the height column to the *starwars_homeworlds* table it only entered a value for the homeworld when the tables had a matching Star Wars character name. So when R couldn't find "Greedo" in the homeworld table, the Star Wars character's homeworld was recorded as _NA_.  
+#### Did it work? {-}
+
+When **left_join** adds the `homeworlds` column to the *starwars_heights* table it only adds a value for the characters when the tables have a matching character name. When R couldn't find "Greedo" in the homeworld table, the Star Wars character's homeworld was recorded as missing or _`NA`_.  
 
 <br>
 
-Now let's imagine that the `starwars_height` table has two characters named _Darth Vader_ with different heights. What will happen when you join the tables?
+
+
+### Multiple records {-}
+
+<div>
+![](../images/c3po.png){style="width: 13%; float: left; margin-top: 12px; margin-right: 4px;"} ![](../images/c3po.png){style="width: 13%; float: left; margin-top: 12px; margin-right: 28px;"}
+</div>
 
 <br>
 
-```{r, echo=F}
-kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), 
-                 height  = c(172, 167, 202, 246, 150, 173)))
+Now imagine the table `starwars_homeworld` has two records for C-3PO, each with a different homeworld listed.  
+
+What will happen when you join the two tables?
+
+<div style="clear: both;"> <br> </div>
+
+
+<div style="float: left;">
+
+`starwars_heights`
+
+```{r, echo=F, warning=F, message=F}
+library(knitr)
+
+# Create height table 
+starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
+                               height = c(172, 167, 202, 150, 246))
+kable(starwars_heights)
+
 ```
 
+</div>
+
+
+<div style="float: left; margin-left: 15%;">
+
+`starwars_homeworlds`
+
+```{r, echo =F, warning=F, message=F}
+
+kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
+                                    homeworld = c("Tatooine", "Tatooine", "Tantive IV", "Tatooine", "Alderaan", "Ryloth")))
+```
+
+</div>
+
+<div style="clear: both;"> </div>
+
 <br>
 
-When you run the code below you'll see that **left_join** is very thorough and adds each height it finds for _Darth Vader_ as a new row in the joined table. 
+When you run the code below you'll see that **left_join** is very thorough and adds each additional homeworld it finds for _C-3PO_ as a new row in the joined table. 
 
 ```{r, warning=F, message=F, results='hide'}
 # Create new tables 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height  = c(172,167,202,246, 150, 173))
+starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
+                               height  = c(172, 167, 202, 150, 173))
 
 
-starwars_homeworlds   <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                    homeworld = c("Tatooine","Tatooine","Tatooine", "Alderaan", "Ryloth"))
+starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
+                                  homeworld = c("Tatooine", "Tatooine", "Tantive IV", "Tatooine", "Alderaan", "Ryloth"))
 
 # Join the tables together by Star Wars character name
-height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, 
-                                  by = c("starwars_name" = "starwars_name" ))
+height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds)
 
 # Check number of rows
 nrow(height_and_homeworld)
@@ -267,20 +251,33 @@ kable(height_and_homeworld)
 <br>
 
 <div class="note">
-This results in a table with one extra row than we had before. So growing table sizes are a good sign of duplicate values when you're using **left_join**. In practice, when you see this you'll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different (like _Darth Vader's_ age). 
+This results in a table with one extra row than we started with in our heights table. So growing table sizes are a sign of duplicate records when using **left_join()**. 
 
-In this situation, we'd want to find out whether we really had two Star Wars characters named _Darth Vader_, or if someone made two different guesses about _Darth Vader's_ age. 
+In practice, when you see this you'll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different, as it was for _C-3PO's_ homeword. 
+
+Are there really two different Star Wars characters named _C-3PO_, or maybe someone made two different guesses about the droid's homeworld, or maybe the data simply has a mistake. 
 
 </div>
 
-# | Back to Jakku!
+<br>
 
-__That's enough scuttlebutt, we have actual work to do and need to help Rey.__
+# | Finn needs us!
 
-__BB8 found a scrap mass conversion table from his droid buddies.__ How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be most profitable for Rey. And we can do that much more efficiently now that we know `left_join()`!  
+That's enough _scuttlebutting_ around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he's being held ransom by Junk Boss Plutt. We'll need to act fast to get to him before the Empire does. __Blast off!__ 
+
+![](../images/finn_run.gif)
 
 
-## Read the conversion table from the Galactic interwebs {-}
+# | More Jakku scrap
+
+Plutt is demanding __10,000 items__ of scrap for Finn. Lucky for us he didn't clarify the exact items. Let's find the scrap that weighs the least per item to make this transaction as easy as possible.
+
+#### Good news {-}
+
+BB8 tracked down a scrap `Mass conversion table` from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know `left_join()`!  
+
+
+### Get the conversion table {-}
 
 ```{r read-convert, eval = T, message = F}
 
@@ -298,35 +295,48 @@ head(convert, 3)
 
 <br>
 
-```{r join-convert, eval=T}
+### Re-read the full scrap data {-}
 
+```{r join-convert, eval=T}
 library(readr)
 library(dplyr)
 
 # Read in the larger scrap database
-# Note this data set has items that are in units other than tons. 
-
+# Note: The data set has items that are in units other than tons. 
 scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv")
 
-# Run the following code to investigate what units are in the dataset.
+# Run either of the following to see 
+# what -unit- types are in the data 
 unique(scrap$units)
 
+distinct(scrap, units)
 
 # Join the scrap to the conversion table
-scrap <- left_join(scrap, convert, by = c("item" = "item", "units" = "units"))
-
-# Since our column names are the same, left_join will find the matching column names
-# AND R tells you what columns it joined.
-scrap <- left_join(scrap, convert)
-
-head(scrap, 5)
-
+scrap <- left_join(scrap, convert, 
+                   by = c("item" = "item", "units" = "units"))
 ```
-
 
 <br>
 
-__Help!__ Remember to type `?left_join` if you are wondering what the arguments are.
+> Want to skimp on typing?
+
+When the 2 tables share column names that are the same, `left_join()` will automatically search for matching columns if you don't use the `by=` argument. So the code below does the same as above.
+
+```{r join-convert2, eval=F}
+scrap <- left_join(scrap, convert)
+
+head(scrap, 4)
+```
+
+```{r join-convert3, eval=T, echo=F}
+head(scrap, 4)
+```
+
+<br>
+
+__Help!__ You can type `?left_join` to see all the arguments and options.
+
+<br>
 
 
 #### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
@@ -388,7 +398,7 @@ Data analysts often get asked questions similar to:
 - So what's the average tonnage of scrap from Cratertown this year? 
 - Who's making the most money this year?
 
-So, let us move on to `summarize()`.
+#### So let us move on to `summarize()`. {-}
 
 </div>
 
@@ -476,8 +486,6 @@ Use summarize and `n()` to count the number of reported scrap records going to `
 
 __Hint:__ Use `filter()` first.
 
-<br>
-
 ```{r, eval=F}
 niima_scrap <- filter(scrap, destination == "Niima Outpost") 
 
@@ -488,7 +496,7 @@ niima_scrap <- summarize(niima_scrap, scrap_records = n())
 <br>
 
 
-### <i class="fa fa-starwars" aria-hidden="true" style="color: green"></i> Exercise {-}
+### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
 
 Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.
 
@@ -514,7 +522,7 @@ __Let the `%>%` guide you young Padawan.__
 
 <br>
 
-Luckily, you __don't__ have to do ALL that typing. The pipe let's you can chain functions together and do everything in one go. 
+Luckily, you __don't__ have to do ALL that typing. The pipe let's you chain functions together and do everything in one go. 
 
 <br>
 
@@ -532,17 +540,17 @@ my_scrap <- scrap %>%
 <br>
 
 
-> __Shut me down!__ 
->
-> That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
->
-> It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
+<div class="note">
 
-<br>
+#### __Shut me down!__ {-}
 
+That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
 
-### It's time for `group_by()`! {-}
+It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
 
+#### It's time for `group_by()`! {-}
+
+</div>
 
 # | `group_by()`
 <hr>
@@ -655,6 +663,83 @@ scrap <- group_by(scrap, origin) %>%
 ```
 
 <br>
+
+
+
+# | `ifelse()`
+
+### `[If this thing is true]`, `"Do this"`, `"Otherwise do this"` {-}
+
+<br>
+
+Here's a handy `ifelse` statement to help you identify lightsabers.
+
+![](../images/yoda_lightsaber.jpg){style="width: 40%; margin-top: -8px; margin-bottom: 12px;" align="center"}
+
+<div class="well">
+`ifelse( `__Is lightsaber__ <span style="color: green;">__GREEN__?</span>, __Yes!__`Then it's Yoda's,` __No!__`Then it's not Yoda's)`
+
+</div>
+
+
+Sometimes you'll want the value of a new column to depend on the value of an existing column. In other words you want the new value to depend on a condition. We use `ifelse()` to do this.
+
+When you have measurements in both PPB and PPM you may only want to convert the "PPM" measurements. Or if you have expensive and inexpensive ion engines you may only want to flag those that cost less than 500 credits. In both cases `ifelse` is the tool for you.
+
+## `mutate()` + `ifelse()` is powerful! {-}
+
+![](../images/yoda_rise_sm.png){style="width: 65%;" align="center"}
+
+<br>
+
+### Units update {-}
+
+Let's use `ifelse` to update the units column to all be written as "Tons".
+
+```{r ifelse, message=F, warning=F}
+
+library(dplyr)
+library(readr)
+
+# Get the data
+scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
+
+# Convert the TONS in all capital letters to title case "Tons"
+# On Day 1 we did this using tolower()
+
+scrap <- scrap %>% 
+         mutate(units = ifelse(units == "TONS", "Tons", units))
+
+```
+
+<br>
+
+### Calibration error {-}
+
+![](../images/cratertown.png){align="left" style="width: 44%; margin-top: 18px; margin-right: 24px;"}
+
+We just received news that __Cratertown's__ scale was rigged. It was miscalibrated to overestimate the tons of outgoing scrap. Smart! But that means we have some junk data mixed in with our scrap data. Let's use `ifelse` to reduce the tonnage by `10%`, but only for the scrap from `Cratertown`.
+
+<br>
+
+<div style="clear: both;"></div>
+
+```{r calibrate, eval=T}
+# Reduce the amount of scrap from Cratertown by 10%
+## Multiply the column "amount" * 0.90 
+## Use ifelse() to only select rows where the origin == "Cratertown"
+scrap <- scrap %>% 
+         mutate(amount = ifelse(origin == "Cratertown", amount * 0.90, amount))
+
+```
+
+<br>
+
+<div class="data" style="clear: both;">
+__Congratulations__ of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!
+</div>
+
+
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}
 

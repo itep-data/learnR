@@ -280,6 +280,7 @@ ggsave("results/2015-2017 - Ozone vs Temp.pdf")
 ![](../images/github_example_ozone.png){style="width: 95%;"}
 </a>
 
+Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you'll be able to tell them. And when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.
 
 
 # | A new day
@@ -632,24 +633,26 @@ The lines of code in the scripts that start with a `#` in front are called comme
 # | Read data
 <hr>
 
-The first step of a good scrap audit is reading/loading some data to figure out where all the scrap is going. Here is a small dataset showing the scrap from Jakku. It was salvaged from a crash site and the transfer was incomplete.
+The first step of a good scrap audit is reading in some data to figure out where all the scrap is coming from. Here is a small dataset showing the scrap economy on Jakku. It was salvaged from a crash site, but the transfer was incomplete.
 
 ```{r ex-data1, echo=F, message=F, warning=F}
-library("readr")
-library("tibble")
-library("knitr")
+library(readr)
+library(tibble)
+library(knitr)
 
 options(scipen = 999)
 
-scrap <- data.frame(source      = c("Coruscant", "Tatooine", "Naboo", "Endor"), 
-                    destination = c("Jakuu", "Jakuu", "Jakuu", "Jakuu"), 
-                    item        = c("hyperdrives", "datapads", "hyperdrives", "hyperdrives"), 
-                    quantity    = c(3, 100, 45, 1), 
-                    price       = c(300, 25, 45, 10000000))
+scrap <- data.frame(origin      = c("Outskirts", "Niima Outpost", "Cratertown", "Tro----"), 
+                    destination = c("Raiders", "Trade caravan", "Plutt", "Ta----"), 
+                    item        = c("Bulkhead", "Hull panels", "Hyperdrives", "So---*"), 
+                    amount      = c(332, 1120, 45, 1), 
+                    price_d     = c("300", "286", "45", "10----"))
 
 kable(scrap)
 ```
 
+
+This looks like it could be useful. If only we had some more data to work with...
 
 ## New Message _(1)_ {-}
 
@@ -844,7 +847,7 @@ read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv", skip = 1)
 
 ###  Limit the total number of rows {-}
 
-Other types of data have wierd last rows that are a _subtotal_ or just report "END OF DATA". Sometimes we want `read_csv` to ignore the last row, or only pull in a million lines because you don't want to bog down the memory on an old laptop. 
+Other types of data have weird last rows that are a _subtotal_ or just report "END OF DATA". Sometimes we want `read_csv` to ignore the last row, or only pull in a million lines because you don't want to bog down the memory on an old laptop. 
 
 Let's look through the help window to find an argument that can help us. Type `?read_csv` and scroll down.
 
@@ -873,7 +876,7 @@ You may be wondering why we included `skip =` for the skip argument, but only pr
 
 > `feed_creatures(porg = "small fish", ewok = "vegetables", tauntaun = "lichen")`.
 
-A shorthand to write this would be `feed_creatures("small fish", "vegetables", "lichen")`. This works becuase all the arguments remain in the default order.
+A shorthand to write this would be `feed_creatures("small fish", "vegetables", "lichen")`. This works because all the arguments remain in the default order.
 
 However, if we write `feed_creatures("vegetables", "lichen", "small fish")`, the function will send _vegetables_ to the porgs and _lichen_ to the Ewoks. That's no good. If we really want to write "lichen" second, we need to tell R which food item belongs to each animal, such as `feed_creatures("small fish", tauntaun = "lichen", ewok = "vegetables")`.
 
@@ -1042,6 +1045,7 @@ __Which of these is a valid function call?__
 
 <p>
 <i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `replicate(100000000, "clones")`  
+
 _Correct! You are ready to audit a Junk dealer._
 
 <br>

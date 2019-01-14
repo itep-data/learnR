@@ -9,71 +9,77 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-#Graduation Ceremony
+# Graduation ceremony
 
 ```{r, eval = T, echo = F}
 library(cowsay)
 
-say(what = "Congratulations. You are eggcelent Kari", by = "chicken", type = "message")
+say(what = "Congratulations Kari! You are Eggcelent.", by = "chicken", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Purrfect work Shane", by = "cat", type = "message")
+say(what = "Congratulations Shane! Purrfect work.", by = "cat", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Your R work has been Bitening Phil", by = "shark", type = "message")
+say(what = "Congratulations Phil! You took a bite out of R.", by = "shark", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. You have got to be kitten me your R work is so good Vallen", by = "cat", type = "message")
+say(what = "Congratulations Vallen! You've got to be kitten your R skills are too good.", by = "cat", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. You are owl in with R Nick", by = "owl", type = "message")
+say(what = "Congratulations Nick! You are owl in with R", by = "owl", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Mooooove over little data Tyler is onto HUGE data", by = "cow", type = "message")
+say(what = "Congratulations Tyler! Mooooove over little data it's time for HUGE data.", by = "cow", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Leapin lizards that was great work Sarah", by = "frog", type = "message")
+say(what = "Congratulations Sarah! Leapin' lizards that was great work.", by = "frog", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Yoda woman Brandy!", by = "yoda", type = "message")
+say(what = "Congratulations Brandy! Yoda woman!", by = "yoda", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. fANTastic work Nathan!", by = "ant", type = "message")
+say(what = "Congratulations Nathan! fANTastic work!", by = "ant", type = "message")
 ```
 
 <br><br><br>
 
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. Some bunny rocked this class (It was Carma)", by = "rabbit", type = "message")
+say(what = "Congratulations Carma! Some bunny rocked this class.", by = "rabbit", type = "message")
 ```
 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations. You spun some genius in this class Eric", by = "spider", type = "message")
+say(what = "Congratulations Eric! You spun some genius in this class.", by = "spider", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Kayla! Awesome aeroBATics in this R class.", by = "bat", type = "message")
 ```

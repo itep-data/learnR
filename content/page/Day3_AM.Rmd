@@ -43,18 +43,159 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 
 ![](../images/upload_files.png)
 
-# Day 1 review
+# | Day 1 review
+
+## Get to know your __Data Frame__ {-}
+
+| Function | Information             |  
+|:------|:---------------------------|  
+| `names(scrap)`  | column names            |  
+| `nrow(...)`     | number of rows          |  
+| `ncol(...)`     | number of columns       | 
+| `summary(...)`  | summary of all column values (ex. _max_, _mean_, _median_)  | 
+| `glimpse(...)`  | column names + a glimpse of first values (requires _dplyr_ package)   |  
 
 
-# Day 2 review
+<br>
+
+## Your `dplyr` toolbox {-}
+
+![](../images/hex-dplyr.png){width="128" align="left" style="margin-right: 26px; margin-top: 30px; margin-bottom: 20px;"}
 
 
-### `ggplot` {-}
+| Function      | Job                                                 |  
+|:--------------|:----------------------------------------------------|  
+| `select()`    | Choose individual columns to drop, keep, or reorder |  
+| `arrange()`   | Reorder or sort rows by value of a column           |  
+| `filter()`    | Pick a subset of rows by the value of a column      | 
+| `mutate()`    | Add new columns or update existing columns          | 
+| `summarize()` | Calculate a single summary for the entire table     |   
+| `group_by()`  | Split data into groups by values in a column        |  
 
 
-# On Earth
 
-Now that we're back on Earth, let's look at some data to get reacclimated. Choose one of the data exercises below to begin. 
+## `dplyr` with Porgs {-}
+
+The _poggle_ of porgs has returned to help us review `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
+
+```{r, eval = F}
+library(readr)
+porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
+```
+
+<br>
+
+```{r porg-tabs, results='asis', echo=F}
+cat(readLines("porg_tabs.txt"))
+```
+
+
+
+# | Day 2 review
+<hr>
+
+![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 70px; margin-top: -28px;"}
+
+
+## The `ggplot()` sandwich {-}
+
+
+![](../images/auto_plot.gif){style="margin-top: -22px; max-width: 108%; margin-bottom: -16px;"}
+
+
+
+### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Warm-up! {-}
+
+
+### Who's the tallest of them all?
+
+```{r, eval=F}
+# Install new packages
+install.packages("ggrepel")
+```
+
+<br>
+
+```{r, message=F, warning=F}
+# Load packages
+library(dplyr)
+library(ggplot2)
+library(ggrepel)
+
+# Get starwars character data
+star_df <- starwars
+```
+
+<br>
+
+```{r, warning=F}
+# What is this?
+glimpse(star_df)
+```
+
+<br>
+
+Plot a histogram of the character heights.
+
+```{r, message=F, warning=F}
+# Height distribution
+ggplot(star_df, aes(x = height)) + geom_histogram(fill = "hotpink")
+```
+
+<br>
+
+<div class="note">
+
+- Try changing the fill color to __"<span style="color: #FD6A02;">darkorange</span>"__.
+
+- Try making a histogram of the character's `mass`.
+
+</div>
+
+<br>
+
+Plot comparisons between height and mass with `geom_point(...)`.
+```{r, eval=F, message=F, warning=F}
+# Height vs. Mass scatterplot
+ggplot(star_df, aes(y = mass, x = height)) +
+   geom_point(aes(color = species), size = 5)
+
+
+# Add labels
+ggplot(star_df, aes(y = mass, x = height)) +
+  geom_point(aes(color = species), size = 5) +
+  geom_text_repel(aes(label = name))
+
+
+# Log scale for Mass
+ggplot(star_df, aes(y = log10(mass), x = height)) +
+  geom_point(aes(color = species), size = 5) +
+  geom_text_repel(aes(label = name))
+
+
+# Without the Hutt
+ggplot(filter(star_df, species != "Hutt"), aes(y = mass, x = height)) +
+  geom_point(aes(color = species), size = 5) +
+  geom_text_repel(aes(label = name, color = species))
+
+```
+
+<br>
+
+```{r, eval=T, message=F, warning=F}
+# Split out by species
+ggplot(star_df, aes(x = mass, y = height)) +
+  geom_point(aes(color = species), size = 3) +
+  facet_wrap(vars(species)) +
+  guides(color = FALSE)
+```
+
+
+# Back to Earth
+
+You're free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we're back, let's look at some data to get fully reacclimated. 
+
+Choose one of the data exercises below to begin. 
 
 
 <div class="row3" style="margin-top: 20px;">
@@ -139,7 +280,6 @@ Planet: `Earth`
 </div>
 </div>
 
-
-
 <br>
 
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../page/day3_am.html) {-}

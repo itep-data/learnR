@@ -112,7 +112,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><a href="#welcome-to-endor"><span class="toc-section-number">11</span> | Welcome to Endor!</a></li>
 <li><a href="#time-series"><span class="toc-section-number">12</span> | Time series</a></li>
-<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a></li>
+<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a><ul>
+<li><a href="#openair-package"><code>openair</code> package</a></li>
+</ul></li>
 <li><a href="#operation-shut-down"><span class="toc-section-number">14</span> | Operation Shut Down</a></li>
 </ul>
 </div>
@@ -744,6 +746,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <blockquote>
 <p><strong>Boom!</strong> How many rows are left now?</p>
 </blockquote>
+<p><br></p>
 <p><img src="../images/lubridate.png" align="left" style="margin-right: 32px; margin-top: 14px; margin-bottom: 20px;" width="150" /></p>
 <div style="margin-top: 44px;">
 
@@ -756,17 +759,28 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
 
 mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
+<p><br></p>
+<p><strong>We’re also only interested in observations from after the year <code>9916</code>. So let’s filter the data down to only dates after that year.</strong></p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)
+
+mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))
+
+mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, <span class="kw">year</span>(date) <span class="op">&gt;</span><span class="st"> &quot;9916&quot;</span>)</code></pre>
 </div>
 <div id="time-series" class="section level1">
 <h1><span class="header-section-number">12</span> | Time series</h1>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
-
-mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mag_endor, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> Result)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">5</span>) </code></pre>
+<p><img src="/page/Day1_PM_files/figure-html/endor-time-1.png" width="672" /></p>
 </div>
 <div id="calendar-plots" class="section level1">
 <h1><span class="header-section-number">13</span> | Calendar plots</h1>
 <p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" /></p>
-<p>We can make a calendar plot to see when higher magnetic field values occur. Maybe we can pinpoint what day a magnetic storm occurred.</p>
+<p>Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm occurred.</p>
+<div id="openair-package" class="section level2 unnumbered">
+<h2><code>openair</code> package</h2>
 <p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install <code>openair</code> and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>) </code></pre>
@@ -788,6 +802,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <h3>Mission accomplished!</h3>
 <p>It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
 <p><br></p>
+</div>
 </div>
 </div>
 <div id="operation-shut-down" class="section level1">

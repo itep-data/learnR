@@ -19,45 +19,27 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 
-# Tidy data
-
-<hr>
-
-This __From Messy to Tidy data__ exercise is available online at 
-
-<br>
-
-> https://itep-r.netlify.com/
-
-<br>
-
-The messy data examples can be downloaded from here
-
-<br>
-
-> https://github.com/MPCA-air/RCamp/tree/master/data/messy_data
-
-<br>
-
-
+# | Tidy data
 <hr>
 
 <br>
 
-> First we load and/or install the necessary libraries.
+> First we load and/or install the necessary packages.
 
 <br>
 
-```{r, eval=F, echo = F}
+```{r, eval=F, echo = T}
 
-# Install these packages
+# Install these packages if you haven't already
 install.packages("readxl")    # For importing Excel data
 install.packages("tidyr")     # For re-organizing your data frames
 install.packages("lubridate") # For dates
-install.packages("stringr") # Cleans spaces and character strings
+install.packages("stringr")   # Cleans spaces and character strings
 install.packages("forcats")   # For assigning an order to character data c("Gold", "Silver", "Bronze")
-install.packages("openxlsx") #To pull Excel files straight from a website
+install.packages("openxlsx")  # To pull Excel files straight from a website
 ```
+
+<br>
 
 ```{r, eval = T, echo = T}                 
 # Load these packages
@@ -75,25 +57,31 @@ library("openxlsx")
 
 <br>
 
-<a href="https://itep-r.netlify.com/data/emissions_data.xlsx?raw=true">
-<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Many WIDE emissions data files
+<a href="https://itep-r.netlify.com/data/emissions_data.xlsx">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  WIDE emissions data file
 
 ## Read the data
 <br>
 
 
-```{r, echo = T, eval = T}
+```{r, echo=T, eval=F}
 
-#Change folder path to the location where you downloaded the emissions files
+# Change folder path to the location where you downloaded the emissions files
 
 # Load emissions Excel file
+wide_data <- read_excel("data/emissions_data.xlsx")
+
+```
+
+```{r, echo=F, eval=T}
+# Load emissions Excel file from X-drive
 wide_data <- read_excel("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/ITEP/Web/learnR/content/data/emissions_data.xlsx")
 
 ```
 
-<br>
-##Look at all of these columns. This is real life. {-}
-<br>
+
+## Look at all of these columns. This is real life. {-}
+
 
 ```{r, eval = T, echo = T}
 
@@ -101,12 +89,12 @@ names(wide_data)
 
 ```
 
-<br>
-##Clean the data.
-<br>
+ 
+## Clean the data.
+
 
 ```{r, eval = T, echo = T}
-#2. Make all names Lowercase
+# 2. Make all names Lowercase
 wide_data <- wide_data %>%
   rename_all(tolower)
 
@@ -116,31 +104,30 @@ wide_data <- wide_data %>%
 
 ![](../images/tidyr.png){width="350" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;"}
 
-##Now we are going to zip all of these columns into one __pollutant__ column. This is a function in the `tidyr` package called `gather()` {-}
+## Now we are going to zip all of these columns into one __pollutant__ column. This is a function in the `tidyr` package called `gather()` {-}
 
 <br>
 
 ```{r, echo = T, eval = T}
 
-#3. Gather all the pollutant columns into one
+# 3. Gather all the pollutant columns into one
 
 long_data <- wide_data %>% 
                 gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
 
 ```
 
-<br>
-##We still have some cleaning to do. {-}
-<br>
+
+## We still have some cleaning to do. {-}
 
 ```{r, echo = T, eval = T}
-#4. Drop the missing values and zero emissions
+# 4. Drop the missing values and zero emissions
 long_data <- filter(long_data, !is.na(emissions), emissions > 0)
 ```
 
-<br>
-##Plot the data   Plot the data   Plot the data
-<br>
+ 
+## Plot the data,   Plot the data,   Plot the data {-}
+ 
 
 ```{r, echo = T, eval = T}
 #5. Plot emissions for *ALL* pollutants
@@ -162,7 +149,7 @@ long_data %>%
     scale_y_log10()
 
 
-#6. Arrange plots in descending order
+# 6. Arrange plots in descending order
 long_data <- long_data %>% arrange(desc(emissions))
 
 # See the new pollutant order
@@ -176,24 +163,28 @@ long_data %>%
     labs(x = "Pollutant")
 ```
 
-<br>
+ 
 
 ## **Bonus** 
-<br>
+ 
 ```{r, echo = T, eval = T}
-
-
 # Flip your data back to wide format using 
 ## spread(data, column_to_spread, column_to_use_for_values)
+
 wide_again <- spread(long_data, pollutant, emissions)  
 
 ```
 
 
-###But, what if I get an entire folder of WIDE data and I need to look at all of it by next Friday???? {-}
+<br>
+
+> __TOO many files to read?__
+>
+> What if you get an entire folder of WIDE data and need to look at all of it by this Friday?? {-}
+
+
 
 ## Looping through files
-
 
 ```{r, echo = T, eval = T}
 # Example "for loop"
@@ -212,46 +203,56 @@ for (i in num) {
 
 <br>
 
-###Download these files into a folder called "messy_data" {-}
+### Download these files into a folder called "messy_data" {-}
 
-<a href="https://itep-r.netlify.com/data/messy_data.zip?raw=true">
-<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  A WIDE emissions data file
+<a href="https://itep-r.netlify.com/data/messy_data.zip">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  An entire folder of data files
 
 
-##`list.files`
+## `list.files`
 
 <br>
-####`list.files()` is your friend. It provides a list of all of the file names in a folder. {-}
+
+#### `list.files()` is my friend. It provides a list of all of the file names in a folder. {-}
+
 <br>
 
+```{r, echo = T, eval = F}
+# Type in the folder where you downloaded the messy data folder
+# R will look for your data there
+
+folder_path <- "data/messy_data"
+
+folder_emissions <- list.files(folder_path)
+
+# If you can't remember what directory you are in, this function helps
+list.files("../")
+```
 
 
-```{r, echo = T, eval = T}
-
-#Type in the folder where you just downloaded messy data folder
-#R will look for your data there
+```{r, echo=F, eval=T}
+# Type in the folder where you downloaded the messy data folder
+# R will look for your data there
 
 folder_path <- "X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/ITEP/Web/learnR/content/data/messy_data"
 
 folder_emissions <- list.files(folder_path)
 
-# If you can't remember what directory you are in this function will help.
-
+# If you can't remember what directory you are in, this function helps
 list.files("../")
-
 ```
-
 <br>
+
 ## `for()` loop
 
 <br>
 
 ```{r, echo = T, eval = T}
 
-##Set up an empty data frame
+## Set up an empty data frame
 data_emissions <- data.frame()
 
-## for loop for WIDE emission files
+## For loop for WIDE emission files
 
 for (i in folder_emissions) {
   
@@ -268,7 +269,9 @@ for (i in folder_emissions) {
 ```
 
 <br>
-###Now for all of those WIDE emissions files we only have to process and clean the data once. {-}
+
+### Now for all of those WIDE emissions files we only have to process and clean the data once. {-}
+
 <br>
 
 ```{r, echo = T, eval = T}
@@ -281,7 +284,9 @@ names(data_emissions)
 
 # Gather into the long format
 long_data <- wide_data %>% 
-                gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
+                gather(key   = pollutant, 
+                       value = emissions, 
+                       `222trifluoroetha`:`solv in coat`)
 
 # Drop the missing values and zero emissions
 long_data <- filter(long_data, !is.na(emissions), emissions > 0)
@@ -292,6 +297,13 @@ glimpse(data_emissions)
 
 <br>
 
-
 ![](../images/chucknorris.png){style="float: right; margin-top: -10px;"}
-## Look out messy data, R is coming for you.
+
+## Look out messy data, R is coming for you. {-}
+
+<br>
+
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day3 AM](../page/day3_am.html) {-}
+
+
+<br>

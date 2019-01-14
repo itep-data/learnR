@@ -133,9 +133,9 @@ ggplot(census) +
 <p>To make Anne Morris’ day, ask her a question about coordinate reference systems.</p>
 </blockquote>
 </div>
-<div id="epsg-number-for-utm-coordinates---26915" class="section level2">
-<h2>EPSG number for UTM coordinates - <code>26915</code></h2>
-<p>Minnesota tends to use UTM coordinates for official business. They look like really big numbers, kind of like this: <code>475340, 5010480</code>. They’re easy to put in the wrong order, so it helps to remember that the latitude / Y-direction is the one with an extra digit.</p>
+<div id="epsg-number-for-utm-coordinates-26915" class="section level2">
+<h2>EPSG number for UTM coordinates: <code>26915</code></h2>
+<p>Minnesota tends to use UTM coordinates for official business. They look like really big numbers, kind of like this: <code>475340, 5010480</code>. They’re easy to put in the wrong order, so it helps to remember that the latitude (or Y-direction or N-S direction) is the one with an extra digit.</p>
 <p>UTM coordinates are broken up into different zones to help reduce the errors of mapping a sphere to a flat surface. Minnesota uses <strong>UTM zone 15N</strong>. If you’re serious about maps, you should go ahead and get this tatooed to your right shoulder.</p>
 <p>The EPSG code for <strong>UTM zone 15N</strong> is <code>26915</code>.</p>
 <p>(See <a href="https://epsg.io/26915" class="uri">https://epsg.io/26915</a>)</p>
@@ -360,6 +360,27 @@ midw_counties &lt;- counties(state = c(&quot;MN&quot;,&quot;SD&quot;,&quot;ND&qu
 plot(midw_counties, col = midw_counties$STATEFP, stroke = &quot;white&quot;)</code></pre>
 <p><img src="/page/explore_GIS_maps_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 </div>
+<div id="tribal-block-groups" class="section level3">
+<h3>Tribal block groups</h3>
+<pre class="r"><code># Load geography
+tribal_bgs &lt;- tribal_block_groups()
+
+
+# Interactive map
+leaflet(tribal_bgs) %&gt;%
+  addProviderTiles(&quot;CartoDB.Positron&quot;) %&gt;%
+  addPolygons(fillColor = &quot;steelblue&quot;,
+              color     = &quot;black&quot;,
+              weight    = 0.5,
+              opacity   = 0.75)
+
+# Filter to Midwest region
+#tribal_bgs &lt;- filter(tribal_bgs, ....)
+
+# Re-map
+#
+#</code></pre>
+</div>
 </div>
 </div>
 <div id="american-community-survey-acs" class="section level1">
@@ -384,9 +405,11 @@ pops &lt;- get_acs(geography = &quot;tract&quot;, state = &quot;MN&quot;, variab
 select(pops, -GEOID) %&gt;% head()</code></pre>
 <pre><code>## Error in select(pops, -GEOID): object &#39;pops&#39; not found</code></pre>
 <p><br></p>
-<p><em>Reference:</em> <a href="https://edzer.github.io/UseR2017/#reading-and-writing-spatial-data">UseR2017 | reading and writing spatial data</a></p>
+<p><em>Reference:</em> <a href="https://edzer.github.io/UseR2017/#reading-and-writing-spatial-data">UseR 2017, Reading and writing spatial data</a></p>
 <p><br></p>
-<p><em>You’ve reached the end of the dusty path. You look around and all you see is an old worn scrap of leather. Maybe it used to be a shoe? You can pick it up and take it with you if you like. The choice is yours.</em></p>
-<p>Return to the homepage and continue your adventure.</p>
+<div id="return-to-day-3-am" class="section level3 unnumbered">
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../page/day3_am.html">Day 3-AM</a></h3>
+<p><br></p>
+</div>
 </div>
 </div>

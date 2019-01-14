@@ -44,11 +44,11 @@ starwars_guess_who <- starwars
 
 <br>
 
-### The rules  {-}
+### <span style="text-decoration: underline;"> Rules </span> {-}
 
 1. Scroll through the Star Wars dataset and find a character you find interesting.
    - Or run `sample_n(starwars, 1)` to choose your character at random.
-1. __Don't let your neighbor see the character you chose.__
+1. __Keep it hidden!__ Don't show your neighbor the character you chose.
 1. Take turns asking each other questions about your neighbor's Star Wars character. 
 1. Use the answers to build a `filter()` function and narrow down the potential character your neighbor may have picked. 
 1. _Elusive_ answers are encouraged.
@@ -57,12 +57,13 @@ starwars_guess_who <- starwars
     - If you're feeling generous you can give a more straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
 1. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. So, some of your filter statements might be `is.na(hair_color)` or `is.na(mass)`. 
 
-<span class="btn_code_green"> __WINNER!__ </span>
+<span class="btn_code_green" style="margin-top: 18px;"> __WINNER!__ </span>
 
 - The winner is the first to guess their neighbor's character.
 
+<br>
 
-Here's a `filter()` statement that subsets the data to the character _Plo Koon_.
+Here's a `filter()` statement to subset the data to the character _Plo Koon_.
 
 ```{r, eval = F}
 mr_koon <- filter(starwars,
@@ -84,14 +85,93 @@ How about you make it best of __3__ games.
 
 </div>
 
+<br><br>
+
+# | `ifelse()`
+
+### `[If this thing is true]`, `"Do this"`, `"Otherwise do this"` {-}
+
+<br>
+
+Here's a handy `ifelse` statement to help you identify lightsabers.
+
+![](../images/yoda_lightsaber.jpg){style="width: 40%; margin-top: -8px; margin-bottom: 12px;" align="center"}
+
+<div class="well">
+`ifelse( `__Is lightsaber__ <span style="color: green;">__GREEN__?</span>, __Yes!__`Then it's Yoda's,` __No!__`Then it's not Yoda's)`
+
+</div>
+
+
+Sometimes you'll want the value of a new column to depend on the value of an existing column. In other words you want the new value to depend on a condition. We use `ifelse()` to do this.
+
+When you have measurements in both PPB and PPM you may only want to convert the "PPM" measurements. Or if you have expensive and inexpensive ion engines you may only want to flag those that cost less than 500 credits. In both cases `ifelse` is the tool for you.
+
+## `mutate()` + `ifelse()` is powerful! {-}
+
+![](../images/yoda_rise_sm.png){style="width: 65%;" align="center"}
+
+<br>
+
+### Units update {-}
+
+Let's use `ifelse` to update the units column to all be written as "Tons".
+
+```{r ifelse, message=F, warning=F}
+
+library(dplyr)
+library(readr)
+
+# Get the data
+scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
+
+# Convert the TONS in all capital letters to title case "Tons"
+# On Day 1 we did this using tolower()
+
+scrap <- scrap %>% 
+         mutate(units = ifelse(units == "TONS", "Tons", units))
+
+```
+
+<br>
+
+### Calibration error {-}
+
+![](../images/cratertown.png){align="left" style="width: 44%; margin-top: 18px; margin-right: 24px;"}
+
+We just received news that __Cratertown's__ scale was rigged. It was miscalibrated to overestimate the tons of outgoing scrap. Smart! But that means we have some junk data mixed in with our scrap data. Let's use `ifelse` to reduce the tonnage by `10%`, but only for the scrap from `Cratertown`.
+
+<br>
+
+<div style="clear: both;"></div>
+
+```{r calibrate, eval=T}
+# Reduce the amount of scrap from Cratertown by 10%
+## Multiply the column "amount" * 0.90 
+## Use ifelse() to only select rows where the origin == "Cratertown"
+scrap <- scrap %>% 
+         mutate(amount = ifelse(origin == "Cratertown", amount * 0.90, amount))
+
+```
+
+<br>
+
+<div class="data" style="clear: both;">
+__Congratulations__ of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!
+</div>
+
+
+<br>
+
+
 
 ![](../images/Star-Wars-Data.png){align="right" style="width: 50%; margin-left: 20px; margin-right: 12px; margin-top: 40px;"}
 
-## Plot the data! {-}   
+<br><br>
 
-## Plot the data! {-}  
-
-## Plot the data! {-}  
+### Plot the data! {-}   
+### Plot the data! {-}  
+### Plot the data! {-}  
 
 <br>
 
@@ -103,7 +183,7 @@ How about you make it best of __3__ games.
 
 <br>
 
-![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 30px; margin-top: -28px;"}
+![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 70px; margin-top: -28px;"}
 
 
 ## The `ggplot()` sandwich {-}
@@ -115,7 +195,7 @@ How about you make it best of __3__ games.
 
 
 ### 1. The base plot {-}
-```{r, echo = F}
+```{r, echo = T, eval = T}
 library(ggplot2)
 ```
 
@@ -154,13 +234,13 @@ ggplot(scrap)
 
 The _aesthetics_ assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.
 
-```{r, eval = F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits)) 
 ```
 
 
 ### 3. The layers or _geometries_  {-}
-```{r, eval = F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits)) + geom_point()
 ```
 
@@ -173,7 +253,7 @@ Try making a scatterplot of any two columns.
 
 _Hint: Numeric variables will be more informative._
 
-```{r, eval = F}
+```{r, eval = F, echo = T}
 ggplot(scrap, aes(x = __column1__, y = __column2__)) + geom_point()
 ```
 
@@ -182,7 +262,7 @@ ggplot(scrap, aes(x = __column1__, y = __column2__)) + geom_point()
 
 
 Now let's use color to show the origins of the scrap
-```{r, eval = F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
   geom_point()
 ```
@@ -192,24 +272,24 @@ ggplot(scrap, aes(x = destination, y = credits, color = origin)) +
 
 This is a **A LOT** of detail. Let's make a bar chart and add up the sales to make it easier to understand.
 
-```{r, eval = F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_bar(stat = "sum")
 ```
 
 <br>
 
 This is the same as `geom_col()`.
-```{r, eval=F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits, fill = origin)) + geom_col()
 ```
 
 <br>
 
 <div class="data">
-#### What if we want to make it easier to compare sales by origin? Let's change the position. {-}
+#### It's still a bit tricky to compare sales by origin. Let's change the position of the columns. {-}
 </div>
 
-```{r, eval = F}
+```{r, eval = T}
 ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
   geom_bar(stat = "sum", position = "dodge")
 ```
@@ -237,7 +317,7 @@ ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
 
 When you add more layers using `+` remember to place it at the end of each line.
 
-```{r, eval=F}
+```{r, eval = F, echo = T}
 # This will work
 ggplot(scrap, aes(x = origin, y = credits)) +
   geom_point()
@@ -263,7 +343,7 @@ ggplot(scrap, aes(x = origin, y = credits))
 Now let's use color to show the destinations of the scrap.
 
 
-```{r, eval=T}
+```{r, eval=T, echo = T}
 ggplot(scrap, aes(x = origin, y = credits, color = destination)) +
   geom_point()
 ```
@@ -282,17 +362,17 @@ An easy way to experiment with colors is to add layers like `scale_fill_brewer` 
 This is a too much detail. Let's make a bar chart and add up the sales to make it easier to understand. Note that we use `fill=` inside `aes()` instead of `color=`. If we use color, we get a colorful outline and grey (or gray) bars.
 
 
-```{r, eval = F}
+```{r, eval = T, echo = T}
 ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col()
 ```
 
 <br>
 
-What if we want to make it easier to compare sales by destination for each origin? Let's change the position of the bars. Remember, you can use `help(geom_col)` to learn about different options for the function. You can do the same with any other `ggplot2` function.
+Let's change the position of the bars to make it easier to compare sales by destination for each origin? Remember, you can use `help(geom_col)` to learn about the different options for that plot. Feel free to do the same with other `geom_`'s as well.
 
 
-```{r, eval = F}
+```{r, eval = T, echo = T}
 ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge")
 ```
@@ -300,9 +380,9 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 ## Facet wrap {-}
 
-What if we want to make the chart less crowded? Let's use the `facet wrap` function to put each origin on a separate chart.
+Does the chart feel crowded to you? Let's use the `facet wrap` function to put each origin on a separate chart.
 
-```{r, eval = F}
+```{r, eval = T, echo = T}
 ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination")
@@ -314,8 +394,8 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 You may not like the appearance of these plots. `ggplot2` uses `theme` functions to change the appearance of a plot. Try some different themes out.
 
-```{r, eval = F}
-ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+```{r, eval = T, echo = T}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination") +
   theme_bw()
@@ -326,8 +406,8 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
 
 You can also change the axis and title labels using the `labs` function.
 
-```{r, eval = F}
-ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+```{r, eval = T, echo = T}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination") +
   theme_bw() +
@@ -336,16 +416,18 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
        y     = "Total sales")
 ```
 
+<br>
 
 ## Drop `2.2e+06` scientific notation {-}
 
 Want to get rid of that ugly scientific notation? We can use `options(scipen = 999)`. Note that this is a general setting in R and not part of `ggplot`. Once you use `options(scipen = 999)` in your current session, you don't have to use it again (like loading a package, you only need to run the line once when you start a new R session).
 
+<br>
 
-```{r, eval = F}
+```{r, eval = T, echo = T}
 options(scipen = 999)
 
-ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination") +
   theme_bw() +
@@ -356,25 +438,33 @@ ggplot(clean_data, aes(x = origin, y = total_price, fill = destination)) +
 
 <br>
 
-<div class="data">
+<div class="note">
 #### CHALLENGE {-}
 
-What if we don't like the zeros and want the labels to be in millions of credits? Any ideas?
+Let's say we don't like printing so many zeros and want the labels to be in __Millions__ of credits. Any ideas on how to make that happen?
 </div>
+
 
 <br>
 
 
-#### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
+### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
 
-We've covered how to do a scatterplot with `geom_point` and a bar chart with `geom_col`, but now we want to do a boxplot of the total price for each destination. But we're not telling you which function to use. You're on your own here. Feel free to add colors ,`facet_wrap`, `theme`, and `labs` to your boxplots. May the force be with you.
+<div class="data">
 
+#### Your turn! {-}
+ 
+Be brave and make a boxplot. We've covered how to do a scatterplot with `geom_point` and a bar chart with `geom_col`, but how would you make a boxplot showing the prices at each destination? You're on your own here. Feel free to add `color` ,`facet_wrap`, `theme`, and `labs` to your boxplots. 
+
+May the force be with you.
+
+</div>
 
 ## Save plots {-}
 
 You've hopefully made some plots you're proud of, so let's learn to save them so we can cherish them forever. There's a function called `ggsave` to do just that. How do we `ggsave` our plots? HELP! Let's type `help(ggsave)`.
 
-```{r ggsave, eval = F}
+```{r ggsave, eval = F, echo = T}
 # Get help
 help(ggsave)
 ?ggsave
@@ -396,9 +486,9 @@ ggsave("your_results_folder/plot_name.png")
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
 <div class="note">
 
-What if you don't want to save just the last plot you've made? Instead, you want to make a plot and save it for later. Give your plot a name!
+Sometimes you may want to make a plot and save it for later. For that, you give your plot a name. Any name will do.
 
-```{r ggsave-objects, eval = F}
+```{r ggsave-objects, eval = F, echo = T}
 
 # The ggplot you want to save
 my_plot <- ggplot(...)

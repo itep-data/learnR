@@ -572,6 +572,8 @@ mag_endor <- filter(air_endor, Analyte == "magnetic_field")
 
 > __Boom!__ How many rows are left now?
 
+<br>
+
 ![](../images/lubridate.png){width="150" align="left" style="margin-right: 32px; margin-top: 14px; margin-bottom: 20px;"}
 
 <div style="margin-top: 44px;"></div>
@@ -589,12 +591,27 @@ mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 ```
 
 
+<br>
+
+__We're also only interested in observations from after the year `9916`. So let's filter the data down to only dates after that year.__ 
+
+<br>
+
+```{r endor-air-filter-year}
+mag_endor <- filter(air_endor, Analyte == "magnetic_field")
+
+mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
+
+mag_endor <- filter(mag_endor, year(date) > "9916")
+```
+
 
 # | Time series
 ```{r endor-time, message=F}
-library(lubridate)
+ggplot(mag_endor, aes(x = date, y = Result)) + 
+  geom_line(color = "tomato", size = 2) + 
+  geom_point(alpha = 0.5, size = 5) 
 
-mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 ```
 
 
@@ -603,7 +620,9 @@ mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 
 ![](../images/endor_lego_sq.PNG){align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;"}
 
-We can make a calendar plot to see when higher magnetic field values occur. Maybe we can pinpoint what day a magnetic storm occurred.
+Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm occurred.
+
+## `openair` package {-}
 
 There is a calendar plot function built into a package called `openair`. Let's install `openair` and then use `calendarplot()` to make a calendar of the observations.
 

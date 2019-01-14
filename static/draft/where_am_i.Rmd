@@ -1,18 +1,16 @@
 ---
 title: "Folder paths"
-date: '2018-12-11'
-showDate: false
-showAuthor: false
-summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
-slug: 'where_am_i'
-categories: [training]
-tags: [training]
-type: ''
-image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
-imageWidth: '30%'
-imageFloat: 'left'
+output: 
+ html_document:
+    toc: false
+    toc_depth: 2
+    highlight: tango
+    css: css/camp_style.css
+    self_contained: false
+    fontsize: 14pt
+    monofont: Source Code Pro
+    monofontoptions: Scale = 1.1
 ---
-
 
 ![](../../images/day1_bb8_sq.png){width="240" style="float: right; margin-left: 34px; margin-top: 55px; margin-bottom: 64px;"}
 

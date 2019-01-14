@@ -130,9 +130,9 @@ However, the coordinates shown to the user are primarily in : __EPSG\#:__ `4326`
 > To make Anne Morris' day, ask her a question about coordinate reference systems.
 
 
-## EPSG number for UTM coordinates - `26915`
+## EPSG number for UTM coordinates: `26915`
 
-Minnesota tends to use UTM coordinates for official business. They look like really big numbers, kind of like this: ` 475340, 5010480 `. They're easy to put in the wrong order, so it helps to remember that the latitude / Y-direction is the one with an extra digit. 
+Minnesota tends to use UTM coordinates for official business. They look like really big numbers, kind of like this: ` 475340, 5010480 `. They're easy to put in the wrong order, so it helps to remember that the latitude (or Y-direction or N-S direction) is the one with an extra digit. 
 
 UTM coordinates are broken up into different zones to help reduce the errors of mapping a sphere to a flat surface. Minnesota uses __UTM zone 15N__. If you're serious about maps, you should go ahead and get this tatooed to your right shoulder.
 
@@ -343,6 +343,30 @@ plot(midw_counties, col = midw_counties$STATEFP, stroke = "white")
 ```
 
 
+### Tribal block groups
+```{r, results='hide', message=F, warning=F}
+# Load geography
+tribal_bgs <- tribal_block_groups()
+
+
+# Interactive map
+leaflet(tribal_bgs) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(fillColor = "steelblue",
+              color     = "black",
+              weight    = 0.5,
+              opacity   = 0.75)
+
+# Filter to Midwest region
+#tribal_bgs <- filter(tribal_bgs, ....)
+
+# Re-map
+#
+#
+```
+
+
+
 # American Community Survey (ACS) 
 
 Let's install the _tidycensus_ package.
@@ -371,12 +395,12 @@ select(pops, -GEOID) %>% head()
 
 <br>
 
-_Reference:_ [UseR2017 | reading and writing spatial data](https://edzer.github.io/UseR2017/#reading-and-writing-spatial-data)
+_Reference:_ [UseR 2017, Reading and writing spatial data](https://edzer.github.io/UseR2017/#reading-and-writing-spatial-data)
 
 <br>
 
-_You've reached the end of the dusty path. You look around and all you see is an old worn scrap of leather. Maybe it used to be a shoe? You can pick it up and take it with you if you like. The choice is yours._ 
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day 3-AM](../page/day3_am.html) {-}
 
-Return to the homepage and continue your adventure.
+<br>
 
 

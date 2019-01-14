@@ -14,6 +14,68 @@ output:
 
 <link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
 <div id="TOC">
@@ -22,9 +84,15 @@ output:
 <li><a href="#add-a-new-repository">Add a new repository</a></li>
 <li><a href="#add-a-plot">Add a plot</a></li>
 </ul></li>
-<li><a href="#day-1-review">Day 1 review</a></li>
-<li><a href="#day-2-review">Day 2 review</a></li>
-<li><a href="#on-earth">On Earth</a></li>
+<li><a href="#day-1-review">| Day 1 review</a><ul>
+<li><a href="#get-to-know-your-data-frame">Get to know your <strong>Data Frame</strong></a></li>
+<li><a href="#your-dplyr-toolbox">Your <code>dplyr</code> toolbox</a></li>
+<li><a href="#dplyr-with-porgs"><code>dplyr</code> with Porgs</a></li>
+</ul></li>
+<li><a href="#day-2-review">| Day 2 review</a><ul>
+<li><a href="#the-ggplot-sandwich">The <code>ggplot()</code> sandwich</a></li>
+</ul></li>
+<li><a href="#back-to-earth">Back to Earth</a></li>
 </ul>
 </div>
 
@@ -50,17 +118,226 @@ output:
 </div>
 </div>
 <div id="day-1-review" class="section level1">
-<h1>Day 1 review</h1>
+<h1>| Day 1 review</h1>
+<div id="get-to-know-your-data-frame" class="section level2 unnumbered">
+<h2>Get to know your <strong>Data Frame</strong></h2>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>names(scrap)</code></td>
+<td align="left">column names</td>
+</tr>
+<tr class="even">
+<td align="left"><code>nrow(...)</code></td>
+<td align="left">number of rows</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ncol(...)</code></td>
+<td align="left">number of columns</td>
+</tr>
+<tr class="even">
+<td align="left"><code>summary(...)</code></td>
+<td align="left">summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>glimpse(...)</code></td>
+<td align="left">column names + a glimpse of first values (requires <em>dplyr</em> package)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="your-dplyr-toolbox" class="section level2 unnumbered">
+<h2>Your <code>dplyr</code> toolbox</h2>
+<p><img src="../images/hex-dplyr.png" align="left" style="margin-right: 26px; margin-top: 30px; margin-bottom: 20px;" width="128" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>select()</code></td>
+<td align="left">Choose individual columns to drop, keep, or reorder</td>
+</tr>
+<tr class="even">
+<td align="left"><code>arrange()</code></td>
+<td align="left">Reorder or sort rows by value of a column</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>filter()</code></td>
+<td align="left">Pick a subset of rows by the value of a column</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mutate()</code></td>
+<td align="left">Add new columns or update existing columns</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>summarize()</code></td>
+<td align="left">Calculate a single summary for the entire table</td>
+</tr>
+<tr class="even">
+<td align="left"><code>group_by()</code></td>
+<td align="left">Split data into groups by values in a column</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dplyr-with-porgs" class="section level2 unnumbered">
+<h2><code>dplyr</code> with Porgs</h2>
+<p>The <em>poggle</em> of porgs has returned to help us review <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
+<p><br></p>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="false"> <code>select</code> </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="arrange-tab" data-toggle="tab" href="#arrange" role="tab" aria-controls="arrange" aria-selected="false"> <code>arrange</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="group_by-tab" data-toggle="tab" href="#group_by" role="tab" aria-controls="group_by" aria-selected="false"> <code>group_by</code></a>
+</li>
+</ul>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="porgs" class="tab-pane fade active in" role="tabpanel" aria-labelledby="porgs-tab">
+<img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
+</div>
+<div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
+<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
+<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
+<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
+<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
+<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+</div>
+</div>
+</div>
 </div>
 <div id="day-2-review" class="section level1">
-<h1>Day 2 review</h1>
-<div id="ggplot" class="section level3 unnumbered">
-<h3><code>ggplot</code></h3>
+<h1>| Day 2 review</h1>
+<hr>
+<p><img src="../images/ggplot2_hex.png" align="right" style="margin-right: 70px; margin-top: -28px;" width="145" /></p>
+<div id="the-ggplot-sandwich" class="section level2 unnumbered">
+<h2>The <code>ggplot()</code> sandwich</h2>
+<p><img src="../images/auto_plot.gif" style="margin-top: -22px; max-width: 108%; margin-bottom: -16px;" /></p>
+<div id="warm-up" class="section level3 unnumbered">
+<h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Warm-up!</h3>
+</div>
+<div id="whos-the-tallest-of-them-all" class="section level3">
+<h3>Who’s the tallest of them all?</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Install new packages</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;ggrepel&quot;</span>)</code></pre>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(ggrepel)
+
+<span class="co"># Get starwars character data</span>
+star_df &lt;-<span class="st"> </span>starwars</code></pre>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is this?</span>
+<span class="kw">glimpse</span>(star_df)</code></pre>
+<pre><code>## Observations: 87
+## Variables: 13
+## $ name       &lt;chr&gt; &quot;Luke Skywalker&quot;, &quot;C-3PO&quot;, &quot;R2-D2&quot;, &quot;Darth Vader&quot;, ...
+## $ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188...
+## $ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 8...
+## $ hair_color &lt;chr&gt; &quot;blond&quot;, NA, NA, &quot;none&quot;, &quot;brown&quot;, &quot;brown, grey&quot;, &quot;b...
+## $ skin_color &lt;chr&gt; &quot;fair&quot;, &quot;gold&quot;, &quot;white, blue&quot;, &quot;white&quot;, &quot;light&quot;, &quot;l...
+## $ eye_color  &lt;chr&gt; &quot;blue&quot;, &quot;yellow&quot;, &quot;red&quot;, &quot;yellow&quot;, &quot;brown&quot;, &quot;blue&quot;,...
+## $ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0...
+## $ gender     &lt;chr&gt; &quot;male&quot;, NA, NA, &quot;male&quot;, &quot;female&quot;, &quot;male&quot;, &quot;female&quot;,...
+## $ homeworld  &lt;chr&gt; &quot;Tatooine&quot;, &quot;Tatooine&quot;, &quot;Naboo&quot;, &quot;Tatooine&quot;, &quot;Alder...
+## $ species    &lt;chr&gt; &quot;Human&quot;, &quot;Droid&quot;, &quot;Droid&quot;, &quot;Human&quot;, &quot;Human&quot;, &quot;Human...
+## $ films      &lt;list&gt; [&lt;&quot;Revenge of the Sith&quot;, &quot;Return of the Jedi&quot;, &quot;Th...
+## $ vehicles   &lt;list&gt; [&lt;&quot;Snowspeeder&quot;, &quot;Imperial Speeder Bike&quot;&gt;, &lt;&gt;, &lt;&gt;,...
+## $ starships  &lt;list&gt; [&lt;&quot;X-wing&quot;, &quot;Imperial shuttle&quot;&gt;, &lt;&gt;, &lt;&gt;, &quot;TIE Adva...</code></pre>
+<p><br></p>
+<p>Plot a histogram of the character heights.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Height distribution</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">x =</span> height)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;hotpink&quot;</span>)</code></pre>
+<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><br></p>
+<div class="note">
+<ul>
+<li><p>Try changing the fill color to <strong>“<span style="color: #FD6A02;">darkorange</span>”</strong>.</p></li>
+<li><p>Try making a histogram of the character’s <code>mass</code>.</p></li>
+</ul>
+</div>
+<p><br></p>
+<p>Plot comparisons between height and mass with <code>geom_point(...)</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Height vs. Mass scatterplot</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>)
+
+
+<span class="co"># Add labels</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name))
+
+
+<span class="co"># Log scale for Mass</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">log10</span>(mass), <span class="dt">x =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name))
+
+
+<span class="co"># Without the Hutt</span>
+<span class="kw">ggplot</span>(<span class="kw">filter</span>(star_df, species <span class="op">!=</span><span class="st"> &quot;Hutt&quot;</span>), <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name, <span class="dt">color =</span> species))</code></pre>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Split out by species</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">x =</span> mass, <span class="dt">y =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>)</code></pre>
+<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
 </div>
 </div>
-<div id="on-earth" class="section level1">
-<h1>On Earth</h1>
-<p>Now that we’re back on Earth, let’s look at some data to get reacclimated. Choose one of the data exercises below to begin.</p>
+</div>
+<div id="back-to-earth" class="section level1">
+<h1>Back to Earth</h1>
+<p>You’re free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we’re back, let’s look at some data to get fully reacclimated.</p>
+<p>Choose one of the data exercises below to begin.</p>
 <div class="row3" style="margin-top: 20px;">
 <div class="column3">
 <div align="center" style="margin-left: -18px;">
@@ -123,4 +400,7 @@ Planet: <code>Earth</code></p>
 </div>
 </div>
 <p><br></p>
+<div id="return-to-homebase" class="section level3 unnumbered">
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../page/day3_am.html">Homebase</a></h3>
+</div>
 </div>

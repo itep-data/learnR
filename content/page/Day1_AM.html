@@ -88,7 +88,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#data-analysis-in-7-steps">Data analysis in 7 steps</a></li>
 </ul></li>
 <li><a href="#a-new-day"><span class="toc-section-number">2</span> | A new day</a><ul>
-<li><a href="#customize-r-studio">2. | Customize R Studio</a></li>
+<li><a href="#customize-r-studio">2. Customize R Studio</a></li>
 <li><a href="#start-an-r-project">3. Start an R project</a></li>
 </ul></li>
 <li><a href="#first-steps"><span class="toc-section-number">3</span> | First steps</a><ul>
@@ -103,11 +103,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#add-new-packages-r-apps"><span class="toc-section-number">4.2</span> Add new packages 📦 <em>(R Apps)</em></a></li>
 <li><a href="#read-the-data-1"><span class="toc-section-number">4.3</span> Read the data</a></li>
 <li><a href="#name-your-data-frame">Name your <strong>Data Frame</strong></a></li>
-<li><a href="#saving-file-paths"><span class="toc-section-number">4.4</span> Saving file paths</a></li>
 </ul></li>
 <li><a href="#ggplot2"><span class="toc-section-number">5</span> | ggplot2</a><ul>
 <li><a href="#a-column-plot">A column plot</a></li>
 </ul></li>
+<li><a href="#get-help"><span class="toc-section-number">6</span> | Get help <i class="far fa-question-circle" aria-hidden="true"> </i></a></li>
 <li><a href="#key-terms">Key terms</a></li>
 </ul>
 </div>
@@ -137,7 +137,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="../images/rstudio_open.png" style="width: 35%;" /></p>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
-<li>Copy the script below into your console in R Studio. Start with the line <code>install.packages</code> and end with the line <code>color = 'random-dark')</code>.</li>
+<li>Copy the code below into your script in RStudio. Start with the line <code>install.packages</code> and end with the line <code>color = 'random-dark')</code>.</li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;dplyr&quot;</span>))
 <span class="kw">library</span>(wordcloud2)
@@ -250,33 +250,33 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">10/17/2018</td>
-<td align="right">5</td>
-<td align="right">51.2</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">9/19/2017</td>
-<td align="right">21</td>
-<td align="right">62.6</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">10/9/2016</td>
-<td align="right">6</td>
-<td align="right">47.6</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">9/8/2018</td>
-<td align="right">12</td>
-<td align="right">71.6</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
 <td align="left">4/6/2016</td>
 <td align="right">7</td>
 <td align="right">41.6</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="left">5/27/2017</td>
+<td align="right">8</td>
+<td align="right">65.0</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">5/27/2016</td>
+<td align="right">17</td>
+<td align="right">65.0</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">7/20/2018</td>
+<td align="right">13</td>
+<td align="right">80.6</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">7/11/2017</td>
+<td align="right">23</td>
+<td align="right">71.6</td>
 </tr>
 </tbody>
 </table>
@@ -376,7 +376,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p><a href = "https://github.com/dKvale/ex__OZONE__Project">
 <img src="../images/github_example_ozone.png" style="width: 95%;" />
 </a></p>
-<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you’ll be able to tell them. And when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.</p>
+<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you’ll be able to tell them.</p>
+<p>Or when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.</p>
 </div>
 </div>
 </div>
@@ -400,7 +401,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p>These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you’re unsure what a function or package does, enter the name of thing after a question mark. For example, try entering <code>?mean</code> into the console and push <strong>ENTER</strong>.</p>
 </div>
 <div id="customize-r-studio" class="section level2 unnumbered">
-<h2>2. | Customize R Studio</h2>
+<h2>2. Customize R Studio</h2>
 <div id="make-it-your-own" class="section level4 unnumbered">
 <h4>Make it your own</h4>
 <p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
@@ -432,6 +433,12 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <li>Select <em>Browse…</em> and choose a folder where you normally perform your work.</li>
 <li>Click <em>Create Project</em></li>
 </ul>
+<p><strong>Step 2:</strong> Open a new script</p>
+<ul>
+<li><strong>File &gt; New File &gt; R Script</strong></li>
+<li>Click the <em>floppy disk</em> save icon</li>
+<li>Give it a name: <code>jakku.R</code> or <code>lesson1.R</code> will work well</li>
+</ul>
 </div>
 </div>
 <div id="first-steps" class="section level1">
@@ -439,7 +446,6 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <hr>
 <p>You can assign values to new objects using the “left arrow” <code>&lt;-</code>, more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and creating an object called <code>droid</code>.</p>
 <p>To run a line of code in your script, move the cursor to that line and press <strong>CTRL+ENTER</strong>.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a new object</span>
 droid &lt;-<span class="st"> &quot;bb8&quot;</span>
 
@@ -498,7 +504,7 @@ wookie2  </code></pre>
 <p><br></p>
 <div id="exercise" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color: green"></i> Exercise!</h3>
-<p>Try running some of these examples in your R console. Find new ways to create errors. The more broken the better!</p>
+<p>Try running some of these examples. Find new ways to create errors. The more broken the better! Half of learning R is finding what doesn’t work.</p>
 <pre class="sourceCode r"><code class="sourceCode r">n wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 
 n<span class="op">*</span>wookies &lt;-<span class="st"> </span><span class="dv">5</span>
@@ -693,7 +699,7 @@ starwars_df<span class="op">$</span>ages</code></pre>
 </tr>
 </tbody>
 </table>
-<p>This looks like it could be useful. If only we had some more data to work with…</p>
+<p>This looks like it could be useful. Now, if only we had some more data to work with…</p>
 <div id="new-message-1" class="section level2 unnumbered">
 <h2>New Message <em>(1)</em></h2>
 <details>
@@ -814,9 +820,6 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 ## 10 Sublight engine       Outskir~ Niima Outpo~  10642 Tons            7211.
 ## # ... with 212 more rows</code></pre>
 <p><br></p>
-<div class="data">
-<p><strong>NOTE:</strong> When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you’ll need to use the full file path location. For example: <code>C://Programs/Air_Quality/Ozone_data.csv</code></p>
-</div>
 </div>
 <div id="name-your-data-frame" class="section level2 unnumbered">
 <h2>Name your <strong>Data Frame</strong></h2>
@@ -871,10 +874,11 @@ scrap</code></pre>
 </details>
 </div>
 <p><br></p>
+<p>Functions often have multiple options that you set with <em>arguments</em> to control their behavior. Let’s look at a few arguments for <code>read_csv()</code>.</p>
 </div>
 <div id="skip-a-row" class="section level3 unnumbered">
 <h3>Skip a row</h3>
-<p>What if we want to ignore the first row of data?</p>
+<p>Sometimes you may want to ignore the first row in your data file, especially an EPA file that includes a disclaimer on the first row. Yes EPA, we’re looking at you. Please stop.</p>
 <p>Let’s open the help window with <code>?read_csv</code> and try to find an argument that can help us. There’s a lot of them! But the <code>skip</code> argument looks like it could be helpful. Take a look at the description near the bottom. The default is <code>skip = 0</code>, which reads every line, but we can skip the first line by writing <code>skip = 1</code>. Let’s give it a go.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)</code></pre>
 <p><br></p>
@@ -910,13 +914,12 @@ small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span 
 <div id="pro-tip-1" class="section level3 unnumbered">
 <h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <div class="data">
-<p>One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as <code>read_csv(</code>. Now press <code>TAB</code> on the keyboard. This will bring up a drop-down menu of all the available arguments.</p>
+<p>One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as <code>read_csv(</code>.</p>
+<p>Now press <code>TAB</code> on the keyboard. This will bring up a drop-down menu of all the available arguments.</p>
 </div>
 </div>
-</div>
-<div id="saving-file-paths" class="section level2">
-<h2><span class="header-section-number">4.4</span> Saving file paths</h2>
-<hr>
+<div id="saving-file-paths" class="section level3 unnumbered">
+<h3>Saving file paths</h3>
 <p>You can also save file paths as objects, such as <code>file_path &lt;- "data/starwars_scrap_jakku.csv"</code>. Now you can use it as a shortcut to the location of your data. When you want to load the scrap table you can write <code>read_csv(file_path)</code>. This handy trick makes it easier for you or your coworker to update your code and use it with new data.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save the file path to an object you can use later</span>
 file_path &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>
@@ -984,7 +987,8 @@ ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages
 ages_sum</code></pre>
 <pre><code>## [1] 63</code></pre>
 <p><br></p>
-<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name <code>ages_sum</code>. If we do not assign the output object it is printed to the console and not saved. Sometimes that’s what we want, especially when we’re exploring the data.</p>
+<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs a calculation, and returns a number. Note that we assigned the output to the name <code>ages_sum</code>.</p>
+<p>If we don’t assign the output it will be printed to the console and not saved.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
 <span class="kw">sum</span>(starwars_ages) </code></pre>
 <pre><code>## [1] 63</code></pre>
@@ -1020,6 +1024,7 @@ Pop Quiz!
 </details>
 </div>
 </div>
+</div>
 <div id="ggplot2" class="section level1">
 <h1><span class="header-section-number">5</span> | ggplot2</h1>
 <hr>
@@ -1037,13 +1042,18 @@ Pop Quiz!
 </div>
 <div id="a-column-plot" class="section level2 unnumbered">
 <h2>A column plot</h2>
-<p>Here’s a quick chart of how many of each item we have in the dataset.</p>
+<p>Here’s a simple chart showing the total amount of scrap for each origin location.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">y =</span> amount, <span class="dt">x =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-16-1.png" width="1152" /></p>
 <p>Well, well, well. It looks like there is an <strong>All</strong> category we should look into more. Either there’s a town hogging all the scrap or the data needs some cleaning.</p>
 </div>
+</div>
+<div id="get-help" class="section level1">
+<h1><span class="header-section-number">6</span> | Get help <i class="far fa-question-circle" aria-hidden="true"> </i></h1>
+<hr>
+<p>Is something not working or behaving strangely and you don’t know why? See the <a href="help.html">Help!</a> page.</p>
 </div>
 <div id="key-terms" class="section level1 unnumbered">
 <h1>Key terms</h1>

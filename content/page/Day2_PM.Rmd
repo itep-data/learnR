@@ -83,7 +83,9 @@ mr_koon <- filter(starwars,
 <div class="data">
 <p>
 
+<div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
 ![](../images/ruby.png)
+</div>
 
 </p></div>
 </details>
@@ -91,7 +93,7 @@ mr_koon <- filter(starwars,
 
 <br>
 
-<div class="data">
+<div class="well">
 
 #### Want a rematch? {-}
 

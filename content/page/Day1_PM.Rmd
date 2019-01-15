@@ -148,7 +148,7 @@ select(scrap, -destination)
 
 
 ## Drop multiple columns with `-c(col_1, col_2)` or `-col1, -col2` {-}
-```{r arrange2, warning = F, message = F}
+```{r select22, warning = F, message = F}
 
 # Drop the destination and units columns
 select(scrap, -c(destination, units, amount))
@@ -167,7 +167,7 @@ select(scrap, c(item, amount, price_per_pound))
 
 `select()` also works to change the order of columns. The code below puts the `item` column first and then moves the `units` and `amount` columns directly after `item`. We then keep `evertyhing()` else the same. 
 
-```{r arrange4, warning = F, message = F}
+```{r select44, warning = F, message = F}
 
 # Make the `item`, `units`, and `amount` columns the first three columns
 # Leave `everything()` else in the same order
@@ -179,32 +179,31 @@ select(scrap, item, units, amount, everything())
 # | `arrange()` 
 <hr>
 
-That's helpful, but Rey wants to know what the highest priced item items are. Use `arrange()` to find the origin city with the most highest priced scrap item.
+Rey wants to know what the highest priced items are. Use `arrange()` to find the highest priced scrap item and see which origins might have a lot of them.
 
-```{r select-arrange, warning = F}
-# Find the least expensive scrap items
+```{r select-arrange-price, warning = F}
+# Arrange scrap items by price
 scrap <- arrange(scrap, price_per_pound)
 
-# View the top 6 rows using head()
+# View the top 6 rows
 head(scrap)
 ```
 
-
 <br>
 
-#### Well shucks, only `145 credits`. That's not a very impressive price at all. {-}
+### Only `145 credits`! That's not very much at all, oh wait... {-}
 
 
 ## Big things first: `desc()`  {-}
 
 To arrange a column in descending order with the biggest numbers on top, we use: `desc(price_per_pound)`
 
-```{r descend, warning = F}
+```{r desc-arrange, warning = F}
 # Put most expensive items on top
 scrap <- arrange(scrap, desc(price_per_pound))
 
-# View the top 6 rows
-head(scrap)
+# View the top 8 rows
+head(scrap, 8)
 ```
 
 
@@ -244,7 +243,7 @@ When you save an arranged data table it maintains its order. This is perfect for
 
 1. No free spaces! We are mean.
 1. You will soon know all of these functions.
-1. We are going to call-out these functions using an R function.
+1. We are going to call-out the functions using an R function. We're meta.
 
 ```{r bingo, eval=F}
 # Get pretty colors
@@ -258,11 +257,11 @@ bingo_words <- c("median()", "nrow()", "glimpse()", "sum()", "head()", "tail()",
 # Shuffle the words randomly
 bingo_words <- sample(bingo_words)
 
-# Set the number to draw
-n <- 20
+# Set the draw number
+n <- 1
 
 # Plot the word
-ggplot(data_frame(x = 1,y = 1), aes(x = 1, y = 1)) + 
+ggplot(data_frame(x = 1, y = 1), aes(x = 1, y = 1)) + 
       geom_point(color = sample(viridis_pal()(30), 1), size = 177) + 
       geom_label(label = bingo_words[n], size = 12) +
       labs(x = NULL, y = NULL) +
@@ -308,11 +307,29 @@ __Key comparison operators__
 | `!=`  | NOT equal to             |
 | `%in%`| value is in a list       |
 
-<br>
 
-### Dropping rows {-}
+## <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
 
-Let's look at the data without that pesky _All_ category. Look in the table above to find the `NOT` operator. We're going to filter the data to keep only the origins that are `NOT equal to` "All".
+Try comparing some things in the console and see if you get what you'd expect. R doesn't always think like we do.
+
+```{r, eval=F}
+
+4 != 5
+
+4 == 4
+
+4 < 3
+
+4 > c(1, 3, 5)
+
+4 %in% c(1, 3, 5)
+
+```
+
+
+## Dropping rows {-}
+
+Let's look at the data without that pesky _All_ category. Look in the comparison table above to find the `NOT` operator. We're going to filter the data to keep only the origins that are `NOT equal to` "All".
 
 <br>
 
@@ -323,14 +340,13 @@ scrap <- filter(scrap, origin != "All")
 
 <br>
 
-We can arrange the data in descending order by `amount` to confirm that the "All" category is gone.
+We can arrange the data in ascending order by `item` to confirm that the "All" category is gone.
 
 ```{r filter-arrange, message=F, warning=F}
 
 # Arrange data
-scrap <- arrange(scrap, desc(amount))
+scrap <- arrange(scrap, item)
 
-#Look at the first 6 rows of the data
 head(scrap)
 
 ```
@@ -346,7 +362,7 @@ ggplot(scrap, aes(x = origin, y = amount)) + geom_col()
 ``` 
 
 
-Something still might be hidden in the data that is unexpected. Take a look at the amount of items in each units category.
+Much better! But... something still might be hidden in the data that is unexpected. Let's take a look at the amount of items in each units category.
 
 ```{r ggplot-Units}
 ggplot(scrap, aes(x = units, y = amount)) + geom_col()
@@ -354,7 +370,7 @@ ggplot(scrap, aes(x = units, y = amount)) + geom_col()
 
 <br>
 
-Interesting. The item "tons" is written two ways. This can happen when multiple labs collect data. Let's make a note to deal with this a bit later. 
+Interesting. The item "tons" is written two ways. This can happen when multiple labs send you data, or protocols change over time. Let's make a note to deal with this a bit later. 
 
 
 ## Multiple filters 
@@ -362,7 +378,7 @@ Interesting. The item "tons" is written two ways. This can happen when multiple 
 
 We can add multiple comparisons to `filter()` to further restrict the data we pull from a larger data set. Only the records that pass the conditions of all the comparisons will be pulled into the new data frame. 
 
-The code below filters the data to only scrap records originating in the `Outskirts` __AND__ destined for `Niima Outpost`.
+The code below filters the data to only scrap records with an origin of `Outskirts` __AND__ a destination of `Niima Outpost`.
 
 ```{r filter-multi, eval=F}
 
@@ -385,7 +401,7 @@ Let's calculate some new columns to help prioritize Rey's scavenging work.
 ## Add a column {-}
 <hr>
 
-First let's add a column with our names. That way Rey can thank us personally when her ship is up and running. 
+First, let's add a column with our names. That way Rey can thank us personally when her ship is finally up and running. 
 ```{r mutate-1, warning=F, message=F}
 
 ## Add your name as a column
@@ -396,25 +412,24 @@ scrap <- mutate(scrap, scrap_finder = "BB8")
 
 ## Add several columns {-}
 
-We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let's add new columns to document the data measurement method and the averaging time.
+Let's also add a new column to document the data measurement method.
 
 ```{r mutate2columns, echo=T, eval=T}
 
 #  Add your name as a column and
-#  some information about your sampling method
+#  some information about the method
 scrap <- mutate(scrap, 
                 scrap_finder    = "BB8",
-                measure_method  = "REM",
-                averaging_time  = "24 hours")
+                measure_method  = "REM-24")
 
-## REM = Rebellion Equivalent Method
+## REM = Republic Equivalent Method
 ```
 
 
 ## Change a column  {-}
 <hr>
 
-Remember how that unit of Tons was written two ways: "TONS" and "Tons"? We can use `mutate()` together with `tolower()` to make sure all of the scrap units are written in lower case. Case matters in R!
+Remember how the units of Tons was written two ways: "TONS" and "Tons"? We can use `mutate()` together with `tolower()` to make sure all of the scrap units are written in lower case. This will help prevent them from getting grouped separately in our plots and summaries.
 
 ```{r mutate-2000}
 
@@ -432,7 +447,7 @@ In our work we often use `mutate` to calculate new units for measurements. In th
 
 ### Tons `-->` Pounds conversion {-}
 
-Use `mutate()` to convert the `amount` column to pounds.
+We can use `mutate()` to convert the `amount` column to pounds. Multiply the `amount` column by 2000 to get new values for a column named `amount_lbs`.
 
 ```{r, message=F, warning=F}
 
@@ -494,19 +509,26 @@ _Yes!! You receive the ship parts to repair Rey's Millennium Falcon. Onward!_
 <div style="clear: both;"> </div>
 
 
-## First mission complete!
+## First mission complete! {-}
 
 # | Save new data
 
 You can't break your original dataset if you always name it something else. Let's use the `readr` package to save our new CSV with the tons converted to pounds.
 
 ```{r write-csv1, eval=F}
-
 # Save data as a CSV file 
 write_csv(scrap_pounds, "scrap_in_pounds.csv")
+```
 
+<br>
+
+> Where did R save the file? 
+
+Let's create a new `results/` folder to keep our processed data separate from any raw data we receive.
+
+```{r write-csv2, eval=F}
 # Save data as a CSV file to results folder
-#write_csv(scrap_pounds, "results/scrap_in_pounds.csv")
+write_csv(scrap_pounds, "results/scrap_in_pounds.csv")
 
 ```
 
@@ -522,9 +544,7 @@ write_csv(scrap_pounds, "scrap_in_pounds.csv")
 
 ## BB8 has a new mission {-}
 
-BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.
-
-#### We're going to be STORM CHASERS! {-}
+BB8 just received new data suggesting there was a large magnetic storm right before Site 1 burned down on Endor. Sounds like we're going to be __STORM CHASERS__!
 
 
 __Get the dataset__
@@ -535,10 +555,11 @@ While we're relaxing and flying to Endor let's get set up with our new data.
 <span class="btn_code_blue" style="margin-bottom: 10px;"> __DOWNLOAD__  </span></a> -  Endor Air data
 
 1. Download the data above.
-1. Create a folder in your project folder called "data".
-1. Move the Endor data to this folder.
-1. Create a new R script called `endor_air.R`
-1. Read in the data from the data folder.
+1. Create a new folder called "data" in your project folder.
+1. Move the Endor data to there.
+1. Open a new R script called `endor_air.R`
+
+Now we can read in the data from the data folder with our favorite `read_csv` function.
 
 ```{r, endor-air-read, eval=F}
 library(readr)
@@ -547,7 +568,13 @@ library(dplyr)
 air_endor <- read_csv("data/air_endor.csv")
 ```
 
-```{r, endor-air-read2, include = F}
+<br>
+
+<div class="data">
+__NOTE:__ When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you'll need to use the full file path location. For example: `C://Programs/Air_Quality/Ozone_data.csv`
+</div>
+
+```{r, endor-air-read2, include=F}
 library(readr)
 library(dplyr)
 
@@ -574,7 +601,7 @@ glimpse(air_endor)
 
 <br>
 
-__I see that there are more analytes than we need. We only want to know about `magnetic_field` data. Let's filter the data down to only that analyte.__ 
+__I see that there are more analytes than we need. Lucky for us, we only want to know about `magnetic_field` data. Let's filter the data down to only that analyte.__ 
 
 <br>
 
@@ -608,7 +635,7 @@ mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 
 <br>
 
-__We're also only interested in observations from after the year `9916`. So let's filter the data down to only dates after that year.__ 
+__According to the request we received, the Resistance is only interested in observations from after the year `9916`. So let's filter the data down to only dates after that year.__ 
 
 <br>
 
@@ -629,17 +656,18 @@ ggplot(mag_endor, aes(x = date, y = Result)) +
 
 ```
 
+Looks like the measurements definitely picked up a signal towards the end of the year. Let's make a different chart to better show when this was exactly. 
 
 
 # | Calendar plots
 
 ![](../images/endor_lego_sq.PNG){align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;"}
 
-Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm occurred.
+Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.
 
 ## `openair` package {-}
 
-There is a calendar plot function built into a package called `openair`. Let's install `openair` and then use `calendarplot()` to make a calendar of the observations.
+There is a calendar plot function in the package `openair`. Let's install `openair`, load it, and then use `calendarplot()` to make a calendar of the observations.
 
 
 ```{r, set-theme, echo=F, eval=F}

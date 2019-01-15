@@ -98,6 +98,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#lets-play-r-bingo"><span class="toc-section-number">6</span> Let’s play R BINGO!</a></li>
 <li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a><ul>
 <li><a href="#comparisons"><span class="toc-section-number">7.1</span> Comparisons</a></li>
+<li><a href="#exercise-1"><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</a></li>
+<li><a href="#dropping-rows">Dropping rows</a></li>
 <li><a href="#multiple-filters"><span class="toc-section-number">7.2</span> Multiple filters</a></li>
 </ul></li>
 <li><a href="#mutate"><span class="toc-section-number">8</span> | <code>mutate()</code></a><ul>
@@ -107,7 +109,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#add-calculated-columns">Add calculated columns</a></li>
 </ul></li>
 <li><a href="#last-steps"><span class="toc-section-number">9</span> | Last steps!</a><ul>
-<li><a href="#first-mission-complete"><span class="toc-section-number">9.1</span> First mission complete!</a></li>
+<li><a href="#first-mission-complete">First mission complete!</a></li>
 </ul></li>
 <li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a><ul>
 <li><a href="#bb8-has-a-new-mission">BB8 has a new mission</a></li>
@@ -412,11 +414,11 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <div id="arrange" class="section level1">
 <h1><span class="header-section-number">5</span> | <code>arrange()</code></h1>
 <hr>
-<p>That’s helpful, but Rey wants to know what the highest priced item items are. Use <code>arrange()</code> to find the origin city with the most highest priced scrap item.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the least expensive scrap items</span>
+<p>Rey wants to know what the highest priced items are. Use <code>arrange()</code> to find the highest priced scrap item and see which origins might have a lot of them.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange scrap items by price</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price_per_pound)
 
-<span class="co"># View the top 6 rows using head()</span>
+<span class="co"># View the top 6 rows</span>
 <span class="kw">head</span>(scrap)</code></pre>
 <pre><code>## # A tibble: 6 x 6
 ##   item         origin        destination   amount units price_per_pound
@@ -428,8 +430,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price
 ## 5 Aural sensor Blowback Town Niima Outpost   2312 Tons             145.
 ## 6 Aural sensor Outskirts     Trade caravan   6272 Tons             145.</code></pre>
 <p><br></p>
-<div id="well-shucks-only-145-credits.-thats-not-a-very-impressive-price-at-all." class="section level4 unnumbered">
-<h4>Well shucks, only <code>145 credits</code>. That’s not a very impressive price at all.</h4>
+<div id="only-145-credits-thats-not-very-much-at-all-oh-wait" class="section level3 unnumbered">
+<h3>Only <code>145 credits</code>! That’s not very much at all, oh wait…</h3>
 </div>
 <div id="big-things-first-desc" class="section level2 unnumbered">
 <h2>Big things first: <code>desc()</code></h2>
@@ -437,17 +439,19 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put most expensive items on top</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(price_per_pound))
 
-<span class="co"># View the top 6 rows</span>
-<span class="kw">head</span>(scrap)</code></pre>
-<pre><code>## # A tibble: 6 x 6
-##   item            origin     destination    amount units price_per_pound
-##   &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
-## 1 Total           All        All           2971601 Tons          579215.
-## 2 Sublight engine Outskirts  Niima Outpost   10642 Tons            7211.
-## 3 Sublight engine Outskirts  Raiders          2377 Tons            7211.
-## 4 Sublight engine Cratertown Raiders          6310 Tons            7211.
-## 5 Sublight engine Tuanul     Trade caravan    3984 Tons            7211.
-## 6 Sublight engine Cratertown Raiders           299 Tons            7211.</code></pre>
+<span class="co"># View the top 8 rows</span>
+<span class="kw">head</span>(scrap, <span class="dv">8</span>)</code></pre>
+<pre><code>## # A tibble: 8 x 6
+##   item            origin        destination    amount units price_per_pound
+##   &lt;chr&gt;           &lt;chr&gt;         &lt;chr&gt;           &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+## 1 Total           All           All           2971601 Tons          579215.
+## 2 Sublight engine Outskirts     Niima Outpost   10642 Tons            7211.
+## 3 Sublight engine Outskirts     Raiders          2377 Tons            7211.
+## 4 Sublight engine Cratertown    Raiders          6310 Tons            7211.
+## 5 Sublight engine Tuanul        Trade caravan    3984 Tons            7211.
+## 6 Sublight engine Cratertown    Raiders           299 Tons            7211.
+## 7 Sublight engine Blowback Town Raiders          8582 Tons            7211.
+## 8 Sublight engine Cratertown    Raiders          1768 Tons            7211.</code></pre>
 <p><br></p>
 <div class="data">
 <h3 id="exercise" class="unnumbered"><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
@@ -476,7 +480,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <ol style="list-style-type: decimal">
 <li>No free spaces! We are mean.</li>
 <li>You will soon know all of these functions.</li>
-<li>We are going to call-out these functions using an R function.</li>
+<li>We are going to call-out the functions using an R function. We’re meta.</li>
 </ol>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get pretty colors</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)
@@ -489,11 +493,11 @@ bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class=
 <span class="co"># Shuffle the words randomly</span>
 bingo_words &lt;-<span class="st"> </span><span class="kw">sample</span>(bingo_words)
 
-<span class="co"># Set the number to draw</span>
-n &lt;-<span class="st"> </span><span class="dv">20</span>
+<span class="co"># Set the draw number</span>
+n &lt;-<span class="st"> </span><span class="dv">1</span>
 
 <span class="co"># Plot the word</span>
-<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>,<span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
 <span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">      </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
@@ -559,46 +563,57 @@ n &lt;-<span class="st"> </span><span class="dv">20</span>
 </tr>
 </tbody>
 </table>
-<p><br></p>
-<div id="dropping-rows" class="section level3 unnumbered">
-<h3>Dropping rows</h3>
-<p>Let’s look at the data without that pesky <em>All</em> category. Look in the table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origins that are <code>NOT equal to</code> “All”.</p>
+</div>
+<div id="exercise-1" class="section level2 unnumbered">
+<h2><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h2>
+<p>Try comparing some things in the console and see if you get what you’d expect. R doesn’t always think like we do.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">!=</span><span class="st"> </span><span class="dv">5</span>
+
+<span class="dv">4</span> <span class="op">==</span><span class="st"> </span><span class="dv">4</span>
+
+<span class="dv">4</span> <span class="op">&lt;</span><span class="st"> </span><span class="dv">3</span>
+
+<span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
+
+<span class="dv">4</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</code></pre>
+</div>
+<div id="dropping-rows" class="section level2 unnumbered">
+<h2>Dropping rows</h2>
+<p>Let’s look at the data without that pesky <em>All</em> category. Look in the comparison table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origins that are <code>NOT equal to</code> “All”.</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)</code></pre>
 <p><br></p>
-<p>We can arrange the data in descending order by <code>amount</code> to confirm that the “All” category is gone.</p>
+<p>We can arrange the data in ascending order by <code>item</code> to confirm that the “All” category is gone.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(amount))
+scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, item)
 
-<span class="co">#Look at the first 6 rows of the data</span>
 <span class="kw">head</span>(scrap)</code></pre>
 <pre><code>## # A tibble: 6 x 6
-##   item                  origin    destination  amount units price_per_pound
-##   &lt;chr&gt;                 &lt;chr&gt;     &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
-## 1 Proximity sensor      Tuanul    Trade carav~  32109 Tons            1229.
-## 2 Dedicated energy rec~ Craterto~ Trade carav~  26167 Tons             281.
-## 3 Proximity sensor      Reestki   Trade carav~  22294 Tons            1229.
-## 4 Reactant agitator in~ Reestki   Raiders       20834 Tons             791.
-## 5 Lateral thruster      Outskirts Niima Outpo~  20739 Tons            1571.
-## 6 Sublight drive        Craterto~ Niima Outpo~  20652 Tons             420.</code></pre>
+##   item         origin        destination   amount units price_per_pound
+##   &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+## 1 Aural sensor Tuanul        Raiders          707 Tons             145.
+## 2 Aural sensor Outskirts     Niima Outpost   3005 Tons             145.
+## 3 Aural sensor Tuanul        Raiders         6204 Tons             145.
+## 4 Aural sensor Tuanul        Raiders         3120 Tons             145.
+## 5 Aural sensor Blowback Town Niima Outpost   2312 Tons             145.
+## 6 Aural sensor Outskirts     Trade caravan   6272 Tons             145.</code></pre>
 <p><br></p>
 <p>Now let’s take another look at that bar chart. Is there anything else that is less than perfect with our data?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/ggplot-noAll-1.png" width="672" /></p>
-<p>Something still might be hidden in the data that is unexpected. Take a look at the amount of items in each units category.</p>
+<p>Much better! But… something still might be hidden in the data that is unexpected. Let’s take a look at the amount of items in each units category.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> units, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/ggplot-Units-1.png" width="672" /></p>
 <p><br></p>
-<p>Interesting. The item “tons” is written two ways. This can happen when multiple labs collect data. Let’s make a note to deal with this a bit later.</p>
-</div>
+<p>Interesting. The item “tons” is written two ways. This can happen when multiple labs send you data, or protocols change over time. Let’s make a note to deal with this a bit later.</p>
 </div>
 <div id="multiple-filters" class="section level2">
 <h2><span class="header-section-number">7.2</span> Multiple filters</h2>
 <hr>
 <p>We can add multiple comparisons to <code>filter()</code> to further restrict the data we pull from a larger data set. Only the records that pass the conditions of all the comparisons will be pulled into the new data frame.</p>
-<p>The code below filters the data to only scrap records originating in the <code>Outskirts</code> <strong>AND</strong> destined for <code>Niima Outpost</code>.</p>
+<p>The code below filters the data to only scrap records with an origin of <code>Outskirts</code> <strong>AND</strong> a destination of <code>Niima Outpost</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
                              origin        <span class="op">==</span><span class="st"> &quot;Outskirts&quot;</span>, 
                              destination   <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>)</code></pre>
@@ -613,26 +628,25 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 <div id="add-a-column" class="section level2 unnumbered">
 <h2>Add a column</h2>
 <hr>
-<p>First let’s add a column with our names. That way Rey can thank us personally when her ship is up and running.</p>
+<p>First, let’s add a column with our names. That way Rey can thank us personally when her ship is finally up and running.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Add your name as a column</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>)</code></pre>
 </div>
 <div id="add-several-columns" class="section level2 unnumbered">
 <h2>Add several columns</h2>
-<p>We are environmental quality technical staff for the Rebellion, and there are a few types of information we routinely add to our data. Let’s add new columns to document the data measurement method and the averaging time.</p>
+<p>Let’s also add a new column to document the data measurement method.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  Add your name as a column and</span>
-<span class="co">#  some information about your sampling method</span>
+<span class="co">#  some information about the method</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
                 <span class="dt">scrap_finder    =</span> <span class="st">&quot;BB8&quot;</span>,
-                <span class="dt">measure_method  =</span> <span class="st">&quot;REM&quot;</span>,
-                <span class="dt">averaging_time  =</span> <span class="st">&quot;24 hours&quot;</span>)
+                <span class="dt">measure_method  =</span> <span class="st">&quot;REM-24&quot;</span>)
 
-<span class="co">## REM = Rebellion Equivalent Method</span></code></pre>
+<span class="co">## REM = Republic Equivalent Method</span></code></pre>
 </div>
 <div id="change-a-column" class="section level2 unnumbered">
 <h2>Change a column</h2>
 <hr>
-<p>Remember how that unit of Tons was written two ways: “TONS” and “Tons”? We can use <code>mutate()</code> together with <code>tolower()</code> to make sure all of the scrap units are written in lower case. Case matters in R!</p>
+<p>Remember how the units of Tons was written two ways: “TONS” and “Tons”? We can use <code>mutate()</code> together with <code>tolower()</code> to make sure all of the scrap units are written in lower case. This will help prevent them from getting grouped separately in our plots and summaries.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set units to all lower-case</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">units =</span> <span class="kw">tolower</span>(units))
 
@@ -643,7 +657,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the total pounds for the scrap items that are reported in tons.</p>
 <div id="tons----pounds-conversion" class="section level3 unnumbered">
 <h3>Tons <code>--&gt;</code> Pounds conversion</h3>
-<p>Use <code>mutate()</code> to convert the <code>amount</code> column to pounds.</p>
+<p>We can use <code>mutate()</code> to convert the <code>amount</code> column to pounds. Multiply the <code>amount</code> column by 2000 to get new values for a column named <code>amount_lbs</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
                        <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre>
 <p><br></p>
@@ -680,18 +694,22 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 <div style="clear: both;">
 
 </div>
-<div id="first-mission-complete" class="section level2">
-<h2><span class="header-section-number">9.1</span> First mission complete!</h2>
+<div id="first-mission-complete" class="section level2 unnumbered">
+<h2>First mission complete!</h2>
 </div>
 </div>
 <div id="save-new-data" class="section level1">
 <h1><span class="header-section-number">10</span> | Save new data</h1>
 <p>You can’t break your original dataset if you always name it something else. Let’s use the <code>readr</code> package to save our new CSV with the tons converted to pounds.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file </span>
-<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;scrap_in_pounds.csv&quot;</span>)
-
-<span class="co"># Save data as a CSV file to results folder</span>
-<span class="co">#write_csv(scrap_pounds, &quot;results/scrap_in_pounds.csv&quot;)</span></code></pre>
+<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;scrap_in_pounds.csv&quot;</span>)</code></pre>
+<p><br></p>
+<blockquote>
+<p>Where did R save the file?</p>
+</blockquote>
+<p>Let’s create a new <code>results/</code> folder to keep our processed data separate from any raw data we receive.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file to results folder</span>
+<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;results/scrap_in_pounds.csv&quot;</span>)</code></pre>
 <p><br></p>
 <div id="time-to-get-off-this-dusty-planet-were-flying-to-endor" class="section level3 unnumbered">
 <h3>Time to get off this dusty planet, we’re flying to Endor!</h3>
@@ -700,24 +718,25 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 </div>
 <div id="bb8-has-a-new-mission" class="section level2 unnumbered">
 <h2>BB8 has a new mission</h2>
-<p>BB8 received data suggesting there was a large magnetic storm right before Site 1 was burned down on Endor. Sounds a bit fishy to me.</p>
-<div id="were-going-to-be-storm-chasers" class="section level4 unnumbered">
-<h4>We’re going to be STORM CHASERS!</h4>
+<p>BB8 just received new data suggesting there was a large magnetic storm right before Site 1 burned down on Endor. Sounds like we’re going to be <strong>STORM CHASERS</strong>!</p>
 <p><strong>Get the dataset</strong></p>
 <p>While we’re relaxing and flying to Endor let’s get set up with our new data.</p>
 <p><a href="https://itep-r.netlify.com/data/air_endor.csv">
 <span class="btn_code_blue" style="margin-bottom: 10px;"> <strong>DOWNLOAD</strong> </span></a> - Endor Air data</p>
 <ol style="list-style-type: decimal">
 <li>Download the data above.</li>
-<li>Create a folder in your project folder called “data”.</li>
-<li>Move the Endor data to this folder.</li>
-<li>Create a new R script called <code>endor_air.R</code></li>
-<li>Read in the data from the data folder.</li>
+<li>Create a new folder called “data” in your project folder.</li>
+<li>Move the Endor data to there.</li>
+<li>Open a new R script called <code>endor_air.R</code></li>
 </ol>
+<p>Now we can read in the data from the data folder with our favorite <code>read_csv</code> function.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 
 air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/air_endor.csv&quot;</span>)</code></pre>
+<p><br></p>
+<div class="data">
+<p><strong>NOTE:</strong> When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you’ll need to use the full file path location. For example: <code>C://Programs/Air_Quality/Ozone_data.csv</code></p>
 </div>
 </div>
 </div>
@@ -739,7 +758,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 ## $ Planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
 ## $ Result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
 <p><br></p>
-<p><strong>I see that there are more analytes than we need. We only want to know about <code>magnetic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
+<p><strong>I see that there are more analytes than we need. Lucky for us, we only want to know about <code>magnetic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre>
 <p><br></p>
@@ -760,7 +779,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span c
 
 mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre>
 <p><br></p>
-<p><strong>We’re also only interested in observations from after the year <code>9916</code>. So let’s filter the data down to only dates after that year.</strong></p>
+<p><strong>According to the request we received, the Resistance is only interested in observations from after the year <code>9916</code>. So let’s filter the data down to only dates after that year.</strong></p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)
 
@@ -774,14 +793,15 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">5</span>) </code></pre>
 <p><img src="/page/Day1_PM_files/figure-html/endor-time-1.png" width="672" /></p>
+<p>Looks like the measurements definitely picked up a signal towards the end of the year. Let’s make a different chart to better show when this was exactly.</p>
 </div>
 <div id="calendar-plots" class="section level1">
 <h1><span class="header-section-number">13</span> | Calendar plots</h1>
 <p><img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" /></p>
-<p>Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm occurred.</p>
+<p>Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.</p>
 <div id="openair-package" class="section level2 unnumbered">
 <h2><code>openair</code> package</h2>
-<p>There is a calendar plot function built into a package called <code>openair</code>. Let’s install <code>openair</code> and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
+<p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>) </code></pre>
 <p><br></p>
@@ -797,7 +817,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor
              <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">34</span>), 
                                  <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
              <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre>
-<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-4-1.png" width="2880" /></p>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-5-1.png" width="2880" /></p>
 <div id="mission-accomplished" class="section level3 unnumbered">
 <h3>Mission accomplished!</h3>
 <p>It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>

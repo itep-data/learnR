@@ -55,7 +55,7 @@ We're going to make this graphic, and you're going to make your name really <spa
 
 <br>
 
-2. Copy the script below into your console in R Studio. Start with the line `install.packages` and end with the line `color = 'random-dark')`.
+2. Copy the code below into your script in RStudio. Start with the line `install.packages` and end with the line `color = 'random-dark')`.
 
 ```{r wordcloud, eval=F}
 install.packages(c("wordcloud2", "dplyr"))
@@ -280,7 +280,9 @@ ggsave("results/2015-2017 - Ozone vs Temp.pdf")
 ![](../images/github_example_ozone.png){style="width: 95%;"}
 </a>
 
-Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you'll be able to tell them. And when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.
+Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you'll be able to tell them. 
+
+Or when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.
 
 
 # | A new day
@@ -316,7 +318,7 @@ __4. Plots and files__
 These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you're unsure what a function or package does, enter the name of thing after a question mark. For example, try entering `?mean` into the console and push __ENTER__.
 
 
-## 2. | Customize R Studio {-}
+## 2. Customize R Studio {-}
 
 #### Make it your own {-}
 
@@ -353,6 +355,12 @@ __Step 1:__ Start a new project
 - Select _Browse..._ and choose a folder where you normally perform your work. 
 - Click _Create Project_
 
+__Step 2:__ Open a new script 
+
+- __File > New File > R Script__
+- Click the _floppy disk_ save icon
+- Give it a name: `jakku.R` or `lesson1.R` will work well
+
 
 # | First steps
 <hr>
@@ -360,8 +368,6 @@ __Step 1:__ Start a new project
 You can assign values to new objects using the "left arrow" `<- `, more officially known as the _assignment operator_. Try adding the code below to your R script and creating an object called `droid`.
 
 To run a line of code in your script, move the cursor to that line and press __CTRL+ENTER__.
-
-<br>
 
 ```{r names, eval = F}
 # Create a new object
@@ -448,8 +454,7 @@ Sadly, there are a _few_ minor restrictions. Names cannot include spaces or spec
 
 ### <i class="fa fa-user-astronaut" aria-hidden="true" style="color: green"></i> Exercise! {-}
 
-Try running some of these examples in your R console. Find new ways to create errors. The more broken the better!
-
+Try running some of these examples. Find new ways to create errors. The more broken the better! Half of learning R is finding what doesn't work.
 
 ```{r, eval = F}
 
@@ -652,7 +657,7 @@ kable(scrap)
 ```
 
 
-This looks like it could be useful. If only we had some more data to work with...
+This looks like it could be useful. Now, if only we had some more data to work with...
 
 ## New Message _(1)_ {-}
 
@@ -771,11 +776,6 @@ read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
 
 <br>
 
-<div class="data">
-__NOTE:__ When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you'll need to use the full file path location. For example: `C://Programs/Air_Quality/Ozone_data.csv`
-</div>
-
-
 ## Name your __Data Frame__ {-}
 
 Where did the data go after you read it into R? When we want to work with the data in R, we need to give it a name with the assignment operator: `<-`. 
@@ -831,9 +831,11 @@ __What data type is the `destination` column?__
 
 <br>
 
+Functions often have multiple options that you set with _arguments_ to control their behavior. Let's look at a few arguments for `read_csv()`.
+
 ###  Skip a row {-}
 
-What if we want to ignore the first row of data? 
+Sometimes you may want to ignore the first row in your data file, especially an EPA file that includes a disclaimer on the first row. Yes EPA, we're looking at you. Please stop.
 
 Let's open the help window with `?read_csv` and try to find an argument that can help us. There's a lot of them! But the `skip` argument looks like it could be helpful. Take a look at the description near the bottom. The default is `skip = 0`, which reads every line, but we can skip the first line by writing `skip = 1`. Let's give it a go.
 
@@ -889,13 +891,16 @@ The same thing goes for `read_csv()`. In `read_csv(scrap_file, column_names, ski
 
 
 ### <i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
+
 <div class="data">
-One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as ` read_csv( `. Now press `TAB` on the keyboard. This will bring up a drop-down menu of all the available arguments.
+
+One shortcut to see all the arguments for a function is to enter its name in the console followed by a parenthesis, such as ` read_csv( `. 
+
+Now press `TAB` on the keyboard. This will bring up a drop-down menu of all the available arguments.
 </div>
 
 
-## Saving file paths
-<hr>
+### Saving file paths {-}
 
 You can also save file paths as objects, such as `file_path <- "data/starwars_scrap_jakku.csv"`. Now you can use it as a shortcut to the location of your data. When you want to load the scrap table you can write `read_csv(file_path)`. This handy trick makes it easier for you or your coworker to update your code and use it with new data.
 
@@ -906,7 +911,6 @@ file_path <- "https://itep-r.netlify.com/data/starwars_scrap_jakku.csv"
 
 scrap <- read_csv(file_path)
 ```
-
 
 
 <div class="quiz">
@@ -1007,7 +1011,9 @@ ages_sum
 
 <br>
 
-The `sum()` function takes the _starwars_ages_ vector as input, performs sum calculations, and returns a single numeric object. Note that we assigned the output object to the name `ages_sum`. If we do not assign the output object it is printed to the console and not saved. Sometimes that's what we want, especially when we're exploring the data. 
+The `sum()` function takes the _starwars_ages_ vector as input, performs a calculation, and returns a number. Note that we assigned the output to the name `ages_sum`. 
+
+If we don't assign the output it will be printed to the console and not saved.
 
 ```{r}
 # Alternative without assigning output
@@ -1082,16 +1088,22 @@ __NOTE:__ You can also install packages from the `Packages` tab on the lower rig
 
 ## A column plot {-}
 
-Here's a quick chart of how many of each item we have in the dataset.
+Here's a simple chart showing the total amount of scrap for each origin location.
 
 ```{r, fig.width=12}
 library(ggplot2)
 
-ggplot(scrap, aes(x = origin, y = amount)) + geom_col()
+ggplot(scrap, aes(y = amount, x = origin)) + geom_col()
 
 ```
 
 Well, well, well. It looks like there is an **All** category we should look into more. Either there's a town hogging all the scrap or the data needs some cleaning.
+
+
+# | Get help <i class="far fa-question-circle" aria-hidden="true"> </i>
+<hr>
+
+Is something not working or behaving strangely and you don't know why? See the [Help!](help.html) page.
 
 
 # Key terms {-}

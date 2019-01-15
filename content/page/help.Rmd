@@ -75,8 +75,12 @@ These are a few of the things we personally forget to do all the time and cause 
 - Make sure all parentheses are balanced so that every opening `(` has a corresponding closing `)`.
 - R doesn't love `\` backward slashes like _Windows_, check that they didn't sneak into your expression somewhere. When in doubt use the `/` forward slash.
 - If you think you have completed typing your code, and instead of seeing the `>` command prompt at the console you see the `+` character instead. That's a good sign that either R is still thinking very-very hard, or it is still waiting for you to complete your expression. You can hit `Esc` or `Ctrl-C` to force your way back to the console and try typing your code again. 
-- In `ggplot` we build up plots one piece at a time by adding expressions to one another with the `+` character. When doing this, make sure the `+` goes at the end of each line, and not the beginning. 
 
+- R is very picking about spelling. So are meteorologists when talking about _lighting storms_.
+
+![](../images/lightning_spelling.jpg)
+
+- In `ggplot` we build up plots one piece at a time by adding expressions to one another with the `+` character. When doing this, make sure the `+` goes at the end of each line, and not the beginning. 
 
 Put the `+` sign here to make `ggplot` happy:
 

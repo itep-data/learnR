@@ -92,13 +92,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#day-2-review">| Day 2 review</a><ul>
 <li><a href="#the-ggplot-sandwich">The <code>ggplot()</code> sandwich</a></li>
 </ul></li>
-<li><a href="#back-to-earth">Back to Earth</a></li>
+<li><a href="#back-to-earth">| Back to Earth</a></li>
 </ul>
 </div>
 
 <div id="create-a-github-account" class="section level1">
 <h1>Create a GitHub account</h1>
-<p>It’s time to share with the world. Let’s go public. <a href="https://github.com/">Join GitHub</a></p>
+<p>It’s time to share with the world. <a href="https://github.com/">Join GitHub</a></p>
 <p><a href="https://github.com/"><img src="../images/join_github.png" /></a></p>
 <div id="add-a-new-repository" class="section level2">
 <h2>Add a new repository</h2>
@@ -197,9 +197,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="dplyr-with-porgs" class="section level2 unnumbered">
 <h2><code>dplyr</code> with Porgs</h2>
-<p>The <em>poggle</em> of porgs has returned to help us review <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
+<p>The <em>poggle</em> of porgs has returned to help us review <code>dplyr</code> functions.</p>
 <p><br></p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
@@ -215,7 +213,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+<a class="nav-link" id="mutate3-tab" data-toggle="tab" href="#mutate3" role="tab" aria-controls="mutate3" aria-selected="false"> <code>mutate</code></a>
 </li>
 <li class="nav-item">
 <a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
@@ -237,7 +235,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
 <img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
 <img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
@@ -293,49 +291,52 @@ star_df &lt;-<span class="st"> </span>starwars</code></pre>
 <p>Plot a histogram of the character heights.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Height distribution</span>
 <span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">x =</span> height)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">fill =</span> <span class="st">&quot;hotpink&quot;</span>)</code></pre>
-<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 <p><br></p>
 <div class="note">
 <ul>
 <li><p>Try changing the fill color to <strong>“<span style="color: #FD6A02;">darkorange</span>”</strong>.</p></li>
-<li><p>Try making a histogram of the character’s <code>mass</code>.</p></li>
+<li><p>Try making a histogram of the column <code>mass</code>.</p></li>
 </ul>
 </div>
 <p><br></p>
 <p>Plot comparisons between height and mass with <code>geom_point(...)</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Height vs. Mass scatterplot</span>
 <span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
-<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>)
-
-
-<span class="co"># Add labels</span>
+<span class="st">   </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>)</code></pre>
+<p><br></p>
+<p>Who’s who? Let’s add some labels to the points.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add labels</span>
 <span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name))
 
 
-<span class="co"># Log scale for Mass</span>
-<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">log10</span>(mass), <span class="dt">x =</span> height)) <span class="op">+</span>
+<span class="co"># Use a log scale for Mass on the y-axis</span>
+<span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name))
-
-
-<span class="co"># Without the Hutt</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_y_log10</span>()</code></pre>
+<p><br></p>
+<p>Let’s drop the “Hutt” species before plotting.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Without the Hutt</span>
 <span class="kw">ggplot</span>(<span class="kw">filter</span>(star_df, species <span class="op">!=</span><span class="st"> &quot;Hutt&quot;</span>), <span class="kw">aes</span>(<span class="dt">y =</span> mass, <span class="dt">x =</span> height)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">5</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="kw">aes</span>(<span class="dt">label =</span> name, <span class="dt">color =</span> species))</code></pre>
 <p><br></p>
+<p>We can add <code>facet_wrap</code> to make a chart for each species.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Split out by species</span>
 <span class="kw">ggplot</span>(star_df, <span class="kw">aes</span>(<span class="dt">x =</span> mass, <span class="dt">y =</span> height)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> species), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(species)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;species&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>)</code></pre>
-<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<p><img src="/page/Day3_AM_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
 </div>
 </div>
 </div>
 <div id="back-to-earth" class="section level1">
-<h1>Back to Earth</h1>
+<h1>| Back to Earth</h1>
+<hr>
 <p>You’re free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we’re back, let’s look at some data to get fully reacclimated.</p>
 <p>Choose one of the data exercises below to begin.</p>
 <div class="row3" style="margin-top: 20px;">

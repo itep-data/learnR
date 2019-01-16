@@ -143,7 +143,7 @@ __Hint:__ _Maybe this is something you can automate on the third day._
 # | Why R? 
 <hr>
 
-See the [R Community](community.html) page!
+See the [R Community](community.html) page.
 
 ## Data analysis in 7 steps {-}
 
@@ -222,7 +222,7 @@ ggplot(air_data, aes(x = TEMP_F, y = OZONE)) +
 
 
 ### 3. Clean the data {-}
-```{r clean, eval=F}
+```{r clean, eval=T}
 # Drop values out of range
 air_data <- air_data %>% filter(OZONE > 0, TEMP_F < 199) 
 
@@ -365,7 +365,7 @@ __Step 2:__ Open a new script
 # | First steps
 <hr>
 
-You can assign values to new objects using the "left arrow" `<- `, more officially known as the _assignment operator_. Try adding the code below to your R script and creating an object called `droid`.
+You can assign values to new objects using the "left arrow" `<- `, which is written by typing a less-than sign followed by a hyphen. It's more officially known as the _assignment operator_. Try adding the code below to your R script to assign a value to an object called `droid`.
 
 To run a line of code in your script, move the cursor to that line and press __CTRL+ENTER__.
 
@@ -570,14 +570,14 @@ content <- c(Exercise = '<h4> Create the same table above, but add a __3rd__ col
 
 show_hint = 'code_start
 
-starwars_df <- data.frame(character   = starwars_character, 
+starwars_df <- data.frame(character   = starwars_characters, 
                           ages        = starwars_ages, 
                           fathers     = __________________)
 code_end',
 
 show_code = 'code_start
 
-starwars_df <- data.frame(character   = starwars_character, 
+starwars_df <- data.frame(character   = starwars_characters, 
                           ages        = starwars_ages, 
                           fathers     = c("Darth", "Darth", "Unknown"))
 code_end')
@@ -769,7 +769,7 @@ The packages tab only shows the available packages that are installed. To use on
 
 ```{r starwars_read, eval = T}
 
-library("readr")
+library(readr)
 
 read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku.csv")
 ```

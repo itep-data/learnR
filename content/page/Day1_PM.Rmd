@@ -60,7 +60,7 @@ Use the `glimpse()` function to find out what type and how much data you have.
 
 Use the `summary()` function to get a quick report on your numeric data.
 
-### Let's read our data into R and try some of these functions. {-}
+### Let's read the data into R and give these a whirl. {-}
 
 ```{r glimpse, warning = F, message = F}
 library(dplyr)
@@ -110,18 +110,12 @@ __Your new analysis toolbox__
 
 # | Porg tables 
 
-A group of porgs _(a poggle)_ will help to demo the `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
-
-```{r, eval = F}
-library(readr)
-porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
-```
-
-<br>
+A group of porgs (a poggle) will help to demo the `dplyr` functions. 
 
 ```{r porg-tabs, results='asis', echo=F}
 cat(readLines("porg_tabs.txt"))
 ```
+
 
 # | `select()`
 <hr>
@@ -229,11 +223,6 @@ When you save an arranged data table it maintains its order. This is perfect for
 <br>
 
 ### Need a refreshing break? How about a... {-}
-
-<br>
-
-
-![](../images/boba_tea.jpg){width="300"}
 
 <br>
 
@@ -455,38 +444,60 @@ scrap_pounds <- mutate(scrap,
                        amount_lbs = amount * 2000)
 ```
 
-<br>
 
 # | Last steps!
 
 Rey needs an `Ion engine`. Filter the data to only that item.
 
-```{r filter-ion, warning=F, message=F}
+<br>
 
-## Pull-out only items named `Ion engine`
-scrap_pounds <- mutate(scrap_pounds, item = "Ion engine")
+<details>
+<summary class = "btn_code_blue">_Show code_</summary>
+
+<p>
+
+```{r, warning=F, message=F}
+
+## Grab only the items named `Ion engine`
+scrap_pounds <- filter(scrap_pounds, item == "Ion engine")
 
 ```
+</p>
+</details>
 
+<br>
 
 Arrange the data in descending order of pounds so Rey knows where the highest amount of scrap comes from. Then she can go there, trade for some discounted parts and __we're free to FLY TO ENDOR!__
 
+<br>
+
+
+<details>
+<summary class="btn_code_blue"> _Show code_ </summary>
+<p>
 ```{r arrange-final, eval=F, message=F, warning=F}
 
 # Arrange data
 scrap_pounds <- arrange(scrap_pounds, desc(amount_lbs))
 
-# Return the origin of the highest weight amount of scrap
+# Return the origin of the highest amount_lbs of scrap
 head(scrap_pounds, 1)
 
+# Plot the total amount_lbs by origin
+ggplot(scrap_pounds, aes(x = origin, y = amount_lbs)) + 
+  geom_col()
+
 ```
+</p>
+</details>
+
+<br>
 
 
 <div class="quiz">
+### Pop Quiz! {-}
 
-### Pop Quiz, hotshot! {-}
-
-__For the item `Ion engine`, which origin had the most ?__
+__For the item `Ion engine`, which origin had the highest `amount_lbs`?__
 
 <input type="radio"> _Tuanul_              <br> 
 <input type="radio"> _Cratertown_          <br> 
@@ -499,7 +510,7 @@ __For the item `Ion engine`, which origin had the most ?__
 <summary class = "btn_code">_Show solution_</summary>
 
 <p>
-<i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `Tuanul`  
+<i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `Cratertown`  
 
 _Yes!! You receive the ship parts to repair Rey's Millennium Falcon. Onward!_
 
@@ -684,7 +695,24 @@ install.packages("openair")
 
 <br>
 
-```{r, message=F, warning=F, fig.width=30, fig.height=10}
+
+```{r, eval=F, message=F, warning=F}
+library(openair) 
+
+calendarPlot(mag_endor, 
+             pollutant    = "Result", 
+             statistic    = "mean", 
+             year         = 9917, 
+             annotate     = "date",
+             digits       = 0, 
+             key.footer   = "nT", 
+             par.settings = list(fontsize       = list(text = 14), 
+                                 layout.heights = list(top.padding = 1)),
+             main = "Magnetic Field Strength at Endor Battle Site 1")
+
+```
+
+```{r cal-for-web, echo=F, message=F, warning=F, fig.width=30, fig.height=10}
 library(openair) 
 
 calendarPlot(mag_endor, 
@@ -705,7 +733,6 @@ calendarPlot(mag_endor,
 
 It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.
 
-<br>
 
 # | Operation Shut Down
 
@@ -720,6 +747,9 @@ __Turn off “Save Workspace”__
     - [ ] Uncheck Restore .Rdata into workspace at startup
     - Set _Save workspace to .RData on exit_ to ["Never”].
     - [ ] Uncheck Always save history
+
+
+<br>
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
 

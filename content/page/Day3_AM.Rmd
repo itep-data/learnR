@@ -20,7 +20,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Create a GitHub account
 
-It's time to share with the world. Let's go public. [Join GitHub](https://github.com/)
+It's time to share with the world. [Join GitHub](https://github.com/)
 
 [![](../images/join_github.png)](https://github.com/)
 
@@ -76,12 +76,7 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 
 ## `dplyr` with Porgs {-}
 
-The _poggle_ of porgs has returned to help us review `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
-
-```{r, eval = F}
-library(readr)
-porgs <- read_csv("https://itep-r.netlify.com/data/porg_data.csv")
-```
+The _poggle_ of porgs has returned to help us review `dplyr` functions. 
 
 <br>
 
@@ -148,7 +143,7 @@ ggplot(star_df, aes(x = height)) + geom_histogram(fill = "hotpink")
 
 - Try changing the fill color to __"<span style="color: #FD6A02;">darkorange</span>"__.
 
-- Try making a histogram of the character's `mass`.
+- Try making a histogram of the column `mass`.
 
 </div>
 
@@ -159,20 +154,29 @@ Plot comparisons between height and mass with `geom_point(...)`.
 # Height vs. Mass scatterplot
 ggplot(star_df, aes(y = mass, x = height)) +
    geom_point(aes(color = species), size = 5)
+```
+<br>
 
-
+Who's who? Let's add some labels to the points.
+```{r, eval=F, message=F, warning=F}
 # Add labels
 ggplot(star_df, aes(y = mass, x = height)) +
   geom_point(aes(color = species), size = 5) +
   geom_text_repel(aes(label = name))
 
 
-# Log scale for Mass
-ggplot(star_df, aes(y = log10(mass), x = height)) +
+# Use a log scale for Mass on the y-axis
+ggplot(star_df, aes(y = mass, x = height)) +
   geom_point(aes(color = species), size = 5) +
-  geom_text_repel(aes(label = name))
+  geom_text_repel(aes(label = name)) +
+  scale_y_log10()
 
+```
 
+<br>
+
+Let's drop the "Hutt" species before plotting.
+```{r, eval=F, message=F, warning=F}
 # Without the Hutt
 ggplot(filter(star_df, species != "Hutt"), aes(y = mass, x = height)) +
   geom_point(aes(color = species), size = 5) +
@@ -182,20 +186,22 @@ ggplot(filter(star_df, species != "Hutt"), aes(y = mass, x = height)) +
 
 <br>
 
+We can add `facet_wrap` to make a chart for each species.
 ```{r, eval=T, message=F, warning=F}
 # Split out by species
 ggplot(star_df, aes(x = mass, y = height)) +
   geom_point(aes(color = species), size = 3) +
-  facet_wrap(vars(species)) +
+  facet_wrap("species") +
   guides(color = FALSE)
 ```
 
 
-# Back to Earth
+# | Back to Earth
+<hr>
 
 You're free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we're back, let's look at some data to get fully reacclimated. 
-
-Choose one of the data exercises below to begin. 
+ 
+Choose one of the data exercises below to begin.
 
 
 <div class="row3" style="margin-top: 20px;">

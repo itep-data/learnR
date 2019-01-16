@@ -13,7 +13,7 @@
   <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> `filter`</a>
 </li>
 <li class="nav-item">
-  <a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> `mutate`</a>
+  <a class="nav-link" id="mutate3-tab" data-toggle="tab" href="#mutate3" role="tab" aria-controls="mutate3" aria-selected="false"> `mutate`</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> `summarize`</a>
@@ -82,7 +82,7 @@
 
 </div>
 
-<div class="tab-pane fade" id="mutate" role="tabpanel" aria-labelledby="mutate-tab">
+<div class="tab-pane fade" id="mutate3" role="tabpanel" aria-labelledby="mutate3-tab">
 
 
 ![](../images/porgs/mutate.png){style="width: 77%;"}

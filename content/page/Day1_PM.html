@@ -185,8 +185,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <hr>
 <p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
 <p>Use the <code>summary()</code> function to get a quick report on your numeric data.</p>
-<div id="lets-read-our-data-into-r-and-try-some-of-these-functions." class="section level3 unnumbered">
-<h3>Let’s read our data into R and try some of these functions.</h3>
+<div id="lets-read-the-data-into-r-and-give-these-a-whirl." class="section level3 unnumbered">
+<h3>Let’s read the data into R and give these a whirl.</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
 
@@ -267,10 +267,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 <div id="porg-tables" class="section level1">
 <h1><span class="header-section-number">3</span> | Porg tables</h1>
-<p>A group of porgs <em>(a poggle)</em> will help to demo the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
-<p><br></p>
+<p>A group of porgs (a poggle) will help to demo the <code>dplyr</code> functions.</p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
 <a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
@@ -285,7 +282,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+<a class="nav-link" id="mutate3-tab" data-toggle="tab" href="#mutate3" role="tab" aria-controls="mutate3" aria-selected="false"> <code>mutate</code></a>
 </li>
 <li class="nav-item">
 <a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
@@ -307,7 +304,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
 <img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
 <img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
@@ -468,8 +465,6 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 </div>
 <div id="need-a-refreshing-break-how-about-a" class="section level3 unnumbered">
 <h3>Need a refreshing break? How about a…</h3>
-<p><br></p>
-<p><img src="../images/boba_tea.jpg" width="300" /></p>
 <p><br></p>
 </div>
 </div>
@@ -660,24 +655,41 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span 
 <p>We can use <code>mutate()</code> to convert the <code>amount</code> column to pounds. Multiply the <code>amount</code> column by 2000 to get new values for a column named <code>amount_lbs</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
                        <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre>
-<p><br></p>
 </div>
 </div>
 </div>
 <div id="last-steps" class="section level1">
 <h1><span class="header-section-number">9</span> | Last steps!</h1>
 <p>Rey needs an <code>Ion engine</code>. Filter the data to only that item.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Pull-out only items named `Ion engine`</span>
-scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap_pounds, <span class="dt">item =</span> <span class="st">&quot;Ion engine&quot;</span>)</code></pre>
+<p><br></p>
+<details>
+<p><summary class = "btn_code_blue"><em>Show code</em></summary></p>
+<p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Grab only the items named `Ion engine`</span>
+scrap_pounds &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap_pounds, item <span class="op">==</span><span class="st"> &quot;Ion engine&quot;</span>)</code></pre>
+</p>
+</details>
+<p><br></p>
 <p>Arrange the data in descending order of pounds so Rey knows where the highest amount of scrap comes from. Then she can go there, trade for some discounted parts and <strong>we’re free to FLY TO ENDOR!</strong></p>
+<p><br></p>
+<details>
+<summary class="btn_code_blue"> <em>Show code</em> </summary>
+<p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange data</span>
 scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap_pounds, <span class="kw">desc</span>(amount_lbs))
 
-<span class="co"># Return the origin of the highest weight amount of scrap</span>
-<span class="kw">head</span>(scrap_pounds, <span class="dv">1</span>)</code></pre>
+<span class="co"># Return the origin of the highest amount_lbs of scrap</span>
+<span class="kw">head</span>(scrap_pounds, <span class="dv">1</span>)
+
+<span class="co"># Plot the total amount_lbs by origin</span>
+<span class="kw">ggplot</span>(scrap_pounds, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount_lbs)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>()</code></pre>
+</p>
+</details>
+<p><br></p>
 <div class="quiz">
-<h3 id="pop-quiz-hotshot" class="unnumbered">Pop Quiz, hotshot!</h3>
-<p><strong>For the item <code>Ion engine</code>, which origin had the most ?</strong></p>
+<h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
+<p><strong>For the item <code>Ion engine</code>, which origin had the highest <code>amount_lbs</code>?</strong></p>
 <p><input type="radio"> <em>Tuanul</em> <br>
 <input type="radio"> <em>Cratertown</em> <br>
 <input type="radio"> <em>Outskirts</em> <br>
@@ -686,7 +698,7 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 <details>
 <p><summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Tuanul</code></p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Cratertown</code></p>
 <p><em>Yes!! You receive the ship parts to repair Rey’s Millennium Falcon. Onward!</em></p>
 </p>
 </details>
@@ -814,14 +826,13 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor
              <span class="dt">annotate     =</span> <span class="st">&quot;date&quot;</span>,
              <span class="dt">digits       =</span> <span class="dv">0</span>, 
              <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>, 
-             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">34</span>), 
+             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">14</span>), 
                                  <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
              <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre>
-<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-5-1.png" width="2880" /></p>
+<p><img src="/page/Day1_PM_files/figure-html/cal-for-web-1.png" width="2880" /></p>
 <div id="mission-accomplished" class="section level3 unnumbered">
 <h3>Mission accomplished!</h3>
 <p>It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
-<p><br></p>
 </div>
 </div>
 </div>
@@ -839,6 +850,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor
 <li>[ ] Uncheck Always save history</li>
 </ul></li>
 </ol>
+<p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-1.html">Homebase</a></h3>
 <p><br></p>

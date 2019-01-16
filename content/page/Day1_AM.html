@@ -219,7 +219,7 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 <div id="why-r" class="section level1">
 <h1><span class="header-section-number">1</span> | Why R?</h1>
 <hr>
-<p>See the <a href="community.html">R Community</a> page!</p>
+<p>See the <a href="community.html">R Community</a> page.</p>
 <div id="data-analysis-in-7-steps" class="section level2 unnumbered">
 <h2>Data analysis in 7 steps</h2>
 <div class="note">
@@ -249,34 +249,34 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">4/6/2016</td>
+<td align="left">27-137-7001</td>
+<td align="left">9/21/2018</td>
 <td align="right">7</td>
-<td align="right">41.6</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7001</td>
-<td align="left">5/27/2017</td>
-<td align="right">8</td>
-<td align="right">65.0</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">5/27/2016</td>
-<td align="right">17</td>
-<td align="right">65.0</td>
+<td align="right">62.6</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7554</td>
-<td align="left">7/20/2018</td>
-<td align="right">13</td>
-<td align="right">80.6</td>
+<td align="left">10/14/2018</td>
+<td align="right">9</td>
+<td align="right">59.6</td>
 </tr>
 <tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">4/29/2018</td>
+<td align="right">5</td>
+<td align="right">39.2</td>
+</tr>
+<tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">7/11/2017</td>
-<td align="right">23</td>
-<td align="right">71.6</td>
+<td align="left">8/30/2018</td>
+<td align="right">7</td>
+<td align="right">63.2</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">6/27/2016</td>
+<td align="right">19</td>
+<td align="right">66.2</td>
 </tr>
 </tbody>
 </table>
@@ -327,8 +327,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <tr class="odd">
 <td align="left">27-137-7001</td>
 <td align="right">2016</td>
-<td align="right">11.40</td>
-<td align="right">62.12</td>
+<td align="right">11.51</td>
+<td align="right">60.83</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
@@ -345,8 +345,8 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <tr class="even">
 <td align="left">27-137-7554</td>
 <td align="right">2016</td>
-<td align="right">12.69</td>
-<td align="right">60.66</td>
+<td align="right">12.75</td>
+<td align="right">60.65</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
@@ -444,7 +444,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <div id="first-steps" class="section level1">
 <h1><span class="header-section-number">3</span> | First steps</h1>
 <hr>
-<p>You can assign values to new objects using the “left arrow” <code>&lt;-</code>, more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and creating an object called <code>droid</code>.</p>
+<p>You can assign values to new objects using the “left arrow” <code>&lt;-</code>, which is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script to assign a value to an object called <code>droid</code>.</p>
 <p>To run a line of code in your script, move the cursor to that line and press <strong>CTRL+ENTER</strong>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a new object</span>
 droid &lt;-<span class="st"> &quot;bb8&quot;</span>
@@ -605,7 +605,7 @@ Create the same table above, but add a <strong>3rd</strong> column that lists th
 <div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
 <pre class="sourceCode r">
 
-starwars_df <- data.frame(character   = starwars_character, 
+starwars_df <- data.frame(character   = starwars_characters, 
                           ages        = starwars_ages, 
                           fathers     = __________________)
 </pre>
@@ -613,7 +613,7 @@ starwars_df <- data.frame(character   = starwars_character,
 <div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
 <pre class="sourceCode r">
 
-starwars_df <- data.frame(character   = starwars_character, 
+starwars_df <- data.frame(character   = starwars_characters, 
                           ages        = starwars_ages, 
                           fathers     = c("Darth", "Darth", "Unknown"))
 </pre>
@@ -793,7 +793,7 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <div id="read-the-data-1" class="section level2">
 <h2><span class="header-section-number">4.3</span> Read the data</h2>
 <hr>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;readr&quot;</span>)
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
 <span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
 <pre><code>## Parsed with column specification:

@@ -33,11 +33,11 @@ Time to start putting what we've learned to use. Choose one of the paths below a
 </span></div> 
 
 <div class="column3"> <span style="margin-left: 2px; display: inline;">
-<a href="page/level2_porg_exposure.html"> <i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __COMMODORE__ </a> 
+<a href="level2_porg_exposure.html"> <i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __COMMODORE__ </a> 
 </span></div> 
 
 <div class="column3"> <span style="margin-left: 2px;">
-<a href="page/level3_example_outline.html"><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __GRAND MOFF__ </a>
+<a href="level3_example_outline.html"><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star" aria-hidden="true" style="color: #fa970c;"></i> __GRAND MOFF__ </a>
 </span></div>
 </div>
 
@@ -46,17 +46,17 @@ Time to start putting what we've learned to use. Choose one of the paths below a
 
 <div class="column3" style="height: 232px; max-height: 232px;">
 <div class="" style="border: 1px solid grey;">
-<a href="page/level1_jakku_explore.html"><img src="../images/jakku_sq.PNG" style="width: 290px;"></a>
+<a href="level1_jakku_explore.html"><img src="../images/jakku_sq.PNG" style="width: 290px;"></a>
 </div></div>
 
 <div class="column3" style="height: 232px; max-height: 232px;">
 <div class="" style="border: 1px solid grey;">
-<a href="page/level2_porg_exposure.html"><img src="../images/fly_porgs_sq.jpg" style="width: 290px;"></a>
+<a href="level2_porg_exposure.html"><img src="../images/fly_porgs_sq.jpg" style="width: 290px;"></a>
 </div></div>
 
 <div class="column3" style="height: 232px; max-height: 232px;">
 <div class="" style="border: 1px solid grey;">
-<a href="page/level3_example_outline.html"><img src="../images/death_star_sq.PNG" style="width: 290px;"></a>
+<a href="level3_example_outline.html"><img src="../images/death_star_sq.PNG" style="width: 290px;"></a>
 </div></div>
 
 </div>

@@ -1,9 +1,9 @@
 ---
 title: "Porg biomonitoring data"
 output:
-  html_document:
+blogdown::html_page: 
     toc: false
-    theme: readable
+    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 14pt
@@ -12,7 +12,7 @@ output:
 ---
 
 
-![](images/fly_porgs_cut.PNG){width="520" style="margin: 0; margin-top: 24px;"}
+![](../images/fly_porgs_cut.PNG){width="520" style="margin: 0; margin-top: 24px;"}
 
 <br><br>
 
@@ -64,7 +64,7 @@ summary(porg_data)
 
 <br><br>
 
-![](images/porgs_lifecycle.jpg){width="520" style="margin: 0; margin-top: 24px;"}
+![](../images/porgs_lifecycle.jpg){width="520" style="margin: 0; margin-top: 24px;"}
 
 > What columns are there? What kinds of questions do you have about the data after looking at it. (Hint, I see some biomonotoring concentrations and some response times. Maybe Corundum is neurotoxic to porgs? Ask Dorian to find out for sure.)
 
@@ -182,7 +182,7 @@ ggplot(data = porg_data, aes(x = Island, y =  conc_ppb, fill = Island)) +
 </p></details>
 <br><br>
 
-![](images/porgs_4.jpg){width="520" style="margin: 0; margin-top: 24px;"}
+![](../images/porgs_4.jpg){width="520" style="margin: 0; margin-top: 24px;"}
 
 <br>
 
@@ -224,7 +224,7 @@ ggplot(data = porg_data, aes(x = conc_ppb, y =  rxn_time)) +
 > Nice work Jedi Master! You are ready to tackle your own data set, maps, images, statistics, the universe! 
 
 
-![](https://media1.tenor.com/images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398)
+![](https://media1.tenor.com/../images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398)
 
 
 

@@ -1,9 +1,9 @@
 ---
 title: "Jakku scrap economy"
 output:
-  html_document:
+ blogdown::html_page: 
     toc: false
-    theme: readable
+    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 18pt
@@ -19,7 +19,7 @@ dt_options <- list(scrollX = T, autoWidth = T, searching = F, ordering = F, leng
 ```
 
 
-![](images/jakku_capture.jpg){width="540" style="margin: 0; margin-top: 24px;"}
+![](../images/jakku_capture.jpg){width="540" style="margin: 0; margin-top: 24px;"}
 
 <br>
 
@@ -37,12 +37,7 @@ library(ggplot2)
 <br>
 
 > Start by reading in the data.
-> The scrap data you will use is on the X-drive.
 > It is a clean version of the scrap data we've been using.
-> Remember, when reading in data from the X-drive, R reads forward slashes.
-
-> The X drive location of the file is
->"X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/starwars_scrap_jakku_clean.csv".
 
 > _Notice_ that we are including comments in the R script so that your future self can follow along and see what you did.
 
@@ -53,7 +48,7 @@ library(ggplot2)
 <p>
 ```{r, eval=T}
 #Read in data
-clean_scrap <- read_csv("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/starwars_scrap_jakku_clean.csv")
+clean_scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_clean.csv")
 
 head(clean_scrap)
 ```
@@ -101,7 +96,7 @@ summary(clean_scrap)
 </p></details>
 <br>
 
-![](images/Unkar_Plutt.png){width="520" style="margin: 0; margin-top: 24px;"}
+![](../images/Unkar_Plutt.png){width="520" style="margin: 0; margin-top: 24px;"}
 
 > What if you only want to keep the items and amount_tons fields? 
 > Use _select()_ to create a new data frame keeping only those columns and save it as an object called `select_scrap`.
@@ -170,7 +165,7 @@ filter_scrap <- filter(select_scrap, amount_tons > 1000,
 </p></details>
 <br>
 
-![](images/WattoHS.jpg){width="440" style="margin: 0; margin-top: 24px;"}
+![](../images/WattoHS.jpg){width="440" style="margin: 0; margin-top: 24px;"}
 
 
 > Add a column with your favorite Star Wars character to your filtered data frame.
@@ -219,7 +214,7 @@ filter_scrap <- mutate(filter_scrap, do_this = ifelse(items == "hyperdrive", "bu
 </p></details>
 <br>
 
-![](images/Junk_Droid.jpg){width="440" style="margin: 0; margin-top: 24px;"}
+![](../images/Junk_Droid.jpg){width="440" style="margin: 0; margin-top: 24px;"}
 <br>
 > Let's take a closer look at our full dataset now (clean_scrap). We want to give the Junk Boss a summary of all of this data. He doesn't have the patience to really look at a lot of data. He hates numbers! He likes money. He wants to know the following things: 
 
@@ -339,7 +334,7 @@ ggplot(data = summary_scrap, aes(reorder(items, max_price), max_price)) +
 
 > Nice work!!
 > You may now move on to the Commodore level analysis.
-![](images/congrats.jpg){width="300"}
+![](../images/congrats.jpg){width="300"}
 
 # Return to [RCamp](index.html) {-}
 

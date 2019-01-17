@@ -17,6 +17,9 @@ Let's take a look at some air pollution data stored in an Excel file.
 
 ## Download the data
 
+<a href="https://itep-r.netlify.com/data/2014_AQS_FondduLac.xlsx">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Ozone air data
+
 ## Install packages
 
 ```{r, eval=F}
@@ -33,7 +36,7 @@ install_github('davidcarslaw/openair')
 
 
 ## Load the data
-```{r}
+```{r, warning=F, message=F}
 
 # Load packages
 library(openair)

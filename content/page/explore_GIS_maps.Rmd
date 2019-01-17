@@ -1,15 +1,15 @@
 ---
 title: "GIS and Shapefiles"
 output: 
- html_document:
-    toc: false
-    toc_depth: 2
+  blogdown::html_page: 
+    toc: true
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
+    number_sections: false
     self_contained: false
-    fontsize: 14pt
+    fontsize: 18pt
     monofont: Source Code Pro
-    monofontoptions: Scale = 1.1
 ---
 
 <style> code {color: #535353 !important;} </style>
@@ -37,13 +37,29 @@ install.packages("sf")
 
 To load a shapefile, use the function `st_read()`. The __st__ stands for _spatial and temporal_ data.
 
-```{r sf, warning = F, message = F}
+
+<a href="https://itep-r.netlify.com/data/census_shapefile/census_shapfile.zip">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Census shapefile
+
+1. Download the ZIP file above for an example shapefile.
+3. Move the file to your project's data folder.
+1. Unzip the file
+
+Read the data using `st_read("shapefile file location")`
+
+```{r sf-read, eval=F, warning = F, message = F}
 library(dplyr)
 library(sf)
 
-census <- st_read("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Student Folder/Sample data/Shapefile poverty/Census2010_med_household_income.shp", stringsAsFactors = F)
+census <- st_read("data/Census2010_med_household_income.shp", stringsAsFactors = F)
 ```
 
+```{r sf-read-web, eval=T, include=F}
+library(dplyr)
+library(sf)
+
+census <- st_read("../data/census_shapefile/Census2010_med_household_income.shp", stringsAsFactors = F)
+```
 <br>
 
 When you view the data you will see all the attributes of the shapefile stored in the first columns, and the spatial information stored in a final column named `geometry`.
@@ -61,7 +77,7 @@ Try `plot(census)` to see an overview of all the shapefile's attributes.
 ## Plot all variables
 ```{r}
 # Colors each polygon by attribute
-census %>% plot(max.plot = 10)
+census %>% plot(max.plot = 9)
 ```
 
 
@@ -82,7 +98,7 @@ census %>% select(HHold_MedI) %>% plot(graticule = T, axes = T)
 ## Plot with _ggplot2_ and _viridis_ colors.
 
 Run the code below to get the latest development version of _ggplot2_ and the _viridis_ color palette.
-```{r, eval = F}
+```{r, eval=F}
 
 install.packages("devtools")
   
@@ -333,7 +349,7 @@ plot(mn_tracts)
 ```
 
 
-### Midwest Counties
+### Midwest Counties {-}
 
 ```{r, results='hide', message=F, warning=F}
 # Load geography
@@ -348,21 +364,24 @@ plot(midw_counties, col = midw_counties$STATEFP, stroke = "white")
 # Load geography
 tribal_bgs <- tribal_block_groups()
 
+# Convert to sf filetype
+tribal_bgs <- st_as_sf(tribal_bgs)
+```
 
-# Interactive map
-leaflet(tribal_bgs) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(fillColor = "steelblue",
-              color     = "black",
-              weight    = 0.5,
-              opacity   = 0.75)
+<br>
 
-# Filter to Midwest region
-#tribal_bgs <- filter(tribal_bgs, ....)
+```{r, message=F, warning=F}
+# Interactive leaflet map
+trib_map <- leaflet(tribal_bgs) %>%
+              addProviderTiles("CartoDB.Positron") %>%
+              addPolygons(fillColor  = "steelblue",
+                           color     = "black",
+                           weight    = 0.5,
+                           opacity   = 0.75,
+                           popup     = ~GEOID)
 
-# Re-map
-#
-#
+trib_map
+
 ```
 
 
@@ -377,14 +396,19 @@ Let's install the _tidycensus_ package.
 ```{r}
 library(tidycensus)
 
-# Load Census key so the Govt. can track you when you get data
-census_api_key(readLines("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Student Folder/census_key.txt"))
+# Load Census key for downloading Census data
+# You can receive your own at http://api.census.gov/data/key_signup.html
+census_api_key(readLines("https://itep-r.netlify.com/data/Census_shapefile/census_key.txt"))
 
 # View all 2015 ACS variables you can choose from
 acs_variables <- load_variables(2015, "acs5", cache = TRUE)
 
 # Get the population data fro all MN Census Tracts
-pops <- get_acs(geography = "tract", state = "MN", variables = "B01003_001E", survey = "acs5", year = 2015)
+pops <- get_acs(geography = "tract", 
+                state     = "MN", 
+                variables = "B01003_001E", 
+                survey    = "acs5", 
+                year      = 2015)
 
 
 # Show top 6 rows

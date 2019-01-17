@@ -258,9 +258,8 @@ wide_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span
 </div>
 <div id="clean-the-data." class="section level2">
 <h2><span class="header-section-number">1.2</span> Clean the data.</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2. Make all names Lowercase</span>
-wide_data &lt;-<span class="st"> </span>wide_data <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename_all</span>(tolower)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2. Make all names lowercase</span>
+wide_data &lt;-<span class="st"> </span>wide_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename_all</span>(tolower)</code></pre>
 <p><br></p>
 <p><img src="../images/tidyr.png" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;" width="350" /></p>
 </div>
@@ -268,7 +267,6 @@ wide_data &lt;-<span class="st"> </span>wide_data <span class="op">%&gt;%</span>
 <h2>Now we are going to zip all of these columns into one <strong>pollutant</strong> column. This is a function in the <code>tidyr</code> package called <code>gather()</code></h2>
 <p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 3. Gather all the pollutant columns into one</span>
-
 long_data &lt;-<span class="st"> </span>wide_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                </span><span class="kw">gather</span>(<span class="dt">key =</span> pollutant, <span class="dt">value =</span> emissions, <span class="st">`</span><span class="dt">222trifluoroetha</span><span class="st">`</span><span class="op">:</span><span class="st">`</span><span class="dt">solv in coat</span><span class="st">`</span>)</code></pre>
 </div>

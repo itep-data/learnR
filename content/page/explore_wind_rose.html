@@ -80,6 +80,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s take a look at some air pollution data stored in an Excel file.</p>
 <div id="download-the-data" class="section level2">
 <h2>Download the data</h2>
+<p><a href="https://itep-r.netlify.com/data/2014_AQS_FondduLac.xlsx">
+<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — Ozone air data</p>
 </div>
 <div id="install-packages" class="section level2">
 <h2>Install packages</h2>
@@ -96,27 +98,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2>Load the data</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
 <span class="kw">library</span>(openair)
-<span class="kw">library</span>(readxl)</code></pre>
-<pre><code>## Warning: package &#39;readxl&#39; was built under R version 3.5.2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
-<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.5.2</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;lubridate&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:base&#39;:
-## 
-##     date</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set the path to your the Excel file</span>
+<span class="kw">library</span>(readxl)
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(lubridate)
+
+<span class="co"># Set the path to your the Excel file</span>
 excel_path &lt;-<span class="st"> &quot;data/2014_AQS_FondduLac.xlsx&quot;</span></code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the file</span>
 air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>

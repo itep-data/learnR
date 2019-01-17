@@ -91,13 +91,9 @@ names(wide_data)
 
  
 ## Clean the data.
-
-
 ```{r, eval = T, echo = T}
-# 2. Make all names Lowercase
-wide_data <- wide_data %>%
-  rename_all(tolower)
-
+# 2. Make all names lowercase
+wide_data <- wide_data %>% rename_all(tolower)
 ```
 
 <br>
@@ -111,7 +107,6 @@ wide_data <- wide_data %>%
 ```{r, echo = T, eval = T}
 
 # 3. Gather all the pollutant columns into one
-
 long_data <- wide_data %>% 
                 gather(key = pollutant, value = emissions, `222trifluoroetha`:`solv in coat`)
 

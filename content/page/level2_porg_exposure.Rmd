@@ -16,7 +16,6 @@ output:
 <br>
 
 
-
 ```{r, warning = FALSE, message = FALSE}
 # load packages
 library(readr)

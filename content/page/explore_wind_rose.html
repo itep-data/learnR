@@ -122,9 +122,17 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop special characters and shorten names</span>
 <span class="co"># Set all names to lowercase</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">            </span><span class="kw">rename</span>(<span class="dt">wd   =</span> <span class="st">&quot;Wind Direction (Degrees)&quot;</span>,
+<span class="st">            </span><span class="kw">rename</span>(<span class="dt">pm25 =</span> <span class="st">&quot;PM2.5 Conc (ug/m3)&quot;</span>, 
+                   <span class="dt">wd   =</span> <span class="st">&quot;Wind Direction (Degrees)&quot;</span>,
                    <span class="dt">ws   =</span> <span class="st">&quot;Wind Speed (mph)&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">rename_all</span>(tolower)</code></pre>
+<span class="st">            </span><span class="kw">rename_all</span>(tolower)
+
+<span class="co"># We need numbers for our data, not text</span>
+<span class="co"># Set wind speed and wind direction to numeric</span>
+air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">wd   =</span> <span class="kw">as.numeric</span>(wd),
+                   <span class="dt">ws   =</span> <span class="kw">as.numeric</span>(ws))</code></pre>
+<pre><code>## Warning in evalq(as.numeric(wd), &lt;environment&gt;): NAs introduced by coercion</code></pre>
 </div>
 <div id="plot-the-data" class="section level2">
 <h2>Plot the data</h2>
@@ -137,15 +145,17 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
                    <span class="op">!</span><span class="kw">is.na</span>(ws), 
                    <span class="op">!</span><span class="kw">is.na</span>(wd),
+                   <span class="op">!</span><span class="kw">is.na</span>(pm25),
                    ws <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
 </div>
 <div id="wind-rose" class="section level2">
 <h2>Wind rose</h2>
 <p>Now let’s make some wind roses.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data</span>
-<span class="kw">windRose</span>(air_data)
-
-<span class="kw">polarFreq</span>(air_data)</code></pre>
+<span class="kw">windRose</span>(air_data)</code></pre>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">polarFreq</span>(air_data)</code></pre>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-- Fine tune  wind rose</span>
 <span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="dv">5</span>, <span class="dt">ws.upper =</span> <span class="dv">35</span>)
 
@@ -156,13 +166,9 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p>To make a pollution rose we can replace the name of the wind speed column with the name of PM2.5 column - <code>"PM2.5 Conc (ug/m3)"</code></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pollution concentrations based on wind directions</span>
 <span class="kw">pollutionRose</span>(air_data, 
-              <span class="dt">pollutant =</span> <span class="st">&quot;pm25&quot;</span>)
-
-<span class="kw">pollutionRose</span>(data_sub, 
-              <span class="dt">pollutant =</span> <span class="st">&quot;conc&quot;</span>,
-              <span class="dt">statistic =</span> <span class="st">&quot;abs.count&quot;</span>,  
-              <span class="dt">key.footer =</span> <span class="st">&quot;&quot;</span>, 
-              <span class="dt">breaks =</span> breaks_site)</code></pre>
+              <span class="dt">pollutant =</span> <span class="st">&quot;pm25&quot;</span>,
+              <span class="dt">key.footer =</span> <span class="st">&quot;PM2.5 ug/m3&quot;</span>)</code></pre>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="time-series" class="section level2">
 <h2>Time series</h2>
@@ -176,6 +182,16 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 excel_path &lt;-<span class="st"> &quot;data/2014_AQS_FondduLac.xlsx&quot;</span>
 
 air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>
+<pre><code>## # A tibble: 5 x 12
+##   StateCode CountyCode SiteNum Latitude Longitude Date               
+##       &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dttm&gt;             
+## 1        27        137    7001     47.5     -92.5 2014-01-01 00:00:00
+## 2        27        137    7001     47.5     -92.5 2014-01-01 00:00:00
+## 3        27        137    7001     47.5     -92.5 2014-01-01 00:00:00
+## 4        27        137    7001     47.5     -92.5 2014-01-01 00:00:00
+## 5        27        137    7001     47.5     -92.5 2014-01-01 00:00:00
+## # ... with 6 more variables: Time &lt;dttm&gt;, Hour &lt;dbl&gt;, Parameter &lt;dbl&gt;,
+## #   Conc &lt;dbl&gt;, site_catid &lt;chr&gt;, Year &lt;dbl&gt;</code></pre>
 </div>
 <div id="explore-the-data-1" class="section level2">
 <h2>Explore the data</h2>

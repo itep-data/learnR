@@ -1,9 +1,8 @@
 ---
 title: "Jakku scrap economy"
 output:
- blogdown::html_page: 
+  blogdown::html_page: 
     toc: false
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 18pt
@@ -99,16 +98,20 @@ It is a clean version of the scrap data we’ve been using.</p>
 <p><em>Notice</em> that we are including comments in the R script so that your future self can follow along and see what you did.</p>
 </blockquote>
 <p><br></p>
-<details>
-<summary class = "btn_code_blue"><em>Show solution</em></summary>
-<p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#Read in data</span>
-clean_scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_clean.csv&quot;</span>)</code></pre>
-<pre><code>## Error in open.connection(con, &quot;rb&quot;): HTTP error 404.</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(clean_scrap)</code></pre>
-<pre><code>## Error in head(clean_scrap): object &#39;clean_scrap&#39; not found</code></pre>
-</p>
-</details>
+<div id="read-in-data" class="section level3 unnumbered">
+<h3>Read in data</h3>
+<pre class="sourceCode r"><code class="sourceCode r">clean_scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_clean.csv&quot;</span>)
+
+<span class="kw">head</span>(clean_scrap)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   items         origin    destination price_per_ton amount_tons total_price
+##   &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;               &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1 electroteles~ outskirts trade cara~         850.         868.     737981.
+## 2 atmospheric ~ craterto~ niima outp~          56.2      33978.    1909912.
+## 3 bulkhead      craterto~ raiders            1005.         645.     647843.
+## 4 main drive    blowback~ trade cara~         598.        1961.    1172184.
+## 5 flight recor~ outskirts niima outp~         591.         887      524155.
+## 6 proximity se~ outskirts raiders            1229.        7081     8702761.</code></pre>
 <p><br></p>
 <blockquote>
 <p>Did it load successfully?
@@ -131,7 +134,14 @@ Do you remember some of the functions to do that?
 <p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#View the data</span>
 <span class="kw">glimpse</span>(clean_scrap)</code></pre>
-<pre><code>## Error in glimpse(clean_scrap): object &#39;clean_scrap&#39; not found</code></pre>
+<pre><code>## Observations: 573
+## Variables: 6
+## $ items         &lt;chr&gt; &quot;electrotelescope&quot;, &quot;atmospheric thrusters&quot;, &quot;bu...
+## $ origin        &lt;chr&gt; &quot;outskirts&quot;, &quot;cratertown&quot;, &quot;cratertown&quot;, &quot;blowba...
+## $ destination   &lt;chr&gt; &quot;trade caravan&quot;, &quot;niima outpost&quot;, &quot;raiders&quot;, &quot;tr...
+## $ price_per_ton &lt;dbl&gt; 849.79, 56.21, 1004.83, 597.85, 590.93, 1229.03,...
+## $ amount_tons   &lt;dbl&gt; 868.4280, 33978.1545, 644.7285, 1960.6650, 887.0...
+## $ total_price   &lt;dbl&gt; 737981.43, 1909912.06, 647842.54, 1172183.57, 52...</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -144,7 +154,20 @@ Do you remember some of the functions to do that?
 <p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">#View a summary of the data</span>
 <span class="kw">summary</span>(clean_scrap)</code></pre>
-<pre><code>## Error in summary(clean_scrap): object &#39;clean_scrap&#39; not found</code></pre>
+<pre><code>##     items              origin          destination       
+##  Length:573         Length:573         Length:573        
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+##                                                          
+##  price_per_ton      amount_tons        total_price      
+##  Min.   :  29.15   Min.   :    0.01   Min.   :       5  
+##  1st Qu.: 314.23   1st Qu.:  238.99   1st Qu.:  128921  
+##  Median : 629.28   Median : 1298.00   Median :  757656  
+##  Mean   :1010.85   Mean   : 3724.23   Mean   : 3483802  
+##  3rd Qu.:1329.05   3rd Qu.: 4678.44   3rd Qu.: 2631778  
+##  Max.   :7211.01   Max.   :60116.67   Max.   :83712615</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -158,7 +181,6 @@ Use <em>select()</em> to create a new data frame keeping only those columns and 
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">select_scrap &lt;-<span class="st"> </span><span class="kw">select</span>(clean_scrap, items, amount_tons)</code></pre>
-<pre><code>## Error in select(clean_scrap, items, amount_tons): object &#39;clean_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -170,7 +192,6 @@ Use <em>select()</em> to create a new data frame keeping only those columns and 
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">select_scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(select_scrap, <span class="kw">desc</span>(items))</code></pre>
-<pre><code>## Error in arrange(select_scrap, desc(items)): object &#39;select_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -182,7 +203,6 @@ Use <em>select()</em> to create a new data frame keeping only those columns and 
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">filter_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(select_scrap, amount_tons <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>)</code></pre>
-<pre><code>## Error in filter(select_scrap, amount_tons &gt; 1000): object &#39;select_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -203,7 +223,6 @@ Use <em>select()</em> to create a new data frame keeping only those columns and 
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">filter_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(select_scrap, amount_tons <span class="op">&gt;</span><span class="st"> </span><span class="dv">1000</span>,
                        items <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;proximity sensor&quot;</span>, <span class="st">&quot;hyperdrive&quot;</span>))</code></pre>
-<pre><code>## Error in filter(select_scrap, amount_tons &gt; 1000, items %in% c(&quot;proximity sensor&quot;, : object &#39;select_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -218,7 +237,6 @@ Use <em>select()</em> to create a new data frame keeping only those columns and 
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">filter_scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(filter_scrap, <span class="dt">my_favorite_character =</span> <span class="st">&quot;Admiral Ackbar&quot;</span>)</code></pre>
-<pre><code>## Error in mutate(filter_scrap, my_favorite_character = &quot;Admiral Ackbar&quot;): object &#39;filter_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -232,7 +250,6 @@ Use <em>mutate()</em> to calculate the number of pounds in your filtered dataset
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">filter_scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(filter_scrap, <span class="dt">amount_pounds =</span> amount_tons <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre>
-<pre><code>## Error in mutate(filter_scrap, amount_pounds = amount_tons * 2000): object &#39;filter_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -247,7 +264,6 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 <summary class = "btn_code_blue"><em>Show solution</em></summary>
 <p>
 <pre class="sourceCode r"><code class="sourceCode r">filter_scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(filter_scrap, <span class="dt">do_this =</span> <span class="kw">ifelse</span>(items <span class="op">==</span><span class="st"> &quot;hyperdrive&quot;</span>, <span class="st">&quot;buy&quot;</span>, <span class="st">&quot;ignore&quot;</span>))</code></pre>
-<pre><code>## Error in mutate(filter_scrap, do_this = ifelse(items == &quot;hyperdrive&quot;, : object &#39;filter_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -294,7 +310,6 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
             <span class="dt">max_price =</span> <span class="kw">max</span>(total_price),
             <span class="dt">count_price =</span> <span class="kw">n</span>(),
             <span class="dt">price_35th =</span> <span class="kw">quantile</span>(total_price, <span class="fl">0.35</span>))</code></pre>
-<pre><code>## Error in eval(lhs, parent, parent): object &#39;clean_scrap&#39; not found</code></pre>
 </p>
 </details>
 <p><br></p>
@@ -308,7 +323,7 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 <p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> summary_scrap, <span class="kw">aes</span>(items, max_price)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>()</code></pre>
-<pre><code>## Error in ggplot(data = summary_scrap, aes(items, max_price)): object &#39;summary_scrap&#39; not found</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 </p>
 </details>
 <p><br></p>
@@ -319,7 +334,7 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 <p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> summary_scrap, <span class="kw">aes</span>(items, max_price)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
-<pre><code>## Error in ggplot(data = summary_scrap, aes(items, max_price)): object &#39;summary_scrap&#39; not found</code></pre>
+<p><img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </p>
 </details>
 <p><br></p>
@@ -334,7 +349,7 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> summary_scrap, <span class="kw">aes</span>(items, max_price)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_flip</span>()</code></pre>
-<pre><code>## Error in ggplot(data = summary_scrap, aes(items, max_price)): object &#39;summary_scrap&#39; not found</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 </p>
 </details>
 <p><br></p>
@@ -349,7 +364,7 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> summary_scrap, <span class="kw">aes</span>(<span class="kw">reorder</span>(items, max_price), max_price)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">coord_flip</span>()</code></pre>
-<pre><code>## Error in ggplot(data = summary_scrap, aes(reorder(items, max_price), max_price)): object &#39;summary_scrap&#39; not found</code></pre>
+<img src="/page/level1_jakku_explore_files/figure-html/unnamed-chunk-17-1.png" width="672" />
 </p>
 </details>
 <p><br></p>
@@ -358,7 +373,5 @@ Use <em>mutate()</em> to make a column that reports “buy” if the item is a <
 You may now move on to the Commodore level analysis.
 <img src="../images/congrats.jpg" width="300" /></p>
 </blockquote>
-<div id="return-to-rcamp" class="section level1 unnumbered">
-<h1>Return to <a href="index.html">RCamp</a></h1>
 <p><br></p>
 </div>

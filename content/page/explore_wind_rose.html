@@ -80,8 +80,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s take a look at some air pollution data stored in an Excel file.</p>
 <div id="download-the-data" class="section level2">
 <h2>Download the data</h2>
-<p><a href="https://itep-r.netlify.com/data/2014_AQS_FondduLac.xlsx">
-<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — Ozone air data</p>
+<p><a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
+<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — La Jolla PM25 data</p>
 </div>
 <div id="install-packages" class="section level2">
 <h2>Install packages</h2>
@@ -104,13 +104,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span class="kw">library</span>(lubridate)
 
 <span class="co"># Set the path to your the Excel file</span>
-excel_path &lt;-<span class="st"> &quot;data/2014_AQS_FondduLac.xlsx&quot;</span></code></pre>
+excel_path &lt;-<span class="st"> &quot;data/la_jolla_pm25_wind_data.xls&quot;</span></code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the file</span>
 air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>
 </div>
 <div id="explore-the-data" class="section level2">
 <h2>Explore the data</h2>
-<p>What are the column names? What is the range of values in each column? Are there missing values?</p>
+<p>What are the column names?</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
 
 <span class="kw">glimpse</span>(air_data)
@@ -122,11 +122,8 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop special characters and shorten names</span>
 <span class="co"># Set all names to lowercase</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">            </span><span class="kw">rename</span>(<span class="dt">site       =</span> site_catid
-                  <span class="co"># wind_dir   = &quot;Wind Direction (Degrees)&quot;,</span>
-                   <span class="co">#wind_mph   = &quot;Wind Speed (mph)&quot;,</span>
-                  <span class="co"># ozone      = Conc</span>
-                  ) <span class="op">%&gt;%</span>
+<span class="st">            </span><span class="kw">rename</span>(<span class="dt">wd   =</span> <span class="st">&quot;Wind Direction (Degrees)&quot;</span>,
+                   <span class="dt">ws   =</span> <span class="st">&quot;Wind Speed (mph)&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">            </span><span class="kw">rename_all</span>(tolower)</code></pre>
 </div>
 <div id="plot-the-data" class="section level2">
@@ -134,28 +131,22 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <p>Create a plot to show the distribution of each of the columns containing observations: <code>wind speed</code>, <code>wind direction</code>, and <code>concentration</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> ?, <span class="dt">y =</span> ?)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
 </div>
-<div id="lets-focus-on-pm2.5" class="section level2">
-<h2>Let’s focus on PM2.5</h2>
-<p>Use filter to select only the <code>parameter</code> code <code>88101</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span>??)</code></pre>
-</div>
 <div id="clean-ship" class="section level2">
 <h2>Clean ship</h2>
 <p>Let’s drop the non-sense values. We can’t use the rows that have a missing windspeed or wind direction observation.</p>
 <pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
-                   <span class="op">!</span><span class="kw">is.na</span>(wind_mph), 
-                   <span class="op">!</span><span class="kw">is.na</span>(wind_dir),
+                   <span class="op">!</span><span class="kw">is.na</span>(ws), 
+                   <span class="op">!</span><span class="kw">is.na</span>(wd),
                    ws <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
 </div>
 <div id="wind-rose" class="section level2">
 <h2>Wind rose</h2>
 <p>Now let’s make some wind roses.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data</span>
-<span class="kw">windRose</span>(air_data, <span class="dt">ws =</span> <span class="st">&quot;wind_mph&quot;</span>, <span class="dt">wd =</span> <span class="st">&quot;wind_dir&quot;</span>)
+<span class="kw">windRose</span>(air_data)
 
-<span class="kw">polarFreq</span>(air_data)
-
-<span class="co">#-- Make chart</span>
+<span class="kw">polarFreq</span>(air_data)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-- Fine tune  wind rose</span>
 <span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="dv">5</span>, <span class="dt">ws.upper =</span> <span class="dv">35</span>)
 
 <span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="fl">0.8</span>, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">30</span>))</code></pre>
@@ -163,17 +154,9 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <div id="pollution-rose" class="section level2">
 <h2>Pollution rose</h2>
 <p>To make a pollution rose we can replace the name of the wind speed column with the name of PM2.5 column - <code>"PM2.5 Conc (ug/m3)"</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data, </span>
-<span class="co"># Replace the windspeed column with the PM2.5 column</span>
-<span class="kw">windRose</span>(air_data,
-         <span class="dt">ws =</span> <span class="st">&quot;conc&quot;</span>,
-         <span class="dt">wd =</span> <span class="st">&quot;wind_dir&quot;</span>,
-         <span class="dt">paddle =</span> F)
-
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pollution concentrations based on wind directions</span>
 <span class="kw">pollutionRose</span>(air_data, 
-              <span class="dt">pollutant =</span> <span class="st">&quot;conc&quot;</span>
-              <span class="co">#wd        = &quot;wd&quot;</span>
-              )
+              <span class="dt">pollutant =</span> <span class="st">&quot;pm25&quot;</span>)
 
 <span class="kw">pollutionRose</span>(data_sub, 
               <span class="dt">pollutant =</span> <span class="st">&quot;conc&quot;</span>,
@@ -183,6 +166,35 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 </div>
 <div id="time-series" class="section level2">
 <h2>Time series</h2>
+<p><a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
+<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — Ozone air data</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(ggplot2)
+
+<span class="co"># Read the file</span>
+excel_path &lt;-<span class="st"> &quot;data/2014_AQS_FondduLac.xlsx&quot;</span>
+
+air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>
+</div>
+<div id="explore-the-data-1" class="section level2">
+<h2>Explore the data</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
+
+<span class="kw">glimpse</span>(air_data)</code></pre>
+</div>
+<div id="simplify-the-column-names-1" class="section level2">
+<h2>Simplify the column names</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set all names to lowercase</span>
+air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">rename_all</span>(tolower) <span class="op">%&gt;%</span>
+<span class="st">            </span><span class="kw">rename</span>(<span class="dt">site =</span> site_catid)</code></pre>
+</div>
+<div id="lets-focus-on-pm2.5" class="section level2">
+<h2>Let’s focus on PM2.5</h2>
+<p>Use filter to select only the <code>parameter</code> code <code>88101</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span>??)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span><span class="dv">88101</span>)</code></pre>
 <p>Let’s summarize the observations by day and then make a time series chart to see how the pollution concentrations are changing over time.</p>
 <p><strong>Add monthly statistics</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add a month column</span>
@@ -194,33 +206,33 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 
 <span class="co"># Find average PM25 concentration for each day</span>
 <span class="co">#   - And upper and lower 10th percentile concentration</span>
-air_data &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data, site, year, month, day, date) <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">summarize</span>(<span class="dt">conc_avg  =</span> <span class="kw">mean</span>(conc, <span class="dt">na.rm =</span> T),
-                      <span class="dt">conc_10th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.10</span>, <span class="dt">na.rm =</span> T),
-                      <span class="dt">conc_90th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.90</span>, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">ungroup</span>()</code></pre>
+air_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data, site, year, month, day, date) <span class="op">%&gt;%</span>
+<span class="st">               </span><span class="kw">summarize</span>(<span class="dt">conc_avg  =</span> <span class="kw">mean</span>(conc, <span class="dt">na.rm =</span> T),
+                         <span class="dt">conc_10th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.10</span>, <span class="dt">na.rm =</span> T),
+                         <span class="dt">conc_90th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.90</span>, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span>
+<span class="st">               </span><span class="kw">ungroup</span>()</code></pre>
 <p><strong>Plot a line chart</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Now we can add a confidence band behind the line showing the upper and lower 10th percentile of the observations.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span><span class="st">&quot;loess&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><strong>What happens when you increase the <code>level = 0.90</code> up to <code>0.999</code>, making the shaded band a 99% confidence interval?</strong></p>
 <p><strong>Try adding another confidence band, but make it a linear model: <code>method = "lm"</code>, and set the color to “black”. Does the new line predict the concentration to be going down or up at each site?</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">level =</span> <span class="fl">0.999</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
-<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p><br></p>
 <div id="return-to-day-3-am" class="section level3 unnumbered">
-<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../page/day3_am.html">Day 3-AM</a></h3>
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="day3_am.html">Day 3-AM</a></h3>
 <p><br></p>
 <p><br></p>
 </div>

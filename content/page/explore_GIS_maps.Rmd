@@ -423,7 +423,7 @@ _Reference:_ [UseR 2017, Reading and writing spatial data](https://edzer.github.
 
 <br>
 
-### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day 3-AM](../page/day3_am.html) {-}
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day 3-AM](day3_am.html) {-}
 
 <br>
 

@@ -1,9 +1,8 @@
 ---
 title: "Porg biomonitoring data"
 output:
-blogdown::html_page: 
+  blogdown::html_page: 
     toc: false
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 14pt
@@ -14,39 +13,26 @@ blogdown::html_page:
 
 ![](../images/fly_porgs_cut.PNG){width="520" style="margin: 0; margin-top: 24px;"}
 
-<br><br>
+<br>
 
-> Remember what you should do first when you start your R session?
 
-<details>
-<summary class = "btn_code_blue">_Show solution_</summary>
-<p>
 
 ```{r, warning = FALSE, message = FALSE}
-#load packages
-
+# load packages
 library(readr)
 library(dplyr)
 library(ggplot2)
 ```
 
-</p></details>
-<br><br>
+<br>
 
-> Start by reading in the data. Remember, when reading in data from the X drive, R reads forward slashes. The X drive location of the file is
->
-> "X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv"
-
-<details>
-<summary class = "btn_code_blue">_Show solution_</summary>
-<p>
+> Start by reading in the Porg data. 
 
 ```{r, warning = FALSE, message = FALSE}
-porg_data <- read_csv("X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/Intro to R/RTrain - Star Wars/data/Porg_samples.csv")
+porg_data <- read_csv("https://itep-r.netlify.com/data/Porg_samples.csv")
 ```
 
-</p></details>
-<br><br>
+<br>
 
 > Take a couple of minutes to get an overview of the data. Do you remember some of the functions to do that?
 

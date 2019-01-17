@@ -17,11 +17,11 @@ Let's take a look at some air pollution data stored in an Excel file.
 
 ## Download the data
 
-<a href="https://itep-r.netlify.com/data/2014_AQS_FondduLac.xlsx">
-<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Ozone air data
+<a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  La Jolla PM25 data
+
 
 ## Install packages
-
 ```{r, eval=F}
 
 # Get devtools for installing new packages from GitHub
@@ -46,20 +46,16 @@ library(dplyr)
 library(lubridate)
 
 # Set the path to your the Excel file
-excel_path <- "data/2014_AQS_FondduLac.xlsx"
+excel_path <- "data/la_jolla_pm25_wind_data.xls"
 ```
 
-```{r, include=F}
-# Website path
-#excel_path <- "../data/la_jolla_pm25_wind_data.xls"
-excel_path <- "../data/2014_AQS_FondduLac.xlsx"
-
-#Drop the sites -7417 and -7550
+```{r, include=F, echo=F}
+excel_path <- "../data/la_jolla_pm25_wind_data.xls"
+#excel_path <- "../data/2014_AQS_FondduLac.xlsx"
 
 if(F) {
 air_data <- air_data %>% 
-            rename(site       = site_catid,
-                   wind_dir   = "Wind Direction (Degrees)",
+            rename(wind_dir   = "Wind Direction (Degrees)",
                    wind_mph   = "Wind Speed (mph)",
                    pm25       = "PM2.5 Conc (ug/m3)") %>%
             rename_all(tolower)
@@ -75,7 +71,7 @@ air_data <- read_excel(excel_path)
 
 ## Explore the data
 
-What are the column names? What is the range of values in each column? Are there missing values?
+What are the column names? 
 
 ```{r, eval=F}
 
@@ -95,11 +91,8 @@ summary(air_data)
 # Drop special characters and shorten names
 # Set all names to lowercase
 air_data <- air_data %>% 
-            rename(site       = site_catid
-                  # wind_dir   = "Wind Direction (Degrees)",
-                   #wind_mph   = "Wind Speed (mph)",
-                  # ozone      = Conc
-                  ) %>%
+            rename(wd   = "Wind Direction (Degrees)",
+                   ws   = "Wind Speed (mph)") %>%
             rename_all(tolower)
 
 ```
@@ -117,31 +110,14 @@ ggplot(air_data, aes(x = ?, y = ?)) + geom_point()
 
 ```
 
-
-## Let's focus on PM2.5
-
-Use filter to select only the `parameter` code `88101`.
-
-```{r, eval=F}
-
-air_data <- filter(air_data, parameter == ??)
-```
-
-
-```{r, include=F}
-
-air_data <- filter(air_data, parameter == 88101)
-```
-
-
 ## Clean ship
 
 Let's drop the non-sense values. We can't use the rows that have a missing windspeed or wind direction observation.
 
 ```{r, eval=F}
 air_data <- filter(air_data, 
-                   !is.na(wind_mph), 
-                   !is.na(wind_dir),
+                   !is.na(ws), 
+                   !is.na(wd),
                    ws > 0)
 ```
 
@@ -152,11 +128,13 @@ Now let's make some wind roses.
 ```{r, eval=F}
 
 # Plot the data
-windRose(air_data, ws = "wind_mph", wd = "wind_dir")
+windRose(air_data)
 
 polarFreq(air_data)
+```
 
-#-- Make chart
+```{r, eval=F}
+#-- Fine tune  wind rose
 polarFreq(air_data, ws.int =5, ws.upper = 35)
 
 polarFreq(air_data, ws.int =0.8, breaks = seq(2:30))
@@ -170,17 +148,9 @@ To make a pollution rose we can replace the name of the wind speed column with t
 
 ```{r, eval=F}
 
-# Plot the data, 
-# Replace the windspeed column with the PM2.5 column
-windRose(air_data,
-         ws = "conc",
-         wd = "wind_dir",
-         paddle = F)
-
+# Pollution concentrations based on wind directions
 pollutionRose(air_data, 
-              pollutant = "conc"
-              #wd        = "wd"
-              )
+              pollutant = "pm25")
 
 pollutionRose(data_sub, 
               pollutant = "conc",
@@ -193,6 +163,63 @@ pollutionRose(data_sub,
 
 
 ## Time series
+
+<a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
+<span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Ozone air data
+
+```{r, eval=F}
+library(lubridate)
+library(readr)
+library(ggplot2)
+
+# Read the file
+excel_path <- "data/2014_AQS_FondduLac.xlsx"
+
+air_data <- read_excel(excel_path)
+```
+
+```{r, echo=F}
+# Read the file
+excel_path <- "../data/2014_AQS_FondduLac.xlsx"
+
+air_data <- read_excel(excel_path)
+```
+
+
+## Explore the data
+```{r, eval=F}
+
+names(air_data)
+
+glimpse(air_data)
+```
+
+## Simplify the column names
+```{r}
+
+# Set all names to lowercase
+air_data <- air_data %>% 
+            rename_all(tolower) %>%
+            rename(site = site_catid)
+
+```
+
+## Let's focus on PM2.5
+
+Use filter to select only the `parameter` code `88101`.
+
+```{r, eval=F}
+
+air_data <- filter(air_data, parameter == ??)
+```
+
+
+```{r}
+
+air_data <- filter(air_data, parameter == 88101)
+```
+
+
 
 Let's summarize the observations by day and then make a time series chart to see how the pollution concentrations are changing over time.
 
@@ -208,11 +235,11 @@ air_data <- air_data %>%
 
 # Find average PM25 concentration for each day
 #   - And upper and lower 10th percentile concentration
-air_data <- group_by(air_data, site, year, month, day, date) %>%
-            summarize(conc_avg  = mean(conc, na.rm = T),
-                      conc_10th = quantile(conc, 0.10, na.rm = T),
-                      conc_90th = quantile(conc, 0.90, na.rm = T)) %>%
-            ungroup()
+air_summary <- group_by(air_data, site, year, month, day, date) %>%
+               summarize(conc_avg  = mean(conc, na.rm = T),
+                         conc_10th = quantile(conc, 0.10, na.rm = T),
+                         conc_90th = quantile(conc, 0.90, na.rm = T)) %>%
+               ungroup()
 
 
 ```
@@ -221,7 +248,7 @@ air_data <- group_by(air_data, site, year, month, day, date) %>%
 __Plot a line chart__
 ```{r}
 
-ggplot(air_data, aes(x = date, y = conc_avg)) +
+ggplot(air_summary, aes(x = date, y = conc_avg)) +
    geom_line() +
    facet_wrap(~ site)
 
@@ -232,7 +259,7 @@ Now we can add a confidence band behind the line showing the upper and lower 10t
 
 ```{r}
 
-ggplot(air_data, aes(x = date, y = conc_avg)) + 
+ggplot(air_summary, aes(x = date, y = conc_avg)) + 
    geom_smooth(method ="loess", level = 0.90) +
    geom_line(color = "tomato") +
    facet_wrap(~site)
@@ -247,7 +274,7 @@ __Try adding another confidence band, but make it a linear model: `method = "lm"
 
 ```{r}
 
-ggplot(air_data, aes(x = date, y = conc_avg)) + 
+ggplot(air_summary, aes(x = date, y = conc_avg)) + 
    geom_smooth(method = "loess", level = 0.999) +
    geom_line(color = "tomato") +
    geom_smooth(method = "lm", level = 0.90, color = "black") +
@@ -257,7 +284,7 @@ ggplot(air_data, aes(x = date, y = conc_avg)) +
 
 <br>
 
-### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day 3-AM](../page/day3_am.html) {-}
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Day 3-AM](day3_am.html) {-}
 
 <br>
 

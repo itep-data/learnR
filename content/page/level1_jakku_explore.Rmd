@@ -1,9 +1,8 @@
 ---
 title: "Jakku scrap economy"
 output:
- blogdown::html_page: 
+  blogdown::html_page: 
     toc: false
-    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 18pt
@@ -43,16 +42,13 @@ library(ggplot2)
 
 <br>
 
-<details>
-<summary class = "btn_code_blue">_Show solution_</summary>
-<p>
+### Read in data {-}
 ```{r, eval=T}
-#Read in data
 clean_scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_clean.csv")
 
 head(clean_scrap)
 ```
-</p></details>
+
 <br>
 
 > Did it load successfully?
@@ -336,7 +332,6 @@ ggplot(data = summary_scrap, aes(reorder(items, max_price), max_price)) +
 > You may now move on to the Commodore level analysis.
 ![](../images/congrats.jpg){width="300"}
 
-# Return to [RCamp](index.html) {-}
 
 <br>
 

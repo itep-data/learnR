@@ -1,9 +1,9 @@
 ---
 title: "Porg biomonitoring data"
 output:
-  html_document:
+blogdown::html_page: 
     toc: false
-    theme: readable
+    #theme: readable
     highlight: tango
     css: css/camp_style.css
     fontsize: 14pt
@@ -13,7 +13,7 @@ output:
 
 
 
-<p><img src="images/fly_porgs_cut.PNG" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<p><img src="../images/fly_porgs_cut.PNG" style="margin: 0; margin-top: 24px;" width="520" /></p>
 <p><br><br></p>
 <blockquote>
 <p>Remember what you should do first when you start your R session?</p>
@@ -52,7 +52,7 @@ summary(porg_data)</code></pre>
 </p>
 </details>
 <p><br><br></p>
-<p><img src="images/porgs_lifecycle.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<p><img src="../images/porgs_lifecycle.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
 <blockquote>
 <p>What columns are there? What kinds of questions do you have about the data after looking at it. (Hint, I see some biomonotoring concentrations and some response times. Maybe Corundum is neurotoxic to porgs? Ask Dorian to find out for sure.)</p>
 </blockquote>
@@ -149,7 +149,7 @@ porg_data &lt;- arrange(porg_data, desc(Concentration))</code></pre>
 </p>
 </details>
 <p><br><br></p>
-<p><img src="images/porgs_4.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
+<p><img src="../images/porgs_4.jpg" style="margin: 0; margin-top: 24px;" width="520" /></p>
 <p><br></p>
 <blockquote>
 <p>Let’s make an individual scatterplot for each island. Remember which function to use?</p>
@@ -181,4 +181,4 @@ porg_data &lt;- arrange(porg_data, desc(Concentration))</code></pre>
 <blockquote>
 <p>Nice work Jedi Master! You are ready to tackle your own data set, maps, images, statistics, the universe!</p>
 </blockquote>
-<p><img src="https://media1.tenor.com/images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398" /></p>
+<p><img src="https://media1.tenor.com/../images/04c4d904e2c5ee46c521523c30721768/tenor.gif?itemid=4953398" /></p>

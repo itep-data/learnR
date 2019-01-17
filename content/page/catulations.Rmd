@@ -50,7 +50,7 @@ say(what = "Congratulations Tyler! Mooooove over little data it's time for HUGE 
 <br><br><br>
 
 ```{r, eval = T, echo = F}
-say(what = "Congratulations Sarah! Leapin' lizards that was great work.", by = "frog", type = "message")
+say(what = "Congratulations Trent! Leapin' lizards that was great work.", by = "frog", type = "message")
 ```
 
 <br><br><br>

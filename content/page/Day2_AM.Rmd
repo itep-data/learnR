@@ -334,10 +334,10 @@ Plutt is demanding __10,000 items__ of scrap for Finn. Lucky for us he didn't cl
 
 ## Good news {-}
 
-BB8 tracked down a scrap `Mass conversion table` from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know `left_join()`!  
+BB8 tracked down a scrap `Mass conversion table` from his old droid buddies. Our current table shows the total cubic yards for some scrap shipments, but not how much the shipment weighs. If we join our scrap data to the conversion table then we can really start digging into what would be the lightest item for trade. And we can do that much more efficiently now that we know `left_join()`!  
 
 
-### Get the conversion table {-}
+### Get the pounds conversion table {-}
 
 ```{r read-convert, eval = T, message = F}
 
@@ -406,9 +406,9 @@ source("insert_tabs.R")
 
 tabs <- c("Total credits", "Show hint", "Show code")
 
-content <- c(Exercise = '<h4> Total credits </h4>
+content <- c(Exercise = "<h4> Total credits </h4>
 
-We now have the amounts sold, we know how much of that amount is in pounds, and we know the the credits per pound. We want to know the total amount of credits for each transaction. How can we calculate that?
+We now have the amount sold, the weight of that amount in pounds, and the price in credits per pound. Let's use these 3 pieces of information to find the total amount of credits for each transaction. How do we calculate that?
 
 code_start
 
@@ -416,7 +416,7 @@ code_start
 scrap <- scrap %>% 
          mutate(_______ = _______________)
          
-code_end',
+code_end",
 
 show_hint = '<h4> Total credits </h4>
 
@@ -686,7 +686,6 @@ We can bring back `mutate` to add a column based on the grouped values in a data
 
 When you combine `group_by` and `mutate` the new column will be calculated based on the values within each group. Let's group by `origin` to find the `mean()` price per pound at each origin. 
 
-<br>
 
 ```{r mutate-price, eval=F}
 
@@ -696,9 +695,6 @@ scrap <- group_by(scrap, origin) %>%
 ```
 
 <br>
-
-
-
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}
 

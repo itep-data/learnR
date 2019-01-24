@@ -154,7 +154,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
 </li>
 <li class="nav-item">
-<a class="nav-link" id="mutate-tab" data-toggle="tab" href="#mutate" role="tab" aria-controls="mutate" aria-selected="false"> <code>mutate</code></a>
+<a class="nav-link" id="mutate3-tab" data-toggle="tab" href="#mutate3" role="tab" aria-controls="mutate3" aria-selected="false"> <code>mutate</code></a>
 </li>
 <li class="nav-item">
 <a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
@@ -176,7 +176,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
 <img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
-<div id="mutate" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate-tab">
+<div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
 <img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
@@ -557,9 +557,9 @@ ion_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
 <p>Plutt is demanding <strong>10,000 items</strong> of scrap for Finn. Lucky for us he didn’t clarify the exact items. Let’s find the scrap that weighs the least per item to make this transaction as easy as possible.</p>
 <div id="good-news" class="section level2 unnumbered">
 <h2>Good news</h2>
-<p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. How does BB8 keep doing that!? If we join our scrap data to the conversion table we can really start digging into what would be a light trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
-<div id="get-the-conversion-table" class="section level3 unnumbered">
-<h3>Get the conversion table</h3>
+<p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. Our current table shows the total cubic yards for some scrap shipments, but not how much the shipment weighs. If we join our scrap data to the conversion table then we can really start digging into what would be the lightest item for trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
+<div id="get-the-pounds-conversion-table" class="section level3 unnumbered">
+<h3>Get the pounds conversion table</h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
 <span class="co"># The data&#39;s url</span>
@@ -636,7 +636,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 <h4>
 Total credits
 </h4>
-<p>We now have the amounts sold, we know how much of that amount is in pounds, and we know the the credits per pound. We want to know the total amount of credits for each transaction. How can we calculate that?</p>
+<p>We now have the amount sold, the weight of that amount in pounds, and the price in credits per pound. Let’s use these 3 pieces of information to find the total amount of credits for each transaction. How do we calculate that?</p>
 <pre class="sourceCode r">
 
 # Calculate the total credits for each transaction
@@ -828,7 +828,6 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <p>How does the price of Item X compare to the average price?</p>
 </blockquote>
 <p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group. Let’s group by <code>origin</code> to find the <code>mean()</code> price per pound at each origin.</p>
-<p><br></p>
 <pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">ungroup</span>()</code></pre>

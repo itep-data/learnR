@@ -63,14 +63,16 @@ __Good news:__ _If you do something with data over and over again, this could be
 
 ## Create and store values
 
-You can assign values to new objects using the: 
+You can assign values to new objects using the "left arrow". 
 
-> "left arrow" `<- `
+> __Left arrow__ 
+> `x  <-  5 `
 
 This is written by typing a less-than sign followed by a hyphen. It's more officially known as the _assignment operator_. Try adding the code below to your R script and assign a value to an object called `my_name`.
 
+<br>
 
-__Let's try it__
+#### __Let's try it__
 ```{r, introductions}
 
 my_name <- "Your Name" # Text and characters are put in quotes
@@ -456,7 +458,7 @@ air_data <- mutate(air_data,
 
 ### The `lubridate` package
 
-![](../images/lubridate.png){style="width: 22%; float: left; margin-right: 30px; margin-top: 8px;"}
+![](../images/lubridate.png){style="width: 22%; float: left; margin-right: 30px; margin-top: 8px; margin-bottom: 12px;"}
 
 
 <br>
@@ -466,6 +468,9 @@ It's about time! Lubridate makes working with dates easier.
 We can do date math, add and subtract days, and make seasonal and day of the week averages. 
 
 <br>
+
+
+<div style="clear: both;"></div>
 
 __Here are some of the functions:__
 
@@ -491,7 +496,7 @@ air_data <- mutate(air_data, month = month(date),
 <br>
 
 # Guess Who? 
-## The _Star Wars_ edition 
+<h2 style="margin-top: -20px;"> _Star Wars edition_ </h2>
 
 ![](../images/sw_guesswho.jpg){width="280" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;"}
 
@@ -512,8 +517,6 @@ library(dplyr)
 
 starwars_data <- starwars
 ```
-
-_I'm very literal so I named the data **`starwars_data`**._
 
 
 ## <span style="text-decoration: underline;"> Rules </span> 

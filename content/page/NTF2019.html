@@ -139,12 +139,15 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-and-store-values" class="section level2">
 <h2>Create and store values</h2>
-<p>You can assign values to new objects using the:</p>
+<p>You can assign values to new objects using the “left arrow”.</p>
 <blockquote>
-<p>“left arrow” <code>&lt;-</code></p>
+<p><strong>Left arrow</strong>
+<code>x  &lt;-  5</code></p>
 </blockquote>
 <p>This is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and assign a value to an object called <code>my_name</code>.</p>
-<p><strong>Let’s try it</strong></p>
+<p><br></p>
+<div id="lets-try-it" class="section level4">
+<h4><strong>Let’s try it</strong></h4>
 <pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Your Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
 
 miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span class="co"># A number</span>
@@ -163,6 +166,7 @@ best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> <
 <blockquote>
 <p>To run everything at once, you can highlight all of the code you’ve written in the <em>Code Editor</em> and push <code>CTRL + ENTER</code>.</p>
 </blockquote>
+</div>
 </div>
 <div id="its-all-about-you" class="section level2">
 <h2>It’s ALL about you</h2>
@@ -331,38 +335,38 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">4/4/2016</td>
-<td align="right">0</td>
-<td align="right">10</td>
-<td align="right">35.6</td>
+<td align="left">8/19/2017</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">71.6</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">5/17/2016</td>
-<td align="right">1</td>
-<td align="right">18</td>
+<td align="left">8/29/2016</td>
+<td align="right">0</td>
+<td align="right">9</td>
 <td align="right">64.4</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">9/19/2018</td>
-<td align="right">3</td>
-<td align="right">19</td>
-<td align="right">62.6</td>
+<td align="left">10/30/2016</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">41.0</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">5/8/2016</td>
-<td align="right">3</td>
-<td align="right">19</td>
-<td align="right">44.0</td>
+<td align="left">8/28/2017</td>
+<td align="right">2</td>
+<td align="right">12</td>
+<td align="right">71.6</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">7/4/2016</td>
-<td align="right">3</td>
-<td align="right">23</td>
-<td align="right">74.6</td>
+<td align="left">9/2/2018</td>
+<td align="right">1</td>
+<td align="right">12</td>
+<td align="right">71.0</td>
 </tr>
 </tbody>
 </table>
@@ -556,11 +560,14 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 <hr>
 <div id="the-lubridate-package" class="section level3">
 <h3>The <code>lubridate</code> package</h3>
-<p><img src="../images/lubridate.png" style="width: 22%; float: left; margin-right: 30px; margin-top: 8px;" /></p>
+<p><img src="../images/lubridate.png" style="width: 22%; float: left; margin-right: 30px; margin-top: 8px; margin-bottom: 12px;" /></p>
 <p><br></p>
 <p>It’s about time! Lubridate makes working with dates easier.</p>
 <p>We can do date math, add and subtract days, and make seasonal and day of the week averages.</p>
 <p><br></p>
+<div style="clear: both;">
+
+</div>
 <p><strong>Here are some of the functions:</strong></p>
 <p><img src="../images/lubridate_summaries.png" style="width: 35%; float: left;" /></p>
 <p><img src="../images/lubridate_functions.png" style="width: 50%;" /></p>
@@ -584,8 +591,9 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <div id="guess-who" class="section level1">
 <h1>Guess Who?</h1>
-<div id="the-star-wars-edition" class="section level2">
-<h2>The <em>Star Wars</em> edition</h2>
+<h2 style="margin-top: -20px;">
+<em>Star Wars edition</em>
+</h2>
 <p><img src="../images/sw_guesswho.jpg" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;" width="280" /></p>
 <blockquote>
 <p>Are you the best Jedi detective out there? Let’s play a game to find out.</p>
@@ -600,8 +608,6 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
 starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
-<p><em>I’m very literal so I named the data <strong><code>starwars_data</code></strong>.</em></p>
-</div>
 <div id="rules" class="section level2">
 <h2><span style="text-decoration: underline;"> Rules </span></h2>
 <ol style="list-style-type: decimal">

@@ -63,13 +63,14 @@ __Good news:__ _If you do something with data over and over again, this could be
 
 ## Create and store values
 
-You can assign values to new objects using the 
+You can assign values to new objects using the: 
 
 > "left arrow" `<- `
 
 This is written by typing a less-than sign followed by a hyphen. It's more officially known as the _assignment operator_. Try adding the code below to your R script and assign a value to an object called `my_name`.
 
 
+__Let's try it__
 ```{r, introductions}
 
 my_name <- "Your Name" # Text and characters are put in quotes
@@ -84,7 +85,9 @@ best_snack_in_the_universe <- "Air Heads"
 ```
 
 
-- Now, you can type _`my_name`_ into your console (lower left hand quadrant) and your entry will be returned.
+<br>
+
+Now, you can type _`my_name`_ into your console (lower left hand quadrant) and your entry will be returned.
 
 ```{r, introductions_results}
 
@@ -100,9 +103,9 @@ miles_traveled
 
 ## It's ALL about you
 
-__Create a table AKA a `data.frame()`__
+Now we can create a data table, which is also called a `data.frame()`.
 ```{r, intros_tbl}
-# Put them all into a table
+# Put the 4 items into a table
 all_about_me <- data.frame(name           = my_name, 
                            miles_traveled = miles_traveled, 
                            data_types     = my_data_types,  

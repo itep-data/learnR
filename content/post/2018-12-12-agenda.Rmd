@@ -88,9 +88,9 @@ Packages: `dplyr`, `lubridate`
 
 ### Concatulations!!
 
-<div class="well">
-You did it! Frolic in a field of well deserved accolades and certificates.
-</div>
+
+> You did it! Frolic in a field of well deserved accolades and certificates.
+
 
 
 </br>

@@ -139,11 +139,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="create-and-store-values" class="section level2">
 <h2>Create and store values</h2>
-<p>You can assign values to new objects using the</p>
+<p>You can assign values to new objects using the:</p>
 <blockquote>
 <p>“left arrow” <code>&lt;-</code></p>
 </blockquote>
 <p>This is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and assign a value to an object called <code>my_name</code>.</p>
+<p><strong>Let’s try it</strong></p>
 <pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Your Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
 
 miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span class="co"># A number</span>
@@ -152,9 +153,8 @@ miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span 
 my_data_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PAHs&quot;</span>, <span class="st">&quot;Air Toxics&quot;</span>, <span class="st">&quot;Ultrafine particles&quot;</span>) 
 
 best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> </code></pre>
-<ul>
-<li>Now, you can type <em><code>my_name</code></em> into your console (lower left hand quadrant) and your entry will be returned.</li>
-</ul>
+<p><br></p>
+<p>Now, you can type <em><code>my_name</code></em> into your console (lower left hand quadrant) and your entry will be returned.</p>
 <pre class="sourceCode r"><code class="sourceCode r">my_name</code></pre>
 <pre><code>## [1] &quot;Your Name&quot;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">miles_traveled</code></pre>
@@ -166,8 +166,8 @@ best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> <
 </div>
 <div id="its-all-about-you" class="section level2">
 <h2>It’s ALL about you</h2>
-<p><strong>Create a table AKA a <code>data.frame()</code></strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put them all into a table</span>
+<p>Now we can create a data table, which is also called a <code>data.frame()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put the 4 items into a table</span>
 all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name           =</span> my_name, 
                            <span class="dt">miles_traveled =</span> miles_traveled, 
                            <span class="dt">data_types     =</span> my_data_types,  
@@ -331,38 +331,38 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">4/29/2017</td>
-<td align="right">2</td>
-<td align="right">2</td>
-<td align="right">38.3</td>
+<td align="left">10/22/2017</td>
+<td align="right">1</td>
+<td align="right">7</td>
+<td align="right">55.4</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">7/16/2016</td>
-<td align="right">0</td>
-<td align="right">8</td>
-<td align="right">73.4</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">10/31/2016</td>
-<td align="right">2</td>
-<td align="right">3</td>
-<td align="right">37.4</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">10/19/2016</td>
-<td align="right">0</td>
-<td align="right">11</td>
-<td align="right">62.6</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">7/17/2018</td>
+<td align="left">7/3/2017</td>
 <td align="right">0</td>
 <td align="right">12</td>
-<td align="right">74.6</td>
+<td align="right">71.6</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">7/28/2017</td>
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">72.2</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">9/8/2016</td>
+<td align="right">0</td>
+<td align="right">13</td>
+<td align="right">72.2</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">6/5/2018</td>
+<td align="right">5</td>
+<td align="right">18</td>
+<td align="right">65.0</td>
 </tr>
 </tbody>
 </table>

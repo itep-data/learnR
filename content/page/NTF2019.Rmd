@@ -676,7 +676,9 @@ Let's add a little style so R Studio feels like home since you will spend lots o
 
 # <i class="far fa-question-circle" aria-hidden="true"></i> Help!
 
-ERROR message? Or something behaving strangely and don't know why? See the [Help!](help.html) page for some troubleshooting options.
+Lost in an ERROR message? Is something behaving strangely and want to know why? 
+
+See the [Help!](help.html) page for some troubleshooting options.
 
 
 # <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms

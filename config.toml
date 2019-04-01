@@ -71,25 +71,31 @@ uglyURLs = true
     parent = "Training"
     name = "Agenda"
     url = "post/agenda.html"
-    weight = 2
+    weight = 3
+
+[[menu.main]]
+    parent = "Training"
+    name = "NTF2019 - Workshop"
+    url = "post/ntf2019.html"
+    weight = 3
 
 [[menu.main]]
     parent = "Training"
     name = "Day-1"
     url = "post/day-1.html"
-    weight = 2
+    weight = 4
 
 [[menu.main]]
     parent = "Training"
     name = "Day-2"
     url = "post/day-2.html"
-    weight = 2
+    weight = 4
 
 [[menu.main]]
     parent = "Training"
     name = "Day-3"
     url = "post/day-3.html"
-    weight = 3
+    weight = 4
 
 [[menu.main]]
     name = "R Community"

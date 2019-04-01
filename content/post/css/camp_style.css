@@ -69,10 +69,10 @@ blockquote
      line-height: 19px;
      overflow: hidden;
      padding: 10px;
-     padding-top: 12px;
+     padding-top: 14px;
      padding-bottom: 14px;
-     margin-top: 18px;
-     margin-bottom: 15px;
+     margin-top: 28px;
+     margin-bottom: 26px;
      padding-left: 22px;
 }
 
@@ -95,7 +95,10 @@ blockquote
 
 table {margin-top: 20px; margin-bottom: 18px;}
 
-.sourceCode {margin-top: 22px; margin-bottom: 22px;}
+.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-height: 1.5;}
+
+pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-height: 1.5;}
+
 
 .data
 {
@@ -230,4 +233,92 @@ h3 {
 
 body {
   font-size: 18px;
+}
+
+
+
+/*************************************************
+ *  Alerts
+ **************************************************/
+
+.alert p {
+  position: relative;
+  display: block;
+  font-size: 1.8rem;
+  margin-left: 2.5rem;
+  margin-top: -0.25rem;
+  margin-bottom: 0;
+}
+
+.alert p:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-size: 2.3rem;
+  color: #209cee;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f05a';
+  width: 2rem;
+  text-align: center;
+  margin-right: 15px;
+}
+
+div.alert-warning p:first-child::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ff3860;
+  content: '\f071';
+}
+
+div.alert-danger p:first-child::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ff3860;
+  content: '\f071';
+}
+
+div.alert-success p:first-child::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: grey;
+  content: '\f005';
+}
+
+div.alert-dark p:first-child::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #FDB813;
+  content: '\F0EB';
+}
+
+.alert a {
+  color: currentColor;
+  text-decoration: none;
+  border-bottom: solid 1px currentColor;
+}
+
+div.alert-note {
+  color: #12537e;
+  background-color: #f6fbfe;
+  border-color: #209cee;
+}
+
+div.alert-warning {
+  color: #cd0930;
+  background-color: #fff5f7;
+  border-color: #ff3860;
+}
+
+
+div.alert-dark {
+  color: white;
+    border-color: #D3D3D3;
+    background-color: grey;
+}
+
+div.alert-success {
+    color: #155724;
+    border-color: #d4edda;
+    background-color: #c3e6cb;
 }

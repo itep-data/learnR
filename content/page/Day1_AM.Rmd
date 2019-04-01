@@ -1103,19 +1103,22 @@ Well, well, well. It looks like there is an **All** category we should look into
 # | Get help <i class="far fa-question-circle" aria-hidden="true"> </i>
 <hr>
 
-Is something not working or behaving strangely and you don't know why? See the [Help!](help.html) page.
+Is something not working or behaving strangely and you don't know why? 
+
+See the [Help!](help.html) page.
 
 
-# Key terms {-}
-
-|   |          |
-|:--|:---------|
-|`package  `| An add-on for R that contains new functions that someone created to help you. It's like an App for R.  |
-|`library  `| The name of the folder that stores all your packages, and the function used to load a package.  |
-|`function  `| Functions perform an operation on your data and returns a result. The function `sum()` takes a series of values and returns the sum for you.  |
-|`argument  `| Options or inputs that you pass to a function that determine how it behaves. The argument `skip = 1` tells the the `read_csv()` function to ignore the first row when reading in a data file. To see the default values for a function you can type `?read_csv` in the console.  |
+# <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"> </i> Key terms from today {-} 
+  
+|    |                                                                  |   
+|----|:----------------------------------------------------------------:|  
+|`package  `| An add-on for R that contains new functions that someone created to help you. It's like an App for R.  |  
+|`library  `| The name of the folder that stores all your packages, and the function used to load a package.  |  
+|`function  `| Functions perform an operation on your data and returns a result. The function `sum()` takes a series of values and returns the sum for you.  |  
+|`argument  `| Arguments are options or inputs that you pass to a function to change how it behaves. The argument `skip = 1` tells the `read_csv()` function to ignore the first row when reading in a data file. To see the default values for a function you can type `?read_csv` in the console.  |  
 
 <br>
+
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
 

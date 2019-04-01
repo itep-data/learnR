@@ -1,0 +1,62 @@
+---
+title: NTF2019 - R for Environmental Data Analysis
+output: 
+  blogdown::html_page: 
+    highlight: tango
+    css: css/camp_style.css
+date: '2018-12-09'
+showDate: false
+showAuthor: false
+summary: 'Ozone is coming to town and we want to be prepared. Power on your droids, we are going to use R to...'
+slug: 'NTF2019'
+categories: [training]
+tags: [training]
+type: ''
+image: '../images/ntf2019.png' 
+imageWidth: '22%'
+imageFloat: 'left'
+---
+
+
+<h1 style="margin-top: 15px;"> Welcome! </h1>
+<hr>
+
+![](../images/day1_bb8_sq.png){width="220" style="float: left; margin-right: 34px; margin-bottom: 14px;"}
+
+
+### Power on your droids
+You and BB8 have arrived just in time. Rey needs your help!
+
+Rey needs to travel to Tatooine, but years of scrapping ship parts hasn't been kind to her lungs. Using historic pollution levels your goal is to find the best month for Rey to visit the dusty surface of Tatooine. 
+
+
+## Open _RStudio_
+
+<div style="width: 48%; float: left; margin-right: 5%; margin-top: -14px;">
+
+![](../images/rstudio_logo.png){style="width: 88%; margin-top: -35px; margin-bottom: -6px;"}
+
+- __Where's my R!__ _Need to install R or RStudio? Jump over to [Get R!](../page/install.html)_
+- __Install troubles?__ _Don't worry, you can use R online at [RStudio Cloud](https://rstudio.cloud/)._
+
+
+<h2> Blast off! </h2>
+
+<div style="margin-left: 6%; margin-top: 4px;">
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 1 (Morning)](../page/ntf2019.html) 
+
+`Lunch break` <i class="fa fa-utensils"></i> ☕
+
+### <i class="fa fa-rocket" style="font-size:24px"></i> [Part 2 (Afternoon)](../page/ntf2019.html#lets-play-a-game) 
+
+</div>
+</div>
+
+
+![](../images/rstudio_open.png){style="width: 36%;"}
+
+<div style="clear: both;"></div>
+
+
+<br>

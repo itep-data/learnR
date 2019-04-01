@@ -4,18 +4,39 @@ comments: false
 tags: [install, update]
 output:
   blogdown::html_page:
+    highlight: tango
     toc: true
 ---
 
-<style> code {color: #FF69B4 !important;} </style>
 
+<style> 
+code {color: #FF69B4 !important;} 
+
+.note
+{
+     background-color: #f0f7fb;
+     border-left: solid 4px #3498db;
+     border-radius: 25px;
+     font-size: 17px;
+     font-style: normal;
+     line-height: 19px;
+     overflow: hidden;
+     padding: 10px;
+     padding-top: 12px;
+     padding-bottom: 14px;
+     margin-top: 18px;
+     margin-bottom: 15px;
+     padding-left: 22px;
+}
+
+</style>
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = T)
 #<style> code {color: #535353 !important;} </style>
 ```
 
-</br>
+<br>
 
 # Install `R` 
 
@@ -23,7 +44,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![](../../images/R_recipe.png){style="float: left; width: 41%; margin-top: 26px; margin-right: 28px; margin-bottom: 26px; margin-left: -12px;"}
 
-The R language and its tools are built by people from around the world. Together they help you perform data analysis in an easy to follow step-by-step fashion, just like you're following a recipe for cookies. And once you find your favorite recipe, you can easily use it over again on new data or even share it with your collaborators.
+The R language and its tools are built by people from around the world. Together they help you perform data analysis in an easy to follow step-by-step fashion, much like you're following a recipe for cookies. And once you find your favorite recipe, you can easily use it over again on new data or share it with your collaborators.
 
 
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
@@ -96,8 +117,116 @@ __Install RStudio__
 1. You are officially ready to __R__
 
 </div>
-</br>
 
+<br>
+
+# Install `R packages`
+<hr>
+
+R comes installed with many built-in functions and tools to help do your work. On top of this foundation, what is often referred to as _base-R_, contributors from around the world have created tools that make R easier and accomplish more with your data. These add-ons are called `packages`, and are made available to everyone to download for free. Below are a few examples, grouped into general categories. 
+
+
+__Packages used in this training:__ 
+
+>  Load data
+
+`readr`     Load data from text files: tab, comma, and other delimited files.  
+`readxl`    Load data from Excel.  
+
+<br>
+
+>  Manipulate data
+
+`dplyr`        Essential shortcuts to subset, summarize, rearrange, and join data sets.  
+`tidyr`        Reshape tables and unpack multiple inputs stored in single cell.  
+`stringr`      Tools to edit and clean text and character strings.  
+`lubridate`    Tools to format dates and perform calculations based on time.  
+
+<br>
+
+>  Charts and visuals
+
+`ggplot2`      Essential package for plots and charts.  
+
+<br>
+
+> Maps 
+
+`leaflet`      Display spatial data and make interactive maps.  
+`sf`           Simple features, a spatial format using data frames to perform spatial.  
+
+<br>
+
+> General
+
+`devtools`    Install packages directly from other sources like GitHub.  
+
+<br>
+
+<div class="note">
+
+To use a new _package_ you first need to install it -- much like a free App on your phone. If you'd like to get a jump start on the workshop, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio. 
+
+<br>
+
+```{r, eval=F}
+new_packages <- c("readr", "readxl", "tidyr", "stringr", "lubridate", "ggplot2", "leaflet", "sf", "devtools")
+
+install.packages(new_packages)
+
+```
+
+<br>
+
+![](../../images/install_screen.png)
+
+<br>
+
+Then press `ENTER` to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.
+
+![](../../images/install_msg.png)
+
+</div>
+
+<br>
+
+__Additional recommended packages:__
+
+> __Load data__
+
+`RODBC`     Load data from Access and Oracle databases.  
+`RMySQL`, `RPostgresSQL`, and `RSQLite` for connecting to SQL databases.  
+`pdftools`  Read PDF documents.  
+`googledrive` Read and write files to your Google Drive.  
+`foreign`   Load data from Minitab and Systat.  
+`R.matlab`  Load data from Matlab.  
+`haven`     Load data from SAS, SPSS, and Stata.  
+
+<br>
+
+> __Manipulate data__
+
+`stringr`      Tools to edit and clean text and character strings.  
+
+<br>
+
+> __Charts and visuals__
+
+`ggsave`  Export charts in various formats and sizes.  
+`openair` For monitoring data visuals like wind roses and calendar plots.
+`xkcd`, `hrbrthemes` , `ggpomological`, `ggthemes`   Chart themes for ggplot.  
+`viridis`, `wesanderson`, `ghibli`   Color palettes.  
+`rmarkdown`    Write summary reports and save as PDF, Word document, presentation, or website.  
+
+<br>
+
+> __Maps__
+
+`tidycensus`   Download Census and American Community Survey data.  
+
+<br>
+
+# 
 
 # Update `R`
 <hr>
@@ -106,7 +235,7 @@ __Install RStudio__
 
 </br>
 
-The R software receives periodic updates, about once a year. Windows users can update R with the `installR` package, and Mac users can use the `updateR` package. Linux users can go to the [R Archive](https://cran.r-project.org/) and follow the download links for their operating system.
+The R software receives periodic updates about once a year. Windows users can update R with the `installR` package, and Mac users can use the `updateR` package. Linux users can go to the [R Archive](https://cran.r-project.org/) and follow the download links for their operating system.
 
 </br>
 
@@ -182,20 +311,24 @@ __Instructions__
 
 <br>
 
-# Update your R packages
+# Update `R packages`
 <hr>
 
-There are two places where you can udpate R packages within R Studio.
+There are two places where you can udpate R packages within RStudio.
 
 <br>
 
 #### 1. In the `Files and Plots` area in the bottom right, under the `Packages` tab:
+
+Click the green __Update__ button next to Install.
 
 <img src="../images/updatepackages_1.PNG" style="width: 50%;">
 
 <br>
 
 #### 2. In the `Tools` tab above at the top above the Code Editor:
+
+Choose the 2nd option -> _"Check for Package Updates..."_
 
 <img src="../images/updatepackages_2.PNG" style="width: 50%;">
 

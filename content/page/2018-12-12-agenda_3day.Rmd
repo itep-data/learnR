@@ -1,0 +1,236 @@
+---
+title: Agenda
+subtitle: 'January 15-17, 2019'
+date: '2018-12-08'
+summary: 'R for Environmental Data Analysis || Day 1 Morning: 9:00am-12:00 (3 hrs) || Planets visited: Jakku || Begin Jedi training. || 1. Install and update R || 2. Project launch. || Create an R script and...'
+showDate: false
+showAuthor: false
+slug: 'agenda'
+categories: [training]
+tags: [agenda]
+type: ''
+image: 'images/Rstudio_ex.png' 
+imageWidth: '27%'
+imageFloat: 'left'
+enableEmoji: true
+---
+
+<style type="text/css">
+
+.data {
+     background-color: #d2f0c6;
+     border-left: solid 5px #86af49;
+     border-radius: 15px;
+     font-size: 17px;
+     line-height: 18px;
+     overflow: hidden;
+     padding: 5px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     margin-top: 10px;
+     margin-bottom: 12px;
+     padding-left: 22px;
+     margin-right: 8px;
+}
+
+</style>
+
+
+<div style="margin-top: -30px;">
+
+## R for Environmental Data Analysis 
+
+Fond du Lac Tribal and Community College        
+2101 14th Street     
+Cloquet, MN 55720  
+
+</div>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(icon, knitr)
+```
+
+<div style="margin-top: 12px;">
+
+![](../images/Rstudio_ex.png){style="max-width: 30%; margin-top: 0px; margin-left: 0; margin-right: 0;"}
+
+</div>
+
+# Day 1
+Planets visited: `Endor and Jakku`
+
+<div class = "row">
+<div class = "col-md-6">
+
+**Morning** | _8:30-11:45am_  
+
+> Begin Jedi training   
+> &nbsp;
+
+1. Power on your droid
+    - Install and update R
+1. __Project__ launch
+    - Start a new R project
+    - Create an R script
+1. Tour and customize __RStudio__
+1. Invent new/fake data
+    - Variables, names, and lists
+1. Make a data table / __dataframe__  
+1. Upgrade your droid    
+    - Add new R packages    
+1. Read __real data__ into R
+    - `readr` for text files
+    - `readxl` for Excel files
+1. Get visual with `ggplot2`
+    - Plot the data, plot the data, plot the data!
+    - Look for errors and outliers
+    
+Packages: `readr`, `ggplot2`
+
+</div>
+<div class = "col-md-6">
+
+**Afternoon** | _1:15-5:00pm_  
+
+> Get scrappy and solve a junk-data mystery
+   
+1. Explore data
+    - Column names, rows, observations, value types
+    - Missing values
+    - Mean, max, min, quantile 
+1. Data transformations with `dplyr`
+    - Arrange, sort, and __filter__ data 
+1. Summarize data
+1. Find the most profitable scrap  
+1. Summarize each __group__, site, or category within the data 
+    - Summarize by location  
+    - Check for the number of data points in a group (you can use this to check for completeness!)
+
+> Travel to Endor to investigate magnetic storms
+
+6. Introduction to data with dates
+7. Plot time series    
+
+
+Packages: `dplyr`, `lubridate`    
+
+</div>
+</div>
+
+
+
+# Day 2
+
+Planets visited: `Endor and Jakku`
+
+<div class = "row">
+<div class = "col-md-6">
+
+**Morning** | _8:30-11:45am_   
+
+> Questions and Review
+
+1. Calendar Plots 📅
+    - Plot data by day of the week
+1. Intermediate data manipulation
+    - Join tables together
+    - Adding and calculating new columns
+    - Unit conversions
+    - Add new columns based on a condition
+1. Learn summary functions: mean, median, max, min, nth
+1. Use the  with pipe `%>%` to string your functions together for less typing
+1. Save files
+1. Working with difficult __data__
+    - Replacing NULL values, -999 
+    - Missing values `NA`
+
+Packages: `openair`
+
+</div>
+
+<div class = "col-md-6">
+**Afternoon** | _1:15-5:00pm_  
+
+> _Star Wars - Guess Who_   
+
+1. Plot like a Jedi!
+    - Scatter plots and boxplots 
+    - Add titles, colors, and labels 
+    - Histograms 
+    - Reference lines 
+    - Add trend lines 📈
+1.	Save charts to different formats 
+1. Plot `pollution` vs. `meteorology`
+    - Scatter plots
+        - Conc vs. Temp
+        - Conc vs. Hour of day
+        - Temp vs. Hour of day
+1. More __plots__
+    - Log transform
+    - Reference lines
+1. Time series plots with regression line and detection limits
+
+
+</div>
+</div>
+
+
+
+# Day 3
+Planets visited: `Ahch-To`, `Earth`
+
+> Your turn!
+
+<div class = "row">
+<div class = "col-md-6">
+**Morning** | _8:30-11:45am_  
+
+1. Join GitHub
+1. Share your data, code, and plots
+
+__Questions / Review__
+
+1. Choose your own adventure!
+    - Select your own or Star Wars data
+    
+2. __PATHS__
+    - Wind and Pollution roses
+    - Messy data 
+        - Gather a wide table with hundreds of columns into 1 column
+        - Read an entire folder of files and combine into 1 table
+    - More maps and shapefiles
+        - Read and save shapefiles
+        - Convert coordinate projections (ex. `Lat/Long` to `UTM`)
+        - Load reference maps (Tribal boundaries, States, Counties)
+        - Build interactive maps
+
+Packages: `tidycensus`, `tigris`, `sf`, `leaflet`
+
+</div>
+
+<div class = "col-md-6">
+**Afternoon** | _1:15-5:00pm_   
+
+1. Select your own or Star Wars data
+1. Build a report
+    - Clean the data 
+    - Create a summary table
+    - Compare years or sites
+    - Chart & map the data 
+    - Multiple paths to choose from
+1. Put script and results in __Rmarkdown__  
+1. Share with the world
+    - Generate Web, Word and PDF documents
+
+### 🐈🐈 Concatulations!! 🐱🐱
+
+<div class="data">
+Receive your well deserved accolades and certificates
+</div>
+
+</div>
+</div>
+
+
+</br>

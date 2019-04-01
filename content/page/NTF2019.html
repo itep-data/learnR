@@ -1,0 +1,801 @@
+---
+title: "NTF2019 - R for Environmental Data Analysis"
+output: 
+  blogdown::html_page: 
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: false
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+    toc: true
+    toc_depth: 1
+---
+
+<link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+  <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#introductions">Introductions</a></li>
+<li><a href="#but-why-r">But why R?</a></li>
+<li><a href="#the-grand-tour">The grand tour</a></li>
+<li><a href="#step-data-analysis-1">7 step data analysis</a></li>
+<li><a href="#read-the-data">1. | Read the data</a></li>
+<li><a href="#plot-the-data">2. | Plot the data</a></li>
+<li><a href="#explore-the-data">Explore the data</a></li>
+<li><a href="#clean-the-data">3. | Clean the data</a></li>
+<li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
+<li><a href="#dates">Dates</a></li>
+<li><a href="#guess-who">Guess Who?</a></li>
+<li><a href="#plot-again">4. | Plot (again!)</a></li>
+<li><a href="#left_join---combining-tables">left_join() - combining tables</a></li>
+<li><a href="#group-and-summarize-the-data">5. | Group and Summarize the data</a></li>
+<li><a href="#save-results">6. | Save results</a></li>
+<li><a href="#share-with-friends">7. | Share with friends</a></li>
+<li><a href="#customize-r-studio">Customize R Studio</a></li>
+<li><a href="#help"><i class="far fa-question-circle" aria-hidden="true"></i> Help!</a></li>
+<li><a href="#key-terms"><i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms</a></li>
+</ul>
+</div>
+
+<div id="introductions" class="section level1">
+<h1>Introductions</h1>
+<hr>
+<div id="good-morning" class="section level3">
+<h3>Good morning!</h3>
+<p>We are Melinda, Vallen, Jaime, Kristie &amp; Dorian.</p>
+<p>We like <strong>R</strong>.</p>
+<p>We aren’t computer scientists and that’s okay!</p>
+<p>We make lots of mistakes. You can laugh at us.</p>
+</div>
+<div id="all-together-now" class="section level2 unnumbered">
+<h2>All together now</h2>
+<p>Let’s launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We’ll use R to introduce ourselves and the data we love <em>(or don’t)</em>.</p>
+<p><img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" /></p>
+<p><strong>Share:</strong></p>
+<div class="note" style="margin-top: 0;">
+<ul>
+<li>Your name<br />
+</li>
+<li>Distance you traveled to get here</li>
+<li>Types of data you have</li>
+<li>Snack you want right now</li>
+<li>The messiest, weirdest, funniest part of your data</li>
+</ul>
+<p><strong>Good news:</strong> <em>If you do something with data over and over again, this could be something you can automate in R.</em></p>
+</div>
+<p><br></p>
+<ul>
+<li>In R Studio click on <strong>File &gt; New File &gt; R Script</strong>. You will see a code editor window open.</li>
+</ul>
+<p><img src="../images/new_script_file.png" style="width: 70%; margin-bottom: 18px;" /></p>
+<ul>
+<li>You will be writing and saving code in this window. This is your code editor.</li>
+</ul>
+</div>
+<div id="create-and-store-values" class="section level2">
+<h2>Create and store values</h2>
+<p>You can assign values to new objects using the</p>
+<blockquote>
+<p>“left arrow” <code>&lt;-</code></p>
+</blockquote>
+<p>This is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and assign a value to an object called <code>my_name</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Your Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
+
+miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span class="co"># A number</span>
+
+<span class="co"># A list of data I use</span>
+my_data_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PAHs&quot;</span>, <span class="st">&quot;Air Toxics&quot;</span>, <span class="st">&quot;Ultrafine particles&quot;</span>) 
+
+best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> </code></pre>
+<ul>
+<li>Now, you can type <em><code>my_name</code></em> into your console (lower left hand quadrant) and your entry will be returned.</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r">my_name</code></pre>
+<pre><code>## [1] &quot;Your Name&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">miles_traveled</code></pre>
+<pre><code>## [1] 1869</code></pre>
+<p><br></p>
+<blockquote>
+<p>To run everything at once, you can highlight all of the code you’ve written in the <em>Code Editor</em> and push <code>CTRL + ENTER</code>.</p>
+</blockquote>
+</div>
+<div id="its-all-about-you" class="section level2">
+<h2>It’s ALL about you</h2>
+<p><strong>Create a table AKA a <code>data.frame()</code></strong></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put them all into a table</span>
+all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name           =</span> my_name, 
+                           <span class="dt">miles_traveled =</span> miles_traveled, 
+                           <span class="dt">data_types     =</span> my_data_types,  
+                           <span class="dt">best_snack     =</span> best_snack_in_the_universe)</code></pre>
+<p>Let’s bounce around the room and introduce ourselves with help from our R scripts.</p>
+<details style="margin-top: 34px;">
+<p><summary class="btn_code"> <strong>GET R PACKAGES</strong> </summary></p>
+<div class="quiz" style="margin-top: -8px; border-radius: 0;">
+<p>
+<p>To use a new <em>package</em> in R you first need to install it – much like a free App on your phone. To save time on installation, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio.</p>
+<pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;leaflet&quot;</span>, <span class="st">&quot;sf&quot;</span>)
+
+<span class="kw">install.packages</span>(new_packages)</code></pre>
+<p><img src="../../images/install_screen.png" /></p>
+<p style="margin-top: 5px;">
+<p>Then press <code>ENTER</code> to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.</p>
+<img src="../../images/install_msg.png" />
+</p>
+<p><strong>Congrats rebel droid!</strong> <i class="fa fa-android" style="font-size: 44px;"></i></p>
+</p>
+</div>
+</details>
+<p><br></p>
+</div>
+<div id="todays-challenge" class="section level2">
+<h2>Today’s challenge</h2>
+<hr>
+<p><img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 34px; margin-bottom: 14px;" width="220" /></p>
+<blockquote>
+<p>Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month we should visit – preferrably the month with the lowest ozone concentration. The goal for today is to give Rey a nice chart of monthly ozone concentrations to help her plan.</p>
+</blockquote>
+<p><br><br></p>
+<p>To complete the challenge we’ll follow a general roadmap.</p>
+<div id="step-data-analysis" class="section level3">
+<h3>7 step data analysis</h3>
+<div class="note">
+<ol style="list-style-type: decimal">
+<li><strong>READ</strong> the data</li>
+<li><strong>PLOT</strong> the data</li>
+<li><strong>CLEAN</strong> the data</li>
+<li><strong>PLOT more</strong> - <em>View the data closer</em></li>
+<li><strong>SUMMARIZE</strong> the data</li>
+<li><strong>SAVE</strong> the results</li>
+<li><strong>SHARE</strong> with friends</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="but-why-r" class="section level1">
+<h1>But why R?</h1>
+<hr>
+<p><img src="../images/rladies_map.gif" style="width: 95%;" /></p>
+<div id="r-community" class="section level2">
+<h2>R Community</h2>
+<p>See the <a href="community.html">R Community</a> page.</p>
+<ul>
+<li><a href="https://itep-r.netlify.com/page/community.html">R support and community</a></li>
+<li>ITEP page for sharing (<a href="https://github.com/itep-data/R-questions" class="uri">https://github.com/itep-data/R-questions</a>) Look at the example script for cleaning headers!</li>
+<li>Finding R Help <a href="https://itep-r.netlify.com/page/help.html" class="uri">https://itep-r.netlify.com/page/help.html</a></li>
+</ul>
+</div>
+<div id="when-to-use-r" class="section level2">
+<h2>When to use R?</h2>
+<ul>
+<li>To connect to databases.</li>
+<li>To read data from websites.</li>
+<li>To document and share methods.</li>
+<li>When data will have frequent updates.</li>
+<li>When we want to improve a process over time.</li>
+</ul>
+</div>
+<div id="r-is-for-reading" class="section level2">
+<h2>R is for reading</h2>
+<p><img src="../images/R_recipe.png" style="width: 55%; float: left; margin-right: 28px; margin-left: -16px;" /></p>
+<p>Lucky for us, programming doesn’t have to be a bunch of math equations. R allows you to write your data analysis in a step-by-step fashion, much like creating a recipe for cookies. And just like a recipe, we can start at the top and read our way down to the bottom.</p>
+<div style="clear: both;">
+
+</div>
+<p><br></p>
+</div>
+<div id="it-begins" class="section level2">
+<h2>It begins!</h2>
+<div id="start-an-r-project" class="section level3">
+<h3>Start an R project</h3>
+<p>We’ll make a new project for our investigation of ozone on Tatooine.</p>
+<div class="well" style="margin-left: 5%;">
+<p><strong>Step 1:</strong> Start a new project</p>
+<ul>
+<li>In <em>Rstudio</em> select <em>File</em> from the top menu bar
+<ul>
+<li>Choose <em>New Project…</em></li>
+<li>Choose <em>New Directory</em></li>
+<li>Choose <em>New Project</em></li>
+</ul></li>
+<li>Enter a project name such as <code>"NTF-2019"</code></li>
+<li>Select <em>Browse…</em> and choose a folder where you normally perform your work.
+<ul>
+<li>Click <em>Create Project</em></li>
+</ul></li>
+</ul>
+<p><strong>Step 2:</strong> Open a new script</p>
+<ul>
+<li><strong>File &gt; New File &gt; R Script</strong>
+<ul>
+<li>Click the <em>floppy disk</em> save icon</li>
+<li>Give it a name: <code>Rey.R</code> or <code>ozone.R</code> will work well</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="the-grand-tour" class="section level1">
+<h1>The grand tour</h1>
+<p><img src="../images/rstudio.png" style="width: 85%;" /></p>
+<p><br></p>
+<div class="note">
+<p><strong>1. Code Editor</strong></p>
+<p>This is where you write your scripts and document your work. The tabs at the top of the code editor allow you to view scripts and data sets you have open. This is where you’ll spend most of your time.</p>
+</div>
+<div class="note">
+<p><strong>2. Console</strong></p>
+<p>This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won’t be saved for later. That’s why we like to run all of our code directly from a script in the code editor.</p>
+</div>
+<div class="note">
+<p><strong>3. Workspace</strong></p>
+<p>This pane shows all of the objects and functions that you have created, as well as a history of the code you have run during your current session. The environment tab shows all of your objects and functions. The history tab shows the code you have run. Note the <em>broom</em> icon below the Connections tab. This cleans shop and allows you to clear all of the objects in your workspace.</p>
+</div>
+<div class="note">
+<p><strong>4. Plots and files</strong></p>
+<p>These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you’re unsure what a function or package does, enter the name of thing after a question mark. For example, try entering <code>?mean</code> into the console and push <strong>ENTER</strong>.</p>
+</div>
+</div>
+<div id="step-data-analysis-1" class="section level1">
+<h1>7 step data analysis</h1>
+</div>
+<div id="read-the-data" class="section level1">
+<h1>1. | Read the data</h1>
+<hr>
+<p><img src="../images/readr-hexbin-sticker-from-rstudio.png" style="width: 20%; float: left; margin-right: 4px;" /></p>
+<p><br></p>
+<div style="width: 79%; float: right;">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+
+air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
+</div>
+<div style="clear: both;">
+
+</div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">SITE</th>
+<th align="left">Date</th>
+<th align="right">Hour</th>
+<th align="right">OZONE</th>
+<th align="right">TEMP_F</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">4/29/2017</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">38.3</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="left">7/16/2016</td>
+<td align="right">0</td>
+<td align="right">8</td>
+<td align="right">73.4</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">10/31/2016</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">37.4</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">10/19/2016</td>
+<td align="right">0</td>
+<td align="right">11</td>
+<td align="right">62.6</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">7/17/2018</td>
+<td align="right">0</td>
+<td align="right">12</td>
+<td align="right">74.6</td>
+</tr>
+</tbody>
+</table>
+<div id="clean-headers" class="section level2">
+<h2>Clean headers</h2>
+<hr>
+<p><img src="../images/janitor_hex.png" style="width: 17%; float: right;" /></p>
+<p><img src="../images/dplyr_hex.png" style="width: 17%; float: right; margin-left: 30px;" /></p>
+<p><br></p>
+<p>There are two great packages that can help us with cleaning header names. Let’s install them!</p>
+<p><br></p>
+<div style="clear: both;">
+
+</div>
+<div id="install-new-packages" class="section level3">
+<h3>Install new packages</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;janitor&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</code></pre>
+</div>
+<div id="load-packages-from-your-personal-library" class="section level3">
+<h3>Load packages from your personal <code>library()</code></h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(janitor)
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># General cleaning for all columns</span>
+air_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_data)
+
+<span class="co"># Change and set specific names</span>
+air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
+                   <span class="dt">lat =</span> latitude,
+                   <span class="dt">lon =</span> longitude)</code></pre>
+</div>
+</div>
+</div>
+<div id="plot-the-data" class="section level1 unnumbered">
+<h1>2. | Plot the data</h1>
+<hr>
+<p><img src="../images/ggplot2_hex.png" style="width: 22%; float: left; margin-right: 4%;" /></p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temp_f, <span class="dt">y =</span> ozone, <span class="dt">color =</span> site)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) </code></pre>
+<p><img src="/page/NTF2019_files/figure-html/view-1.png" width="1152" /></p>
+<div style="clear: both;">
+
+</div>
+</div>
+<div id="explore-the-data" class="section level1">
+<h1>Explore the data</h1>
+<hr>
+<p>Some functions to get to know your data.</p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>names(scrap)</code></td>
+<td align="left">column names</td>
+</tr>
+<tr class="even">
+<td align="left"><code>nrow(...)</code></td>
+<td align="left">number of rows</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ncol(...)</code></td>
+<td align="left">number of columns</td>
+</tr>
+<tr class="even">
+<td align="left"><code>summary(...)</code></td>
+<td align="left">summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>glimpse(...)</code></td>
+<td align="left">column names + a glimpse of first values (requires <em>dplyr</em> package)</td>
+</tr>
+</tbody>
+</table>
+<div id="glimpse-and-summary" class="section level2">
+<h2><code>glimpse()</code> and <code>summary()</code></h2>
+<p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
+<p>Use the <code>summary()</code> function to get a quick report of your numeric data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="co"># Glimpse the columns of your data and their first few contents</span>
+<span class="kw">glimpse</span>(air_data)</code></pre>
+<pre><code>## Observations: 1,237
+## Variables: 15
+## $ site        &lt;chr&gt; &quot;27-137-7001&quot;, &quot;27-137-7001&quot;, &quot;27-137-7001&quot;, &quot;27-1...
+## $ date        &lt;chr&gt; &quot;4/1/2016&quot;, &quot;4/2/2016&quot;, &quot;4/3/2016&quot;, &quot;4/4/2016&quot;, &quot;4...
+## $ hour        &lt;dbl&gt; 4, 3, 5, 0, 2, 4, 3, 1, 1, 2, 4, 0, 1, 5, 1, 1, 1,...
+## $ ozone       &lt;dbl&gt; 13.000, 12.000, 11.000, 10.000, 20.000, 0.018, 19....
+## $ temp_f      &lt;dbl&gt; 27.2, 35.6, 28.4, 35.6, 39.2, 47.0, 50.6, 42.8, 54...
+## $ state_code  &lt;dbl&gt; 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27, 27...
+## $ county_code &lt;dbl&gt; 137, 137, 137, 137, 137, 137, 137, 137, 137, 137, ...
+## $ site_num    &lt;dbl&gt; 7001, 7001, 7001, 7001, 7001, 7001, 7001, 7001, 70...
+## $ lat         &lt;dbl&gt; 47.52336, 47.52336, 47.52336, 47.52336, 47.52336, ...
+## $ lon         &lt;dbl&gt; -92.5363, -92.5363, -92.5363, -92.5363, -92.5363, ...
+## $ parameter   &lt;dbl&gt; 88101, 88101, 88101, 88101, 88101, 88101, 88101, 8...
+## $ year        &lt;dbl&gt; 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2016, 20...
+## $ month       &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,...
+## $ day         &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,...
+## $ units       &lt;chr&gt; &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPM&quot;, &quot;PPB&quot;, &quot;...</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show numeric summary of the min, mean, and max of all columns</span>
+<span class="kw">summary</span>(air_data)</code></pre>
+<pre><code>##      site               date                hour           ozone     
+##  Length:1237        Length:1237        Min.   : 0.00   Min.   : 0.0  
+##  Class :character   Class :character   1st Qu.: 0.00   1st Qu.: 7.0  
+##  Mode  :character   Mode  :character   Median : 1.00   Median :11.0  
+##                                        Mean   : 2.18   Mean   :11.8  
+##                                        3rd Qu.: 3.00   3rd Qu.:15.0  
+##                                        Max.   :21.00   Max.   :61.0  
+##      temp_f         state_code  county_code     site_num   
+##  Min.   : 26.60   Min.   :27   Min.   :137   Min.   :7001  
+##  1st Qu.: 50.00   1st Qu.:27   1st Qu.:137   1st Qu.:7001  
+##  Median : 63.80   Median :27   Median :137   Median :7001  
+##  Mean   : 61.17   Mean   :27   Mean   :137   Mean   :7275  
+##  3rd Qu.: 72.20   3rd Qu.:27   3rd Qu.:137   3rd Qu.:7554  
+##  Max.   :330.00   Max.   :27   Max.   :137   Max.   :7554  
+##       lat             lon           parameter          year     
+##  Min.   :46.74   Min.   :-92.54   Min.   :88101   Min.   :2016  
+##  1st Qu.:46.74   1st Qu.:-92.54   1st Qu.:88101   1st Qu.:2016  
+##  Median :47.52   Median :-92.54   Median :88101   Median :2017  
+##  Mean   :47.14   Mean   :-92.35   Mean   :88101   Mean   :2017  
+##  3rd Qu.:47.52   3rd Qu.:-92.17   3rd Qu.:88101   3rd Qu.:2018  
+##  Max.   :47.52   Max.   :-92.17   Max.   :88101   Max.   :2018  
+##      month             day           units          
+##  Min.   : 4.000   Min.   : 1.00   Length:1237       
+##  1st Qu.: 5.000   1st Qu.: 8.00   Class :character  
+##  Median : 7.000   Median :16.00   Mode  :character  
+##  Mean   : 6.964   Mean   :15.86                     
+##  3rd Qu.: 9.000   3rd Qu.:24.00                     
+##  Max.   :10.000   Max.   :31.00</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try the rest on your own</span>
+<span class="kw">nrow</span>()
+
+<span class="kw">ncol</span>()
+
+<span class="kw">names</span>()</code></pre>
+</div>
+</div>
+<div id="clean-the-data" class="section level1">
+<h1>3. | Clean the data</h1>
+<hr>
+<div id="filter-out-values-that-are-out-of-range" class="section level3">
+<h3>Filter out values that are out-of-range</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+
+
+<span class="co"># We can filter with two conditions</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temp_f <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre>
+</div>
+<div id="check-the-units-column" class="section level3">
+<h3>Check the units column</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the units column</span>
+<span class="kw">distinct</span>(air_data, units)</code></pre>
+<pre><code>## # A tibble: 2 x 1
+##   units
+##   &lt;chr&gt;
+## 1 PPB  
+## 2 PPM</code></pre>
+<p>PPM! That explains the tiny results. Looks like we might need to fix the units on some of these ozone values.</p>
+</div>
+<div id="its-time-for-dplyr" class="section level2">
+<h2>It’s time for <code>dplyr</code></h2>
+<hr>
+<p>(Insert the dplyr intro -&gt; the 6 function toolbox)</p>
+</div>
+<div id="mutate" class="section level2 unnumbered">
+<h2><code>mutate()</code></h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert all samples to PPB</span>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
+                   <span class="dt">ozone_ppm =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre>
+</div>
+</div>
+<div id="lunch-break" class="section level1">
+<h1><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</h1>
+<p><img src="../images/starwars_lunch.jpg" style="width: 53%; align: center;" /></p>
+</div>
+<div id="dates" class="section level1">
+<h1>Dates</h1>
+<hr>
+<div id="the-lubridate-package" class="section level3">
+<h3>The <code>lubridate</code> package</h3>
+<p><img src="../images/lubridate.png" style="width: 22%; float: left; margin-right: 30px; margin-top: 8px;" /></p>
+<p><br></p>
+<p>It’s about time! Lubridate makes working with dates easier.</p>
+<p>We can do date math, add and subtract days, and make seasonal and day of the week averages.</p>
+<p><br></p>
+<p><strong>Here are some of the functions:</strong></p>
+<p><img src="../images/lubridate_summaries.png" style="width: 35%; float: left;" /></p>
+<p><img src="../images/lubridate_functions.png" style="width: 50%;" /></p>
+<div style="clear: both;">
+
+</div>
+</div>
+<div id="clean-up-the-dates" class="section level2">
+<h2>Clean up the dates</h2>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) 
+
+<span class="co"># Set date column to official date format</span>
+<span class="co">## We&#39;ll use &quot;mdy()&quot; because our dates are written as month-day-year</span>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">date =</span> <span class="kw">mdy</span>(date))
+
+<span class="co"># Add a month and day of the week columns</span>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">month =</span> <span class="kw">month</span>(date),
+                             <span class="dt">day   =</span> <span class="kw">day</span>(date)) </code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="guess-who" class="section level1">
+<h1>Guess Who?</h1>
+<div id="the-star-wars-edition" class="section level2">
+<h2>The <em>Star Wars</em> edition</h2>
+<p><img src="../images/sw_guesswho.jpg" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;" width="280" /></p>
+<blockquote>
+<p>Are you the best Jedi detective out there? Let’s play a game to find out.</p>
+</blockquote>
+<p><br></p>
+<p>Guess what else comes with the <code>dplyr</code> package? A <strong>Star Wars data set</strong>.</p>
+<p>You can open the data set with the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Load the <code>dplyr</code> package from your <code>library()</code></li>
+<li>Pull the Star Wars dataset into your environment.</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
+<p><em>I’m very literal so I named the data <strong><code>starwars_data</code></strong>.</em></p>
+</div>
+<div id="rules" class="section level2">
+<h2><span style="text-decoration: underline;"> Rules </span></h2>
+<ol style="list-style-type: decimal">
+<li>Scroll through the Star Wars dataset and find a character you find interesting.
+<ul>
+<li>Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.</li>
+</ul></li>
+<li><strong>Keep it hidden!</strong> Don’t show your neighbor the character you chose.</li>
+<li>Take turns asking each other questions about your partner’s Star Wars character.</li>
+<li>Use the answers to build a <code>filter()</code> function and narrow down the potential character your neighbor may have picked.</li>
+</ol>
+<p>For example: Here’s a <code>filter()</code> statement that filters the data to the character <em>Plo Koon</em>.</p>
+<div style="width: 90%; margin-left: 8%">
+<pre class="sourceCode r"><code class="sourceCode r">mr_koon &lt;-<span class="st"> </span><span class="kw">filter</span>(starwars_data,
+                  mass       <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>,
+                  eye_color  <span class="op">!=</span><span class="st"> &quot;blue&quot;</span>,
+                  gender     <span class="op">==</span><span class="st"> &quot;male&quot;</span>,
+                  homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
+                  birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><em>Elusive</em> answers are encouraged.
+<ul>
+<li>For example, if someone asks: <em>What is your character’s mass?</em></li>
+<li>You can respond: <em>My character’s mass is equal to one less than their age.</em></li>
+<li>Or if you’re feeling generous you can give a more straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
+</ul></li>
+<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. So, some of your filter statements might be <code>is.na(hair_color)</code> or <code>is.na(mass)</code>.</li>
+</ol>
+<p><br></p>
+<p><span style="margin-top: 18px; color: green;"> <strong>WINNER!</strong> </span></p>
+<p>The winner is the first to guess their neighbor’s character.</p>
+<details>
+<p><summary class = "btn_code_green"> <strong>WINNERS Click here!</strong> </summary></p>
+<div class="data">
+<p>
+<div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
+<p><img src="../images/plutt.png" /></p>
+</div>
+</p>
+</div>
+</details>
+<p><br></p>
+<div class="note">
+<h4 id="want-to-rematch">Want to rematch?</h4>
+<p>How about make it best of <strong>3</strong> games? Or switch partners and try again.</p>
+</div>
+</div>
+</div>
+<div id="plot-again" class="section level1">
+<h1>4. | Plot (again!)</h1>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> ozone, <span class="dt">color =</span> month)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) </code></pre>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
+</div>
+<div id="left_join---combining-tables" class="section level1">
+<h1>left_join() - combining tables</h1>
+<div id="polar-plot" class="section level2">
+<h2>Polar plot</h2>
+</div>
+<div id="calendar-plot" class="section level2">
+<h2>Calendar plot</h2>
+</div>
+</div>
+<div id="group-and-summarize-the-data" class="section level1">
+<h1>5. | Group and Summarize the data</h1>
+<p><code>group_by()</code></p>
+<pre class="sourceCode r"><code class="sourceCode r">air_data_group &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data, month)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">air_data_summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(air_data_group, <span class="dt">avg_ozone =</span> <span class="kw">mean</span>(ozone))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">month</th>
+<th align="right">avg_ozone</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">10.648145</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">11.270270</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="right">12.077778</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">15.100000</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">14.071429</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">11.288889</td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="right">8.531073</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="save-results" class="section level1">
+<h1>6. | Save results</h1>
+<div id="save-the-summarized-data-table" class="section level3">
+<h3>Save the summarized data table</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(air_data_summary, <span class="st">&quot;2015-2017_ozone_summary.csv&quot;</span>)</code></pre>
+</div>
+<div id="plot-the-summarized-data" class="section level3">
+<h3>Plot the summarized data</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>)</code></pre>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-7-1.png" width="1152" /></p>
+</div>
+<div id="save-plots" class="section level3">
+<h3>Save plots</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) <span class="op">+</span>
+<span class="st">    </span><span class="kw">ggsave</span>(<span class="st">&quot;Ozone_by_month.png&quot;</span>)</code></pre>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-8-1.png" width="1152" /></p>
+</div>
+</div>
+<div id="share-with-friends" class="section level1">
+<h1>7. | Share with friends</h1>
+<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you’ll be able to tell them. Or when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.</p>
+<div id="share-on-github" class="section level2">
+<h2>Share on GitHub</h2>
+<p><a href = "https://github.com/dKvale/ex__OZONE__Project">
+<img src="../images/github_example_ozone.png" style="width: 90%;" />
+</a></p>
+</div>
+<div id="congratulations" class="section level2">
+<h2>Congratulations!</h2>
+<p>You’ve added some great tools to your data analysis tool belt.</p>
+<div id="more-data-awaits-you." class="section level3">
+<h3>More data awaits you.</h3>
+<p><img src="../images/rey_bb8_sand_dunes.gif" style="width: 70%; margin-left: 10%;" /></p>
+</div>
+</div>
+</div>
+<div id="customize-r-studio" class="section level1">
+<h1>Customize R Studio</h1>
+<div id="make-it-your-own" class="section level4">
+<h4>Make it your own</h4>
+<p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Tools</strong> on the top navigation bar.</li>
+<li>Choose <code>Global Options...</code></li>
+<li>Choose <code>Appearance</code> with the paint bucket.</li>
+<li>Find something you like.</li>
+</ol>
+<p><img src="../images/font_change.png" style="width: 45%; margin-top: 18px;"></p>
+<p><br></p>
+</div>
+</div>
+<div id="help" class="section level1">
+<h1><i class="far fa-question-circle" aria-hidden="true"></i> Help!</h1>
+<p>ERROR message? Or something behaving strangely and don’t know why? See the <a href="help.html">Help!</a> page for some troubleshooting options.</p>
+</div>
+<div id="key-terms" class="section level1">
+<h1><i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms</h1>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="94%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>package</code></td>
+<td align="center">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
+</tr>
+<tr class="even">
+<td><code>library</code></td>
+<td align="center">The name of the folder that stores all your packages, and the function used to load a package.</td>
+</tr>
+<tr class="odd">
+<td><code>function</code></td>
+<td align="center">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
+</tr>
+<tr class="even">
+<td><code>argument</code></td>
+<td align="center">Arguments are options or inputs that you pass to a function to change how it behaves. The argument <code>skip = 1</code> tells the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="return-to-homebase" class="section level3 unnumbered">
+<h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../../index.html">Homebase</a></h3>
+<p><br></p>
+</div>
+</div>

@@ -15,66 +15,41 @@ output:
 <link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
@@ -108,7 +83,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#a-column-plot">A column plot</a></li>
 </ul></li>
 <li><a href="#get-help"><span class="toc-section-number">6</span> | Get help <i class="far fa-question-circle" aria-hidden="true"> </i></a></li>
-<li><a href="#key-terms">Key terms</a></li>
+<li><a href="#key-terms-from-today"><i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"> </i> Key terms from today</a></li>
 </ul>
 </div>
 
@@ -130,16 +105,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h2>All together now</h2>
 <p>Let’s launch ourselves into the unknown and use R to make a <code>Word Cloud</code>. With a little copy and pasting we can make a cool image out of everyone’s name in the class. Consider this an RStudio warm-up.</p>
 <p>We’re going to make this graphic, and you’re going to make your name really <span style="font-size: 26px;"> <strong>BIG</strong> </span>.</p>
-<p><img src="../images/name_cloud_fdl.png" style="width: 100%; margin-top: 12px;" /></p>
+<div class="figure">
+<img src="../images/name_cloud_fdl.png" style="width: 100%; margin-top: 12px;" />
+
+</div>
 <ol style="list-style-type: decimal">
 <li>Open R Studio</li>
 </ol>
-<p><img src="../images/rstudio_open.png" style="width: 35%;" /></p>
+<div class="figure">
+<img src="../images/rstudio_open.png" style="width: 35%;" />
+
+</div>
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Copy the code below into your script in RStudio. Start with the line <code>install.packages</code> and end with the line <code>color = 'random-dark')</code>.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;dplyr&quot;</span>))
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;wordcloud2&quot;</span>, <span class="st">&quot;dplyr&quot;</span>))
 <span class="kw">library</span>(wordcloud2)
 <span class="kw">library</span>(dplyr)
 
@@ -176,12 +157,15 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 <span class="co"># Plot the Word Cloud</span>
 <span class="kw">wordcloud2</span>(<span class="kw">data.frame</span>(<span class="dt">word =</span> <span class="kw">names</span>(class), <span class="dt">freq =</span> class), 
            <span class="dt">size  =</span> <span class="dv">1</span>, 
-           <span class="dt">color =</span> <span class="st">&#39;random-dark&#39;</span>)</code></pre>
+           <span class="dt">color =</span> <span class="st">&#39;random-dark&#39;</span>)</code></pre></div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
 <li>In R Studio click on <strong>File &gt; New File &gt; R Script</strong>. You will see a code editor window open.</li>
 </ol>
-<p><img src="../images/new_script_file.png" style="width: 65%; margin-bottom: 18px;" /></p>
+<div class="figure">
+<img src="../images/new_script_file.png" style="width: 65%; margin-bottom: 18px;" />
+
+</div>
 <ol start="4" style="list-style-type: decimal">
 <li>Paste the copied code into the upper left hand window. This is your code editor.<br />
 </li>
@@ -192,7 +176,10 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 <li>Run the code again.</li>
 <li>Make your name even <strong>BIGGER!</strong></li>
 </ol>
-<p><img src="../images/rstudio_viewer_wordcloud.png" style="width:75.0%" /></p>
+<div class="figure">
+<img src="../images/rstudio_viewer_wordcloud.png" style="width:75.0%" />
+
+</div>
 <p><br></p>
 <div id="congrats-rebel-droid-your-powers-are-growing." class="section level4 unnumbered">
 <h4>Congrats rebel droid! Your powers are growing. <i class="fa fa-android" style="font-size: 44px;"></i></h4>
@@ -203,7 +190,10 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 <h1>Introductions</h1>
 <hr>
 <p>Let’s introduce ourselves and the data we love <em>(or don’t)</em>.</p>
-<p><img src="../images/starwars_group.jpg" align="right" style="width: 54%; margin-left: 26px; margin-top: 10px;" /></p>
+<div class="figure">
+<img src="../images/starwars_group.jpg" align="right" style="width: 54%; margin-left: 26px; margin-top: 10px;" />
+
+</div>
 <p><strong>Please share:</strong></p>
 <div class="note" style="margin-top: -2px;">
 <ul>
@@ -235,9 +225,9 @@ class &lt;-<span class="st"> </span><span class="kw">c</span>(class, <span class
 </div>
 <div id="read-the-data" class="section level3 unnumbered">
 <h3>1. Read the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
 
-air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre>
+air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -249,71 +239,71 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">9/21/2018</td>
-<td align="right">7</td>
-<td align="right">62.6</td>
-</tr>
-<tr class="even">
 <td align="left">27-137-7554</td>
-<td align="left">10/14/2018</td>
-<td align="right">9</td>
-<td align="right">59.6</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">4/29/2018</td>
-<td align="right">5</td>
-<td align="right">39.2</td>
+<td align="left">4/26/2018</td>
+<td align="right">20</td>
+<td align="right">41.0</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">8/30/2018</td>
-<td align="right">7</td>
-<td align="right">63.2</td>
+<td align="left">8/8/2016</td>
+<td align="right">13</td>
+<td align="right">77.6</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">5/27/2018</td>
+<td align="right">15</td>
+<td align="right">64.4</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7001</td>
+<td align="left">5/19/2017</td>
+<td align="right">14</td>
+<td align="right">48.2</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">6/27/2016</td>
-<td align="right">19</td>
-<td align="right">66.2</td>
+<td align="left">9/6/2016</td>
+<td align="right">13</td>
+<td align="right">70.4</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="plot-the-data" class="section level3 unnumbered">
 <h3>2. Plot the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre></div>
 <p><img src="/page/Day1_AM_files/figure-html/view-1.png" width="1152" /></p>
 </div>
 <div id="clean-the-data" class="section level3 unnumbered">
 <h3>3. Clean the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(OZONE <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, TEMP_F <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) 
 
 <span class="co"># Convert all samples to PPB</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">OZONE =</span> <span class="kw">ifelse</span>(UNITS <span class="op">==</span><span class="st"> &quot;PPM&quot;</span>, OZONE <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>, 
-                                  OZONE)) </code></pre>
+                                  OZONE)) </code></pre></div>
 </div>
 <div id="view-the-data-closer" class="section level3 unnumbered">
 <h3>4. View the data <strong>closer</strong></h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span>SITE) <span class="op">+</span>
 <span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ozone increases with temperature&quot;</span>, 
-         <span class="dt">subtitle =</span> <span class="st">&quot;Observations from 2015-2017&quot;</span>)</code></pre>
+         <span class="dt">subtitle =</span> <span class="st">&quot;Observations from 2015-2017&quot;</span>)</code></pre></div>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-1-1.png" width="1152" /></p>
 </div>
 <div id="summarize-the-data" class="section level3 unnumbered">
 <h3>5. Summarize the data</h3>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">group_by</span>(SITE, YEAR) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">summarize</span>(<span class="dt">AVG_OZONE =</span> <span class="kw">mean</span>(OZONE) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>),
-                      <span class="dt">AVG_TEMP  =</span> <span class="kw">mean</span>(TEMP_F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>))</code></pre>
+                      <span class="dt">AVG_TEMP  =</span> <span class="kw">mean</span>(TEMP_F) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>(<span class="dv">2</span>))</code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -366,16 +356,14 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <div id="save-the-results" class="section level3 unnumbered">
 <h3>6. Save the results</h3>
 <p><strong>Save the final data table</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">air_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">write_csv</span>(<span class="st">&quot;results/2015-17_ozone_summary.csv&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">write_csv</span>(<span class="st">&quot;results/2015-17_ozone_summary.csv&quot;</span>)</code></pre></div>
 <p><br></p>
 <p><strong>Save the site plot to PDF</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;results/2015-2017 - Ozone vs Temp.pdf&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;results/2015-2017 - Ozone vs Temp.pdf&quot;</span>)</code></pre></div>
 </div>
 <div id="share-with-the-world" class="section level3 unnumbered">
 <h3>7. Share with the world</h3>
-<p><a href = "https://github.com/dKvale/ex__OZONE__Project">
-<img src="../images/github_example_ozone.png" style="width: 95%;" />
-</a></p>
+<p><a href = "https://github.com/dKvale/ex__OZONE__Project"> <img src="../images/github_example_ozone.png" style="width: 95%;" /> </a></p>
 <p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you’ll be able to tell them.</p>
 <p>Or when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.</p>
 </div>
@@ -384,7 +372,10 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <div id="a-new-day" class="section level1">
 <h1><span class="header-section-number">2</span> | A new day</h1>
 <hr>
-<p><img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" /></p>
+<div class="figure">
+<img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" />
+
+</div>
 <p><br><br><br><br><br></p>
 <div id="lets-take-a-tour" class="section level3 unnumbered">
 <h3>Let’s take a tour!</h3>
@@ -416,7 +407,10 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 </div>
 <div id="now-that-were-ready-its-time-to-make-some-trouble." class="section level3 unnumbered">
 <h3>Now that we’re ready, it’s time to make some trouble.</h3>
-<p><img src="../images/rey_bb8_sand_dunes.gif" style="width: 70%; margin-left: 10%;" /></p>
+<div class="figure">
+<img src="../images/rey_bb8_sand_dunes.gif" style="width: 70%; margin-left: 10%;" />
+
+</div>
 <p>While BB8 works on tracking down some data for us from his droid friends, let’s get to know our way around his internal computer.</p>
 </div>
 </div>
@@ -429,7 +423,7 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <li>Choose <em>New Project…</em></li>
 <li>Choose <em>New Directory</em></li>
 <li>Choose <em>New Project</em></li>
-<li>Enter a project name such as <code>"starwars"</code></li>
+<li>Enter a project name such as <code>&quot;starwars&quot;</code></li>
 <li>Select <em>Browse…</em> and choose a folder where you normally perform your work.</li>
 <li>Click <em>Create Project</em></li>
 </ul>
@@ -446,25 +440,25 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <hr>
 <p>You can assign values to new objects using the “left arrow” <code>&lt;-</code>, which is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script to assign a value to an object called <code>droid</code>.</p>
 <p>To run a line of code in your script, move the cursor to that line and press <strong>CTRL+ENTER</strong>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a new object</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a new object</span>
 droid &lt;-<span class="st"> &quot;bb8&quot;</span>
 
 droid 
 
 wookie &lt;-<span class="st"> &quot;Chewbacca&quot;</span>
 
-wookie</code></pre>
+wookie</code></pre></div>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To save text to a character object you need quotation marks: &quot;text&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To save text to a character object you need quotation marks: &quot;text&quot;</span>
 
 <span class="co"># Try this:</span>
-wookie &lt;-<span class="st"> </span>Chewbacca</code></pre>
+wookie &lt;-<span class="st"> </span>Chewbacca</code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;Chewbacca&#39; not found</code></pre>
 <div class="note">
 <p>Without quotes, R looks for an object called Chewbacca, and then lets you know that it couldn’t find one.</p>
 </div>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To copy an object, assign it to a new name</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To copy an object, assign it to a new name</span>
 wookie2 &lt;-<span class="st"> </span>wookie
 
 
@@ -475,27 +469,26 @@ wookie
 
 
 <span class="co"># Did this change the value stored in wookie2?</span>
-wookie2  </code></pre>
+wookie2  </code></pre></div>
 <p><br></p>
 <div id="drop-and-remove-data" class="section level3 unnumbered">
 <h3>Drop and remove data</h3>
 <p>You can drop objects with the remove function <code>rm()</code>. Try it out on some of your wookies.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Delete objects to clean-up your environment</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Delete objects to clean-up your environment</span>
 <span class="kw">rm</span>(wookie)
 
 <span class="kw">rm</span>(wookie2)
 
 <span class="co"># How can we get the &#39;wookie&#39; object back?</span>
-<span class="co"># Hint: The UP arrow is your friend.</span></code></pre>
+<span class="co"># Hint: The UP arrow is your friend.</span></code></pre></div>
 <p><br></p>
-<details>
-<summary class = "btn_code_green"> <strong>GOOD NEWS: </strong> Deleting data is okay </summary>
+<details> <summary class = "btn_code_green"> <strong>GOOD NEWS: </strong> Deleting data is okay </summary>
 <p>
 <div class="tip">
 <p>Don’t worry about deleting data or objects, you can always recreate them! And when R loads data files it only copies the contents. All your original data files remain safe and won’t suffer from any accidental changes. If something disappears or goes wrong in R, it’s okay. You can always reload the data using your script.</p>
 </div>
 </p>
-</details>
+<p></details></p>
 </div>
 <div id="give-it-a-name" class="section level2">
 <h2><span class="header-section-number">3.1</span> Give it a name</h2>
@@ -505,7 +498,7 @@ wookie2  </code></pre>
 <div id="exercise" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color: green"></i> Exercise!</h3>
 <p>Try running some of these examples. Find new ways to create errors. The more broken the better! Half of learning R is finding what doesn’t work.</p>
-<pre class="sourceCode r"><code class="sourceCode r">n wookies &lt;-<span class="st"> </span><span class="dv">5</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 
 n<span class="op">*</span>wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 
@@ -514,9 +507,9 @@ n_wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 n.wookies &lt;-<span class="st"> </span><span class="dv">5</span>
 
 
-all_the_wookies<span class="op">!</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> &quot;Everyone on Kashyyyk&quot;</span></code></pre>
+all_the_wookies<span class="op">!</span><span class="st"> </span><span class="er">&lt;</span><span class="op">-</span><span class="st"> &quot;Everyone on Kashyyyk&quot;</span></code></pre></div>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can add one wookie</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can add one wookie</span>
 n_wookies &lt;-<span class="st"> </span>n_wookies <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
 
 
@@ -532,48 +525,50 @@ n_wookies &lt;-<span class="st"> </span><span class="dv">10</span>,<span class="
 <span class="co"># But they can contain numbers!</span>
 wookie1    &lt;-<span class="st"> &quot;Chewbacca&quot;</span>
 
-bb8 &lt;-<span class="st"> &quot;droid&quot;</span></code></pre>
+bb8 &lt;-<span class="st"> &quot;droid&quot;</span></code></pre></div>
 <p><br></p>
-<details>
-<summary class = "btn_code_blue"> <strong>EXPLORE:</strong> What happens when we create <strong>n_wookies</strong> the second time? </summary>
+<details> <summary class = "btn_code_blue"> <strong>EXPLORE:</strong> What happens when we create <strong>n_wookies</strong> the second time? </summary>
 <p>
 <blockquote>
 <p>When we create a new object with the same name as something that already exists, the new object replaces the old one. Sometimes we want to update an existing object and replace the old version. Other times we may want to copy an object to a new name to preserve the original.</p>
 <p>This is similar to choosing between <code>Save</code> and <code>Save As</code> when saving a file.</p>
 </blockquote>
 </p>
-</details>
+<p></details></p>
 </div>
 </div>
 <div id="multiple-items" class="section level2">
 <h2><span class="header-section-number">3.2</span> Multiple items</h2>
 <p>We can add multiple values inside <code>c()</code> to make a vector of items. It’s like a chain of items, where each additional item is connected by a comma. The <code>c</code> stands for to concatenate or to combine values into a vector.</p>
 <p>Let’s use <code>c()</code> to create a few vectors of names.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a character vector and name it starwars_characters</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a character vector and name it starwars_characters</span>
 starwars_characters &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Luke&quot;</span>, <span class="st">&quot;Leia&quot;</span>, <span class="st">&quot;Han Solo&quot;</span>)
 
 <span class="co"># Print starwars_characters to the console</span>
-starwars_characters</code></pre>
+starwars_characters</code></pre></div>
 <pre><code>## [1] &quot;Luke&quot;     &quot;Leia&quot;     &quot;Han Solo&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a numeric vector and name it starwars_ages</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create a numeric vector and name it starwars_ages</span>
 starwars_ages  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>,<span class="dv">19</span>,<span class="dv">25</span>)
 
 <span class="co"># Print the ages to the console</span>
-starwars_ages</code></pre>
+starwars_ages</code></pre></div>
 <pre><code>## [1] 19 19 25</code></pre>
 </div>
 <div id="make-a-table" class="section level2">
 <h2><span class="header-section-number">3.3</span> Make a table</h2>
 <p>A table in R is known as a <strong>data frame</strong>. We can think of it as a group of columns, where each column is made from a vector. Data frames in R have columns of data that are all the same length.</p>
-<p><img src="../images/vector_to_dataframe.png" style="margin-left: 100px;" width="510" /></p>
+<div class="figure">
+<img src="../images/vector_to_dataframe.png" style="margin-left: 100px;" width="510" />
+
+</div>
 <p><br></p>
 <p>Let’s make a data frame with two columns to hold the character names and their ages.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create table with columns &quot;character&quot; and &quot;ages&quot; with values from the starwars_names and starwars_ages vectors</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create table with columns &quot;character&quot; and &quot;ages&quot; with values from the starwars_names and starwars_ages vectors</span>
 starwars_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">character =</span> starwars_characters,
                           <span class="dt">ages  =</span> starwars_ages)
 
 <span class="co"># Print the starwars_df data frame to the console</span>
-starwars_df</code></pre>
+starwars_df</code></pre></div>
 <pre><code>##   character ages
 ## 1      Luke   19
 ## 2      Leia   19
@@ -598,7 +593,7 @@ starwars_df</code></pre>
 Create the same table above, but add a <strong>3rd</strong> column that lists their father names:
 </h4>
 <ul>
-<li><code>c("Darth", "Darth", "Unknown")</code></li>
+<li><code>c(&quot;Darth&quot;, &quot;Darth&quot;, &quot;Unknown&quot;)</code></li>
 </ul>
 <p><br></p>
 </div>
@@ -624,20 +619,15 @@ starwars_df <- data.frame(character   = starwars_characters,
 <div id="show-all-values-in-column_name" class="section level3 unnumbered">
 <h3>Show all values in <code>$column_name</code></h3>
 <p>Use the <code>$</code> sign after the name of your table to see the values in one of your columns.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># View the &quot;ages&quot; column in starwars_df</span>
-starwars_df<span class="op">$</span>ages</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># View the &quot;ages&quot; column in starwars_df</span>
+starwars_df<span class="op">$</span>ages</code></pre></div>
 <pre><code>## [1] 19 19 25</code></pre>
 <div class="quiz">
 <h3 id="pop-quiz-hotshot" class="unnumbered">Pop Quiz, hotshot!</h3>
 <p><strong>Which of these object names are valid?</strong> <em>(Hint: You can test them.)</em></p>
-<p><input type="radio"> <em>my starwars fandom</em> <br>
-<input type="radio"> <em>my_wookies55</em> <br>
-<input type="radio"> <em>5wookies</em> <br>
-<input type="radio"> <em>my-wookie</em> <br>
-<input type="radio"> <em>Wookies!!!</em> <br></p>
+<p><input type="radio"> <em>my starwars fandom</em> <br> <input type="radio"> <em>my_wookies55</em> <br> <input type="radio"> <em>5wookies</em> <br> <input type="radio"> <em>my-wookie</em> <br> <input type="radio"> <em>Wookies!!!</em> <br></p>
 <p><br></p>
-<details>
-<p><summary class = "btn_code"><em>Show solution</em></summary></p>
+<p><details> <summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
 <p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>my_wookies55</code></p>
 <p><em>Yes!! The FORCE is strong with you!</em></p>
@@ -702,24 +692,22 @@ starwars_df<span class="op">$</span>ages</code></pre>
 <p>This looks like it could be useful. Now, if only we had some more data to work with…</p>
 <div id="new-message-1" class="section level2 unnumbered">
 <h2>New Message <em>(1)</em></h2>
-<details>
-<summary class = "btn_code_green"><em>Incoming…</em> <em>BB8</em></summary>
+<details> <summary class = "btn_code_green"><em>Incoming…</em> <em>BB8</em></summary>
 <p>
 <div class="tip">
 <p><strong>BB8:</strong> <em>Beep boop Beep.</em></p>
 <p><strong>BB8:</strong> <em>I intercepted a large scrapper data set from droid 4P-L of Junk Boss Plutt.</em></p>
 <p><br></p>
 <p>Receiving data now…</p>
-<details>
-<summary class = "btn_code_green"> View data </summary>
+<details> <summary class = "btn_code_green"> View data </summary>
 <p>
 <p><strong>scrap_records.csv</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r">item,origin,destination,amount,units,price_per_pound  
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">item,origin,destination,amount,units,price_per_pound  
 Flight recorder,Outskirts,Niima Outpost,<span class="dv">887</span>,Tons,<span class="fl">590.93</span>  
 Proximity sensor,Outskirts,Raiders,<span class="dv">7081</span>,Tons,<span class="fl">1229.03</span>  
 Aural sensor,Tuanul,Raiders,<span class="dv">707</span>,Tons,<span class="fl">145.27</span>  
 Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<span class="fl">188.2</span>  
-...  </code></pre>
+...  </code></pre></div>
 <p><br></p>
 <p><strong>You:</strong> <em>Yikes! This looks like a mess! What can I do with this?</em></p>
 </p>
@@ -732,8 +720,7 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <h2><span class="header-section-number">4.1</span> CSV to the rescue</h2>
 <p>The main data format used in R is the <strong>CSV</strong> <em>(comma-separated values)</em>. A <strong>CSV</strong> is a simple text file that can be opened in R and most other stats software, including Excel. It looks squished together as plain text, but that’s okay! When opened in R, the text becomes a familiar looking table with columns and rows. But before we launch ahead, let’s add a <em>package</em> to R that will help us read <strong>CSV</strong> files.</p>
 <p><br></p>
-<details>
-<p><summary class = "btn_code_blue"> How to save a CSV from Excel </summary></p>
+<p><details><summary class = "btn_code_blue"> How to save a CSV from Excel </summary></p>
 <div class="note">
 <p>
 <p><strong>Step 1:</strong> Open your Excel file.</p>
@@ -759,7 +746,7 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <hr>
 </p>
 </div>
-</details>
+<p></details></p>
 <p><br></p>
 </div>
 <div id="add-new-packages-r-apps" class="section level2">
@@ -769,7 +756,10 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <p><strong>What is a package?</strong></p>
 </blockquote>
 <p>A <em>package</em> is a small add-on for R, like a phone App for your phone. They add capabilities like statistical functions, mapping powers, and special charts. In order to use a new package we first need to install it.</p>
-<p><img src="../images/readr-hexbin-sticker-from-rstudio.png" align="left" style="margin-right:18px; margin-bottom: 12px;" width="145" /></p>
+<div class="figure">
+<img src="../images/readr-hexbin-sticker-from-rstudio.png" align="left" style="margin-right:18px; margin-bottom: 12px;" width="145" />
+
+</div>
 <div style="margin-top: 32px;">
 <p>The <em>readr</em> package helps import data into R in different formats. It does extra work for you like cleaning the data of extra white space and formatting tricky dates. Your packages are stored in your R <em>library</em>.</p>
 </div>
@@ -779,7 +769,7 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <p><strong>Add a package to your library</strong></p>
 <ol style="list-style-type: decimal">
 <li>Open <em>RStudio</em></li>
-<li>Type <code>install.packages("readr")</code> in the lower left console</li>
+<li>Type <code>install.packages(&quot;readr&quot;)</code> in the lower left console</li>
 <li>Press Enter</li>
 <li><em>Wait two seconds</em></li>
 <li>Open the <code>Packages</code> tab in the lower right window of RStudio to see the packages in your <em>library</em>
@@ -793,9 +783,9 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <div id="read-the-data-1" class="section level2">
 <h2><span class="header-section-number">4.3</span> Read the data</h2>
 <hr>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
-<span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre>
+<span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
 ##   item = col_character(),
@@ -824,11 +814,11 @@ Electromagnetic filter,Tuanul,Niima Outpost,<span class="dv">107</span>,Tons,<sp
 <div id="name-your-data-frame" class="section level2 unnumbered">
 <h2>Name your <strong>Data Frame</strong></h2>
 <p>Where did the data go after you read it into R? When we want to work with the data in R, we need to give it a name with the assignment operator: <code>&lt;-</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in scrap data and set name to &quot;scrap&quot;</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in scrap data and set name to &quot;scrap&quot;</span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
 
 <span class="co"># Type the name of the table to view it in the console</span>
-scrap</code></pre>
+scrap</code></pre></div>
 <pre><code>## # A tibble: 222 x 6
 ##    item                  origin   destination  amount units price_per_pound
 ##    &lt;chr&gt;                 &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
@@ -860,14 +850,9 @@ scrap</code></pre>
 <div class="quiz">
 <h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
 <p><strong>What data type is the <code>destination</code> column?</strong></p>
-<p><input type="radio"> <em>letters</em> <br>
-<input type="radio"> <em>character</em> <br>
-<input type="radio"> <em>words</em> <br>
-<input type="radio"> <em>numbers</em> <br>
-<input type="radio"> <em>integer</em> <br></p>
+<p><input type="radio"> <em>letters</em> <br> <input type="radio"> <em>character</em> <br> <input type="radio"> <em>words</em> <br> <input type="radio"> <em>numbers</em> <br> <input type="radio"> <em>integer</em> <br></p>
 <p><br></p>
-<details>
-<summary class = "btn_code"><em>Show solution</em></summary>
+<details> <summary class = "btn_code"><em>Show solution</em></summary>
 <p>
 <p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>character</code></p>
 </p>
@@ -880,7 +865,7 @@ scrap</code></pre>
 <h3>Skip a row</h3>
 <p>Sometimes you may want to ignore the first row in your data file, especially an EPA file that includes a disclaimer on the first row. Yes EPA, we’re looking at you. Please stop.</p>
 <p>Let’s open the help window with <code>?read_csv</code> and try to find an argument that can help us. There’s a lot of them! But the <code>skip</code> argument looks like it could be helpful. Take a look at the description near the bottom. The default is <code>skip = 0</code>, which reads every line, but we can skip the first line by writing <code>skip = 1</code>. Let’s give it a go.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>)</code></pre></div>
 <p><br></p>
 </div>
 <div id="limit-the-total-number-of-rows" class="section level3 unnumbered">
@@ -888,27 +873,25 @@ scrap</code></pre>
 <p>Other types of data have weird last rows that are a <em>subtotal</em> or just report “END OF DATA”. Sometimes we want <code>read_csv</code> to ignore the last row, or only pull in a million lines because you don’t want to bog down the memory on an old laptop.</p>
 <p>Let’s look through the help window to find an argument that can help us. Type <code>?read_csv</code> and scroll down.</p>
 <p>The <code>n_max</code> argument looks like it could be helpful. The default is <code>n_max = Inf</code>, which means it will read every line, but we can limit the lines we read to only one hundred by using <code>n_max = 100</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in 100 rows</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read in 100 rows</span>
 small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>, <span class="dt">skip =</span> <span class="dv">1</span>, <span class="dt">n_max =</span> <span class="dv">100</span>)
 
 <span class="co"># Remove the data</span>
-<span class="kw">rm</span>(small_data)</code></pre>
+<span class="kw">rm</span>(small_data)</code></pre></div>
 <p><br></p>
-<details>
-<p><summary class="btn_code_blue">
-<strong>EXPLORE:</strong> Does the order of arguments matter? </summary></p>
+<p><details> <summary class="btn_code_blue"> <strong>EXPLORE:</strong> Does the order of arguments matter? </summary></p>
 <div class="note">
 <p>
 <p>You may be wondering why we included <code>skip =</code> for the skip argument, but only provided the objects for the other two arguments. When you pass inputs to a function, R assumes you’ve entered them in the same order that is shown on the ?help page. Let’s say you had a function called <code>feed_creatures()</code> with 3 arguments:</p>
 <blockquote>
-<p><code>feed_creatures(porg = "small fish", ewok = "vegetables", tauntaun = "lichen")</code>.</p>
+<p><code>feed_creatures(porg = &quot;small fish&quot;, ewok = &quot;vegetables&quot;, tauntaun = &quot;lichen&quot;)</code>.</p>
 </blockquote>
-<p>A shorthand to write this would be <code>feed_creatures("small fish", "vegetables", "lichen")</code>. This works because all the arguments remain in the default order.</p>
-<p>However, if we write <code>feed_creatures("vegetables", "lichen", "small fish")</code>, the function will send <em>vegetables</em> to the porgs and <em>lichen</em> to the Ewoks. That’s no good. If we really want to write “lichen” second, we need to tell R which food item belongs to each animal, such as <code>feed_creatures("small fish", tauntaun = "lichen", ewok = "vegetables")</code>.</p>
+<p>A shorthand to write this would be <code>feed_creatures(&quot;small fish&quot;, &quot;vegetables&quot;, &quot;lichen&quot;)</code>. This works because all the arguments remain in the default order.</p>
+<p>However, if we write <code>feed_creatures(&quot;vegetables&quot;, &quot;lichen&quot;, &quot;small fish&quot;)</code>, the function will send <em>vegetables</em> to the porgs and <em>lichen</em> to the Ewoks. That’s no good. If we really want to write “lichen” second, we need to tell R which food item belongs to each animal, such as <code>feed_creatures(&quot;small fish&quot;, tauntaun = &quot;lichen&quot;, ewok = &quot;vegetables&quot;)</code>.</p>
 <p>The same thing goes for <code>read_csv()</code>. In <code>read_csv(scrap_file, column_names, skip = 1)</code>, R assumes the file is <code>scrap_file</code> and that the col_names should be set to <code>column_names</code>. The <code>skip =</code> argument has to be included explicitly because <em>skip</em> is the <strong>10th</strong> argument in <code>read_csv()</code>. If we don’t include <code>skip =</code>, R will assume the value we entered is meant for the function’s <strong>3rd</strong> argument.</p>
 </p>
 </div>
-</details>
+<p></details></p>
 <p><br></p>
 </div>
 <div id="pro-tip-1" class="section level3 unnumbered">
@@ -920,22 +903,16 @@ small_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span 
 </div>
 <div id="saving-file-paths" class="section level3 unnumbered">
 <h3>Saving file paths</h3>
-<p>You can also save file paths as objects, such as <code>file_path &lt;- "data/starwars_scrap_jakku.csv"</code>. Now you can use it as a shortcut to the location of your data. When you want to load the scrap table you can write <code>read_csv(file_path)</code>. This handy trick makes it easier for you or your coworker to update your code and use it with new data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save the file path to an object you can use later</span>
+<p>You can also save file paths as objects, such as <code>file_path &lt;- &quot;data/starwars_scrap_jakku.csv&quot;</code>. Now you can use it as a shortcut to the location of your data. When you want to load the scrap table you can write <code>read_csv(file_path)</code>. This handy trick makes it easier for you or your coworker to update your code and use it with new data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save the file path to an object you can use later</span>
 file_path &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>
 
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)</code></pre>
+scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)</code></pre></div>
 <div class="quiz">
 <h3 id="pop-quiz-1" class="unnumbered">Pop Quiz!</h3>
 <p><strong>What package does <code>read_csv()</code> come from?</strong></p>
-<p><input type="radio"> <em>dinosaur</em> <br>
-<input type="radio"> <em>get_data</em> <br>
-<input type="radio"> <em>readr</em> <br>
-<input type="radio"> <em>dplyr</em> <br>
-<input type="radio"> <em>tidyr</em> <br></p>
-<br>
-<details>
-<summary class = "btn_code"><em>Show solution</em></summary>
+<p><input type="radio"> <em>dinosaur</em> <br> <input type="radio"> <em>get_data</em> <br> <input type="radio"> <em>readr</em> <br> <input type="radio"> <em>dplyr</em> <br> <input type="radio"> <em>tidyr</em> <br></p>
+<br> <details> <summary class = "btn_code"><em>Show solution</em></summary>
 <p>
 <p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>readr</code><br />
 <em>Great job! You are Jedi worthy!</em></p>
@@ -945,34 +922,31 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 <div class="quiz" style="margin-top: -15px;">
 <p><br></p>
 <p><strong>How would you load the package <code>junkfinder</code>?</strong></p>
-<p><input type="radio"> <em>junkfinder()</em> <br>
-<input type="radio"> <em>library(“junkfinder”)</em> <br>
-<input type="radio"> <em>load(“junkfinder”)</em> <br>
-<input type="radio"> <em>package(“junkfinder”)</em> <br></p>
-<br>
-<details>
-<summary class = "btn_code"><em>Show solution</em></summary>
+<p><input type="radio"> <em>junkfinder()</em> <br> <input type="radio"> <em>library(“junkfinder”)</em> <br> <input type="radio"> <em>load(“junkfinder”)</em> <br> <input type="radio"> <em>package(“junkfinder”)</em> <br></p>
+<br> <details> <summary class = "btn_code"><em>Show solution</em></summary>
 <p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>library("junkfinder")</code><br />
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>library(&quot;junkfinder&quot;)</code><br />
 <em>Excellent! Keep the streak going.</em></p>
 </p>
 </details>
 </div>
 <p><br></p>
-<details>
-<p><summary class = "btn_code_blue"> <strong>EXPLORE: More about function arguments</strong> </summary></p>
+<p><details> <summary class = "btn_code_blue"> <strong>EXPLORE: More about function arguments</strong> </summary></p>
 <p>
 <div class="well" style="background-color: lightblue;">
 <p><em>Functions</em> perform steps based on inputs called <em>arguments</em> and usually return an output object. There are <em>functions</em> in R that are really complex but most boil down to the same general setup:</p>
-<pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre></div>
 <p>You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
 <p><br></p>
-<p><img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" /></p>
+<div class="figure">
+<img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" />
+
+</div>
 <p><br></p>
 <p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
-              <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
+              <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre></div>
 <p><br></p>
 <p>The <em>function</em> above creates Clone Troopers based on two <em>arguments</em>: the <code>host</code> and <code>n_troopers</code>. When we have more than one <em>argument</em>, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.</p>
 <div style="clear: both;">
@@ -980,23 +954,23 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file_path)<
 </div>
 <p><strong>The <code>sum()</code> function</strong></p>
 <p>We can use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call the sum function with starwars_ages as input</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Call the sum function with starwars_ages as input</span>
 ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages) <span class="co"># Assigns the output to starwars_ages_sum</span>
 
 <span class="co"># Print the starwars_ages_sum value to the console</span>
-ages_sum</code></pre>
+ages_sum</code></pre></div>
 <pre><code>## [1] 63</code></pre>
 <p><br></p>
 <p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs a calculation, and returns a number. Note that we assigned the output to the name <code>ages_sum</code>.</p>
 <p>If we don’t assign the output it will be printed to the console and not saved.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
-<span class="kw">sum</span>(starwars_ages) </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
+<span class="kw">sum</span>(starwars_ages) </code></pre></div>
 <pre><code>## [1] 63</code></pre>
 <p><br></p>
 <blockquote>
 <p><strong>NOTE:</strong> The original <code>starwars_ages</code> vector has not changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
 </blockquote>
-<pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre></div>
 <pre><code>## [1] 19 19 25</code></pre>
 <p><br></p>
 <div class="quiz">
@@ -1004,24 +978,19 @@ ages_sum</code></pre>
 Pop Quiz!
 </h3>
 <p><strong>Which of these is a valid function call?</strong></p>
-<p><input type="radio"> <em>train(“concentrate” “Force”)</em> <br>
-<input type="radio"> <em>shoot, “lightsaber”, “Death Ray”</em> <br>
-<input type="radio"> <em>replicate(100000000, “clones”)</em> <br>
-<input type="radio"> <em>fight(until Empire conquered)</em> <br>
-<input type="radio"> <em>scrap(100 Datapads, “Hyperdrives”)</em> <br></p>
+<p><input type="radio"> <em>train(“concentrate” “Force”)</em> <br> <input type="radio"> <em>shoot, “lightsaber”, “Death Ray”</em> <br> <input type="radio"> <em>replicate(100000000, “clones”)</em> <br> <input type="radio"> <em>fight(until Empire conquered)</em> <br> <input type="radio"> <em>scrap(100 Datapads, “Hyperdrives”)</em> <br></p>
 <p><br></p>
-<details>
-<p><summary class = "btn_code"><em>Show solution</em></summary></p>
+<p><details> <summary class = "btn_code"><em>Show solution</em></summary></p>
 <p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, "clones")</code></p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>replicate(100000000, &quot;clones&quot;)</code></p>
 <p><em>Correct! You are ready to audit a Junk dealer.</em></p>
 <p><br></p>
 </p>
-</details>
+<p></details></p>
 </div>
 </div>
 </p>
-</details>
+<p></details></p>
 </div>
 </div>
 </div>
@@ -1030,11 +999,13 @@ Pop Quiz!
 <hr>
 <div id="plot-the-data-plot-the-data-plot-the-data" class="section level3 unnumbered">
 <h3><em>Plot the data, Plot the data, Plot the data</em></h3>
-<p><img src="../images/ggplot2_hex.png" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;" width="164" /></p>
+<div class="figure">
+<img src="../images/ggplot2_hex.png" style="float: left; margin-right: 26px; margin-top: 10px;  margin-left: 0;" width="164" />
+
+</div>
 <p><br></p>
-<p>In data analysis it is really important to look at your data early and often. For that, let’s add a new package called <strong>ggplot2</strong>!
-<br><br></p>
-<p>Install it using: <code>install.packages("ggplot2")</code></p>
+<p>In data analysis it is really important to look at your data early and often. For that, let’s add a new package called <strong>ggplot2</strong>! <br><br></p>
+<p>Install it using: <code>install.packages(&quot;ggplot2&quot;)</code></p>
 <p><br><br></p>
 <div class="note">
 <p><strong>NOTE:</strong> You can also install packages from the <code>Packages</code> tab on the lower right window of RStudio.</p>
@@ -1043,9 +1014,9 @@ Pop Quiz!
 <div id="a-column-plot" class="section level2 unnumbered">
 <h2>A column plot</h2>
 <p>Here’s a simple chart showing the total amount of scrap for each origin location.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">y =</span> amount, <span class="dt">x =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">y =</span> amount, <span class="dt">x =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
 <p><img src="/page/Day1_AM_files/figure-html/unnamed-chunk-16-1.png" width="1152" /></p>
 <p>Well, well, well. It looks like there is an <strong>All</strong> category we should look into more. Either there’s a town hogging all the scrap or the data needs some cleaning.</p>
 </div>
@@ -1053,31 +1024,32 @@ Pop Quiz!
 <div id="get-help" class="section level1">
 <h1><span class="header-section-number">6</span> | Get help <i class="far fa-question-circle" aria-hidden="true"> </i></h1>
 <hr>
-<p>Is something not working or behaving strangely and you don’t know why? See the <a href="help.html">Help!</a> page.</p>
+<p>Is something not working or behaving strangely and you don’t know why?</p>
+<p>See the <a href="help.html">Help!</a> page.</p>
 </div>
-<div id="key-terms" class="section level1 unnumbered">
-<h1>Key terms</h1>
+<div id="key-terms-from-today" class="section level1 unnumbered">
+<h1><i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"> </i> Key terms from today</h1>
 <table>
 <colgroup>
-<col width="23%" />
-<col width="76%" />
+<col width="6%" />
+<col width="93%" />
 </colgroup>
 <tbody>
 <tr class="odd">
-<td align="left"><code>package</code></td>
-<td align="left">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
+<td><code>package</code></td>
+<td align="center">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>library</code></td>
-<td align="left">The name of the folder that stores all your packages, and the function used to load a package.</td>
+<td><code>library</code></td>
+<td align="center">The name of the folder that stores all your packages, and the function used to load a package.</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>function</code></td>
-<td align="left">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
+<td><code>function</code></td>
+<td align="center">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
 </tr>
 <tr class="even">
-<td align="left"><code>argument</code></td>
-<td align="left">Options or inputs that you pass to a function that determine how it behaves. The argument <code>skip = 1</code> tells the the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
+<td><code>argument</code></td>
+<td align="center">Arguments are options or inputs that you pass to a function to change how it behaves. The argument <code>skip = 1</code> tells the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
 </tr>
 </tbody>
 </table>

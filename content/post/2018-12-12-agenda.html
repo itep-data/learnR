@@ -1,8 +1,8 @@
 ---
 title: Agenda
-subtitle: 'January 15-17, 2019'
+subtitle: 'R for Environmental Data Analysis'
 date: '2018-12-08'
-summary: 'R for Environmental Data Analysis || Day 1 Morning: 9:00am-12:00 (3 hrs) || Planets visited: Jakku || Begin Jedi training. || 1. Install and update R || 2. Project launch. || Create an R script and...'
+summary: 'R for Environmental Data Analysis || Day 1 Morning: 9am-12:00 (3 hrs) || Begin Jedi training || 1. Install and update R || 2. Project launch || 3. Create R script...'
 showDate: false
 showAuthor: false
 slug: 'agenda'
@@ -17,43 +17,18 @@ enableEmoji: true
 
 
 
-<style type="text/css">
+<p><img src="../images/Rstudio_ex.png" style="float:left; max-width: 32%; margin-top: -20px; margin-left: 0; margin-right: 30px;" /></p>
+<div style="margin-top: 12px; clear: both;">
 
-.data {
-     background-color: #d2f0c6;
-     border-left: solid 5px #86af49;
-     border-radius: 15px;
-     font-size: 17px;
-     line-height: 18px;
-     overflow: hidden;
-     padding: 5px;
-     padding-top: 5px;
-     padding-bottom: 5px;
-     margin-top: 10px;
-     margin-bottom: 12px;
-     padding-left: 22px;
-     margin-right: 8px;
-}
-
-</style>
-<div style="margin-top: -30px;">
-<h2 id="r-for-environmental-data-analysis">R for Environmental Data Analysis</h2>
-<p>Fond du Lac Tribal and Community College<br />
-2101 14th Street<br />
-Cloquet, MN 55720</p>
 </div>
-<div style="margin-top: 12px;">
-<p><img src="../images/Rstudio_ex.png" style="max-width: 30%; margin-top: 0px; margin-left: 0; margin-right: 0;" /></p>
-</div>
+<p><br></p>
 <div id="day-1" class="section level1">
 <h1>Day 1</h1>
-<p>Planets visited: <code>Endor and Jakku</code></p>
 <div class="row">
 <div class="col-md-6">
-<p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
+<p><strong>Morning</strong> |</p>
 <blockquote>
-<p>Begin Jedi training<br />
- </p>
+<p>Blast off!</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Power on your droid
@@ -66,13 +41,12 @@ Cloquet, MN 55720</p>
 <li>Create an R script</li>
 </ul></li>
 <li>Tour and customize <strong>RStudio</strong></li>
-<li>Invent new/fake data
+<li>Create &amp; store values
 <ul>
 <li>Variables, names, and lists</li>
 </ul></li>
-<li>Make a data table / <strong>dataframe</strong><br />
-</li>
-<li>Upgrade your droid
+<li>Make data tables (<em>data frames</em>)</li>
+<li>Upgrade R
 <ul>
 <li>Add new R packages<br />
 </li>
@@ -88,12 +62,12 @@ Cloquet, MN 55720</p>
 <li>Look for errors and outliers</li>
 </ul></li>
 </ol>
-<p>Packages: <code>readr</code>, <code>ggplot2</code></p>
+<p>Packages: <code>readr</code>, <code>readxl</code>, <code>ggplot2</code></p>
 </div>
 <div class="col-md-6">
-<p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
+<p><strong>Afternoon</strong> |</p>
 <blockquote>
-<p>Get scrappy and solve a junk-data mystery</p>
+<p>Explore the data</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li>Explore data
@@ -102,159 +76,35 @@ Cloquet, MN 55720</p>
 <li>Missing values</li>
 <li>Mean, max, min, quantile</li>
 </ul></li>
-<li>Data transformations with <code>dplyr</code>
+<li>Work with dates &amp; <code>lubridate</code></li>
+</ol>
+<blockquote>
+<p>Guess Who?</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Manipulate data with <code>dplyr</code>
 <ul>
 <li>Arrange, sort, and <strong>filter</strong> data</li>
 </ul></li>
-<li>Summarize data</li>
-<li>Find the most profitable scrap<br />
-</li>
-<li>Summarize each <strong>group</strong>, site, or category within the data
+<li>Summarize each <strong>group</strong> or site
 <ul>
 <li>Summarize by location<br />
 </li>
-<li>Check for the number of data points in a group (you can use this to check for completeness!)</li>
+<li>Count number of data points in each group</li>
+<li>Use this to check for annual completeness</li>
 </ul></li>
-</ol>
-<blockquote>
-<p>Travel to Endor to investigate magnetic storms</p>
-</blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>Introduction to data with dates</li>
-<li>Plot time series</li>
+<li>Plot time series<br />
+</li>
+<li>Save results</li>
 </ol>
 <p>Packages: <code>dplyr</code>, <code>lubridate</code></p>
 </div>
 </div>
-</div>
-<div id="day-2" class="section level1">
-<h1>Day 2</h1>
-<p>Planets visited: <code>Endor and Jakku</code></p>
-<div class="row">
-<div class="col-md-6">
-<p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
-<blockquote>
-<p>Questions and Review</p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Calendar Plots 📅
-<ul>
-<li>Plot data by day of the week</li>
-</ul></li>
-<li>Intermediate data manipulation
-<ul>
-<li>Join tables together</li>
-<li>Adding and calculating new columns</li>
-<li>Unit conversions</li>
-<li>Add new columns based on a condition</li>
-</ul></li>
-<li>Learn summary functions: mean, median, max, min, nth</li>
-<li>Use the with pipe <code>%&gt;%</code> to string your functions together for less typing</li>
-<li>Save files</li>
-<li>Working with difficult <strong>data</strong>
-<ul>
-<li>Replacing NULL values, -999</li>
-<li>Missing values <code>NA</code></li>
-</ul></li>
-</ol>
-<p>Packages: <code>openair</code></p>
-</div>
-<div class="col-md-6">
-<p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
-<blockquote>
-<p><em>Star Wars - Guess Who</em></p>
-</blockquote>
-<ol style="list-style-type: decimal">
-<li>Plot like a Jedi!
-<ul>
-<li>Scatter plots and boxplots</li>
-<li>Add titles, colors, and labels</li>
-<li>Histograms</li>
-<li>Reference lines</li>
-<li>Add trend lines 📈</li>
-</ul></li>
-<li>Save charts to different formats</li>
-<li>Plot <code>pollution</code> vs. <code>meteorology</code>
-<ul>
-<li>Scatter plots
-<ul>
-<li>Conc vs. Temp</li>
-<li>Conc vs. Hour of day</li>
-<li>Temp vs. Hour of day</li>
-</ul></li>
-</ul></li>
-<li>More <strong>plots</strong>
-<ul>
-<li>Log transform</li>
-<li>Reference lines</li>
-</ul></li>
-<li>Time series plots with regression line and detection limits</li>
-</ol>
-</div>
-</div>
-</div>
-<div id="day-3" class="section level1">
-<h1>Day 3</h1>
-<p>Planets visited: <code>Ahch-To</code>, <code>Earth</code></p>
-<blockquote>
-<p>Your turn!</p>
-</blockquote>
-<div class="row">
-<div class="col-md-6">
-<p><strong>Morning</strong> | <em>8:30-11:45am</em></p>
-<ol style="list-style-type: decimal">
-<li>Join GitHub</li>
-<li>Share your data, code, and plots</li>
-</ol>
-<p><strong>Questions / Review</strong></p>
-<ol style="list-style-type: decimal">
-<li>Choose your own adventure!
-<ul>
-<li>Select your own or Star Wars data</li>
-</ul></li>
-<li><strong>PATHS</strong>
-<ul>
-<li>Wind and Pollution roses</li>
-<li>Messy data
-<ul>
-<li>Gather a wide table with hundreds of columns into 1 column</li>
-<li>Read an entire folder of files and combine into 1 table</li>
-</ul></li>
-<li>More maps and shapefiles
-<ul>
-<li>Read and save shapefiles</li>
-<li>Convert coordinate projections (ex. <code>Lat/Long</code> to <code>UTM</code>)</li>
-<li>Load reference maps (Tribal boundaries, States, Counties)</li>
-<li>Build interactive maps</li>
-</ul></li>
-</ul></li>
-</ol>
-<p>Packages: <code>tidycensus</code>, <code>tigris</code>, <code>sf</code>, <code>leaflet</code></p>
-</div>
-<div class="col-md-6">
-<p><strong>Afternoon</strong> | <em>1:15-5:00pm</em></p>
-<ol style="list-style-type: decimal">
-<li>Select your own or Star Wars data</li>
-<li>Build a report
-<ul>
-<li>Clean the data</li>
-<li>Create a summary table</li>
-<li>Compare years or sites</li>
-<li>Chart &amp; map the data</li>
-<li>Multiple paths to choose from</li>
-</ul></li>
-<li>Put script and results in <strong>Rmarkdown</strong><br />
-</li>
-<li>Share with the world
-<ul>
-<li>Generate Web, Word and PDF documents</li>
-</ul></li>
-</ol>
-<h3 id="concatulations">🐈🐈 Concatulations!! 🐱🐱</h3>
-<div class="data">
-<p>Receive your well deserved accolades and certificates</p>
-</div>
-</div>
+<div id="concatulations" class="section level3">
+<h3>Concatulations!!</h3>
+<div class="well">
+<p>You did it! Frolic in a field of well deserved accolades and certificates.</p>
 </div>
 <p></br></p>
+</div>
 </div>

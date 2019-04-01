@@ -4,27 +4,112 @@ comments: false
 tags: [install, update]
 output:
   blogdown::html_page:
+    highlight: tango
     toc: true
 ---
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { background-color: #f8f8f8; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <div id="TOC">
 <ul>
 <li><a href="#install-r">Install <code>R</code></a></li>
 <li><a href="#install-rstudio">Install <code>RStudio</code></a></li>
+<li><a href="#install-r-packages">Install <code>R packages</code></a></li>
+<li><a href="#section"></a></li>
 <li><a href="#update-r">Update <code>R</code></a></li>
 <li><a href="#update-rstudio">Update <code>RStudio</code></a></li>
-<li><a href="#update-your-r-packages">Update your R packages</a></li>
+<li><a href="#update-r-packages">Update <code>R packages</code></a></li>
 </ul>
 </div>
 
-<style> code {color: #FF69B4 !important;} </style>
-<p></br></p>
+<style> 
+code {color: #FF69B4 !important;} 
+
+.note
+{
+     background-color: #f0f7fb;
+     border-left: solid 4px #3498db;
+     border-radius: 25px;
+     font-size: 17px;
+     font-style: normal;
+     line-height: 19px;
+     overflow: hidden;
+     padding: 10px;
+     padding-top: 12px;
+     padding-bottom: 14px;
+     margin-top: 18px;
+     margin-bottom: 15px;
+     padding-left: 22px;
+}
+
+</style>
+<p><br></p>
 <div id="install-r" class="section level1">
 <h1>Install <code>R</code></h1>
 <hr>
 <p><img src="../../images/R_recipe.png" style="float: left; width: 41%; margin-top: 26px; margin-right: 28px; margin-bottom: 26px; margin-left: -12px;" /></p>
-<p>The R language and its tools are built by people from around the world. Together they help you perform data analysis in an easy to follow step-by-step fashion, just like you’re following a recipe for cookies. And once you find your favorite recipe, you can easily use it over again on new data or even share it with your collaborators.</p>
+<p>The R language and its tools are built by people from around the world. Together they help you perform data analysis in an easy to follow step-by-step fashion, much like you’re following a recipe for cookies. And once you find your favorite recipe, you can easily use it over again on new data or share it with your collaborators.</p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
 <a class="nav-link" id="windows-tab" data-toggle="tab" href="#windows" role="tab" aria-controls="windows" aria-selected="true">Instructions for Windows </a>
@@ -87,14 +172,97 @@ output:
 <li>You are officially ready to <strong>R</strong></li>
 </ol>
 </div>
-<p></br></p>
+<p><br></p>
+</div>
+<div id="install-r-packages" class="section level1">
+<h1>Install <code>R packages</code></h1>
+<hr>
+<p>R comes installed with many built-in functions and tools to help do your work. On top of this foundation, what is often referred to as <em>base-R</em>, contributors from around the world have created tools that make R easier and accomplish more with your data. These add-ons are called <code>packages</code>, and are made available to everyone to download for free. Below are a few examples, grouped into general categories.</p>
+<p><strong>Packages used in this training:</strong></p>
+<blockquote>
+<p>Load data</p>
+</blockquote>
+<p><code>readr</code> Load data from text files: tab, comma, and other delimited files.<br />
+<code>readxl</code> Load data from Excel.</p>
+<p><br></p>
+<blockquote>
+<p>Manipulate data</p>
+</blockquote>
+<p><code>dplyr</code> Essential shortcuts to subset, summarize, rearrange, and join data sets.<br />
+<code>tidyr</code> Reshape tables and unpack multiple inputs stored in single cell.<br />
+<code>stringr</code> Tools to edit and clean text and character strings.<br />
+<code>lubridate</code> Tools to format dates and perform calculations based on time.</p>
+<p><br></p>
+<blockquote>
+<p>Charts and visuals</p>
+</blockquote>
+<p><code>ggplot2</code> Essential package for plots and charts.</p>
+<p><br></p>
+<blockquote>
+<p>Maps</p>
+</blockquote>
+<p><code>leaflet</code> Display spatial data and make interactive maps.<br />
+<code>sf</code> Simple features, a spatial format using data frames to perform spatial.</p>
+<p><br></p>
+<blockquote>
+<p>General</p>
+</blockquote>
+<p><code>devtools</code> Install packages directly from other sources like GitHub.</p>
+<p><br></p>
+<div class="note">
+<p>To use a new <em>package</em> you first need to install it – much like a free App on your phone. If you’d like to get a jump start on the workshop, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio.</p>
+<p><br></p>
+<pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;leaflet&quot;</span>, <span class="st">&quot;sf&quot;</span>, <span class="st">&quot;devtools&quot;</span>)
+
+<span class="kw">install.packages</span>(new_packages)</code></pre>
+<p><br></p>
+<p><img src="../../images/install_screen.png" /></p>
+<p><br></p>
+<p>Then press <code>ENTER</code> to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.</p>
+<p><img src="../../images/install_msg.png" /></p>
+</div>
+<p><br></p>
+<p><strong>Additional recommended packages:</strong></p>
+<blockquote>
+<p><strong>Load data</strong></p>
+</blockquote>
+<p><code>RODBC</code> Load data from Access and Oracle databases.<br />
+<code>RMySQL</code>, <code>RPostgresSQL</code>, and <code>RSQLite</code> for connecting to SQL databases.<br />
+<code>pdftools</code> Read PDF documents.<br />
+<code>googledrive</code> Read and write files to your Google Drive.<br />
+<code>foreign</code> Load data from Minitab and Systat.<br />
+<code>R.matlab</code> Load data from Matlab.<br />
+<code>haven</code> Load data from SAS, SPSS, and Stata.</p>
+<p><br></p>
+<blockquote>
+<p><strong>Manipulate data</strong></p>
+</blockquote>
+<p><code>stringr</code> Tools to edit and clean text and character strings.</p>
+<p><br></p>
+<blockquote>
+<p><strong>Charts and visuals</strong></p>
+</blockquote>
+<p><code>ggsave</code> Export charts in various formats and sizes.<br />
+<code>openair</code> For monitoring data visuals like wind roses and calendar plots.
+<code>xkcd</code>, <code>hrbrthemes</code> , <code>ggpomological</code>, <code>ggthemes</code> Chart themes for ggplot.<br />
+<code>viridis</code>, <code>wesanderson</code>, <code>ghibli</code> Color palettes.<br />
+<code>rmarkdown</code> Write summary reports and save as PDF, Word document, presentation, or website.</p>
+<p><br></p>
+<blockquote>
+<p><strong>Maps</strong></p>
+</blockquote>
+<p><code>tidycensus</code> Download Census and American Community Survey data.</p>
+<p><br></p>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
 </div>
 <div id="update-r" class="section level1">
 <h1>Update <code>R</code></h1>
 <hr>
 <p><img src="../../images/Rstudio_ex.png" style="float: left; width: 22%; margin-top: -6px; margin-right: 28px;" /></p>
 <p></br></p>
-<p>The R software receives periodic updates, about once a year. Windows users can update R with the <code>installR</code> package, and Mac users can use the <code>updateR</code> package. Linux users can go to the <a href="https://cran.r-project.org/">R Archive</a> and follow the download links for their operating system.</p>
+<p>The R software receives periodic updates about once a year. Windows users can update R with the <code>installR</code> package, and Mac users can use the <code>updateR</code> package. Linux users can go to the <a href="https://cran.r-project.org/">R Archive</a> and follow the download links for their operating system.</p>
 <p></br></p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 12px;">
 <li class="nav-item active">
@@ -130,6 +298,14 @@ output:
 </div>
 <div id="mac" class="tab-pane fade" role="tabpanel" aria-labelledby="mac-tab">
 <h3 id="on-macapple">On Mac/Apple</h3>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the devtools package</span>
+<span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
+
+<span class="co"># Get the updateR package</span>
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;andreacirilloac/updateR&quot;</span>)
+
+<span class="co"># Update R</span>
+updateR<span class="op">::</span><span class="kw">updateR</span>(<span class="dt">admin_password =</span> <span class="st">&quot;Admin user password&quot;</span>)</code></pre>
 </div>
 </div>
 <p><br></p>
@@ -150,18 +326,20 @@ output:
 </div>
 <p><br></p>
 </div>
-<div id="update-your-r-packages" class="section level1">
-<h1>Update your R packages</h1>
+<div id="update-r-packages" class="section level1">
+<h1>Update <code>R packages</code></h1>
 <hr>
-<p>There are two places where you can udpate R packages within R Studio.</p>
+<p>There are two places where you can udpate R packages within RStudio.</p>
 <p><br></p>
 <div id="in-the-files-and-plots-area-in-the-bottom-right-under-the-packages-tab" class="section level4">
 <h4>1. In the <code>Files and Plots</code> area in the bottom right, under the <code>Packages</code> tab:</h4>
+<p>Click the green <strong>Update</strong> button next to Install.</p>
 <p><img src="../images/updatepackages_1.PNG" style="width: 50%;"></p>
 <p><br></p>
 </div>
 <div id="in-the-tools-tab-above-at-the-top-above-the-code-editor" class="section level4">
 <h4>2. In the <code>Tools</code> tab above at the top above the Code Editor:</h4>
+<p>Choose the 2nd option -&gt; <em>“Check for Package Updates…”</em></p>
 <p><img src="../images/updatepackages_2.PNG" style="width: 50%;"></p>
 <p><br></p>
 </div>

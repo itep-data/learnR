@@ -23,7 +23,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 # | dplyr
 <hr>
 
-![](../images/hex-dplyr.png){width="128" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;"}
+![](../images/dplyr_hex.png){width="128" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;"}
 
 <br>
 

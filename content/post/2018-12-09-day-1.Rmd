@@ -3,7 +3,7 @@ title: Day 1
 date: '2018-12-09'
 showDate: false
 showAuthor: false
-summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
+summary: 'Power on your droid Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
 slug: 'day-1'
 categories: [training]
 tags: [training]

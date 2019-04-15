@@ -19,6 +19,40 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 
+<h1 style="margin-top: 15px;"> Welcome! </h1>
+<hr>
+
+![](../images/day1_bb8_sq.png){width="220" style="float: left; margin-right: 34px; margin-bottom: 14px;"}
+
+
+### Power on your droids
+You and BB8 have arrived just in time. Rey needs your help!
+
+Rey needs to travel to Tatooine, but years of scrapping ship parts hasn't been kind to her lungs. Using historic pollution levels your goal is to find the best month for Rey to visit the dusty surface of Tatooine. 
+
+
+## Open _RStudio_
+
+<div style="width: 48%; float: left; margin-right: 5%; margin-top: -14px;">
+
+![](../images/rstudio_logo.png){style="width: 88%; margin-top: -35px; margin-bottom: -6px;"}
+
+- __Where's my R!__ _Need to install R or RStudio? Jump over to [Get R!](../page/install.html)_
+- __Install troubles?__ _Don't worry, you can use R online at [RStudio Cloud](https://rstudio.cloud/)._
+
+
+<br>
+<br>
+
+</div>
+
+
+![](../images/rstudio_open.png){style="width: 36%;"}
+
+<div style="clear: both;"></div>
+
+
+
 # Introductions
 <hr>
 
@@ -35,7 +69,7 @@ We make lots of mistakes. You can laugh at us.
 
 ## All together now {-}
 
-Let's launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We'll use R to introduce ourselves and the data we love _(or don't)_.
+Let's launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We'll use R to introduce ourselves and the data we love.
 
 ![](../images/starwars_group.jpg){align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;"}
 
@@ -46,7 +80,7 @@ __Share:__
 - Your name  
 - Distance you traveled to get here
 - Types of data you have
-- Snack you want right now
+- A snack you want right now
 - The messiest, weirdest, funniest part of your data
 
 __Good news:__ _If you do something with data over and over again, this could be something you can automate in R._ 
@@ -152,29 +186,33 @@ __Congrats rebel droid!__ <i class="fa fa-android" style="font-size: 44px;"></i>
 <br>
 
 
-
 ## Today's challenge
 <hr>
 
-![](../images/day1_bb8_sq.png){width="220" style="float: left; margin-right: 34px; margin-bottom: 14px;"}
+![](https://i.pinimg.com/736x/7b/c0/02/7bc00221cf62f736fa1592efd7ba6213.jpg){width="254" style="float: left; margin-right: 24px; margin-bottom: 14px;"}
+
+<br>
 
 > Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month we should visit -- preferrably the month with the lowest ozone concentration. The goal for today is to give Rey a nice chart of monthly ozone concentrations to help her plan.
 
-<br><br>
+<br>
 
-To complete the challenge we'll follow a general roadmap. 
+To complete this challenge we'll follow the general roadmap below. 
 
-### 7 step data analysis
+<div style="clear: both;"></div>
+
+### Today's workflow
 
 <div class="note">
 
 1. __READ__ the data
-1. __PLOT__ the data
+1. __[PLOT]__ the data
 1. __CLEAN__ the data
-1. __PLOT more__ - _View the data closer_
-1. __SUMMARIZE__ the data
-1. __SAVE__ the results
-1. __SHARE__ with friends
+- __[PLOT]__ some more
+4. __SUMMARIZE__ the data
+- __[PLOT]__ even more
+5. __SAVE__ the results
+6. __SHARE__ with friends
 
 </div>
 
@@ -236,39 +274,38 @@ __Step 2:__ Open a new script
 
 </div>
 
-# The grand tour 
+# A grand tour 
 
 ![](../images/rstudio.png){style="width: 85%;"}
 
 <br>
 
-<div class="note">
+<div class="red-note">
 __1. Code Editor__ 
 
 This is where you write your scripts and document your work. The tabs at the top of the code editor allow you to view scripts and data sets you have open. This is where you'll spend most of your time.
 </div>
 
-<div class="note">
+<div class="red-note">
 __2. Console__ 
 
 This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won't be saved for later. That's why we like to run all of our code directly from a script in the code editor.
 </div>
 
-<div class="note">
+<div class="red-note">
 __3. Workspace__ 
 
 This pane shows all of the objects and functions that you have created, as well as a history of the code you have run during your current session. The environment tab shows all of your objects and functions. The history tab shows the code you have run. Note the _broom_ icon below the Connections tab. This cleans shop and allows you to clear all of the objects in your workspace.
 </div>
 
-<div class="note">
+<div class="red-note">
 __4. Plots and files__ 
 
-These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you're unsure what a function or package does, enter the name of thing after a question mark. For example, try entering `?mean` into the console and push __ENTER__.
+These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you're unsure what a function does, enter it's name after a question mark. For example, try entering `?mean` into the console and push __ENTER__.
 </div>
 
 
-# 7 step data analysis 
-
+# First steps 
 
 # 1. | Read the data 
 <hr>
@@ -296,8 +333,7 @@ air_data %>% sample_n(5) %>% select(SITE, Date, Hour, OZONE, TEMP_F) %>% kable()
 ```
 
 
-
-##	Clean headers 
+##	Clean header names 
 <hr>
 
 ![](../images/janitor_hex.png){style="width: 17%; float: right;"}
@@ -410,7 +446,6 @@ names()
 # Drop values out of range
 air_data <- filter(air_data, ozone > 0)
 
-
 # We can filter with two conditions
 air_data <- filter(air_data, ozone > 0, temp_f < 199) 
 
@@ -425,18 +460,40 @@ distinct(air_data, units)
 ```
 
 
-PPM! That explains the tiny results. Looks like we might need to fix the units on some of these ozone values.
+PPM! That explains the tiny results. It looks like we may need to fix the units on some of these ozone values. For that we'll want to call the friendly `dplyr` package.
 
 
 
 ## It's time for `dplyr` 
 <hr>
 
-(Insert the dplyr intro -> the 6 function toolbox)
+<i class="fas fa-toolbox"></i> __Your analysis toolbox__ 
+
+<div class="notes">
+
+| Function      | Job                                                 |  
+|:--------------|:----------------------------------------------------|  
+| `select()`    | Select individual columns to drop, keep, or reorder |  
+| `arrange()`   | Reorder or sort rows by value of a column           |  
+| `filter()`    | Pick a subset of rows by the value of a column      | 
+| `mutate()`    | Add new columns or update existing columns          | 
+| `summarize()` | Calculate a single summary for the entire table     |   
+| `group_by()`  | Split data into groups by values in a column        |  
+
+</div>
 
 
-## `mutate()` {-}
+# Porg example 
 
+We recruited a poggle of porgs to help demo the `dplyr` functions. As you can see in the table below, there are two types: yellow and gray. 
+
+```{r porg-tabs, results='asis', echo=F}
+cat(readLines("../page/porg_tabs.txt"))
+```
+
+
+## Fix the units
+### `mutate()`
 
 ```{r mutate}
 
@@ -449,7 +506,7 @@ air_data <- mutate(air_data,
 
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 
-![](../images/chewie_box.png){style="width: 53%; align: center;"}
+![](../images/chewie_box.png){style="width: 58%; align: center;"}
 
 
 # Dates 
@@ -471,7 +528,7 @@ We can do date math, add and subtract days, and make seasonal and day of the wee
 
 <div style="clear: both;"></div>
 
-__Here are some of the functions:__
+__Date functions__
 
 ![](../images/lubridate_summaries.png){style="width: 35%; float: left;"}
 
@@ -479,7 +536,7 @@ __Here are some of the functions:__
 
 <div style="clear: both;"></div>
 
-## Clean up the dates
+## Clean the dates
 ```{r lubridate}
 library(lubridate) 
 
@@ -545,7 +602,7 @@ mr_koon <- filter(starwars_data,
     - For example, if someone asks: _What is your character's mass?_ 
     - You can respond: _My character's mass is equal to one less than their age._ 
     - Or if you're feeling generous you can give a more straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
-6. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. So, some of your filter statements might be `is.na(hair_color)` or `is.na(mass)`. 
+6. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. If your character has a missing value for hair color, one of your filter statements could be `is.na(hair_color)`. 
 
 <br>
 
@@ -561,7 +618,9 @@ The winner is the first to guess their neighbor's character.
 <p>
 
 <div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
-![](../images/plutt.png)
+
+![](https://memegenerator.net/img/instances/72557990/hey-schrdinger-i-win.jpg)
+
 </div>
 
 </p></div>
@@ -651,9 +710,9 @@ Having an exact record of what you did can serve as great documentation for your
 
 
 ## Congratulations! 
-You've added some great tools to your data analysis tool belt. 
+You've added some great tools to your data analysis tool belt. Now go forth and put them to use.
 
-### More data awaits you. 
+### More data awaits you... 
 
 ![](../images/rey_bb8_sand_dunes.gif){style="width: 70%; margin-left: 10%;"}
 
@@ -694,7 +753,4 @@ See the [Help!](help.html) page for some troubleshooting options.
 
 <br>
 
-### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../../index.html) {-}
-
-<br>
-
+### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../../index.html) 

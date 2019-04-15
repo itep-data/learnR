@@ -82,12 +82,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><a href="#introductions">Introductions</a></li>
 <li><a href="#but-why-r">But why R?</a></li>
-<li><a href="#the-grand-tour">The grand tour</a></li>
-<li><a href="#step-data-analysis-1">7 step data analysis</a></li>
+<li><a href="#a-grand-tour">A grand tour</a></li>
+<li><a href="#first-steps">First steps</a></li>
 <li><a href="#read-the-data">1. | Read the data</a></li>
 <li><a href="#plot-the-data">2. | Plot the data</a></li>
 <li><a href="#explore-the-data">Explore the data</a></li>
 <li><a href="#clean-the-data">3. | Clean the data</a></li>
+<li><a href="#porg-example">Porg example</a></li>
 <li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
 <li><a href="#dates">Dates</a></li>
 <li><a href="#guess-who">Guess Who?</a></li>
@@ -102,6 +103,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 
+<h1 style="margin-top: 15px;">
+Welcome!
+</h1>
+<hr>
+<p><img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 34px; margin-bottom: 14px;" width="220" /></p>
+<div id="power-on-your-droids" class="section level3">
+<h3>Power on your droids</h3>
+<p>You and BB8 have arrived just in time. Rey needs your help!</p>
+<p>Rey needs to travel to Tatooine, but years of scrapping ship parts hasn’t been kind to her lungs. Using historic pollution levels your goal is to find the best month for Rey to visit the dusty surface of Tatooine.</p>
+</div>
+<div id="open-rstudio" class="section level2">
+<h2>Open <em>RStudio</em></h2>
+<div style="width: 48%; float: left; margin-right: 5%; margin-top: -14px;">
+<p><img src="../images/rstudio_logo.png" style="width: 88%; margin-top: -35px; margin-bottom: -6px;" /></p>
+<ul>
+<li><strong>Where’s my R!</strong> <em>Need to install R or RStudio? Jump over to <a href="../page/install.html">Get R!</a></em></li>
+<li><strong>Install troubles?</strong> <em>Don’t worry, you can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
+</ul>
+<p><br>
+<br></p>
+</div>
+<p><img src="../images/rstudio_open.png" style="width: 36%;" /></p>
+<div style="clear: both;">
+
+</div>
+</div>
 <div id="introductions" class="section level1">
 <h1>Introductions</h1>
 <hr>
@@ -114,7 +141,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="all-together-now" class="section level2 unnumbered">
 <h2>All together now</h2>
-<p>Let’s launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We’ll use R to introduce ourselves and the data we love <em>(or don’t)</em>.</p>
+<p>Let’s launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We’ll use R to introduce ourselves and the data we love.</p>
 <p><img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" /></p>
 <p><strong>Share:</strong></p>
 <div class="note" style="margin-top: 0;">
@@ -123,7 +150,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Distance you traveled to get here</li>
 <li>Types of data you have</li>
-<li>Snack you want right now</li>
+<li>A snack you want right now</li>
 <li>The messiest, weirdest, funniest part of your data</li>
 </ul>
 <p><strong>Good news:</strong> <em>If you do something with data over and over again, this could be something you can automate in R.</em></p>
@@ -199,21 +226,34 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <div id="todays-challenge" class="section level2">
 <h2>Today’s challenge</h2>
 <hr>
-<p><img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 34px; margin-bottom: 14px;" width="220" /></p>
+<p><img src="https://i.pinimg.com/736x/7b/c0/02/7bc00221cf62f736fa1592efd7ba6213.jpg" style="float: left; margin-right: 24px; margin-bottom: 14px;" width="254" /></p>
+<p><br></p>
 <blockquote>
 <p>Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month we should visit – preferrably the month with the lowest ozone concentration. The goal for today is to give Rey a nice chart of monthly ozone concentrations to help her plan.</p>
 </blockquote>
-<p><br><br></p>
-<p>To complete the challenge we’ll follow a general roadmap.</p>
-<div id="step-data-analysis" class="section level3">
-<h3>7 step data analysis</h3>
+<p><br></p>
+<p>To complete this challenge we’ll follow the general roadmap below.</p>
+<div style="clear: both;">
+
+</div>
+<div id="todays-workflow" class="section level3">
+<h3>Today’s workflow</h3>
 <div class="note">
 <ol style="list-style-type: decimal">
 <li><strong>READ</strong> the data</li>
-<li><strong>PLOT</strong> the data</li>
+<li><strong>[PLOT]</strong> the data</li>
 <li><strong>CLEAN</strong> the data</li>
-<li><strong>PLOT more</strong> - <em>View the data closer</em></li>
+</ol>
+<ul>
+<li><strong>[PLOT]</strong> some more</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
 <li><strong>SUMMARIZE</strong> the data</li>
+</ol>
+<ul>
+<li><strong>[PLOT]</strong> even more</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
 <li><strong>SAVE</strong> the results</li>
 <li><strong>SHARE</strong> with friends</li>
 </ol>
@@ -285,29 +325,29 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 </div>
 </div>
-<div id="the-grand-tour" class="section level1">
-<h1>The grand tour</h1>
+<div id="a-grand-tour" class="section level1">
+<h1>A grand tour</h1>
 <p><img src="../images/rstudio.png" style="width: 85%;" /></p>
 <p><br></p>
-<div class="note">
+<div class="red-note">
 <p><strong>1. Code Editor</strong></p>
 <p>This is where you write your scripts and document your work. The tabs at the top of the code editor allow you to view scripts and data sets you have open. This is where you’ll spend most of your time.</p>
 </div>
-<div class="note">
+<div class="red-note">
 <p><strong>2. Console</strong></p>
 <p>This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won’t be saved for later. That’s why we like to run all of our code directly from a script in the code editor.</p>
 </div>
-<div class="note">
+<div class="red-note">
 <p><strong>3. Workspace</strong></p>
 <p>This pane shows all of the objects and functions that you have created, as well as a history of the code you have run during your current session. The environment tab shows all of your objects and functions. The history tab shows the code you have run. Note the <em>broom</em> icon below the Connections tab. This cleans shop and allows you to clear all of the objects in your workspace.</p>
 </div>
-<div class="note">
+<div class="red-note">
 <p><strong>4. Plots and files</strong></p>
-<p>These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you’re unsure what a function or package does, enter the name of thing after a question mark. For example, try entering <code>?mean</code> into the console and push <strong>ENTER</strong>.</p>
+<p>These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you’re unsure what a function does, enter it’s name after a question mark. For example, try entering <code>?mean</code> into the console and push <strong>ENTER</strong>.</p>
 </div>
 </div>
-<div id="step-data-analysis-1" class="section level1">
-<h1>7 step data analysis</h1>
+<div id="first-steps" class="section level1">
+<h1>First steps</h1>
 </div>
 <div id="read-the-data" class="section level1">
 <h1>1. | Read the data</h1>
@@ -335,43 +375,43 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">7/13/2018</td>
+<td align="left">10/13/2018</td>
 <td align="right">0</td>
-<td align="right">21</td>
-<td align="right">69.2</td>
+<td align="right">14</td>
+<td align="right">51.8</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">9/28/2018</td>
+<td align="left">7/28/2017</td>
 <td align="right">0</td>
-<td align="right">21</td>
-<td align="right">78.8</td>
+<td align="right">10</td>
+<td align="right">72.2</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">10/16/2016</td>
-<td align="right">2</td>
-<td align="right">3</td>
-<td align="right">54.8</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">7/16/2016</td>
-<td align="right">2</td>
-<td align="right">12</td>
+<td align="left">5/18/2017</td>
+<td align="right">1</td>
+<td align="right">23</td>
 <td align="right">70.4</td>
 </tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">4/26/2017</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">39.8</td>
+</tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">5/20/2018</td>
-<td align="right">3</td>
+<td align="left">6/19/2017</td>
+<td align="right">1</td>
 <td align="right">11</td>
-<td align="right">75.2</td>
+<td align="right">55.4</td>
 </tr>
 </tbody>
 </table>
-<div id="clean-headers" class="section level2">
-<h2>Clean headers</h2>
+<div id="clean-header-names" class="section level2">
+<h2>Clean header names</h2>
 <hr>
 <p><img src="../images/janitor_hex.png" style="width: 17%; float: right;" /></p>
 <p><img src="../images/dplyr_hex.png" style="width: 17%; float: right; margin-left: 30px;" /></p>
@@ -524,7 +564,6 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
 air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
 
-
 <span class="co"># We can filter with two conditions</span>
 air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temp_f <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre>
 </div>
@@ -537,23 +576,112 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 ##   &lt;chr&gt;
 ## 1 PPB  
 ## 2 PPM</code></pre>
-<p>PPM! That explains the tiny results. Looks like we might need to fix the units on some of these ozone values.</p>
+<p>PPM! That explains the tiny results. It looks like we may need to fix the units on some of these ozone values. For that we’ll want to call the friendly <code>dplyr</code> package.</p>
 </div>
 <div id="its-time-for-dplyr" class="section level2">
 <h2>It’s time for <code>dplyr</code></h2>
 <hr>
-<p>(Insert the dplyr intro -&gt; the 6 function toolbox)</p>
+<p><i class="fas fa-toolbox"></i> <strong>Your analysis toolbox</strong></p>
+<div class="notes">
+<table>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">Job</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>select()</code></td>
+<td align="left">Select individual columns to drop, keep, or reorder</td>
+</tr>
+<tr class="even">
+<td align="left"><code>arrange()</code></td>
+<td align="left">Reorder or sort rows by value of a column</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>filter()</code></td>
+<td align="left">Pick a subset of rows by the value of a column</td>
+</tr>
+<tr class="even">
+<td align="left"><code>mutate()</code></td>
+<td align="left">Add new columns or update existing columns</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>summarize()</code></td>
+<td align="left">Calculate a single summary for the entire table</td>
+</tr>
+<tr class="even">
+<td align="left"><code>group_by()</code></td>
+<td align="left">Split data into groups by values in a column</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="mutate" class="section level2 unnumbered">
-<h2><code>mutate()</code></h2>
+</div>
+</div>
+<div id="porg-example" class="section level1">
+<h1>Porg example</h1>
+<p>We recruited a poggle of porgs to help demo the <code>dplyr</code> functions. As you can see in the table below, there are two types: yellow and gray.</p>
+<ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
+<li class="nav-item active">
+<a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="select-tab" data-toggle="tab" href="#select" role="tab" aria-controls="select" aria-selected="false"> <code>select</code> </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="arrange-tab" data-toggle="tab" href="#arrange" role="tab" aria-controls="arrange" aria-selected="false"> <code>arrange</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="filter-tab" data-toggle="tab" href="#filter" role="tab" aria-controls="filter" aria-selected="false"> <code>filter</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="mutate3-tab" data-toggle="tab" href="#mutate3" role="tab" aria-controls="mutate3" aria-selected="false"> <code>mutate</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="summarize-tab" data-toggle="tab" href="#summarize" role="tab" aria-controls="summarize" aria-selected="false"> <code>summarize</code></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" id="group_by-tab" data-toggle="tab" href="#group_by" role="tab" aria-controls="group_by" aria-selected="false"> <code>group_by</code></a>
+</li>
+</ul>
+<div id="myTabContent" class="well tab-content" style="background-color: white;">
+<div id="porgs" class="tab-pane fade active in" role="tabpanel" aria-labelledby="porgs-tab">
+<img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
+</div>
+<div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
+<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
+<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
+<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
+<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
+<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+</div>
+<div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
+<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+</div>
+</div>
+<div id="fix-the-units" class="section level2">
+<h2>Fix the units</h2>
+<div id="mutate" class="section level3">
+<h3><code>mutate()</code></h3>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert all samples to PPB</span>
 air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
                    <span class="dt">ozone_ppm =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre>
 </div>
 </div>
+</div>
 <div id="lunch-break" class="section level1">
 <h1><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</h1>
-<p><img src="../images/chewie_box.png" style="width: 53%; align: center;" /></p>
+<p><img src="../images/chewie_box.png" style="width: 58%; align: center;" /></p>
 </div>
 <div id="dates" class="section level1">
 <h1>Dates</h1>
@@ -568,15 +696,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 <div style="clear: both;">
 
 </div>
-<p><strong>Here are some of the functions:</strong></p>
+<p><strong>Date functions</strong></p>
 <p><img src="../images/lubridate_summaries.png" style="width: 35%; float: left;" /></p>
 <p><img src="../images/lubridate_functions.png" style="width: 50%;" /></p>
 <div style="clear: both;">
 
 </div>
 </div>
-<div id="clean-up-the-dates" class="section level2">
-<h2>Clean up the dates</h2>
+<div id="clean-the-dates" class="section level2">
+<h2>Clean the dates</h2>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) 
 
 <span class="co"># Set date column to official date format</span>
@@ -635,7 +763,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
 <li>You can respond: <em>My character’s mass is equal to one less than their age.</em></li>
 <li>Or if you’re feeling generous you can give a more straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
 </ul></li>
-<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. So, some of your filter statements might be <code>is.na(hair_color)</code> or <code>is.na(mass)</code>.</li>
+<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. If your character has a missing value for hair color, one of your filter statements could be <code>is.na(hair_color)</code>.</li>
 </ol>
 <p><br></p>
 <p><span style="margin-top: 18px; color: green;"> <strong>WINNER!</strong> </span></p>
@@ -645,7 +773,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
 <div class="data">
 <p>
 <div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
-<p><img src="../images/plutt.png" /></p>
+<p><img src="https://memegenerator.net/img/instances/72557990/hey-schrdinger-i-win.jpg" /></p>
 </div>
 </p>
 </div>
@@ -746,9 +874,9 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
 </div>
 <div id="congratulations" class="section level2">
 <h2>Congratulations!</h2>
-<p>You’ve added some great tools to your data analysis tool belt.</p>
-<div id="more-data-awaits-you." class="section level3">
-<h3>More data awaits you.</h3>
+<p>You’ve added some great tools to your data analysis tool belt. Now go forth and put them to use.</p>
+<div id="more-data-awaits-you" class="section level3">
+<h3>More data awaits you…</h3>
 <p><img src="../images/rey_bb8_sand_dunes.gif" style="width: 70%; margin-left: 10%;" /></p>
 </div>
 </div>
@@ -800,8 +928,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
 </tbody>
 </table>
 <p><br></p>
-<div id="return-to-homebase" class="section level3 unnumbered">
+<div id="return-to-homebase" class="section level3">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../../index.html">Homebase</a></h3>
-<p><br></p>
 </div>
 </div>

@@ -20,6 +20,13 @@ imageFloat: 'left'
 ---
 
 
+```{r setup, include=FALSE}
+library("rmarkdown")
+knitr::opts_chunk$set(error=F, message=F, warning=F)
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+
 <h1 style="margin-top: 15px;"> Welcome! </h1>
 <hr>
 
@@ -52,12 +59,6 @@ Rey needs to travel to Tatooine, but years of scrapping ship parts hasn't been k
 
 <div style="clear: both;"></div>
 
-
-```{r setup, include=FALSE}
-library("rmarkdown")
-knitr::opts_chunk$set(error=F, message=F, warning=F)
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-```
 
 
 # Introductions
@@ -243,10 +244,6 @@ See the [R Community](community.html) page.
 - When data will have frequent updates.
 - When we want to improve a process over time.
 
-### When not to use R?
-
--
--
 
 ## R is for reading 
 

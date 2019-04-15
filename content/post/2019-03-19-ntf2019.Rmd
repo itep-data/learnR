@@ -517,7 +517,7 @@ air_data <- mutate(air_data,
 
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 
-![](../images/chewie_box.png){style="width: 53%; align: center;"}
+![](../images/chewie_box.png){style="width: 58%; align: center;"}
 
 
 # Dates 
@@ -721,7 +721,7 @@ Having an exact record of what you did can serve as great documentation for your
 
 
 ## Congratulations! 
-You've added some great tools to your data analysis tool belt. Now it's time to put them to use.
+You've added some great tools to your data analysis tool belt. Now go forth and put them to use.
 
 ### More data awaits you... 
 

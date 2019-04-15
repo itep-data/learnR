@@ -76,6 +76,22 @@ blockquote
      padding-left: 22px;
 }
 
+.red-note
+{
+     background-color: #f6ede7;
+     border-left: solid 6px #E15611;
+     border-radius: 25px;
+     font-size: 17px;
+     font-style: normal;
+     line-height: 19px;
+     overflow: hidden;
+     padding: 10px;
+     padding-top: 14px;
+     padding-bottom: 14px;
+     margin-top: 28px;
+     margin-bottom: 26px;
+     padding-left: 22px;
+}
 
 .tip
 {

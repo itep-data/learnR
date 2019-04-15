@@ -6,6 +6,8 @@ output:
     css: css/camp_style.css
     number_sections: false
     self_contained: false
+    toc: true
+    toc_depth: 1
 date: '2018-12-09'
 showDate: false
 showAuthor: false
@@ -85,6 +87,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
+<div id="TOC">
+<ul>
+<li><a href="#introductions">Introductions</a></li>
+<li><a href="#but-why-r">But why R?</a></li>
+<li><a href="#a-grand-tour">A grand tour</a></li>
+<li><a href="#first-steps">First steps</a></li>
+<li><a href="#read-the-data">1. | Read the data</a></li>
+<li><a href="#plot-the-data">2. | Plot the data</a></li>
+<li><a href="#explore-the-data">Explore the data</a></li>
+<li><a href="#clean-the-data">3. | Clean the data</a></li>
+<li><a href="#porg-example">Porg example</a></li>
+<li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
+<li><a href="#dates">Dates</a></li>
+<li><a href="#guess-who">Guess Who?</a></li>
+<li><a href="#plot-again">4. | Plot (again!)</a></li>
+<li><a href="#left_join---combining-tables">left_join() - combining tables</a></li>
+<li><a href="#group-and-summarize-the-data">5. | Group and Summarize the data</a></li>
+<li><a href="#save-results">6. | Save results</a></li>
+<li><a href="#share-with-friends">7. | Share with friends</a></li>
+<li><a href="#customize-r-studio">Customize R Studio</a></li>
+<li><a href="#help"><i class="far fa-question-circle" aria-hidden="true"></i> Help!</a></li>
+<li><a href="#key-terms"><i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms</a></li>
+</ul>
+</div>
 
 <h1 style="margin-top: 15px;">
 Welcome!
@@ -358,38 +384,38 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">6/15/2016</td>
+<td align="left">9/30/2016</td>
 <td align="right">0</td>
-<td align="right">17</td>
-<td align="right">69.8</td>
+<td align="right">5</td>
+<td align="right">48.2</td>
 </tr>
 <tr class="even">
-<td align="left">27-137-7554</td>
-<td align="left">9/5/2016</td>
-<td align="right">1</td>
-<td align="right">10</td>
+<td align="left">27-137-7001</td>
+<td align="left">5/27/2018</td>
+<td align="right">4</td>
+<td align="right">15</td>
 <td align="right">64.4</td>
 </tr>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">8/31/2016</td>
-<td align="right">3</td>
-<td align="right">6</td>
-<td align="right">69.8</td>
+<td align="left">27-137-7554</td>
+<td align="left">7/10/2016</td>
+<td align="right">2</td>
+<td align="right">32</td>
+<td align="right">79.4</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7554</td>
-<td align="left">7/16/2018</td>
-<td align="right">0</td>
-<td align="right">10</td>
-<td align="right">72.2</td>
+<td align="left">7/31/2016</td>
+<td align="right">7</td>
+<td align="right">22</td>
+<td align="right">78.8</td>
 </tr>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">5/25/2017</td>
-<td align="right">1</td>
-<td align="right">16</td>
-<td align="right">79.4</td>
+<td align="left">27-137-7554</td>
+<td align="left">10/9/2017</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">43.4</td>
 </tr>
 </tbody>
 </table>

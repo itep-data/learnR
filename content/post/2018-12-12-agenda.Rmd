@@ -38,23 +38,23 @@ knitr::opts_chunk$set(echo = FALSE)
 
 1. Power on your droid
     - Install and update R
+1. Introductions
+    - Why open source?
+    - Why R?
 1. __Project__ launch
     - Start a new R project
     - Create an R script
-1. Tour and customize __RStudio__
-1. Create & store values
+1. Tour __RStudio__
+1. Create objects & store values
     - Variables, names, and lists
-1. Make data tables (_data frames_)
+1. Make data tables (_tibbles_)
 1. Upgrade R   
     - Add new R packages    
-1. Read __real data__ into R
+1. Read __data__ into R
     - `readr` for text files
     - `readxl` for Excel files
-1. Get visual with `ggplot2`
-    - Plot the data, plot the data, plot the data!
-    - Look for errors and outliers
-    
-Packages: `readr`, `readxl`, `ggplot2`
+
+Packages: `readr`, `ggplot2`
 
 </div>
 
@@ -64,33 +64,25 @@ Packages: `readr`, `readxl`, `ggplot2`
 
 > Explore the data
    
+1. Get visual with `ggplot2`
+    - Plot the data, plot the data, plot the data!
 1. Explore data
-    - Column names, rows, observations, value types
-    - Missing values
-    - Mean, max, min, quantile 
-2. Work with dates & `lubridate`
-
-> Guess Who?
-
-3. Manipulate data with `dplyr`
-    - Arrange, sort, and __filter__ data 
-4. Summarize each __group__ or site
-    - Summarize by location  
-    - Count number of data points in each group 
-    - Use this to check for annual completeness
-5. Plot time series   
-6. Save results
+    - Column names, rows, observations
+    - Value types, Missing values
+    - Mean, max, min 
+1. Work with dates & `lubridate`
+1. Transform data with `dplyr`
+    - Arrange, sort, and __filter__ 
+1. __mutate__ to add new columns 
+1. Summarize for each __group__
+    - Summary by location
+1. Plot time series   
+1. Saving and sharing results
 
 Packages: `dplyr`, `lubridate`    
 
 </div>
 </div>
-
-### Concatulations!!
-
-
-> You did it! Frolic in a field of well deserved accolades and certificates.
-
 
 
 </br>

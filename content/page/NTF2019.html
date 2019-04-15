@@ -335,38 +335,38 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-137-7001</td>
-<td align="left">8/19/2017</td>
-<td align="right">2</td>
-<td align="right">6</td>
-<td align="right">71.6</td>
-</tr>
-<tr class="even">
-<td align="left">27-137-7001</td>
-<td align="left">8/29/2016</td>
+<td align="left">7/13/2018</td>
 <td align="right">0</td>
-<td align="right">9</td>
-<td align="right">64.4</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">10/30/2016</td>
-<td align="right">1</td>
-<td align="right">6</td>
-<td align="right">41.0</td>
+<td align="right">21</td>
+<td align="right">69.2</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">8/28/2017</td>
+<td align="left">9/28/2018</td>
+<td align="right">0</td>
+<td align="right">21</td>
+<td align="right">78.8</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7001</td>
+<td align="left">10/16/2016</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">54.8</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">7/16/2016</td>
 <td align="right">2</td>
 <td align="right">12</td>
-<td align="right">71.6</td>
+<td align="right">70.4</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">9/2/2018</td>
-<td align="right">1</td>
-<td align="right">12</td>
-<td align="right">71.0</td>
+<td align="left">5/20/2018</td>
+<td align="right">3</td>
+<td align="right">11</td>
+<td align="right">75.2</td>
 </tr>
 </tbody>
 </table>
@@ -553,7 +553,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 </div>
 <div id="lunch-break" class="section level1">
 <h1><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</h1>
-<p><img src="../images/starwars_lunch.jpg" style="width: 53%; align: center;" /></p>
+<p><img src="../images/chewie_box.png" style="width: 53%; align: center;" /></p>
 </div>
 <div id="dates" class="section level1">
 <h1>Dates</h1>
@@ -591,7 +591,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <div id="guess-who" class="section level1">
 <h1>Guess Who?</h1>
-<h2 style="margin-top: -20px;">
+<h2 style="margin-top: -24px;">
 <em>Star Wars edition</em>
 </h2>
 <p><img src="../images/sw_guesswho.jpg" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;" width="280" /></p>
@@ -733,7 +733,6 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) <span class="op">+</span>
 <span class="st">    </span><span class="kw">ggsave</span>(<span class="st">&quot;Ozone_by_month.png&quot;</span>)</code></pre>
-<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-8-1.png" width="1152" /></p>
 </div>
 </div>
 <div id="share-with-friends" class="section level1">

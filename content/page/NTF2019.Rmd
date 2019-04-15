@@ -449,8 +449,7 @@ air_data <- mutate(air_data,
 
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 
-![](../images/starwars_lunch.jpg){style="width: 53%; align: center;"}
-
+![](../images/chewie_box.png){style="width: 53%; align: center;"}
 
 
 # Dates 
@@ -496,7 +495,7 @@ air_data <- mutate(air_data, month = month(date),
 <br>
 
 # Guess Who? 
-<h2 style="margin-top: -20px;"> _Star Wars edition_ </h2>
+<h2 style="margin-top: -24px;"> _Star Wars edition_ </h2>
 
 ![](../images/sw_guesswho.jpg){width="280" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;"}
 
@@ -632,7 +631,7 @@ ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) +
 
 
 ### Save plots 
-```{r, fig.width=12, fig.height=4}
+```{r, fig.width=12, fig.height=4, eval=F}
 ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) + 
     geom_col(width = 0.9) +
     ggsave("Ozone_by_month.png")

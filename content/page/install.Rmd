@@ -170,7 +170,7 @@ To use a new _package_ you first need to install it -- much like a free App on y
 <br>
 
 ```{r, eval=F}
-new_packages <- c("readr", "readxl", "tidyr", "stringr", "lubridate", "ggplot2", "leaflet", "sf", "devtools")
+new_packages <- c("readr","readxl","dplyr","stringr","ggplot2","lubridate")
 
 install.packages(new_packages)
 

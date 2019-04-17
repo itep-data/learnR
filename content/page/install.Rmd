@@ -177,13 +177,13 @@ install.packages(new_packages)
 
 <br>
 
-![](../../images/install_screen.png)
+![](../../images/install_screen.png){width="88%"}
 
 <br>
 
 Then press `ENTER` to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.
 
-![](../../images/install_msg.png)
+![](../../images/install_msg.png){width="88%"}
 
 </div>
 

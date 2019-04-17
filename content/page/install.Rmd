@@ -12,6 +12,8 @@ output:
 <style> 
 code {color: #FF69B4 !important;} 
 
+blockquote { padding: 5px 10px; }
+
 .note
 {
      background-color: #f0f7fb;
@@ -126,7 +128,7 @@ __Install RStudio__
 R comes installed with many built-in functions and tools to help do your work. On top of this foundation, what is often referred to as _base-R_, contributors from around the world have created tools that make R easier and accomplish more with your data. These add-ons are called `packages`, and are made available to everyone to download for free. Below are a few examples, grouped into general categories. 
 
 
-__Packages used in this training:__ 
+__Packages used in this training__ 
 
 >  Load data
 
@@ -165,7 +167,9 @@ __Packages used in this training:__
 
 <div class="note">
 
-To use a new _package_ you first need to install it -- much like a free App on your phone. If you'd like to get a jump start on the workshop, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio. 
+__But how?__
+
+To use a new _package_ you first need to install it -- much like a free App for your phone. To get a jump start on the workshop, copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio. 
 
 <br>
 
@@ -175,9 +179,8 @@ new_packages <- c("readr","readxl","dplyr","stringr","ggplot2","lubridate")
 install.packages(new_packages)
 ```
 
-<br>
 
-![](../../images/install_screen.png){width="75%"}
+![](../../images/install_screen.png){width="75%" style="margin-top: 4px;"}
 
 <br>
 
@@ -189,7 +192,7 @@ Then press `ENTER` to begin the installation. If all goes well, you should start
 
 <br>
 
-__Additional recommended packages:__
+__Additional recommended packages__
 
 > __Load data__
 

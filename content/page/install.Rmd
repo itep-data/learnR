@@ -173,7 +173,6 @@ To use a new _package_ you first need to install it -- much like a free App on y
 new_packages <- c("readr","readxl","dplyr","stringr","ggplot2","lubridate")
 
 install.packages(new_packages)
-
 ```
 
 <br>

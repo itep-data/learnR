@@ -556,11 +556,11 @@ air_data <- mutate(air_data, date_time = ymd_hms(messy_date))
 
 # Now we can add a variety of date and time columns to our data
 air_data <- mutate(air_data, 
-                    date = date(date_time),
-                    hour = hour(date_time),
-                    month = month(date_time, label = TRUE),
-                    day   = wday(date_time, label = TRUE),
-                   year = year(date_time)) 
+                   date  = date(date_time),
+                   hour  = hour(date_time),
+                   month = month(date_time, label = TRUE),
+                   day   = wday(date_time, label = TRUE),
+                   year  = year(date_time)) 
 ```
 
 <br>
@@ -724,11 +724,9 @@ Pairing wind direction and air concentration data helps answer these questions a
 <hr>
 
 For our data, we have two monitoring sites. Let's start by looking at the data for one of the sites.
-
 ```{r, polar_sites}
 
 ozone_met <- filter(ozone_met, site == "27-017-7417")
-
 ```
 
 
@@ -769,7 +767,7 @@ ozone_met <- filter(ozone_met, year == 2015)
 
 ```{r, calendar_day}
 ggplot(ozone_met, aes(x = day, y = hour, fill = ozone)) +
-  geom_tile(color = "white", size = 0.5) 
+  geom_tile(color = "gray", size = 0.5) 
 
 ```
 
@@ -779,7 +777,7 @@ ggplot(ozone_met, aes(x = day, y = hour, fill = ozone)) +
 ```{r, calendar_month}
 
 ggplot(ozone_met, aes(day, month, fill = ozone)) +
-  geom_tile(color = "white", size = 0.5)
+  geom_tile(color = "gray", size = 0.5)
 
 ```
 
@@ -787,7 +785,7 @@ ggplot(ozone_met, aes(day, month, fill = ozone)) +
 
 ```{r, calendar_year, fig.width=13, fig.height=7, out.width=1000}
 ggplot(ozone_met, aes(hour, day, fill = ozone)) +
-  geom_tile(color = "gray", size = 0.5) +
+  geom_tile(color = "gray") +
   facet_wrap(~month)
 ```
 
@@ -796,8 +794,22 @@ ggplot(ozone_met, aes(hour, day, fill = ozone)) +
 <div class="tip">
 #### <i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise
 
-What do the blank spaces mean?
+What do the blank spaces mean? Is there a pattern?
+
+To take a closer look at the missing values you can use `filter()` to select only the Sunday ozone concentrations. Let's look at all the data where the `day == "Sun"` and the hour is between `6` and `10`.
+
+Try completing the code below to get a Sunday table.
+```{r, eval=F}
+
+miss_data <- filter(ozone_met,
+                          day  ==  ______,
+                          hour >   ______,
+                          hour <   ______ )
+                  
+
+```
 </div>
+
 
 # 5. | Group and Summarize the data 
 

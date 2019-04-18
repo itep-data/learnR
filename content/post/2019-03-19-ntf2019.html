@@ -390,47 +390,47 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-10-11 00:00:00</td>
-<td align="right">0.035</td>
-<td align="right">63.03</td>
+<td align="left">2015-11-27 02:00:00</td>
+<td align="right">0.022</td>
+<td align="right">21.43</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-15 00:00:00</td>
-<td align="right">0.021</td>
-<td align="right">66.21</td>
+<td align="left">2015-11-23 18:00:00</td>
+<td align="right">0.022</td>
+<td align="right">36.11</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-09-11 03:00:00</td>
-<td align="right">0.011</td>
-<td align="right">49.05</td>
+<td align="left">2015-06-03 10:00:00</td>
+<td align="right">0.028</td>
+<td align="right">52.35</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-05-11 22:00:00</td>
-<td align="right">0.027</td>
-<td align="right">37.71</td>
+<td align="left">2015-07-01 13:00:00</td>
+<td align="right">0.016</td>
+<td align="right">55.26</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">2015-08-20 00:00:00</td>
-<td align="right">0.000</td>
-<td align="right">54.23</td>
-<td align="right">47.52336</td>
-<td align="right">-92.53630</td>
+<td align="left">27-017-7417</td>
+<td align="left">2015-11-16 22:00:00</td>
+<td align="right">0.023</td>
+<td align="right">46.10</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 </tbody>
@@ -739,11 +739,11 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 
 <span class="co"># Now we can add a variety of date and time columns to our data</span>
 air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
-                    <span class="dt">date =</span> <span class="kw">date</span>(date_time),
-                    <span class="dt">hour =</span> <span class="kw">hour</span>(date_time),
-                    <span class="dt">month =</span> <span class="kw">month</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
-                    <span class="dt">day   =</span> <span class="kw">wday</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
-                   <span class="dt">year =</span> <span class="kw">year</span>(date_time)) </code></pre></div>
+                   <span class="dt">date  =</span> <span class="kw">date</span>(date_time),
+                   <span class="dt">hour  =</span> <span class="kw">hour</span>(date_time),
+                   <span class="dt">month =</span> <span class="kw">month</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
+                   <span class="dt">day   =</span> <span class="kw">wday</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
+                   <span class="dt">year  =</span> <span class="kw">year</span>(date_time)) </code></pre></div>
 <p><br></p>
 </div>
 </div>
@@ -928,25 +928,31 @@ How about <code>alpha = 0.9</code>?</p>
 <p>We can look at our data for each day of the week in 2015.</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> day, <span class="dt">y =</span> hour, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) </code></pre></div>
+<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) </code></pre></div>
 <p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_day-1.png" width="672" /></p>
 <blockquote>
 <p>We can also compare concentrations by day of the week for every month.</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(day, month, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>)</code></pre></div>
+<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>)</code></pre></div>
 <p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_month-1.png" width="672" /></p>
 <blockquote>
 <p>Lastly, let’s compare by day of the week and hour of the day.</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(hour, day, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>month)</code></pre></div>
 <p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_year-1.png" width="1000" /></p>
 <p><br></p>
 <div class="tip">
 <h4 id="exercise-1"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
-<p>What do the blank spaces mean?</p>
+<p>What do the blank spaces mean? Is there a pattern?</p>
+<p>To take a closer look at the missing values you can use <code>filter()</code> to select only the Sunday ozone concentrations. Let’s look at all the data where the <code>day == &quot;Sun&quot;</code> and the hour is between <code>6</code> and <code>10</code>.</p>
+<p>Try completing the code below to get a Sunday table.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">miss_data &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met,
+                          day  <span class="op">==</span><span class="st">  </span>______,
+                          hour <span class="op">&gt;</span><span class="st">   </span>______,
+                          hour <span class="op">&lt;</span><span class="st">   </span>______ )</code></pre></div>
 </div>
 </div>
 </div>
@@ -1044,7 +1050,7 @@ How about <code>alpha = 0.9</code>?</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) </code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/unnamed-chunk-9-1.png" width="1152" /></p>
+<p><img src="/post/2019-03-19-ntf2019_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
 <blockquote>
 <p>Save plots</p>
 </blockquote>

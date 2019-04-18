@@ -1,16 +1,26 @@
 ---
-title: "NTF2019 - R for Environmental Data Analysis"
+title: NTF2019 - R for Environmental Data Analysis
 output: 
   blogdown::html_page: 
     highlight: tango
     css: css/camp_style.css
     number_sections: false
     self_contained: false
-    fontsize: 18pt
-    monofont: Source Code Pro
     toc: true
     toc_depth: 1
+date: '2018-12-09'
+showDate: false
+showAuthor: false
+summary: "Based on the ozone monitoring data what's the best month to travel? Power on your droids, we are going to use R to..."
+slug: 'NTF2019'
+categories: [training]
+tags: [training]
+type: ''
+image: '../images/ntf2019.png' 
+imageWidth: '22%'
+imageFloat: 'left'
 ---
+
 
 ```{r setup, include=FALSE}
 library("rmarkdown")
@@ -163,7 +173,7 @@ To use a new _package_ in R you first need to install it -- much like a free App
 
 
 ```{r, eval=F}
-new_packages <- c("readr", "readxl", "ggplot2", "lubridate", "leaflet", "sf")
+new_packages <- c("readr", "readxl", "dplyr", "ggplot2", "lubridate")
 
 install.packages(new_packages)
 
@@ -328,8 +338,7 @@ air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
 ```{r tbl, echo=F}
 library(knitr)
 library(dplyr)
-
-air_data %>% sample_n(5) %>% select(SITE, Date, Hour, OZONE, TEMP_F) %>% kable()
+air_data %>% sample_n(5) %>% select(SITE, MESSY_DATE, OZONE, temperature, LATITUDE, LONGITUDE, UNITS) %>% kable()
 ```
 
 
@@ -383,7 +392,7 @@ air_data <- rename(air_data,
 ```{r view, fig.width=12, fig.height=4}
 library(ggplot2)
 
-ggplot(air_data, aes(x = temp_f, y = ozone, color = site)) + 
+ggplot(air_data, aes(x = temperature, y = ozone, color = site)) + 
     geom_point(size = 7, alpha = 0.3) 
 ```
 
@@ -447,7 +456,7 @@ names()
 air_data <- filter(air_data, ozone > 0)
 
 # We can filter with two conditions
-air_data <- filter(air_data, ozone > 0, temp_f < 199) 
+air_data <- filter(air_data, ozone > 0, temperature < 199) 
 
 ```
 
@@ -460,7 +469,7 @@ distinct(air_data, units)
 ```
 
 
-PPM! That explains the tiny results. It looks like we may need to fix the units on some of these ozone values. For that we'll want to call the friendly `dplyr` package.
+PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we'll want to call the friendly `dplyr` package.
 
 
 
@@ -499,15 +508,16 @@ cat(readLines("../page/porg_tabs.txt"))
 
 # Convert all samples to PPB
 air_data <- mutate(air_data, 
-                   ozone_ppm = ozone * 1000) 
+                   ozone_ppb = ozone * 1000) 
 ```
 
 
 
+![](../images/chewie_box.png){style="width: 58%; float: left;"}
+
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 
-![](../images/chewie_box.png){style="width: 58%; align: center;"}
-
+<div style="clear: both;"></div>
 
 # Dates 
 <hr>
@@ -541,12 +551,16 @@ __Date functions__
 library(lubridate) 
 
 # Set date column to official date format
-## We'll use "mdy()" because our dates are written as month-day-year
-air_data <- mutate(air_data, date = mdy(date))
+## We'll use "ymd_hms()" because our dates are written as year-month-day hour_minute_second
+air_data <- mutate(air_data, date_time = ymd_hms(messy_date))
 
-# Add a month and day of the week columns
-air_data <- mutate(air_data, month = month(date),
-                             day   = day(date)) 
+# Now we can add a variety of date and time columns to our data
+air_data <- mutate(air_data, 
+                   date  = date(date_time),
+                   hour  = hour(date_time),
+                   month = month(date_time, label = TRUE),
+                   day   = wday(date_time, label = TRUE),
+                   year  = year(date_time)) 
 ```
 
 <br>
@@ -638,33 +652,180 @@ How about make it best of __3__ games? Or switch partners and try again.
 </div>
 
 
-# 4. | Plot (again!)
+# 4. | More plots!
+
 ```{r, fig.width=13, fig.height=5}
 ggplot(air_data, aes(x = date, y = ozone, color = month)) + 
     geom_point(alpha = 0.2, size = 3) 
 ```
 
 
-# left_join() - combining tables
+# Combine tables with `left_join()`
 
-## Polar plot
+Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.
+
+![](../images/left_join_venn.png){style="width: 55%;"}
+
+<br>
+<hr>
+
+`left_join()` works like a zipper and combines two tables based on one or more variables. They can have the same name or not. Since it's `left_join`, the entire table on the left side is retained. Anything that matches from the right side is retained and the rest is not retained.
+
+
+
+### Adding porg names {-}
+
+Remember our porg friends? How rude of us not to share their names. __Wups!__
+
+Here's a table of their names.
+
+<div style="margin-left: 30px; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
+![](../images/porgs/porg_names_tbl.png)
+</div>
+
+
+<div style="clear: both;"></div>
+
+__Hey now!__ That's not very helpful. Who's who? Let's join their names to the rest of the data.
+
+
+![](../images/porgs/leftjoin_porgs.png){style="width: 90%; max-width: 85%;"}
+
+<br>
+
+### __What's the result?__ {-}
+
+<div class="well">
+![](../images/porgs/porgs_and_names.png){style="width: 85%; max-width: 85%;"}
+</div>
+
+<br>
+
+> __Let's try adding MET data to our ozone observations.__
+
+```{r, fig.width=11, fig.height=4}
+
+met_data <- read_csv("https://itep-r.netlify.com/data/met_data.csv")
+
+ozone_met <- left_join(air_data, met_data, 
+                       by = c("date" = "date", 
+                              "site" = "site", 
+                              "hour" = "hour")) 
+glimpse(ozone_met)
+```
+
+## Polar plots
+
+When looking at air concentration data, we often want to know what direction the wind is blowing from when an air pollutant tends to be elevated. This can help to answer if the pollution source is local or if it is more of a regionl issue.
+
+Pairing wind direction and air concentration data helps answer these questions and provide further insights. Polar plots are one way to look at wind data and get to know the wind patterns around your air monitors.
+
+<br>
+<hr>
+
+For our data, we have two monitoring sites. Let's start by looking at the data for one of the sites.
+```{r, polar_sites}
+
+ozone_met <- filter(ozone_met, site == "27-017-7417")
+```
+
+
+```{r, polar}
+ggplot(ozone_met, aes(x = wd, y = ozone)) + 
+      coord_polar(start = 0) +
+      geom_point(shape = 16, size = 2, alpha = 0.3) +
+      theme_bw() +
+      scale_x_continuous(breaks = seq(0, 360, by = 90), expand = c(0,0), lim = c(0, 360), name = "", label = c("","E", "S", "W", "N"))
+    
+```
+
+
+<div class="tip">
+
+#### <i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise
+
+Let's experiment with the transparency of the points by changing the value after `alpha =`.   
+
+How does changing the value to `alpha = 0.1` change the chart?   
+How about `alpha = 0.9`?
+</div>
+
 
 ## Calendar plot
 
+Sometimes with air data we want to know if there is seasonality in the data. Calendar plots are great for this. The plot below has quite a few layers added to it, but once you have the script it is easy to reuse. You can change the column names to your math your own data, and voila, you have a calendar of your own!
 
 
-# 5. | Group and Summarize the data 
+> Let's make this plot for only the year 2015. To do that we'll first use `filter()`.
 
-`group_by()`
+```{r, calendar_site}
+ozone_met <- filter(ozone_met, year == 2015)
+```
 
-```{r grouped}
-air_data_group <- group_by(air_data, month)
+
+> We can look at our data for each day of the week in 2015.
+
+```{r, calendar_day}
+ggplot(ozone_met, aes(x = day, y = hour, fill = ozone)) +
+  geom_tile(color = "gray", size = 0.5) 
 
 ```
 
 
+> We can also compare concentrations by day of the week for every month.
+
+```{r, calendar_month}
+
+ggplot(ozone_met, aes(day, month, fill = ozone)) +
+  geom_tile(color = "gray", size = 0.5)
+
+```
+
+> Lastly, let's compare by day of the week and hour of the day.
+
+```{r, calendar_year, fig.width=13, fig.height=7, out.width=1000}
+ggplot(ozone_met, aes(hour, day, fill = ozone)) +
+  geom_tile(color = "gray") +
+  facet_wrap(~month)
+```
+
+<br>
+
+<div class="tip">
+#### <i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise
+
+What do the blank spaces mean? Is there a pattern?
+
+To take a closer look at the missing values you can use `filter()` to select only the Sunday ozone concentrations. Let's look at all the data where the `day == "Sun"` and the hour is between `6` and `10`.
+
+Try completing the code below to get a Sunday table.
+```{r, eval=F}
+
+miss_data <- filter(ozone_met,
+                          day  ==  ______,
+                          hour >   ______,
+                          hour <   ______ )
+                  
+
+```
+</div>
+
+
+# 5. | Group and Summarize the data 
+
+To calculate a summary statistic for each group in the data we use `group_by()`.
+
+> First we'll group the data by month and by site. This will let us calculate a summary of the ozone concentration for each month of the year and for every site in our data.
+
+```{r grouped}
+air_data <- group_by(air_data, month, site)
+
+```
+
+> Next we can use `summarize()` to make a table showing the average ozone concentration. Summarize will automatically include a result for each group that we created above.
+
 ```{r summarise}
-air_data_summary <- summarize(air_data_group, avg_ozone = mean(ozone))
+air_data_summary <- summarize(air_data, avg_ozone = mean(ozone))
 ```
 
 
@@ -672,24 +833,42 @@ air_data_summary <- summarize(air_data_group, avg_ozone = mean(ozone))
 air_data_summary %>% knitr::kable()
 ```
 
+<br>
+
+> Lastly, to ungroup the data we can run the nicely named function `ungroup()`.
+
+```{r}
+air_data <- ungroup(air_data)
+```
+
+<div class="tip">
+#### <i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise
+
+Try running the same summarize code on the data after you use `ungroup()`. 
+
+What do you get?
+</div>
 
 # 6. | Save results
 
-### Save the summarized data table
+> Save the summarized data table
+
 ```{r save-csv, eval=F}
 write_csv(air_data_summary, "2015-2017_ozone_summary.csv")
 ```
 
 
-### Plot the summarized data 
+> Plot the summarized data 
+
 ```{r, fig.width=12, fig.height=4}
 ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) + 
-    geom_col(width = 0.9)
+    geom_col(width = 0.9) 
 
 ```
 
 
-### Save plots 
+> Save plots 
+
 ```{r, fig.width=12, fig.height=4, eval=F}
 ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) + 
     geom_col(width = 0.9) +
@@ -700,7 +879,9 @@ ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) +
 
 # 7. | Share with friends
 
-Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration in 2016, or why you dropped some values from the data, you'll be able to tell them. Or when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded ridiculously high temperatures, you can update that line in the script and push re-run.
+Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration, or why you dropped some values from the data, you'll be able to tell them. 
+
+This is also handy when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded really high temperatures. You can then update that one line in the script and push re-run to remake all of your charts.
  
 ## Share on GitHub
 
@@ -742,8 +923,10 @@ Lost in an ERROR message? Is something behaving strangely and want to know why?
 See the [Help!](help.html) page for some troubleshooting options.
 
 
-# <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms
-  
+<details style="margin-top: 34px;">
+<summary class="btn_code"> <h4 style="font-size: 22px;"> <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms </h4></summary>
+<p>
+
 |    |                                                                  |   
 |----|:----------------------------------------------------------------:|  
 |`package  `| An add-on for R that contains new functions that someone created to help you. It's like an App for R.  |  
@@ -752,5 +935,9 @@ See the [Help!](help.html) page for some troubleshooting options.
 |`argument  `| Arguments are options or inputs that you pass to a function to change how it behaves. The argument `skip = 1` tells the `read_csv()` function to ignore the first row when reading in a data file. To see the default values for a function you can type `?read_csv` in the console.  |  
 
 <br>
+</p>
+</details>
 
-### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../../index.html) 
+<br>
+
+## <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Home](../../index.html) {-}

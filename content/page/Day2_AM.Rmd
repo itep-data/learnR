@@ -61,17 +61,18 @@ cat(readLines("porg_tabs.txt"))
 # | Join tables with `left_join()`
 
 
-![](../images/left_join_cheat.png){width="384" align="right" style="margin-top: -20px; margin-left: 40px; margin-right: 5px;"}
+Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.
+
+![](../images/left_join_venn.png){style="width: 55%;"}
 
 <br>
+<hr>
 
-## Join 2 tables {-}
+### How to join 2 tables {-}
 
-<br>
+A general `left_join()` function looks like the code below.
 
 ### `left_join(table1, table2, by = c("columns to join by"))` {-}
-
-<br>
 
 ### Adding porg names {-}
 
@@ -79,22 +80,23 @@ Remember our porg friends? How rude of us not to share their names. __Wups!__
 
 Here's a table of their names.
 
-<div style="float: right; margin-left: 20px; margin-right: 30%; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
-![](../images/porgs/porg_names_tbl.png){}
+<div style="margin-left: 30px; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
+![](../images/porgs/porg_names_tbl.png)
 </div>
 
-<div style="clear: both;"></div>
 
 __Hey now!__ That's not very helpful. Who's who? Let's join their names to the rest of the data.
 
 
-![](../images/porgs/porg_join.png){style="width: 90%; max-width: 85%;"}
+![](../images/porgs/leftjoin_porgs.png){style="width: 90%; max-width: 85%;"}
 
 <br>
 
 ### __What's the result?__ {-}
 
+<div class="well">
 ![](../images/porgs/porgs_and_names.png){style="width: 85%; max-width: 85%;"}
+</div>
 
 <br><br>
 

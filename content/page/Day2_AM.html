@@ -15,66 +15,41 @@ output:
 <link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
@@ -87,7 +62,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="#porg-review">Porg review</a></li>
 </ul></li>
 <li><a href="#join-tables-with-left_join"><span class="toc-section-number">1</span> | Join tables with <code>left_join()</code></a><ul>
-<li><a href="#join-2-tables">Join 2 tables</a></li>
 <li><a href="#more-joining"><span class="toc-section-number">1.1</span> More joining</a></li>
 </ul></li>
 <li><a href="#finn-needs-us"><span class="toc-section-number">2</span> | Finn needs us!</a></li>
@@ -118,7 +92,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="good-morning-young-jedis" class="section level1 unnumbered">
 <h1>Good morning, young Jedis!</h1>
 <hr>
-<p><img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" /></p>
+<div class="figure">
+<img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" />
+
+</div>
 <div id="schedule" class="section level2 unnumbered">
 <h2>Schedule</h2>
 <pre><code>- Review of Day 1
@@ -137,8 +114,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="porg-review" class="section level2 unnumbered">
 <h2>Porg review</h2>
 <p>The <em>poggle</em> of porgs has returned to help us review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre></div>
 <p><br></p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
@@ -191,41 +168,52 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 <div id="join-tables-with-left_join" class="section level1">
 <h1><span class="header-section-number">1</span> | Join tables with <code>left_join()</code></h1>
-<p><img src="../images/left_join_cheat.png" align="right" style="margin-top: -20px; margin-left: 40px; margin-right: 5px;" width="384" /></p>
-<p><br></p>
-<div id="join-2-tables" class="section level2 unnumbered">
-<h2>Join 2 tables</h2>
-<p><br></p>
+<p>Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.</p>
+<div class="figure">
+<img src="../images/left_join_venn.png" style="width: 55%;" />
+
+</div>
+<br>
+<hr>
+<div id="how-to-join-2-tables" class="section level3 unnumbered">
+<h3>How to join 2 tables</h3>
+<p>A general <code>left_join()</code> function looks like the code below.</p>
+</div>
 <div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
-<h3><code>left_join(table1, table2, by = c("columns to join by"))</code></h3>
-<p><br></p>
+<h3><code>left_join(table1, table2, by = c(&quot;columns to join by&quot;))</code></h3>
 </div>
 <div id="adding-porg-names" class="section level3 unnumbered">
 <h3>Adding porg names</h3>
 <p>Remember our porg friends? How rude of us not to share their names. <strong>Wups!</strong></p>
 <p>Here’s a table of their names.</p>
-<div style="float: right; margin-left: 20px; margin-right: 30%; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
-<p><img src="../images/porgs/porg_names_tbl.png" /></p>
-</div>
-<div style="clear: both;">
+<div style="margin-left: 30px; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
+<div class="figure">
+<img src="../images/porgs/porg_names_tbl.png" />
 
 </div>
+</div>
 <p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
-<p><img src="../images/porgs/porg_join.png" style="width: 90%; max-width: 85%;" /></p>
+<div class="figure">
+<img src="../images/porgs/leftjoin_porgs.png" style="width: 90%; max-width: 85%;" />
+
+</div>
 <p><br></p>
 </div>
 <div id="whats-the-result" class="section level3 unnumbered">
 <h3><strong>What’s the result?</strong></h3>
-<p><img src="../images/porgs/porgs_and_names.png" style="width: 85%; max-width: 85%;" /></p>
-<p><br><br></p>
+<div class="well">
+<div class="figure">
+<img src="../images/porgs/porgs_and_names.png" style="width: 85%; max-width: 85%;" />
+
 </div>
+</div>
+<p><br><br></p>
 </div>
 <div id="more-joining" class="section level2">
 <h2><span class="header-section-number">1.1</span> More joining</h2>
 <div id="star-wars-characters" class="section level3 unnumbered">
 <h3>Star Wars characters</h3>
-<strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.
-<br>
+<strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. <br>
 <style type="text/css"> .table {width: 30%;} </style>
 <p><br></p>
 <div style="float: left;">
@@ -300,7 +288,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <p><br></p>
 <p><strong>Uh oh!</strong> There’s no “Ayla Secura” in the height table and there’s no “Greedo” in the homeworld table. Can we still join the tables? Run the code below to see what happens.</p>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
    
 <span class="co"># Create new tables </span>
 starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
@@ -310,12 +298,12 @@ starwars_homeworlds &lt;-<span class="st"> </span><span class="kw">data_frame</s
                                   <span class="dt">homeworld =</span> <span class="kw">c</span>(<span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Tatooine&quot;</span>, <span class="st">&quot;Alderaan&quot;</span>, <span class="st">&quot;Ryloth&quot;</span>))
 
 <span class="co"># Join the tables together by starwars_name</span>
-<span class="co">## Tell left_join which columns to use as the key with:  </span>
-<span class="co">##     by = c(&quot;key_left&quot; = &quot;key_right&quot;)</span>
+## Tell left_join which columns to use as the key with:  
+##     by = c(&quot;key_left&quot; = &quot;key_right&quot;)
 height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</span>(starwars_heights, starwars_homeworlds, 
                                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;starwars_name&quot;</span> =<span class="st"> &quot;starwars_name&quot;</span>))
 
-height_and_homeworld</code></pre>
+height_and_homeworld</code></pre></div>
 <p><br></p>
 <table>
 <thead>
@@ -446,7 +434,7 @@ height_and_homeworld</code></pre>
 </div>
 <p><br></p>
 <p>When you run the code below you’ll see that <strong>left_join</strong> is very thorough and adds each additional homeworld it finds for <em>C-3PO</em> as a new row in the joined table.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new tables </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create new tables </span>
 starwars_heights &lt;-<span class="st"> </span><span class="kw">data_frame</span>(<span class="dt">starwars_name =</span> <span class="kw">c</span>(<span class="st">&quot;Luke Skywalker&quot;</span>, <span class="st">&quot;C-3PO&quot;</span>, <span class="st">&quot;Darth Vader&quot;</span>, <span class="st">&quot;Leia Organa&quot;</span>, <span class="st">&quot;Greedo&quot;</span>), 
                                <span class="dt">height  =</span> <span class="kw">c</span>(<span class="dv">172</span>, <span class="dv">167</span>, <span class="dv">202</span>, <span class="dv">150</span>, <span class="dv">173</span>))
 
@@ -460,7 +448,7 @@ height_and_homeworld &lt;-<span class="st"> </span><span class="kw">left_join</s
 <span class="co"># Check number of rows</span>
 <span class="kw">nrow</span>(height_and_homeworld)
 
-height_and_homeworld</code></pre>
+height_and_homeworld</code></pre></div>
 <p><br></p>
 <table>
 <thead>
@@ -516,7 +504,10 @@ height_and_homeworld</code></pre>
 <div id="finn-needs-us" class="section level1">
 <h1><span class="header-section-number">2</span> | Finn needs us!</h1>
 <p>That’s enough <em>scuttlebutting</em> around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he’s being held ransom by Junk Boss Plutt. We’ll need to act fast to get to him before the Empire does. <strong>Blast off!</strong></p>
-<p><img src="../images/finn_run.gif" /></p>
+<div class="figure">
+<img src="../images/finn_run.gif" />
+
+</div>
 <p><br></p>
 <div class="note">
 <p>Did you get tired of writing <code>scrap</code> so many times yesterday? Let’s learn to chain several functions together. I mean I have now written <code>scrap</code> like a million times and my fingers hurt. Mother of moons!</p>
@@ -525,7 +516,10 @@ height_and_homeworld</code></pre>
 <div id="the-pipe" class="section level1">
 <h1><span class="header-section-number">3</span> | The pipe <code>%&gt;%</code></h1>
 <p><strong>Let the <code>%&gt;%</code> guide you young Padawan.</strong></p>
-<p><img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" /></p>
+<div class="figure">
+<img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" />
+
+</div>
 <p><br></p>
 <p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you chain functions together and do everything in one go.</p>
 <p><br></p>
@@ -536,10 +530,13 @@ height_and_homeworld</code></pre>
 <div id="update-from-bb8" class="section level1">
 <h1><span class="header-section-number">4</span> | Update from BB8!</h1>
 <hr>
-<p><img src="../images/rey_bb8.jpg" align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;" /></p>
+<div class="figure">
+<img src="../images/rey_bb8.jpg" align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;" />
+
+</div>
 <p>BB8 was able to recover the <strong>full</strong> scrap data from the notorious Junk Boss Unkar Plutt. We will experiment with pipe using the <code>starwars_scrap_jakku_full.csv</code> dataset.</p>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 
 <span class="co"># Read in the larger scrap database</span>
@@ -549,7 +546,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 
 ion_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
 <span class="st">             </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Ion engine&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre>
+<span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre></div>
 <p><br></p>
 </div>
 <div id="more-jakku-scrap" class="section level1">
@@ -560,7 +557,7 @@ ion_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
 <p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. Our current table shows the total cubic yards for some scrap shipments, but not how much the shipment weighs. If we join our scrap data to the conversion table then we can really start digging into what would be the lightest item for trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
 <div id="get-the-pounds-conversion-table" class="section level3 unnumbered">
 <h3>Get the pounds conversion table</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 
 <span class="co"># The data&#39;s url</span>
 convert_url &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/conversion_table.csv&quot;</span>
@@ -568,7 +565,7 @@ convert_url &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/convers
 <span class="co"># Read in the conversion data</span>
 convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_url)
 
-<span class="kw">head</span>(convert, <span class="dv">3</span>)</code></pre>
+<span class="kw">head</span>(convert, <span class="dv">3</span>)</code></pre></div>
 <pre><code>## # A tibble: 3 x 3
 ##   item               units       pounds
 ##   &lt;chr&gt;              &lt;chr&gt;        &lt;dbl&gt;
@@ -579,7 +576,7 @@ convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_u
 </div>
 <div id="re-read-the-full-scrap-data" class="section level3 unnumbered">
 <h3>Re-read the full scrap data</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 
 <span class="co"># Read in the larger scrap database</span>
@@ -588,33 +585,33 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 
 <span class="co"># Run either of the following to see </span>
 <span class="co"># what -unit- types are in the data </span>
-<span class="kw">unique</span>(scrap<span class="op">$</span>units)</code></pre>
+<span class="kw">unique</span>(scrap<span class="op">$</span>units)</code></pre></div>
 <pre><code>## [1] &quot;Cubic Yards&quot; &quot;Items&quot;       &quot;Tons&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(scrap, units)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(scrap, units)</code></pre></div>
 <pre><code>## # A tibble: 3 x 1
 ##   units      
 ##   &lt;chr&gt;      
 ## 1 Cubic Yards
 ## 2 Items      
 ## 3 Tons</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Join the scrap to the conversion table</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Join the scrap to the conversion table</span>
 scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert, 
-                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span> =<span class="st"> &quot;item&quot;</span>, <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))</code></pre>
+                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span> =<span class="st"> &quot;item&quot;</span>, <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))</code></pre></div>
 <p><br></p>
 <blockquote>
 <p>Want to skimp on typing?</p>
 </blockquote>
 <p>When the 2 tables share column names that are the same, <code>left_join()</code> will automatically search for matching columns if you don’t use the <code>by=</code> argument. So the code below does the same as above.</p>
-<pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert)
 
-<span class="kw">head</span>(scrap, <span class="dv">4</span>)</code></pre>
-<pre><code>## # A tibble: 4 x 7
-##   item          origin   destination  amount units   price_per_pound pounds
-##   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;
-## 1 Bulkhead      Cratert~ Raiders        4017 Cubic ~           1005.    321
-## 2 Starship sen~ Outskir~ Trade carav~   1249 Cubic ~           1129.    637
-## 3 Starship sen~ Outskir~ Niima Outpo~   4434 Cubic ~           1129.    637
-## 4 Hull Panel    Cratert~ Raiders         286 Cubic ~            843.    641</code></pre>
+<span class="kw">head</span>(scrap, <span class="dv">4</span>)</code></pre></div>
+<pre><code>## # A tibble: 4 x 8
+##   receipt_date item  origin destination amount units price_per_pound pounds
+##   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
+## 1 4/1/2013     Bulk~ Crate~ Raiders       4017 Cubi~           1005.    321
+## 2 4/2/2013     Star~ Outsk~ Trade cara~   1249 Cubi~           1129.    637
+## 3 4/3/2013     Star~ Outsk~ Niima Outp~   4434 Cubi~           1129.    637
+## 4 4/4/2013     Hull~ Crate~ Raiders        286 Cubi~            843.    641</code></pre>
 <p><br></p>
 <p><strong>Help!</strong> You can type <code>?left_join</code> to see all the arguments and options.</p>
 <p><br></p>
@@ -690,17 +687,20 @@ scrap <- scrap %>%
 <div id="summarize-this" class="section level1">
 <h1><span class="header-section-number">6</span> | <code>summarize()</code> this</h1>
 <hr>
-<p><img src="../images/summarize_diagram.png" width="490" /></p>
+<div class="figure">
+<img src="../images/summarize_diagram.png" width="490" />
+
+</div>
 <p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse your data down to a single row. To really dig into <code>summarize</code> you’ll want to know some common summary functions, such as <code>sum()</code>, <code>mean()</code>, <code>median()</code>, <code>min()</code>, and <code>max()</code>.</p>
 <div id="sum" class="section level2 unnumbered">
 <h2><code>sum()</code></h2>
 <p>Use <code>summarize()</code> and <code>sum()</code> to find the total credits from all the scrap.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">total_credits =</span> <span class="kw">sum</span>(credits))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">total_credits =</span> <span class="kw">sum</span>(credits))</code></pre></div>
 </div>
 <div id="mean" class="section level2 unnumbered">
 <h2><code>mean()</code></h2>
 <p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> <code>price_per_pound</code> in the scrap report.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre></div>
 <p><br></p>
 <blockquote>
 <p>Note the <code>na.rm = TRUE</code> in the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ if it finds a missing value in the data.</p>
@@ -735,9 +735,9 @@ scrap <- scrap %>%
 <div id="quantile" class="section level2 unnumbered">
 <h2><code>quantile()</code></h2>
 <p><em>Quantiles</em> are useful for finding the upper or lower range of a column. Use the <code>quantile()</code> function to find the the 5th and 95th quantile of the prices.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, 
           <span class="dt">price_5th_pctile  =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.05</span>, <span class="dt">na.rm =</span> T),
-          <span class="dt">price_95th_pctile =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.95</span>))</code></pre>
+          <span class="dt">price_95th_pctile =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.95</span>))</code></pre></div>
 <p><strong>Hint:</strong> Add <code>na.rm = T</code> to <code>quantile()</code>.</p>
 </div>
 <div id="n" class="section level2 unnumbered">
@@ -745,17 +745,17 @@ scrap <- scrap %>%
 <p><code>n()</code> stands for <em>count</em>.</p>
 <p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
 <p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
-<pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
 
-niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre>
+niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
 <p><br></p>
 <div id="exercise-1" class="section level3 unnumbered">
 <h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
 <p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.</p>
-<pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
                      <span class="dt">max_credits      =</span> __________,
                      <span class="dt">weight_90th_pct  =</span> <span class="kw">quantile</span>(Weight, <span class="fl">0.90</span>),
-                     <span class="dt">count_records    =</span> __________,</code></pre>
+                     <span class="dt">count_records    =</span> __________,</code></pre></div>
 <p><br></p>
 <div class="note">
 <h4 id="shut-me-down" class="unnumbered"><strong>Shut me down!</strong></h4>
@@ -772,30 +772,29 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <div id="bargain-hunters" class="section level2 unnumbered">
 <h2>Bargain hunters</h2>
 <p>Who’s selling goods for cheap? Use <code>group_by</code> with the column <em>Origin</em>, and then use<code>summarize</code> to find the <code>mean(price_per_pound)</code> at each Origin City.</p>
-<pre class="sourceCode r"><code class="sourceCode r">scrap_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) </code></pre></div>
 <p><br></p>
-<details>
-<p><summary class="btn_code_blue"> Rounding digits </summary></p>
+<p><details> <summary class="btn_code_blue"> Rounding digits </summary></p>
 <div class="note">
 <p>
 <p>You can round the prices to a certain number of digits using the <code>round()</code> function. We can finish by adding the <code>arrange()</code> function to sort the table by our new column.</p>
-<pre class="sourceCode r"><code class="sourceCode r">scrap_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price       =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T),
                            <span class="dt">mean_price_round =</span> <span class="kw">round</span>(mean_price, <span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">%&gt;%</span><span class="st">  </span>
 <span class="st">                 </span><span class="kw">arrange</span>(mean_price_round) <span class="op">%&gt;%</span>
-<span class="st">                 </span><span class="kw">ungroup</span>()</code></pre>
+<span class="st">                 </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><br></p>
 <p><strong>NOTE:</strong></p>
 <p>The <code>round()</code> function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.</p>
 </p>
 </div>
-</details>
+<p></details></p>
 <p><br></p>
 <p>Who’s making lots of transactions? Try using <code>group_by</code> with the column <em>origin</em> and then <code>summarize</code> to count the number of scrap records at each city.</p>
-<pre class="sourceCode r"><code class="sourceCode r">scrap_counts &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_counts &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                </span><span class="kw">summarize</span>(<span class="dt">origin_count  =</span>  <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">                </span><span class="kw">ungroup</span>()</code></pre>
+<span class="st">                </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><br></p>
 <div id="pro-tip" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
@@ -809,8 +808,8 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <h1><span class="header-section-number">8</span> | Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
-<span class="kw">write_csv</span>(scrap_summary, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
+<span class="kw">write_csv</span>(scrap_summary, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
 <p><br></p>
 <div id="warning" class="section level3 unnumbered">
 <h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> <strong>Warning!</strong></h3>
@@ -828,9 +827,9 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <p>How does the price of Item X compare to the average price?</p>
 </blockquote>
 <p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group. Let’s group by <code>origin</code> to find the <code>mean()</code> price per pound at each origin.</p>
-<pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">            </span><span class="kw">ungroup</span>()</code></pre>
+<span class="st">            </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>

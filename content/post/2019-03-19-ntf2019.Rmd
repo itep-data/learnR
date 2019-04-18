@@ -805,8 +805,6 @@ miss_data <- filter(ozone_met,
                           day  ==  ______,
                           hour >   ______,
                           hour <   ______ )
-                  
-
 ```
 </div>
 

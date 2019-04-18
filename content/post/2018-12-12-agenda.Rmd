@@ -36,25 +36,22 @@ knitr::opts_chunk$set(echo = FALSE)
 
 > Blast off! 
 
-1. Power on your droid
-    - Install and update R
+0. Install and update R
 1. Introductions
-    - Why open source?
+1. Why open source?
     - Why R?
-1. __Project__ launch
-    - Start a new R project
+1. Start a new R project
     - Create an R script
 1. Tour __RStudio__
 1. Create objects & store values
     - Variables, names, and lists
 1. Make data tables (_tibbles_)
-1. Upgrade R   
-    - Add new R packages    
+1. Add R packages    
 1. Read __data__ into R
     - `readr` for text files
     - `readxl` for Excel files
 
-Packages: `readr`, `ggplot2`
+_R-packages:_ `readr`, `readxl`, `janitor`
 
 </div>
 
@@ -64,22 +61,23 @@ Packages: `readr`, `ggplot2`
 
 > Explore the data
    
-1. Get visual with `ggplot2`
-    - Plot the data, plot the data, plot the data!
-1. Explore data
-    - Column names, rows, observations
-    - Value types, Missing values
+1. Plot the data with `ggplot2`
+1. Explore the data
+    - Column names, rows, 
+    - Data types, Missing values
     - Mean, max, min 
-1. Work with dates & `lubridate`
-1. Transform data with `dplyr`
-    - Arrange, sort, and __filter__ 
-1. __mutate__ to add new columns 
-1. Summarize for each __group__
-    - Summary by location
-1. Plot time series   
-1. Saving and sharing results
+1. Working with dates 
+1. Arrange, sort, and __filter__  
+1. Add new columns 
+1. Summarize each __group__
+    - Summary by each Site ID
+1. Plot finale 
+    - Time series 
+    - Wind roses
+    - Calendar heat maps
+1. Saving and sharing data & methods
 
-Packages: `dplyr`, `lubridate`    
+_R-packages:_ `dplyr`, `ggplot2`, `lubridate`    
 
 </div>
 </div>

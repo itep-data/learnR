@@ -63,7 +63,7 @@ uglyURLs = true
 
 [[menu.main]]
     parent = "Training"
-    name = "Class info"
+    name = "Class logistics"
     url = "page/class_info.html"
     weight = 1
 

@@ -226,7 +226,7 @@ To complete this challenge we'll follow the general roadmap below.
 
 </div>
 
-# But why R? 
+# Why R? 
 <hr>
 
 ![](../images/rladies_map.gif){style="width: 95%;"}
@@ -513,7 +513,7 @@ air_data <- mutate(air_data,
 
 
 
-![](../images/chewie_box.png){style="width: 58%; float: left;"}
+![](../images/chewie_box.png){style="width: 58%; float: left; margin-right: 20px;"}
 
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 

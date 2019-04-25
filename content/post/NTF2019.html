@@ -65,7 +65,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="TOC">
 <ul>
 <li><a href="#introductions">Introductions</a></li>
-<li><a href="#but-why-r">But why R?</a></li>
+<li><a href="#why-r">Why R?</a></li>
 <li><a href="#a-grand-tour">A grand tour</a></li>
 <li><a href="#first-steps">First steps</a></li>
 <li><a href="#read-the-data">1. | Read the data</a></li>
@@ -242,17 +242,17 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <div class="note">
 <ol style="list-style-type: decimal">
 <li><strong>READ</strong> the data</li>
-<li><strong>[PLOT]</strong> the data</li>
+<li><strong>PLOT</strong> the data</li>
 <li><strong>CLEAN</strong> the data</li>
 </ol>
 <ul>
-<li><strong>[PLOT]</strong> some more</li>
+<li>( <strong>PLOT</strong> some more )</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>SUMMARIZE</strong> the data</li>
 </ol>
 <ul>
-<li><strong>[PLOT]</strong> even more</li>
+<li>( <strong>PLOT</strong> even more )</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
 <li><strong>SAVE</strong> the results</li>
@@ -262,8 +262,8 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 </div>
 </div>
-<div id="but-why-r" class="section level1">
-<h1>But why R?</h1>
+<div id="why-r" class="section level1">
+<h1>Why R?</h1>
 <hr>
 <div class="figure">
 <img src="../images/rladies_map.gif" style="width: 95%;" />
@@ -390,45 +390,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-06-06 06:00:00</td>
-<td align="right">0.014</td>
-<td align="right">43.11</td>
+<td align="left">2015-09-04 21:00:00</td>
+<td align="right">0.030</td>
+<td align="right">74.55</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-08-22 00:00:00</td>
-<td align="right">0.037</td>
-<td align="right">70.26</td>
+<td align="left">2015-08-20 09:00:00</td>
+<td align="right">0.022</td>
+<td align="right">52.13</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-02 08:00:00</td>
-<td align="right">0.000</td>
-<td align="right">37.48</td>
+<td align="left">2015-11-21 15:00:00</td>
+<td align="right">0.025</td>
+<td align="right">18.25</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-22 06:00:00</td>
-<td align="right">0.004</td>
-<td align="right">10.52</td>
+<td align="left">2015-07-01 02:00:00</td>
+<td align="right">0.022</td>
+<td align="right">54.93</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-16 04:00:00</td>
-<td align="right">0.028</td>
-<td align="right">30.30</td>
+<td align="left">2015-11-14 19:00:00</td>
+<td align="right">0.024</td>
+<td align="right">46.48</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -484,7 +484,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 
 <span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> ozone, <span class="dt">color =</span> site)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) </code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/view-1.png" width="1152" /></p>
+<p><img src="/post/NTF2019_files/figure-html/view-1.png" width="1152" /></p>
 <div style="clear: both;">
 
 </div>
@@ -685,10 +685,11 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 <div id="mutate" class="section level3">
 <h3><code>mutate()</code></h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert all samples to PPB</span>
-air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
-                   <span class="dt">ozone_ppb =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre></div>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">ozone_ppb =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre></div>
+<br><br>
+<hr>
 <div class="figure">
-<img src="../images/chewie_box.png" style="width: 58%; float: left;" />
+<img src="../images/chewie_box.png" style="width: 56%; float: left; margin-right: 11px;" />
 
 </div>
 </div>
@@ -699,6 +700,9 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 <div style="clear: both;">
 
 </div>
+<br><br>
+<hr>
+<p><br></p>
 </div>
 <div id="dates" class="section level1">
 <h1>Dates</h1>
@@ -711,30 +715,102 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 </div>
 <p><br></p>
 <p>It’s about time! Lubridate makes working with dates easier.</p>
-<p>We can do date math, add and subtract days, and make seasonal and day of the week averages.</p>
+<p>We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages.</p>
 <p><br></p>
 <div style="clear: both;">
 
 </div>
-<p><strong>Date functions</strong></p>
-<div class="figure">
-<img src="../images/lubridate_summaries.png" style="width: 35%; float: left;" />
-
+<p><br></p>
 </div>
-<div class="figure">
-<img src="../images/lubridate_functions.png" style="width: 50%;" />
-
+<div id="extract-date-elements" class="section level3 unnumbered">
+<h3>Extract date elements</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th align="left">Date element</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>year()</code></td>
+<td align="left">Year</td>
+</tr>
+<tr class="even">
+<td><code>month</code></td>
+<td align="left">Month as <em>1,2,3</em>; For <em>Jan, Feb, Mar</em> use <code>label=TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>day</code></td>
+<td align="left">Day of the month</td>
+</tr>
+<tr class="even">
+<td><code>wday</code></td>
+<td align="left">Day of the week as <em>1,2,3</em>; For <em>Sun, Mon, Tue</em> use <code>label=TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><em>- Time -</em></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td><code>hour()</code></td>
+<td align="left">Hour of the day <em>(24hr)</em></td>
+</tr>
+<tr class="odd">
+<td><code>minute()</code></td>
+<td align="left">Minutes</td>
+</tr>
+<tr class="even">
+<td><code>second()</code></td>
+<td align="left">Seconds</td>
+</tr>
+<tr class="odd">
+<td><code>tz()</code></td>
+<td align="left">Time zone</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 </div>
-<div style="clear: both;">
-
-</div>
+<div id="convert-text-to-a-date" class="section level3 unnumbered">
+<h3>Convert text to a <em>DATE</em></h3>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th align="left">Order of date elements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mdy()</code></td>
+<td align="left">Month-Day-Year :: <code>05-18-2019</code> or <code>05/18/2019</code></td>
+</tr>
+<tr class="even">
+<td><code>dmy()</code></td>
+<td align="left">Day-Month-Year (Euro dates) :: <code>18-05-2019</code> or <code>18/05/2019</code></td>
+</tr>
+<tr class="odd">
+<td><code>ymd()</code></td>
+<td align="left">Year-Month-Day (science dates) :: <code>2019-05-18</code> or <code>2019/05/18</code></td>
+</tr>
+<tr class="even">
+<td><code>ymd_hm()</code></td>
+<td align="left">Year-Month-Day Hour:Minutes :: <code>2019-05-18 8:35 AM</code></td>
+</tr>
+<tr class="odd">
+<td><code>ymd_hms()</code></td>
+<td align="left">Year-Month-Day Hour:Minutes:Seconds :: <code>2019-05-18 8:35:22 AM</code></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="clean-the-dates" class="section level2">
-<h2>Clean the dates</h2>
+<h2><i class="fa fa-broom" aria-hidden="true"></i> Clean the dates</h2>
+<p>Let’s set our date column to an official date format. We can Use <code>ymd_hms()</code> because our dates are written as <code>year-month-day hour:minutes:seconds</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) 
 
 <span class="co"># Set date column to official date format</span>
-## We&#39;ll use &quot;ymd_hms()&quot; because our dates are written as year-month-day hour_minute_second
 air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">date_time =</span> <span class="kw">ymd_hms</span>(messy_date))
 
 <span class="co"># Now we can add a variety of date and time columns to our data</span>
@@ -801,14 +877,25 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. If your character has a missing value for hair color, one of your filter statements could be <code>is.na(hair_color)</code>.</li>
 </ol>
 <p><br></p>
-<p><span style="margin-top: 18px; color: green;"> <strong>WINNER!</strong> </span></p>
+<h3 style="margin-top: 18px; color:  #a0af49;">
+<strong>WINNER!</strong>
+</h3>
 <p>The winner is the first to guess their neighbor’s character.</p>
 <p><details> <summary class = "btn_code_green"> <strong>WINNERS Click here!</strong> </summary></p>
-<div class="data">
+<div class="data" style="margin-top: -6px;">
 <p>
-<div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
+<div style="max-height: 338px; margin: 20px; margin-left: 2px; overflow: hidden;">
+<p><img src="../images/lily_log.jpg" align="left" style="width:24.0%" /> <img src="../images/lily_log.jpg" align="left" style="width:24.0%" /> <img src="../images/lily_log.jpg" align="left" style="width:24.0%" /> <img src="../images/lily_log.jpg" align="left" style="width:24.0%" /></p>
+</div>
+</p>
+</div>
+<p></details></p>
+<p><details> <summary class = "btn_code"> <strong>More WINNERS Click here!</strong> </summary></p>
+<div class="quiz" style="margin-top: -6px;">
+<p>
+<div style="max-height: 500px; margin: 20px; margin-left: 2px; overflow: hidden;">
 <div class="figure">
-<img src="https://memegenerator.net/img/instances/72557990/hey-schrdinger-i-win.jpg" />
+<img src="../images/cat_win.jpg" />
 
 </div>
 </div>
@@ -817,7 +904,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <p></details></p>
 <p><br></p>
 <div class="note">
-<h4 id="want-to-rematch">Want to rematch?</h4>
+<h4 id="want-a-rematch">Want a rematch?</h4>
 <p>How about make it best of <strong>3</strong> games? Or switch partners and try again.</p>
 </div>
 </div>
@@ -826,11 +913,11 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <h1>4. | More plots!</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> ozone, <span class="dt">color =</span> month)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) </code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
+<p><img src="/post/NTF2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
 </div>
 <div id="combine-tables-with-left_join" class="section level1">
 <h1>Combine tables with <code>left_join()</code></h1>
-<p>Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.</p>
+<p>Concentration data and meteorological data often arrive to us separately, but we usually want them joined together for easy plotting.</p>
 <div class="figure">
 <img src="../images/left_join_venn.png" style="width: 55%;" />
 
@@ -900,16 +987,21 @@ ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_da
 <h2>Polar plots</h2>
 <p>When looking at air concentration data, we often want to know what direction the wind is blowing from when an air pollutant tends to be elevated. This can help to answer if the pollution source is local or if it is more of a regionl issue.</p>
 <p>Pairing wind direction and air concentration data helps answer these questions and provide further insights. Polar plots are one way to look at wind data and get to know the wind patterns around your air monitors.</p>
-<br>
+<br><br>
 <hr>
-<p>For our data, we have two monitoring sites. Let’s start by looking at the data for one of the sites.</p>
+<p>For this data, we have two monitoring sites. Let’s start by looking at the data for only one of the sites.</p>
+<div id="filter-to-a-single-site" class="section level3 unnumbered">
+<h3>Filter to a single site</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ozone_met &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met, site <span class="op">==</span><span class="st"> &quot;27-017-7417&quot;</span>)</code></pre></div>
+</div>
+<div id="plot-the-wind-directions" class="section level3 unnumbered">
+<h3>Plot the wind directions</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> wd, <span class="dt">y =</span> ozone)) <span class="op">+</span><span class="st"> </span>
 <span class="st">      </span><span class="kw">coord_polar</span>(<span class="dt">start =</span> <span class="dv">0</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>), <span class="dt">name =</span> <span class="st">&quot;&quot;</span>, <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>))</code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/polar-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_files/figure-html/polar-1.png" width="672" /></p>
 <div class="tip">
 <h4 id="exercise"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
 <p>Let’s experiment with the transparency of the points by changing the value after <code>alpha =</code>.</p>
@@ -917,32 +1009,48 @@ ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_da
 How about <code>alpha = 0.9</code>?</p>
 </div>
 </div>
+</div>
 <div id="calendar-plot" class="section level2">
 <h2>Calendar plot</h2>
-<p>Sometimes with air data we want to know if there is seasonality in the data. Calendar plots are great for this. The plot below has quite a few layers added to it, but once you have the script it is easy to reuse. You can change the column names to your math your own data, and voila, you have a calendar of your own!</p>
+<p>Sometimes with air data we want to know if there is seasonality in the data, or if there were dates with very high values. Calendar plots are great for this.</p>
+<p><br></p>
 <blockquote>
 <p>Let’s make this plot for only the year 2015. To do that we’ll first use <code>filter()</code>.</p>
 </blockquote>
+<div id="filter-to-a-single-year" class="section level3 unnumbered">
+<h3>Filter to a single year</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ozone_met &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met, year <span class="op">==</span><span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
+<p><br></p>
 <blockquote>
-<p>We can look at our data for each day of the week in 2015.</p>
+<p>Now we can look at our data by hour for each day of the week.</p>
 </blockquote>
+</div>
+<div id="plot-concentration-by-hour-for-each-day-of-the-week" class="section level3 unnumbered">
+<h3>Plot concentration by hour for each day of the week</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> day, <span class="dt">y =</span> hour, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) </code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_day-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_files/figure-html/calendar_day-1.png" width="672" /></p>
+<p><br></p>
 <blockquote>
 <p>We can also compare concentrations by day of the week for every month.</p>
 </blockquote>
+</div>
+<div id="plot-concentration-by-day-of-the-week-for-each-month" class="section level3 unnumbered">
+<h3>Plot concentration by day of the week for each month</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(day, month, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>)</code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_month-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_files/figure-html/calendar_month-1.png" width="672" /></p>
+<p><br></p>
 <blockquote>
-<p>Lastly, let’s compare by day of the week and hour of the day.</p>
+<p>Lastly, let’s compare by day of the week and hour of the day for every month.</p>
 </blockquote>
+</div>
+<div id="plot-concentration-by-hour-for-each-day-of-the-week-and-month" class="section level3 unnumbered">
+<h3>Plot concentration by hour for each day of the week and month</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(hour, day, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>month)</code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/calendar_year-1.png" width="1000" /></p>
+<p><img src="/post/NTF2019_files/figure-html/calendar_year-1.png" width="1000" /></p>
 <p><br></p>
 <div class="tip">
 <h4 id="exercise-1"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
@@ -953,6 +1061,7 @@ How about <code>alpha = 0.9</code>?</p>
                           day  <span class="op">==</span><span class="st">  </span>______,
                           hour <span class="op">&gt;</span><span class="st">   </span>______,
                           hour <span class="op">&lt;</span><span class="st">   </span>______ )</code></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1050,7 +1159,7 @@ How about <code>alpha = 0.9</code>?</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) </code></pre></div>
-<p><img src="/post/2019-03-19-ntf2019_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
+<p><img src="/post/NTF2019_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
 <blockquote>
 <p>Save plots</p>
 </blockquote>
@@ -1097,6 +1206,7 @@ How about <code>alpha = 0.9</code>?</p>
 <h1><i class="far fa-question-circle" aria-hidden="true"></i> Help!</h1>
 <p>Lost in an ERROR message? Is something behaving strangely and want to know why?</p>
 <p>See the <a href="help.html">Help!</a> page for some troubleshooting options.</p>
+<p><br></p>
 <details style="margin-top: 34px;"> <summary class="btn_code">
 <h4 style="font-size: 22px;">
 <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms
@@ -1111,19 +1221,19 @@ How about <code>alpha = 0.9</code>?</p>
 <tbody>
 <tr class="odd">
 <td><code>package</code></td>
-<td align="center">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
+<td align="left">An add-on for R that contains new functions that someone created to help you. It’s like an App for R.</td>
 </tr>
 <tr class="even">
 <td><code>library</code></td>
-<td align="center">The name of the folder that stores all your packages, and the function used to load a package.</td>
+<td align="left">The name of the folder that stores all your packages, and the function used to load a package.</td>
 </tr>
 <tr class="odd">
 <td><code>function</code></td>
-<td align="center">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
+<td align="left">Functions perform an operation on your data and returns a result. The function <code>sum()</code> takes a series of values and returns the sum for you.</td>
 </tr>
 <tr class="even">
 <td><code>argument</code></td>
-<td align="center">Arguments are options or inputs that you pass to a function to change how it behaves. The argument <code>skip = 1</code> tells the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
+<td align="left">Arguments are options or inputs that you pass to a function to change how it behaves. The argument <code>skip = 1</code> tells the <code>read_csv()</code> function to ignore the first row when reading in a data file. To see the default values for a function you can type <code>?read_csv</code> in the console.</td>
 </tr>
 </tbody>
 </table>

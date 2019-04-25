@@ -301,21 +301,30 @@ Or when the lab gets back to you and lets you know the ozone observations were o
 
 <br>
 
-__1. Code editor__ 
+
+<div class="red-note">
+__1. Code Editor__ 
 
 This is where you write your scripts and document your work. The tabs at the top of the code editor allow you to view scripts and data sets you have open. This is where you'll spend most of your time.
- 
+</div>
+
+<div class="red-note">
 __2. Console__ 
 
 This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won't be saved for later. That's why we like to run all of our code directly from a script in the code editor.
- 
+</div>
+
+<div class="red-note">
 __3. Workspace__ 
 
 This pane shows all of the objects and functions that you have created, as well as a history of the code you have run during your current session. The environment tab shows all of your objects and functions. The history tab shows the code you have run. Note the _broom_ icon below the Connections tab. This cleans shop and allows you to clear all of the objects in your workspace.
- 
+</div>
+
+<div class="red-note">
 __4. Plots and files__ 
 
-These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you're unsure what a function or package does, enter the name of thing after a question mark. For example, try entering `?mean` into the console and push __ENTER__.
+These tabs allow you to view and open files in your current directory, view plots and other visual objects like maps, view your installed packages and their functions, and access the help window. If at anytime you're unsure what a function does, enter it's name after a question mark. For example, try entering `?mean` into the console and push __ENTER__.
+</div>
 
 
 ## 2. Customize R Studio {-}

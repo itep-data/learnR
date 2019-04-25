@@ -470,7 +470,7 @@ Data analysts often get asked questions similar to:
 
 ![](../images/summarize_diagram.png){width="490"}
 
-`summarize()` allows you to apply a summary function like `median()` to a column and collapse your data down to a single row. To really dig into `summarize` you'll want to know some common summary functions, such as `sum()`, `mean()`, `median()`, `min()`, and `max()`.
+`summarize()` allows you to apply a summary function like `median()` to a column and collapse the data down to a single row. To dig into `summarize` you'll want to learn some more summary functions like `sum()`, `mean()`, `min()`, and `max()`.
 
 
 

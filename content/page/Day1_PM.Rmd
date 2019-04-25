@@ -110,7 +110,7 @@ __Your new analysis toolbox__
 
 # | Porg tables 
 
-A group of porgs (a poggle) will help to demo the `dplyr` functions. 
+A poggle of porgs volunteered to help us demo the `dplyr` functions. 
 
 ```{r porg-tabs, results='asis', echo=F}
 cat(readLines("porg_tabs.txt"))
@@ -646,16 +646,12 @@ mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
 
 <br>
 
-__According to the request we received, the Resistance is only interested in observations from after the year `9916`. So let's filter the data down to only dates after that year.__ 
+__According to the request we received, the Resistance is only interested in observations from after the year `2016`. So let's filter the data down to only dates after that year.__ 
 
 <br>
 
 ```{r endor-air-filter-year}
-mag_endor <- filter(air_endor, Analyte == "magnetic_field")
-
-mag_endor <- mutate(mag_endor, date = mdy(Start_Run_Date))
-
-mag_endor <- filter(mag_endor, year(date) > "9916")
+mag_endor <- filter(mag_endor, year(date) > 2016)
 ```
 
 
@@ -702,7 +698,7 @@ library(openair)
 calendarPlot(mag_endor, 
              pollutant    = "Result", 
              statistic    = "mean", 
-             year         = 9917, 
+             year         = 2017, 
              annotate     = "date",
              digits       = 0, 
              key.footer   = "nT", 
@@ -718,7 +714,7 @@ library(openair)
 calendarPlot(mag_endor, 
              pollutant    = "Result", 
              statistic    = "mean", 
-             year         = 9917, 
+             year         = 2017, 
              annotate     = "date",
              digits       = 0, 
              key.footer   = "nT", 

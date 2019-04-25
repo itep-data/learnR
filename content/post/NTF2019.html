@@ -1,5 +1,5 @@
 ---
-title: NTF2019 - R for Environmental Data Analysis
+title: NTF2019 - R for Enviro Data Analysis
 output: 
   blogdown::html_page: 
     highlight: tango
@@ -70,17 +70,17 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#first-steps">First steps</a></li>
 <li><a href="#read-the-data">1. | Read the data</a></li>
 <li><a href="#plot-the-data">2. | Plot the data</a></li>
-<li><a href="#explore-the-data">Explore the data</a></li>
-<li><a href="#clean-the-data">3. | Clean the data</a></li>
+<li><a href="#explore-the-data">3. | Explore the data</a></li>
+<li><a href="#clean-the-data">4. | Clean the data</a></li>
 <li><a href="#porg-example">Porg example</a></li>
 <li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
 <li><a href="#dates">Dates</a></li>
 <li><a href="#guess-who">Guess Who?</a></li>
-<li><a href="#more-plots">4. | More plots!</a></li>
+<li><a href="#more-plots">5. | More plots!</a></li>
 <li><a href="#combine-tables-with-left_join">Combine tables with <code>left_join()</code></a></li>
-<li><a href="#group-and-summarize-the-data">5. | Group and Summarize the data</a></li>
-<li><a href="#save-results">6. | Save results</a></li>
-<li><a href="#share-with-friends">7. | Share with friends</a></li>
+<li><a href="#group-and-summarize-the-data">6. | Group and Summarize the data</a></li>
+<li><a href="#save-results">7. | Save results</a></li>
+<li><a href="#share-with-friends">8. | Share with friends</a></li>
 <li><a href="#customize-r-studio">Customize R Studio</a></li>
 <li><a href="#help"><i class="far fa-question-circle" aria-hidden="true"></i> Help!</a></li>
 </ul>
@@ -147,7 +147,7 @@ Welcome!
 <li>A snack you want right now</li>
 <li>The messiest, weirdest, funniest part of your data</li>
 </ul>
-<p>__Good <a href="news:__" class="uri">news:__</a> <em>If you do something with data over and over again, this could be something you can automate in R.</em></p>
+<p><strong>Good News</strong> <em>If you do something with data over and over again this is something you could automate in R.</em></p>
 </div>
 <p><br></p>
 <ul>
@@ -193,7 +193,7 @@ best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> <
 </div>
 <div id="its-all-about-you" class="section level2">
 <h2>It’s ALL about you</h2>
-<p>Now we can create a data table, which is also called a <code>data.frame()</code>.</p>
+<p>Now we can create a data table, which is also called a <code>data.frame()</code> or a <code>tibble()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put the 4 items into a table</span>
 all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name           =</span> my_name, 
                            <span class="dt">miles_traveled =</span> miles_traveled, 
@@ -273,9 +273,11 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <h2>R Community</h2>
 <p>See the <a href="community.html">R Community</a> page.</p>
 <ul>
-<li><a href="https://itep-r.netlify.com/page/community.html">R support and community</a></li>
-<li>ITEP page for sharing (<a href="https://github.com/itep-data/R-questions" class="uri">https://github.com/itep-data/R-questions</a>) Look at the example script for cleaning headers!</li>
-<li>Finding R Help <a href="https://itep-r.netlify.com/page/help.html" class="uri">https://itep-r.netlify.com/page/help.html</a></li>
+<li>ITEP page for sharing &amp; questions - <a href="https://github.com/itep-data/R-questions">R questions</a></li>
+<li>Finding R Help - See the <a href="https://itep-r.netlify.com/page/help.html">help page</a>
+<ul>
+<li>R cheatsheets</li>
+</ul></li>
 </ul>
 </div>
 <div id="when-to-use-r" class="section level2">
@@ -390,45 +392,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-09-04 21:00:00</td>
-<td align="right">0.030</td>
-<td align="right">74.55</td>
+<td align="left">2015-08-01 00:00:00</td>
+<td align="right">0.029</td>
+<td align="right">74.82</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-08-20 09:00:00</td>
-<td align="right">0.022</td>
-<td align="right">52.13</td>
+<td align="left">2015-05-15 03:00:00</td>
+<td align="right">0.041</td>
+<td align="right">41.43</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-21 15:00:00</td>
-<td align="right">0.025</td>
-<td align="right">18.25</td>
+<td align="left">2015-07-06 08:00:00</td>
+<td align="right">0.029</td>
+<td align="right">64.35</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-01 02:00:00</td>
-<td align="right">0.022</td>
-<td align="right">54.93</td>
+<td align="left">2015-11-02 08:00:00</td>
+<td align="right">0.000</td>
+<td align="right">37.48</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-14 19:00:00</td>
-<td align="right">0.024</td>
-<td align="right">46.48</td>
+<td align="left">2015-06-06 05:00:00</td>
+<td align="right">0.015</td>
+<td align="right">43.45</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -490,14 +492,10 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 </div>
 </div>
 <div id="explore-the-data" class="section level1">
-<h1>Explore the data</h1>
+<h1>3. | Explore the data</h1>
 <hr>
 <p>Some functions to get to know your data.</p>
-<table style="width:67%;">
-<colgroup>
-<col width="25%" />
-<col width="41%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
 <th align="left">Function</th>
@@ -519,11 +517,11 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 </tr>
 <tr class="even">
 <td align="left"><code>summary(...)</code></td>
-<td align="left">summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
+<td align="left">a summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>glimpse(...)</code></td>
-<td align="left">column names + a glimpse of first values (requires <em>dplyr</em> package)</td>
+<td align="left">column names + a glimpse of first values (use <em>dplyr</em> package)</td>
 </tr>
 </tbody>
 </table>
@@ -569,7 +567,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 </div>
 </div>
 <div id="clean-the-data" class="section level1">
-<h1>3. | Clean the data</h1>
+<h1>4. | Clean the data</h1>
 <hr>
 <div id="filter-out-values-that-are-out-of-range" class="section level3">
 <h3>Filter out values that are out-of-range</h3>
@@ -592,8 +590,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 <div id="its-time-for-dplyr" class="section level2">
 <h2>It’s time for <code>dplyr</code></h2>
 <hr>
-<p><i class="fas fa-toolbox"></i> <strong>Your analysis toolbox</strong></p>
-<div class="notes">
+<div class="figure">
+<img src="../images/dplyr_hex.png" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;" width="128" />
+
+</div>
+<p><br></p>
+<p>This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you’d want to do with data.</p>
+<p><br></p>
+<blockquote>
+<h3 id="your-new-analysis-toolbox" class="unnumbered"><i class="fa fa-toolbox" aria-hidden="true" style="color: grey;"></i> Your new analysis toolbox</h3>
 <table>
 <thead>
 <tr class="header">
@@ -604,15 +609,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 <tbody>
 <tr class="odd">
 <td align="left"><code>select()</code></td>
-<td align="left">Select individual columns to drop, keep, or reorder</td>
+<td align="left">Select individual columns to drop or keep</td>
 </tr>
 <tr class="even">
 <td align="left"><code>arrange()</code></td>
-<td align="left">Reorder or sort rows by value of a column</td>
+<td align="left">Sort a table top-to-bottom based on the values of a column</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>filter()</code></td>
-<td align="left">Pick a subset of rows by the value of a column</td>
+<td align="left">Keep only a subset of rows depending on the values of a column</td>
 </tr>
 <tr class="even">
 <td align="left"><code>mutate()</code></td>
@@ -620,15 +625,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 </tr>
 <tr class="odd">
 <td align="left"><code>summarize()</code></td>
-<td align="left">Calculate a single summary for the entire table</td>
+<td align="left">Calculate a single summary for an entire table</td>
 </tr>
 <tr class="even">
 <td align="left"><code>group_by()</code></td>
-<td align="left">Split data into groups by values in a column</td>
+<td align="left">Sort data into groups based on the values of a column</td>
 </tr>
 </tbody>
 </table>
-</div>
+</blockquote>
 </div>
 </div>
 <div id="porg-example" class="section level1">
@@ -910,7 +915,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 </div>
 </div>
 <div id="more-plots" class="section level1">
-<h1>4. | More plots!</h1>
+<h1>5. | More plots!</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> ozone, <span class="dt">color =</span> month)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) </code></pre></div>
 <p><img src="/post/NTF2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
@@ -1066,7 +1071,7 @@ How about <code>alpha = 0.9</code>?</p>
 </div>
 </div>
 <div id="group-and-summarize-the-data" class="section level1">
-<h1>5. | Group and Summarize the data</h1>
+<h1>6. | Group and Summarize the data</h1>
 <p>To calculate a summary statistic for each group in the data we use <code>group_by()</code>.</p>
 <blockquote>
 <p>First we’ll group the data by month and by site. This will let us calculate a summary of the ozone concentration for each month of the year and for every site in our data.</p>
@@ -1149,7 +1154,7 @@ How about <code>alpha = 0.9</code>?</p>
 </div>
 </div>
 <div id="save-results" class="section level1">
-<h1>6. | Save results</h1>
+<h1>7. | Save results</h1>
 <blockquote>
 <p>Save the summarized data table</p>
 </blockquote>
@@ -1168,7 +1173,7 @@ How about <code>alpha = 0.9</code>?</p>
 <span class="st">    </span><span class="kw">ggsave</span>(<span class="st">&quot;Ozone_by_month.png&quot;</span>)</code></pre></div>
 </div>
 <div id="share-with-friends" class="section level1">
-<h1>7. | Share with friends</h1>
+<h1>8. | Share with friends</h1>
 <p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration, or why you dropped some values from the data, you’ll be able to tell them.</p>
 <p>This is also handy when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded really high temperatures. You can then update that one line in the script and push re-run to remake all of your charts.</p>
 <div id="share-on-github" class="section level2">

@@ -1,5 +1,5 @@
 ---
-title: NTF2019 - R for Environmental Data Analysis
+title: NTF2019 - R for Enviro Data Analysis
 output: 
   blogdown::html_page: 
     highlight: tango
@@ -93,7 +93,7 @@ __Share:__
 - A snack you want right now
 - The messiest, weirdest, funniest part of your data
 
-__Good news:__ _If you do something with data over and over again, this could be something you can automate in R._ 
+__Good News__  _If you do something with data over and over again this is something you could automate in R._ 
 
 </div>
 
@@ -149,7 +149,7 @@ miles_traveled
 
 ## It's ALL about you
 
-Now we can create a data table, which is also called a `data.frame()`.
+Now we can create a data table, which is also called a `data.frame()` or a `tibble()`.
 ```{r, intros_tbl}
 # Put the 4 items into a table
 all_about_me <- data.frame(name           = my_name, 
@@ -216,11 +216,11 @@ To complete this challenge we'll follow the general roadmap below.
 <div class="note">
 
 1. __READ__ the data
-1. __[PLOT]__ the data
+1. __PLOT__ the data
 1. __CLEAN__ the data
-- __[PLOT]__ some more
+- ( __PLOT__ some more )
 4. __SUMMARIZE__ the data
-- __[PLOT]__ even more
+- ( __PLOT__ even more )
 5. __SAVE__ the results
 6. __SHARE__ with friends
 
@@ -234,9 +234,9 @@ To complete this challenge we'll follow the general roadmap below.
 ## R Community
 See the [R Community](community.html) page.
 
-- [R support and community](https://itep-r.netlify.com/page/community.html)
-- ITEP page for sharing (https://github.com/itep-data/R-questions) Look at the example script for cleaning headers!
-- Finding R Help https://itep-r.netlify.com/page/help.html
+- ITEP page for sharing & questions - [R questions](https://github.com/itep-data/R-questions)
+- Finding R Help - See the [help page](https://itep-r.netlify.com/page/help.html)
+    - R cheatsheets
 
 ## When to use R?
 
@@ -399,7 +399,7 @@ ggplot(air_data, aes(x = temperature, y = ozone, color = site)) +
 <div style="clear: both;"></div>
 
 
-# Explore the data
+# 3. | Explore the data
 <hr>
 
 Some functions to get to know your data.
@@ -410,8 +410,8 @@ Some functions to get to know your data.
 | `names(scrap)`  | column names                |  
 | `nrow(...)`     | number of rows              |  
 | `ncol(...)`     | number of columns           | 
-| `summary(...)`  | summary of all column values (ex. _max_, _mean_, _median_)  | 
-| `glimpse(...)`  | column names + a glimpse of first values (requires _dplyr_ package)   |  
+| `summary(...)`  | a summary of all column values (ex. _max_, _mean_, _median_)  | 
+| `glimpse(...)`  | column names + a glimpse of first values (use _dplyr_ package)   |  
 
 
 ## `glimpse()` and `summary()` 
@@ -445,7 +445,7 @@ names()
 ```
 
 
-# 3. | Clean the data 
+# 4. | Clean the data 
 <hr>
 
 
@@ -459,6 +459,7 @@ air_data <- filter(air_data, ozone > 0)
 air_data <- filter(air_data, ozone > 0, temperature < 199) 
 
 ```
+
 
 ### Check the units column
 ```{r distinct}
@@ -476,20 +477,24 @@ PPM! That explains the tiny results. It looks like we may need to fix the units 
 ## It's time for `dplyr` 
 <hr>
 
-<i class="fas fa-toolbox"></i> __Your analysis toolbox__ 
+![](../images/dplyr_hex.png){width="128" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;"}
 
-<div class="notes">
+<br>
 
-| Function      | Job                                                 |  
-|:--------------|:----------------------------------------------------|  
-| `select()`    | Select individual columns to drop, keep, or reorder |  
-| `arrange()`   | Reorder or sort rows by value of a column           |  
-| `filter()`    | Pick a subset of rows by the value of a column      | 
-| `mutate()`    | Add new columns or update existing columns          | 
-| `summarize()` | Calculate a single summary for the entire table     |   
-| `group_by()`  | Split data into groups by values in a column        |  
+This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you'd want to do with data.
 
-</div>
+<br>
+
+> ###  <i class="fa fa-toolbox" aria-hidden="true" style="color: grey;"></i> Your new analysis toolbox {-}
+>
+> | Function      | Job                                                 |  
+> |:--------------|:----------------------------------------------------|  
+> | `select()`    | Select individual columns to drop or keep           |  
+> | `arrange()`   | Sort a table top-to-bottom based on the values of a column |  
+> | `filter()`    | Keep only a subset of rows depending on the values of a column      | 
+> | `mutate()`    | Add new columns or update existing columns          | 
+> | `summarize()` | Calculate a single summary for an entire table     |   
+> | `group_by()`  | Sort data into groups based on the values of a column  |  
 
 
 # Porg example 
@@ -507,17 +512,18 @@ cat(readLines("../page/porg_tabs.txt"))
 ```{r mutate}
 
 # Convert all samples to PPB
-air_data <- mutate(air_data, 
-                   ozone_ppb = ozone * 1000) 
+air_data <- mutate(air_data, ozone_ppb = ozone * 1000) 
 ```
 
+<br><br><hr>
 
-
-![](../images/chewie_box.png){style="width: 58%; float: left; margin-right: 20px;"}
+![](../images/chewie_box.png){style="width: 56%; float: left; margin-right: 11px;"}
 
 # `Lunch break` <i class="fa fa-utensils"></i> ☕
 
 <div style="clear: both;"></div>
+
+<br><br><hr><br>
 
 # Dates 
 <hr>
@@ -531,27 +537,51 @@ air_data <- mutate(air_data,
 
 It's about time! Lubridate makes working with dates easier. 
 
-We can do date math, add and subtract days, and make seasonal and day of the week averages. 
+We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages. 
 
 <br>
 
-
 <div style="clear: both;"></div>
 
-__Date functions__
+<br>
 
-![](../images/lubridate_summaries.png){style="width: 35%; float: left;"}
+### Extract date elements {-}
 
-![](../images/lubridate_functions.png){style="width: 50%;"}
+| Function   |  Date element                                            |   
+|----|:-----------------------------------------------------------------|  
+|`year()  `  | Year          |  
+|`month  `   | Month as _1,2,3_; For _Jan, Feb, Mar_ use `label=TRUE`  |  
+|`day  `     | Day of the month  |  
+|`wday`      | Day of the week as _1,2,3_; For _Sun, Mon, Tue_ use `label=TRUE` |  
+| _- Time -_ |            | 
+|`hour() `   |  Hour of the day _(24hr)_ |  
+|`minute() ` |  Minutes   |  
+|`second() ` |  Seconds   |  
+|`tz()  `    |  Time zone |  
 
-<div style="clear: both;"></div>
 
-## Clean the dates
+<br>
+
+### Convert text to a *DATE* {-}
+
+| Function    |  Order of date elements                                 |   
+|----|:-----------------------------------------------------------------|  
+|`mdy()  `    | Month-Day-Year :: `05-18-2019` or `05/18/2019`                 |  
+|`dmy()  `    | Day-Month-Year (Euro dates) :: `18-05-2019` or `18/05/2019`    |  
+|`ymd()  `    | Year-Month-Day (science dates) :: `2019-05-18` or `2019/05/18` |  
+|`ymd_hm() `  | Year-Month-Day Hour:Minutes ::  `2019-05-18 8:35 AM`          |  
+|`ymd_hms() ` | Year-Month-Day Hour:Minutes:Seconds ::  `2019-05-18 8:35:22 AM`    | 
+
+
+
+## <i class="fa fa-broom" aria-hidden="true"></i> Clean the dates
+
+Let's set our date column to an official date format. We can Use `ymd_hms()` because our dates are written as `year-month-day hour:minutes:seconds`.
+
 ```{r lubridate}
 library(lubridate) 
 
 # Set date column to official date format
-## We'll use "ymd_hms()" because our dates are written as year-month-day hour_minute_second
 air_data <- mutate(air_data, date_time = ymd_hms(messy_date))
 
 # Now we can add a variety of date and time columns to our data
@@ -620,20 +650,36 @@ mr_koon <- filter(starwars_data,
 
 <br>
 
-<span style="margin-top: 18px; color: green;"> __WINNER!__ </span>
+<h3 style="margin-top: 18px; color:  #a0af49;"> __WINNER!__ </h3>
 
 The winner is the first to guess their neighbor's character.
-
 
 <details>
 <summary class = "btn_code_green"> __WINNERS Click here!__ </summary>
 
-<div class="data">
+<div class="data" style="margin-top: -6px;">
 <p>
 
-<div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
+<div style="max-height: 338px; margin: 20px; margin-left: 2px; overflow: hidden;">
+![](../images/lily_log.jpg){width="24%" align="left"} 
+![](../images/lily_log.jpg){width="24%" align="left"} 
+![](../images/lily_log.jpg){width="24%" align="left"} 
+![](../images/lily_log.jpg){width="24%" align="left"} 
+</div>
 
-![](https://memegenerator.net/img/instances/72557990/hey-schrdinger-i-win.jpg)
+</p></div>
+</details>
+
+
+<details>
+<summary class = "btn_code"> __More WINNERS Click here!__ </summary>
+
+<div class="quiz" style="margin-top: -6px;">
+<p>
+
+<div style="max-height: 500px; margin: 20px; margin-left: 2px; overflow: hidden;">
+
+![](../images/cat_win.jpg)
 
 </div>
 
@@ -645,14 +691,14 @@ The winner is the first to guess their neighbor's character.
 
 <div class="note">
 
-#### Want to rematch? 
+#### Want a rematch? 
 
 How about make it best of __3__ games? Or switch partners and try again.
 
 </div>
 
 
-# 4. | More plots!
+# 5. | More plots!
 
 ```{r, fig.width=13, fig.height=5}
 ggplot(air_data, aes(x = date, y = ozone, color = month)) + 
@@ -662,7 +708,8 @@ ggplot(air_data, aes(x = date, y = ozone, color = month)) +
 
 # Combine tables with `left_join()`
 
-Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.
+Concentration data and meteorological data often arrive to us separately, but we usually want them joined together for easy plotting.
+
 
 ![](../images/left_join_venn.png){style="width: 55%;"}
 
@@ -720,16 +767,17 @@ When looking at air concentration data, we often want to know what direction the
 
 Pairing wind direction and air concentration data helps answer these questions and provide further insights. Polar plots are one way to look at wind data and get to know the wind patterns around your air monitors.
 
-<br>
-<hr>
+<br><br><hr>
 
-For our data, we have two monitoring sites. Let's start by looking at the data for one of the sites.
+For this data, we have two monitoring sites. Let's start by looking at the data for only one of the sites.
+
+### Filter to a single site {-}
 ```{r, polar_sites}
 
 ozone_met <- filter(ozone_met, site == "27-017-7417")
 ```
 
-
+### Plot the wind directions {-}
 ```{r, polar}
 ggplot(ozone_met, aes(x = wd, y = ozone)) + 
       coord_polar(start = 0) +
@@ -753,27 +801,34 @@ How about `alpha = 0.9`?
 
 ## Calendar plot
 
-Sometimes with air data we want to know if there is seasonality in the data. Calendar plots are great for this. The plot below has quite a few layers added to it, but once you have the script it is easy to reuse. You can change the column names to your math your own data, and voila, you have a calendar of your own!
+Sometimes with air data we want to know if there is seasonality in the data, or if there were dates with very high values. Calendar plots are great for this. 
 
+<br>
 
 > Let's make this plot for only the year 2015. To do that we'll first use `filter()`.
 
+### Filter to a single year {-}
 ```{r, calendar_site}
 ozone_met <- filter(ozone_met, year == 2015)
 ```
 
 
-> We can look at our data for each day of the week in 2015.
+<br>
 
+> Now we can look at our data by hour for each day of the week.
+
+### Plot concentration by hour for each day of the week {-}
 ```{r, calendar_day}
 ggplot(ozone_met, aes(x = day, y = hour, fill = ozone)) +
   geom_tile(color = "gray", size = 0.5) 
 
 ```
 
+<br>
 
 > We can also compare concentrations by day of the week for every month.
 
+### Plot concentration by day of the week for each month {-}
 ```{r, calendar_month}
 
 ggplot(ozone_met, aes(day, month, fill = ozone)) +
@@ -781,8 +836,11 @@ ggplot(ozone_met, aes(day, month, fill = ozone)) +
 
 ```
 
-> Lastly, let's compare by day of the week and hour of the day.
+<br>
 
+> Lastly, let's compare by day of the week and hour of the day for every month.
+
+### Plot concentration by hour for each day of the week and month {-}
 ```{r, calendar_year, fig.width=13, fig.height=7, out.width=1000}
 ggplot(ozone_met, aes(hour, day, fill = ozone)) +
   geom_tile(color = "gray") +
@@ -811,7 +869,7 @@ miss_data <- filter(ozone_met,
 </div>
 
 
-# 5. | Group and Summarize the data 
+# 6. | Group and Summarize the data 
 
 To calculate a summary statistic for each group in the data we use `group_by()`.
 
@@ -849,7 +907,7 @@ Try running the same summarize code on the data after you use `ungroup()`.
 What do you get?
 </div>
 
-# 6. | Save results
+# 7. | Save results
 
 > Save the summarized data table
 
@@ -877,7 +935,7 @@ ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) +
 ```
 
 
-# 7. | Share with friends
+# 8. | Share with friends
 
 Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration, or why you dropped some values from the data, you'll be able to tell them. 
 
@@ -922,13 +980,14 @@ Lost in an ERROR message? Is something behaving strangely and want to know why?
 
 See the [Help!](help.html) page for some troubleshooting options.
 
+<br>
 
 <details style="margin-top: 34px;">
 <summary class="btn_code"> <h4 style="font-size: 22px;"> <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms </h4></summary>
 <p>
 
 |    |                                                                  |   
-|----|:----------------------------------------------------------------:|  
+|----|:-----------------------------------------------------------------|  
 |`package  `| An add-on for R that contains new functions that someone created to help you. It's like an App for R.  |  
 |`library  `| The name of the folder that stores all your packages, and the function used to load a package.  |  
 |`function  `| Functions perform an operation on your data and returns a result. The function `sum()` takes a series of values and returns the sum for you.  |  

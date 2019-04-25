@@ -1,5 +1,5 @@
 ---
-title: NTF2019 - R for Environmental Data Analysis
+title: NTF2019 - R for Enviro Data Analysis
 output: 
   blogdown::html_page: 
     highlight: tango
@@ -93,7 +93,7 @@ __Share:__
 - A snack you want right now
 - The messiest, weirdest, funniest part of your data
 
-__Good news:__ _If you do something with data over and over again, this could be something you can automate in R._ 
+__Good News__  _If you do something with data over and over again this is something you could automate in R._ 
 
 </div>
 
@@ -149,7 +149,7 @@ miles_traveled
 
 ## It's ALL about you
 
-Now we can create a data table, which is also called a `data.frame()`.
+Now we can create a data table, which is also called a `data.frame()` or a `tibble()`.
 ```{r, intros_tbl}
 # Put the 4 items into a table
 all_about_me <- data.frame(name           = my_name, 
@@ -234,9 +234,9 @@ To complete this challenge we'll follow the general roadmap below.
 ## R Community
 See the [R Community](community.html) page.
 
-- [R support and community](https://itep-r.netlify.com/page/community.html)
-- ITEP page for sharing (https://github.com/itep-data/R-questions) Look at the example script for cleaning headers!
-- Finding R Help https://itep-r.netlify.com/page/help.html
+- ITEP page for sharing & questions - [R questions](https://github.com/itep-data/R-questions)
+- Finding R Help - See the [help page](https://itep-r.netlify.com/page/help.html)
+    - R cheatsheets
 
 ## When to use R?
 
@@ -399,7 +399,7 @@ ggplot(air_data, aes(x = temperature, y = ozone, color = site)) +
 <div style="clear: both;"></div>
 
 
-# Explore the data
+# 3. | Explore the data
 <hr>
 
 Some functions to get to know your data.
@@ -410,8 +410,8 @@ Some functions to get to know your data.
 | `names(scrap)`  | column names                |  
 | `nrow(...)`     | number of rows              |  
 | `ncol(...)`     | number of columns           | 
-| `summary(...)`  | summary of all column values (ex. _max_, _mean_, _median_)  | 
-| `glimpse(...)`  | column names + a glimpse of first values (requires _dplyr_ package)   |  
+| `summary(...)`  | a summary of all column values (ex. _max_, _mean_, _median_)  | 
+| `glimpse(...)`  | column names + a glimpse of first values (use _dplyr_ package)   |  
 
 
 ## `glimpse()` and `summary()` 
@@ -445,7 +445,7 @@ names()
 ```
 
 
-# 3. | Clean the data 
+# 4. | Clean the data 
 <hr>
 
 
@@ -459,6 +459,7 @@ air_data <- filter(air_data, ozone > 0)
 air_data <- filter(air_data, ozone > 0, temperature < 199) 
 
 ```
+
 
 ### Check the units column
 ```{r distinct}
@@ -476,20 +477,24 @@ PPM! That explains the tiny results. It looks like we may need to fix the units 
 ## It's time for `dplyr` 
 <hr>
 
-<i class="fas fa-toolbox"></i> __Your analysis toolbox__ 
+![](../images/dplyr_hex.png){width="128" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;"}
 
-<div class="notes">
+<br>
 
-| Function      | Job                                                 |  
-|:--------------|:----------------------------------------------------|  
-| `select()`    | Select individual columns to drop, keep, or reorder |  
-| `arrange()`   | Reorder or sort rows by value of a column           |  
-| `filter()`    | Pick a subset of rows by the value of a column      | 
-| `mutate()`    | Add new columns or update existing columns          | 
-| `summarize()` | Calculate a single summary for the entire table     |   
-| `group_by()`  | Split data into groups by values in a column        |  
+This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you'd want to do with data.
 
-</div>
+<br>
+
+> ###  <i class="fa fa-toolbox" aria-hidden="true" style="color: grey;"></i> Your new analysis toolbox {-}
+>
+> | Function      | Job                                                 |  
+> |:--------------|:----------------------------------------------------|  
+> | `select()`    | Select individual columns to drop or keep           |  
+> | `arrange()`   | Sort a table top-to-bottom based on the values of a column |  
+> | `filter()`    | Keep only a subset of rows depending on the values of a column      | 
+> | `mutate()`    | Add new columns or update existing columns          | 
+> | `summarize()` | Calculate a single summary for an entire table     |   
+> | `group_by()`  | Sort data into groups based on the values of a column  |  
 
 
 # Porg example 
@@ -693,7 +698,7 @@ How about make it best of __3__ games? Or switch partners and try again.
 </div>
 
 
-# 4. | More plots!
+# 5. | More plots!
 
 ```{r, fig.width=13, fig.height=5}
 ggplot(air_data, aes(x = date, y = ozone, color = month)) + 
@@ -864,7 +869,7 @@ miss_data <- filter(ozone_met,
 </div>
 
 
-# 5. | Group and Summarize the data 
+# 6. | Group and Summarize the data 
 
 To calculate a summary statistic for each group in the data we use `group_by()`.
 
@@ -902,7 +907,7 @@ Try running the same summarize code on the data after you use `ungroup()`.
 What do you get?
 </div>
 
-# 6. | Save results
+# 7. | Save results
 
 > Save the summarized data table
 
@@ -930,7 +935,7 @@ ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) +
 ```
 
 
-# 7. | Share with friends
+# 8. | Share with friends
 
 Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration, or why you dropped some values from the data, you'll be able to tell them. 
 

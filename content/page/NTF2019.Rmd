@@ -11,7 +11,7 @@ output:
 date: '2018-12-09'
 showDate: false
 showAuthor: false
-summary: "Based on the ozone monitoring data what's the best month to travel? Power on your droids, we are going to use R to..."
+summary: "Based on ozone air monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
 slug: 'NTF2019'
 categories: [training]
 tags: [training]
@@ -48,7 +48,7 @@ Rey needs to travel to Tatooine, but years of scrapping ship parts hasn't been k
 ![](../images/rstudio_logo.png){style="width: 88%; margin-top: -35px; margin-bottom: -6px;"}
 
 - __Where's my R!__ _Need to install R or RStudio? Jump over to [Get R!](../page/install.html)_
-- __Install troubles?__ _Don't worry, you can use R online at [RStudio Cloud](https://rstudio.cloud/)._
+- __Install troubles?__ _No worries. You can use R online at [RStudio Cloud](https://rstudio.cloud/)._
 
 
 <br>
@@ -79,21 +79,23 @@ We make lots of mistakes. You can laugh at us.
 
 ## All together now {-}
 
-Let's launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We'll use R to introduce ourselves and the data we love.
+Let's launch ourselves into the unknown and use R to store some data. We're going to use R to introduce ourselves and the data we love.
 
 ![](../images/starwars_group.jpg){align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;"}
 
-__Share:__  
+__Things to Share:__  
 
 <div class="note" style="margin-top: 0;">
 
 - Your name  
 - Distance you traveled to get here
 - Types of data you have
+- What you want to get from the workshop
 - A snack you want right now
-- The messiest, weirdest, funniest part of your data
+- The messiest & funniest parts of your data
+- Something you get to do over and over again
 
-__Good News__  _If you do something with data over and over again this is something you could automate in R._ 
+__Hint:__  _Maybe this is something you can automate in R_ 
 
 </div>
 
@@ -545,7 +547,7 @@ We can find how much time has elapsed, add or subtract days, and find seasonal a
 
 <br>
 
-### Extract date elements {-}
+### Get date parts {-}
 
 | Function   |  Date element                                            |   
 |----|:-----------------------------------------------------------------|  

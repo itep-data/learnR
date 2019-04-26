@@ -394,45 +394,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-19 03:00:00</td>
+<td align="left">2015-07-07 22:00:00</td>
+<td align="right">0.042</td>
+<td align="right">70.07</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
+<td align="left">PPM</td>
+</tr>
+<tr class="even">
+<td align="left">27-017-7417</td>
+<td align="left">2015-12-30 13:00:00</td>
 <td align="right">0.021</td>
-<td align="right">39.15</td>
-<td align="right">46.71369</td>
-<td align="right">-92.51172</td>
-<td align="left">PPM</td>
-</tr>
-<tr class="even">
-<td align="left">27-017-7417</td>
-<td align="left">2015-05-15 06:00:00</td>
-<td align="right">0.041</td>
-<td align="right">42.97</td>
+<td align="right">16.21</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-21 16:00:00</td>
-<td align="right">0.023</td>
-<td align="right">23.38</td>
+<td align="left">2015-06-12 03:00:00</td>
+<td align="right">0.011</td>
+<td align="right">56.38</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-09-13 03:00:00</td>
+<td align="left">2015-12-06 16:00:00</td>
 <td align="right">0.022</td>
-<td align="right">51.96</td>
+<td align="right">34.22</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-10-16 17:00:00</td>
-<td align="right">0.035</td>
-<td align="right">39.12</td>
+<td align="left">2015-12-28 23:00:00</td>
+<td align="right">0.030</td>
+<td align="right">24.83</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -855,12 +855,8 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <div id="rules" class="section level2">
 <h2><span style="text-decoration: underline;"> Rules </span></h2>
 <ol style="list-style-type: decimal">
-<li>Scroll through the Star Wars dataset and find a character you find interesting.</li>
-</ol>
-<ul>
-<li>Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.</li>
-</ul>
-<ol style="list-style-type: decimal">
+<li>You have a <strong>secret</strong> identity.</li>
+<li>Scroll through the Star Wars dataset and find a character you find interesting. <em>(Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.)</em></li>
 <li><strong>Keep it hidden!</strong> Don’t show your neighbor the character you chose.</li>
 <li>Take turns asking each other questions about your partner’s Star Wars character.</li>
 <li>Use the answers to build a <code>filter()</code> function and narrow down the potential character your neighbor may have picked.</li>
@@ -874,7 +870,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
                   homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
                   birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre></div>
 </div>
-<ol start="5" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li><em>Elusive</em> answers are encouraged.
 <ul>
 <li>For example, if someone asks: <em>What is your character’s mass?</em></li>
@@ -1176,8 +1172,7 @@ How about <code>alpha = 0.9</code>?</p>
 </div>
 <div id="share-with-friends" class="section level1">
 <h1>8. | Share with friends</h1>
-<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration, or why you dropped some values from the data, you’ll be able to tell them.</p>
-<p>This is also handy when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded really high temperatures. You can then update that one line in the script and push re-run to remake all of your charts.</p>
+<p>Having an exact record of what you did can be great documentation for yourself and others. It’s also handy for when you want to repeat the same analysis on new data. Then all you need to do is copy the script, update the one read data line, and push run to get your new set of fancy charts.</p>
 <div id="share-on-github" class="section level2">
 <h2>Share on GitHub</h2>
 <p><a href = "https://github.com/dKvale/ex__OZONE__Project"> <img src="../images/github_example_ozone.png" style="width: 90%;" /> </a></p>

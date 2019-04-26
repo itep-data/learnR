@@ -2,6 +2,7 @@
 .Rhistory
 .Rapp.history
 
+
 # Session Data files
 .RData
 
@@ -23,7 +24,7 @@ vignettes/*.pdf
 
 # public folder
 public/*
-public
+public/
 /*public/
 
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3

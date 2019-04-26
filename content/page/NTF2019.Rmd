@@ -623,8 +623,8 @@ starwars_data <- starwars
 
 ## <span style="text-decoration: underline;"> Rules </span> 
 
-1. Scroll through the Star Wars dataset and find a character you find interesting.
-   - Or run `sample_n(starwars_data, 1)` to choose your character at random.
+1. You have a __secret__ identity.
+1. Scroll through the Star Wars dataset and find a character you find interesting. _(Or run `sample_n(starwars_data, 1)` to choose your character at random.)_
 1. __Keep it hidden!__ Don't show your neighbor the character you chose.
 1. Take turns asking each other questions about your partner's Star Wars character. 
 1. Use the answers to build a `filter()` function and narrow down the potential character your neighbor may have picked. 
@@ -644,11 +644,11 @@ mr_koon <- filter(starwars_data,
 ```
 </div>
 
-5. _Elusive_ answers are encouraged.
+6. _Elusive_ answers are encouraged.
     - For example, if someone asks: _What is your character's mass?_ 
     - You can respond: _My character's mass is equal to one less than their age._ 
     - Or if you're feeling generous you can give a more straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
-6. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. If your character has a missing value for hair color, one of your filter statements could be `is.na(hair_color)`. 
+7. Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. If your character has a missing value for hair color, one of your filter statements could be `is.na(hair_color)`. 
 
 <br>
 
@@ -939,9 +939,7 @@ ggplot(air_data_summary, aes(x = month, y = avg_ozone, fill = avg_ozone)) +
 
 # 8. | Share with friends
 
-Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they're getting a different answer for the average ozone concentration, or why you dropped some values from the data, you'll be able to tell them. 
-
-This is also handy when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded really high temperatures. You can then update that one line in the script and push re-run to remake all of your charts.
+Having an exact record of what you did can be great documentation for yourself and others. It's also handy for when you want to repeat the same analysis on new data. Then all you need to do is copy the script, update the one read data line, and push run to get your new set of fancy charts.
  
 ## Share on GitHub
 

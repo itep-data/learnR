@@ -81,8 +81,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#group-and-summarize-the-data">6. | Group and Summarize the data</a></li>
 <li><a href="#save-results">7. | Save results</a></li>
 <li><a href="#share-with-friends">8. | Share with friends</a></li>
-<li><a href="#customize-r-studio">Customize R Studio</a></li>
 <li><a href="#help"><i class="far fa-question-circle" aria-hidden="true"></i> Help!</a></li>
+<li><a href="#customize-r-studio">Customize R Studio</a></li>
 </ul>
 </div>
 
@@ -108,7 +108,7 @@ Welcome!
 </div>
 <ul>
 <li><strong>Where’s my R!</strong> <em>Need to install R or RStudio? Jump over to <a href="../page/install.html">Get R!</a></em></li>
-<li><strong>Install troubles?</strong> <em>No worries. You can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
+<li><strong>Install troubles? No permissions?</strong> <em>No worries. You can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
 </ul>
 <p><br> <br></p>
 </div>
@@ -133,6 +133,7 @@ Welcome!
 <div id="all-together-now" class="section level2 unnumbered">
 <h2>All together now</h2>
 <p>Let’s launch ourselves into the unknown and use R to store some data. We’re going to use R to introduce ourselves and the data we love.</p>
+<p><br></p>
 <div class="figure">
 <img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" />
 
@@ -173,6 +174,9 @@ Welcome!
 <p><br></p>
 <div id="lets-try-it" class="section level4">
 <h4><strong>Let’s try it</strong></h4>
+</div>
+<div id="create-values" class="section level3">
+<h3>Create values</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Your Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
 
 miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span class="co"># A number</span>
@@ -181,15 +185,15 @@ miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span 
 my_data_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PAHs&quot;</span>, <span class="st">&quot;Air Toxics&quot;</span>, <span class="st">&quot;Ultrafine particles&quot;</span>) 
 
 best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> </code></pre></div>
-<p><br></p>
-<p>Now, you can type <em><code>my_name</code></em> into your console (lower left hand quadrant) and your entry will be returned.</p>
+</div>
+<div id="view-values" class="section level3">
+<h3>View values</h3>
+<p>Now, you can type <em><code>my_name</code></em> and run that line to see the value stored in that variable.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_name</code></pre></div>
 <pre><code>## [1] &quot;Your Name&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">miles_traveled</code></pre></div>
-<pre><code>## [1] 1869</code></pre>
 <p><br></p>
 <blockquote>
-<p>To run everything at once, you can highlight all of the code you’ve written in the <em>Code Editor</em> and push <code>CTRL + ENTER</code>.</p>
+<p>To run everything you’ve written so far all at once, you can highlight all of the code in the <em>Code Editor</em> and push <code>CTRL + ENTER</code>.</p>
 </blockquote>
 </div>
 </div>
@@ -367,12 +371,14 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <h1>1. | Read the data</h1>
 <hr>
 <div class="figure">
-<img src="../images/readr-hexbin-sticker-from-rstudio.png" style="width: 20%; float: left; margin-right: 4px;" />
+<img src="../images/readr-hexbin-sticker-from-rstudio.png" style="width: 18%; float: left; margin-right: 6px;" />
 
 </div>
 <p><br></p>
-<div style="width: 79%; float: right;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div style="width: 81%; float: right;">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;readr&quot;)</span>
+
+<span class="kw">library</span>(readr)
 
 air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre></div>
 </div>
@@ -394,45 +400,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-08-16 15:00:00</td>
-<td align="right">0.027</td>
-<td align="right">73.52</td>
+<td align="left">2015-12-30 03:00:00</td>
+<td align="right">0.025</td>
+<td align="right">16.38</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-10-12 22:00:00</td>
-<td align="right">0.012</td>
-<td align="right">46.86</td>
+<td align="left">2015-07-08 03:00:00</td>
+<td align="right">0.013</td>
+<td align="right">55.64</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-04-10 08:00:00</td>
-<td align="right">0.022</td>
-<td align="right">28.75</td>
+<td align="left">2015-10-14 07:00:00</td>
+<td align="right">0.016</td>
+<td align="right">38.86</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-06-25 19:00:00</td>
-<td align="right">0.050</td>
-<td align="right">71.07</td>
+<td align="left">2015-12-09 14:00:00</td>
+<td align="right">0.011</td>
+<td align="right">28.21</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-06-27 20:00:00</td>
-<td align="right">0.046</td>
-<td align="right">77.79</td>
+<td align="left">2015-11-19 07:00:00</td>
+<td align="right">0.018</td>
+<td align="right">35.99</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -443,7 +449,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <h2>Clean header names</h2>
 <hr>
 <div class="figure">
-<img src="../images/janitor_hex.png" style="width: 17%; float: right;" />
+<img src="../images/janitor_hex.png" style="width: 17%; float: right; margin-right: 6px; margin-left: 6px;" />
 
 </div>
 <div class="figure">
@@ -855,12 +861,8 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <div id="rules" class="section level2">
 <h2><span style="text-decoration: underline;"> Rules </span></h2>
 <ol style="list-style-type: decimal">
-<li>Scroll through the Star Wars dataset and find a character you find interesting.</li>
-</ol>
-<ul>
-<li>Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.</li>
-</ul>
-<ol style="list-style-type: decimal">
+<li>You have a <strong>secret</strong> identity.</li>
+<li>Scroll through the Star Wars dataset and find a character you find interesting. <em>(Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.)</em></li>
 <li><strong>Keep it hidden!</strong> Don’t show your neighbor the character you chose.</li>
 <li>Take turns asking each other questions about your partner’s Star Wars character.</li>
 <li>Use the answers to build a <code>filter()</code> function and narrow down the potential character your neighbor may have picked.</li>
@@ -874,7 +876,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
                   homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
                   birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre></div>
 </div>
-<ol start="5" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li><em>Elusive</em> answers are encouraged.
 <ul>
 <li>For example, if someone asks: <em>What is your character’s mass?</em></li>
@@ -1176,8 +1178,7 @@ How about <code>alpha = 0.9</code>?</p>
 </div>
 <div id="share-with-friends" class="section level1">
 <h1>8. | Share with friends</h1>
-<p>Having an exact record of what you did can serve as great documentation for yourself and others. So next year when your coworker asks why they’re getting a different answer for the average ozone concentration, or why you dropped some values from the data, you’ll be able to tell them.</p>
-<p>This is also handy when the lab gets back to you and lets you know the ozone observations were okay on the day that the instrument recorded really high temperatures. You can then update that one line in the script and push re-run to remake all of your charts.</p>
+<p>Having an exact record of what you did can be great documentation for yourself and others. It’s also handy for when you want to repeat the same analysis on new data. Then all you need to do is copy the script, update the one read data line, and push run to get your new set of fancy charts.</p>
 <div id="share-on-github" class="section level2">
 <h2>Share on GitHub</h2>
 <p><a href = "https://github.com/dKvale/ex__OZONE__Project"> <img src="../images/github_example_ozone.png" style="width: 90%;" /> </a></p>
@@ -1192,21 +1193,6 @@ How about <code>alpha = 0.9</code>?</p>
 
 </div>
 </div>
-</div>
-</div>
-<div id="customize-r-studio" class="section level1">
-<h1>Customize R Studio</h1>
-<div id="make-it-your-own" class="section level4">
-<h4>Make it your own</h4>
-<p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
-<ol style="list-style-type: decimal">
-<li>Go to <strong>Tools</strong> on the top navigation bar.</li>
-<li>Choose <code>Global Options...</code></li>
-<li>Choose <code>Appearance</code> with the paint bucket.</li>
-<li>Find something you like.</li>
-</ol>
-<p><img src="../images/font_change.png" style="width: 45%; margin-top: 18px;"></p>
-<p><br></p>
 </div>
 </div>
 <div id="help" class="section level1">
@@ -1247,7 +1233,21 @@ How about <code>alpha = 0.9</code>?</p>
 <br>
 </p>
 <p></details></p>
+</div>
+<div id="customize-r-studio" class="section level1">
+<h1>Customize R Studio</h1>
+<div id="make-it-your-own" class="section level4">
+<h4>Make it your own</h4>
+<p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Tools</strong> on the top navigation bar.</li>
+<li>Choose <code>Global Options...</code></li>
+<li>Choose <code>Appearance</code> with the paint bucket.</li>
+<li>Find something you like.</li>
+</ol>
+<p><img src="../images/font_change.png" style="width: 45%; margin-top: 18px;"></p>
 <p><br></p>
+</div>
 <div id="return-to-home" class="section level2 unnumbered">
 <h2><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../../index.html">Home</a></h2>
 </div>

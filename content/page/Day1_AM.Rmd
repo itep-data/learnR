@@ -30,13 +30,13 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 <img src="../images/maz_kanata.png" width="42%" style="width: 42%; border: 0px; margin-left: 12px; margin-bottom: 42px;">
 </div>
 
-We are  __Kristie__ & __Dorian__. Feel free to call us Kristie and Dory if you're feeling casual.   
+We are  __Kristie__ & __Dorian__. Feel free to call us Kristie and Dory when you're feeling casual.   
 
 We like __R__.
 
 We are not computer scientists. 
 
-We make lots of mistakes. You will see us make mistakes. Feel free to laugh at them. It's okay. Really.
+We make lots of mistakes. Mistakes are funny. You can laugh with us. 
 
 We aren't related.
 
@@ -156,9 +156,9 @@ See the [R Community](community.html) page.
 1. Summarize the data
 1. Save the results
 1. __Share__ with the world
-
 </div>
-```{r create, include=F, eval=F, echo = F}
+
+```{r create, include=F, eval=F, echo=F}
 library(readxl)
 library(tidyverse)
 
@@ -195,18 +195,24 @@ aqs$UNITS <- "PPB"
 aqs$UNITS[6] <- "PPM"
 aqs$OZONE[6] <- aqs$OZONE[6] / 1000
 
-write_csv(aqs, "../data/OZONE_samples.csv")
+write_csv(aqs, "../data/OZONE_samples_demo.csv")
 ```
+
+### 0. Start a new project {-}
+
+We'll name this project: `"2019_Ozone"`
 
 
 ### 1. Read the data {-}
+
 ```{r data, message=F, warning=F}
 library(tidyverse)
 
-air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
+air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples_demo.csv")
 ```
 
-```{r tbl, echo=F}
+
+```{r tbl, echo=F, message=F, warning=F}
 library(knitr)
 
 air_data %>% sample_n(5) %>% select(SITE, Date, OZONE, TEMP_F) %>% kable()

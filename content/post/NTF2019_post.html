@@ -11,7 +11,7 @@ output:
 date: '2018-12-09'
 showDate: false
 showAuthor: false
-summary: "Based on the ozone monitoring data what's the best month to travel? Power on your droids, we are going to use R to..."
+summary: "Based on ozone air monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
 slug: 'NTF2019'
 categories: [training]
 tags: [training]
@@ -86,7 +86,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 
-<h1 style="margin-top: 15px;">
+<h1 style="margin-top: 35px;">
 Welcome!
 </h1>
 <hr>
@@ -108,7 +108,7 @@ Welcome!
 </div>
 <ul>
 <li><strong>Where’s my R!</strong> <em>Need to install R or RStudio? Jump over to <a href="../page/install.html">Get R!</a></em></li>
-<li><strong>Install troubles?</strong> <em>Don’t worry, you can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
+<li><strong>Install troubles?</strong> <em>No worries. You can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
 </ul>
 <p><br> <br></p>
 </div>
@@ -128,26 +128,28 @@ Welcome!
 <p>We are Melinda, Vallen, Jaime, Kristie &amp; Dorian.</p>
 <p>We like <strong>R</strong>.</p>
 <p>We aren’t computer scientists and that’s okay!</p>
-<p>We make lots of mistakes. You can laugh at us.</p>
+<p>We make lots of mistakes. Mistakes are funny. You can laugh with us.</p>
 </div>
 <div id="all-together-now" class="section level2 unnumbered">
 <h2>All together now</h2>
-<p>Let’s launch ourselves into the unknown and use R to introduce ourselves. Consider this an RStudio warm-up. We’ll use R to introduce ourselves and the data we love.</p>
+<p>Let’s launch ourselves into the unknown and use R to store some data. We’re going to use R to introduce ourselves and the data we love.</p>
 <div class="figure">
 <img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" />
 
 </div>
-<p><strong>Share:</strong></p>
+<p><strong>Things to Share:</strong></p>
 <div class="note" style="margin-top: 0;">
 <ul>
 <li>Your name<br />
 </li>
 <li>Distance you traveled to get here</li>
 <li>Types of data you have</li>
+<li>What you want to get from the workshop</li>
 <li>A snack you want right now</li>
-<li>The messiest, weirdest, funniest part of your data</li>
+<li>The messiest &amp; funniest parts of your data</li>
+<li>Something you get to do over and over again</li>
 </ul>
-<p><strong>Good News</strong> <em>If you do something with data over and over again this is something you could automate in R.</em></p>
+<p><strong>Hint:</strong> <em>Maybe this is something you can automate in R</em></p>
 </div>
 <p><br></p>
 <ul>
@@ -280,8 +282,8 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </ul></li>
 </ul>
 </div>
-<div id="when-to-use-r" class="section level2">
-<h2>When to use R?</h2>
+<div id="when-we-use-r" class="section level2">
+<h2>When we use R?</h2>
 <ul>
 <li>To connect to databases.</li>
 <li>To read data from websites.</li>
@@ -316,7 +318,7 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <li>Choose <em>New Directory</em></li>
 <li>Choose <em>New Project</em></li>
 </ul></li>
-<li>Enter a project name such as <code>&quot;NTF-2019&quot;</code></li>
+<li>Enter a project name such as <code>&quot;NTF_2019&quot;</code></li>
 <li>Select <em>Browse…</em> and choose a folder where you normally perform your work.
 <ul>
 <li>Click <em>Create Project</em></li>
@@ -392,45 +394,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-08-01 00:00:00</td>
-<td align="right">0.029</td>
-<td align="right">74.82</td>
+<td align="left">2015-08-16 15:00:00</td>
+<td align="right">0.027</td>
+<td align="right">73.52</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-05-15 03:00:00</td>
-<td align="right">0.041</td>
-<td align="right">41.43</td>
+<td align="left">2015-10-12 22:00:00</td>
+<td align="right">0.012</td>
+<td align="right">46.86</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-06 08:00:00</td>
-<td align="right">0.029</td>
-<td align="right">64.35</td>
+<td align="left">2015-04-10 08:00:00</td>
+<td align="right">0.022</td>
+<td align="right">28.75</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-02 08:00:00</td>
-<td align="right">0.000</td>
-<td align="right">37.48</td>
+<td align="left">2015-06-25 19:00:00</td>
+<td align="right">0.050</td>
+<td align="right">71.07</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-06-06 05:00:00</td>
-<td align="right">0.015</td>
-<td align="right">43.45</td>
+<td align="left">2015-06-27 20:00:00</td>
+<td align="right">0.046</td>
+<td align="right">77.79</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -486,7 +488,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 
 <span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> ozone, <span class="dt">color =</span> site)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) </code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/view-1.png" width="1152" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/view-1.png" width="1152" /></p>
 <div style="clear: both;">
 
 </div>
@@ -727,8 +729,8 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <p><br></p>
 </div>
-<div id="extract-date-elements" class="section level3 unnumbered">
-<h3>Extract date elements</h3>
+<div id="get-date-parts" class="section level3 unnumbered">
+<h3>Get date parts</h3>
 <table>
 <thead>
 <tr class="header">
@@ -918,7 +920,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <h1>5. | More plots!</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> ozone, <span class="dt">color =</span> month)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) </code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
 </div>
 <div id="combine-tables-with-left_join" class="section level1">
 <h1>Combine tables with <code>left_join()</code></h1>
@@ -1006,7 +1008,7 @@ ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_da
 <span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
 <span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>), <span class="dt">name =</span> <span class="st">&quot;&quot;</span>, <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>))</code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/polar-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/polar-1.png" width="672" /></p>
 <div class="tip">
 <h4 id="exercise"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
 <p>Let’s experiment with the transparency of the points by changing the value after <code>alpha =</code>.</p>
@@ -1034,7 +1036,7 @@ How about <code>alpha = 0.9</code>?</p>
 <h3>Plot concentration by hour for each day of the week</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> day, <span class="dt">y =</span> hour, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) </code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/calendar_day-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/calendar_day-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
 <p>We can also compare concentrations by day of the week for every month.</p>
@@ -1044,7 +1046,7 @@ How about <code>alpha = 0.9</code>?</p>
 <h3>Plot concentration by day of the week for each month</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(day, month, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>)</code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/calendar_month-1.png" width="672" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/calendar_month-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
 <p>Lastly, let’s compare by day of the week and hour of the day for every month.</p>
@@ -1055,7 +1057,7 @@ How about <code>alpha = 0.9</code>?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(hour, day, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>month)</code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/calendar_year-1.png" width="1000" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/calendar_year-1.png" width="1000" /></p>
 <p><br></p>
 <div class="tip">
 <h4 id="exercise-1"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
@@ -1164,7 +1166,7 @@ How about <code>alpha = 0.9</code>?</p>
 </blockquote>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) </code></pre></div>
-<p><img src="/post/NTF2019_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
+<p><img src="/post/NTF2019_post_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
 <blockquote>
 <p>Save plots</p>
 </blockquote>

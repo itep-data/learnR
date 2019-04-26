@@ -137,17 +137,19 @@ Welcome!
 <img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" />
 
 </div>
-<p><strong>Share:</strong></p>
+<p><strong>Things to Share:</strong></p>
 <div class="note" style="margin-top: 0;">
 <ul>
 <li>Your name<br />
 </li>
 <li>Distance you traveled to get here</li>
 <li>Types of data you have</li>
+<li>What you want to get from the workshop</li>
 <li>A snack you want right now</li>
-<li>The messiest, weirdest, funniest part of your data</li>
+<li>The messiest &amp; funniest parts of your data</li>
+<li>Something you get to do over and over again</li>
 </ul>
-<p><strong>Good News</strong> <em>If you do something with data over and over again this is something you could automate in R.</em></p>
+<p><strong>Hint:</strong> <em>Maybe this is something you can automate in R</em></p>
 </div>
 <p><br></p>
 <ul>
@@ -392,45 +394,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-10-06 06:00:00</td>
-<td align="right">0.018</td>
-<td align="right">53.86</td>
+<td align="left">2015-11-19 03:00:00</td>
+<td align="right">0.021</td>
+<td align="right">39.15</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-26 07:00:00</td>
-<td align="right">0.009</td>
-<td align="right">64.50</td>
+<td align="left">2015-05-15 06:00:00</td>
+<td align="right">0.041</td>
+<td align="right">42.97</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-06 03:00:00</td>
-<td align="right">0.046</td>
-<td align="right">72.24</td>
+<td align="left">2015-12-21 16:00:00</td>
+<td align="right">0.023</td>
+<td align="right">23.38</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-04-09 01:00:00</td>
+<td align="left">2015-09-13 03:00:00</td>
+<td align="right">0.022</td>
+<td align="right">51.96</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
+<td align="left">PPM</td>
+</tr>
+<tr class="odd">
+<td align="left">27-017-7417</td>
+<td align="left">2015-10-16 17:00:00</td>
 <td align="right">0.035</td>
-<td align="right">34.24</td>
-<td align="right">46.71369</td>
-<td align="right">-92.51172</td>
-<td align="left">PPM</td>
-</tr>
-<tr class="odd">
-<td align="left">27-017-7417</td>
-<td align="left">2015-11-23 03:00:00</td>
-<td align="right">0.015</td>
-<td align="right">25.48</td>
+<td align="right">39.12</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -727,8 +729,8 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <p><br></p>
 </div>
-<div id="extract-date-elements" class="section level3 unnumbered">
-<h3>Extract date elements</h3>
+<div id="get-date-parts" class="section level3 unnumbered">
+<h3>Get date parts</h3>
 <table>
 <thead>
 <tr class="header">

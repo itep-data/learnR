@@ -9,7 +9,7 @@ output:
     fontsize: 18pt
     monofont: Source Code Pro
     toc: true
-    toc_depth: 2
+    toc_depth: 1
 ---
 
 ```{r setup, include=FALSE}

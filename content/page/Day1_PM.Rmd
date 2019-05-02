@@ -3,7 +3,7 @@ title: "Day 1 - PM"
 output: 
   blogdown::html_page: 
     toc: true   
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -282,19 +282,19 @@ A single equals sign `=` is used within functions to set options, for example `r
 ## Comparisons
 <hr>
 
-Processing data requires many types of filtering. You'll want to know how to select observations in your table by making various comparisons.
+Processing data requires many types of filtering. You'll want to know how to select observations in your table by making various comparisons between values.
 
 __Key comparison operators__
 
-| Symbol| Comparison               |
-|:------|:-------------------------|
-| `>`   | greater than             |
-| `>=`  | greater than or equal to |
-| `<`   | less than                |
-| `<=`  | less than or equal to    |
-| `==`  | equal to                 |
-| `!=`  | NOT equal to             |
-| `%in%`| value is in a list       |
+| Symbol | Comparison               |
+|:-------|:-------------------------|
+| `>`    | greater than             |
+| `>=`   | greater than or equal to |
+| `<`    | less than                |
+| `<=`   | less than or equal to    |
+| `==`   | equal to                 |
+| `!=`   | NOT equal to             |
+| `%in%` | is value in a list: `X %in% c(1,2,3)` |
 
 
 ## <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}

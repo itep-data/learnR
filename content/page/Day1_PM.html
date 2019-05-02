@@ -3,7 +3,7 @@ title: "Day 1 - PM"
 output: 
   blogdown::html_page: 
     toc: true   
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -56,44 +56,19 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="TOC">
 <ul>
 <li><a href="#data-exploration">Data exploration</a></li>
-<li><a href="#dplyr"><span class="toc-section-number">1</span> | dplyr</a><ul>
-<li><a href="#get-to-know-your-data-frame">Get to know your data frame</a></li>
-</ul></li>
+<li><a href="#dplyr"><span class="toc-section-number">1</span> | dplyr</a></li>
 <li><a href="#glimpse-and-summary"><span class="toc-section-number">2</span> | <code>glimpse()</code> and <code>summary()</code></a></li>
 <li><a href="#porg-tables"><span class="toc-section-number">3</span> | Porg tables</a></li>
-<li><a href="#select"><span class="toc-section-number">4</span> | <code>select()</code></a><ul>
-<li><a href="#drop-columns-with-a-minus-sign--column_name">Drop columns with a minus sign: <code>-column_name</code></a></li>
-<li><a href="#drop-multiple-columns-with--ccol_1-col_2-or--col1--col2">Drop multiple columns with <code>-c(col_1, col_2)</code> or <code>-col1, -col2</code></a></li>
-<li><a href="#keep-only-three-columns">Keep only three columns</a></li>
-<li><a href="#everything"><code>everything()</code></a></li>
-</ul></li>
-<li><a href="#arrange"><span class="toc-section-number">5</span> | <code>arrange()</code></a><ul>
-<li><a href="#big-things-first-desc">Big things first: <code>desc()</code></a></li>
-</ul></li>
+<li><a href="#select"><span class="toc-section-number">4</span> | <code>select()</code></a></li>
+<li><a href="#arrange"><span class="toc-section-number">5</span> | <code>arrange()</code></a></li>
 <li><a href="#lets-play-r-bingo"><span class="toc-section-number">6</span> Let’s play R BINGO!</a></li>
-<li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a><ul>
-<li><a href="#comparisons"><span class="toc-section-number">7.1</span> Comparisons</a></li>
-<li><a href="#exercise-1"><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</a></li>
-<li><a href="#dropping-rows">Dropping rows</a></li>
-<li><a href="#multiple-filters"><span class="toc-section-number">7.2</span> Multiple filters</a></li>
-</ul></li>
-<li><a href="#mutate"><span class="toc-section-number">8</span> | <code>mutate()</code></a><ul>
-<li><a href="#add-a-column">Add a column</a></li>
-<li><a href="#add-several-columns">Add several columns</a></li>
-<li><a href="#change-a-column">Change a column</a></li>
-<li><a href="#add-calculated-columns">Add calculated columns</a></li>
-</ul></li>
-<li><a href="#last-steps"><span class="toc-section-number">9</span> | Last steps!</a><ul>
-<li><a href="#first-mission-complete">First mission complete!</a></li>
-</ul></li>
-<li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a><ul>
-<li><a href="#bb8-has-a-new-mission">BB8 has a new mission</a></li>
-</ul></li>
+<li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a></li>
+<li><a href="#mutate"><span class="toc-section-number">8</span> | <code>mutate()</code></a></li>
+<li><a href="#last-steps"><span class="toc-section-number">9</span> | Last steps!</a></li>
+<li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a></li>
 <li><a href="#welcome-to-endor"><span class="toc-section-number">11</span> | Welcome to Endor!</a></li>
 <li><a href="#time-series"><span class="toc-section-number">12</span> | Time series</a></li>
-<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a><ul>
-<li><a href="#openair-package"><code>openair</code> package</a></li>
-</ul></li>
+<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a></li>
 <li><a href="#operation-shut-down"><span class="toc-section-number">14</span> | Operation Shut Down</a></li>
 </ul>
 </div>
@@ -510,7 +485,7 @@ n &lt;-<span class="st"> </span><span class="dv">1</span>
 <div id="comparisons" class="section level2">
 <h2><span class="header-section-number">7.1</span> Comparisons</h2>
 <hr>
-<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons.</p>
+<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons between values.</p>
 <p><strong>Key comparison operators</strong></p>
 <table>
 <thead>
@@ -546,7 +521,7 @@ n &lt;-<span class="st"> </span><span class="dv">1</span>
 </tr>
 <tr class="odd">
 <td align="left"><code>%in%</code></td>
-<td align="left">value is in a list</td>
+<td align="left">is value in a list: <code>X %in% c(1,2,3)</code></td>
 </tr>
 </tbody>
 </table>

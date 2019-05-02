@@ -66,7 +66,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#introductions">Introductions</a></li>
 <li><a href="#why-r">Why R?</a></li>
-<li><a href="#a-grand-tour">A grand tour</a></li>
+<li><a href="#rstudio---the-grand-tour">RStudio - The grand tour</a></li>
 <li><a href="#first-steps">First steps</a></li>
 <li><a href="#read-the-data">1. | Read the data</a></li>
 <li><a href="#plot-the-data">2. | Plot the data</a></li>
@@ -75,6 +75,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#porg-example">Porg example</a></li>
 <li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
 <li><a href="#dates">Dates</a></li>
+<li><a href="#comparisons">Comparisons</a></li>
 <li><a href="#guess-who">Guess Who?</a></li>
 <li><a href="#more-plots">5. | More plots!</a></li>
 <li><a href="#combine-tables-with-left_join">Combine tables with <code>left_join()</code></a></li>
@@ -277,29 +278,29 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 <div id="r-community" class="section level2">
 <h2>R Community</h2>
-<p>See the <a href="community.html">R Community</a> page.</p>
 <ul>
+<li>See the <a href="community.html">R Community</a> page.</li>
 <li>ITEP page for sharing &amp; questions - <a href="https://github.com/itep-data/R-questions">R questions</a></li>
-<li>Finding R Help - See the <a href="https://itep-r.netlify.com/page/help.html">help page</a>
+<li>Finding R Help - <a href="https://itep-r.netlify.com/page/help.html">Get help!</a>
 <ul>
 <li>R cheatsheets</li>
 </ul></li>
 </ul>
 </div>
-<div id="when-we-use-r" class="section level2">
-<h2>When we use R?</h2>
+<div id="when-do-we-use-r" class="section level2">
+<h2>When do we use R?</h2>
 <ul>
-<li>To connect to databases.</li>
-<li>To read data from websites.</li>
-<li>To document and share methods.</li>
-<li>When data will have frequent updates.</li>
-<li>When we want to improve a process over time.</li>
+<li>To connect to databases</li>
+<li>To read data from websites</li>
+<li>To document and share methods</li>
+<li>When data will have frequent updates</li>
+<li>When we want to improve a process over time</li>
 </ul>
 </div>
 <div id="r-is-for-reading" class="section level2">
 <h2>R is for reading</h2>
 <div class="figure">
-<img src="../images/R_recipe.png" style="width: 55%; float: left; margin-right: 28px; margin-left: -16px;" />
+<img src="../images/R_recipe.png" style="width: 55%; float: left; margin-right: 28px; margin-left: -16px; margin-top: 8px;" />
 
 </div>
 <p>Lucky for us, programming doesn’t have to be a bunch of math equations. R allows you to write your data analysis in a step-by-step fashion, much like creating a recipe for cookies. And just like a recipe, we can start at the top and read our way down to the bottom.</p>
@@ -340,8 +341,8 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 </div>
 </div>
-<div id="a-grand-tour" class="section level1">
-<h1>A grand tour</h1>
+<div id="rstudio---the-grand-tour" class="section level1">
+<h1>RStudio - The grand tour</h1>
 <div class="figure">
 <img src="../images/rstudio.png" style="width: 85%;" />
 
@@ -377,7 +378,6 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <p><br></p>
 <div style="width: 81%; float: right;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;readr&quot;)</span>
-
 <span class="kw">library</span>(readr)
 
 air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre></div>
@@ -400,45 +400,45 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <tbody>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-30 03:00:00</td>
-<td align="right">0.025</td>
-<td align="right">16.38</td>
+<td align="left">2015-10-11 09:00:00</td>
+<td align="right">0.019</td>
+<td align="right">54.02</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-08 03:00:00</td>
-<td align="right">0.013</td>
-<td align="right">55.64</td>
+<td align="left">2015-12-21 11:00:00</td>
+<td align="right">0.021</td>
+<td align="right">25.33</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-10-14 07:00:00</td>
-<td align="right">0.016</td>
-<td align="right">38.86</td>
+<td align="left">2015-04-03 09:00:00</td>
+<td align="right">0.035</td>
+<td align="right">25.48</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-09 14:00:00</td>
-<td align="right">0.011</td>
-<td align="right">28.21</td>
+<td align="left">2015-11-27 09:00:00</td>
+<td align="right">0.022</td>
+<td align="right">12.96</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
 <td align="left">27-017-7417</td>
-<td align="left">2015-11-19 07:00:00</td>
-<td align="right">0.018</td>
-<td align="right">35.99</td>
+<td align="left">2015-04-20 10:00:00</td>
+<td align="right">0.026</td>
+<td align="right">36.10</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
 <td align="left">PPM</td>
@@ -577,24 +577,6 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 <div id="clean-the-data" class="section level1">
 <h1>4. | Clean the data</h1>
 <hr>
-<div id="filter-out-values-that-are-out-of-range" class="section level3">
-<h3>Filter out values that are out-of-range</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
-air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
-
-<span class="co"># We can filter with two conditions</span>
-air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temperature <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre></div>
-</div>
-<div id="check-the-units-column" class="section level3">
-<h3>Check the units column</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the units column</span>
-<span class="kw">distinct</span>(air_data, units)</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
-##   units
-##   &lt;chr&gt;
-## 1 PPM</code></pre>
-<p>PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we’ll want to call the friendly <code>dplyr</code> package.</p>
-</div>
 <div id="its-time-for-dplyr" class="section level2">
 <h2>It’s time for <code>dplyr</code></h2>
 <hr>
@@ -672,26 +654,44 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 </ul>
 <div id="myTabContent" class="well tab-content" style="background-color: white;">
 <div id="porgs" class="tab-pane fade active in" role="tabpanel" aria-labelledby="porgs-tab">
-<img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
+<img src="images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
 <div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
-<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/select_card.png" style="width: 90%;" /> <br><br> <img src="images/porgs/select_drop.png" style="width: 65%;" /> <img src="images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
-<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/arrange.png" style="width: 65%;" /> <img src="images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
-<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/filter.png" style="width: 65%;" /> <img src="images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="images/porgs/filter2.png" style="width: 75%;" /> <img src="images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
-<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/mutate_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
-<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/summarize_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
-<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+<img src="images/porgs/groupby_card.png" style="width: 92%;" /> <br><br>
 </div>
+</div>
+<div id="filter-out-values-that-are-out-of-range" class="section level3">
+<h3>Filter out values that are out-of-range</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+
+<span class="co"># We can filter with two conditions</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temperature <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre></div>
+</div>
+<div id="check-the-units-column" class="section level3">
+<h3>Check the units column</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the units column</span>
+<span class="kw">distinct</span>(air_data, units)</code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   units
+##   &lt;chr&gt;
+## 1 PPM</code></pre>
+<p>PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we’ll want to call the friendly <code>dplyr</code> package.</p>
 </div>
 <div id="fix-the-units" class="section level2">
 <h2>Fix the units</h2>
@@ -727,8 +727,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 
 </div>
 <p><br></p>
-<p>It’s about time! Lubridate makes working with dates easier.</p>
-<p>We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages.</p>
+<p>It’s about time! Lubridate makes working with dates easier. We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages.</p>
 <p><br></p>
 <div style="clear: both;">
 
@@ -750,15 +749,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 <td align="left">Year</td>
 </tr>
 <tr class="even">
-<td><code>month</code></td>
+<td><code>month()</code></td>
 <td align="left">Month as <em>1,2,3</em>; For <em>Jan, Feb, Mar</em> use <code>label=TRUE</code></td>
 </tr>
 <tr class="odd">
-<td><code>day</code></td>
+<td><code>day()</code></td>
 <td align="left">Day of the month</td>
 </tr>
 <tr class="even">
-<td><code>wday</code></td>
+<td><code>wday()</code></td>
 <td align="left">Day of the week as <em>1,2,3</em>; For <em>Sun, Mon, Tue</em> use <code>label=TRUE</code></td>
 </tr>
 <tr class="odd">
@@ -820,7 +819,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <div id="clean-the-dates" class="section level2">
 <h2><i class="fa fa-broom" aria-hidden="true"></i> Clean the dates</h2>
-<p>Let’s set our date column to an official date format. We can Use <code>ymd_hms()</code> because our dates are written as <code>year-month-day hour:minutes:seconds</code>.</p>
+<p>Let’s set our date column to the standard date format. We can Use <code>ymd_hms()</code> because our dates are written as <code>year-month-day hour:mins:secs</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) 
 
 <span class="co"># Set date column to official date format</span>
@@ -835,6 +834,50 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
                    <span class="dt">year  =</span> <span class="kw">year</span>(date_time)) </code></pre></div>
 <p><br></p>
 </div>
+</div>
+<div id="comparisons" class="section level1">
+<h1>Comparisons</h1>
+<hr>
+<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons between values.</p>
+<p><strong>Key comparison operators</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&gt;</code></td>
+<td align="left">greater than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&gt;=</code></td>
+<td align="left">greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;</code></td>
+<td align="left">less than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;=</code></td>
+<td align="left">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>==</code></td>
+<td align="left">equal to</td>
+</tr>
+<tr class="even">
+<td align="left"><code>!=</code></td>
+<td align="left">NOT equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%in%</code></td>
+<td align="left">value is in a list</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="guess-who" class="section level1">
 <h1>Guess Who?</h1>

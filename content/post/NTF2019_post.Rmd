@@ -238,24 +238,24 @@ To complete this challenge we'll follow the general roadmap below.
 ![](../images/rladies_map.gif){style="width: 95%;"}
 
 ## R Community
-See the [R Community](community.html) page.
 
+- See the [R Community](community.html) page.
 - ITEP page for sharing & questions - [R questions](https://github.com/itep-data/R-questions)
-- Finding R Help - See the [help page](https://itep-r.netlify.com/page/help.html)
+- Finding R Help - [Get help!](https://itep-r.netlify.com/page/help.html)
     - R cheatsheets
 
-## When we use R?
+## When do we use R?
 
-- To connect to databases.
-- To read data from websites.
-- To document and share methods.
-- When data will have frequent updates.
-- When we want to improve a process over time.
+- To connect to databases
+- To read data from websites
+- To document and share methods
+- When data will have frequent updates
+- When we want to improve a process over time
 
 
 ## R is for reading 
 
-![](../images/R_recipe.png){style="width: 55%; float: left; margin-right: 28px; margin-left: -16px;"}
+![](../images/R_recipe.png){style="width: 55%; float: left; margin-right: 28px; margin-left: -16px; margin-top: 8px;"}
 
 Lucky for us, programming doesn't have to be a bunch of math equations. R allows you to write your data analysis in a step-by-step fashion, much like creating a recipe for cookies. And just like a recipe, we can start at the top and read our way down to the bottom. 
 
@@ -290,7 +290,7 @@ __Step 2:__ Open a new script
 
 </div>
 
-# A grand tour 
+# RStudio - The grand tour 
 
 ![](../images/rstudio.png){style="width: 85%;"}
 
@@ -333,7 +333,6 @@ These tabs allow you to view and open files in your current directory, view plot
 <div style="width: 81%; float: right;">
 ```{r read-data}
 #install.packages("readr")
-
 library(readr)
 
 air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
@@ -346,6 +345,7 @@ air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
 ```{r tbl, echo=F}
 library(knitr)
 library(dplyr)
+
 air_data %>% sample_n(5) %>% select(SITE, MESSY_DATE, OZONE, temperature, LATITUDE, LONGITUDE, UNITS) %>% kable()
 ```
 
@@ -457,30 +457,6 @@ names()
 <hr>
 
 
-### Filter out values that are out-of-range 
-```{r clean}
-
-# Drop values out of range
-air_data <- filter(air_data, ozone > 0)
-
-# We can filter with two conditions
-air_data <- filter(air_data, ozone > 0, temperature < 199) 
-
-```
-
-
-### Check the units column
-```{r distinct}
-
-# Show all unique values in the units column
-distinct(air_data, units)
-
-```
-
-
-PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we'll want to call the friendly `dplyr` package.
-
-
 
 ## It's time for `dplyr` 
 <hr>
@@ -514,6 +490,32 @@ cat(readLines("../page/porg_tabs.txt"))
 ```
 
 
+
+
+### Filter out values that are out-of-range 
+```{r clean}
+
+# Drop values out of range
+air_data <- filter(air_data, ozone > 0)
+
+# We can filter with two conditions
+air_data <- filter(air_data, ozone > 0, temperature < 199) 
+
+```
+
+
+### Check the units column
+```{r distinct}
+
+# Show all unique values in the units column
+distinct(air_data, units)
+
+```
+
+
+PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we'll want to call the friendly `dplyr` package.
+
+
 ## Fix the units
 ### `mutate()`
 
@@ -544,7 +546,6 @@ air_data <- mutate(air_data, ozone_ppb = ozone * 1000)
 <br>
 
 It's about time! Lubridate makes working with dates easier. 
-
 We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages. 
 
 <br>
@@ -556,11 +557,11 @@ We can find how much time has elapsed, add or subtract days, and find seasonal a
 ### Get date parts {-}
 
 | Function   |  Date element                                            |   
-|----|:-----------------------------------------------------------------|  
-|`year()  `  | Year          |  
-|`month  `   | Month as _1,2,3_; For _Jan, Feb, Mar_ use `label=TRUE`  |  
-|`day  `     | Day of the month  |  
-|`wday`      | Day of the week as _1,2,3_; For _Sun, Mon, Tue_ use `label=TRUE` |  
+|-----|:-----------------------------------------------------------------|  
+|`year()  `    | Year          |  
+|`month()  `   | Month as _1,2,3_; For _Jan, Feb, Mar_ use `label=TRUE`  |  
+|`day()  `     | Day of the month  |  
+|`wday()`      | Day of the week as _1,2,3_; For _Sun, Mon, Tue_ use `label=TRUE` |  
 | _- Time -_ |            | 
 |`hour() `   |  Hour of the day _(24hr)_ |  
 |`minute() ` |  Minutes   |  
@@ -581,10 +582,9 @@ We can find how much time has elapsed, add or subtract days, and find seasonal a
 |`ymd_hms() ` | Year-Month-Day Hour:Minutes:Seconds ::  `2019-05-18 8:35:22 AM`    | 
 
 
-
 ## <i class="fa fa-broom" aria-hidden="true"></i> Clean the dates
 
-Let's set our date column to an official date format. We can Use `ymd_hms()` because our dates are written as `year-month-day hour:minutes:seconds`.
+Let's set our date column to the standard date format. We can Use `ymd_hms()` because our dates are written as `year-month-day hour:mins:secs`.
 
 ```{r lubridate}
 library(lubridate) 
@@ -602,6 +602,25 @@ air_data <- mutate(air_data,
 ```
 
 <br>
+
+
+# Comparisons
+<hr>
+
+Processing data requires many types of filtering. You'll want to know how to select observations in your table by making various comparisons between values.
+
+__Key comparison operators__
+
+| Symbol | Comparison               |
+|:-------|:-------------------------|
+| `>`    | greater than             |
+| `>=`   | greater than or equal to |
+| `<`    | less than                |
+| `<=`   | less than or equal to    |
+| `==`   | equal to                 |
+| `!=`   | NOT equal to             |
+| `%in%` | value is in a list       |
+
 
 # Guess Who? 
 <h2 style="margin-top: -24px;"> _Star Wars edition_ </h2>

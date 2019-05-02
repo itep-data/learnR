@@ -24,7 +24,7 @@ __Cheatsheets__
 
 Use cheatsheets to refresh your memory and find new functions or plots. 
 
-- In RStudio go to `Help > Cheatsheets >`
+- In RStudio go to `Help > Cheatsheets`
     - __Data Transformation__ - Helpful functions for cleaning and arranging your data.  
     - __Data Visualization__ - Great reference for all your `ggplot`'ing options. 
 
@@ -51,8 +51,8 @@ __Books__
     
 __Searching online__
 
-- [google.com](www.google.com): include `r` or `rstats` + `the question`
-- [stackoverflow.com](https://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs) + use the `[r]` tag
+- Google: include `r` or `rstats` + `"the question"`
+- Search or post on [stackoverflow.com](https://stackoverflow.com/questions/12675147/how-can-we-make-xkcd-style-graphs) + the `[r]` tag
 
 __Inside R__
 
@@ -61,8 +61,8 @@ __Inside R__
 __E-mail__
 
 - Post a question on the [ITEP R hub](https://github.com/itep-data/R-questions/issues)  
-- Ask the R class _(coming soon...)_
 - Ask us!
+    - Melinda Ronca-Battista [✉️](mailto:Melinda.Ronca-Battista@nau.edu?Subject=I%20have%20a%20R%20question)
     - Kristie Ellickson [✉️](mailto:kristie.ellickson@state.mn.us?Subject=I%20have%20a%20R%20question)
     - Dorian Kvale [✉️](mailto:dorian.kvale@state.mn.us?Subject=I%20have%20a%20R%20question)
 

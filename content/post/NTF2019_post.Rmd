@@ -456,7 +456,6 @@ names()
 # 4. | Clean the data 
 <hr>
 
-
 ## It's time for `dplyr` 
 <hr>
 
@@ -488,8 +487,7 @@ We recruited a poggle of porgs to help demo the `dplyr` functions. As you can se
 cat(readLines("../page/porg_tabs.txt"))
 ```
 
-
-
+<br>
 
 ### Filter out values that are out-of-range 
 ```{r clean}
@@ -501,7 +499,6 @@ air_data <- filter(air_data, ozone > 0)
 air_data <- filter(air_data, ozone > 0, temperature < 199) 
 
 ```
-
 
 ### Check the units column
 ```{r distinct}

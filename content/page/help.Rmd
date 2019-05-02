@@ -16,7 +16,7 @@ output:
 
 
 
-__Cheatsheets__
+### Cheatsheets {-}
 
 <a href="https://www.rstudio.com/wp-content/uploads/2018/08/data-visualization-2.1.png">
 ![](../images/cheatsheet_ggplot.jpg){style="width: 47%; float: right; margin-left: 20px; margin-top: -16px;"}
@@ -29,14 +29,16 @@ Use cheatsheets to refresh your memory and find new functions or plots.
     - __Data Visualization__ - Great reference for all your `ggplot`'ing options. 
 
 
-__Learn more R__
+### Learn more R {-}
 
-- In your browser: [DataCamp Intro](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1)
+- From your browser: [DataCamp Intro](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1)
    - Review the tidyverse functions with David Robinson [DataCamp tidyverse](https://campus.datacamp.com/courses/introduction-to-the-tidyverse/data-wrangling-1)
 - RStudio lessons: https://rstudio.github.io/learnr/examples.html
 - RStudio videos: https://tutorials.shinyapps.io/04-Programming-Basics/
--	Learn directly in `R` with: [swirlR](https://swirlstats.com/students.html)  
 - Coursera classes: [John Hopkins courses w/ Roger Peng](https://www.coursera.org/specializations/jhu-data-science)    
+
+-	From directly in `R`: [swirlR](https://swirlstats.com/students.html)  
+
 
 
 __Find new packages and functions__

@@ -457,7 +457,6 @@ names()
 <hr>
 
 
-
 ## It's time for `dplyr` 
 <hr>
 
@@ -465,7 +464,7 @@ names()
 
 <br>
 
-This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you'd want to do with data.
+This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you want to.
 
 <br>
 

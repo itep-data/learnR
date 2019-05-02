@@ -27,7 +27,7 @@
   <div class="tab-pane fade active in" id="porgs" role="tabpanel" aria-labelledby="porgs-tab">
 
 
-![](images/porgs/porgs_tbl.png){style="width: 85%;"}
+![](../images/porgs/porgs_tbl.png){style="width: 85%;"}
 
 <br><br>
 
@@ -35,14 +35,14 @@
 
 <div class="tab-pane fade" id="select" role="tabpanel" aria-labelledby="select-tab">
 
-![](images/porgs/select_card.png){style="width: 90%;"}
+![](../images/porgs/select_card.png){style="width: 90%;"}
 
 
 <br><br>
 
-![](images/porgs/select_drop.png){style="width: 65%;"}
+![](../images/porgs/select_drop.png){style="width: 65%;"}
 
-![](images/porgs/select_drop_tbl.png){style="width: 80%; margin-left: 5%; margin-top: 12px;"}
+![](../images/porgs/select_drop_tbl.png){style="width: 80%; margin-left: 5%; margin-top: 12px;"}
 
 <br><br>
 
@@ -50,15 +50,15 @@
 
 <div class="tab-pane fade" id="arrange" role="tabpanel" aria-labelledby="arrange-tab">
 
-![](images/porgs/arrange.png){style="width: 65%;"}
+![](../images/porgs/arrange.png){style="width: 65%;"}
 
-![](images/porgs/arrange_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+![](../images/porgs/arrange_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
 
 <br><br>
 
-![](images/porgs/arrange_desc.png){style="width: 57%;"}
+![](../images/porgs/arrange_desc.png){style="width: 57%;"}
 
-![](images/porgs/arrange_tbl_desc.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+![](../images/porgs/arrange_tbl_desc.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
 
 <br><br>
 
@@ -66,15 +66,15 @@
 
 <div class="tab-pane fade" id="filter" role="tabpanel" aria-labelledby="filter-tab">
 
-![](images/porgs/filter.png){style="width: 65%;"}
+![](../images/porgs/filter.png){style="width: 65%;"}
 
-![](images/porgs/filter_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+![](../images/porgs/filter_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
 
 <br><br>
 
-![](images/porgs/filter2.png){style="width: 75%;"}
+![](../images/porgs/filter2.png){style="width: 75%;"}
 
-![](images/porgs/filter2_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
+![](../images/porgs/filter2_tbl.png){style="width: 88%; margin-left: 10%; margin-top: 12px;"}
 
 
 <br><br>
@@ -84,7 +84,7 @@
 <div class="tab-pane fade" id="mutate3" role="tabpanel" aria-labelledby="mutate3-tab">
 
 
-![](images/porgs/mutate_card.png){style="width: 88%;"}
+![](../images/porgs/mutate_card.png){style="width: 88%;"}
 
 <br><br>
 
@@ -92,7 +92,7 @@
 
 <div class="tab-pane fade" id="summarize" role="tabpanel" aria-labelledby="summarize-tab">
 
-![](images/porgs/summarize_card.png){style="width: 88%;"}
+![](../images/porgs/summarize_card.png){style="width: 88%;"}
 
 
 <br><br>
@@ -101,7 +101,7 @@
 
 <div class="tab-pane fade" id="group_by" role="tabpanel" aria-labelledby="group_by-tab">
 
-![](images/porgs/groupby_card.png){style="width: 92%;"}
+![](../images/porgs/groupby_card.png){style="width: 92%;"}
 
 <br><br>
 

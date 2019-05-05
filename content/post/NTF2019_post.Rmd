@@ -11,7 +11,7 @@ output:
 date: '2018-12-09'
 showDate: false
 showAuthor: false
-summary: "Based on ozone air monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
+summary: "Based on ozone monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
 slug: 'NTF2019'
 categories: [training]
 tags: [training]
@@ -38,8 +38,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ### Power on your droids
 You and BB8 have arrived just in time. Rey needs your help!
 
-Rey needs to travel to Tatooine, but years of scrapping ship parts hasn't been kind to her lungs. Using historic pollution levels your goal is to find the best month for Rey to visit the dusty surface of Tatooine. 
-
+Rey has to travel to Tatooine, but years of scrapping ship parts hasn’t been kind to her lungs. Using past pollution levels, let's find the best month for Rey to visit the dusty surface of Tatooine.
 
 ## Open _RStudio_
 
@@ -79,26 +78,22 @@ We make lots of mistakes. Mistakes are funny. You can laugh with us.
 
 ## All together now {-}
 
-Let's launch ourselves into the unknown and use R to store some data. We're going to use R to introduce ourselves and the data we love.
+Let's launch ourselves into the unknown and use R to store some data. We’re going to use R to introduce a friend and the data they love. Find a partner and learn 3 things about them.
 
 <br>
 
 ![](../images/starwars_group.jpg){align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;"}
 
-__Things to Share:__  
+__Things to Share__  
 
 <div class="note" style="margin-top: 0;">
 
 - Your name  
-- Distance you traveled to get here
-- Types of data you have
-- What you want to get from the workshop
-- A snack you want right now
-- The messiest & funniest parts of your data
-- Something you get to do over and over again
-
-__Hint:__  _Maybe this is something you can automate in R_ 
-
+- How far you traveled to here
+- Types of air data you have
+- Something you hope to use R for
+- A favorite snack
+- How many pets you have
 </div>
 
 <br>
@@ -111,61 +106,92 @@ __Hint:__  _Maybe this is something you can automate in R_
 
 ## Create and store values
 
-You can assign values to new objects using the "left arrow". 
+You can assign values to new objects using the "left arrow", which is written as `<-`. 
 
 > __Left arrow__ 
+>
 > `x  <-  5 `
 
-This is written by typing a less-than sign followed by a hyphen. It's more officially known as the _assignment operator_. Try adding the code below to your R script and assign a value to an object called `my_name`.
+
+This is typed using a less-than sign followed by a hyphen. It's more officially known as the _assignment operator_. Try adding the code below to your R script and assign a value to an object called `partner`.
 
 <br>
-
-#### __Let's try it__
 
 ### Create values 
 ```{r, introductions}
 
-my_name <- "Your Name" # Text and characters are put in quotes
+my_partner <- "Partner's Name" # Text and characters are put in quotes
 
-miles_traveled <- 1869 # A number
+miles_traveled <- 1160 # A number has no quotes
 
 # A list of data I use
-my_data_types <- c("PAHs", "Air Toxics", "Ultrafine particles") 
+data_types <- c("PAHs", "Ozone", "Fine particles") 
 
-best_snack_in_the_universe <- "Air Heads" 
+best_snack_ever_99 <- "Air Heads" 
 
 ```
-
 
 
 ### View values 
 
-Now, you can type _`my_name`_ and run that line to see the value stored in that variable.
+Now you can type _`partner`_ and run that line to see the value stored in that variable.
 
-```{r, introductions_results}
-
-my_name
-
+```{r, introd_view}
+my_partner
 ```
 
 <br>
 
-> To run everything you've written so far all at once, you can highlight all of the code in the _Code Editor_ and push `CTRL + ENTER`.
+
+### Copy values
+```
+nickname <- my_partner
+
+nickname
+```
+
+<br>
+
+## Drop and remove data {-}
+
+You can drop objects with the remove function `rm() `. Try it out on some of your objects.
+
+```{r, eval = F}
+
+# Delete objects to clean-up your environment
+rm(nickname)
+
+```
+
+
+<div class="tip">
+### <i class="fa fa-user-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise! {-}
+
+How can we get the 'my_partner' object back?
+
+__HINT:__ The UP arrow in the Console is your friend.
+</div>
+
+
+<br>
+
+> To run everything in one go, highlight all of the code in the Code Editor and push `CTRL`+`ENTER`. 
 
 
 ## It's ALL about you
 
-Now we can create a data table, which is also called a `data.frame()` or a `tibble()`.
+Now we can create a data table, which in R is also called a `data.frame` or a `tibble`. When creating one, the column names go on the _left_, and the values you want to put in the column go on the _right_.
+
 ```{r, intros_tbl}
-# Put the 4 items into a table
-all_about_me <- data.frame(name           = my_name, 
-                           miles_traveled = miles_traveled, 
-                           data_types     = my_data_types,  
-                           best_snack     = best_snack_in_the_universe)
+# Put the items into a table
+all_about_you <- data.frame(name           = my_partner, 
+                            miles_traveled = miles_traveled, 
+                            data_types     = data_types,  
+                            best_snack     = best_snack_ever_99)
 ```
 
 
-Let's bounce around the room and introduce ourselves with help from our R scripts.
+Let's bounce around the room and introduce ourselves with help from our new data frames.
 
 
 <details style="margin-top: 34px;">
@@ -175,11 +201,12 @@ Let's bounce around the room and introduce ourselves with help from our R script
 
 <p>
 
-To use a new _package_ in R you first need to install it -- much like a free App on your phone. To save time on installation, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio. 
+To use a new _package_ in R you first need to install it -- much like a free App on your phone. To save time on installation, you can copy the text below and paste it into the RStudio _Console_. It's the quadrant on the lower left when you open RStudio. The one with the `>` symbols.
 
 
 ```{r, eval=F}
-new_packages <- c("readr", "readxl", "dplyr", "ggplot2", "lubridate")
+new_packages <- c("readr", "readxl", "dplyr", "stringr",
+                  "ggplot2", "lubridate", "janitor", "curl")
 
 install.packages(new_packages)
 
@@ -189,7 +216,7 @@ install.packages(new_packages)
 ![](../../images/install_screen.png)
 
 <p style="margin-top: 5px;">
-Then press `ENTER` to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.
+Then press `ENTER` to begin the installation. If all goes well, you should start to see some messages appear similar to these:
 
 ![](../../images/install_msg.png)
 </p>
@@ -202,36 +229,6 @@ __Congrats rebel droid!__ <i class="fa fa-android" style="font-size: 44px;"></i>
 <br>
 
 
-## Today's challenge
-<hr>
-
-![](https://i.pinimg.com/736x/7b/c0/02/7bc00221cf62f736fa1592efd7ba6213.jpg){width="254" style="float: left; margin-right: 24px; margin-bottom: 14px;"}
-
-<br>
-
-> Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month we should visit -- preferrably the month with the lowest ozone concentration. The goal for today is to give Rey a nice chart of monthly ozone concentrations to help her plan.
-
-<br>
-
-To complete this challenge we'll follow the general roadmap below. 
-
-<div style="clear: both;"></div>
-
-### Today's workflow
-
-<div class="note">
-
-1. __READ__ the data
-1. __PLOT__ the data
-1. __CLEAN__ the data
-- ( __PLOT__ some more )
-4. __SUMMARIZE__ the data
-- ( __PLOT__ even more )
-5. __SAVE__ the results
-6. __SHARE__ with friends
-
-</div>
-
 # Why R? 
 <hr>
 
@@ -239,7 +236,7 @@ To complete this challenge we'll follow the general roadmap below.
 
 ## R Community
 
-- See the [R Community](community.html) page.
+- See the [R Community](../page/community.html) page.
 - ITEP page for sharing & questions - [R questions](https://github.com/itep-data/R-questions)
 - Finding R Help - [Get help!](https://itep-r.netlify.com/page/help.html)
     - R cheatsheets
@@ -266,6 +263,38 @@ Lucky for us, programming doesn't have to be a bunch of math equations. R allows
 
 ## It begins!
 
+
+## Today's challenge
+<hr>
+
+![](https://i.pinimg.com/736x/7b/c0/02/7bc00221cf62f736fa1592efd7ba6213.jpg){width="254" style="float: left; margin-right: 24px; margin-bottom: 14px;"}
+
+<br>
+
+> Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month she should visit. Preferably the month with the lowest ozone concentrations. Let's give Rey a nice reference chart of monthly ozone concentrations to help her plan.
+
+<br>
+
+We'll follow the general roadmap below. 
+
+<div style="clear: both;"></div>
+
+### Today's workflow
+
+<div class="note">
+
+1. __READ__ the data
+1. __PLOT__ the data
+1. __CLEAN__ the data
+- ( __PLOT__ some more )
+4. __SUMMARIZE__ the data
+- ( __PLOT__ even more )
+5. __SAVE__ the results
+6. __SHARE__ with friends
+
+</div>
+
+
 ### Start an R project 
 
 We'll make a new project for our investigation of ozone on Tatooine.
@@ -286,7 +315,7 @@ __Step 2:__ Open a new script
 
 - __File > New File > R Script__
     - Click the _floppy disk_ save icon
-    - Give it a name: `Rey.R` or `ozone.R` will work well
+    - Give it a name: `ozone.R` will work well
 
 </div>
 
@@ -305,7 +334,7 @@ This is where you write your scripts and document your work. The tabs at the top
 <div class="red-note">
 __2. Console__ 
 
-This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won't be saved for later. That's why we like to run all of our code directly from a script in the code editor.
+This is where code is executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won't be saved for later. That's why we like to run all of our code directly from a script in the code editor.
 </div>
 
 <div class="red-note">
@@ -335,7 +364,8 @@ These tabs allow you to view and open files in your current directory, view plot
 #install.packages("readr")
 library(readr)
 
-air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
+air_data <- read_csv("https://itep-r.netlify.com/data/ozone_samples.csv")
+
 ```
 
 </div>
@@ -346,7 +376,7 @@ air_data <- read_csv("https://itep-r.netlify.com/data/OZONE_samples.csv")
 library(knitr)
 library(dplyr)
 
-air_data %>% sample_n(5) %>% select(SITE, MESSY_DATE, OZONE, temperature, LATITUDE, LONGITUDE, UNITS) %>% kable()
+air_data %>% sample_n(5) %>% kable()
 ```
 
 
@@ -388,9 +418,17 @@ air_data <- rename(air_data,
 
 ```
 
+__View the new names__
+```{r}
+names(air_data)
+```
 
-# 2. | Plot the data {-}
-<hr>
+
+# <span class="fa-stack fa-1x"><i class="fa fa-circle fa-stack-1x gray"></i><strong class="fa-stack-1x">1</strong></span> | Plot the data 
+
+
+#### _Plot the data, Plot the data, Plot the data_ {-}
+
 
 ![](../images/ggplot2_hex.png){style="width: 22%; float: left; margin-right: 4%;"}
 
@@ -398,24 +436,78 @@ air_data <- rename(air_data,
 
 
 ```{r view, fig.width=12, fig.height=4}
+#install.packages("ggplot2")
 library(ggplot2)
 
-ggplot(air_data, aes(x = temperature, y = ozone, color = site)) + 
+ggplot(air_data, aes(x = temp_f, y = ozone, color = site)) + 
     geom_point(size = 7, alpha = 0.3) 
 ```
 
 <div style="clear: both;"></div>
 
 
-# 3. | Explore the data
-<hr>
+## Break it down now
+
+
+## The `ggplot()` sandwich {-}
+
+
+![](../images/auto_plot.gif){style="margin-top: -22px; margin-left: -40px; max-width: 110%;"}
+
+<h5 style="font-size: 28px; font-weight: bold; margin-top: -42px;"> A `ggplot` has 3 ingredients. </h5>
+
+
+## 1. The base plot {-}
+```{r, echo=T, eval=T}
+library(ggplot2)
+```
+
+```{r, echo=T, eval=T}
+ggplot(air_data)
+```
+
+
+## 2. The the X, Y _aesthetics_  {-}
+
+The _aesthetics_ assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.
+
+```{r, eval=T}
+ggplot(air_data, aes(x = temp_f, y = ozone)) 
+```
+
+
+## 3. The layers or _geometries_  {-}
+```{r, eval=T}
+ggplot(air_data, aes(x = temp_f, y = ozone)) + geom_point()
+```
+
+<br>
+
+<div class="tip">
+#### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> EXERCISE {-}
+
+Try making a scatterplot of any two columns. Here's a template to help get you started.
+
+```{r, eval = F, echo = T}
+ggplot(air_data, aes(x = column1, y = column2 )) + geom_point()
+```
+
+
+_Hint: Numeric variables will be more exciting._
+
+</div>
+
+> we load the package `library (ggplot2)`, but the function to make a plot is `ggplot(scrap)`. 
+
+
+# <span class="fa-stack fa-1x"><i class="fa fa-circle fa-stack-1x gray"></i><strong class="fa-stack-1x">1</strong></span> | Explore the data
 
 Some functions to get to know your data.
 
 
 | Function        | Information                 |  
 |:----------------|:----------------------------|  
-| `names(scrap)`  | column names                |  
+| `names(air_data)`  | column names                |  
 | `nrow(...)`     | number of rows              |  
 | `ncol(...)`     | number of columns           | 
 | `summary(...)`  | a summary of all column values (ex. _max_, _mean_, _median_)  | 
@@ -481,7 +573,7 @@ This is our go-to package for most analysis tasks. With the six functions below 
 
 # Porg example 
 
-We recruited a poggle of porgs to help demo the `dplyr` functions. As you can see in the table below, there are two types: yellow and gray. 
+We recruited a poggle of porgs to help demo the `dplyr` functions. There are two types of porgs: yellow-eyes and gray-eyes. 
 
 ```{r porg-tabs, results='asis', echo=F}
 cat(readLines("../page/porg_tabs.txt"))
@@ -496,7 +588,7 @@ cat(readLines("../page/porg_tabs.txt"))
 air_data <- filter(air_data, ozone > 0)
 
 # We can filter with two conditions
-air_data <- filter(air_data, ozone > 0, temperature < 199) 
+air_data <- filter(air_data, ozone > 0, temp_f < 199) 
 
 ```
 
@@ -509,23 +601,35 @@ distinct(air_data, units)
 ```
 
 
-PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we'll want to call the friendly `dplyr` package.
+PPM? That explains the tiny results. Let's convert to `PPB`. For that we'll want our friend the `mutate` function.
 
 
-## Fix the units
+## Convert units
+
 ### `mutate()`
 
+For `mutate`, the name of the column goes on the _left_, and the calculation of its new value goes on the _right_. 
+
+__Update the column `ozone`__
 ```{r mutate}
 
 # Convert all samples to PPB
-air_data <- mutate(air_data, ozone_ppb = ozone * 1000) 
+air_data <- mutate(air_data, ozone = ozone * 1000) 
 ```
+
+__Update the column `units`__
+```{r mute-units}
+
+# Set units column to PPB
+air_data <- mutate(air_data, units = "PPB") 
+```
+
 
 <br><br><hr>
 
 ![](../images/chewie_box.png){style="width: 56%; float: left; margin-right: 11px;"}
 
-# `Lunch break` <i class="fa fa-utensils"></i> ☕
+# <i class="fa fa-utensils"></i> ☕ `Lunch break` 
 
 <div style="clear: both;"></div>
 
@@ -580,13 +684,13 @@ We can find how much time has elapsed, add or subtract days, and find seasonal a
 
 ## <i class="fa fa-broom" aria-hidden="true"></i> Clean the dates
 
-Let's set our date column to the standard date format. We can Use `ymd_hms()` because our dates are written as `year-month-day hour:mins:secs`.
+Let's set our date column to the standard date format. Because our dates are written as `year-month-day hour:mins`, we can Use `ymd_hm()`. 
 
 ```{r lubridate}
 library(lubridate) 
 
 # Set date column to official date format
-air_data <- mutate(air_data, date_time = ymd_hms(messy_date))
+air_data <- mutate(air_data, date_time = ymd_hms(date_time))
 
 # Now we can add a variety of date and time columns to our data
 air_data <- mutate(air_data, 
@@ -774,7 +878,6 @@ __Hey now!__ That's not very helpful. Who's who? Let's join their names to the r
 > __Let's try adding MET data to our ozone observations.__
 
 ```{r, fig.width=11, fig.height=4}
-
 met_data <- read_csv("https://itep-r.netlify.com/data/met_data.csv")
 
 ozone_met <- left_join(air_data, met_data, 
@@ -784,6 +887,7 @@ ozone_met <- left_join(air_data, met_data,
 glimpse(ozone_met)
 ```
 
+
 ## Polar plots
 
 When looking at air concentration data, we often want to know what direction the wind is blowing from when an air pollutant tends to be elevated. This can help to answer if the pollution source is local or if it is more of a regionl issue.
@@ -792,19 +896,19 @@ Pairing wind direction and air concentration data helps answer these questions a
 
 <br><br><hr>
 
+```{r polar_sites, eval=F, echo=F}
 For this data, we have two monitoring sites. Let's start by looking at the data for only one of the sites.
 
-### Filter to a single site {-}
-```{r, polar_sites}
 
-ozone_met <- filter(ozone_met, site == "27-017-7417")
+### Filter to a single year {-}
+ozone_met <- filter(ozone_met, year == "27-017-7417")
 ```
 
 ### Plot the wind directions {-}
 ```{r, polar}
 ggplot(ozone_met, aes(x = wd, y = ozone)) + 
       coord_polar(start = 0) +
-      geom_point(shape = 16, size = 2, alpha = 0.3) +
+      geom_point(size = 2, alpha = 0.4) +
       theme_bw() +
       scale_x_continuous(breaks = seq(0, 360, by = 90), expand = c(0,0), lim = c(0, 360), name = "", label = c("","E", "S", "W", "N"))
     
@@ -930,6 +1034,7 @@ Try running the same summarize code on the data after you use `ungroup()`.
 What do you get?
 </div>
 
+
 # 7. | Save results
 
 > Save the summarized data table
@@ -937,6 +1042,25 @@ What do you get?
 ```{r save-csv, eval=F}
 write_csv(air_data_summary, "2015-2017_ozone_summary.csv")
 ```
+
+
+
+<details>
+<summary class = "btn_code"> __Save to EPA's AQS format__ </summary>
+
+<div class="note" style="margin-top: -6px;">
+<p>
+
+AQS format is similar to a CSV, but instead of a `,` it uses the `|` to separate values.
+
+```{r}
+
+```
+
+
+</p></div>
+</details>
+
 
 
 > Plot the summarized data 
@@ -983,7 +1107,7 @@ You've added some great tools to your data analysis tool belt. Now go forth and 
 
 Lost in an ERROR message? Is something behaving strangely and want to know why? 
 
-See the [Help!](help.html) page for some troubleshooting options.
+See the [Help!](../page/help.html) page for some troubleshooting options.
 
 <br>
 

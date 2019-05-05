@@ -7,6 +7,8 @@ hr {
 }
 
 
+.gray {color: steelblue;}
+
 .row3
 {
     width: 100%;
@@ -66,7 +68,7 @@ blockquote
      border-radius: 25px;
      font-size: 17px;
      font-style: normal;
-     line-height: 19px;
+     line-height: 20px;
      overflow: hidden;
      padding: 10px;
      padding-top: 14px;
@@ -83,7 +85,7 @@ blockquote
      border-radius: 25px;
      font-size: 17px;
      font-style: normal;
-     line-height: 19px;
+     line-height: 20px;
      overflow: hidden;
      padding: 10px;
      padding-top: 14px;

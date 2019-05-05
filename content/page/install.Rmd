@@ -174,7 +174,8 @@ To use a new _package_ you first need to install it -- much like a free App for 
 <br>
 
 ```{r, eval=F}
-new_packages <- c("readr","readxl","dplyr","stringr","ggplot2","lubridate")
+new_packages <- c("readr", "readxl", "dplyr", "stringr",
+                  "ggplot2", "lubridate", "janitor", "curl")
 
 install.packages(new_packages)
 ```

@@ -15,7 +15,6 @@ output:
 ```
 
 
-
 ### Cheatsheets {-}
 
 <a href="https://www.rstudio.com/wp-content/uploads/2018/08/data-visualization-2.1.png">
@@ -29,19 +28,20 @@ Use cheatsheets to refresh your memory and find new functions or plots.
     - __Data Visualization__ - Great reference for all your `ggplot`'ing options. 
 
 
-### Learn more R {-}
+__From your browser__
 
-- From your browser: [DataCamp Intro](https://campus.datacamp.com/courses/free-introduction-to-r/chapter-1-intro-to-basics-1?ex=1)
-   - Review the tidyverse functions with David Robinson [DataCamp tidyverse](https://campus.datacamp.com/courses/introduction-to-the-tidyverse/data-wrangling-1)
-- RStudio lessons: https://rstudio.github.io/learnr/examples.html
-- RStudio videos: https://tutorials.shinyapps.io/04-Programming-Basics/
-- Coursera classes: [John Hopkins courses w/ Roger Peng](https://www.coursera.org/specializations/jhu-data-science)    
+- [Charts & Plots Intro](https://campus.datacamp.com/courses/introduction-to-the-tidyverse/data-wrangling-1) - Review ggplot2 and dplyr functions with country data
+- RStudio interactive lessons: [Summarizing data](https://rstudio.github.io/learnr/examples.html)
+- [RStudio Visualization primers](https://rstudio.cloud/learn/primers/3)
+- RStudio videos: [Programming basics](https://tutorials.shinyapps.io/04-Programming-Basics/)
+- Coursera classes: [John Hopkins courses w/ Roger Peng](https://www.coursera.org/specializations/jhu-data-science)
 
--	From directly in `R`: [swirlR](https://swirlstats.com/students.html)  
+__From within `R`__
 
+- [swirlR](https://swirlstats.com/students.html)  
+    
 
-
-__Find new packages and functions__
+### Find new packages and functions {-}
 
 - Search packages in R with [CRANsearcher](https://github.com/RhoInc/CRANsearcher)
 - [ROpenSci](https://ropensci.org/packages/) has packages and data for all types of environmental and "scientific" work.

@@ -969,8 +969,8 @@ ggplot(ozone_met, aes(x = wd, y = ozone, color = ozone)) +
       scale_x_continuous(breaks = seq(0, 360, by = 90), 
                          lim    = c(0, 360),
                          label  = c("","E", "S", "W", "N")) + 
-      theme_minimal() +
-      scale_fill_viridis_c()
+      theme_minimal() + 
+      scale_color_viridis_c()
     
 ```
 

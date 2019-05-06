@@ -420,48 +420,48 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">2015-04-28 03:00:00</td>
+<td align="left">2015-07-06 18:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.038</td>
+<td align="right">0.019</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
-<td align="right">45.68</td>
+<td align="right">61.12</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
-<td align="left">2015-05-30 07:00:00</td>
+<td align="left">2015-05-26 05:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.020</td>
+<td align="right">0.036</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
-<td align="right">45.23</td>
+<td align="right">51.35</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
-<td align="left">2015-08-18 02:00:00</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.015</td>
-<td align="right">46.71369</td>
-<td align="right">-92.51172</td>
-<td align="right">59.68</td>
-<td align="left">PPM</td>
-</tr>
-<tr class="even">
-<td align="left">2015-09-29 13:00:00</td>
+<td align="left">2015-07-22 03:00:00</td>
 <td align="left">27-017-7417</td>
 <td align="right">0.006</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
-<td align="right">37.24</td>
+<td align="right">63.03</td>
+<td align="left">PPM</td>
+</tr>
+<tr class="even">
+<td align="left">2015-07-19 20:00:00</td>
+<td align="left">27-017-7417</td>
+<td align="right">0.042</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
+<td align="right">80.61</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
-<td align="left">2015-11-06 10:00:00</td>
+<td align="left">2015-12-08 00:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.016</td>
+<td align="right">0.013</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
-<td align="right">37.57</td>
+<td align="right">34.06</td>
 <td align="left">PPM</td>
 </tr>
 </tbody>
@@ -1169,8 +1169,8 @@ ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_da
 <span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), 
                          <span class="dt">lim    =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>),
                          <span class="dt">label  =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
-<span class="st">      </span><span class="kw">scale_fill_viridis_c</span>()</code></pre></div>
+<span class="st">      </span><span class="kw">theme_minimal</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">scale_color_viridis_c</span>()</code></pre></div>
 <p><img src="/post/NTF2019_post_files/figure-html/polar-color-1.png" width="672" /></p>
 <div class="tip">
 <h4 id="exercise-2"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> EXERCISE</h4>

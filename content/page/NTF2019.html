@@ -11,7 +11,7 @@ output:
 date: '2018-12-09'
 showDate: false
 showAuthor: false
-summary: "Based on ozone air monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
+summary: "Based on ozone monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."
 slug: 'NTF2019'
 categories: [training]
 tags: [training]
@@ -66,14 +66,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#introductions">Introductions</a></li>
 <li><a href="#why-r">Why R?</a></li>
-<li><a href="#a-grand-tour">A grand tour</a></li>
+<li><a href="#rstudio---the-grand-tour">RStudio - The grand tour</a></li>
 <li><a href="#first-steps">First steps</a></li>
 <li><a href="#read-the-data">1. | Read the data</a></li>
 <li><a href="#plot-the-data">2. | Plot the data</a></li>
 <li><a href="#explore-the-data">3. | Explore the data</a></li>
 <li><a href="#clean-the-data">4. | Clean the data</a></li>
-<li><a href="#porg-example">Porg example</a></li>
-<li><a href="#lunch-break"><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</a></li>
+<li><a href="#porgs-to-the-rescue">Porgs to the rescue!</a></li>
+<li><a href="#lunch-break"><i class="fa fa-utensils"></i> ☕ <code>Lunch break</code></a></li>
 <li><a href="#dates">Dates</a></li>
 <li><a href="#guess-who">Guess Who?</a></li>
 <li><a href="#more-plots">5. | More plots!</a></li>
@@ -81,15 +81,20 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#group-and-summarize-the-data">6. | Group and Summarize the data</a></li>
 <li><a href="#save-results">7. | Save results</a></li>
 <li><a href="#share-with-friends">8. | Share with friends</a></li>
-<li><a href="#customize-r-studio">Customize R Studio</a></li>
 <li><a href="#help"><i class="far fa-question-circle" aria-hidden="true"></i> Help!</a></li>
+<li><a href="#customize-r-studio">Customize R Studio</a></li>
 </ul>
 </div>
 
-<h1 style="margin-top: 15px;">
+<h1 style="margin-top: 35px;">
 Welcome!
 </h1>
 <hr>
+<div class="figure">
+<img src="../images/scaryR.jpg" style="margin-left: 11%; width: 78%;" />
+
+</div>
+<p><br<br><br><br></p>
 <div class="figure">
 <img src="../images/day1_bb8_sq.png" style="float: left; margin-right: 34px; margin-bottom: 14px;" width="220" />
 
@@ -97,7 +102,7 @@ Welcome!
 <div id="power-on-your-droids" class="section level3">
 <h3>Power on your droids</h3>
 <p>You and BB8 have arrived just in time. Rey needs your help!</p>
-<p>Rey needs to travel to Tatooine, but years of scrapping ship parts hasn’t been kind to her lungs. Using historic pollution levels your goal is to find the best month for Rey to visit the dusty surface of Tatooine.</p>
+<p>Rey has to travel to Tatooine, but years of scrapping ship parts hasn’t been kind to her lungs. Using past pollution levels, let’s find the best month for Rey to visit the dusty surface of Tatooine.</p>
 </div>
 <div id="open-rstudio" class="section level2">
 <h2>Open <em>RStudio</em></h2>
@@ -108,9 +113,9 @@ Welcome!
 </div>
 <ul>
 <li><strong>Where’s my R!</strong> <em>Need to install R or RStudio? Jump over to <a href="../page/install.html">Get R!</a></em></li>
-<li><strong>Install troubles?</strong> <em>No worries. You can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
+<li><strong>Install troubles? No permissions?</strong> <em>No worries. You can use R online at <a href="https://rstudio.cloud/">RStudio Cloud</a>.</em></li>
 </ul>
-<p><br> <br></p>
+<p><br><br></p>
 </div>
 <div class="figure">
 <img src="../images/rstudio_open.png" style="width: 36%;" />
@@ -128,30 +133,29 @@ Welcome!
 <p>We are Melinda, Vallen, Jaime, Kristie &amp; Dorian.</p>
 <p>We like <strong>R</strong>.</p>
 <p>We aren’t computer scientists and that’s okay!</p>
-<p>We make lots of mistakes. You can laugh at us.</p>
+<p>We make lots of mistakes. Mistakes are funny. You can laugh with us.</p>
 </div>
 <div id="all-together-now" class="section level2 unnumbered">
 <h2>All together now</h2>
-<p>Let’s launch ourselves into the unknown and use R to store some data. We’re going to use R to introduce ourselves and the data we love.</p>
+<p>Let’s launch ourselves into the unknown and use R to store some data. We’re going to use R to introduce a friend and the data they love. Find a partner and learn 3 things about them.</p>
+<p><br></p>
 <div class="figure">
 <img src="../images/starwars_group.jpg" align="right" style="width: 50%; margin-left: 26px; margin-top: 38px;" />
 
 </div>
-<p><strong>Things to Share:</strong></p>
-<div class="note" style="margin-top: 0;">
+<p><strong>Things to Share</strong></p>
+<div class="note" style="margin-top: 0; line-height: 22px;">
 <ul>
 <li>Your name<br />
 </li>
-<li>Distance you traveled to get here</li>
-<li>Types of data you have</li>
-<li>What you want to get from the workshop</li>
-<li>A snack you want right now</li>
-<li>The messiest &amp; funniest parts of your data</li>
-<li>Something you get to do over and over again</li>
+<li>How far you traveled to here</li>
+<li>Types of air data you have</li>
+<li>Something you hope to use R for</li>
+<li>A favorite snack</li>
+<li>How many pets you have</li>
 </ul>
-<p><strong>Hint:</strong> <em>Maybe this is something you can automate in R</em></p>
 </div>
-<p><br></p>
+<p><br><br></p>
 <ul>
 <li>In R Studio click on <strong>File &gt; New File &gt; R Script</strong>. You will see a code editor window open.</li>
 </ul>
@@ -165,48 +169,69 @@ Welcome!
 </div>
 <div id="create-and-store-values" class="section level2">
 <h2>Create and store values</h2>
-<p>You can assign values to new objects using the “left arrow”.</p>
+<p>You can assign values to new objects using the “left arrow”, which is written as <code>&lt;-</code>.</p>
 <blockquote>
-<p><strong>Left arrow</strong> <code>x  &lt;-  5</code></p>
+<p><strong>Left arrow</strong></p>
+<p><code>x  &lt;-  5</code></p>
 </blockquote>
-<p>This is written by typing a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and assign a value to an object called <code>my_name</code>.</p>
+<p>This is typed using a less-than sign followed by a hyphen. It’s more officially known as the <em>assignment operator</em>. Try adding the code below to your R script and assign a value to an object called <code>partner</code>.</p>
 <p><br></p>
-<div id="lets-try-it" class="section level4">
-<h4><strong>Let’s try it</strong></h4>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_name &lt;-<span class="st"> &quot;Your Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
+<div id="create-values" class="section level3">
+<h3>Create values</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_partner &lt;-<span class="st"> &quot;Partner&#39;s Name&quot;</span> <span class="co"># Text and characters are put in quotes</span>
 
-miles_traveled &lt;-<span class="st"> </span><span class="dv">1869</span> <span class="co"># A number</span>
+miles_traveled &lt;-<span class="st"> </span><span class="dv">1160</span> <span class="co"># A number has no quotes</span>
 
 <span class="co"># A list of data I use</span>
-my_data_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PAHs&quot;</span>, <span class="st">&quot;Air Toxics&quot;</span>, <span class="st">&quot;Ultrafine particles&quot;</span>) 
+data_types &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;PAHs&quot;</span>, <span class="st">&quot;Ozone&quot;</span>, <span class="st">&quot;Fine particles&quot;</span>) 
 
-best_snack_in_the_universe &lt;-<span class="st"> &quot;Air Heads&quot;</span> </code></pre></div>
+best_snack_ever_<span class="dv">99</span> &lt;-<span class="st"> &quot;Air Heads&quot;</span> </code></pre></div>
+</div>
+<div id="view-values" class="section level3">
+<h3>View values</h3>
+<p>Now you can type <em><code>partner</code></em> and run that line to see the value stored in that variable.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_partner</code></pre></div>
+<pre><code>## [1] &quot;Partner&#39;s Name&quot;</code></pre>
 <p><br></p>
-<p>Now, you can type <em><code>my_name</code></em> into your console (lower left hand quadrant) and your entry will be returned.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_name</code></pre></div>
-<pre><code>## [1] &quot;Your Name&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">miles_traveled</code></pre></div>
-<pre><code>## [1] 1869</code></pre>
+</div>
+<div id="copy-values" class="section level3">
+<h3>Copy values</h3>
+<pre><code>nickname &lt;- my_partner
+
+nickname</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="drop-and-remove-data" class="section level2 unnumbered">
+<h2>Drop and remove data</h2>
+<p>You can drop objects with the remove function <code>rm()</code>. Try it out on some of your objects.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Delete objects to clean-up your environment</span>
+<span class="kw">rm</span>(nickname)</code></pre></div>
+<div class="tip">
+<h3 id="exercise" class="unnumbered"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen;"></i> EXERCISE!</h3>
+<p>How can we get the ‘my_partner’ object back?</p>
+<p><strong>HINT:</strong> The UP arrow in the Console is your friend.</p>
+</div>
 <p><br></p>
 <blockquote>
-<p>To run everything at once, you can highlight all of the code you’ve written in the <em>Code Editor</em> and push <code>CTRL + ENTER</code>.</p>
+<p>To run everything in one go, highlight all of the code in the Code Editor and push <code>CTRL</code>+<code>ENTER</code>.</p>
 </blockquote>
-</div>
 </div>
 <div id="its-all-about-you" class="section level2">
 <h2>It’s ALL about you</h2>
-<p>Now we can create a data table, which is also called a <code>data.frame()</code> or a <code>tibble()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put the 4 items into a table</span>
-all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name           =</span> my_name, 
-                           <span class="dt">miles_traveled =</span> miles_traveled, 
-                           <span class="dt">data_types     =</span> my_data_types,  
-                           <span class="dt">best_snack     =</span> best_snack_in_the_universe)</code></pre></div>
-<p>Let’s bounce around the room and introduce ourselves with help from our R scripts.</p>
+<p>Now we can create a data table, which in R is also called a <code>data.frame</code> or a <code>tibble</code>. When creating one, the column names go on the <em>left</em>, and the values you want to put in the column go on the <em>right</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Put the items into a table</span>
+all_about_you &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">name           =</span> my_partner, 
+                            <span class="dt">miles_traveled =</span> miles_traveled, 
+                            <span class="dt">data_types     =</span> data_types,  
+                            <span class="dt">best_snack     =</span> best_snack_ever_<span class="dv">99</span>)</code></pre></div>
+<p>Let’s bounce around the room and introduce ourselves with help from our new data frames.</p>
 <p><details style="margin-top: 34px;"> <summary class="btn_code"> <strong>GET R PACKAGES</strong> </summary></p>
 <div class="quiz" style="margin-top: -8px; border-radius: 0;">
 <p>
-<p>To use a new <em>package</em> in R you first need to install it – much like a free App on your phone. To save time on installation, you can copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;lubridate&quot;</span>)
+<p>To use a new <em>package</em> in R you first need to install it – much like a free App on your phone. To save time on installation, you can copy the text below and paste it into the RStudio <em>Console</em>. It’s the quadrant on the lower left when you open RStudio. The one with the <code>&gt;</code> symbols.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>,
+                  <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;janitor&quot;</span>, <span class="st">&quot;curl&quot;</span>)
 
 <span class="kw">install.packages</span>(new_packages)</code></pre></div>
 <div class="figure">
@@ -214,7 +239,7 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 
 </div>
 <p style="margin-top: 5px;">
-<p>Then press <code>ENTER</code> to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.</p>
+<p>Then press <code>ENTER</code> to begin the installation. If all goes well, you should start to see some messages appear similar to these:</p>
 <img src="../../images/install_msg.png" />
 </p>
 <p><strong>Congrats rebel droid!</strong> <i class="fa fa-android" style="font-size: 44px;"></i></p>
@@ -222,6 +247,50 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 <p></details></p>
 <p><br></p>
+</div>
+</div>
+<div id="why-r" class="section level1">
+<h1>Why R?</h1>
+<hr>
+<div class="figure">
+<img src="../images/rladies_map.gif" style="width: 95%;" />
+
+</div>
+<div id="r-community" class="section level2">
+<h2>R Community</h2>
+<ul>
+<li>See the <a href="../page/community.html">R Community</a> page.</li>
+<li>ITEP page for sharing &amp; questions - <a href="https://github.com/itep-data/R-questions">R questions</a></li>
+<li>Finding R Help - <a href="https://itep-r.netlify.com/page/help.html">Get help!</a>
+<ul>
+<li>R cheatsheets</li>
+</ul></li>
+</ul>
+</div>
+<div id="when-do-we-use-r" class="section level2">
+<h2>When do we use R?</h2>
+<ul>
+<li>To connect to databases</li>
+<li>To read data from websites</li>
+<li>To document and share methods</li>
+<li>When data will have frequent updates</li>
+<li>When we want to improve a process over time</li>
+</ul>
+</div>
+<div id="r-is-for-reading" class="section level2">
+<h2>R is for reading</h2>
+<div class="figure">
+<img src="../images/R_recipe.png" style="width: 55%; float: left; margin-right: 28px; margin-left: -16px; margin-top: 8px;" />
+
+</div>
+<p>Lucky for us, programming doesn’t have to be a bunch of math equations. R allows you to write your data analysis in a step-by-step fashion, much like creating a recipe for cookies. And just like a recipe, we can start at the top and read our way down to the bottom.</p>
+<div style="clear: both;">
+
+</div>
+<p><br></p>
+</div>
+<div id="it-begins" class="section level2">
+<h2>It begins!</h2>
 </div>
 <div id="todays-challenge" class="section level2">
 <h2>Today’s challenge</h2>
@@ -232,10 +301,10 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 <p><br></p>
 <blockquote>
-<p>Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month we should visit – preferrably the month with the lowest ozone concentration. The goal for today is to give Rey a nice chart of monthly ozone concentrations to help her plan.</p>
+<p>Rey needs to visit Tatooine to help the Rebel Alliance, and we have ozone data to help her decide what month she should visit. Preferably the month with the lowest ozone concentrations. Let’s make a nice reference chart of monthly ozone concentrations to help her plan.</p>
 </blockquote>
 <p><br></p>
-<p>To complete this challenge we’ll follow the general roadmap below.</p>
+<p>We’ll follow the general roadmap below.</p>
 <div style="clear: both;">
 
 </div>
@@ -261,52 +330,9 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <li><strong>SHARE</strong> with friends</li>
 </ol>
 </div>
-</div>
-</div>
-</div>
-<div id="why-r" class="section level1">
-<h1>Why R?</h1>
-<hr>
-<div class="figure">
-<img src="../images/rladies_map.gif" style="width: 95%;" />
-
-</div>
-<div id="r-community" class="section level2">
-<h2>R Community</h2>
-<p>See the <a href="community.html">R Community</a> page.</p>
-<ul>
-<li>ITEP page for sharing &amp; questions - <a href="https://github.com/itep-data/R-questions">R questions</a></li>
-<li>Finding R Help - See the <a href="https://itep-r.netlify.com/page/help.html">help page</a>
-<ul>
-<li>R cheatsheets</li>
-</ul></li>
-</ul>
-</div>
-<div id="when-to-use-r" class="section level2">
-<h2>When to use R?</h2>
-<ul>
-<li>To connect to databases.</li>
-<li>To read data from websites.</li>
-<li>To document and share methods.</li>
-<li>When data will have frequent updates.</li>
-<li>When we want to improve a process over time.</li>
-</ul>
-</div>
-<div id="r-is-for-reading" class="section level2">
-<h2>R is for reading</h2>
-<div class="figure">
-<img src="../images/R_recipe.png" style="width: 55%; float: left; margin-right: 28px; margin-left: -16px;" />
-
-</div>
-<p>Lucky for us, programming doesn’t have to be a bunch of math equations. R allows you to write your data analysis in a step-by-step fashion, much like creating a recipe for cookies. And just like a recipe, we can start at the top and read our way down to the bottom.</p>
-<div style="clear: both;">
-
-</div>
 <p><br></p>
 </div>
-<div id="it-begins" class="section level2">
-<h2>It begins!</h2>
-<div id="start-an-r-project" class="section level3">
+<div id="start-an-r-project" class="section level3 unnumbered">
 <h3>Start an R project</h3>
 <p>We’ll make a new project for our investigation of ozone on Tatooine.</p>
 <div class="well" style="margin-left: 5%;">
@@ -318,7 +344,7 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <li>Choose <em>New Directory</em></li>
 <li>Choose <em>New Project</em></li>
 </ul></li>
-<li>Enter a project name such as <code>&quot;NTF-2019&quot;</code></li>
+<li>Enter a project name such as <code>&quot;NTF_2019&quot;</code></li>
 <li>Select <em>Browse…</em> and choose a folder where you normally perform your work.
 <ul>
 <li>Click <em>Create Project</em></li>
@@ -329,15 +355,15 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <li><strong>File &gt; New File &gt; R Script</strong>
 <ul>
 <li>Click the <em>floppy disk</em> save icon</li>
-<li>Give it a name: <code>Rey.R</code> or <code>ozone.R</code> will work well</li>
+<li>Give it a name: <code>ozone.R</code> will work well</li>
 </ul></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-<div id="a-grand-tour" class="section level1">
-<h1>A grand tour</h1>
+<div id="rstudio---the-grand-tour" class="section level1">
+<h1>RStudio - The grand tour</h1>
 <div class="figure">
 <img src="../images/rstudio.png" style="width: 85%;" />
 
@@ -349,7 +375,7 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 </div>
 <div class="red-note">
 <p><strong>2. Console</strong></p>
-<p>This is where code is actually executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won’t be saved for later. That’s why we like to run all of our code directly from a script in the code editor.</p>
+<p>This is where code is executed by the computer. It shows code that you have run and any errors, warnings, or other messages resulting from that code. You can input code directly into the console and run it, but it won’t be saved for later. That’s why we like to run all of our code directly from a script in the code editor.</p>
 </div>
 <div class="red-note">
 <p><strong>3. Workspace</strong></p>
@@ -366,15 +392,16 @@ all_about_me &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<s
 <div id="read-the-data" class="section level1">
 <h1>1. | Read the data</h1>
 <hr>
+<p><br></p>
 <div class="figure">
-<img src="../images/readr-hexbin-sticker-from-rstudio.png" style="width: 20%; float: left; margin-right: 4px;" />
+<img src="../images/readr-hexbin-sticker-from-rstudio.png" style="width: 18%; float: left; margin-right: 6px;" />
 
 </div>
-<p><br></p>
-<div style="width: 79%; float: right;">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<div style="width: 81%; float: right;">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;readr&quot;)</span>
+<span class="kw">library</span>(readr)
 
-air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/OZONE_samples.csv&quot;</span>)</code></pre></div>
+air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;</span>)</code></pre></div>
 </div>
 <div style="clear: both;">
 
@@ -382,59 +409,59 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <table>
 <thead>
 <tr class="header">
+<th align="left">DateTime</th>
 <th align="left">SITE</th>
-<th align="left">MESSY_DATE</th>
 <th align="right">OZONE</th>
-<th align="right">temperature</th>
 <th align="right">LATITUDE</th>
 <th align="right">LONGITUDE</th>
+<th align="right">TEMP_F</th>
 <th align="left">UNITS</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">2015-08-30 11:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="left">2015-07-07 22:00:00</td>
-<td align="right">0.042</td>
-<td align="right">70.07</td>
-<td align="right">46.71369</td>
-<td align="right">-92.51172</td>
-<td align="left">PPM</td>
-</tr>
-<tr class="even">
-<td align="left">27-017-7417</td>
-<td align="left">2015-12-30 13:00:00</td>
 <td align="right">0.021</td>
-<td align="right">16.21</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
-<td align="left">PPM</td>
-</tr>
-<tr class="odd">
-<td align="left">27-017-7417</td>
-<td align="left">2015-06-12 03:00:00</td>
-<td align="right">0.011</td>
-<td align="right">56.38</td>
-<td align="right">46.71369</td>
-<td align="right">-92.51172</td>
+<td align="right">63.62</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="even">
+<td align="left">2015-04-19 10:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-06 16:00:00</td>
-<td align="right">0.022</td>
-<td align="right">34.22</td>
+<td align="right">0.038</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
+<td align="right">36.45</td>
 <td align="left">PPM</td>
 </tr>
 <tr class="odd">
+<td align="left">2015-09-06 23:00:00</td>
 <td align="left">27-017-7417</td>
-<td align="left">2015-12-28 23:00:00</td>
-<td align="right">0.030</td>
-<td align="right">24.83</td>
+<td align="right">0.028</td>
 <td align="right">46.71369</td>
 <td align="right">-92.51172</td>
+<td align="right">79.88</td>
+<td align="left">PPM</td>
+</tr>
+<tr class="even">
+<td align="left">2015-06-18 07:00:00</td>
+<td align="left">27-017-7417</td>
+<td align="right">0.019</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
+<td align="right">54.07</td>
+<td align="left">PPM</td>
+</tr>
+<tr class="odd">
+<td align="left">2015-11-01 09:00:00</td>
+<td align="left">27-017-7417</td>
+<td align="right">0.012</td>
+<td align="right">46.71369</td>
+<td align="right">-92.51172</td>
+<td align="right">45.32</td>
 <td align="left">PPM</td>
 </tr>
 </tbody>
@@ -443,7 +470,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 <h2>Clean header names</h2>
 <hr>
 <div class="figure">
-<img src="../images/janitor_hex.png" style="width: 17%; float: right;" />
+<img src="../images/janitor_hex.png" style="width: 17%; float: right; margin-right: 6px; margin-left: 6px;" />
 
 </div>
 <div class="figure">
@@ -473,29 +500,77 @@ air_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_d
 air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
                    <span class="dt">lat =</span> latitude,
                    <span class="dt">lon =</span> longitude)</code></pre></div>
+<p><strong>View the new names</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)</code></pre></div>
+<pre><code>## [1] &quot;date_time&quot; &quot;site&quot;      &quot;ozone&quot;     &quot;lat&quot;       &quot;lon&quot;       &quot;temp_f&quot;   
+## [7] &quot;units&quot;</code></pre>
 </div>
 </div>
 </div>
-<div id="plot-the-data" class="section level1 unnumbered">
+<div id="plot-the-data" class="section level1">
 <h1>2. | Plot the data</h1>
-<hr>
+<div id="plot-the-data-plot-the-data-plot-the-data" class="section level4 unnumbered">
+<h4><em>Plot the data, Plot the data, Plot the data</em></h4>
 <div class="figure">
 <img src="../images/ggplot2_hex.png" style="width: 22%; float: left; margin-right: 4%;" />
 
 </div>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ggplot2&quot;)</span>
+<span class="kw">library</span>(ggplot2)
 
-<span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> ozone, <span class="dt">color =</span> site)) <span class="op">+</span><span class="st"> </span>
+<span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temp_f, <span class="dt">y =</span> ozone, <span class="dt">color =</span> site)) <span class="op">+</span><span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">7</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) </code></pre></div>
 <p><img src="/page/NTF2019_files/figure-html/view-1.png" width="1152" /></p>
 <div style="clear: both;">
 
 </div>
 </div>
+<div id="break-it-down-now" class="section level2">
+<h2>Break it down now</h2>
+</div>
+<div id="the-ggplot-sandwich" class="section level2 unnumbered">
+<h2>The <code>ggplot()</code> sandwich</h2>
+<div class="figure">
+<img src="../images/auto_plot.gif" style="margin-top: -22px; margin-left: -40px; max-width: 110%;" />
+
+</div>
+<h5 style="font-size: 28px; font-weight: bold; margin-top: -42px;">
+A <code>ggplot</code> has 3 ingredients.
+</h5>
+</div>
+<div id="the-base-plot" class="section level2 unnumbered">
+<h2>1. The base plot</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data)</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="the-the-x-y-aesthetics" class="section level2 unnumbered">
+<h2>2. The the X, Y <em>aesthetics</em></h2>
+<p>The <em>aesthetics</em> assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temp_f, <span class="dt">y =</span> ozone)) </code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="the-layers-or-geometries" class="section level2 unnumbered">
+<h2>3. The layers or <em>geometries</em></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> temp_f, <span class="dt">y =</span> ozone)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><br></p>
+<div class="tip">
+<h4 id="exercise-1" class="unnumbered"><i class="fa fa-exercise" aria-hidden="true" style="color: green"></i> EXERCISE</h4>
+<p>Try making a scatterplot of any two columns. Here’s a template to get you started.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> column1, <span class="dt">y =</span> column2 )) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><em>Hint: Numeric variables will be more exciting.</em></p>
+</div>
+<p><br></p>
+<blockquote>
+<p><strong>NOTE</strong></p>
+<p>We load the package <code>library (ggplot2)</code>, but the function to make a plot is <code>ggplot(scrap)</code>.</p>
+</blockquote>
+</div>
+</div>
 <div id="explore-the-data" class="section level1">
 <h1>3. | Explore the data</h1>
-<hr>
 <p>Some functions to get to know your data.</p>
 <table>
 <thead>
@@ -506,7 +581,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>names(scrap)</code></td>
+<td align="left"><code>names(air_data)</code></td>
 <td align="left">column names</td>
 </tr>
 <tr class="even">
@@ -530,38 +605,40 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 <div id="glimpse-and-summary" class="section level2">
 <h2><code>glimpse()</code> and <code>summary()</code></h2>
 <p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
-<p>Use the <code>summary()</code> function to get a quick report of your numeric data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
 <span class="co"># Glimpse the columns of your data and their first few contents</span>
 <span class="kw">glimpse</span>(air_data)</code></pre></div>
 <pre><code>## Observations: 6,665
 ## Variables: 7
-## $ messy_date  &lt;dttm&gt; 2015-07-06 09:00:00, 2015-07-13 04:00:00, 2015-07...
-## $ site        &lt;chr&gt; &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-0...
-## $ ozone       &lt;dbl&gt; 0, -1, -2, 0, 0, 0, 0, 0, 0, 0, -1, 0, -1, -1, -1,...
-## $ lat         &lt;dbl&gt; 46.71369, 46.71369, 46.71369, 46.71369, 46.71369, ...
-## $ lon         &lt;dbl&gt; -92.51172, -92.51172, -92.51172, -92.51172, -92.51...
-## $ temperature &lt;dbl&gt; 64.36, 64.49, 63.23, 61.49, 61.30, 71.22, 76.63, 6...
-## $ units       &lt;chr&gt; &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;...</code></pre>
+## $ date_time &lt;dttm&gt; 2015-07-06 09:00:00, 2015-07-13 04:00:00, 2015-07-1...
+## $ site      &lt;chr&gt; &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017...
+## $ ozone     &lt;dbl&gt; 0, -1, -2, 0, 0, 0, 0, 0, 0, 0, -1, 0, -1, -1, -1, 0...
+## $ lat       &lt;dbl&gt; 46.71369, 46.71369, 46.71369, 46.71369, 46.71369, 46...
+## $ lon       &lt;dbl&gt; -92.51172, -92.51172, -92.51172, -92.51172, -92.5117...
+## $ temp_f    &lt;dbl&gt; 64.36, 64.49, 63.23, 61.49, 61.30, 71.22, 76.63, 64....
+## $ units     &lt;chr&gt; &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PP...</code></pre>
+<p><br></p>
+<p>Use the <code>summary()</code> function to get a quick report of your numeric data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show numeric summary of the min, mean, and max of all columns</span>
 <span class="kw">summary</span>(air_data)</code></pre></div>
-<pre><code>##    messy_date                      site               ozone         
+<pre><code>##    date_time                       site               ozone         
 ##  Min.   :2014-04-03 03:00:00   Length:6665        Min.   :-4.00000  
 ##  1st Qu.:2015-06-07 10:00:00   Class :character   1st Qu.: 0.01700  
 ##  Median :2015-08-16 20:00:00   Mode  :character   Median : 0.02500  
 ##  Mean   :2015-08-13 15:04:35                      Mean   : 0.01666  
 ##  3rd Qu.:2015-10-24 12:00:00                      3rd Qu.: 0.03500  
 ##  Max.   :2016-01-01 05:00:00                      Max.   : 0.07500  
-##       lat             lon          temperature       units          
+##       lat             lon             temp_f         units          
 ##  Min.   :46.71   Min.   :-92.54   Min.   : 1.83   Length:6665       
 ##  1st Qu.:46.71   1st Qu.:-92.51   1st Qu.:37.85   Class :character  
 ##  Median :46.71   Median :-92.51   Median :52.32   Mode  :character  
 ##  Mean   :46.73   Mean   :-92.51   Mean   :50.85                     
 ##  3rd Qu.:46.71   3rd Qu.:-92.51   3rd Qu.:63.59                     
 ##  Max.   :47.52   Max.   :-92.51   Max.   :90.01</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try the rest on your own</span>
-<span class="kw">nrow</span>()
+<p><br></p>
+<p>Try running some of these in your script.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">nrow</span>(air_data)
 
 <span class="kw">ncol</span>()
 
@@ -571,24 +648,6 @@ air_data &lt;-<span class="st"> </span><span class="kw">rename</span>(air_data,
 <div id="clean-the-data" class="section level1">
 <h1>4. | Clean the data</h1>
 <hr>
-<div id="filter-out-values-that-are-out-of-range" class="section level3">
-<h3>Filter out values that are out-of-range</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
-air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
-
-<span class="co"># We can filter with two conditions</span>
-air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temperature <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre></div>
-</div>
-<div id="check-the-units-column" class="section level3">
-<h3>Check the units column</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the units column</span>
-<span class="kw">distinct</span>(air_data, units)</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
-##   units
-##   &lt;chr&gt;
-## 1 PPM</code></pre>
-<p>PPM! That explains the tiny results. It looks like we may need to fix the units on these ozone values. For that we’ll want to call the friendly <code>dplyr</code> package.</p>
-</div>
 <div id="its-time-for-dplyr" class="section level2">
 <h2>It’s time for <code>dplyr</code></h2>
 <hr>
@@ -597,8 +656,11 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 
 </div>
 <p><br></p>
-<p>This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you’d want to do with data.</p>
+<p>This is our go-to package for most analysis tasks. With the six functions below you can accomplish just about anything you want.</p>
 <p><br></p>
+<div style="clear: both;">
+
+</div>
 <blockquote>
 <h3 id="your-new-analysis-toolbox" class="unnumbered"><i class="fa fa-toolbox" aria-hidden="true" style="color: grey;"></i> Your new analysis toolbox</h3>
 <table>
@@ -638,9 +700,9 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 </blockquote>
 </div>
 </div>
-<div id="porg-example" class="section level1">
-<h1>Porg example</h1>
-<p>We recruited a poggle of porgs to help demo the <code>dplyr</code> functions. As you can see in the table below, there are two types: yellow and gray.</p>
+<div id="porgs-to-the-rescue" class="section level1">
+<h1>Porgs to the rescue!</h1>
+<p>We recruited a poggle of porgs to help demo the <code>dplyr</code> functions. There are two types of porgs: yellow-eyed and gray-eyed.</p>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
 <a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
@@ -669,41 +731,76 @@ air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
 <img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
 <div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
-<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/select_card.png" style="width: 88%;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 92%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 65%; margin-left: 9%; margin-top: -6px;" /> <br><br>
 </div>
 <div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
-<img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/arrange.png" style="width: 82%; margin-left: -12px" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 76%; margin-left: 8px;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 10px;" /> <br><br>
 </div>
 <div id="filter" class="tab-pane fade" role="tabpanel" aria-labelledby="filter-tab">
-<img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/filter.png" style="width: 70%; margin-left: 0;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 82%; margin-left: 6px;;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
-<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/mutate_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
-<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/summarize_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
-<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/groupby_card.png" style="width: 92%;" /> <br><br>
 </div>
 </div>
-<div id="fix-the-units" class="section level2">
-<h2>Fix the units</h2>
+<p><br></p>
+<blockquote>
+<p>Back to the ozone data…</p>
+</blockquote>
+<div id="filter-out-values-that-are-out-of-range" class="section level2 unnumbered">
+<h2>Filter out values that are out-of-range</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop values out of range</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+
+<span class="co"># We can filter with two conditions</span>
+air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, ozone <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, temp_f <span class="op">&lt;</span><span class="st"> </span><span class="dv">199</span>) </code></pre></div>
+</div>
+<div id="show-distinct-values" class="section level2 unnumbered">
+<h2>Show <code>distinct()</code> values</h2>
+<p><strong>Show the unique values in the <code>site</code> and <code>units</code> column</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the site column</span>
+<span class="kw">distinct</span>(air_data, site)</code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   site       
+##   &lt;chr&gt;      
+## 1 27-017-7417</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show all unique values in the units column</span>
+<span class="kw">distinct</span>(air_data, units)</code></pre></div>
+<pre><code>## # A tibble: 1 x 1
+##   units
+##   &lt;chr&gt;
+## 1 PPM</code></pre>
+<p>PPM? That explains the tiny results. Let’s convert to <code>PPB</code>. For that we’ll want our friend the <code>mutate</code> function.</p>
+</div>
+<div id="convert-units" class="section level2">
+<h2>Convert units</h2>
 <div id="mutate" class="section level3">
 <h3><code>mutate()</code></h3>
+<p>For <code>mutate</code>, the name of the column goes on the <em>left</em>, and the calculation of its new value goes on the <em>right</em>.</p>
+<p><strong>Update the column <code>ozone</code></strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert all samples to PPB</span>
-air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">ozone_ppb =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre></div>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">ozone =</span> ozone <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) </code></pre></div>
+<p><strong>Update the column <code>units</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set units column to PPB</span>
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">units =</span> <span class="st">&quot;PPB&quot;</span>) </code></pre></div>
 <br><br>
 <hr>
 <div class="figure">
 <img src="../images/chewie_box.png" style="width: 56%; float: left; margin-right: 11px;" />
 
 </div>
+<p><br></p>
 </div>
 </div>
 </div>
 <div id="lunch-break" class="section level1">
-<h1><code>Lunch break</code> <i class="fa fa-utensils"></i> ☕</h1>
+<h1><i class="fa fa-utensils"></i> ☕ <code>Lunch break</code></h1>
 <div style="clear: both;">
 
 </div>
@@ -721,8 +818,7 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 
 </div>
 <p><br></p>
-<p>It’s about time! Lubridate makes working with dates easier.</p>
-<p>We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages.</p>
+<p>It’s about time! Lubridate makes working with dates easier. We can find how much time has elapsed, add or subtract days, and aggregate to seasonal, monthly, or day of the week averages.</p>
 <p><br></p>
 <div style="clear: both;">
 
@@ -744,15 +840,15 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 <td align="left">Year</td>
 </tr>
 <tr class="even">
-<td><code>month</code></td>
+<td><code>month()</code></td>
 <td align="left">Month as <em>1,2,3</em>; For <em>Jan, Feb, Mar</em> use <code>label=TRUE</code></td>
 </tr>
 <tr class="odd">
-<td><code>day</code></td>
+<td><code>day()</code></td>
 <td align="left">Day of the month</td>
 </tr>
 <tr class="even">
-<td><code>wday</code></td>
+<td><code>wday()</code></td>
 <td align="left">Day of the week as <em>1,2,3</em>; For <em>Sun, Mon, Tue</em> use <code>label=TRUE</code></td>
 </tr>
 <tr class="odd">
@@ -814,11 +910,11 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
 </div>
 <div id="clean-the-dates" class="section level2">
 <h2><i class="fa fa-broom" aria-hidden="true"></i> Clean the dates</h2>
-<p>Let’s set our date column to an official date format. We can Use <code>ymd_hms()</code> because our dates are written as <code>year-month-day hour:minutes:seconds</code>.</p>
+<p>Let’s set our date column to the standard date format. Because our dates are written as <code>year-month-day hour:mins</code>, we can Use <code>ymd_hm()</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate) 
 
 <span class="co"># Set date column to official date format</span>
-air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">date_time =</span> <span class="kw">ymd_hms</span>(messy_date))
+air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, <span class="dt">date_time =</span> <span class="kw">ymd_hms</span>(date_time))
 
 <span class="co"># Now we can add a variety of date and time columns to our data</span>
 air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data, 
@@ -827,7 +923,58 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
                    <span class="dt">month =</span> <span class="kw">month</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
                    <span class="dt">day   =</span> <span class="kw">wday</span>(date_time, <span class="dt">label =</span> <span class="ot">TRUE</span>),
                    <span class="dt">year  =</span> <span class="kw">year</span>(date_time)) </code></pre></div>
-<p><br></p>
+</div>
+<div id="comparisons" class="section level2 unnumbered">
+<h2>Comparisons</h2>
+<hr>
+<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons.</p>
+<p><strong>Key comparison operators</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&gt;</code></td>
+<td align="left">greater than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&gt;=</code></td>
+<td align="left">greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;</code></td>
+<td align="left">less than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;=</code></td>
+<td align="left">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>==</code></td>
+<td align="left">equal to</td>
+</tr>
+<tr class="even">
+<td align="left"><code>!=</code></td>
+<td align="left">NOT equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%in%</code></td>
+<td align="left">is value in a list: <code>X %in% c(1,3,5)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>is.na(...)</code></td>
+<td align="left">is the value missing?</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>str_detect(col_name, &quot;word&quot;)</code></td>
+<td align="left">does this text appear anywhere?</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div id="guess-who" class="section level1">
@@ -852,14 +999,14 @@ air_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(air_data,
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
 starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
-<div id="rules" class="section level2">
+<div id="rules" class="section level2 unnumbered">
 <h2><span style="text-decoration: underline;"> Rules </span></h2>
 <ol style="list-style-type: decimal">
 <li>You have a <strong>secret</strong> identity.</li>
-<li>Scroll through the Star Wars dataset and find a character you find interesting. <em>(Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.)</em></li>
-<li><strong>Keep it hidden!</strong> Don’t show your neighbor the character you chose.</li>
-<li>Take turns asking each other questions about your partner’s Star Wars character.</li>
-<li>Use the answers to build a <code>filter()</code> function and narrow down the potential character your neighbor may have picked.</li>
+<li>Choose a character from the Star Wars data set. <em>(Or run <code>sample_n(starwars_data, 1)</code> to choose your character at random.)</em></li>
+<li><strong>Keep it hidden!</strong> Don’t show or tell your neighbor.</li>
+<li>Take turns asking each other questions about your partner’s character.</li>
+<li>Use the answers to build a <code>filter()</code> function and narrow down the potential characters your neighbor may have picked.</li>
 </ol>
 <p>For example: Here’s a <code>filter()</code> statement that filters the data to the character <em>Plo Koon</em>.</p>
 <div style="width: 90%; margin-left: 8%">
@@ -870,15 +1017,13 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
                   homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
                   birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre></div>
 </div>
-<ol start="6" style="list-style-type: decimal">
-<li><em>Elusive</em> answers are encouraged.
+<p><br></p>
+<p>Elusive answers are allowed. For example, if someone asks: <em>What is your character’s mass?</em></p>
 <ul>
-<li>For example, if someone asks: <em>What is your character’s mass?</em></li>
 <li>You can respond: <em>My character’s mass is equal to one less than their age.</em></li>
-<li>Or if you’re feeling generous you can give a more straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
-</ul></li>
-<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. If your character has a missing value for hair color, one of your filter statements could be <code>is.na(hair_color)</code>.</li>
-</ol>
+<li>Or if you’re feeling generous you can give a straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
+</ul>
+<p>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. If your character has a missing value for hair color, one of your filter statements could be <code>is.na(hair_color)</code>.</p>
 <p><br></p>
 <h3 style="margin-top: 18px; color:  #a0af49;">
 <strong>WINNER!</strong>
@@ -915,12 +1060,15 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <div id="more-plots" class="section level1">
 <h1>5. | More plots!</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> ozone, <span class="dt">color =</span> month)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.2</span>, <span class="dt">size =</span> <span class="dv">3</span>) </code></pre></div>
-<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-5-1.png" width="1248" /></p>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">alpha =</span> <span class="fl">0.2</span>) </code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-12-1.png" width="1248" /></p>
+<div id="show-me-the-weather" class="section level2 unnumbered">
+<h2>Show me the weather</h2>
+<p>Maybe some meteorological data would give us some clues about when high ozone is occurring. Unfortunately, concentration and meteorological data often come to us separately, but we want them joined together for easy plotting.</p>
+</div>
 </div>
 <div id="combine-tables-with-left_join" class="section level1">
 <h1>Combine tables with <code>left_join()</code></h1>
-<p>Concentration data and meteorological data often arrive to us separately, but we usually want them joined together for easy plotting.</p>
 <div class="figure">
 <img src="../images/left_join_venn.png" style="width: 55%;" />
 
@@ -928,6 +1076,7 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <br>
 <hr>
 <p><code>left_join()</code> works like a zipper and combines two tables based on one or more variables. They can have the same name or not. Since it’s <code>left_join</code>, the entire table on the left side is retained. Anything that matches from the right side is retained and the rest is not retained.</p>
+<p><br></p>
 <div id="adding-porg-names" class="section level3 unnumbered">
 <h3>Adding porg names</h3>
 <p>Remember our porg friends? How rude of us not to share their names. <strong>Wups!</strong></p>
@@ -941,9 +1090,10 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 <div style="clear: both;">
 
 </div>
+<p><br></p>
 <p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
 <div class="figure">
-<img src="../images/porgs/leftjoin_porgs.png" style="width: 90%; max-width: 85%;" />
+<img src="../images/porgs/leftjoin_porgs.png" style="width: 95%; max-width: 95%;" />
 
 </div>
 <p><br></p>
@@ -965,26 +1115,27 @@ starwars_data &lt;-<span class="st"> </span>starwars</code></pre></div>
 ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_data, met_data, 
                        <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;date&quot;</span> =<span class="st"> &quot;date&quot;</span>, 
                               <span class="st">&quot;site&quot;</span> =<span class="st"> &quot;site&quot;</span>, 
-                              <span class="st">&quot;hour&quot;</span> =<span class="st"> &quot;hour&quot;</span>)) 
-<span class="kw">glimpse</span>(ozone_met)</code></pre></div>
+                              <span class="st">&quot;hour&quot;</span> =<span class="st"> &quot;hour&quot;</span>)) </code></pre></div>
+<blockquote>
+<p>Now we can take a look at our new columns.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(ozone_met)</code></pre></div>
 <pre><code>## Observations: 6,467
-## Variables: 16
-## $ messy_date  &lt;dttm&gt; 2015-04-01 06:00:00, 2015-04-01 07:00:00, 2015-04...
-## $ site        &lt;chr&gt; &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-0...
-## $ ozone       &lt;dbl&gt; 0.037, 0.037, 0.036, 0.036, 0.036, 0.028, 0.034, 0...
-## $ lat         &lt;dbl&gt; 46.71369, 46.71369, 46.71369, 46.71369, 46.71369, ...
-## $ lon         &lt;dbl&gt; -92.51172, -92.51172, -92.51172, -92.51172, -92.51...
-## $ temperature &lt;dbl&gt; 32.60, 32.51, 30.88, 30.78, 30.69, 30.66, 30.76, 4...
-## $ units       &lt;chr&gt; &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;PPM&quot;, &quot;...
-## $ ozone_ppb   &lt;dbl&gt; 37, 37, 36, 36, 36, 28, 34, 38, 35, 34, 34, 36, 36...
-## $ date_time   &lt;dttm&gt; 2015-04-01 06:00:00, 2015-04-01 07:00:00, 2015-04...
-## $ date        &lt;date&gt; 2015-04-01, 2015-04-01, 2015-04-01, 2015-04-01, 2...
-## $ hour        &lt;dbl&gt; 6, 7, 8, 9, 10, 11, 12, 17, 18, 19, 20, 21, 22, 23...
-## $ month       &lt;ord&gt; Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, ...
-## $ day         &lt;ord&gt; Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, ...
-## $ year        &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 20...
-## $ ws          &lt;dbl&gt; 10.62, 9.81, 8.96, 8.16, 9.99, 9.24, 9.28, 12.84, ...
-## $ wd          &lt;dbl&gt; 87, 97, 89, 97, 90, 105, 96, 108, 108, 91, 111, 11...</code></pre>
+## Variables: 14
+## $ date_time &lt;dttm&gt; 2015-04-01 06:00:00, 2015-04-01 07:00:00, 2015-04-0...
+## $ site      &lt;chr&gt; &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017-7417&quot;, &quot;27-017...
+## $ ozone     &lt;dbl&gt; 37, 37, 36, 36, 36, 28, 34, 38, 35, 34, 34, 36, 36, ...
+## $ lat       &lt;dbl&gt; 46.71369, 46.71369, 46.71369, 46.71369, 46.71369, 46...
+## $ lon       &lt;dbl&gt; -92.51172, -92.51172, -92.51172, -92.51172, -92.5117...
+## $ temp_f    &lt;dbl&gt; 32.60, 32.51, 30.88, 30.78, 30.69, 30.66, 30.76, 44....
+## $ units     &lt;chr&gt; &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PPB&quot;, &quot;PP...
+## $ date      &lt;date&gt; 2015-04-01, 2015-04-01, 2015-04-01, 2015-04-01, 201...
+## $ hour      &lt;dbl&gt; 6, 7, 8, 9, 10, 11, 12, 17, 18, 19, 20, 21, 22, 23, ...
+## $ month     &lt;ord&gt; Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, Apr, Ap...
+## $ day       &lt;ord&gt; Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, Wed, We...
+## $ year      &lt;dbl&gt; 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015, 2015...
+## $ ws        &lt;dbl&gt; 10.62, 9.81, 8.96, 8.16, 9.99, 9.24, 9.28, 12.84, 10...
+## $ wd        &lt;dbl&gt; 87, 97, 89, 97, 90, 105, 96, 108, 108, 91, 111, 111,...</code></pre>
 </div>
 <div id="polar-plots" class="section level2">
 <h2>Polar plots</h2>
@@ -992,60 +1143,85 @@ ozone_met &lt;-<span class="st"> </span><span class="kw">left_join</span>(air_da
 <p>Pairing wind direction and air concentration data helps answer these questions and provide further insights. Polar plots are one way to look at wind data and get to know the wind patterns around your air monitors.</p>
 <br><br>
 <hr>
-<p>For this data, we have two monitoring sites. Let’s start by looking at the data for only one of the sites.</p>
+<blockquote>
+<p>Let’s make sure we’re looking at the data for only one of the sites.</p>
+</blockquote>
 <div id="filter-to-a-single-site" class="section level3 unnumbered">
 <h3>Filter to a single site</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ozone_met &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met, site <span class="op">==</span><span class="st"> &quot;27-017-7417&quot;</span>)</code></pre></div>
 </div>
 <div id="plot-the-wind-directions" class="section level3 unnumbered">
 <h3>Plot the wind directions</h3>
+<p>For wind directions we’ll use a <em>polar</em> plot to align with the compass directions.</p>
+<p><strong>Polar plot</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> wd, <span class="dt">y =</span> ozone)) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">coord_polar</span>(<span class="dt">start =</span> <span class="dv">0</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">16</span>, <span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), <span class="dt">expand =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">lim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>), <span class="dt">name =</span> <span class="st">&quot;&quot;</span>, <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>))</code></pre></div>
+<span class="st">      </span><span class="kw">coord_polar</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), 
+                         <span class="dt">lim    =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>), 
+                         <span class="dt">label  =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>)) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_minimal</span>()</code></pre></div>
 <p><img src="/page/NTF2019_files/figure-html/polar-1.png" width="672" /></p>
+<p><strong>Let’s color the points by <code>ozone</code> concentration</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> wd, <span class="dt">y =</span> ozone, <span class="dt">color =</span> ozone)) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">coord_polar</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">alpha =</span> <span class="fl">0.3</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">360</span>, <span class="dt">by =</span> <span class="dv">90</span>), 
+                         <span class="dt">lim    =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">360</span>),
+                         <span class="dt">label  =</span> <span class="kw">c</span>(<span class="st">&quot;&quot;</span>,<span class="st">&quot;E&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;W&quot;</span>, <span class="st">&quot;N&quot;</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">      </span><span class="kw">theme_minimal</span>() <span class="op">+</span>
+<span class="st">      </span><span class="kw">scale_fill_viridis_c</span>()</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/polar-color-1.png" width="672" /></p>
 <div class="tip">
-<h4 id="exercise"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
-<p>Let’s experiment with the transparency of the points by changing the value after <code>alpha =</code>.</p>
-<p>How does changing the value to <code>alpha = 0.1</code> change the chart?<br />
-How about <code>alpha = 0.9</code>?</p>
+<h4 id="exercise-2"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> EXERCISE</h4>
+<p>Let’s experiment with the transparency of the points by changing the <code>alpha =</code> value.</p>
+<ul>
+<li><p>How does changing the value to <code>alpha = 0.1</code> change the chart?</p></li>
+<li><p>How about <code>alpha = 0.9</code>?</p></li>
+<li><p>Try increasing and decreasing the <code>size = 2</code> argument.</p></li>
+</ul>
 </div>
 </div>
 </div>
 <div id="calendar-plot" class="section level2">
 <h2>Calendar plot</h2>
 <p>Sometimes with air data we want to know if there is seasonality in the data, or if there were dates with very high values. Calendar plots are great for this.</p>
-<p><br></p>
 <blockquote>
 <p>Let’s make this plot for only the year 2015. To do that we’ll first use <code>filter()</code>.</p>
 </blockquote>
 <div id="filter-to-a-single-year" class="section level3 unnumbered">
 <h3>Filter to a single year</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ozone_met &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met, year <span class="op">==</span><span class="st"> </span><span class="dv">2015</span>)</code></pre></div>
+</div>
+<div id="filter-to-a-date-range" class="section level3 unnumbered">
+<h3>Filter to a date range</h3>
+<p>You can also check whether a date is before or after a certain day in history.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ozone_met &lt;-<span class="st"> </span><span class="kw">filter</span>(ozone_met, date <span class="op">&lt;</span><span class="st"> &quot;2016-01-01&quot;</span>, date <span class="op">&gt;</span><span class="st"> &quot;2014-01-01&quot;</span>)</code></pre></div>
 <p><br></p>
 <blockquote>
 <p>Now we can look at our data by hour for each day of the week.</p>
 </blockquote>
+<p><br></p>
 </div>
-<div id="plot-concentration-by-hour-for-each-day-of-the-week" class="section level3 unnumbered">
-<h3>Plot concentration by hour for each day of the week</h3>
+<div id="plot-ozone-by-hour-for-each-day-of-the-week" class="section level3 unnumbered">
+<h3>Plot ozone by hour for each day of the week</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(<span class="dt">x =</span> day, <span class="dt">y =</span> hour, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>) </code></pre></div>
-<p><img src="/page/NTF2019_files/figure-html/calendar_day-1.png" width="672" /></p>
+<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>) </code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/calendar_day2-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
 <p>We can also compare concentrations by day of the week for every month.</p>
 </blockquote>
+<p><br></p>
 </div>
 <div id="plot-concentration-by-day-of-the-week-for-each-month" class="section level3 unnumbered">
 <h3>Plot concentration by day of the week for each month</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(ozone_met, <span class="kw">aes</span>(day, month, <span class="dt">fill =</span> ozone)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>, <span class="dt">size =</span> <span class="fl">0.5</span>)</code></pre></div>
-<p><img src="/page/NTF2019_files/figure-html/calendar_month-1.png" width="672" /></p>
+<span class="st">  </span><span class="kw">geom_tile</span>(<span class="dt">color =</span> <span class="st">&quot;gray&quot;</span>)</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/calendar_month2-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
-<p>Lastly, let’s compare by day of the week and hour of the day for every month.</p>
+<p>Lastly, let’s compare by day of the week and hour of the day again. But this time, we’ll split it into separate charts for each month.</p>
 </blockquote>
 </div>
 <div id="plot-concentration-by-hour-for-each-day-of-the-week-and-month" class="section level3 unnumbered">
@@ -1056,7 +1232,7 @@ How about <code>alpha = 0.9</code>?</p>
 <p><img src="/page/NTF2019_files/figure-html/calendar_year-1.png" width="1000" /></p>
 <p><br></p>
 <div class="tip">
-<h4 id="exercise-1"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
+<h4 id="exercise-3"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> EXERCISE</h4>
 <p>What do the blank spaces mean? Is there a pattern?</p>
 <p>To take a closer look at the missing values you can use <code>filter()</code> to select only the Sunday ozone concentrations. Let’s look at all the data where the <code>day == &quot;Sun&quot;</code> and the hour is between <code>6</code> and <code>10</code>.</p>
 <p>Try completing the code below to get a Sunday table.</p>
@@ -1072,83 +1248,107 @@ How about <code>alpha = 0.9</code>?</p>
 <h1>6. | Group and Summarize the data</h1>
 <p>To calculate a summary statistic for each group in the data we use <code>group_by()</code>.</p>
 <blockquote>
-<p>First we’ll group the data by month and by site. This will let us calculate a summary of the ozone concentration for each month of the year and for every site in our data.</p>
+<p>First group the data by month and by site.</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data, month, site)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_data, site, month)</code></pre></div>
 <blockquote>
-<p>Next we can use <code>summarize()</code> to make a table showing the average ozone concentration. Summarize will automatically include a result for each group that we created above.</p>
+<p>Next use <code>summarize()</code> to make a table showing the average ozone concentration for each group. Summarize automatically includes a result for each group that we created above.</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data_summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(air_data, <span class="dt">avg_ozone =</span> <span class="kw">mean</span>(ozone))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(air_data, <span class="dt">avg_ozone =</span> <span class="kw">mean</span>(ozone))</code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th align="left">month</th>
 <th align="left">site</th>
+<th align="left">month</th>
 <th align="right">avg_ozone</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="left">27-017-7417</td>
 <td align="left">Jan</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0218333</td>
+<td align="right">21.83333</td>
 </tr>
 <tr class="even">
+<td align="left">27-017-7417</td>
 <td align="left">Apr</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0411416</td>
+<td align="right">41.14162</td>
 </tr>
 <tr class="odd">
+<td align="left">27-017-7417</td>
 <td align="left">May</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0355892</td>
+<td align="right">35.58921</td>
 </tr>
 <tr class="even">
+<td align="left">27-017-7417</td>
 <td align="left">Jun</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0296738</td>
+<td align="right">29.67382</td>
 </tr>
 <tr class="odd">
+<td align="left">27-017-7417</td>
 <td align="left">Jul</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0287798</td>
+<td align="right">28.77980</td>
 </tr>
 <tr class="even">
+<td align="left">27-017-7417</td>
 <td align="left">Aug</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0223804</td>
+<td align="right">22.38042</td>
 </tr>
 <tr class="odd">
+<td align="left">27-017-7417</td>
 <td align="left">Sep</td>
-<td align="left">27-017-7417</td>
-<td align="right">0.0249260</td>
+<td align="right">24.92604</td>
 </tr>
 <tr class="even">
-<td align="left">Oct</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.0224696</td>
+<td align="left">Oct</td>
+<td align="right">22.46959</td>
 </tr>
 <tr class="odd">
-<td align="left">Nov</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.0209532</td>
+<td align="left">Nov</td>
+<td align="right">20.95319</td>
 </tr>
 <tr class="even">
-<td align="left">Dec</td>
 <td align="left">27-017-7417</td>
-<td align="right">0.0193232</td>
+<td align="left">Dec</td>
+<td align="right">19.32316</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<blockquote>
-<p>Lastly, to ungroup the data we can run the nicely named function <code>ungroup()</code>.</p>
-</blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">ungroup</span>(air_data)</code></pre></div>
 <div class="tip">
-<h4 id="exercise-2"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> Exercise</h4>
-<p>Try running the same summarize code on the data after you use <code>ungroup()</code>.</p>
-<p>What do you get?</p>
+<h4 id="exercise-4"><i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen"></i> EXERCISE</h4>
+<p>Let’s plot our summary table for Rey. If we want column showing the average concentration for each month, we can use <code>geom_col()</code>.</p>
+<p>Here’s a template to get started. Fill in <code>x =</code> and <code>y =</code> to complete the plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="op">----</span><span class="st"> </span>, <span class="dt">y =</span> <span class="op">---</span><span class="st"> </span>, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
+</div>
+<div id="add-labels" class="section level2 unnumbered">
+<h2>Add labels</h2>
+<p>We can add lables to the chart by adding the <code>labs()</code> layer. Let’s give our chart from above a title.</p>
+<p><strong>Titles and labels</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month , <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span>
+<span class="st">     </span><span class="kw">geom_col</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;2015 Ozone by Month&quot;</span>, 
+          <span class="dt">subtitle =</span> <span class="st">&quot;Concentration in PPB&quot;</span>,
+          <span class="dt">y =</span> <span class="st">&quot;OZONE&quot;</span>)</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p><br></p>
+<blockquote>
+<p>More layers! Rey’s been advised to avoid concentrations over <em>22 ppb</em>. Let’s add that as a horizontal line to our chart. For that, we use <code>geom_hline()</code>.</p>
+</blockquote>
+</div>
+<div id="add-lines" class="section level2 unnumbered">
+<h2>Add lines</h2>
+<p><strong>Reference lines</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month , <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
+<span class="st">     </span><span class="kw">geom_col</span>() <span class="op">+</span>
+<span class="st">     </span><span class="kw">labs</span>(<span class="dt">title    =</span> <span class="st">&quot;2015 Ozone by Month&quot;</span>, 
+          <span class="dt">subtitle =</span> <span class="st">&quot;Concentration in PPB&quot;</span>,
+          <span class="dt">y =</span> <span class="st">&quot;OZONE&quot;</span>) <span class="op">+</span>
+<span class="st">     </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">22</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 </div>
 <div id="save-results" class="section level1">
@@ -1156,26 +1356,114 @@ How about <code>alpha = 0.9</code>?</p>
 <blockquote>
 <p>Save the summarized data table</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(air_data_summary, <span class="st">&quot;2015-2017_ozone_summary.csv&quot;</span>)</code></pre></div>
-<blockquote>
-<p>Plot the summarized data</p>
-</blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) </code></pre></div>
-<p><img src="/page/NTF2019_files/figure-html/unnamed-chunk-10-1.png" width="1152" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write_csv</span>(air_summary, <span class="st">&quot;2015-2017_ozone_summary.csv&quot;</span>)</code></pre></div>
+<p><details> <summary class = "btn_code"> <strong>BONUS</strong> Save to EPA AQS format </summary></p>
+<div class="quiz" style="margin-top: -9px;">
+<p>
+<p>AQS format is similar to a CSV, but instead of a <code>,</code> it uses the <code>|</code> to separate values. Oh, and we also need to have <strong>28 columns</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
+<span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(janitor)
+<span class="kw">library</span>(lubridate)
+
+<span class="co"># Columns names in AQS</span>
+aqs_column_names &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Transaction Type&quot;</span>, <span class="st">&quot;Action Indicator&quot;</span>, <span class="st">&quot;State Code&quot;</span>,
+                      <span class="st">&quot;County Code&quot;</span>, <span class="st">&quot;Site Number&quot;</span>, <span class="st">&quot;Parameter&quot;</span>,
+                      <span class="st">&quot;POC&quot;</span>, <span class="st">&quot;Duration Code&quot;</span>, <span class="st">&quot;Reported Unit&quot;</span>,
+                      <span class="st">&quot;Method Code&quot;</span>, <span class="st">&quot;Sample Date&quot;</span>, <span class="st">&quot;Sample Begin Time&quot;</span>,
+                      <span class="st">&quot;Reported Sample Value&quot;</span>, <span class="st">&quot;Null Data Code&quot;</span>, <span class="st">&quot;Collection Frequency Code&quot;</span>,
+                      <span class="st">&quot;Monitor Protocol ID&quot;</span>, <span class="st">&quot;Qualifier Code - 1&quot;</span>, <span class="st">&quot;Qualifier Code - 2&quot;</span>,
+                      <span class="st">&quot;Qualifier Code - 3&quot;</span>, <span class="st">&quot;Qualifier Code - 4&quot;</span>, <span class="st">&quot;Qualifier Code - 5&quot;</span>,
+                      <span class="st">&quot;Qualifier Code - 6&quot;</span>, <span class="st">&quot;Qualifier Code - 7&quot;</span>, <span class="st">&quot;Qualifier Code - 8&quot;</span>,
+                      <span class="st">&quot;Qualifier Code - 9&quot;</span>, <span class="st">&quot;Qualifier Code - 10&quot;</span>, <span class="st">&quot;Alternate Method Detection Limit&quot;</span>,
+                      <span class="st">&quot;Uncertainty Value&quot;</span>)
+
+<span class="co"># Read in our data</span>
+my_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;</span>)
+
+<span class="co"># Clean the names</span>
+my_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(my_data)
+
+<span class="co"># View the column names</span>
+<span class="kw">names</span>(my_data)</code></pre></div>
+<pre><code>## [1] &quot;date_time&quot; &quot;site&quot;      &quot;ozone&quot;     &quot;latitude&quot;  &quot;longitude&quot; &quot;temp_f&quot;   
+## [7] &quot;units&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Format the date column</span>
+<span class="co"># Date is in year-month-day format, use &quot;ymd_hms()&quot;</span>
+my_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(my_data, <span class="dt">date_time =</span> <span class="kw">ymd_hms</span>(date_time),
+                           <span class="dt">date      =</span> <span class="kw">date</span>(date_time))
+
+<span class="co"># Remove dashes from the date, EPA hates dashes</span>
+my_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(my_data, <span class="dt">date =</span> <span class="kw">gsub</span>(<span class="st">&quot;-&quot;</span>, <span class="st">&quot;&quot;</span>, date))
+
+<span class="co"># Add hour column</span>
+my_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(my_data, <span class="dt">hour =</span> <span class="kw">hour</span>(date_time),
+                           <span class="dt">time =</span> <span class="kw">paste</span>(hour, <span class="st">&quot;:00&quot;</span>))
+
+<span class="co"># Create additional columns</span>
+my_data &lt;-<span class="st"> </span><span class="kw">mutate</span>(my_data,
+                   <span class="dt">state     =</span> <span class="kw">substr</span>(site, <span class="dv">1</span>, <span class="dv">2</span>),
+                   <span class="dt">county    =</span> <span class="kw">substr</span>(site, <span class="dv">4</span>, <span class="dv">6</span>),
+                   <span class="dt">site_num  =</span> <span class="kw">substr</span>(site, <span class="dv">8</span>, <span class="dv">11</span>),
+                   <span class="dt">parameter =</span> <span class="st">&quot;44201&quot;</span>,
+                   <span class="dt">poc       =</span> <span class="dv">1</span>,
+                   <span class="dt">units     =</span> <span class="st">&quot;007&quot;</span>,
+                   <span class="dt">method    =</span> <span class="st">&quot;003&quot;</span>,
+                   <span class="dt">duration  =</span> <span class="st">&quot;1&quot;</span>,
+                   <span class="dt">null_data_code =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">collection_frequency =</span> <span class="st">&quot;S&quot;</span>,
+                   <span class="dt">monitor =</span> <span class="st">&quot;TRIBAL&quot;</span>,
+                   <span class="dt">qual_1 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_2 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_3 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_4 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_5 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_6 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_7 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_8 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_9 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">qual_10 =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">alt_meth_det =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">uncertain =</span> <span class="st">&quot;&quot;</span>,
+                   <span class="dt">transaction =</span> <span class="st">&quot;RD&quot;</span>,
+                   <span class="dt">action =</span> <span class="st">&quot;I&quot;</span>)
+
+<span class="co"># Put the columns in AQS order</span>
+my_data &lt;-<span class="st"> </span><span class="kw">select</span>(my_data,
+                   transaction, action, state, county,
+                   site_num, parameter, poc, duration,
+                   units, method, date, time, ozone,
+                   null_data_code, collection_frequency,
+                   monitor, qual_<span class="dv">1</span>, qual_<span class="dv">2</span>, qual_<span class="dv">3</span>, qual_<span class="dv">4</span>,
+                   qual_<span class="dv">5</span>, qual_<span class="dv">6</span>, qual_<span class="dv">7</span>, qual_<span class="dv">8</span>, qual_<span class="dv">9</span>,
+                   qual_<span class="dv">10</span>, alt_meth_det, uncertain)
+
+<span class="co"># Set the names to AQS</span>
+<span class="kw">names</span>(my_data) &lt;-<span class="st"> </span>aqs_column_names
+
+<span class="co"># Save to a &quot;|&quot; separated file</span>
+<span class="kw">write_delim</span>(my_data, <span class="st">&quot;2015_AQS_formatted_ozone.txt&quot;</span>,
+            <span class="dt">delim        =</span> <span class="st">&quot;|&quot;</span>,
+            <span class="dt">quote_escape =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># Read file back in</span>
+aqs &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;2015_AQS_formatted_ozone.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;|&quot;</span>)</code></pre></div>
+</p>
+</div>
+<p></details></p>
+<p><br></p>
 <blockquote>
 <p>Save plots</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data_summary, <span class="kw">aes</span>(<span class="dt">x =</span> month, <span class="dt">y =</span> avg_ozone, <span class="dt">fill =</span> avg_ozone)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_col</span>(<span class="dt">width =</span> <span class="fl">0.9</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">ggsave</span>(<span class="st">&quot;Ozone_by_month.png&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggsave</span>(<span class="st">&quot;Ozone_by_month.png&quot;</span>)</code></pre></div>
 </div>
 <div id="share-with-friends" class="section level1">
 <h1>8. | Share with friends</h1>
 <p>Having an exact record of what you did can be great documentation for yourself and others. It’s also handy for when you want to repeat the same analysis on new data. Then all you need to do is copy the script, update the one read data line, and push run to get your new set of fancy charts.</p>
 <div id="share-on-github" class="section level2">
 <h2>Share on GitHub</h2>
-<p><a href = "https://github.com/dKvale/ex__OZONE__Project"> <img src="../images/github_example_ozone.png" style="width: 90%;" /> </a></p>
+<p><a href = "https://github.com/dKvale/ex__OZONE__Project"> <img src="../images/github_example_ozone.png" style="width: 95%;" /> </a></p>
 </div>
 <div id="congratulations" class="section level2">
 <h2>Congratulations!</h2>
@@ -1189,28 +1477,13 @@ How about <code>alpha = 0.9</code>?</p>
 </div>
 </div>
 </div>
-<div id="customize-r-studio" class="section level1">
-<h1>Customize R Studio</h1>
-<div id="make-it-your-own" class="section level4">
-<h4>Make it your own</h4>
-<p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
-<ol style="list-style-type: decimal">
-<li>Go to <strong>Tools</strong> on the top navigation bar.</li>
-<li>Choose <code>Global Options...</code></li>
-<li>Choose <code>Appearance</code> with the paint bucket.</li>
-<li>Find something you like.</li>
-</ol>
-<p><img src="../images/font_change.png" style="width: 45%; margin-top: 18px;"></p>
-<p><br></p>
-</div>
-</div>
 <div id="help" class="section level1">
 <h1><i class="far fa-question-circle" aria-hidden="true"></i> Help!</h1>
 <p>Lost in an ERROR message? Is something behaving strangely and want to know why?</p>
-<p>See the <a href="help.html">Help!</a> page for some troubleshooting options.</p>
+<p>See the <a href="../page/help.html">Help!</a> page for some troubleshooting options.</p>
 <p><br></p>
 <details style="margin-top: 34px;"> <summary class="btn_code">
-<h4 style="font-size: 22px;">
+<h4 style="font-size: 20px;">
 <i class="fas fa-key fa-xs" style="color: #c81888;" aria-hidden="true"></i> Key terms
 </h4>
 </summary>
@@ -1242,7 +1515,21 @@ How about <code>alpha = 0.9</code>?</p>
 <br>
 </p>
 <p></details></p>
+</div>
+<div id="customize-r-studio" class="section level1">
+<h1>Customize R Studio</h1>
+<div id="make-it-your-own" class="section level4">
+<h4>Make it your own</h4>
+<p>Let’s add a little style so R Studio feels like home since you will spend lots of time here. Follow these steps to change the font-size and and color scheme:</p>
+<ol style="list-style-type: decimal">
+<li>Go to <strong>Tools</strong> on the top navigation bar.</li>
+<li>Choose <code>Global Options...</code></li>
+<li>Choose <code>Appearance</code> with the paint bucket.</li>
+<li>Find something you like.</li>
+</ol>
+<p><img src="../images/font_change.png" style="width: 53%; margin-top: 18px;"></p>
 <p><br></p>
+</div>
 <div id="return-to-home" class="section level2 unnumbered">
 <h2><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../../index.html">Home</a></h2>
 </div>

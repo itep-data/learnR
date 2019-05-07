@@ -169,7 +169,7 @@ rm(nickname)
 <div class="tip">
 ### <i class="fa fa-bicycle" aria-hidden="true" style="color: darkgreen;"></i> EXERCISE! {-}
 
-How can we get the 'my_partner' object back?
+How can we get the 'nickname' object back?
 
 __HINT:__ The UP arrow in the Console is your friend.
 </div>

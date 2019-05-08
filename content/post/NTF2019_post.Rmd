@@ -673,24 +673,6 @@ We can find how much time has elapsed, add or subtract days, and aggregate to se
 
 <div style="clear: both;"></div>
 
-<br>
-
-### Get date parts {-}
-
-| Function   |  Date element                                            |   
-|-----|:-----------------------------------------------------------------|  
-|`year()  `    | Year          |  
-|`month()  `   | Month as _1,2,3_; For _Jan, Feb, Mar_ use `label=TRUE`  |  
-|`day()  `     | Day of the month  |  
-|`wday()`      | Day of the week as _1,2,3_; For _Sun, Mon, Tue_ use `label=TRUE` |  
-| _- Time -_ |            | 
-|`hour() `   |  Hour of the day _(24hr)_ |  
-|`minute() ` |  Minutes   |  
-|`second() ` |  Seconds   |  
-|`tz()  `    |  Time zone |  
-
-
-<br>
 
 ### Convert text to a *DATE* {-}
 
@@ -702,29 +684,85 @@ We can find how much time has elapsed, add or subtract days, and aggregate to se
 |`ymd_hm() `  | Year-Month-Day Hour:Minutes ::  `2019-05-18 8:35 AM`          |  
 |`ymd_hms() ` | Year-Month-Day Hour:Minutes:Seconds ::  `2019-05-18 8:35:22 AM`    | 
 
+<br>
+
+### Get date parts {-}
+
+| Function   |  Date element                                            |   
+|-----|:-----------------------------------------------------------------|  
+|`year()  `    | Year          |  
+|`month()  `   | Month as _1,2,3_; Use `label=TRUE` for _Jan, Feb, Mar_   |  
+|`day()  `     | Day of the month  |  
+|`wday()`      | Day of the week as _1,2,3_; Use `label=TRUE` for _Sun, Mon, Tue_  |  
+| _- Time -_ |            | 
+|`hour() `   |  Hour of the day _(24hr)_ |  
+|`minute() ` |  Minutes   |  
+|`second() ` |  Seconds   |  
+|`tz()  `    |  Time zone |  
+
 
 ## <i class="fa fa-broom" aria-hidden="true"></i> Clean the dates
 
 Let's set our date column to the standard date format. Because our dates are written as `year-month-day hour:mins`, we can Use `ymd_hm()`. 
 
+__Format the `date_time` column as a 'Date'__
 ```{r lubridate}
 library(lubridate) 
 
 # Set date column to official date format
 air_data <- mutate(air_data, date_time = ymd_hms(date_time))
-
-# Now we can add a variety of date and time columns to our data
-air_data <- mutate(air_data, 
-                   date  = date(date_time),
-                   hour  = hour(date_time),
-                   month = month(date_time, label = TRUE),
-                   day   = wday(date_time, label = TRUE),
-                   year  = year(date_time)) 
 ```
 
 
-## Comparisons {-}
+<details>
+<summary class = "btn_code_blue"> __MORE DATES: Real world examples__ </summary>
+
+<div class="note" style="margin-top: -9px;">
+<p>
+Does your date column look like one of these? Here's the `lubridate` function to tell R that the column is a date.
+
+
+| Format |  Function to use         |   
+|--------|:-------------------------|  
+| "05/18/2019" | `mdy(date_column)  ` |  
+| "May 18, 2019" | `mdy(date_column)  `       |
+| "05/18/2019 8:00 CDT" | `mdy_hm(date_column, tz = "US/Central")  `|
+| "05/18/2019 11:05:32 PDT" | `mdy_hms(date_column, tz = "US/Pacific")  `|
+
+<br>
+
+__AQS formatted dates__
+
+| Format |  Function to use         |   
+|--------|:-------------------------| 
+| "20190518" | `ymd(sample_date) `  |
+
+</p>
+</details>
+
+<br>
+
+
+> Now we can add a variety of date and time columns to our data like the name of the month, the day of the week, or just the hour of the day for each observation.
+
+
+__Add month and day of the week__
+```{r lubridate2}
+# Add date parts as new columns
+air_data <- mutate(air_data, 
+                   year     = year(date_time),
+                   month    = month(date_time, label = TRUE),
+                   day      = wday(date_time, label = TRUE),
+                   hour     = hour(date_time),
+                   cal_date = date(date_time)) 
+```
+
+
+
+## Comparing values {-}
 <hr>
+
+![](../images/porg_heights.png){style="float: right; margin-top: -94px; width: 40%;"}
 
 Processing data requires many types of filtering. You'll want to know how to select observations in your table by making various comparisons.
 
@@ -853,7 +891,7 @@ How about make it best of __3__ games? Or switch partners and try again.
 # 5. | More plots!
 
 ```{r, fig.width=13, fig.height=5}
-ggplot(air_data, aes(x = date, y = ozone, color = month)) + 
+ggplot(air_data, aes(x = cal_date, y = ozone, color = month)) + 
     geom_point(size = 3, alpha = 0.2) 
 ```
 
@@ -911,9 +949,9 @@ __Hey now!__ That's not very helpful. Who's who? Let's join their names to the r
 met_data <- read_csv("https://itep-r.netlify.com/data/met_data.csv")
 
 ozone_met <- left_join(air_data, met_data, 
-                       by = c("date" = "date", 
-                              "site" = "site", 
-                              "hour" = "hour")) 
+                       by = c("cal_date" = "date", 
+                              "site"     = "site", 
+                              "hour"     = "hour")) 
 ```
 
 > Now we can take a look at our new columns.
@@ -1008,7 +1046,7 @@ ozone_met <- filter(ozone_met, year == 2015)
 You can also check whether a date is before or after a certain day in history.
 
 ```{r date-range}
-ozone_met <- filter(ozone_met, date < "2016-01-01", date > "2014-01-01")
+ozone_met <- filter(ozone_met, cal_date < "2016-01-01", cal_date > "2014-01-01")
 
 ```
 
@@ -1183,18 +1221,19 @@ library(readr)
 library(dplyr)
 library(janitor)
 library(lubridate)
+library(stringr)
 
 # Columns names in AQS
-aqs_column_names <- c("Transaction Type", "Action Indicator", "State Code",
-                      "County Code", "Site Number", "Parameter",
-                      "POC", "Duration Code", "Reported Unit",
-                      "Method Code", "Sample Date", "Sample Begin Time",
-                      "Reported Sample Value", "Null Data Code", "Collection Frequency Code",
-                      "Monitor Protocol ID", "Qualifier Code - 1", "Qualifier Code - 2",
-                      "Qualifier Code - 3", "Qualifier Code - 4", "Qualifier Code - 5",
-                      "Qualifier Code - 6", "Qualifier Code - 7", "Qualifier Code - 8",
-                      "Qualifier Code - 9", "Qualifier Code - 10", "Alternate Method Detection Limit",
-                      "Uncertainty Value")
+aqs_columns <-  c("Transaction Type", "Action Indicator", "State Code",
+                  "County Code", "Site Number", "Parameter",
+                  "POC", "Duration Code", "Reported Unit",
+                  "Method Code", "Sample Date", "Sample Begin Time",
+                  "Reported Sample Value", "Null Data Code", "Collection Frequency Code",
+                  "Monitor Protocol ID", "Qualifier Code - 1", "Qualifier Code - 2",
+                  "Qualifier Code - 3", "Qualifier Code - 4", "Qualifier Code - 5",
+                  "Qualifier Code - 6", "Qualifier Code - 7", "Qualifier Code - 8",
+                  "Qualifier Code - 9", "Qualifier Code - 10", "Alternate Method Detection Limit",
+                  "Uncertainty Value")
 
 # Read in our data
 my_data <- read_csv("https://itep-r.netlify.com/data/ozone_samples.csv")
@@ -1208,10 +1247,10 @@ names(my_data)
 # Format the date column
 # Date is in year-month-day format, use "ymd_hms()"
 my_data <- mutate(my_data, date_time = ymd_hms(date_time),
-                           date      = date(date_time))
+                           cal_date  = date(date_time))
 
 # Remove dashes from the date, EPA hates dashes
-my_data <- mutate(my_data, date = gsub("-", "", date))
+my_data <- mutate(my_data, cal_date = str_replace_all(cal_date, "-", ""))
 
 # Add hour column
 my_data <- mutate(my_data, hour = hour(date_time),
@@ -1249,14 +1288,14 @@ my_data <- mutate(my_data,
 my_data <- select(my_data,
                    transaction, action, state, county,
                    site_num, parameter, poc, duration,
-                   units, method, date, time, ozone,
+                   units, method, cal_date, time, ozone,
                    null_data_code, collection_frequency,
                    monitor, qual_1, qual_2, qual_3, qual_4,
                    qual_5, qual_6, qual_7, qual_8, qual_9,
                    qual_10, alt_meth_det, uncertain)
 
 # Set the names to AQS
-names(my_data) <- aqs_column_names
+names(my_data) <- aqs_columns
 
 # Save to a "|" separated file
 write_delim(my_data, "2015_AQS_formatted_ozone.txt",
@@ -1268,7 +1307,6 @@ aqs <- read_delim("2015_AQS_formatted_ozone.txt", delim = "|")
 
 
 ```
-
 
 </p></div>
 </details>

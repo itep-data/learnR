@@ -84,9 +84,6 @@ That's enough _scuttlebutting_ on Endor, Finn needs us back on Jakku. It turns o
 
 <br>
 
-
-# More Jakku trash
-<hr>
 ```{r convert-tbl, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/ton_conversion_tbl.Rmd'}
 ```
 

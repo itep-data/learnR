@@ -69,6 +69,10 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 
+<style>
+h1 .header-section-number {background: #62BE2C;}
+hr {background: #62BE2C;}
+</style>
 <div id="good-morning-jedis" class="section level1 unnumbered">
 <h1>Good morning, Jedis!</h1>
 <hr class="hr2">
@@ -149,6 +153,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <h1><span class="header-section-number">1</span> New mission!</h1>
 <hr>
 <p>The Wookies want our help. BB8 just received new data from the wookies suggesting there was a large magnetic storm just before <code>Site 1</code> burned down on Endor. Sounds like we’re going to be <strong>STORM CHASERS</strong>! <em>Mission accepted.</em></p>
+<p><br></p>
 <div id="get-the-dataset" class="section level3 unnumbered">
 <h3>Get the dataset</h3>
 <p>While we’re relaxing and flying to Endor let’s get set up with the new data.</p>
@@ -429,7 +434,7 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 <h2>Small problem</h2>
 <hr class="hrlvl2">
 <div class="figure">
-<img src="../images/comp_meltdown.jpg" style="width: 40%; float: right;" />
+<img src="../images/comp_meltdown.jpg" style="width: 40%; float: right; border-radius: 30%;" />
 
 </div>
 <p>Due to the magnetic storm on Endor, all of the data entered that day was corrupted!</p>
@@ -437,11 +442,11 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 <p>You ask the lead engineer:</p>
 <p><strong>So when did that storm occur?</strong></p>
 <blockquote>
-<p>“I think it happened on a Tuesday</p>
+<p>_“I think it happened on a Tuesday_</p>
 </blockquote>
 <p><strong>Any more helpful clues? Anything?</strong></p>
 <blockquote>
-<p>Hmmm, let’s see… that would have been around the 22nd week of the year. Yep.</p>
+<p>_“Hmmm, let’s see… that would have been around the 22nd week of the year. Yep._</p>
 </blockquote>
 <p><br></p>
 <div class="tip">
@@ -452,9 +457,9 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 date2 &lt;-<span class="st"> &quot;28/05/2019&quot;</span>
 
 date3 &lt;-<span class="st"> &quot;June 4th, 2019&quot;</span></code></pre></div>
-<p><br></p>
-<p><em>Are you sure you want to click this button?</em></p>
-<details> <summary class = "btn_code_green"><em>Show code</em></summary>
+<p><em>Are you sure you want to click this button? There’s no going back.</em></p>
+<details> <summary class = "btn_code"><em>Show code</em></summary>
+<div class="quiz">
 <p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use lubridate functions to extract information!</span>
 
@@ -473,6 +478,7 @@ date3 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st"
 <span class="kw">wday</span>(date3, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)
 <span class="kw">week</span>(date3)</code></pre></div>
 </p>
+</div>
 <p></details></p>
 </div>
 <p><br></p>
@@ -568,10 +574,10 @@ Calendar plots
 <p><strong><code>#1:</code></strong> It eliminates the need for nested parentheses.</p>
 <p>Say you wanted to take the sum of 3 numbers and then take the log and then round the final result.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">log</span>(<span class="kw">sum</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>))))</code></pre></div>
-<p><br></p>
 <p>The code doesn’t look much like the words we used to describe it. Let’s pipe it so we can read the code from left to right.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">log</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>()</code></pre></div>
 </div>
+<p><br></p>
 <div class="blockquote">
 <p><strong><code>#2:</code></strong> We can combine many processing steps into one cohesive chunk.</p>
 <p><br></p>
@@ -1078,9 +1084,9 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 </div>
 <div id="total-pounds-per-shipment" class="section level2 unnumbered">
 <h2>Total pounds per shipment</h2>
+<hr class="hrlvl2">
 <p>Let’s <code>mutate()</code>!</p>
 <p>Now that we have pounds per unit we can use <code>mutate</code> to calculate the total pounds for each shipment.</p>
-<p><br></p>
 <p><strong>Fill in the blank</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">         </span><span class="kw">mutate</span>(<span class="dt">total_pounds =</span> amount <span class="op">*</span><span class="st">  </span>_____________ )</code></pre></div>
@@ -1089,8 +1095,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 <div class="quiz" style="margin-top: -6px;">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">         </span><span class="kw">mutate</span>(<span class="dt">total_pounds =</span> amount <span class="op">*</span><span class="st"> </span>pounds_per_unit)</code></pre></div>
-</p>
 </div>
+</p>
 <p></details></p>
 </div>
 <div id="total-price-per-shipment" class="section level2 unnumbered">
@@ -1244,12 +1250,16 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
                      <span class="dt">weight_90th_pct  =</span> <span class="kw">quantile</span>(Weight, <span class="fl">0.90</span>),
                      <span class="dt">count_records    =</span> __________,</code></pre></div>
 <p><br></p>
+</div>
 <blockquote>
-<h3 id="shut-me-down" class="unnumbered"><strong>Shut me down!</strong></h3>
+<h3 style="margin-top: 12px;">
+<strong>Shut me down!</strong>
+</h3>
 <p>That was a whole lot of summarizing. Do we really have to filter to the Origin City that we’re interested in every time?</p>
 <p>It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.</p>
 </blockquote>
-<h4 id="its-time-for-group_by" class="unnumbered">It’s time for <code>group_by()</code>!</h4>
+<div id="its-time-for-group_by" class="section level4 unnumbered">
+<h4>It’s time for <code>group_by()</code>!</h4>
 </div>
 </div>
 </div>
@@ -1283,11 +1293,9 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <span class="st">                </span><span class="kw">summarize</span>(<span class="dt">origin_count  =</span>  <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><br></p>
-<div id="pro-tip" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
+<div class="note">
+<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>Ending with <code>ungroup()</code> is good practice. This prevents your data from staying grouped after the summarizing has been completed.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1298,8 +1306,10 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
 <span class="kw">write_csv</span>(scrap_means, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
 <p><br></p>
-<div class="well">
-<h3 id="warning" class="unnumbered"><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> <strong>Warning!</strong></h3>
+<div class="red-note">
+<h3 style="margin-top: 12px; color: #e96413;">
+<i class="fa fa-user-astronaut"></i> <strong>Warning!</strong>
+</h3>
 <p>By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called <code>results/</code> and not to your raw <code>data/</code> folder.</p>
 </div>
 </div>

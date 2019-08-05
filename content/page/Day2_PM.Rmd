@@ -24,6 +24,10 @@ library(dplyr)
 scrap <- read_csv("scrap_day2_pm.csv")
 ```
 
+<style>
+h1 .header-section-number {background: #62BE2C;}
+hr {background: #62BE2C;}
+</style>
 
 # Guess Who? {-}
 <h2 style="margin-top: -24px;"> _Star Wars edition_ </h2>

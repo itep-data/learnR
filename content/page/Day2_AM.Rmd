@@ -12,6 +12,11 @@ output:
     monofont: Source Code Pro
 ---
 
+<style>
+h1 .header-section-number {background: #62BE2C;}
+hr {background: #62BE2C;}
+</style>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = F, message = F)
 knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2) 
@@ -150,8 +155,13 @@ summarize(scrap, mean_price = mean(price_per_pound, na.rm = T))
 
 <br>
 
-> Note the `na.rm = TRUE` in the `mean()` function. This tells R to ignore empty cells or missing values that show up in R as `NA`. If you leave `na.rm` out, the _mean_ function will return 'NA' if it finds a missing value in the data.
+<div class="note">
+### Note {-}
 
+__What's the average of missing data?__ I don't know.
+
+Did you see the `na.rm = TRUE` inside the `mean()` function. This tells R to ignore empty cells or missing values that show up in R as `NA`. If you leave `na.rm` out, the _mean_ function will return 'NA' if it finds a missing value anywhere in the data. 
+</div>
 
 ## `median()` {-}
 Use summarize to calculate the _median_ price_per_pound in the scrap report.
@@ -228,9 +238,10 @@ summary <- summarize(scrap,
 
 <br>
 
+</div>
 
 
-> ### __Shut me down!__ {-}
+> <h3 style="margin-top: 12px;"> __Shut me down!__ </h3>
 >
 > That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
 >
@@ -239,7 +250,7 @@ summary <- summarize(scrap,
 
 #### It's time for `group_by()`! {-}
 
-</div>
+
 
 # `group_by()` what
 <hr>
@@ -295,11 +306,10 @@ scrap_counts <- group_by(scrap, origin) %>%
 
 <br>
 
-### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip! {-}
-<div class="well">
+<div class="note">
+### <i class="fas fa-hand-spock"></i> Spock-tip! {-}
 
 Ending with `ungroup()` is good practice. This prevents your data from staying grouped after the summarizing has been completed.
-
 </div>
 
 
@@ -316,8 +326,8 @@ write_csv(scrap_means, "results/prices_by_origin.csv")
 <br>
 
 
-<div class="well">
-### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> __Warning!__ {-}
+<div class="red-note">
+<h3 style="margin-top: 12px; color: #e96413;"><i class="fa fa-user-astronaut"></i> __Warning!__ </h3>
 
 By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called `results/` and not to your raw `data/` folder.
 

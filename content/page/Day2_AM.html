@@ -3,7 +3,7 @@ title: "Day 2 - AM"
 output: 
   blogdown::html_page: 
     toc: true
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -55,43 +55,24 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="TOC">
 <ul>
-<li><a href="#good-morning-young-jedis">Good morning, young Jedis!</a><ul>
-<li><a href="#schedule">Schedule</a></li>
-</ul></li>
-<li><a href="#review-of-day-1">Review of Day 1</a><ul>
-<li><a href="#porg-review">Porg review</a></li>
-</ul></li>
-<li><a href="#join-tables-with-left_join"><span class="toc-section-number">1</span> | Join tables with <code>left_join()</code></a><ul>
-<li><a href="#more-joining"><span class="toc-section-number">1.1</span> More joining</a></li>
-</ul></li>
-<li><a href="#finn-needs-us"><span class="toc-section-number">2</span> | Finn needs us!</a></li>
-<li><a href="#the-pipe"><span class="toc-section-number">3</span> | The pipe <code>%&gt;%</code></a></li>
-<li><a href="#update-from-bb8"><span class="toc-section-number">4</span> | Update from BB8!</a></li>
-<li><a href="#more-jakku-scrap"><span class="toc-section-number">5</span> | More Jakku scrap</a><ul>
-<li><a href="#good-news">Good news</a></li>
-</ul></li>
-<li><a href="#summarize-this"><span class="toc-section-number">6</span> | <code>summarize()</code> this</a><ul>
-<li><a href="#sum"><code>sum()</code></a></li>
-<li><a href="#mean"><code>mean()</code></a></li>
-<li><a href="#median"><code>median()</code></a></li>
-<li><a href="#max"><code>max()</code></a></li>
-<li><a href="#min"><code>min()</code></a></li>
-<li><a href="#nth"><code>nth()</code></a></li>
-<li><a href="#sd"><code>sd()</code></a></li>
-<li><a href="#quantile"><code>quantile()</code></a></li>
-<li><a href="#n"><code>n()</code></a></li>
-</ul></li>
-<li><a href="#group_by"><span class="toc-section-number">7</span> | <code>group_by()</code></a><ul>
-<li><a href="#bargain-hunters">Bargain hunters</a></li>
-</ul></li>
-<li><a href="#save-files"><span class="toc-section-number">8</span> | Save files</a></li>
-<li><a href="#grouped-mutate"><span class="toc-section-number">9</span> | Grouped <code>mutate()</code></a></li>
+<li><a href="#good-morning-jedis">Good morning, Jedis!</a></li>
+<li><a href="#new-mission"><span class="toc-section-number">1</span> New mission!</a></li>
+<li><a href="#dates"><span class="toc-section-number">2</span> <i class="fa fa-calendar" aria-hidden="true"></i> Dates</a></li>
+<li><a href="#pipe-it-together-a-b"><span class="toc-section-number">3</span> Pipe it together: <code>A %&gt;% B</code></a></li>
+<li><a href="#finn-needs-us">Finn needs us!</a></li>
+<li><a href="#more-jakku-trash"><span class="toc-section-number">4</span> More Jakku trash</a></li>
+<li><a href="#jakku-re-visited"><span class="toc-section-number">5</span> Jakku re-visited</a></li>
+<li><a href="#join-tables-with-left_join"><span class="toc-section-number">6</span> Join tables with <code>left_join()</code></a></li>
+<li><a href="#summarize-this"><span class="toc-section-number">7</span> <code>summarize()</code> this</a></li>
+<li><a href="#group_by-what"><span class="toc-section-number">8</span> <code>group_by()</code> what</a></li>
+<li><a href="#save-files"><span class="toc-section-number">9</span> Save files</a></li>
+<li><a href="#grouped-mutate"><span class="toc-section-number">10</span> Grouped <code>mutate()</code></a></li>
 </ul>
 </div>
 
-<div id="good-morning-young-jedis" class="section level1 unnumbered">
-<h1>Good morning, young Jedis!</h1>
-<hr>
+<div id="good-morning-jedis" class="section level1 unnumbered">
+<h1>Good morning, Jedis!</h1>
+<hr class="hr2">
 <div class="figure">
 <img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" />
 
@@ -99,24 +80,23 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="schedule" class="section level2 unnumbered">
 <h2>Schedule</h2>
 <pre><code>- Review of Day 1
+- Dates continued...
 - Summarize your data
-- String together many functions
-- Join two tables by one or more variables
-- Add new column that depends on values of another column
-- Summarize by group or category in your data
+- Pipe together functions
+- Join two tables by a shared column
+- Calculate new columns
+- Summarize for each group
 - Save data</code></pre>
-<p><br><br></p>
+<p><br></p>
 </div>
-</div>
-<div id="review-of-day-1" class="section level1 unnumbered">
-<h1>Review of Day 1</h1>
-<hr>
 <div id="porg-review" class="section level2 unnumbered">
 <h2>Porg review</h2>
-<p>The <em>poggle</em> of porgs has returned to help us review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
+<hr class="hrlvl2">
+<p>The <em>poggle</em> of porgs has returned to help review the <code>dplyr</code> functions. Follow along by downloading the <strong>porg</strong> data from the URL below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/porg_data.csv&quot;</span>)</code></pre></div>
 <p><br></p>
+<style> img {margin: 0;} </style>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
 <a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
@@ -145,7 +125,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
 <div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
-<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/select_card.png" style="width: 90%;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
 <img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
@@ -154,34 +134,573 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
-<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/mutate_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
-<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/summarize_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
-<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/groupby_card.png" style="width: 92%;" /> <br><br>
 </div>
 </div>
 <p><br></p>
 </div>
 </div>
-<div id="join-tables-with-left_join" class="section level1">
-<h1><span class="header-section-number">1</span> | Join tables with <code>left_join()</code></h1>
-<p>Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.</p>
+<div id="new-mission" class="section level1">
+<h1><span class="header-section-number">1</span> New mission!</h1>
+<hr>
+<p>The Wookies want our help. BB8 just received new data from the wookies suggesting there was a large magnetic storm just before <code>Site 1</code> burned down on Endor. Sounds like we’re going to be <strong>STORM CHASERS</strong>! <em>Mission accepted.</em></p>
+<p><strong>Get the dataset</strong></p>
+<p>While we’re relaxing and flying to Endor let’s get set up with the new data.</p>
+<p><br></p>
+<p><strong>Endor Setup</strong></p>
+<ol style="list-style-type: decimal">
+<li>Download the data.
+<ul>
+<li><a href="https://itep-r.netlify.com/data/air_endor.csv"><span class="btn_code_blue" style="margin-bottom: 10px; margin-top: 12px;"> <strong>DOWNLOAD</strong> </span></a> - Get the Endor monitoring data</li>
+</ul></li>
+<li>Create a new folder called <code>data</code> in your project folder.</li>
+<li>Move the downloaded Endor file to there.</li>
+<li>Create a new R script called <code>endor.R</code></li>
+</ol>
+<p>Now we can read in the data from the data folder with our favorite <code>read_csv</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(janitor)
+
+air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/air_endor.csv&quot;</span>)
+
+<span class="kw">names</span>(air_endor)
+
+<span class="co"># Clean the column names</span>
+air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_endor)
+
+<span class="kw">names</span>(air_endor)</code></pre></div>
+<pre><code>## [1] &quot;analyte&quot;        &quot;lab_code&quot;       &quot;units&quot;          &quot;start_run_date&quot;
+## [5] &quot;site_name&quot;      &quot;long_site_name&quot; &quot;planet&quot;         &quot;result&quot;</code></pre>
+<p><br></p>
+<div class="note">
+<h3 id="note" class="unnumbered">Note</h3>
+<p>When your project is open, RStudio sets the working directory to your project folder. When reading files from a folder outside of your project, you’ll need to use the full file path location.</p>
+<p>For example, for a file on the <strong>X-drive</strong>: <code>X://Programs/Air_Quality/Ozone_data.csv</code> <br></p>
+</div>
+<div id="welcome-to-endor" class="section level2 unnumbered">
+<h2>Welcome to Endor!</h2>
+<hr class="hrlvl2">
 <div class="figure">
-<img src="../images/left_join_venn.png" style="width: 55%;" />
+<img src="https://itep-r.netlify.com/images/planet_endor.jpg" style="width: 75%; margin-top: -4px; margin-left: 11%;" />
 
 </div>
-<br>
+<p><br></p>
+<p><strong>Let’s get to know the new Endor data.</strong></p>
+<blockquote>
+<p>Remember the ways?</p>
+<p><strong>Hint:</strong> <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code>, <code>distinct()</code></p>
+</blockquote>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(air_endor)</code></pre></div>
+<pre><code>## Observations: 1,190
+## Variables: 8
+## $ analyte        &lt;chr&gt; &quot;1-Methylnaphthalene&quot;, &quot;1-Methylnaphthalene&quot;, &quot;...
+## $ lab_code       &lt;chr&gt; &quot;HV-403&quot;, &quot;HV-408&quot;, &quot;HV-411&quot;, &quot;HV-415&quot;, &quot;HV-418...
+## $ units          &lt;chr&gt; &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;n...
+## $ start_run_date &lt;chr&gt; &quot;7/11/2016&quot;, &quot;7/23/2016&quot;, &quot;8/5/2016&quot;, &quot;8/16/201...
+## $ site_name      &lt;chr&gt; &quot;battlesite1&quot;, &quot;battlesite1&quot;, &quot;battlesite1&quot;, &quot;b...
+## $ long_site_name &lt;chr&gt; &quot;Endor_Tana_forestmoon_battlesite1&quot;, &quot;Endor_Tan...
+## $ planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
+## $ result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(air_endor, analyte)</code></pre></div>
+<pre><code>## # A tibble: 27 x 1
+##    analyte             
+##    &lt;chr&gt;               
+##  1 1-Methylnaphthalene 
+##  2 2-Methylnaphthalene 
+##  3 5-Methylchrysene    
+##  4 Acenaphthene        
+##  5 Anthanthrene        
+##  6 Benz[a]anthracene   
+##  7 Benzo[a]pyrene      
+##  8 Benzo[c]fluorene    
+##  9 Benzo[e]pyrene      
+## 10 Benzo[g,h,i]perylene
+## # ... with 17 more rows</code></pre>
+<p><br></p>
+<p><strong>Woah! That’s definitely more analytes than we need.</strong></p>
+<p>We only want to know about <code>magnetic_field</code> data. Let’s filter down to that analyte.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre></div>
+<p><br></p>
+<p><strong>Boom!</strong> How many rows are left now?</p>
+<p><br></p>
+<blockquote>
+<p>Ok. According to the request we received, the Resistance is only interested in observations from year <strong><code>2017</code></strong>. So let’s filter the data down to only dates for that year.</p>
+</blockquote>
+<p><strong>How do we filter on the date column?</strong></p>
+<p><br></p>
+<div class="well">
+<p>With time series data it’s helpful for R to know which columns are <strong>date</strong> columns. Dates come in many formats and the standard format in R is <code>2019-01-15</code>, also referred to as <em>Year-Month-Day</em> format. We use the <strong><code>lubridate</code></strong> package to help format our dates.</p>
+</div>
+</div>
+</div>
+<div id="dates" class="section level1">
+<h1><span class="header-section-number">2</span> <i class="fa fa-calendar" aria-hidden="true"></i> Dates</h1>
 <hr>
-<div id="how-to-join-2-tables" class="section level3 unnumbered">
-<h3>How to join 2 tables</h3>
-<p>A general <code>left_join()</code> function looks like the code below.</p>
+<div id="enter-the-lubridate-package." class="section level3 unnumbered">
+<h3>Enter the <code>lubridate</code> package.</h3>
+<div class="figure">
+<img src="images/lubridate.png" style="width: 21%; float: left; margin-right: 30px; margin-top: 8px; margin-bottom: 12px;" />
+
 </div>
-<div id="left_jointable1-table2-by-ccolumns-to-join-by" class="section level3 unnumbered">
-<h3><code>left_join(table1, table2, by = c(&quot;columns to join by&quot;))</code></h3>
+<p><br></p>
+<p>It’s about time! Lubridate makes working with dates much easier.</p>
+<p>We can find how much time has elapsed, add or subtract days, and find seasonal and day of the week averages.</p>
+<p><br></p>
+<div style="clear: both;">
+
 </div>
+<p><br></p>
+</div>
+<div id="convert-text-to-a-date" class="section level3 unnumbered">
+<h3>Convert text to a DATE</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th align="left">Order of date elements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mdy()</code></td>
+<td align="left">Month-Day-Year :: <code>05-18-2019</code> or <code>05/18/2019</code></td>
+</tr>
+<tr class="even">
+<td><code>dmy()</code></td>
+<td align="left">Day-Month-Year (Euro dates) :: <code>18-05-2019</code> or <code>18/05/2019</code></td>
+</tr>
+<tr class="odd">
+<td><code>ymd()</code></td>
+<td align="left">Year-Month-Day (science dates) :: <code>2019-05-18</code> or <code>2019/05/18</code></td>
+</tr>
+<tr class="even">
+<td><code>ymd_hm()</code></td>
+<td align="left">Year-Month-Day Hour:Minutes :: <code>2019-05-18 8:35 AM</code></td>
+</tr>
+<tr class="odd">
+<td><code>ymd_hms()</code></td>
+<td align="left">Year-Month-Day Hour:Minutes:Seconds :: <code>2019-05-18 8:35:22 AM</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="get-date-parts" class="section level3 unnumbered">
+<h3>Get date parts</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th align="left">Date element</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>year()</code></td>
+<td align="left">Year</td>
+</tr>
+<tr class="even">
+<td><code>month()</code></td>
+<td align="left">Month as <em>1,2,3</em>; For <em>Jan, Feb, Mar</em> use <code>label=TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>week()</code></td>
+<td align="left">Week of the year</td>
+</tr>
+<tr class="even">
+<td><code>day()</code></td>
+<td align="left">Day of the month</td>
+</tr>
+<tr class="odd">
+<td><code>wday()</code></td>
+<td align="left">Day of the week as <em>1,2,3</em>; For <em>Sun, Mon, Tue</em> use <code>label=TRUE</code></td>
+</tr>
+<tr class="even">
+<td><em>- Time -</em></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td><code>hour()</code></td>
+<td align="left">Hour of the day <em>(24hr)</em></td>
+</tr>
+<tr class="even">
+<td><code>minute()</code></td>
+<td align="left">Minutes</td>
+</tr>
+<tr class="odd">
+<td><code>second()</code></td>
+<td align="left">Seconds</td>
+</tr>
+<tr class="even">
+<td><code>tz()</code></td>
+<td align="left">Time zone</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="install-lubridate" class="section level2 unnumbered">
+<h2>Install <code>lubridate</code></h2>
+<p>Run <code>install.packages(&quot;lubridate&quot;)</code>.</p>
+<div class="note">
+<h3 id="clean-the-dates" class="unnumbered"><i class="fa fa-broom" aria-hidden="true"></i> Clean the dates</h3>
+<h4 id="real-world-examples" class="unnumbered">Real world examples</h4>
+<p>Does your date column look like one of these? Here’s the <code>lubridate</code> function to tell R that the column is a date.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th align="left">Function to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“05/18/2019”</td>
+<td align="left"><code>mdy(date_column)</code></td>
+</tr>
+<tr class="even">
+<td>“May 18, 2019”</td>
+<td align="left"><code>mdy(date_column)</code></td>
+</tr>
+<tr class="odd">
+<td>“05/18/2019 8:00 CDT”</td>
+<td align="left"><code>mdy_hm(date_column, tz = &quot;US/Central&quot;)</code></td>
+</tr>
+<tr class="even">
+<td>“05/18/2019 11:05:32 PDT”</td>
+<td align="left"><code>mdy_hms(date_column, tz = &quot;US/Pacific&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>European dates</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th align="left">Function to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“30.05.2019”</td>
+<td align="left"><code>dmy(date_column)</code></td>
+</tr>
+<tr class="even">
+<td>“30-05-2019”</td>
+<td align="left"><code>dmy(date_column)</code></td>
+</tr>
+<tr class="odd">
+<td>“30/05/2019”</td>
+<td align="left"><code>dmy(date_column)</code></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p><strong>AQS formatted dates</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th align="left">Function to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“20190518”</td>
+<td align="left"><code>ymd(sample_date)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Let’s use the <code>mdy()</code> function to turn the <code>start_run_date</code> column into a nicely formatted date.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+
+mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(start_run_date),
+                               <span class="dt">year =</span> <span class="kw">year</span>(date))</code></pre></div>
+<p><br></p>
+<blockquote>
+<p>Ok, back to work.</p>
+<p>Let’s filter to only the rows where the <strong><code>year</code></strong> equals <strong><code>2017</code></strong>.</p>
+</blockquote>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, year <span class="op">==</span><span class="st"> &quot;2017&quot;</span>)</code></pre></div>
+</div>
+<div id="time-series" class="section level2 unnumbered">
+<h2>Time series</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(mag_endor, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> result)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)  <span class="co"># alpha changes transparency</span></code></pre></div>
+<p><img src="/page/Day2_AM_files/figure-html/endor-time-1.png" width="960" /></p>
+<p>Looks like the measurements definitely picked up a signal towards the end of the year. Let’s make a different chart to show when this occurred.</p>
+<p><br></p>
+<blockquote>
+<h2 id="to-be-continued" class="unnumbered">To be continued…</h2>
+</blockquote>
+<div class="figure">
+<img src="https://itep-r.netlify.com/images/planet_endor.jpg" style="width: 55%; margin-top: -4px; margin-left: 42%;" />
+
+</div>
+<p><br></p>
+</div>
+<div id="back-on-endor" class="section level2 unnumbered">
+<h2>Back on Endor!</h2>
+<hr class="hrlvl2">
+</div>
+<div id="small-problem" class="section level2 unnumbered">
+<h2>Small problem</h2>
+<div id="date-mystery" class="section level3 unnumbered">
+<h3>Date mystery</h3>
+<p>Due to the magnetic storm on Endor, all of the data entered that day got corrupted!</p>
+<p>You need to determine when the magnetic storm happened. Time to get out our detective hats…</p>
+<p>You ask the lead engineer when the storm occured:</p>
+<blockquote>
+<p>“I think it happened on a Tuesday</p>
+</blockquote>
+<p>You then ask the guard:</p>
+<blockquote>
+<p>Hmmm, let’s see… that would have been around the 22nd week of the year.</p>
+</blockquote>
+<p>Okay. So using this information and the garbled data you were able to recover, can you determine which of these dates would be the right one?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">date1 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;7/2/2019&quot;</span>)
+
+date2 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;5/28/2019&quot;</span>)
+
+date3 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;6/4/2019&quot;</span>)</code></pre></div>
+<p><br></p>
+<details> <summary class = "btn_code_blue"><em>Show code</em></summary>
+<p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use lubridate functions to extract information!</span>
+<span class="kw">wday</span>(date1, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)
+<span class="kw">week</span>(date1)
+
+<span class="kw">wday</span>(date2, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)
+<span class="kw">week</span>(date2)
+
+<span class="kw">wday</span>(date3, <span class="dt">label =</span> <span class="ot">TRUE</span>, <span class="dt">abbr =</span> <span class="ot">FALSE</span>)
+<span class="kw">week</span>(date3)</code></pre></div>
+</p>
+<p></details></p>
+<br><br>
+<hr class="hr2">
+<p><br></p>
+<details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>Bonus</strong><i class="fas fa-star"></i> </span> Calendar plot </summary>
+<p>
+<h2>
+Calendar plots
+</h2>
+<hr>
+<div class="figure">
+<img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" />
+
+</div>
+<p>Calendar plots are good for zooming in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.</p>
+<h2>
+<code>openair</code> package
+</h2>
+<p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>)</code></pre></div>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(openair)
+
+<span class="kw">calendarPlot</span>(mag_endor,
+             <span class="dt">pollutant    =</span> <span class="st">&quot;result&quot;</span>,
+             <span class="dt">statistic    =</span> <span class="st">&quot;mean&quot;</span>,
+             <span class="dt">year         =</span> <span class="dv">2017</span>,
+             <span class="dt">annotate     =</span> <span class="st">&quot;date&quot;</span>,
+             <span class="dt">digits       =</span> <span class="dv">0</span>,
+             <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>,
+             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">14</span>),
+                                 <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
+             <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_AM_files/figure-html/cal-for-web-1.png" width="2880" /></p>
+<br>
+</p>
+<p></details></p>
+<p><br></p>
+<div class="note">
+<h3 id="mystery-solved" class="unnumbered">Mystery solved!</h3>
+<p>Aha! There really was a spike in the magnetic field in November. Hopefully, the <em>Resistance</em> will reward us handsomely for this information.</p>
+</div>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="pipe-it-together-a-b" class="section level1">
+<h1><span class="header-section-number">3</span> Pipe it together: <code>A %&gt;% B</code></h1>
+<hr>
+<p><strong>Let the <code>%&gt;%</code> guide you.</strong></p>
+<blockquote>
+<p><strong>I wish I could type the name of the data less often.</strong></p>
+</blockquote>
+<div class="figure">
+<img src="../images/pipe.png" style="margin-right: 20px; width: 136px; float: left; margin-top: 12px;" />
+
+</div>
+<p><strong>You can with the <em>pipe</em>!</strong></p>
+<p>Use the <code>%&gt;%</code> to chain functions together and make our scripts more streamlined.</p>
+<div style="clear: both;">
+
+</div>
+<div id="here-are-2-ways-the-is-helpful" class="section level4 unnumbered">
+<h4>Here are 2 ways the <code>%&gt;%</code> is helpful:</h4>
+<div class="blockquote">
+<p><strong><code>#1:</code></strong> It eliminates the need for nested parentheses.</p>
+<p>Say you wanted to take the sum of 3 numbers and then take the log and then round the final result.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">round</span>(<span class="kw">log</span>(<span class="kw">sum</span>(<span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>))))</code></pre></div>
+<p><br></p>
+<p>The code doesn’t look much like the words we used to describe it. Let’s pipe it so we can read the code from left to right.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">sum</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">log</span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">round</span>()</code></pre></div>
+</div>
+<div class="blockquote">
+<p><strong><code>#2:</code></strong> We can combine many processing steps into one cohesive chunk.</p>
+<p><br></p>
+<p>Here are some of the functions we’ve applied to the scrap data so far:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(price_per_pound))
+
+scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)
+
+scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
+                <span class="dt">scrap_finder    =</span> <span class="st">&quot;BB8&quot;</span>,
+                <span class="dt">measure_method  =</span> <span class="st">&quot;REM-24&quot;</span>)</code></pre></div>
+<p><br></p>
+<p>We can use the <code>%&gt;%</code> operator and write it this way.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">arrange</span>(<span class="kw">desc</span>(price_per_pound)) <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">filter</span>(origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">mutate</span>(<span class="dt">scrap_finder    =</span> <span class="st">&quot;BB8&quot;</span>,
+                  <span class="dt">measure_method  =</span> <span class="st">&quot;REM-24&quot;</span>)</code></pre></div>
+</div>
+<div class="tip">
+<h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Similar to above, use the <code>%&gt;%</code> to combine the two Endor lines below.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Filter to only magnetic_field measurements</span>
+mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)
+
+<span class="co"># Add a date column to the filtered data</span>
+mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(start_run_date))</code></pre></div>
+</div>
+<p><br></p>
+<blockquote>
+<p><strong>So where were we?</strong></p>
+<p><strong>Right! We we’re enjoying our time on beautiful lush Endor. But aren’t we missing somebody…?</strong></p>
+</blockquote>
+</div>
+</div>
+<div id="finn-needs-us" class="section level1 unnumbered">
+<h1>Finn needs us!</h1>
+<p>That’s enough <em>scuttlebutting</em> on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he’s being held ransom by Junk Boss Plutt. We’ll need to act fast to get to him before the Empire does. <strong>Blast off!</strong></p>
+<p><br></p>
+<div class="figure">
+<img src="../images/finn_run.gif" style="margin-left: 18%; width: 60%; margin-top: 6px;" />
+
+</div>
+<p><br></p>
+</div>
+<div id="more-jakku-trash" class="section level1">
+<h1><span class="header-section-number">4</span> More Jakku trash</h1>
+<hr>
+<div class="tip">
+<h3 style="margin-top: 13px;">
+Update from BB8!
+</h3>
+<p>BB8 was busy on our flight back to Jakku, and recovered a <strong>full</strong> set of scrap records from the notorious Unkar Plutt. Let’s take a look.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
+
+<span class="co"># Read in the full scrap database</span>
+scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;</span>)</code></pre></div>
+</div>
+</div>
+<div id="jakku-re-visited" class="section level1">
+<h1><span class="header-section-number">5</span> Jakku re-visited</h1>
+<hr>
+<p>Okay, so we’re back on this ol’ dust bucket. Let’s try not to forget anyone this time. We’re quickly running out of friends on this planet.</p>
+<div id="a-scrappy-ransom" class="section level2 unnumbered">
+<h2>A scrappy ransom</h2>
+<p>Mr. Baddy Plutt is demanding <strong>10,000 items</strong> of scrap for Finn. Sounds expensive, but lucky for us he didn’t clarify the exact items. Let’s find the scrap that weighs the least per shipment and try to make this transaction as light as possible.</p>
+<p>Take a look at our <strong>NEW</strong> scrap data and see if we have the weight of all the items.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What unit types are in the data?</span>
+<span class="kw">unique</span>(scrap<span class="op">$</span>units)</code></pre></div>
+<pre><code>## [1] &quot;Cubic Yards&quot; &quot;Items&quot;       &quot;Tons&quot;</code></pre>
+<p><br></p>
+<p><strong>Or return results as a data frame</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(scrap, units)</code></pre></div>
+<pre><code>## # A tibble: 3 x 1
+##   units      
+##   &lt;chr&gt;      
+## 1 Cubic Yards
+## 2 Items      
+## 3 Tons</code></pre>
+<p><br></p>
+<p><em>Hmmm….</em> So how much does a cubic yard of <code>Hull Panel</code> weigh?</p>
+<p><em>A lot? 32? Maybe…</em></p>
+<p>I think we’re going to need some more data.</p>
+<p><br></p>
+<div class="tip">
+<p><br></p>
+<p><strong>“Hey BB8!”</strong></p>
+<p><strong>“Do your magic data finding thing.”</strong></p>
+</div>
+</div>
+<div id="weight-conversion" class="section level2 unnumbered">
+<h2>Weight conversion</h2>
+<div class="figure">
+<img src="../images/rey_bb8.jpg" align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;" />
+
+</div>
+<p>It took a while, but with a few droid bribes BB8 was able to track down a <em>Weight conversion table</em> from his droid buddies. Our current data shows the total cubic yards for some scrap shipments, but not how much the shipment weighs.</p>
+<div id="read-the-weight-conversion-table" class="section level3 unnumbered">
+<h3>Read the weight conversion table</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The data&#39;s URL</span>
+convert_url &lt;-<span class="st"> &quot;https://rtrain.netlify.com/data/conversion_table.csv&quot;</span>
+
+<span class="co"># Read the conversion data</span>
+convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_url)
+
+<span class="kw">head</span>(convert, <span class="dv">3</span>)</code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   item               units       pounds_per_unit
+##   &lt;chr&gt;              &lt;chr&gt;                 &lt;dbl&gt;
+## 1 Bulkhead           Cubic Yards             321
+## 2 Hull Panel         Cubic Yards             641
+## 3 Repulsorlift array Cubic Yards             467</code></pre>
+<p><br></p>
+<p>Stars! A cubic yard of <code>Hull Panel</code> weighs <strong>641 lbs</strong>. That’s what I thought!</p>
+<p>Let’s join this new conversion table to the scrap data to make our calculations easier. To do that we need to make a new friend.</p>
+<p><strong>Say <em>“Hello”</em> to <code>left_join()</code>!</strong></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="join-tables-with-left_join" class="section level1">
+<h1><span class="header-section-number">6</span> Join tables with <code>left_join()</code></h1>
+<hr>
+<div id="join-2-tables" class="section level2 unnumbered">
+<h2>Join 2 tables</h2>
+<div class="figure">
+<img src="../images/leftjoin_scrap.png" style="width: 55%; margin-left: 18%; margin-bottom: 12px;" />
+
+</div>
+<blockquote>
+<h3 id="left_joinscrap-convert-by-ccolumns-to-join-by" class="unnumbered"><code>left_join(scrap, convert, by = c(&quot;columns to join by&quot;))</code></h3>
+</blockquote>
+<p><code>left_join()</code> works like a zipper to combine 2 tables based on one or more variables. It’s called “left”-join because the entire table on the left side is retained.</p>
+<p>Anything that matches from the right table gets to join the party, but any rows that don’t have a matching ID will be ignored.</p>
+<p><br></p>
 <div id="adding-porg-names" class="section level3 unnumbered">
 <h3>Adding porg names</h3>
 <p>Remember our porg friends? How rude of us not to share their names. <strong>Wups!</strong></p>
@@ -192,29 +711,32 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 
 </div>
 </div>
+<blockquote>
 <p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
+</blockquote>
 <div class="figure">
 <img src="../images/porgs/leftjoin_porgs.png" style="width: 90%; max-width: 85%;" />
 
 </div>
 <p><br></p>
 </div>
-<div id="whats-the-result" class="section level3 unnumbered">
-<h3><strong>What’s the result?</strong></h3>
+<div id="the-joined-result" class="section level3 unnumbered">
+<h3><strong>The joined result:</strong></h3>
 <div class="well">
 <div class="figure">
 <img src="../images/porgs/porgs_and_names.png" style="width: 85%; max-width: 85%;" />
 
 </div>
 </div>
-<p><br><br></p>
-</div>
-<div id="more-joining" class="section level2">
-<h2><span class="header-section-number">1.1</span> More joining</h2>
-<div id="star-wars-characters" class="section level3 unnumbered">
-<h3>Star Wars characters</h3>
-<strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. <br>
-<style type="text/css"> .table {width: 30%;} </style>
+<p><br></p>
+<p><details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>BONUS</strong><i class="fas fa-star"></i></span> <strong>More joining</strong></summary></p>
+<div class="note" style="margin-top: -10px;">
+<p>
+<h3 id="star-wars-characters" class="unnumbered">Star Wars characters</h3>
+<p><strong>left_join()</strong> is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key.</p>
+<style type="text/css"> 
+.table {width: 30%;} 
+</style>
 <p><br></p>
 <div style="float: left;">
 <p><code>starwars_heights</code></p>
@@ -342,14 +864,10 @@ height_and_homeworld</code></pre></div>
 </tbody>
 </table>
 <p><br></p>
-<div id="did-it-work" class="section level4 unnumbered">
-<h4>Did it work?</h4>
+<h4 id="did-it-work" class="unnumbered">Did it work?</h4>
 <p>When <strong>left_join</strong> adds the <code>homeworlds</code> column to the <em>starwars_heights</em> table it only adds a value for the characters when the tables have a matching character name. When R couldn’t find “Greedo” in the homeworld table, the Star Wars character’s homeworld was recorded as missing or <em><code>NA</code></em>.</p>
 <p><br></p>
-</div>
-</div>
-<div id="multiple-records" class="section level3 unnumbered">
-<h3>Multiple records</h3>
+<h3 id="multiple-records" class="unnumbered">Multiple records</h3>
 <div>
 <p><img src="../images/c3po.png" style="width: 13%; float: left; margin-top: 12px; margin-right: 4px;" /> <img src="../images/c3po.png" style="width: 13%; float: left; margin-top: 12px; margin-right: 28px;" /></p>
 </div>
@@ -492,134 +1010,94 @@ height_and_homeworld</code></pre></div>
 </tbody>
 </table>
 <p><br></p>
-<div class="note">
+<div class="blockquote">
 <p>This results in a table with one extra row than we started with in our heights table. So growing table sizes are a sign of duplicate records when using <strong>left_join()</strong>.</p>
 <p>In practice, when you see this you’ll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different, as it was for <em>C-3PO’s</em> homeword.</p>
 <p>Are there really two different Star Wars characters named <em>C-3PO</em>, or maybe someone made two different guesses about the droid’s homeworld, or maybe the data simply has a mistake.</p>
 </div>
+</p>
+</div>
+<p></details></p>
+<style type="text/css"> 
+.table {width: auto;} 
+</style>
 <p><br></p>
 </div>
 </div>
-</div>
-<div id="finn-needs-us" class="section level1">
-<h1><span class="header-section-number">2</span> | Finn needs us!</h1>
-<p>That’s enough <em>scuttlebutting</em> around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he’s being held ransom by Junk Boss Plutt. We’ll need to act fast to get to him before the Empire does. <strong>Blast off!</strong></p>
-<div class="figure">
-<img src="../images/finn_run.gif" />
-
-</div>
-<p><br></p>
-<div class="note">
-<p>Did you get tired of writing <code>scrap</code> so many times yesterday? Let’s learn to chain several functions together. I mean I have now written <code>scrap</code> like a million times and my fingers hurt. Mother of moons!</p>
-</div>
-</div>
-<div id="the-pipe" class="section level1">
-<h1><span class="header-section-number">3</span> | The pipe <code>%&gt;%</code></h1>
-<p><strong>Let the <code>%&gt;%</code> guide you young Padawan.</strong></p>
-<div class="figure">
-<img src="https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png" align="left" style="margin-right: 28px; margin-bottom: 22px;" width="155" />
-
-</div>
-<p><br></p>
-<p>Luckily, you <strong>don’t</strong> have to do ALL that typing. The pipe let’s you chain functions together and do everything in one go.</p>
-<p><br></p>
-<div style="clear:both;">
-
-</div>
-</div>
-<div id="update-from-bb8" class="section level1">
-<h1><span class="header-section-number">4</span> | Update from BB8!</h1>
-<hr>
-<div class="figure">
-<img src="../images/rey_bb8.jpg" align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;" />
-
-</div>
-<p>BB8 was able to recover the <strong>full</strong> scrap data from the notorious Junk Boss Unkar Plutt. We will experiment with pipe using the <code>starwars_scrap_jakku_full.csv</code> dataset.</p>
-<p><br></p>
+<div id="back-to-the-scrap-yard" class="section level2 unnumbered">
+<h2>Back to the scrap yard</h2>
+<hr class="hrlvl2">
+<p>Let’s apply our new <code>left_join()</code> skills to the scrap data.</p>
+<p>First, let’s re-read the full scrap data.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
 
 <span class="co"># Read in the larger scrap database</span>
-<span class="co"># Note: The data set has items that are in units other than tons. </span>
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;</span>)
 
-
-ion_scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
-<span class="st">             </span><span class="kw">filter</span>(item <span class="op">==</span><span class="st"> &quot;Ion engine&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">             </span><span class="kw">arrange</span>(<span class="kw">desc</span>(amount))</code></pre></div>
-<p><br></p>
-</div>
-<div id="more-jakku-scrap" class="section level1">
-<h1><span class="header-section-number">5</span> | More Jakku scrap</h1>
-<p>Plutt is demanding <strong>10,000 items</strong> of scrap for Finn. Lucky for us he didn’t clarify the exact items. Let’s find the scrap that weighs the least per item to make this transaction as easy as possible.</p>
-<div id="good-news" class="section level2 unnumbered">
-<h2>Good news</h2>
-<p>BB8 tracked down a scrap <code>Mass conversion table</code> from his old droid buddies. Our current table shows the total cubic yards for some scrap shipments, but not how much the shipment weighs. If we join our scrap data to the conversion table then we can really start digging into what would be the lightest item for trade. And we can do that much more efficiently now that we know <code>left_join()</code>!</p>
-<div id="get-the-pounds-conversion-table" class="section level3 unnumbered">
-<h3>Get the pounds conversion table</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-
-<span class="co"># The data&#39;s url</span>
-convert_url &lt;-<span class="st"> &quot;https://itep-r.netlify.com/data/conversion_table.csv&quot;</span>
-
-<span class="co"># Read in the conversion data</span>
-convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_url)
-
-<span class="kw">head</span>(convert, <span class="dv">3</span>)</code></pre></div>
-<pre><code>## # A tibble: 3 x 3
-##   item               units       pounds
-##   &lt;chr&gt;              &lt;chr&gt;        &lt;dbl&gt;
-## 1 Bulkhead           Cubic Yards    321
-## 2 Hull Panel         Cubic Yards    641
-## 3 Repulsorlift array Cubic Yards    467</code></pre>
-<p><br></p>
-</div>
-<div id="re-read-the-full-scrap-data" class="section level3 unnumbered">
-<h3>Re-read the full scrap data</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">library</span>(dplyr)
-
-<span class="co"># Read in the larger scrap database</span>
-<span class="co"># Note: The data set has items that are in units other than tons. </span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv&quot;</span>)
-
-<span class="co"># Run either of the following to see </span>
-<span class="co"># what -unit- types are in the data </span>
-<span class="kw">unique</span>(scrap<span class="op">$</span>units)</code></pre></div>
-<pre><code>## [1] &quot;Cubic Yards&quot; &quot;Items&quot;       &quot;Tons&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">distinct</span>(scrap, units)</code></pre></div>
+<span class="co"># what units types are in the data? </span>
+<span class="kw">distinct</span>(scrap, units)</code></pre></div>
 <pre><code>## # A tibble: 3 x 1
 ##   units      
 ##   &lt;chr&gt;      
 ## 1 Cubic Yards
 ## 2 Items      
 ## 3 Tons</code></pre>
+<div id="join-the-conversion-table-to-scrap" class="section level3 unnumbered">
+<h3>Join the conversion table to scrap</h3>
+<p>Look at the tables. What columns in both tables do we want to join <strong>by</strong>?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(scrap)</code></pre></div>
+<p>Let’s join by <code>item</code> and <code>units</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Join the scrap to the conversion table</span>
 scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert, 
-                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span> =<span class="st"> &quot;item&quot;</span>, <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))</code></pre></div>
+                   <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;item&quot;</span>  =<span class="st"> &quot;item&quot;</span>, 
+                          <span class="st">&quot;units&quot;</span> =<span class="st"> &quot;units&quot;</span>))</code></pre></div>
 <p><br></p>
 <blockquote>
-<p>Want to skimp on typing?</p>
+<p>Want to save on typing?</p>
 </blockquote>
-<p>When the 2 tables share column names that are the same, <code>left_join()</code> will automatically search for matching columns if you don’t use the <code>by=</code> argument. So the code below does the same as above.</p>
+<p><code>left_join()</code> will automatically search for matching columns if you don’t use the <code>by=</code> argument. So if you know 2 tables share a column name you don’t have to specify how to join them. The code below does the same as above.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, convert)
 
 <span class="kw">head</span>(scrap, <span class="dv">4</span>)</code></pre></div>
 <pre><code>## # A tibble: 4 x 8
-##   receipt_date item  origin destination amount units price_per_pound pounds
-##   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;  &lt;dbl&gt;
-## 1 4/1/2013     Bulk~ Crate~ Raiders       4017 Cubi~           1005.    321
-## 2 4/2/2013     Star~ Outsk~ Trade cara~   1249 Cubi~           1129.    637
-## 3 4/3/2013     Star~ Outsk~ Niima Outp~   4434 Cubi~           1129.    637
-## 4 4/4/2013     Hull~ Crate~ Raiders        286 Cubi~            843.    641</code></pre>
+##   receipt_date item  origin destination amount units price_per_pound
+##   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+## 1 4/1/2013     Bulk~ Crate~ Raiders       4017 Cubi~           1005.
+## 2 4/2/2013     Star~ Outsk~ Trade cara~   1249 Cubi~           1129.
+## 3 4/3/2013     Star~ Outsk~ Niima Outp~   4434 Cubi~           1129.
+## 4 4/4/2013     Hull~ Crate~ Raiders        286 Cubi~            843.
+## # ... with 1 more variable: pounds_per_unit &lt;dbl&gt;</code></pre>
+<div class="note">
+<h3 id="help" class="unnumbered"><strong>Help!</strong></h3>
+<p>For more details, you can type <code>?left_join</code> to see all the arguments and options. <br></p>
+</div>
+</div>
+</div>
+<div id="total-pounds-per-shipment" class="section level2 unnumbered">
+<h2>Total pounds per shipment</h2>
+<p>Let’s <code>mutate()</code>!</p>
+<p>Now that we have pounds per unit we can use <code>mutate</code> to calculate the total pounds for each shipment.</p>
 <p><br></p>
-<p><strong>Help!</strong> You can type <code>?left_join</code> to see all the arguments and options.</p>
-<p><br></p>
-<div id="exercise" class="section level4 unnumbered">
-<h4><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h4>
+<p><strong>Fill in the blank</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">total_pounds =</span> amount <span class="op">*</span><span class="st">  </span>_____________ )</code></pre></div>
+<details> <summary class = "btn_code"><em>Show code</em></summary>
+<p>
+<div class="quiz" style="margin-top: -6px;">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">total_pounds =</span> amount <span class="op">*</span><span class="st"> </span>pounds_per_unit)</code></pre></div>
+</p>
+</div>
+<p></details></p>
+</div>
+<div id="total-price-per-shipment" class="section level2 unnumbered">
+<h2>Total price per shipment</h2>
+<div class="tip">
+<h3 id="explore-1" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
-<a class="nav-link" id="totalcredits-tab" data-toggle="tab" href="#totalcredits" role="tab" aria-controls="totalcredits" aria-selected="true">Total credits</a>
+<a class="nav-link" id="totalprice-tab" data-toggle="tab" href="#totalprice" role="tab" aria-controls="totalprice" aria-selected="true">Total price</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" id="showhint-tab" data-toggle="tab" href="#showhint" role="tab" aria-controls="showhint" aria-selected="false">Show hint</a>
@@ -629,63 +1107,70 @@ scrap &lt;-<span class="st"> </span><span class="kw">left_join</span>(scrap, con
 </li>
 </ul>
 <div id="myTabContent" class="well tab-content" style="background-color: white;">
-<div id="totalcredits" class="tab-pane fade active in" role="tabpanel" aria-labelledby="totalcredits-tab">
+<div id="totalprice" class="tab-pane fade active in" role="tabpanel" aria-labelledby="totalprice-tab">
 <h4>
-Total credits
+Total price
 </h4>
-<p>We now have the amount sold, the weight of that amount in pounds, and the price in credits per pound. Let’s use these 3 pieces of information to find the total amount of credits for each transaction. How do we calculate that?</p>
+<p>We need to do some serious multiplication. We now have the total amount shipped in pounds, and the price per pound, but we want to know the total price for each transaction.</p>
+<p>How do we calculate that?</p>
 <pre class="sourceCode r">
-
-# Calculate the total credits for each transaction
+# Calculate the total price for each shipment
 scrap <- scrap %>% 
-         mutate(_______ = _______________)
+         mutate(credits = ________ * ________ )
          
 </pre>
 </div>
 <div id="showhint" class="tab-pane fade" role="tabpanel" aria-labelledby="showhint-tab">
 <h4>
-Total credits
+Total price
 </h4>
-<p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<p>We need to do some serious multiplication. We now have the total amount shipped in pounds, and the price per pound, but we want to know the total price for each transaction.</p>
+<p>How do we calculate that?</p>
 <pre class="sourceCode r">
-
-# Calculate the total credits for each transaction
+# Calculate the total price for each shipment
 scrap <- scrap %>% 
-         mutate(credits = _______ * _______ * ________)
+         mutate(credits = total_pounds  * ________ )
 
 </pre>
 </div>
 <div id="showcode" class="tab-pane fade" role="tabpanel" aria-labelledby="showcode-tab">
 <h4>
-Total credits
+Total price
 </h4>
-<p>We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?</p>
+<p>We need to do some serious multiplication. We now have the total amount shipped in pounds, and the price per pound, but we want to know the total price for each transaction.</p>
+<p>How do we calculate that?</p>
 <pre class="sourceCode r">
-
-# Calculate the total credits for each transaction
+# Calculate the total price for each shipment
 scrap <- scrap %>% 
-         mutate(credits = amount * pounds * price_per_pound)
+         mutate(credits = total_pounds * price_per_pound)
          
 </pre>
 </div>
 </div>
+</div>
 <p><br></p>
-<div class="note">
-<p>Data analysts often get asked questions similar to:</p>
+</div>
+<div id="price-per-item" class="section level2 unnumbered">
+<h2>Price per item</h2>
+<p><strong>Great!</strong> Let’s add one last column. We can divide the shipment’s <em>credits</em> by the <em>amount</em> of items to get the <code>price_per_unit</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the price per unit</span>
+scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">price_per_unit =</span> credits <span class="op">/</span><span class="st"> </span>amount)</code></pre></div>
+<p><br></p>
+<div class="note" style="line-height: 1.6;">
+<h3 id="note-1" class="unnumbered">Note</h3>
+<p>Analysts often get asked questions:</p>
 <ul>
 <li>What’s the highest number?</li>
 <li>What’s the lowest number?</li>
-<li>So what’s the average tonnage of scrap from Cratertown this year?</li>
-<li>Who’s making the most money this year?</li>
+<li>What was the average tons of scrap from Cratertown last year?</li>
+<li>Which town’s scrap was worth the most credits?</li>
 </ul>
-<h4 id="so-let-us-move-on-to-summarize." class="unnumbered">So let us move on to <code>summarize()</code>.</h4>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="summarize-this" class="section level1">
-<h1><span class="header-section-number">6</span> | <code>summarize()</code> this</h1>
+<h1><span class="header-section-number">7</span> <code>summarize()</code> this</h1>
 <hr>
 <div class="figure">
 <img src="../images/summarize_diagram.png" width="490" />
@@ -749,25 +1234,25 @@ scrap <- scrap %>%
 
 niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
 <p><br></p>
-<div id="exercise-1" class="section level3 unnumbered">
-<h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<div class="tip">
+<h3 id="explore-2" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
                      <span class="dt">max_credits      =</span> __________,
                      <span class="dt">weight_90th_pct  =</span> <span class="kw">quantile</span>(Weight, <span class="fl">0.90</span>),
                      <span class="dt">count_records    =</span> __________,</code></pre></div>
 <p><br></p>
-<div class="note">
-<h4 id="shut-me-down" class="unnumbered"><strong>Shut me down!</strong></h4>
+<blockquote>
+<h3 id="shut-me-down" class="unnumbered"><strong>Shut me down!</strong></h3>
 <p>That was a whole lot of summarizing. Do we really have to filter to the Origin City that we’re interested in every time?</p>
 <p>It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.</p>
+</blockquote>
 <h4 id="its-time-for-group_by" class="unnumbered">It’s time for <code>group_by()</code>!</h4>
 </div>
 </div>
 </div>
-</div>
-<div id="group_by" class="section level1">
-<h1><span class="header-section-number">7</span> | <code>group_by()</code></h1>
+<div id="group_by-what" class="section level1">
+<h1><span class="header-section-number">8</span> <code>group_by()</code> what</h1>
 <hr>
 <div id="bargain-hunters" class="section level2 unnumbered">
 <h2>Bargain hunters</h2>
@@ -805,22 +1290,19 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="save-files" class="section level1">
-<h1><span class="header-section-number">8</span> | Save files</h1>
+<h1><span class="header-section-number">9</span> Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
-<span class="kw">write_csv</span>(scrap_summary, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
+<span class="kw">write_csv</span>(scrap_means, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
 <p><br></p>
-<div id="warning" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> <strong>Warning!</strong></h3>
 <div class="well">
+<h3 id="warning" class="unnumbered"><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> <strong>Warning!</strong></h3>
 <p>By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called <code>results/</code> and not to your raw <code>data/</code> folder.</p>
 </div>
 </div>
-</div>
 <div id="grouped-mutate" class="section level1">
-<h1><span class="header-section-number">9</span> | Grouped <code>mutate()</code></h1>
-<br>
+<h1><span class="header-section-number">10</span> Grouped <code>mutate()</code></h1>
 <hr>
 <p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point.</p>
 <blockquote>

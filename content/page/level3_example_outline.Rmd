@@ -32,7 +32,7 @@ _Good luck!_
 - Open a new R script
 - Create a `data` folder in your project directory 
 - Copy your data into the folder
-- Open a new R script
+
 
 ## Begin your analysis
 <hr>
@@ -46,12 +46,13 @@ If you'd like, you can try doing your analysis in an `Rmarkdown` document instea
 
 <br>
 
-### 1. Read data into R
-```{r data}
+### 1. Read data into R {-}
+```{r, eval=F}
 library(readr)
+library(janitor)
 
-# Read in a CSV file
-air_data <- read_csv("data/OZONE_samples.csv")
+# Read a CSV file
+air_data <- read_csv("data/My-data.csv")
 
 
 # Have an EXCEL file?
@@ -60,8 +61,15 @@ install.packages(readxl)
 
 library(readxl)
 
-# Read in EXCEL file
-air_data <- read_excel("data/OZONE_samples.xlsx")
+# Read an EXCEL file
+air_data <- read_excel("data/My-data.xlsx")
+```
+
+
+### 2. Clean the column names {-}
+```{r, eval=F}
+
+air_data <- clean_names(air_data)
 
 ```
 
@@ -69,9 +77,9 @@ air_data <- read_excel("data/OZONE_samples.xlsx")
 ```{r view, message = F, fig.width=12, fig.height=4}
 library(ggplot2)
 
-#Remember the ggplot sandwich!
+# Remember the ggplot sandwich!
 ggplot(air_data, aes(x = TEMP_F, y = OZONE)) + 
-    geom_point(alpha = 0.2) +
+    geom_point(aes(color = site_name), alpha = 0.2) +
     geom_smooth(method = "lm")
 ```
 

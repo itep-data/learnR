@@ -1,5 +1,8 @@
 ---
 title: " "
+output: 
+  blogdown::html_page: 
+    css: css/camp_style.css
 comments: false
 ---
 
@@ -10,20 +13,27 @@ library(icon)
 
 <style> code {color: #535353 !important;} </style>
 
-![](../../images/TAMS_info_box_wide.png){style="max-width: 80%; width: 80%; margin-top: 10px; margin-bottom: 28px; margin-left: auto; margin-right: auto;"}
+![](../../images/TAMS_info_box_wide.png){style="max-width: 101%; width: 101%; margin-top: 4px; margin-bottom: -10px; margin-left: -4px; "}
 
 # R for Environmental Data Analysis
-#### _May 6th, 2019_
-Class location        
-_Address_    
-_Address_
+
+<div class="column2">
+__Pechanga Resort & Casino__  
+Cottonwood Meeting Room  
+Temecula, CA
+</div>
+
+<div class="column2">
+
+### August 6-8th, 2019
+</div><div style="clear: both;"> </div>
 
 
-![](../../images/Rstudio_ex.png){style="float: left; max-width: 28%; margin-top: 0; margin-left: 0; margin-right: 28px;"}
+![](../../images/Rstudio_ex.png){style="float: left; max-width: 30%; margin-top: 10px; margin-left: 0; margin-right: 32px;"}
 
-<p style="margin-top: 44px; margin-bottom: 0px;">
+<p style="margin-top: 49px; margin-bottom: 0px;">
 
-Join us for this 1-day workshop to learn the basics of importing data, using new packages, cleaning and summarizing data with tidy tools, and using R to make charts and maps. Besides Star Wars, examples will include tribal environmental data, with a focus on reporting trend analyses and evaluating outliers and potential exceptional events.
+Join us for a 3-day workshop to learn the basics of importing data, using new packages, cleaning and summarizing data with tidy tools, and using R to make charts and maps. Besides Star Wars, examples will include tribal environmental data, with a focus on reporting trend analyses and evaluating outliers and exceptional events.
 
 No previous experience in R is required. However, this is a hands-on course geared towards those actively gathering or analyzing data (or those that want to be!). If you have any questions regarding your eligibility for this course, please contact Melinda Ronca-Battista at melinda.ronca-battista@nau.edu.
 
@@ -32,13 +42,14 @@ No previous experience in R is required. However, this is a hands-on course gear
 
 ## Learn to
 
-![](../../images/mon_cal.PNG){style="float: right; max-width: 44%; margin-top: -24px; margin-left: 12px; margin-right: -12px;"}
+![](../../images/mon_cal.PNG){style="float: right; max-width: 45%; margin-top: -20px; margin-left: 14px; margin-right: -16px;"}
 
-- Load data into RStudio from Excel, text files, shapefiles, and the internet    
-- Clean, process and summarize your own data  
-- Run code to construct charts and plots (ex: [NAAQS trends](https://gispub.epa.gov/air/trendsreport/2017/#naaqs_trends))  
-- Customize code to fit your needs for data processing, plots and summaries  
-- Find help   
+- Load data into RStudio from Excel, text files, shapefiles, and the internet.    
+- Clean, process and summarize your own data.  
+- Run code to construct charts and plots. _(ex: [NAAQS trends](https://gispub.epa.gov/air/trendsreport/2017/#naaqs_trends))_  
+- Read and save data to AQS format.
+- Customize code to fit your needs for data processing, plots and summaries.  
+- Find help.   
 
 
 <h3 style="margin-top: 34px;"> TAMS Contact </h3>
@@ -49,5 +60,5 @@ darlene.santos@nau.edu
 
 <div class="well" style="margin-top: 50px;"> 
 **Cancellations**   
-_Once you have confirmed your attendance at the course please make every effort to attend. Contact Darlene Santos 72 hours in advance to cancel. To help with record keeping on our end, please do not offer your reservation to someone else directly._   
+_Once you've confirmed your attendance please make every effort to attend. Contact Darlene Santos 72 hours in advance to cancel. To help with record keeping on our end, please do not offer your reservation to someone else directly._   
 </div>  

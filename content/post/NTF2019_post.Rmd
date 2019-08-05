@@ -23,7 +23,8 @@ imageFloat: 'left'
 
 
 ```{r setup, include=FALSE}
-library("rmarkdown")
+library(rmarkdown)
+library(countdown)
 knitr::opts_chunk$set(error=F, message=F, warning=F)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
@@ -714,11 +715,9 @@ air_data <- mutate(air_data, date_time = ymd_hms(date_time))
 ```
 
 
-<details>
-<summary class = "btn_code_blue"> __MORE DATES: Real world examples__ </summary>
+<div class="note">
+### Real world examples {-}
 
-<div class="note" style="margin-top: -9px;">
-<p>
 Does your date column look like one of these? Here's the `lubridate` function to tell R that the column is a date.
 
 
@@ -737,8 +736,7 @@ __AQS formatted dates__
 |--------|:-------------------------| 
 | "20190518" | `ymd(sample_date) `  |
 
-</p>
-</details>
+</div>
 
 <br>
 
@@ -776,120 +774,18 @@ __Key comparison operators__
 | `<=`  | less than or equal to    |
 | `==`  | equal to                 |
 | `!=`  | NOT equal to             |
-| `%in%`| is value in a list: `X %in% c(1,3,5)` |
+| `%in%`| value is in a list: `X %in% c(1,3,7)` |
 | `is.na(...)`  | is the value missing? |
-| `str_detect(col_name, "word")`  | does this text appear anywhere? |
+| `str_detect(col_name, "word")`  | "word" appears in text? |
 
 
-
-# Guess Who? 
+# Guess Who? {-}
 <h2 style="margin-top: -24px;"> _Star Wars edition_ </h2>
-
-![](../images/sw_guesswho.jpg){width="280" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 36px;"}
-
-> Are you the best Jedi detective out there? Let's play a game to find out. 
-
-<br>
-
-Guess what else comes with the `dplyr` package? A **Star Wars data set**.
-
-You can open the data set with the following steps:
-
-1. Load the `dplyr` package from your `library()`
-1. Pull the Star Wars dataset into your environment.
-    
-
-```{r}
-library(dplyr)
-
-starwars_data <- starwars
+```{r guesswho, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/games_guesswho/starwars.Rmd'}
 ```
-
-
-## <span style="text-decoration: underline;"> Rules </span> {-}
-
-1. You have a __secret__ identity.
-1. Choose a character from the Star Wars data set. _(Or run `sample_n(starwars_data, 1)` to choose your character at random.)_
-1. __Keep it hidden!__ Don't show or tell your neighbor.
-1. Take turns asking each other questions about your partner's character. 
-1. Use the answers to build a `filter()` function and narrow down the potential characters your neighbor may have picked. 
-
-
-For example: Here's a `filter()` statement that filters the data to the character _Plo Koon_.
-
-<div style="width: 90%; margin-left: 8%">
-```{r, eval=F}
-mr_koon <- filter(starwars_data,
-                  mass       < 100,
-                  eye_color  != "blue",
-                  gender     == "male",
-                  homeworld  == "Dorin",
-                  birth_year > 20)
-
-```
-</div>
-<br>
-
-Elusive answers are allowed. For example, if someone asks: _What is your character's mass?_ 
-
-- You can respond: _My character's mass is equal to one less than their age._ 
-- Or if you're feeling generous you can give a straight forward answer such as: _My character's mass is definitely more than 100 and less that 140._
-
-Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as `NA`. If your character has a missing value for hair color, one of your filter statements could be `is.na(hair_color)`. 
-
-<br>
-
-<h3 style="margin-top: 18px; color:  #a0af49;"> __WINNER!__ </h3>
-
-The winner is the first to guess their neighbor's character.
-
-<details>
-<summary class = "btn_code_green"> __WINNERS Click here!__ </summary>
-
-<div class="data" style="margin-top: -6px;">
-<p>
-
-<div style="max-height: 338px; margin: 20px; margin-left: 2px; overflow: hidden;">
-![](../images/lily_log.jpg){width="24%" align="left"} 
-![](../images/lily_log.jpg){width="24%" align="left"} 
-![](../images/lily_log.jpg){width="24%" align="left"} 
-![](../images/lily_log.jpg){width="24%" align="left"} 
-</div>
-
-</p></div>
-</details>
-
-
-<details>
-<summary class = "btn_code"> __More WINNERS Click here!__ </summary>
-
-<div class="quiz" style="margin-top: -6px;">
-<p>
-
-<div style="max-height: 500px; margin: 20px; margin-left: 2px; overflow: hidden;">
-
-![](../images/cat_win.jpg)
-
-</div>
-
-</p></div>
-</details>
-
-
-<br>
-
-<div class="note">
-
-#### Want a rematch? 
-
-How about make it best of __3__ games? Or switch partners and try again.
-
-</div>
-
 
 
 # 5. | More plots!
-
 ```{r, fig.width=13, fig.height=5}
 ggplot(air_data, aes(x = cal_date, y = ozone, color = month)) + 
     geom_point(size = 3, alpha = 0.2) 
@@ -1208,7 +1104,7 @@ write_csv(air_summary, "2015-2017_ozone_summary.csv")
 
 
 <details>
-<summary class = "btn_code"> __BONUS__ Save to EPA AQS format </summary>
+<summary class = "btn_code"> __Bonus__ Save to AQS format </summary>
 
 <div class="quiz" style="margin-top: -9px;">
 <p>

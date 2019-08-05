@@ -1,0 +1,76 @@
+---
+title: "Folder paths"
+date: '2018-12-11'
+showDate: false
+showAuthor: false
+summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
+slug: 'where_am_i'
+categories: [training]
+tags: [training]
+type: ''
+image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
+imageWidth: '30%'
+imageFloat: 'left'
+---
+
+
+![](../../images/day1_bb8_sq.png){width="240" style="float: right; margin-left: 34px; margin-top: 55px; margin-bottom: 64px;"}
+
+
+# Where am I? 
+<hr>
+
+When you open a new R project in RStudio your working directory is your project folder. Your project folder is like your home planet, and is the default location R will look for data files. To load a file called `new_data.csv` in your project folder, all you need to do is:
+
+```{r, eval = F}
+
+df <- read_csv("new_data.csv")
+```
+
+
+__But what if the data is located in a different folder?__ 
+
+If you remember land lines, your phone automatically assumes the default Area Code when you dial a number. And when you want to call another Area Code, you have to dial it in. Similarly, you have to tell R to go look in another folder to access files outside of your home directory. 
+
+### Example 1
+
+To load a file called `Ewok_data.csv` located in the folder `Endor` inside your project folder, you would type:
+
+```{r, eval = F}
+
+df <- read_csv("Endor/Ewok_data.csv")
+```
+
+
+__NOTE:__ The slash used for file paths in R is a forward leaning slash (`/`), and is the opposite of the slash commonly seen in folder locations on _Windows_ computers. If you get an __\*ERROR\*__, remember to check your slash.
+
+
+### Example 2
+
+If a file is completely outside of your project, you'll want to include the entire file path. An entire file apth usually begins with the letter of the computer drive, such as `C:/` or `X:/`. Loading a file from your Desktop called `secret_data.csv`, would look something like this:
+
+```{r, eval = F}
+
+df <- read_csv("C:/Users/me/Desktop/secret_data.csv")
+```
+
+### CHALLENGE
+
+Let's get back Jakku. BB8 is detecting an incoming message, but he needs your help tracking down where it is coming from. If you can find the planet it's being sent from, BB8 should be able to decode it for Rey. Use the message logs to work your way backwards through the relay stations and pinpoint the message's origin planet.
+
+Use this file to start your search.
+```{r, eval = F}
+
+# Download the current relay station logs
+source("messages/relays.R")
+
+tibble(id = "44A-P2", origin = "relays-endor-station2", message = paste0(sample(0:9, 44, replace = T), collapse = "-"))
+
+# Open the received message information
+df <- read_csv("messages/received_44A-P2.csv")
+```
+
+
+
+
+##

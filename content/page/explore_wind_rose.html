@@ -13,66 +13,41 @@ output:
 ---
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
@@ -80,23 +55,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Let’s take a look at some air pollution data stored in an Excel file.</p>
 <div id="download-the-data" class="section level2">
 <h2>Download the data</h2>
-<p><a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
-<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — La Jolla PM25 data</p>
+<p><a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls"> <span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — La Jolla PM25 data</p>
 </div>
 <div id="install-packages" class="section level2">
 <h2>Install packages</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get devtools for installing new packages from GitHub</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get devtools for installing new packages from GitHub</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
 
 <span class="co"># Load the devtools library </span>
 <span class="kw">library</span>(devtools)
 
 <span class="co"># Install openair for windrose functions</span>
-<span class="kw">install_github</span>(<span class="st">&#39;davidcarslaw/openair&#39;</span>)</code></pre>
+<span class="kw">install_github</span>(<span class="st">&#39;davidcarslaw/openair&#39;</span>)</code></pre></div>
 </div>
 <div id="load-the-data" class="section level2">
 <h2>Load the data</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
 <span class="kw">library</span>(openair)
 <span class="kw">library</span>(readxl)
 <span class="kw">library</span>(ggplot2)
@@ -104,22 +78,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span class="kw">library</span>(lubridate)
 
 <span class="co"># Set the path to your the Excel file</span>
-excel_path &lt;-<span class="st"> &quot;data/la_jolla_pm25_wind_data.xls&quot;</span></code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the file</span>
-air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>
+excel_path &lt;-<span class="st"> &quot;data/la_jolla_pm25_wind_data.xls&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the file</span>
+air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre></div>
 </div>
 <div id="explore-the-data" class="section level2">
 <h2>Explore the data</h2>
 <p>What are the column names?</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
 
 <span class="kw">glimpse</span>(air_data)
 
-<span class="kw">summary</span>(air_data)</code></pre>
+<span class="kw">summary</span>(air_data)</code></pre></div>
 </div>
 <div id="simplify-the-column-names" class="section level2">
 <h2>Simplify the column names</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop special characters and shorten names</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop special characters and shorten names</span>
 <span class="co"># Set all names to lowercase</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">rename</span>(<span class="dt">pm25 =</span> <span class="st">&quot;PM2.5 Conc (ug/m3)&quot;</span>, 
@@ -131,57 +105,56 @@ air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><s
 <span class="co"># Set wind speed and wind direction to numeric</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">wd   =</span> <span class="kw">as.numeric</span>(wd),
-                   <span class="dt">ws   =</span> <span class="kw">as.numeric</span>(ws))</code></pre>
-<pre><code>## Warning in evalq(as.numeric(wd), &lt;environment&gt;): NAs introduced by coercion</code></pre>
+                   <span class="dt">ws   =</span> <span class="kw">as.numeric</span>(ws))</code></pre></div>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
 </div>
 <div id="plot-the-data" class="section level2">
 <h2>Plot the data</h2>
 <p>Create a plot to show the distribution of each of the columns containing observations: <code>wind speed</code>, <code>wind direction</code>, and <code>concentration</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> ?, <span class="dt">y =</span> ?)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> ?, <span class="dt">y =</span> ?)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 </div>
 <div id="clean-ship" class="section level2">
 <h2>Clean ship</h2>
 <p>Let’s drop the non-sense values. We can’t use the rows that have a missing windspeed or wind direction observation.</p>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, 
                    <span class="op">!</span><span class="kw">is.na</span>(ws), 
                    <span class="op">!</span><span class="kw">is.na</span>(wd),
                    <span class="op">!</span><span class="kw">is.na</span>(pm25),
-                   ws <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre>
+                   ws <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</code></pre></div>
 </div>
 <div id="wind-rose" class="section level2">
 <h2>Wind rose</h2>
 <p>Now let’s make some wind roses.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data</span>
-<span class="kw">windRose</span>(air_data)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data</span>
+<span class="kw">windRose</span>(air_data)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">polarFreq</span>(air_data)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">polarFreq</span>(air_data)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-- Fine tune  wind rose</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#-- Fine tune  wind rose</span>
 <span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="dv">5</span>, <span class="dt">ws.upper =</span> <span class="dv">35</span>)
 
-<span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="fl">0.8</span>, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">30</span>))</code></pre>
+<span class="kw">polarFreq</span>(air_data, <span class="dt">ws.int =</span><span class="fl">0.8</span>, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">30</span>))</code></pre></div>
 </div>
 <div id="pollution-rose" class="section level2">
 <h2>Pollution rose</h2>
-<p>To make a pollution rose we can replace the name of the wind speed column with the name of PM2.5 column - <code>"PM2.5 Conc (ug/m3)"</code></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pollution concentrations based on wind directions</span>
+<p>To make a pollution rose we can replace the name of the wind speed column with the name of PM2.5 column - <code>&quot;PM2.5 Conc (ug/m3)&quot;</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pollution concentrations based on wind directions</span>
 <span class="kw">pollutionRose</span>(air_data, 
               <span class="dt">pollutant =</span> <span class="st">&quot;pm25&quot;</span>,
-              <span class="dt">key.footer =</span> <span class="st">&quot;PM2.5 ug/m3&quot;</span>)</code></pre>
+              <span class="dt">key.footer =</span> <span class="st">&quot;PM2.5 ug/m3&quot;</span>)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
 <div id="time-series" class="section level2">
 <h2>Time series</h2>
-<p><a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
-<span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — Ozone air data</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+<p><a href="https://github.com/itep-data/learnR/raw/master/content/data/2014_AQS_FondduLac.xlsx"> <span class="btn_code_blue"> <strong>DOWNLOAD</strong> </span></a> — Ozone air data</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
 <span class="kw">library</span>(readr)
 <span class="kw">library</span>(ggplot2)
 
 <span class="co"># Read the file</span>
 excel_path &lt;-<span class="st"> &quot;data/2014_AQS_FondduLac.xlsx&quot;</span>
 
-air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre>
+air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_path)</code></pre></div>
 <pre><code>## # A tibble: 5 x 12
 ##   StateCode CountyCode SiteNum Latitude Longitude Date               
 ##       &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;dttm&gt;             
@@ -195,25 +168,25 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(excel_
 </div>
 <div id="explore-the-data-1" class="section level2">
 <h2>Explore the data</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(air_data)
 
-<span class="kw">glimpse</span>(air_data)</code></pre>
+<span class="kw">glimpse</span>(air_data)</code></pre></div>
 </div>
 <div id="simplify-the-column-names-1" class="section level2">
 <h2>Simplify the column names</h2>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set all names to lowercase</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set all names to lowercase</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">rename_all</span>(tolower) <span class="op">%&gt;%</span>
-<span class="st">            </span><span class="kw">rename</span>(<span class="dt">site =</span> site_catid)</code></pre>
+<span class="st">            </span><span class="kw">rename</span>(<span class="dt">site =</span> site_catid)</code></pre></div>
 </div>
 <div id="lets-focus-on-pm2.5" class="section level2">
 <h2>Let’s focus on PM2.5</h2>
 <p>Use filter to select only the <code>parameter</code> code <code>88101</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span>??)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span><span class="dv">88101</span>)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span>??)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">filter</span>(air_data, parameter <span class="op">==</span><span class="st"> </span><span class="dv">88101</span>)</code></pre></div>
 <p>Let’s summarize the observations by day and then make a time series chart to see how the pollution concentrations are changing over time.</p>
 <p><strong>Add monthly statistics</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add a month column</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add a month column</span>
 air_data &lt;-<span class="st"> </span>air_data <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">            </span><span class="kw">mutate</span>(<span class="dt">day   =</span> <span class="kw">day</span>(date),
                    <span class="dt">month =</span> <span class="kw">month</span>(date),
@@ -226,25 +199,25 @@ air_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(air_d
 <span class="st">               </span><span class="kw">summarize</span>(<span class="dt">conc_avg  =</span> <span class="kw">mean</span>(conc, <span class="dt">na.rm =</span> T),
                          <span class="dt">conc_10th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.10</span>, <span class="dt">na.rm =</span> T),
                          <span class="dt">conc_90th =</span> <span class="kw">quantile</span>(conc, <span class="fl">0.90</span>, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span>
-<span class="st">               </span><span class="kw">ungroup</span>()</code></pre>
+<span class="st">               </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><strong>Plot a line chart</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>() <span class="op">+</span>
-<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>site)</code></pre>
+<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>site)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Now we can add a confidence band behind the line showing the upper and lower 10th percentile of the observations.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span><span class="st">&quot;loess&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
-<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
+<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p><strong>What happens when you increase the <code>level = 0.90</code> up to <code>0.999</code>, making the shaded band a 99% confidence interval?</strong></p>
-<p><strong>Try adding another confidence band, but make it a linear model: <code>method = "lm"</code>, and set the color to “black”. Does the new line predict the concentration to be going down or up at each site?</strong></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
+<p><strong>Try adding another confidence band, but make it a linear model: <code>method = &quot;lm&quot;</code>, and set the color to “black”. Does the new line predict the concentration to be going down or up at each site?</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(air_summary, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> conc_avg)) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">level =</span> <span class="fl">0.999</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">   </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">level =</span> <span class="fl">0.90</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span>
-<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre>
+<span class="st">   </span><span class="kw">facet_wrap</span>(<span class="op">~</span>site)</code></pre></div>
 <p><img src="/page/explore_wind_rose_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
 <p><br></p>
 <div id="return-to-day-3-am" class="section level3 unnumbered">

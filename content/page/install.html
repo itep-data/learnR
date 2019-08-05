@@ -166,7 +166,8 @@ blockquote { padding: 5px 10px; }
 <p>Load data</p>
 </blockquote>
 <p><code>readr</code> Load data from text files: tab, comma, and other delimited files.<br />
-<code>readxl</code> Load data from Excel.</p>
+<code>readxl</code> Load data from Excel.<br />
+<code>janitor</code> Clean and simplify column names.</p>
 <p><br></p>
 <blockquote>
 <p>Manipulate data</p>
@@ -193,10 +194,9 @@ blockquote { padding: 5px 10px; }
 <p><code>devtools</code> Install packages directly from other sources like GitHub.</p>
 <p><br></p>
 <div class="note">
-<p><strong>But how?</strong></p>
-<p>To use a new <em>package</em> you first need to install it – much like a free App for your phone. To get a jump start on the workshop, copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio.</p>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>,
+<h3 id="but-how">But how?</h3>
+<p>To use a <em>package</em> you first need to install it – much like a free App for your phone. To get a jump start on the workshop, you can copy the text below and paste it into the RStudio console. The console is found on the left-side of the screen when you open RStudio.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_packages &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;readxl&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;stringr&quot;</span>, <span class="st">&quot;tidyr&quot;</span>,
                   <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;janitor&quot;</span>, <span class="st">&quot;curl&quot;</span>)
 
 <span class="kw">install.packages</span>(new_packages)</code></pre></div>
@@ -210,6 +210,9 @@ blockquote { padding: 5px 10px; }
 <img src="../../images/install_msg.png" style="width:75.0%" />
 
 </div>
+<p><br></p>
+<p>Try loading a package from your library to see if it installed correctly.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)</code></pre></div>
 </div>
 <p><br></p>
 <p><strong>Additional recommended packages</strong></p>
@@ -324,7 +327,7 @@ updateR<span class="op">::</span><span class="kw">updateR</span>(<span class="dt
 <div id="update-r-packages" class="section level1">
 <h1>Update <code>R packages</code></h1>
 <hr>
-<p>There are two places where you can udpate R packages within RStudio.</p>
+<p>There are two places where you can update R packages within RStudio.</p>
 <p><br></p>
 <div id="in-the-files-and-plots-area-in-the-bottom-right-under-the-packages-tab" class="section level4">
 <h4>1. In the <code>Files and Plots</code> area in the bottom right, under the <code>Packages</code> tab:</h4>

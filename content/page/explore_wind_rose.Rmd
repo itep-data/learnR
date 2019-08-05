@@ -167,7 +167,7 @@ pollutionRose(air_data,
 
 ## Time series
 
-<a href="https://itep-r.netlify.com/data/la_jolla_pm25_wind_data.xls">
+<a href="https://github.com/itep-data/learnR/raw/master/content/data/2014_AQS_FondduLac.xlsx">
 <span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Ozone air data
 
 ```{r, eval=F}
@@ -198,6 +198,7 @@ names(air_data)
 
 glimpse(air_data)
 ```
+
 
 ## Simplify the column names
 ```{r}

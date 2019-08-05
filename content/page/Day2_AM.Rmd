@@ -3,7 +3,7 @@ title: "Day 2 - AM"
 output: 
   blogdown::html_page: 
     toc: true
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -18,31 +18,29 @@ knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-# Good morning, young Jedis! {-}
-<hr>
+# Good morning, Jedis! {-}
+<hr class="hr2">
 
 ![](../images/day2_bb8_sq.png){width="260" style="float: left; margin-right: 60px; margin-top: -10px;"}
 
 ## Schedule  {-}
 
     - Review of Day 1
+    - Dates continued...
     - Summarize your data
-    - String together many functions
-    - Join two tables by one or more variables
-    - Add new column that depends on values of another column
-    - Summarize by group or category in your data
+    - Pipe together functions
+    - Join two tables by a shared column
+    - Calculate new columns
+    - Summarize for each group
     - Save data
 
-<br><br>
-
-# Review of Day 1 {-}
-<hr>
-
+<br>
 
 
 ## Porg review {-}
+<hr class="hrlvl2">
 
-The _poggle_ of porgs has returned to help us review the `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
+The _poggle_ of porgs has returned to help review the `dplyr` functions. Follow along by downloading the __porg__ data from the URL below.
 
 ```{r, eval = F}
 library(readr)
@@ -58,420 +56,87 @@ cat(readLines("porg_tabs.txt"))
 <br>
 
 
-# | Join tables with `left_join()`
-
-
-Many times concentration data and meteorological data arrive to our desks separately, but we want them joined together.
-
-![](../images/left_join_venn.png){style="width: 55%;"}
-
-<br>
+# New mission! 
 <hr>
-
-### How to join 2 tables {-}
-
-A general `left_join()` function looks like the code below.
-
-### `left_join(table1, table2, by = c("columns to join by"))` {-}
-
-### Adding porg names {-}
-
-Remember our porg friends? How rude of us not to share their names. __Wups!__
-
-Here's a table of their names.
-
-<div style="margin-left: 30px; margin-top: 24px; width: 37%; max-width: 37%; margin-bottom: 22px;">
-![](../images/porgs/porg_names_tbl.png)
-</div>
-
-
-__Hey now!__ That's not very helpful. Who's who? Let's join their names to the rest of the data.
-
-
-![](../images/porgs/leftjoin_porgs.png){style="width: 90%; max-width: 85%;"}
-
-<br>
-
-### __What's the result?__ {-}
-
-<div class="well">
-![](../images/porgs/porgs_and_names.png){style="width: 85%; max-width: 85%;"}
-</div>
-
-<br><br>
-
-
-## More joining
-
-### Star Wars characters {-}
-
-**left_join()** is used to add columns to your table by pulling them from another table. Imagine you have the 2 Star Wars tables below. One table includes character names and heights; the second has names and homeworlds. Since both tables share a common name column, we can join the tables together using the name columns as the joining key. 
-<br>
-<style type="text/css"> .table {width: 30%;} </style>
-
-<br>
-
-<div style="float: left;">
-
-`starwars_heights`
-```{r, echo=F, warning=F, message=F}
-library(dplyr)
-library(knitr)
-
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height = c(172, 167, 202, 150, 246))       
-
-starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                  homeworld = c("Tatooine", "Tatooine", "Tatooine", "Alderaan", "Ryloth"))
-
-
-kable(starwars_heights)
-
+```{r lubridate, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor1.Rmd'}
 ```
 
-</div>
 
-<div style="float: left; margin-left: 15%;">
-
-`starwars_homeworlds`
-```{r, echo =F, warning=F, message=F}
-kable(starwars_homeworlds)
+## Back on Endor! {-}
+<hr class="hrlvl2">
+```{r lubridate, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor2.Rmd'}
 ```
 
-</div>
 
-<div style="clear: both;"> </div>
-
-<br>
-
-__Uh oh!__ There's no "Ayla Secura" in the height table and there's no "Greedo" in the homeworld table. Can we still join the tables? Run the code below to see what happens.
-
-<br>
-
-```{r, warning=F, message=F, results='hide', echo=T}
-library(dplyr)
-   
-# Create new tables 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height = c(172, 167, 202, 150, 246))      
-
-starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                  homeworld = c("Tatooine", "Tatooine", "Tatooine", "Alderaan", "Ryloth"))
-
-# Join the tables together by starwars_name
-## Tell left_join which columns to use as the key with:  
-##     by = c("key_left" = "key_right")
-height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds, 
-                                  by = c("starwars_name" = "starwars_name"))
-
-height_and_homeworld
-```
-
-<br>
-
-```{r, echo = F}
-kable(height_and_homeworld)
-```
-
-<br>
-
-#### Did it work? {-}
-
-When **left_join** adds the `homeworlds` column to the *starwars_heights* table it only adds a value for the characters when the tables have a matching character name. When R couldn't find "Greedo" in the homeworld table, the Star Wars character's homeworld was recorded as missing or _`NA`_.  
-
-<br>
-
-
-
-### Multiple records {-}
-
-<div>
-![](../images/c3po.png){style="width: 13%; float: left; margin-top: 12px; margin-right: 4px;"} ![](../images/c3po.png){style="width: 13%; float: left; margin-top: 12px; margin-right: 28px;"}
-</div>
-
-<br>
-
-Now imagine the table `starwars_homeworld` has two records for C-3PO, each with a different homeworld listed.  
-
-What will happen when you join the two tables?
-
-<div style="clear: both;"> <br> </div>
-
-
-<div style="float: left;">
-
-`starwars_heights`
-
-```{r, echo=F, warning=F, message=F}
-library(knitr)
-
-# Create height table 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height = c(172, 167, 202, 150, 246))
-kable(starwars_heights)
-
-```
-
-</div>
-
-
-<div style="float: left; margin-left: 15%;">
-
-`starwars_homeworlds`
-
-```{r, echo =F, warning=F, message=F}
-
-kable(data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                    homeworld = c("Tatooine", "Tatooine", "Tantive IV", "Tatooine", "Alderaan", "Ryloth")))
-```
-
-</div>
-
-<div style="clear: both;"> </div>
-
-<br>
-
-When you run the code below you'll see that **left_join** is very thorough and adds each additional homeworld it finds for _C-3PO_ as a new row in the joined table. 
-
-```{r, warning=F, message=F, results='hide'}
-# Create new tables 
-starwars_heights <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "Darth Vader", "Leia Organa", "Greedo"), 
-                               height  = c(172, 167, 202, 150, 173))
-
-
-starwars_homeworlds <- data_frame(starwars_name = c("Luke Skywalker", "C-3PO", "C-3PO", "Darth Vader", "Leia Organa", "Ayla Secura"), 
-                                  homeworld = c("Tatooine", "Tatooine", "Tantive IV", "Tatooine", "Alderaan", "Ryloth"))
-
-# Join the tables together by Star Wars character name
-height_and_homeworld <- left_join(starwars_heights, starwars_homeworlds)
-
-# Check number of rows
-nrow(height_and_homeworld)
-
-height_and_homeworld
-```
-
-<br>
-
-```{r, echo = F}
-kable(height_and_homeworld)
-```
-
-<br>
-
-<div class="note">
-This results in a table with one extra row than we started with in our heights table. So growing table sizes are a sign of duplicate records when using **left_join()**. 
-
-In practice, when you see this you'll want to investigate why one of your tables has duplicate entries, especially if the observation for the two rows is different, as it was for _C-3PO's_ homeword. 
-
-Are there really two different Star Wars characters named _C-3PO_, or maybe someone made two different guesses about the droid's homeworld, or maybe the data simply has a mistake. 
-
-</div>
-
-<br>
-
-# | Finn needs us!
-
-That's enough _scuttlebutting_ around on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he's being held ransom by Junk Boss Plutt. We'll need to act fast to get to him before the Empire does. __Blast off!__ 
-
-![](../images/finn_run.gif)
-
-
-<br>
-
-<div class="note">
-
-Did you get tired of writing `scrap` so many times yesterday? Let's learn to chain several functions together. I mean I have now written `scrap` like a million times and my fingers hurt. Mother of moons! 
-
-</div>
-
-
-# | The pipe `%>%`
-
-__Let the `%>%` guide you young Padawan.__
-
-![](https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/9302/medium/1447173978/rstudio-hex-pipe-dot-psd.png){width="155" align="left" style="margin-right: 28px; margin-bottom: 22px;"}
-
-<br>
-
-Luckily, you __don't__ have to do ALL that typing. The pipe let's you chain functions together and do everything in one go. 
-
-<br>
-
-<div style="clear:both;"></div>
-
-
-# | Update from BB8! 
+# Pipe it together: ` A %>% B `
 <hr>
+```{r pipe-intro, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_pipe/intro.Rmd'}
+```
 
-![](../images/rey_bb8.jpg){align="right" style="width: 35%; margin-top: 0px; margin-left: 15px; margin-right: 0px;"}
+>
+> __So where were we?__ 
+>
+> __Right! We we're enjoying our time on beautiful lush Endor. But aren't we missing somebody...?__
+>
 
-BB8 was able to recover the __full__ scrap data from the notorious Junk Boss Unkar Plutt. We will experiment with pipe using the `starwars_scrap_jakku_full.csv` dataset.
+
+# Finn needs us! {-}
+
+That's enough _scuttlebutting_ on Endor, Finn needs us back on Jakku. It turns out we forgot to pick-up Finn when we left. Now he's being held ransom by Junk Boss Plutt. We'll need to act fast to get to him before the Empire does. __Blast off!__ 
 
 <br>
 
-```{r pipe-time, eval=T, echo=T}
+![](../images/finn_run.gif){style="margin-left: 18%; width: 60%; margin-top: 6px;"}
 
-library(readr)
-library(dplyr)
-
-# Read in the larger scrap database
-# Note: The data set has items that are in units other than tons. 
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv")
+<br>
 
 
-ion_scrap <- scrap %>%
-             filter(item == "Ion engine") %>%
-             arrange(desc(amount))
-
+# More Jakku trash
+<hr>
+```{r convert-tbl, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/ton_conversion_tbl.Rmd'}
 ```
 
 
-<br>
+# Join tables with `left_join()`
+<hr>
+```{r intro-join, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_leftjoin/intro_scrap.Rmd'}
+```
 
-# | More Jakku scrap
+```{r porg-join, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_leftjoin/porg_names.Rmd'}
+```
 
-Plutt is demanding __10,000 items__ of scrap for Finn. Lucky for us he didn't clarify the exact items. Let's find the scrap that weighs the least per item to make this transaction as easy as possible.
-
-
-## Good news {-}
-
-BB8 tracked down a scrap `Mass conversion table` from his old droid buddies. Our current table shows the total cubic yards for some scrap shipments, but not how much the shipment weighs. If we join our scrap data to the conversion table then we can really start digging into what would be the lightest item for trade. And we can do that much more efficiently now that we know `left_join()`!  
-
-
-### Get the pounds conversion table {-}
-
-```{r read-convert, eval = T, message = F}
-
-library(readr)
-
-# The data's url
-convert_url <- "https://itep-r.netlify.com/data/conversion_table.csv"
-
-# Read in the conversion data
-convert <- read_csv(convert_url)
-
-head(convert, 3)
+```{r c3po-join, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_leftjoin/c3po_xtra_rows.Rmd'}
 ```
 
 
-<br>
-
-### Re-read the full scrap data {-}
-
-```{r join-convert, eval=T}
-library(readr)
-library(dplyr)
-
-# Read in the larger scrap database
-# Note: The data set has items that are in units other than tons. 
-scrap <- read_csv("https://itep-r.netlify.com/data/starwars_scrap_jakku_full.csv")
-
-# Run either of the following to see 
-# what -unit- types are in the data 
-unique(scrap$units)
-
-distinct(scrap, units)
-
-# Join the scrap to the conversion table
-scrap <- left_join(scrap, convert, 
-                   by = c("item" = "item", "units" = "units"))
+## Back to the scrap yard {-}
+<hr class="hrlvl2">
+```{r join-convert, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_leftjoin/convert_&_scrap.Rmd'}
 ```
 
-<br>
-
-> Want to skimp on typing?
-
-When the 2 tables share column names that are the same, `left_join()` will automatically search for matching columns if you don't use the `by=` argument. So the code below does the same as above.
-
-```{r join-convert2, eval=F}
-scrap <- left_join(scrap, convert)
-
-head(scrap, 4)
+```{r calc-lbs-item, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_mutate/pounds_per_scrap.Rmd'}
 ```
 
-```{r join-convert3, eval=T, echo=F}
-head(scrap, 4)
-```
 
-<br>
+<div class="note" style="line-height: 1.6;">
+### Note {-}
 
-__Help!__ You can type `?left_join` to see all the arguments and options.
-
-<br>
-
-
-#### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
-
-```{r exer-tabs, results='asis', echo=F}
-source("insert_tabs.R")
-
-tabs <- c("Total credits", "Show hint", "Show code")
-
-content <- c(Exercise = "<h4> Total credits </h4>
-
-We now have the amount sold, the weight of that amount in pounds, and the price in credits per pound. Let's use these 3 pieces of information to find the total amount of credits for each transaction. How do we calculate that?
-
-code_start
-
-# Calculate the total credits for each transaction
-scrap <- scrap %>% 
-         mutate(_______ = _______________)
-         
-code_end",
-
-show_hint = '<h4> Total credits </h4>
-
-We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
-
-code_start
-
-# Calculate the total credits for each transaction
-scrap <- scrap %>% 
-         mutate(credits = _______ * _______ * ________)
-
-code_end',
-
-show_code = '<h4> Total credits </h4>
-
-We need to do some serious multiplication. We now have the amount sold, the conversion to pounds, and the credits per pound, but we want to know the total amount of credits for each transaction. How would we calculate that?
-
-code_start
-
-# Calculate the total credits for each transaction
-scrap <- scrap %>% 
-         mutate(credits = amount * pounds * price_per_pound)
-         
-code_end')
-
-tab_html <- add_tabs(tabs, content)
-
-cat(paste0(tab_html, collapse = "\n"))
-```
-
-<br>
-
-<div class="note">
-
-Data analysts often get asked questions similar to:
+Analysts often get asked questions:
 
 - What's the highest number? 
 - What's the lowest number? 
-- So what's the average tonnage of scrap from Cratertown this year? 
-- Who's making the most money this year?
-
-#### So let us move on to `summarize()`. {-}
+- What was the average tons of scrap from Cratertown last year? 
+- Which town's scrap was worth the most credits?
 
 </div>
 
 
-# | `summarize()` this
+# `summarize()` this
 <hr>
 
 ![](../images/summarize_diagram.png){width="490"}
 
 `summarize()` allows you to apply a summary function like `median()` to a column and collapse the data down to a single row. To dig into `summarize` you'll want to learn some more summary functions like `sum()`, `mean()`, `min()`, and `max()`.
-
 
 
 ## `sum()` {-}
@@ -530,7 +195,6 @@ What is the _standard deviation_ of the credits?
 _Quantiles_ are useful for finding the upper or lower range of a column. Use the `quantile()` function to find the the 5th and 95th quantile of the prices.
 
 ```{r quants, eval = FALSE}
-
 summarize(scrap, 
           price_5th_pctile  = quantile(price_per_pound, 0.05, na.rm = T),
           price_95th_pctile = quantile(price_per_pound, 0.95))
@@ -558,36 +222,35 @@ niima_scrap <- summarize(niima_scrap, scrap_records = n())
 <br>
 
 
-### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise {-}
+<div class="tip">
+### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
 
 Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.
 
 ```{r, eval = F}
-
 summary <- summarize(scrap, 
                      max_credits      = __________,
                      weight_90th_pct  = quantile(Weight, 0.90),
                      count_records    = __________,
-                     
+                    
 ```
 
 <br>
 
 
 
-<div class="note">
-
-#### __Shut me down!__ {-}
-
-That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
-
-It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
+> ### __Shut me down!__ {-}
+>
+> That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
+>
+> It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
+>
 
 #### It's time for `group_by()`! {-}
 
 </div>
 
-# | `group_by()`
+# `group_by()` what
 <hr>
 
 ## Bargain hunters {-}
@@ -595,15 +258,11 @@ It sure would be nice if we could easily find the mean price for every Origin Ci
 Who's selling goods for cheap? Use `group_by` with the column _Origin_, and then use`summarize` to find the `mean(price_per_pound)` at each Origin City. 
 
 ```{r mean_price-by-origin, eval = F}
-
 scrap_summary <- group_by(scrap, origin) %>% 
                  summarize(mean_price =  mean(price_per_pound, na.rm = T)) 
-
 ```
 
-
 <br>
-
 
 <details>
 <summary class="btn_code_blue"> Rounding digits </summary>
@@ -613,13 +272,11 @@ scrap_summary <- group_by(scrap, origin) %>%
 You can round the prices to a certain number of digits using the `round()` function. We can finish by adding the `arrange()` function to sort the table by our new column.
 
 ```{r mean_price-by-Origin-round, eval = F}
-
 scrap_means <- group_by(scrap, origin) %>% 
                  summarize(mean_price       =  mean(price_per_pound, na.rm = T),
                            mean_price_round = round(mean_price, digits = 2)) %>%  
                  arrange(mean_price_round) %>%
                  ungroup()
-
 ```
 
 <br>
@@ -639,13 +296,11 @@ The `round()` function in R does not automatically round values ending in 5 up. 
 Who's making lots of transactions? Try using `group_by` with the column _origin_ and then `summarize` to count the number of scrap records at each city.  
 
 ```{r grp-by-origin, eval = FALSE}
-
 scrap_counts <- group_by(scrap, origin) %>% 
                 summarize(origin_count  =  n()) %>% 
                 ungroup()
 
 ```
-
 
 <br>
 
@@ -657,30 +312,29 @@ Ending with `ungroup()` is good practice. This prevents your data from staying g
 </div>
 
 
-# | Save files
+# Save files
 <hr>
 
 Let's save the mean price summary table we created to a _CSV_. That way we can transfer it to a _droid courier_ for delivery to Rey. To save a data frame we can use the `write_csv()` function from our favorite `readr` package. 
 
-```{r, eval = F}
-
+```{r, eval=F}
 # Write the file to your results folder
-write_csv(scrap_summary, "results/prices_by_origin.csv")
-
+write_csv(scrap_means, "results/prices_by_origin.csv")
 ```
 
 <br>
 
-### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> __Warning!__ {-}
+
 <div class="well">
+### <i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> __Warning!__ {-}
 
 By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called `results/` and not to your raw `data/` folder.
 
 </div>
 
 
-# | Grouped `mutate()` 
-<br><hr>
+# Grouped `mutate()` 
+<hr>
 
 We can bring back `mutate` to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point. 
 
@@ -690,13 +344,18 @@ When you combine `group_by` and `mutate` the new column will be calculated based
 
 
 ```{r mutate-price, eval=F}
-
 scrap <- group_by(scrap, origin) %>% 
             mutate(origin_mean_price = mean(price_per_pound, na.rm = T)) %>% 
             ungroup()
 ```
 
 <br>
+
+```{r, include=F}
+# Save scrap data for Day 2 PM
+write_csv(scrap, "scrap_day2_pm.csv")
+```
+
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}
 

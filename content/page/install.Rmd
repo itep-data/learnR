@@ -134,6 +134,7 @@ __Packages used in this training__
 
 `readr`     Load data from text files: tab, comma, and other delimited files.  
 `readxl`    Load data from Excel.  
+`janitor`   Clean and simplify column names.
 
 <br>
 
@@ -167,14 +168,13 @@ __Packages used in this training__
 
 <div class="note">
 
-__But how?__
+### But how?
 
-To use a new _package_ you first need to install it -- much like a free App for your phone. To get a jump start on the workshop, copy the text below and paste it into the RStudio console found on the left-side of the screen when you open RStudio. 
+To use a _package_ you first need to install it -- much like a free App for your phone. To get a jump start on the workshop, you can copy the text below and paste it into the RStudio console. The console is found on the left-side of the screen when you open RStudio. 
 
-<br>
 
 ```{r, eval=F}
-new_packages <- c("readr", "readxl", "dplyr", "stringr",
+new_packages <- c("readr", "readxl", "dplyr", "stringr", "tidyr",
                   "ggplot2", "lubridate", "janitor", "curl")
 
 install.packages(new_packages)
@@ -188,6 +188,13 @@ install.packages(new_packages)
 Then press `ENTER` to begin the installation. If all goes well, you should start to see some messages appear similar to this, which provide information on the installation progress.
 
 ![](../../images/install_msg.png){width="75%"}
+
+<br>
+
+Try loading a package from your library to see if it installed correctly.
+```{r, eval=F}
+library(readr)
+```
 
 </div>
 
@@ -317,7 +324,7 @@ __Instructions__
 # Update `R packages`
 <hr>
 
-There are two places where you can udpate R packages within RStudio.
+There are two places where you can update R packages within RStudio.
 
 <br>
 

@@ -1,0 +1,55 @@
+---
+title: "Folder paths"
+date: '2018-12-11'
+showDate: false
+showAuthor: false
+summary: 'Power on your droid young Jedi, it’s time to get started. Junk Boss Plutt is up to no-good once again and we’ve got scrap to find...'
+slug: 'where_am_i'
+categories: [training]
+tags: [training]
+type: ''
+image: 'https://mpca-air.github.io/RTrain/images/day1_bb8_sq.png' 
+imageWidth: '30%'
+imageFloat: 'left'
+---
+
+
+
+<div class="figure">
+<img src="../../images/day1_bb8_sq.png" style="float: right; margin-left: 34px; margin-top: 55px; margin-bottom: 64px;" width="240" />
+
+</div>
+<div id="where-am-i" class="section level1">
+<h1>Where am I?</h1>
+<hr>
+<p>When you open a new R project in RStudio your working directory is your project folder. Your project folder is like your home planet, and is the default location R will look for data files. To load a file called <code>new_data.csv</code> in your project folder, all you need to do is:</p>
+<pre class="r"><code>df &lt;- read_csv(&quot;new_data.csv&quot;)</code></pre>
+<p><strong>But what if the data is located in a different folder?</strong></p>
+<p>If you remember land lines, your phone automatically assumes the default Area Code when you dial a number. And when you want to call another Area Code, you have to dial it in. Similarly, you have to tell R to go look in another folder to access files outside of your home directory.</p>
+<div id="example-1" class="section level3">
+<h3>Example 1</h3>
+<p>To load a file called <code>Ewok_data.csv</code> located in the folder <code>Endor</code> inside your project folder, you would type:</p>
+<pre class="r"><code>df &lt;- read_csv(&quot;Endor/Ewok_data.csv&quot;)</code></pre>
+<p><strong>NOTE:</strong> The slash used for file paths in R is a forward leaning slash (<code>/</code>), and is the opposite of the slash commonly seen in folder locations on <em>Windows</em> computers. If you get an <strong>*ERROR*</strong>, remember to check your slash.</p>
+</div>
+<div id="example-2" class="section level3">
+<h3>Example 2</h3>
+<p>If a file is completely outside of your project, you’ll want to include the entire file path. An entire file apth usually begins with the letter of the computer drive, such as <code>C:/</code> or <code>X:/</code>. Loading a file from your Desktop called <code>secret_data.csv</code>, would look something like this:</p>
+<pre class="r"><code>df &lt;- read_csv(&quot;C:/Users/me/Desktop/secret_data.csv&quot;)</code></pre>
+</div>
+<div id="challenge" class="section level3">
+<h3>CHALLENGE</h3>
+<p>Let’s get back Jakku. BB8 is detecting an incoming message, but he needs your help tracking down where it is coming from. If you can find the planet it’s being sent from, BB8 should be able to decode it for Rey. Use the message logs to work your way backwards through the relay stations and pinpoint the message’s origin planet.</p>
+<p>Use this file to start your search.</p>
+<pre class="r"><code># Download the current relay station logs
+source(&quot;messages/relays.R&quot;)
+
+tibble(id = &quot;44A-P2&quot;, origin = &quot;relays-endor-station2&quot;, message = paste0(sample(0:9, 44, replace = T), collapse = &quot;-&quot;))
+
+# Open the received message information
+df &lt;- read_csv(&quot;messages/received_44A-P2.csv&quot;)</code></pre>
+</div>
+<div id="section" class="section level2">
+<h2></h2>
+</div>
+</div>

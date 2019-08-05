@@ -1,0 +1,215 @@
+---
+title: "Compare years"
+output: 
+  blogdown::html_page: 
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: false
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+  <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
+
+<div id="TOC">
+<ul>
+<li><a href="#looking-for-change">Looking for change 📉📈</a></li>
+</ul>
+</div>
+
+<div id="looking-for-change" class="section level1">
+<h1>Looking for change 📉📈</h1>
+<p>Let’s compare the observations at a monitoring site for different years. For this example, we will see if we can detect a shift in concentrations after a new highway project was completed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># It requires the data to have columns “siteid”, “cas”, “Date”,  “Result”, and “Censored” (T/F depending on if the result &lt; MDL).</span>
+<span class="co"># The “site_number” argument in “site_compare” is the siteid that you want to compare the other sites in your data to.</span>
+
+completeness_check =<span class="st"> </span><span class="cf">function</span>(data, <span class="dt">grouping_vars =</span> <span class="kw">c</span>(<span class="st">&quot;siteid&quot;</span>, <span class="st">&quot;cas&quot;</span>, <span class="st">&quot;Year&quot;</span>)) {
+
+  <span class="kw">library</span>(data.table)
+  <span class="kw">library</span>(dplyr)
+  <span class="kw">library</span>(lubridate)
+
+  <span class="co"># Create a sampling calendar based on EPA&#39;s air toxics monitoring schedule</span>
+sample_calendar &lt;-<span class="st"> </span><span class="cf">function</span>(<span class="dt">start         =</span> <span class="st">&quot;2017-01-01&quot;</span>,
+                            <span class="dt">end           =</span> <span class="st">&quot;2017-12-31&quot;</span>,
+                            <span class="dt">day_interval  =</span> <span class="dv">6</span>,
+                            <span class="dt">EPA_days      =</span> T) {
+
+  <span class="co"># Convert &#39;start&#39; and &#39;end&#39; to class date</span>
+  start &lt;-<span class="st"> </span><span class="kw">ymd</span>(start)
+  end   &lt;-<span class="st"> </span><span class="kw">ymd</span>(end)
+
+  <span class="co"># Set official start date to selected EPA calendar</span>
+  epa_start &lt;-<span class="st"> </span><span class="kw">if_else</span>(EPA_days, <span class="kw">ymd</span>(<span class="st">&quot;1989-12-24&quot;</span>), start)
+
+  <span class="co"># Create full table of sampling dates</span>
+  calendar &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> epa_start, <span class="dt">to =</span> end, <span class="dt">by =</span> <span class="kw">paste</span>(day_interval, <span class="st">&quot;days&quot;</span>))
+
+  <span class="co"># Subset to user&#39;s date range</span>
+  calendar &lt;-<span class="st"> </span>calendar[<span class="kw">between</span>(calendar, start, end)]
+
+  <span class="kw">return</span>(calendar)
+}
+
+join_expected =<span class="st"> </span><span class="cf">function</span>(data, samp_freq) {
+  <span class="co">#Construct sampling seasons</span>
+  sampling_seasons =<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">Month =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">season =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))
+
+  <span class="co"># Find the year range of your data</span>
+  date_range &lt;-<span class="st"> </span><span class="kw">range</span>(data<span class="op">$</span>Date)
+
+  <span class="co"># Create expected sample calendar</span>
+  epa_schedule &lt;-<span class="st"> </span><span class="kw">data.table</span>(<span class="dt">Date =</span> <span class="kw">sample_calendar</span>(<span class="dt">start =</span> <span class="kw">format</span>(date_range[<span class="dv">1</span>], <span class="st">&quot;%Y-01-01&quot;</span>), <span class="co">#Extend range to first day of the year</span>
+                                                    <span class="dt">end   =</span> <span class="kw">format</span>(date_range[<span class="dv">2</span>], <span class="st">&quot;%Y-12-31&quot;</span>), <span class="co">#Extend range to last day of the year</span>
+                                                    <span class="dt">day_interval =</span> samp_freq))
+
+  <span class="co"># Add year and calendar quarter columns</span>
+  epa_schedule[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">Year =</span> <span class="kw">year</span>(Date), <span class="dt">Month =</span> <span class="kw">month</span>(Date))]
+  epa_schedule &lt;-<span class="st"> </span>sampling_seasons[epa_schedule, on =<span class="st"> &quot;Month&quot;</span>]
+
+  <span class="co"># Count the expected number of samples per quarter and year.</span>
+  epa_schedule &lt;-<span class="st"> </span>epa_schedule[, .(<span class="dt">expected_season_samples =</span> <span class="kw">n_distinct</span>(Date)), by =<span class="st"> </span>.(Year, season)
+                               ][, expected_annual_samples <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">sum</span>(expected_season_samples), by =<span class="st"> </span>Year]
+
+  <span class="co"># Assign each date to a season</span>
+  data[, <span class="st">`</span><span class="dt">:=</span><span class="st">`</span>(<span class="dt">Year =</span> <span class="kw">year</span>(Date), <span class="dt">Month =</span> <span class="kw">month</span>(Date))]
+  data =<span class="st"> </span>sampling_seasons[data, on =<span class="st"> &quot;Month&quot;</span>]
+
+  <span class="co"># Count the number of sampling dates for each season and year.</span>
+  data[, valid_season_samples <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">n_distinct</span>(Date[<span class="op">!</span><span class="kw">is.na</span>(Result)]), by =<span class="st"> </span>.(siteid, cas, Year, season)
+       ][, valid_annual_samples <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">n_distinct</span>(Date[<span class="op">!</span><span class="kw">is.na</span>(Result)]), by =<span class="st"> </span>.(siteid, cas, Year)]
+
+  <span class="co"># Join expected sample table to data by quarter and year columns</span>
+  data &lt;-<span class="st"> </span>epa_schedule[data, on =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;season&quot;</span>)]
+
+  <span class="kw">return</span>(data)
+}
+
+<span class="kw">setDT</span>(data)
+
+<span class="co">#Convert Date to date format</span>
+data[, Date <span class="op">:</span><span class="er">=</span><span class="st"> </span><span class="kw">ymd</span>(Date)]
+
+<span class="co">#Join the expected number of samples for each site/year to the data</span>
+data =<span class="st"> </span>data[, <span class="kw">join_expected</span>(<span class="kw">copy</span>(.SD), .BY), by =<span class="st"> </span>samp_freq]
+
+<span class="co"># Divide valid samples by expected samples</span>
+data &lt;-<span class="st"> </span>data[, .(<span class="dt">num_samples =</span> valid_season_samples[<span class="dv">1</span>],
+                 <span class="dt">pct_season_samples =</span> <span class="kw">round</span>(valid_season_samples[<span class="dv">1</span>] <span class="op">/</span><span class="st"> </span>expected_season_samples[<span class="dv">1</span>], <span class="dv">2</span>)),
+             by =<span class="st"> </span>.(siteid, cas, Year, season)
+             ][, Complete <span class="op">:</span><span class="er">=</span><span class="st"> </span>pct_season_samples <span class="op">&gt;=</span><span class="st"> </span><span class="fl">0.75</span>
+               ][, .(<span class="dt">Count_Sampled =</span> <span class="kw">sum</span>(num_samples, <span class="dt">na.rm =</span> T),
+                     <span class="dt">min_pct_season =</span> <span class="kw">ifelse</span>(.N <span class="op">&gt;=</span><span class="st"> </span><span class="dv">2</span>, <span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="kw">min</span>(pct_season_samples), <span class="dv">0</span>)),
+                 by =<span class="st"> </span>grouping_vars
+                 ][, Complete <span class="op">:</span><span class="er">=</span><span class="st"> </span>min_pct_season <span class="op">&gt;=</span><span class="st"> </span><span class="dv">75</span>]
+
+<span class="kw">return</span>(data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="kw">one_of</span>(<span class="kw">c</span>(grouping_vars, <span class="st">&quot;Count_Sampled&quot;</span>,<span class="st">&quot;min_pct_season&quot;</span>, <span class="st">&quot;Complete&quot;</span>))) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>() )
+
+}
+
+
+
+site_compare =<span class="st"> </span><span class="cf">function</span>(data, site_number, <span class="dt">Boot_Repeats =</span> <span class="dv">1000</span>) {
+  <span class="kw">library</span>(EnvStats)
+  <span class="kw">set.seed</span>(<span class="dv">2018</span>)
+
+  annual_AT_means =<span class="st"> </span><span class="cf">function</span>(air_toxics) {
+
+    air_toxics =<span class="st"> </span><span class="kw">mutate</span>(air_toxics, <span class="dt">Year =</span> <span class="kw">year</span>(<span class="kw">ymd</span>(Date)), <span class="dt">Quarter =</span> <span class="kw">quarter</span>(<span class="kw">ymd</span>(Date)) )
+    sample_complete =<span class="st"> </span>air_toxics <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">completeness_check</span>()
+
+    enough_detects =<span class="st"> </span>air_toxics <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(siteid, cas, Year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Detected =</span> <span class="kw">mean</span>(Censored, <span class="dt">na.rm =</span> T) <span class="op">&lt;=</span><span class="st"> </span><span class="fl">0.8</span> )
+
+    site_means =<span class="st"> </span>air_toxics <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(siteid, cas, Year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">summarise</span>(<span class="dt">Mean =</span> <span class="kw">ifelse</span>(<span class="kw">length</span>(<span class="kw">unique</span>(Result[<span class="op">!</span><span class="kw">is.na</span>(Result) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span>Censored] ) ) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span>, <span class="ot">NA</span>,
+                                                                                        <span class="kw">ifelse</span> (<span class="kw">any</span>(Censored, <span class="dt">na.rm =</span> T), <span class="kw">elnormAltCensored</span>(Result, Censored, <span class="dt">method =</span> <span class="st">&quot;impute.w.mle&quot;</span>, <span class="dt">ci =</span> F)<span class="op">$</span>parameters[[<span class="dv">1</span>]], <span class="kw">mean</span>(Result, <span class="dt">na.rm =</span> T) ) ) )
+
+    site_means =<span class="st"> </span><span class="kw">left_join</span>(site_means, sample_complete, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;siteid&quot;</span>, <span class="st">&quot;cas&quot;</span>, <span class="st">&quot;Year&quot;</span>) ) <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">left_join</span>(enough_detects, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;siteid&quot;</span>, <span class="st">&quot;cas&quot;</span>, <span class="st">&quot;Year&quot;</span>) ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">Mean =</span> <span class="kw">ifelse</span>(Detected, Mean, <span class="ot">NA</span>), <span class="dt">ID =</span> <span class="kw">paste</span>(siteid, cas, Year) )
+
+    <span class="kw">return</span>(site_means)
+  }
+
+  MLE_est &lt;-<span class="st"> </span><span class="cf">function</span>(data){
+
+    results =<span class="st"> </span>data<span class="op">$</span>Result
+    censored =<span class="st"> </span>data<span class="op">$</span>Censored
+    n =<span class="st"> </span><span class="kw">sum</span>(<span class="op">!</span><span class="kw">is.na</span>(results))
+
+    <span class="cf">if</span> (<span class="kw">length</span>(<span class="kw">unique</span>(results[<span class="op">!</span><span class="kw">is.na</span>(results) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span>censored] ) ) <span class="op">&lt;</span><span class="st"> </span><span class="dv">2</span> ) {
+      MLE_means =<span class="st"> </span><span class="ot">NA</span>
+    }
+
+    <span class="cf">else</span> {
+      random.rows =<span class="st"> </span><span class="ot">NULL</span>
+      random.rows =<span class="st"> </span><span class="kw">sample</span>(<span class="kw">which</span>(<span class="op">!</span><span class="kw">is.na</span>(censored) <span class="op">&amp;</span><span class="st"> </span>(<span class="op">!</span>censored) <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">duplicated</span>(results) ), <span class="dv">2</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
+      random.rows =<span class="st"> </span><span class="kw">c</span>(random.rows, <span class="kw">sample</span>(<span class="kw">which</span>(<span class="op">!</span><span class="kw">is.na</span>(censored)), n<span class="op">-</span><span class="dv">2</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+
+      MLE_means =<span class="st"> </span><span class="kw">ifelse</span>(<span class="kw">sum</span>(censored[random.rows], <span class="dt">na.rm =</span> T) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>, <span class="kw">mean</span>(results[random.rows]), <span class="kw">elnormAltCensored</span>(results[random.rows], censored[random.rows], <span class="dt">method =</span> <span class="st">&quot;impute.w.mle&quot;</span>, <span class="dt">ci =</span> F)<span class="op">$</span>parameters[[<span class="dv">1</span>]] )
+    }
+
+    <span class="kw">return</span>(MLE_means)
+  }
+
+  data =<span class="st"> </span><span class="kw">mutate</span>(data, <span class="dt">Year =</span> <span class="kw">year</span>(Date), <span class="dt">Result =</span> <span class="kw">ifelse</span>(Censored, RL <span class="op">-</span><span class="st"> </span><span class="fl">1e-16</span>, Result), <span class="dt">ID =</span> <span class="kw">paste</span>(siteid, cas, Year))
+
+  Bootstrap_means =<span class="st"> </span><span class="kw">replicate</span>(Boot_Repeats, (<span class="kw">by</span>(data, data<span class="op">$</span>ID, MLE_est) ) )
+
+  Bootstrap_means =<span class="st"> </span><span class="kw">rownames_to_column</span>(<span class="kw">as.data.frame</span>(Bootstrap_means), <span class="st">&quot;ID&quot;</span> )
+
+  Bootstrap_means =<span class="st"> </span><span class="kw">right_join</span>(<span class="kw">annual_AT_means</span>(data), Bootstrap_means, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>)
+
+  Bootstrap_means =<span class="st"> </span>Bootstrap_means <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(cas, Year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(siteid <span class="op">==</span><span class="st"> </span>site_number), <span class="dt">.by_group =</span> T ) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">group_by</span>(cas, Year) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(<span class="kw">num_range</span>(<span class="st">&quot;V&quot;</span>, <span class="dv">1</span><span class="op">:</span>Boot_Repeats)), <span class="kw">funs</span>(<span class="kw">c</span>(<span class="kw">first</span>(.), (. <span class="op">-</span><span class="st"> </span><span class="kw">first</span>(.))[<span class="op">-</span><span class="dv">1</span>])) ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>()
+
+  LB =<span class="st"> </span><span class="kw">select</span>(Bootstrap_means, <span class="kw">num_range</span>(<span class="st">&quot;V&quot;</span>, <span class="dv">1</span><span class="op">:</span>Boot_Repeats) ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(<span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sort</span>(<span class="op">-</span>x)[<span class="kw">floor</span>(<span class="fl">0.025</span> <span class="op">*</span><span class="st"> </span>Boot_Repeats)] )
+  UB =<span class="st"> </span><span class="kw">select</span>(Bootstrap_means, <span class="kw">num_range</span>(<span class="st">&quot;V&quot;</span>, <span class="dv">1</span><span class="op">:</span>Boot_Repeats) ) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">apply</span>(<span class="dv">1</span>, <span class="cf">function</span>(x) <span class="kw">sort</span>(<span class="op">-</span>x)[<span class="kw">ceiling</span>(<span class="fl">0.975</span> <span class="op">*</span><span class="st"> </span>Boot_Repeats)] )
+
+  CI =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Lower =</span> LB, <span class="dt">Upper =</span> UB)
+  CI =<span class="st"> </span><span class="kw">bind_cols</span>(CI, Bootstrap_means) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(Lower<span class="op">:</span>ID) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(Year) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">Lower =</span> <span class="kw">ifelse</span>(<span class="kw">any</span>(siteid <span class="op">==</span><span class="st"> </span>site_number <span class="op">&amp;</span><span class="st"> </span>Detected) <span class="op">&amp;</span><span class="st"> </span>siteid <span class="op">!=</span><span class="st"> </span>site_number <span class="op">&amp;</span>
+<span class="st">                            </span>Detected, Lower, <span class="ot">NA</span>), <span class="dt">Upper =</span> <span class="kw">ifelse</span>(<span class="kw">any</span>(siteid <span class="op">==</span><span class="st"> </span>site_number <span class="op">&amp;</span><span class="st"> </span>Detected) <span class="op">&amp;</span><span class="st"> </span>siteid <span class="op">!=</span>
+<span class="st">                                                                   </span>site_number <span class="op">&amp;</span><span class="st"> </span>Detected, Upper, <span class="ot">NA</span>), <span class="dt">Comparison =</span> <span class="kw">ifelse</span>(Lower <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>, <span class="st">&quot;Higher&quot;</span>, <span class="kw">ifelse</span>(Upper <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>,
+                                                                                                                                                       <span class="st">&quot;Lower&quot;</span>, <span class="st">&quot;Same&quot;</span>) ) )
+
+  <span class="kw">return</span>(CI <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">ungroup</span>() )</code></pre></div>
+</div>

@@ -1,12 +1,9 @@
 baseurl = "https://itep-r.netlify.com"
 DefaultContentLanguage = "en"
-#DefaultContentLanguage = "ja"
 title = "Learn R"
 theme = "beautifulhugo"
 summaryLength = 20
 metaDataFormat = "yaml"
-#disqusShortname = "XXX"
-#googleAnalytics = "XXX"
 #highlightjsLang = ["r"]
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$", "static/data/*", "content/page/data/*", "page/data/*"]
 #relativeURLs = true
@@ -14,9 +11,9 @@ uglyURLs = true
 
 [Params]
   #useHLJS = true
-  #homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+  #homeTitle = "Home page header" # Set a different text for the header on the home page
   #themeColor = ".theme-base-08"
-  subtitle = ""
+  #subtitle = "Subtitle text here"
   logo     = "images/BB8_rnd_icon.png"
   #favicon  = "images/BB8_rnd_icon.png"
   #logo    = "https://ui-avatars.com/api/?background=363636&color=fff&size=128&font-size=.6&name=R&rounded=true"
@@ -38,9 +35,7 @@ uglyURLs = true
   highlightjsCDN = "//cdn.bootcss.com"
   highlightjsLang = ["r"]
   highlightjsTheme = "github"
-  #MathJaxCDN = "//cdn.bootcss.com"
-  #MathJaxVersion = "2.7.1"
- #gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+  #gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
 
 [Author]
@@ -52,7 +47,7 @@ uglyURLs = true
 
 
 [[menu.main]]
-    name = "Get R!"
+    name = "Install R!"
     url = "page/install.html"
     weight = 1
 
@@ -63,39 +58,39 @@ uglyURLs = true
 
 [[menu.main]]
     parent = "Training"
-    name = "Class logistics"
+    name = "Class info"
     url = "page/class_info.html"
-    weight = 1
+    weight = 3
 
 [[menu.main]]
     parent = "Training"
     name = "Agenda"
     url = "post/agenda.html"
-    weight = 3
+    weight = 2
 
 [[menu.main]]
     parent = "Training"
     name = "NTF2019 - Workshop"
     url = "post/ntf2019.html"
-    weight = 3
+    weight = 4
 
 [[menu.main]]
     parent = "Training"
     name = "Day-1"
     url = "post/day-1.html"
-    weight = 4
+    weight = 1
 
 [[menu.main]]
     parent = "Training"
     name = "Day-2"
     url = "post/day-2.html"
-    weight = 4
+    weight = 1
 
 [[menu.main]]
     parent = "Training"
     name = "Day-3"
     url = "post/day-3.html"
-    weight = 4
+    weight = 1
 
 [[menu.main]]
     name = "R Community"
@@ -103,6 +98,6 @@ uglyURLs = true
     weight = 5
 
 [[menu.main]]
-    name = "Help"
+    name = "Help?"
     url = "page/help.html"
     weight = 6

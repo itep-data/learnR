@@ -3,7 +3,7 @@ title: "Day 2 - PM"
 output: 
   blogdown::html_page: 
     toc: true
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: true
@@ -15,228 +15,190 @@ output:
 <link href="/rmarkdown-libs/font-awesome/css/all.css" rel="stylesheet" />
 <link href="/rmarkdown-libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  { background-color: #f8f8f8; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 </style>
   <link rel="stylesheet" href="css\camp_style.css" type="text/css" />
 
 <div id="TOC">
 <ul>
-<li><a href="#guess-who-star-wars-edition">Guess Who! <em>Star Wars edition</em></a></li>
-<li><a href="#ifelse"><span class="toc-section-number">1</span> | <code>ifelse()</code></a><ul>
-<li><a href="#mutate-ifelse-is-powerful"><code>mutate()</code> + <code>ifelse()</code> is powerful!</a></li>
-</ul></li>
-<li><a href="#plots-with-ggplot2"><span class="toc-section-number">2</span> | Plots with <em>ggplot2</em></a><ul>
-<li><a href="#the-ggplot-sandwich">The <code>ggplot()</code> sandwich</a></li>
-<li><a href="#colors">Colors</a></li>
-</ul></li>
+<li><a href="#guess-who">Guess Who?</a></li>
+<li><a href="#ifelse"><span class="toc-section-number">1</span> <code>ifelse()</code></a></li>
+<li><a href="#plots-with-ggplot2"><span class="toc-section-number">2</span> Plots with <em>ggplot2</em></a></li>
 <li><a href="#homeworld-training">Homeworld training</a></li>
-<li><a href="#more-plots"><span class="toc-section-number">3</span> | More Plots</a><ul>
-<li><a href="#colors-1">Colors</a></li>
-<li><a href="#bar-charts">Bar charts</a></li>
-<li><a href="#facet-wrap">Facet wrap</a></li>
-<li><a href="#themes">Themes</a></li>
-<li><a href="#labels">Labels</a></li>
-<li><a href="#drop-2.2e06-scientific-notation">Drop <code>2.2e+06</code> scientific notation</a></li>
-<li><a href="#save-plots">Save plots</a></li>
-</ul></li>
-<li><a href="#glossary"><span class="toc-section-number">4</span> | Glossary</a></li>
-<li><a href="#plot-questions">Plot Questions</a></li>
+<li><a href="#more-plots"><span class="toc-section-number">3</span> More Plots</a></li>
+<li><a href="#plot-glossary">Plot Glossary</a></li>
 </ul>
 </div>
 
-<p><br></p>
-<div id="guess-who-star-wars-edition" class="section level1 unnumbered">
-<h1>Guess Who! <em>Star Wars edition</em></h1>
-<p><br></p>
-<p><img src="../images/guess-who-game.jpg" align="right" style="margin-top: -20px; margin-left: 20px; margin-right: 36px;" width="350" /></p>
+<div id="guess-who" class="section level1 unnumbered">
+<h1>Guess Who?</h1>
+<h2 style="margin-top: -24px;">
+<em>Star Wars edition</em>
+</h2>
+<div class="figure">
+<img src="../images/sw_guesswho.jpg" align="right" style="margin-top: -65px; margin-left: 24px; margin-right: 8px;" width="280" />
+
+</div>
 <blockquote>
-<p>Are you the best Jedi detective out there? Let’s play a game to find out. In the past day and a half, we have learned a lot of the <code>dplyr</code> functions. Guess what else comes with the <code>dplyr</code> package? A <strong>Star Wars data set</strong>!</p>
+<p>Are you the best Jedi detective out there? Let’s play a game to find out.</p>
 </blockquote>
 <p><br></p>
-<p>Open the data set now by completing the following steps:</p>
+<p>Guess what else comes with the <code>dplyr</code> package? A <strong>Star Wars data set</strong>.</p>
+<div id="open-the-data-set" class="section level4 unnumbered">
+<h4>Open the data set:</h4>
 <ol style="list-style-type: decimal">
-<li>First, load the <code>dplyr</code> package from your <code>library()</code></li>
-<li>Second, pull the Star Wars dataset into your environment.
-<ul>
-<li>I’m very literal so I named the data: <strong>starwars_guess_who</strong>
-<br><br></li>
-</ul></li>
+<li>Load the <code>dplyr</code> package from your <code>library()</code></li>
+<li>Pull the Star Wars dataset into your environment.</li>
 </ol>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 
-starwars_guess_who &lt;-<span class="st"> </span>starwars</code></pre>
-<p><br></p>
+people &lt;-<span class="st"> </span>starwars</code></pre></div>
+</div>
 <div id="rules" class="section level3 unnumbered">
 <h3><span style="text-decoration: underline;"> Rules </span></h3>
 <ol style="list-style-type: decimal">
+<li><strong>You have a <em>top secret</em> identity.</strong></li>
 <li>Scroll through the Star Wars dataset and find a character you find interesting.
 <ul>
-<li>Or run <code>sample_n(starwars, 1)</code> to choose your character at random.</li>
+<li><em>Or run <code>sample_n(starwars_data, 1)</code> to choose one at random.</em></li>
 </ul></li>
 <li><strong>Keep it hidden!</strong> Don’t show your neighbor the character you chose.</li>
-<li>Take turns asking each other questions about your neighbor’s Star Wars character.</li>
-<li>Use the answers to build a <code>filter()</code> function and narrow down the potential character your neighbor may have picked.</li>
-<li><em>Elusive</em> answers are encouraged.
-<ul>
-<li>For example, if someone asks: <em>What is your character’s mass?</em></li>
-<li>You can respond: <em>My character’s mass is equal to one less than their age.</em></li>
-<li>If you’re feeling generous you can give a more straight forward answer such as: <em>My character’s mass is definitely more than 100 and less that 140.</em></li>
-</ul></li>
-<li>Sometimes a character will not have a specific attribute. We learned earlier how R stores nulls as <code>NA</code>. So, some of your filter statements might be <code>is.na(hair_color)</code> or <code>is.na(mass)</code>.</li>
+<li>Take turns asking each other questions about your partner’s Star Wars character.</li>
+<li>Use the answers to build a <code>filter()</code> function and narrow down the potential characters your neighbor may have picked.</li>
 </ol>
-<p><span style="margin-top: 18px; color: green;"> <strong>WINNER!</strong> </span></p>
-<ul>
-<li>The winner is the first to guess their neighbor’s character.</li>
-</ul>
-<p><br></p>
-<p>Here’s a <code>filter()</code> statement to subset the data to the character <em>Plo Koon</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">mr_koon &lt;-<span class="st"> </span><span class="kw">filter</span>(starwars,
+<p>For example: Here’s a <code>filter()</code> statement that filters the data to the character <em>Plo Koon</em>.</p>
+<div style="width: 90%; margin-left: 8%">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mr_koon &lt;-<span class="st"> </span><span class="kw">filter</span>(people,
                   mass       <span class="op">&lt;</span><span class="st"> </span><span class="dv">100</span>,
                   eye_color  <span class="op">!=</span><span class="st"> &quot;blue&quot;</span>,
                   gender     <span class="op">==</span><span class="st"> &quot;male&quot;</span>,
                   homeworld  <span class="op">==</span><span class="st"> &quot;Dorin&quot;</span>,
-                  birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre>
+                  birth_year <span class="op">&gt;</span><span class="st"> </span><span class="dv">20</span>)</code></pre></div>
+</div>
+<p>Elusive answers are allowed. For example, if someone asks: <em>What is your character’s mass?</em></p>
+<ul>
+<li>You can respond:
+<ul>
+<li><em>My character’s mass is equal to one less than their age.</em></li>
+</ul></li>
+<li>Or if you’re feeling generous you can respond:
+<ul>
+<li><em>My character’s mass is definitely more than 100, but less than 140.</em></li>
+</ul></li>
+</ul>
+</div>
+<div id="my-character-has-no-hair-missing-values" class="section level3 unnumbered">
+<h3>My character has <strong>NO</strong> hair! <em>(Missing values)</em></h3>
+<p>Sometimes a character will be missing a specific attribute. We learned earlier how R stores missing values as <code>NA</code>. If your character has a missing value for hair color, one of your filter statements would be <code>is.na(hair_color)</code>.</p>
 <p><br></p>
-<details>
-<p><summary class = "btn_code_green"> <strong>WINNERS Click here for cuteness!</strong> </summary></p>
-<div class="data">
+<p><span style="margin-top: 18px; color: green;"> <strong>WINNER!</strong> </span></p>
+<p>The winner is the first to guess their neighbor’s character.</p>
+<p><details> <summary class = "btn_code_green"> <strong>WINNERS Click here!</strong> </summary></p>
+<div class="data" style="margin-top: -12px;">
 <p>
-<div style="height: 538px; max-height: 538px; margin: 20px; margin-left: 2px; overflow: hidden;">
-<p><img src="../images/ruby.png" /></p>
+<div class="figure">
+<img src="../images/cat_win.jpg" style="width:96.0%" />
+
 </div>
 </p>
 </div>
-</details>
+<p></details></p>
 <p><br></p>
-<div class="well">
-<h4 id="want-a-rematch" class="unnumbered">Want a rematch?</h4>
-<p>How about we make it best of <strong>3</strong> games.</p>
+<div class="note">
+<h3 id="want-to-rematch" class="unnumbered">Want to rematch?</h3>
+<p>How about make it best of <strong>3</strong> games?</p>
 </div>
 <p><br></p>
 </div>
 </div>
 <div id="ifelse" class="section level1">
-<h1><span class="header-section-number">1</span> | <code>ifelse()</code></h1>
-<div id="if-this-thing-is-true-do-this-otherwise-do-this" class="section level3 unnumbered">
-<h3><code>[If this thing is true]</code>, <code>"Do this"</code>, <code>"Otherwise do this"</code></h3>
-<p><br></p>
-<p>Here’s a handy <code>ifelse</code> statement to help you identify lightsabers.</p>
-<p><img src="../images/yoda_lightsaber.jpg" style="width: 40%; margin-top: -8px; margin-bottom: 12px;" align="center" /></p>
-<div class="well">
-<p><code>ifelse(</code><strong>Is lightsaber</strong> <span style="color: green;"><strong>GREEN</strong>?</span>, <strong>Yes!</strong><code>Then it's Yoda's,</code> <strong>No!</strong><code>Then it's not Yoda's)</code></p>
+<h1><span class="header-section-number">1</span> <code>ifelse()</code></h1>
+<hr>
+<div id="if-this-is-true-do-this-otherwise-do-this" class="section level3 unnumbered">
+<h3><code>[If this is true]</code>, <code>&quot;Do this&quot;</code>, <code>&quot;Otherwise do this&quot;</code></h3>
+<div class="figure">
+<img src="../images/yoda_lightsaber.jpg" style="width: 47%; margin-left: 26%; margin-top: 12px; margin-bottom: 28px;" />
+
 </div>
-<p>Sometimes you’ll want the value of a new column to depend on the value of an existing column. In other words you want the new value to depend on a condition. We use <code>ifelse()</code> to do this.</p>
-<p>When you have measurements in both PPB and PPM you may only want to convert the “PPM” measurements. Or if you have expensive and inexpensive ion engines you may only want to flag those that cost less than 500 credits. In both cases <code>ifelse</code> is the tool for you.</p>
+<p>Here’s a handy <code>ifelse</code> statement to help you identify lightsabers.</p>
+<div class="well" style="margin-top: 10px:">
+<p><code>ifelse(</code><strong>Lightsaber</strong> <span style="color: green;">is <strong>GREEN</strong>?</span>, <strong>Yes!</strong> <code>Then Yoda's it is,</code> <strong>No!</strong> <code>Then not Yoda's)</code></p>
+</div>
+<p><br></p>
+<p>Or say we want to label all the porgs over <em>60 cm</em> as <code>tall</code>, and everyone else as <code>short</code>. Whenever we want to add a column where the value depends on the value found in another column. We can use <code>ifelse()</code>.</p>
+<blockquote>
+<p>Or maybe we’re trying to save some money and want to flag all the items that cost less than 500 credits. How?</p>
+</blockquote>
 </div>
 <div id="mutate-ifelse-is-powerful" class="section level2 unnumbered">
 <h2><code>mutate()</code> + <code>ifelse()</code> is powerful!</h2>
-<p><img src="../images/yoda_rise_sm.png" style="width: 65%;" align="center" /></p>
+<div class="figure">
+<img src="../images/yoda_rise_sm.png" style="width: 74%; margin-left: 12%" />
+
+</div>
 <p><br></p>
-<div id="units-update" class="section level3 unnumbered">
-<h3>Units update</h3>
-<p>Let’s use <code>ifelse</code> to update the units column to all be written as “Tons”.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(readr)
-
-<span class="co"># Get the data</span>
-scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
-
-<span class="co"># Convert the TONS in all capital letters to title case &quot;Tons&quot;</span>
-<span class="co"># On Day 1 we did this using tolower()</span>
-
+<div id="on-the-cheap" class="section level3 unnumbered">
+<h3>On the cheap</h3>
+<p>Let’s use <code>mutate()</code> and <code>ifelse()</code> to add a column named <code>affordable</code> to our scrap data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add an affordable column</span>
 scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">units =</span> <span class="kw">ifelse</span>(units <span class="op">==</span><span class="st"> &quot;TONS&quot;</span>, <span class="st">&quot;Tons&quot;</span>, units))</code></pre>
-<p><br></p>
+<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">affordable =</span> <span class="kw">ifelse</span>(price_per_unit <span class="op">&lt;</span><span class="st"> </span><span class="dv">500</span>, 
+                                    <span class="st">&quot;Cheap&quot;</span>, 
+                                    <span class="st">&quot;Expensive&quot;</span>))</code></pre></div>
+<div class="tip">
+<h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Use your new column and <code>filter()</code> to create a new <code>cheap_scrap</code> table.</p>
 </div>
-<div id="calibration-error" class="section level3 unnumbered">
-<h3>Calibration error</h3>
-<p><img src="../images/cratertown.png" align="left" style="width: 44%; margin-top: 18px; margin-right: 24px;" /></p>
-<p>We just received news that <strong>Cratertown’s</strong> scale was rigged. It was miscalibrated to overestimate the tons of outgoing scrap. Smart! But that means we have some junk data mixed in with our scrap data. Let’s use <code>ifelse</code> to reduce the tonnage by <code>10%</code>, but only for the scrap from <code>Cratertown</code>.</p>
-<p><br></p>
-<div style="clear: both;">
-
-</div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Reduce the amount of scrap from Cratertown by 10%</span>
-<span class="co">## Multiply the column &quot;amount&quot; * 0.90 </span>
-<span class="co">## Use ifelse() to only select rows where the origin == &quot;Cratertown&quot;</span>
-scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">         </span><span class="kw">mutate</span>(<span class="dt">amount =</span> <span class="kw">ifelse</span>(origin <span class="op">==</span><span class="st"> &quot;Cratertown&quot;</span>, amount <span class="op">*</span><span class="st"> </span><span class="fl">0.90</span>, amount))</code></pre>
-<p><br></p>
-<div class="data" style="clear: both;">
-<p><strong>Congratulations</strong> of galactic proportions to you. We have a clean and tidy data set. If BB8 receives new data to append, we can re-run this script and in 5 seconds we will have a cleaned up data set again!</p>
+<div class="quiz">
+<h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
+<p><strong>What is the cheapest item?</strong></p>
+<p><input type="radio" name="cheap"> <em>Black box</em> <br> <input type="radio" name="cheap"> <em>Electrotelescope</em> <br> <input type="radio" name="cheap"> <em>Atomic drive</em> <br> <input type="radio" name="cheap"> <em>Enviro filter</em> <br> <input type="radio" name="cheap"> <em>Main drive</em> <br> <br></p>
+<details> <summary class = "btn_code"><em>Show solution</em></summary>
+<p>
+<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Black box</code></p>
+<p><em>You win! </em></p>
+</p>
+</details>
 </div>
 <p><br></p>
-<p><img src="../images/Star-Wars-Data.png" align="right" style="width: 50%; margin-left: 20px; margin-right: 12px; margin-top: 40px;" /></p>
-<p><br><br></p>
-</div>
-<div id="plot-the-data" class="section level3 unnumbered">
-<h3>Plot the data!</h3>
-</div>
-<div id="plot-the-data-1" class="section level3 unnumbered">
-<h3>Plot the data!</h3>
-</div>
-<div id="plot-the-data-2" class="section level3 unnumbered">
-<h3>Plot the data!</h3>
-<p><br></p>
+<blockquote>
+<p><strong>CONGRATULATIONS</strong> of galactic proportions to you.</p>
+<p>We now have a clean and tidy data set. If BB8 ever receives new data again, we can re-run this script and in seconds we’ll have it all cleaned up.</p>
+</blockquote>
 <div style="clear: both;">
 
 </div>
@@ -244,66 +206,94 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </div>
 </div>
 <div id="plots-with-ggplot2" class="section level1">
-<h1><span class="header-section-number">2</span> | Plots with <em>ggplot2</em></h1>
+<h1><span class="header-section-number">2</span> Plots with <em>ggplot2</em></h1>
 <hr>
+<div id="plot-the-data-plot-the-data-plot-the-data" class="section level4 unnumbered">
+<h4><em>Plot the data, Plot the data, Plot the data</em></h4>
 <p><br></p>
-<p><img src="../images/ggplot2_hex.png" align="right" style="margin-right: 70px; margin-top: -28px;" width="145" /></p>
+<div class="figure">
+<img src="../images/ggplot2_hex.png" align="right" style="margin-right: 70px; margin-top: -124px;" width="180" />
+
+</div>
+</div>
 <div id="the-ggplot-sandwich" class="section level2 unnumbered">
 <h2>The <code>ggplot()</code> sandwich</h2>
-<p><img src="../images/auto_plot.gif" style="margin-top: -22px; max-width: 108%;" /></p>
-<p><span class="h6" style="font-size: 28px; font-weight: bold;"> The 3 ingredients in a <code>ggplot</code> </span></p>
-<div id="the-base-plot" class="section level3 unnumbered">
-<h3>1. The base plot</h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
+<div class="figure">
+<img src="../images/auto_plot.gif" style="margin-top: -22px; margin-left: -40px; max-width: 110%;" />
+
+</div>
+<h5 style="font-size: 28px; font-weight: bold; margin-top: -42px;">
+A <code>ggplot</code> has 3 ingredients.
+</h5>
+</div>
+<div id="the-base-plot" class="section level2 unnumbered">
+<h2>1. The base plot</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-16-1.png" width="960" /></p>
 <p><br></p>
 <blockquote>
-<p>Note when we load the package it’s <code>library (ggplot2)</code>, but the function to make a plot is <code>ggplot(scrap)</code>. We admit, it is a bit silly.</p>
+<p>we load version 2 of the package <code>library(ggplot2)</code>, but the function to make the plot is only <code>ggplot()</code>. No <code>2</code>. <em>Sorry.</em></p>
 </blockquote>
 </div>
-<div id="the-the-x-y-aesthetics" class="section level3 unnumbered">
-<h3>2. The the X, Y <em>aesthetics</em></h3>
-<p>The <em>aesthetics</em> assign the components from the data that you want to use in the chart. These also determine the dimensions of the plot.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits)) </code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<div id="the-the-x-y-aesthetics" class="section level2 unnumbered">
+<h2>2. The the X, Y <em>aesthetics</em></h2>
+<p>The <em>aesthetics</em> assign the columns from the data that you want to use in the chart. This is where you set the <code>X</code>-<code>Y</code> variables that determine the dimensions of the plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) </code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-17-1.png" width="960" /></p>
 </div>
-<div id="the-layers-or-geometries" class="section level3 unnumbered">
-<h3>3. The layers or <em>geometries</em></h3>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<div id="the-layers-or-geometries" class="section level2 unnumbered">
+<h2>3. The layers or <em>geometries</em></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-18-1.png" width="960" /></p>
 <p><br></p>
-<div id="exercise" class="section level4 unnumbered">
-<h4><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h4>
-<p>Try making a scatterplot of any two columns.</p>
-<p><em>Hint: Numeric variables will be more informative.</em></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> __column1__, <span class="dt">y =</span> __column2__)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-</div>
-</div>
 </div>
 <div id="colors" class="section level2 unnumbered">
 <h2>Colors</h2>
-<hr>
+<hr class="hrlvl2">
+<p>Now let’s change the fill color to match the origin.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount, <span class="dt">fill =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>() </code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-19-1.png" width="960" /></p>
+<div class="tip">
+<h3 id="explore-1" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Try making a column plot showing the total amount of scrap for each <code>destination</code> or for each <code>item</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> amount )) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+</div>
+<p><br></p>
+<div class="tip">
+<h3 id="explore-2" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Try making a scatterplot of any two columns.</p>
+<p><em>Hint: Numeric variables will be more informative.</em></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> __column1__, <span class="dt">y =</span> __column2__)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+</div>
+</div>
+<div id="colors-1" class="section level2 unnumbered">
+<h2>Colors</h2>
+<hr class="hrlvl2">
 <p>Now let’s use color to show the origins of the scrap</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">color =</span> origin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">color =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-2-1.png" width="960" /></p>
 <p><br></p>
 <p>This is a <strong>A LOT</strong> of detail. Let’s make a bar chart and add up the sales to make it easier to understand.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
-<p><br></p>
-<div class="data">
-<h4 id="its-still-a-bit-tricky-to-compare-sales-by-origin.-lets-change-the-position-of-the-columns." class="unnumbered">It’s still a bit tricky to compare sales by origin. Let’s change the position of the columns.</h4>
-</div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-3-1.png" width="960" /></p>
+<blockquote>
+<p>It’s still tricky to compare sales by origin. Let’s change the position of the columns.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> credits, <span class="dt">fill =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 </div>
 </div>
 <div id="homeworld-training" class="section level1 unnumbered">
 <h1>Homeworld training</h1>
-<p><img src="../images/porg.png" style="float: right; margin-top: -10px;" /></p>
+<hr class="hr2">
+<div class="figure">
+<img src="../images/porg.png" style="float: right; margin-top: -10px;" />
+
+</div>
 <ol style="list-style-type: decimal">
 <li>Load one of the data sets below into R
 <ul>
@@ -317,11 +307,10 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <li>Create 2 plots using the data.</li>
 <li><em>Don’t worry if it looks</em> <strong>really weird</strong>. <em>Consider it art and try again.</em></li>
 </ol>
-<div id="pro-tip" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <div class="note">
+<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()
 
@@ -330,74 +319,72 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 
 <span class="co"># But this won&#39;t</span>
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits))
-  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre>
-</div>
+  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 </div>
 </div>
 <div id="more-plots" class="section level1">
-<h1><span class="header-section-number">3</span> | More Plots</h1>
-<div id="colors-1" class="section level2 unnumbered">
-<h2>Colors</h2>
+<h1><span class="header-section-number">3</span> More Plots</h1>
 <hr>
+<div id="colors-2" class="section level2 unnumbered">
+<h2>Colors</h2>
+<hr class="hrlvl2">
 <p>Now let’s use color to show the destinations of the scrap.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">color =</span> destination)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-13-1.png" width="960" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">color =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
 <p><br></p>
-<div id="pro-tip-1" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
-<p>An easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
-</div>
+<div class="note">
+<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<p>One easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
 </div>
 </div>
 <div id="bar-charts" class="section level2 unnumbered">
 <h2>Bar charts</h2>
-<p>This is a too much detail. Let’s make a bar chart and add up the sales to make it easier to understand. Note that we use <code>fill=</code> inside <code>aes()</code> instead of <code>color=</code>. If we use color, we get a colorful outline and grey (or gray) bars.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-14-1.png" width="960" /></p>
+<p>This is way too much detail. Let’s simplify and make a bar chart that adds up all the sales. Note that we use <code>fill=</code> inside <code>aes()</code> instead of <code>color=</code>. If we use color, we get a colorful outline and gray bars.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
 <p><br></p>
 <p>Let’s change the position of the bars to make it easier to compare sales by destination for each origin? Remember, you can use <code>help(geom_col)</code> to learn about the different options for that plot. Feel free to do the same with other <code>geom_</code>’s as well.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-15-1.png" width="960" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
 </div>
 <div id="facet-wrap" class="section level2 unnumbered">
 <h2>Facet wrap</h2>
 <p>Does the chart feel crowded to you? Let’s use the <code>facet wrap</code> function to put each origin on a separate chart.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-16-1.png" width="960" /></p>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
 </div>
 <div id="themes" class="section level2 unnumbered">
 <h2>Themes</h2>
-<p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some different themes out.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-17-1.png" width="960" /></p>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
 </div>
 <div id="labels" class="section level2 unnumbered">
 <h2>Labels</h2>
 <p>You can also change the axis and title labels using the <code>labs</code> function.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
-       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-18-1.png" width="960" /></p>
+       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
 <p><br></p>
 </div>
 <div id="drop-2.2e06-scientific-notation" class="section level2 unnumbered">
 <h2>Drop <code>2.2e+06</code> scientific notation</h2>
 <p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again (like loading a package, you only need to run the line once when you start a new R session).</p>
 <p><br></p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)
 
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
@@ -405,58 +392,58 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
-       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-19-1.png" width="960" /></p>
+       <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-12-1.png" width="960" /></p>
 <p><br></p>
-<div class="note">
-<h4 id="challenge" class="unnumbered">CHALLENGE</h4>
+<div class="tip">
+<h3 id="challenge" class="unnumbered">Challenge</h3>
 <p>Let’s say we don’t like printing so many zeros and want the labels to be in <strong>Millions</strong> of credits. Any ideas on how to make that happen?</p>
 </div>
 <p><br></p>
-<div id="exercise-1" class="section level3 unnumbered">
-<h3><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
-<div class="data">
-<h4 id="your-turn" class="unnumbered">Your turn!</h4>
-<p>Be brave and make a boxplot. We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but how would you make a boxplot showing the prices at each destination? You’re on your own here. Feel free to add <code>color</code> ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code> to your boxplots.</p>
+<div class="tip">
+<h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Be bold and make a <strong>boxplot</strong>. We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but how would you make a boxplot showing the prices at each destination? Feel free to experiment with <code>color</code> ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code>.</p>
+<blockquote>
 <p>May the force be with you.</p>
-</div>
+</blockquote>
 </div>
 </div>
 <div id="save-plots" class="section level2 unnumbered">
 <h2>Save plots</h2>
-<p>You’ve hopefully made some plots you’re proud of, so let’s learn to save them so we can cherish them forever. There’s a function called <code>ggsave</code> to do just that. How do we <code>ggsave</code> our plots? HELP! Let’s type <code>help(ggsave)</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get help</span>
+<hr class="hrlvl2">
+<p>You’ve made some plots you can be proud of, so let’s learn to save them so we can cherish them forever. There’s a function called <code>ggsave</code> to do just that. How do we <code>ggsave</code> our plots?</p>
+<p><strong>Let’s try <code>help(ggsave)</code> or <code>?ggsave</code>.</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get help</span>
 <span class="kw">help</span>(ggsave)
 ?ggsave
 
-<span class="co"># Copy and paste the r code of your favorite plot here</span>
+<span class="co"># Run the R code for your favorite plot first</span>
 <span class="kw">ggplot</span>(data, <span class="kw">aes</span>()) <span class="op">+</span>
 <span class="st">   </span>.... <span class="op">+</span>
 <span class="st">   </span>....
 
 
-<span class="co"># Save your plot to a png file of your choosing</span>
-<span class="kw">ggsave</span>(<span class="st">&quot;your_results_folder/plot_name.png&quot;</span>)</code></pre>
+<span class="co"># Then save your plot to a png file of your choosing</span>
+<span class="kw">ggsave</span>(<span class="st">&quot;results/plot_name.png&quot;</span>)</code></pre></div>
 <p><br></p>
-<div id="pro-tip-2" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
 <div class="note">
+<h3 id="spock-tip-2" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>Sometimes you may want to make a plot and save it for later. For that, you give your plot a name. Any name will do.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The ggplot you want to save</span>
-my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Name the ggplot you want to save</span>
+my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(...)
   
-<span class="co"># The name of the file the chart will be saved to.</span>
-where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
-
-<span class="co"># Save it!</span>
-<span class="kw">ggsave</span>(<span class="dt">filename =</span> where_to_save_it, <span class="dt">plot =</span> my_plot)</code></pre>
+<span class="co"># Save it</span>
+<span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;results/Save_it_here.png&quot;</span>, 
+       <span class="dt">plot =</span> my_plot)</code></pre></div>
 </div>
+<p><br></p>
 <p><em>Learn more about saving plots:</em> <a href="http://stat545.com/block017_write-figure-to-file.html">http://stat545.com/</a></p>
+<p><br></p>
 </div>
 </div>
-</div>
-<div id="glossary" class="section level1">
-<h1><span class="header-section-number">4</span> | Glossary</h1>
+<div id="plot-glossary" class="section level1 unnumbered">
+<h1>Plot Glossary</h1>
+<hr class="hr2">
 <p><strong>Table of <code>aesthetics</code></strong></p>
 <table>
 <thead>
@@ -490,21 +477,34 @@ where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
 </table>
 <p><br></p>
 <p><strong>Table of <code>geoms</code></strong></p>
-<p><img src="../images/geoms_1var.png" /></p>
-<p><img src="../images/geoms_diagram.png" /></p>
+<div class="figure">
+<img src="../images/geoms_1var.png" />
+
+</div>
+<div class="figure">
+<img src="../images/geoms_diagram.png" />
+
+</div>
 <p><br></p>
 <p><strong>Table of <code>themes</code></strong></p>
 <p>You can customize the look of your plot by adding a <code>theme()</code> function.</p>
-<p><img src="../images/ggplot_themes.png" /></p>
+<div class="figure">
+<img src="../images/ggplot_themes.png" />
+
 </div>
-<div id="plot-questions" class="section level1 unnumbered">
-<h1>Plot Questions</h1>
-<div style="font-size: 16px;">
+<details> <summary class = "btn_code">
+<h4>
+<i class="far fa-question-circle"></i> Plots Q+A
+</h4>
+</summary>
+<div class="quiz" style="margin-top: -9px; font-size: 16px;">
+<p>
+<p><br></p>
 <ul>
 <li>How to modify the gridlines behind your chart?
 <ul>
 <li>Try the different themes at the end of this lesson: <code>theme_light()</code> or <code>theme_bw()</code></li>
-<li>Or modify the color and size with <code>theme(panel.grid.minor = element_line(colour = "white", size = 0.5))</code></li>
+<li>Or modify the color and size with <code>theme(panel.grid.minor = element_line(colour = &quot;white&quot;, size = 0.5))</code></li>
 <li>There’s even <code>theme_excel()</code></li>
 </ul></li>
 <li>How do you set the x and y scale manually?
@@ -519,8 +519,8 @@ where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
 </ul></li>
 <li>I only like dashed lines. How do you change the linetype to a <em>dashed</em> line?
 <ul>
-<li><code>geom_line(aes(color = facility_name), linetype = "dashed")</code></li>
-<li>You can also try <code>"dotted"</code> and <code>"dotdash"</code>, or even<code>"twodash"</code></li>
+<li><code>geom_line(aes(color = facility_name), linetype = &quot;dashed&quot;)</code></li>
+<li>You can also try <code>&quot;dotted&quot;</code> and <code>&quot;dotdash&quot;</code>, or even<code>&quot;twodash&quot;</code></li>
 </ul></li>
 <li>How many colors are there in R? How does R know <code>hotpink</code> is a color?
 <ul>
@@ -536,7 +536,9 @@ where_to_save_it &lt;-<span class="st"> &quot;___.png&quot;</span>
 <li>In RStudio you can go to <em>Help</em> &gt; <em>Keyboard Shortcuts Help</em></li>
 </ul></li>
 </ul>
+</p>
 </div>
+<p></details></p>
 <p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>

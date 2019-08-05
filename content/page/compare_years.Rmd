@@ -1,0 +1,174 @@
+---
+title: "Compare years"
+output: 
+  blogdown::html_page: 
+    toc: true
+    toc_depth: 2
+    highlight: tango
+    css: css/camp_style.css
+    number_sections: false
+    self_contained: false
+    fontsize: 18pt
+    monofont: Source Code Pro
+---
+
+# Looking for change 📉📈
+
+Let's compare the observations at a monitoring site for different years. For this example, we will see if we can detect a shift in concentrations after a new highway project was completed.
+
+```{r, eval=F}
+
+# It requires the data to have columns “siteid”, “cas”, “Date”,  “Result”, and “Censored” (T/F depending on if the result < MDL).
+# The “site_number” argument in “site_compare” is the siteid that you want to compare the other sites in your data to.
+
+completeness_check = function(data, grouping_vars = c("siteid", "cas", "Year")) {
+
+  library(data.table)
+  library(dplyr)
+  library(lubridate)
+
+  # Create a sampling calendar based on EPA's air toxics monitoring schedule
+sample_calendar <- function(start         = "2017-01-01",
+                            end           = "2017-12-31",
+                            day_interval  = 6,
+                            EPA_days      = T) {
+
+  # Convert 'start' and 'end' to class date
+  start <- ymd(start)
+  end   <- ymd(end)
+
+  # Set official start date to selected EPA calendar
+  epa_start <- if_else(EPA_days, ymd("1989-12-24"), start)
+
+  # Create full table of sampling dates
+  calendar <- seq(from = epa_start, to = end, by = paste(day_interval, "days"))
+
+  # Subset to user's date range
+  calendar <- calendar[between(calendar, start, end)]
+
+  return(calendar)
+}
+
+join_expected = function(data, samp_freq) {
+  #Construct sampling seasons
+  sampling_seasons = data.table(Month = 1:12, season = c(1,1,1,1,2,2,2,2,2,2,1,1))
+
+  # Find the year range of your data
+  date_range <- range(data$Date)
+
+  # Create expected sample calendar
+  epa_schedule <- data.table(Date = sample_calendar(start = format(date_range[1], "%Y-01-01"), #Extend range to first day of the year
+                                                    end   = format(date_range[2], "%Y-12-31"), #Extend range to last day of the year
+                                                    day_interval = samp_freq))
+
+  # Add year and calendar quarter columns
+  epa_schedule[, `:=`(Year = year(Date), Month = month(Date))]
+  epa_schedule <- sampling_seasons[epa_schedule, on = "Month"]
+
+  # Count the expected number of samples per quarter and year.
+  epa_schedule <- epa_schedule[, .(expected_season_samples = n_distinct(Date)), by = .(Year, season)
+                               ][, expected_annual_samples := sum(expected_season_samples), by = Year]
+
+  # Assign each date to a season
+  data[, `:=`(Year = year(Date), Month = month(Date))]
+  data = sampling_seasons[data, on = "Month"]
+
+  # Count the number of sampling dates for each season and year.
+  data[, valid_season_samples := n_distinct(Date[!is.na(Result)]), by = .(siteid, cas, Year, season)
+       ][, valid_annual_samples := n_distinct(Date[!is.na(Result)]), by = .(siteid, cas, Year)]
+
+  # Join expected sample table to data by quarter and year columns
+  data <- epa_schedule[data, on = c("Year", "season")]
+
+  return(data)
+}
+
+setDT(data)
+
+#Convert Date to date format
+data[, Date := ymd(Date)]
+
+#Join the expected number of samples for each site/year to the data
+data = data[, join_expected(copy(.SD), .BY), by = samp_freq]
+
+# Divide valid samples by expected samples
+data <- data[, .(num_samples = valid_season_samples[1],
+                 pct_season_samples = round(valid_season_samples[1] / expected_season_samples[1], 2)),
+             by = .(siteid, cas, Year, season)
+             ][, Complete := pct_season_samples >= 0.75
+               ][, .(Count_Sampled = sum(num_samples, na.rm = T),
+                     min_pct_season = ifelse(.N >= 2, 100 * min(pct_season_samples), 0)),
+                 by = grouping_vars
+                 ][, Complete := min_pct_season >= 75]
+
+return(data %>% select(one_of(c(grouping_vars, "Count_Sampled","min_pct_season", "Complete"))) %>% ungroup() )
+
+}
+
+
+
+site_compare = function(data, site_number, Boot_Repeats = 1000) {
+  library(EnvStats)
+  set.seed(2018)
+
+  annual_AT_means = function(air_toxics) {
+
+    air_toxics = mutate(air_toxics, Year = year(ymd(Date)), Quarter = quarter(ymd(Date)) )
+    sample_complete = air_toxics %>% completeness_check()
+
+    enough_detects = air_toxics %>% group_by(siteid, cas, Year) %>% summarise(Detected = mean(Censored, na.rm = T) <= 0.8 )
+
+    site_means = air_toxics %>% group_by(siteid, cas, Year) %>% summarise(Mean = ifelse(length(unique(Result[!is.na(Result) & !Censored] ) ) < 2, NA,
+                                                                                        ifelse (any(Censored, na.rm = T), elnormAltCensored(Result, Censored, method = "impute.w.mle", ci = F)$parameters[[1]], mean(Result, na.rm = T) ) ) )
+
+    site_means = left_join(site_means, sample_complete, by = c("siteid", "cas", "Year") ) %>%
+      left_join(enough_detects, by = c("siteid", "cas", "Year") ) %>% mutate(Mean = ifelse(Detected, Mean, NA), ID = paste(siteid, cas, Year) )
+
+    return(site_means)
+  }
+
+  MLE_est <- function(data){
+
+    results = data$Result
+    censored = data$Censored
+    n = sum(!is.na(results))
+
+    if (length(unique(results[!is.na(results) & !censored] ) ) < 2 ) {
+      MLE_means = NA
+    }
+
+    else {
+      random.rows = NULL
+      random.rows = sample(which(!is.na(censored) & (!censored) & !duplicated(results) ), 2, replace = FALSE)
+      random.rows = c(random.rows, sample(which(!is.na(censored)), n-2, replace = TRUE))
+
+      MLE_means = ifelse(sum(censored[random.rows], na.rm = T) == 0, mean(results[random.rows]), elnormAltCensored(results[random.rows], censored[random.rows], method = "impute.w.mle", ci = F)$parameters[[1]] )
+    }
+
+    return(MLE_means)
+  }
+
+  data = mutate(data, Year = year(Date), Result = ifelse(Censored, RL - 1e-16, Result), ID = paste(siteid, cas, Year))
+
+  Bootstrap_means = replicate(Boot_Repeats, (by(data, data$ID, MLE_est) ) )
+
+  Bootstrap_means = rownames_to_column(as.data.frame(Bootstrap_means), "ID" )
+
+  Bootstrap_means = right_join(annual_AT_means(data), Bootstrap_means, by = "ID")
+
+  Bootstrap_means = Bootstrap_means %>% group_by(cas, Year) %>% arrange(desc(siteid == site_number), .by_group = T ) %>%
+    group_by(cas, Year) %>% mutate_at(vars(num_range("V", 1:Boot_Repeats)), funs(c(first(.), (. - first(.))[-1])) ) %>% ungroup()
+
+  LB = select(Bootstrap_means, num_range("V", 1:Boot_Repeats) ) %>% apply(1, function(x) sort(-x)[floor(0.025 * Boot_Repeats)] )
+  UB = select(Bootstrap_means, num_range("V", 1:Boot_Repeats) ) %>% apply(1, function(x) sort(-x)[ceiling(0.975 * Boot_Repeats)] )
+
+  CI = data.frame(Lower = LB, Upper = UB)
+  CI = bind_cols(CI, Bootstrap_means) %>% select(Lower:ID) %>% group_by(Year) %>%
+    mutate(Lower = ifelse(any(siteid == site_number & Detected) & siteid != site_number &
+                            Detected, Lower, NA), Upper = ifelse(any(siteid == site_number & Detected) & siteid !=
+                                                                   site_number & Detected, Upper, NA), Comparison = ifelse(Lower > 0, "Higher", ifelse(Upper < 0,
+                                                                                                                                                       "Lower", "Same") ) )
+
+  return(CI %>% ungroup() )
+
+  ```

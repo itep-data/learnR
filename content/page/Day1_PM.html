@@ -55,77 +55,88 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="TOC">
 <ul>
-<li><a href="#data-exploration">Data exploration</a></li>
-<li><a href="#dplyr"><span class="toc-section-number">1</span> | dplyr</a></li>
-<li><a href="#glimpse-and-summary"><span class="toc-section-number">2</span> | <code>glimpse()</code> and <code>summary()</code></a></li>
-<li><a href="#porg-tables"><span class="toc-section-number">3</span> | Porg tables</a></li>
-<li><a href="#select"><span class="toc-section-number">4</span> | <code>select()</code></a></li>
-<li><a href="#arrange"><span class="toc-section-number">5</span> | <code>arrange()</code></a></li>
-<li><a href="#lets-play-r-bingo"><span class="toc-section-number">6</span> Let’s play R BINGO!</a></li>
-<li><a href="#filter"><span class="toc-section-number">7</span> | <code>filter()</code></a></li>
-<li><a href="#mutate"><span class="toc-section-number">8</span> | <code>mutate()</code></a></li>
-<li><a href="#last-steps"><span class="toc-section-number">9</span> | Last steps!</a></li>
-<li><a href="#save-new-data"><span class="toc-section-number">10</span> | Save new data</a></li>
-<li><a href="#welcome-to-endor"><span class="toc-section-number">11</span> | Welcome to Endor!</a></li>
-<li><a href="#time-series"><span class="toc-section-number">12</span> | Time series</a></li>
-<li><a href="#calendar-plots"><span class="toc-section-number">13</span> | Calendar plots</a></li>
-<li><a href="#operation-shut-down"><span class="toc-section-number">14</span> | Operation Shut Down</a></li>
+<li><a href="#dplyr"><span class="toc-section-number">1</span> dplyr</a></li>
+<li><a href="#glimpse-summary"><span class="toc-section-number">2</span> <code>glimpse()</code> &amp; <code>summary()</code></a></li>
+<li><a href="#your-analysis-toolbox"><i class="fa fa-toolbox"></i> Your analysis toolbox</a></li>
+<li><a href="#porg-tables"><span class="toc-section-number">3</span> Porg tables</a></li>
+<li><a href="#select"><span class="toc-section-number">4</span> <code>select()</code></a></li>
+<li><a href="#sort-with-arrange"><span class="toc-section-number">5</span> Sort with <code>arrange()</code></a></li>
+<li><a href="#r-bingo">R BINGO!</a></li>
+<li><a href="#filter"><span class="toc-section-number">6</span> <code>filter()</code></a></li>
+<li><a href="#mutate"><span class="toc-section-number">7</span> <code>mutate()</code></a></li>
+<li><a href="#save-our-data"><span class="toc-section-number">8</span> Save our data</a></li>
+<li><a href="#plots-with-ggplot2"><span class="toc-section-number">9</span> Plots with <em>ggplot2</em></a></li>
+<li><a href="#shutdown-complete"><span class="toc-section-number">10</span> Shutdown complete</a></li>
+<li><a href="#new-data---new-project"><i class="fas fa-globe-americas" style="color: #0077be;"></i> New data -&gt; New project!</a></li>
 </ul>
 </div>
 
-<div id="data-exploration" class="section level1 unnumbered">
-<h1>Data exploration</h1>
+<div id="data-exploration" class="section level2 unnumbered">
+<h2>Data exploration</h2>
 </div>
 <div id="dplyr" class="section level1">
-<h1><span class="header-section-number">1</span> | dplyr</h1>
+<h1><span class="header-section-number">1</span> dplyr</h1>
 <hr>
 <div class="figure">
 <img src="../images/dplyr_hex.png" align="left" style="margin-right: 32px; margin-top: 8px; margin-bottom: 20px;" width="128" />
 
 </div>
 <p><br></p>
-<p><em>You’ve unlocked a new package!</em></p>
+<p><strong>You’ve unlocked a new package!</strong></p>
 <p><br></p>
 <div style="clear: both; margin-top: 22px;">
 
 </div>
-<p>The <em>dplyr</em> package is the go-to tool for exploring, re-arranging, and summarizing data.</p>
+<p><b> <em>dplyr</em> </b> is the go-to tool for exploring, re-arranging, and summarizing data.</p>
 <p>Use <code>install.packages(&quot;dplyr&quot;)</code> to add <em>dplyr</em> to your library.</p>
+<div style="clear: both; margin-top: 22px;">
+
+</div>
+<p>Then try loading the package from your library to test if it was installed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
 <div id="get-to-know-your-data-frame" class="section level2 unnumbered">
 <h2>Get to know your data frame</h2>
-<p>Use these simple functions to describe your data.</p>
+<p>Use these functions to describe your data.</p>
 <div id="data-frame-info" class="section level3 unnumbered">
 <h3>Data frame info</h3>
-<table style="width:51%;">
+<div class="pinkcode">
+<table>
 <colgroup>
-<col width="11%" />
-<col width="40%" />
+<col width="14%" />
+<col width="3%" />
+<col width="81%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Function</th>
+<th></th>
 <th align="left">Information</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left"><code>names(scrap)</code></td>
+<td></td>
 <td align="left">column names</td>
 </tr>
 <tr class="even">
 <td align="left"><code>nrow(...)</code></td>
+<td></td>
 <td align="left">number of rows</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>ncol(...)</code></td>
+<td></td>
 <td align="left">number of columns</td>
 </tr>
 <tr class="even">
 <td align="left"><code>summary(...)</code></td>
+<td></td>
 <td align="left">summary of all column values (ex. <em>max</em>, <em>mean</em>, <em>median</em>)</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>glimpse(...)</code></td>
+<td></td>
 <td align="left">column names + a glimpse of first values (requires <em>dplyr</em> package)</td>
 </tr>
 </tbody>
@@ -133,15 +144,15 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 </div>
-<div id="glimpse-and-summary" class="section level1">
-<h1><span class="header-section-number">2</span> | <code>glimpse()</code> and <code>summary()</code></h1>
+</div>
+<div id="glimpse-summary" class="section level1">
+<h1><span class="header-section-number">2</span> <code>glimpse()</code> &amp; <code>summary()</code></h1>
 <hr>
-<p>Use the <code>glimpse()</code> function to find out what type and how much data you have.</p>
-<p>Use the <code>summary()</code> function to get a quick report on your numeric data.</p>
+<p><code>glimpse()</code> tells you what type of data and how much data you have.</p>
 <div id="lets-read-the-data-into-r-and-give-these-a-whirl." class="section level3 unnumbered">
 <h3>Let’s read the data into R and give these a whirl.</h3>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(readr)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<span class="kw">library</span>(dplyr)
 
 scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/starwars_scrap_jakku.csv&quot;</span>)
 
@@ -156,7 +167,9 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## $ amount          &lt;dbl&gt; 887, 7081, 4901, 707, 107, 32109, 862, 13944, ...
 ## $ units           &lt;chr&gt; &quot;Tons&quot;, &quot;Tons&quot;, &quot;Tons&quot;, &quot;Tons&quot;, &quot;Tons&quot;, &quot;Tons&quot;...
 ## $ price_per_pound &lt;dbl&gt; 590.93, 1229.03, 225.54, 145.27, 188.28, 1229....</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use the summary function to get a quick of idea of means and maxima for your numeric data</span>
+<p><br></p>
+<p><code>summary()</code> gives you a quick report of your numeric data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Summary gives us the means, mins, and maxima </span>
 <span class="kw">summary</span>(scrap)</code></pre></div>
 <pre><code>##  receipt_date           item              origin         
 ##  Length:1132        Length:1132        Length:1132       
@@ -182,16 +195,25 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ##  3rd Qu.:  1496.7  
 ##  Max.   :579215.3  
 ##  NA&#39;s   :910</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try the rest on your own, I dare you!</span>
-
+<p><br></p>
+<div class="tip">
+<h3 id="explore" class="unnumbered"><i class="fas fa-user-astronaut" aria-hidden="true" style="color: green"></i> Explore!</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Try some more on your own</span>
 <span class="kw">nrow</span>()
 
 <span class="kw">ncol</span>()
 
 <span class="kw">names</span>()</code></pre></div>
+</div>
+</div>
+</div>
+<div id="your-analysis-toolbox" class="section level1 unnumbered">
+<h1><i class="fa fa-toolbox"></i> Your analysis toolbox</h1>
+<hr class="hr2">
+<p><code>dplyr</code> is the hero for most analysis tasks. With these six functions you can accomplish just about anything you want with your data.</p>
+<div class="pinkcode">
 <p><br></p>
-<p><strong>Your new analysis toolbox</strong></p>
-<div class="notes">
+<blockquote>
 <table>
 <thead>
 <tr class="header">
@@ -202,15 +224,15 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <tbody>
 <tr class="odd">
 <td align="left"><code>select()</code></td>
-<td align="left">Select individual columns to drop, keep, or reorder</td>
+<td align="left">Select individual columns to drop or keep</td>
 </tr>
 <tr class="even">
 <td align="left"><code>arrange()</code></td>
-<td align="left">Reorder or sort rows by value of a column</td>
+<td align="left">Sort a table top-to-bottom based on the values of a column</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>filter()</code></td>
-<td align="left">Pick a subset of rows by the value of a column</td>
+<td align="left">Keep only a subset of rows depending on the values of a column</td>
 </tr>
 <tr class="even">
 <td align="left"><code>mutate()</code></td>
@@ -218,20 +240,22 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </tr>
 <tr class="odd">
 <td align="left"><code>summarize()</code></td>
-<td align="left">Calculate a single summary for the entire table</td>
+<td align="left">Calculate a single summary for an entire table</td>
 </tr>
 <tr class="even">
 <td align="left"><code>group_by()</code></td>
-<td align="left">Split data into groups by values in a column</td>
+<td align="left">Sort data into groups based on the values of a column</td>
 </tr>
 </tbody>
 </table>
-</div>
+</blockquote>
 </div>
 </div>
 <div id="porg-tables" class="section level1">
-<h1><span class="header-section-number">3</span> | Porg tables</h1>
+<h1><span class="header-section-number">3</span> Porg tables</h1>
+<hr>
 <p>A poggle of porgs volunteered to help us demo the <code>dplyr</code> functions.</p>
+<style> img {margin: 0;} </style>
 <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-top: 18px;">
 <li class="nav-item active">
 <a class="nav-link" id="porgs-tab" data-toggle="tab" href="#porgs" role="tab" aria-controls="porgs" aria-selected="true"> porgs </a>
@@ -260,7 +284,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <img src="../images/porgs/porgs_tbl.png" style="width: 85%;" /> <br><br>
 </div>
 <div id="select" class="tab-pane fade" role="tabpanel" aria-labelledby="select-tab">
-<img src="../images/porgs/select.png" style="width: 65%;" /> <img src="../images/porgs/select_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/select_card.png" style="width: 90%;" /> <br><br> <img src="../images/porgs/select_drop.png" style="width: 65%;" /> <img src="../images/porgs/select_drop_tbl.png" style="width: 80%; margin-left: 5%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="arrange" class="tab-pane fade" role="tabpanel" aria-labelledby="arrange-tab">
 <img src="../images/porgs/arrange.png" style="width: 65%;" /> <img src="../images/porgs/arrange_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/arrange_desc.png" style="width: 57%;" /> <img src="../images/porgs/arrange_tbl_desc.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
@@ -269,27 +293,27 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <img src="../images/porgs/filter.png" style="width: 65%;" /> <img src="../images/porgs/filter_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br> <img src="../images/porgs/filter2.png" style="width: 75%;" /> <img src="../images/porgs/filter2_tbl.png" style="width: 88%; margin-left: 10%; margin-top: 12px;" /> <br><br>
 </div>
 <div id="mutate3" class="tab-pane fade" role="tabpanel" aria-labelledby="mutate3-tab">
-<img src="../images/porgs/mutate.png" style="width: 77%;" /> <br> <img src="../images/porgs/mutate_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/mutate_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="summarize" class="tab-pane fade" role="tabpanel" aria-labelledby="summarize-tab">
-<img src="../images/porgs/summarize.png" style="width: 77%;" /> <br> <img src="../images/porgs/summarize_tbl.png" style="width: 88%; margin-left: 4%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/summarize_card.png" style="width: 88%;" /> <br><br>
 </div>
 <div id="group_by" class="tab-pane fade" role="tabpanel" aria-labelledby="group_by-tab">
-<img src="../images/porgs/groupby.png" style="width: 77%;" /> <br> <img src="../images/porgs/groupby_tbl.png" style="width: 94%; margin-left: 2%; margin-top: 12px;" /> <br><br>
+<img src="../images/porgs/groupby_card.png" style="width: 92%;" /> <br><br>
 </div>
 </div>
 </div>
 <div id="select" class="section level1">
-<h1><span class="header-section-number">4</span> | <code>select()</code></h1>
+<h1><span class="header-section-number">4</span> <code>select()</code></h1>
 <hr>
 <p>Use the <code>select()</code> function to:</p>
 <ul>
-<li>Drop a column you no longer need</li>
+<li>Drop columns you no longer need</li>
 <li>Pull-out a few columns to create a new table</li>
 <li>Rearrange or change the order of columns</li>
 </ul>
-<div id="drop-columns-with-a-minus-sign--column_name" class="section level2 unnumbered">
-<h2>Drop columns with a minus sign: <code>-column_name</code></h2>
+<div id="drop-columns-with-a-minus-sign--col_name" class="section level2 unnumbered">
+<h2>Drop columns with a minus sign: <code>-col_name</code></h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
 <span class="kw">library</span>(readr)
 
@@ -312,8 +336,9 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## 10 4/10/2013    Sublight engine       Outskir~  10642 Tons            7211.
 ## # ... with 1,122 more rows</code></pre>
 </div>
-<div id="drop-multiple-columns-with--ccol_1-col_2-or--col1--col2" class="section level2 unnumbered">
-<h2>Drop multiple columns with <code>-c(col_1, col_2)</code> or <code>-col1, -col2</code></h2>
+<div id="drop-multiple-columns" class="section level2 unnumbered">
+<h2>Drop multiple columns</h2>
+<p>Use <code>-c(col_name1, col_name2)</code> or <code>-col_name1, -col_name2</code> to drop multiple columns.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Drop the destination and units columns</span>
 <span class="kw">select</span>(scrap, <span class="op">-</span><span class="kw">c</span>(destination, units, amount))</code></pre></div>
 <pre><code>## # A tibble: 1,132 x 4
@@ -331,10 +356,10 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## 10 4/10/2013    Sublight engine                  Outskirts            7211.
 ## # ... with 1,122 more rows</code></pre>
 </div>
-<div id="keep-only-three-columns" class="section level2 unnumbered">
-<h2>Keep only three columns</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Keep the item, amount and price_per_pound columns</span>
-<span class="kw">select</span>(scrap, <span class="kw">c</span>(item, amount, price_per_pound))</code></pre></div>
+<div id="keep-only-3-columns" class="section level2 unnumbered">
+<h2>Keep only 3 columns</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Keep item, amount and price_per_pound columns</span>
+<span class="kw">select</span>(scrap, item, amount, price_per_pound)</code></pre></div>
 <pre><code>## # A tibble: 1,132 x 3
 ##    item                             amount price_per_pound
 ##    &lt;chr&gt;                             &lt;dbl&gt;           &lt;dbl&gt;
@@ -350,9 +375,10 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## 10 Sublight engine                   10642           7211.
 ## # ... with 1,122 more rows</code></pre>
 </div>
-<div id="everything" class="section level2 unnumbered">
-<h2><code>everything()</code></h2>
-<p><code>select()</code> also works to change the order of columns. The code below puts the <code>item</code> column first and then moves the <code>units</code> and <code>amount</code> columns directly after <code>item</code>. We then keep <code>evertyhing()</code> else the same.</p>
+<div id="everything-else-the-same" class="section level2 unnumbered">
+<h2><code>everything()</code> else the same</h2>
+<p><code>select()</code> also works to change the order of columns. The code below puts the <code>item</code> column first and then moves the <code>units</code> and <code>amount</code> columns directly after <code>item</code>.</p>
+<p>We then keep <code>evertyhing()</code> else the same.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the `item`, `units`, and `amount` columns the first three columns</span>
 <span class="co"># Leave `everything()` else in the same order</span>
 <span class="kw">select</span>(scrap, item, units, amount, <span class="kw">everything</span>())</code></pre></div>
@@ -372,8 +398,8 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 ## # ... with 1,122 more rows</code></pre>
 </div>
 </div>
-<div id="arrange" class="section level1">
-<h1><span class="header-section-number">5</span> | <code>arrange()</code></h1>
+<div id="sort-with-arrange" class="section level1">
+<h1><span class="header-section-number">5</span> Sort with <code>arrange()</code></h1>
 <hr>
 <p>Rey wants to know what the highest priced items are. Use <code>arrange()</code> to find the highest priced scrap item and see which origins might have a lot of them.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange scrap items by price</span>
@@ -391,9 +417,9 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, price
 ## 5 6/10/2013    Aural se~ Blowback~ Niima Outp~   2312 Tons             145.
 ## 6 6/20/2013    Aural se~ Outskirts Trade cara~   6272 Tons             145.</code></pre>
 <p><br></p>
-<div id="only-145-credits-thats-not-very-much-at-all-oh-wait" class="section level3 unnumbered">
-<h3>Only <code>145 credits</code>! That’s not very much at all, oh wait…</h3>
-</div>
+<blockquote>
+<p>What, only <code>145 credits</code>!? That’s not much at all. Oh wait…that’s the smallest one on top.</p>
+</blockquote>
 <div id="big-things-first-desc" class="section level2 unnumbered">
 <h2>Big things first: <code>desc()</code></h2>
 <p>To arrange a column in descending order with the biggest numbers on top, we use: <code>desc(price_per_pound)</code></p>
@@ -414,42 +440,36 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span
 ## 7 6/14/2013    Sublight~ Blowback~ Raiders     8.58e3 Tons            7211.
 ## 8 8/6/2013     Sublight~ Craterto~ Raiders     1.77e3 Tons            7211.</code></pre>
 <p><br></p>
-<div class="data">
-<h3 id="exercise" class="unnumbered"><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h3>
+<div class="tip">
+<h3 id="explore-1" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Try arranging by more than one column, such as <code>price_per_pound</code> and <code>amount</code>. What happens?</p>
-<p><strong>HINT:</strong> You can view the entire table by clicking on it in the upper-right <em>Environment</em> tab.</p>
+<p><strong>Hint:</strong> You can view the entire table by clicking on it in the upper-right <em>Environment</em> tab.</p>
 </div>
-<p><br></p>
-<div id="pro-tip" class="section level3 unnumbered">
-<h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="well">
-<p>When you save an arranged data table it maintains its order. This is perfect for sending people a quick <strong>Top 10</strong> list of pollutants or sites.</p>
-</div>
-<p><br></p>
-</div>
-<div id="need-a-refreshing-break-how-about-a" class="section level3 unnumbered">
-<h3>Need a refreshing break? How about a…</h3>
-<p><br></p>
+<div class="note">
+<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<p>When you save an arranged data table it maintains its order. This is perfect for sending people a quick <strong><code>Top 10</code></strong> list of pollutants or sites.</p>
 </div>
 </div>
 </div>
-<div id="lets-play-r-bingo" class="section level1">
-<h1><span class="header-section-number">6</span> Let’s play R BINGO!</h1>
+<div id="r-bingo" class="section level1 unnumbered">
+<h1>R BINGO!</h1>
+<hr class="hr2">
 <div class="figure">
-<img src="../images/star-wars-bingo-image.jpg" align="center" style="margin-top: 0px; margin-bottom: 4px;" width="350" />
+<img src="../images/star-wars-bingo-image.jpg" align="center" style="margin: auto; margin-top: 10px; margin-bottom: 12px;" width="350" />
 
 </div>
+<blockquote>
+<p><strong>We don’t have free spaces.</strong> Sorry, we are very mean people.</p>
+</blockquote>
 <ol style="list-style-type: decimal">
-<li>No free spaces! We are mean.</li>
-<li>You will soon know all of these functions.</li>
-<li>We are going to call-out the functions using an R function. We’re meta.</li>
+<li>We’re going to call-out the bingo words using an R function.</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get pretty colors</span>
 <span class="kw">install.packages</span>(<span class="st">&quot;viridis&quot;</span>)
 <span class="kw">library</span>(viridis)
 <span class="kw">library</span>(ggplot2)
 
-<span class="co"># List of all the functions</span>
+<span class="co"># List of all the words</span>
 bingo_words &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;median()&quot;</span>, <span class="st">&quot;nrow()&quot;</span>, <span class="st">&quot;glimpse()&quot;</span>, <span class="st">&quot;sum()&quot;</span>, <span class="st">&quot;head()&quot;</span>, <span class="st">&quot;tail()&quot;</span>, <span class="st">&quot;arrange()&quot;</span>, <span class="st">&quot;write_csv()&quot;</span>, <span class="st">&quot;geom_col()&quot;</span>, <span class="st">&quot;filter()&quot;</span>, <span class="st">&quot;ncol()&quot;</span>, <span class="st">&quot;sd()&quot;</span>, <span class="st">&quot;summarise()&quot;</span>, <span class="st">&quot;quantile()&quot;</span>, <span class="st">&quot;install.packages()&quot;</span>, <span class="st">&quot;geom_point()&quot;</span>, <span class="st">&quot;unique()&quot;</span>, <span class="st">&quot;select()&quot;</span>, <span class="st">&quot;mean()&quot;</span>, <span class="st">&quot;min()&quot;</span>, <span class="st">&quot;left_join()&quot;</span>, <span class="st">&quot;read_csv()&quot;</span>, <span class="st">&quot;nth()&quot;</span>, <span class="st">&quot;ggplot()&quot;</span>, <span class="st">&quot;library()&quot;</span>, <span class="st">&quot;n()&quot;</span>)
 
 <span class="co"># Shuffle the words randomly</span>
@@ -458,15 +478,25 @@ bingo_words &lt;-<span class="st"> </span><span class="kw">sample</span>(bingo_w
 <span class="co"># Set the draw number</span>
 n &lt;-<span class="st"> </span><span class="dv">1</span>
 
-<span class="co"># Plot the word</span>
-<span class="kw">ggplot</span>(<span class="kw">data_frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">      </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
-<span class="st">      </span><span class="kw">theme_void</span>()</code></pre></div>
+<span class="co"># Loop thru each word</span>
+<span class="cf">for</span>(n <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(bingo_words)) {
+
+  <span class="kw">print</span>(n)
+  
+  <span class="co"># Plot the word</span>
+  call_fun &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw">data.frame</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>), <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> <span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="kw">sample</span>(<span class="kw">viridis_pal</span>()(<span class="dv">30</span>), <span class="dv">1</span>), <span class="dt">size =</span> <span class="dv">177</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">        </span><span class="kw">geom_label</span>(<span class="dt">label =</span> bingo_words[n], <span class="dt">size =</span> <span class="dv">12</span>) <span class="op">+</span>
+<span class="st">        </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="ot">NULL</span>, <span class="dt">y =</span> <span class="ot">NULL</span>) <span class="op">+</span>
+<span class="st">        </span><span class="kw">theme_void</span>()
+  
+  <span class="kw">print</span>(call_fun)
+  
+  <span class="kw">readline</span>(<span class="dt">prompt=</span><span class="st">&quot;Press Enter...&quot;</span>)
+}</code></pre></div>
 </div>
 <div id="filter" class="section level1">
-<h1><span class="header-section-number">7</span> | <code>filter()</code></h1>
+<h1><span class="header-section-number">6</span> <code>filter()</code></h1>
 <hr>
 <p>The <code>filter()</code> function creates a subset of the data based on the value of one or more columns. Let’s take a look at the records with the origin <code>&quot;All&quot;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filter</span>(scrap, origin <span class="op">==</span><span class="st"> &quot;All&quot;</span>)</code></pre></div>
@@ -475,18 +505,24 @@ n &lt;-<span class="st"> </span><span class="dv">1</span>
 ##   &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
 ## 1 12/31/2016   Total All    All         2971601 Tons          579215.</code></pre>
 <p><br></p>
-<div id="pro-tip-1" class="section level3 unnumbered">
-<h3><i class="fas fa-user-astronaut" aria-hidden="true" style="color:#040707;"></i> Pro-tip!</h3>
-<div class="data">
-<p>We use a <code>==</code> (double equals sign) for comparing values. A <code>==</code> makes the comparison “is it equal to?” and returns a True or False answer. So the code above returns all the rows where the condition <code>origin == &quot;All&quot;</code> is TRUE.</p>
-<p>A single equals sign <code>=</code> is used within functions to set options, for example <code>read_csv(file = &quot;starwars_scrap_jakku.csv&quot;)</code>. Don’t worry too much. If you use the wrong symbol R is often helpful and will let you know which one is needed.</p>
+<div class="note">
+<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<p>We use a <code>==</code> (double equals sign) for comparing values. A <code>==</code> makes the comparison “is it equal to?” and returns a True or False answer. So the code above will returns only the rows where the condition <code>origin == &quot;All&quot;</code> is TRUE.</p>
+<p>A single equals sign <code>=</code> is used within functions to set options, for example <code>read_csv(file = &quot;starwars_scrap_jakku.csv&quot;)</code>. It’s not a big deal if you mix them up the first time. R is often helpful and will let you know which one is needed.</p>
 </div>
+<div id="comparing-values" class="section level2 unnumbered">
+<h2>Comparing values</h2>
+<hr class="hrlvl2">
+<div class="figure">
+<img src="../images/porg_heights.png" style="float: right; margin-top: -94px; width: 40%;" />
+
 </div>
-<div id="comparisons" class="section level2">
-<h2><span class="header-section-number">7.1</span> Comparisons</h2>
-<hr>
-<p>Processing data requires many types of filtering. You’ll want to know how to select observations in your table by making various comparisons between values.</p>
-<p><strong>Key comparison operators</strong></p>
+<p>We use a variety of comparisons when processing data. Sometimes we only want concentrations above a certain level, or days below a given temperature, or sites that have missing observations.</p>
+<p>We use the <strong>Menu</strong> of comparisons below to find the data we want.</p>
+<blockquote>
+<h3 style="margin-top: 8px; margin-bottom: -4px;">
+Menu of comparisons
+</h3>
 <table>
 <thead>
 <tr class="header">
@@ -521,14 +557,23 @@ n &lt;-<span class="st"> </span><span class="dv">1</span>
 </tr>
 <tr class="odd">
 <td align="left"><code>%in%</code></td>
-<td align="left">is value in a list: <code>X %in% c(1,2,3)</code></td>
+<td align="left">value is in a list: <code>X %in% c(1,3,7)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>is.na(...)</code></td>
+<td align="left">is the value missing?</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>str_detect(col_name, &quot;word&quot;)</code></td>
+<td align="left">“word” appears in text?</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="exercise-1" class="section level2 unnumbered">
-<h2><i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Exercise</h2>
-<p>Try comparing some things in the console and see if you get what you’d expect. R doesn’t always think like we do.</p>
+</blockquote>
+<p><br></p>
+<div class="tip">
+<h3 id="explore-2" class="unnumbered"><i class="fas fa-user-astronaut" style="color: green"></i> Explore!</h3>
+<p>Try comparing some things in the console to see if you get what you’d expect. R doesn’t always think like we do.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">!=</span><span class="st"> </span><span class="dv">5</span>
 
 <span class="dv">4</span> <span class="op">==</span><span class="st"> </span><span class="dv">4</span>
@@ -537,15 +582,21 @@ n &lt;-<span class="st"> </span><span class="dv">1</span>
 
 <span class="dv">4</span> <span class="op">&gt;</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
 
-<span class="dv">4</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</code></pre></div>
+<span class="dv">5</span> <span class="op">==</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
+
+<span class="dv">5</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
+
+<span class="dv">2</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)
+
+<span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="ot">NA</span></code></pre></div>
 </div>
-<div id="dropping-rows" class="section level2 unnumbered">
-<h2>Dropping rows</h2>
-<p>Let’s look at the data without that pesky <em>All</em> category. Look in the comparison table above to find the <code>NOT</code> operator. We’re going to filter the data to keep only the origins that are <code>NOT equal to</code> “All”.</p>
-<p><br></p>
+</div>
+<div id="dropping-rows" class="section level2">
+<h2><span class="header-section-number">6.1</span> Dropping rows</h2>
+<hr class="hrlvl2">
+<p>Let’s look at the data without the <em>All</em> category. Look in the comparison table above to find the <code>NOT</code> operator. We’re going to filter our data to keep only the origins that are <code>NOT equal to</code> “All”.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>)</code></pre></div>
-<p><br></p>
-<p>We can arrange the data in ascending order by <code>item</code> to confirm that the “All” category is gone.</p>
+<p>We can arrange the data in ascending order by <code>item</code> to confirm the “All” category is gone.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arrange data</span>
 scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, item)
 
@@ -560,38 +611,36 @@ scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, item)
 ## 5 6/10/2013    Aural se~ Blowback~ Niima Outp~   2312 Tons             145.
 ## 6 6/20/2013    Aural se~ Outskirts Trade cara~   6272 Tons             145.</code></pre>
 <p><br></p>
+<div class="well">
 <p>Now let’s take another look at that bar chart. Is there anything else that is less than perfect with our data?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
 
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
 <p><img src="/page/Day1_PM_files/figure-html/ggplot-noAll-1.png" width="672" /></p>
-<p>Much better! But… something still might be hidden in the data that is unexpected. Let’s take a look at the amount of items in each units category.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> units, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
-<p><img src="/page/Day1_PM_files/figure-html/ggplot-Units-1.png" width="672" /></p>
-<p><br></p>
-<p>Interesting. The item “tons” is written two ways. This can happen when multiple labs send you data, or protocols change over time. Let’s make a note to deal with this a bit later.</p>
 </div>
-<div id="multiple-filters" class="section level2">
-<h2><span class="header-section-number">7.2</span> Multiple filters</h2>
-<hr>
+</div>
+<div id="multiple-filters" class="section level2 unnumbered">
+<h2>Multiple filters</h2>
+<hr class="hrlvl2">
 <p>We can add multiple comparisons to <code>filter()</code> to further restrict the data we pull from a larger data set. Only the records that pass the conditions of all the comparisons will be pulled into the new data frame.</p>
 <p>The code below filters the data to only scrap records with an origin of <code>Outskirts</code> <strong>AND</strong> a destination of <code>Niima Outpost</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">outskirts_to_niima &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, 
                              origin        <span class="op">==</span><span class="st"> &quot;Outskirts&quot;</span>, 
                              destination   <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>)</code></pre></div>
 <p><br></p>
-<p>Let’s calculate some new columns to help prioritize Rey’s scavenging work.</p>
+<div class="well">
+<p>Let’s calculate some new columns to help focus Rey’s scavenging work.</p>
+</div>
 </div>
 </div>
 <div id="mutate" class="section level1">
-<h1><span class="header-section-number">8</span> | <code>mutate()</code></h1>
+<h1><span class="header-section-number">7</span> <code>mutate()</code></h1>
 <hr>
-<p><code>mutate()</code>can edit existing columns in a data frame or add new columns calculated from the existing data.</p>
+<p><code>mutate()</code> can edit existing columns in a data frame or add new values that are calculated from existing columns.</p>
 <div id="add-a-column" class="section level2 unnumbered">
 <h2>Add a column</h2>
-<hr>
 <p>First, let’s add a column with our names. That way Rey can thank us personally when her ship is finally up and running.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Add your name as a column
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Add your name as a column</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">scrap_finder =</span> <span class="st">&quot;BB8&quot;</span>)</code></pre></div>
 </div>
 <div id="add-several-columns" class="section level2 unnumbered">
@@ -607,36 +656,47 @@ scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap,
 </div>
 <div id="change-a-column" class="section level2 unnumbered">
 <h2>Change a column</h2>
-<hr>
+<hr class="hrlvl2">
 <p>Remember how the units of Tons was written two ways: “TONS” and “Tons”? We can use <code>mutate()</code> together with <code>tolower()</code> to make sure all of the scrap units are written in lower case. This will help prevent them from getting grouped separately in our plots and summaries.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set units to all lower-case</span>
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">units =</span> <span class="kw">tolower</span>(units))
 
-<span class="co"># toupper() will change all of the letters in a column to upper-case.</span></code></pre></div>
+<span class="co"># toupper() changes all of the letters to upper-case.</span></code></pre></div>
 </div>
 <div id="add-calculated-columns" class="section level2 unnumbered">
 <h2>Add calculated columns</h2>
-<p>In our work we often use <code>mutate</code> to calculate new units for measurements. In this case, let’s estimate the total pounds for the scrap items that are reported in tons.</p>
-<div id="tons----pounds-conversion" class="section level3 unnumbered">
-<h3>Tons <code>--&gt;</code> Pounds conversion</h3>
+<p>In our work we often use <code>mutate</code> to convert units for measurements. In this case, let’s estimate the total pounds for the scrap items that are reported in tons.</p>
+<div id="tons-to-pounds-conversion" class="section level3 unnumbered">
+<h3>Tons <code>to</code> Pounds conversion</h3>
 <p>We can use <code>mutate()</code> to convert the <code>amount</code> column to pounds. Multiply the <code>amount</code> column by 2000 to get new values for a column named <code>amount_lbs</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
-                       <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_pounds &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, <span class="dt">amount_lbs =</span> amount <span class="op">*</span><span class="st"> </span><span class="dv">2000</span>)</code></pre></div>
 </div>
 </div>
-</div>
-<div id="last-steps" class="section level1">
-<h1><span class="header-section-number">9</span> | Last steps!</h1>
-<p>Rey needs an <code>Ion engine</code>. Filter the data to only that item.</p>
+<div id="final-stretch" class="section level2 unnumbered">
+<h2>Final stretch!</h2>
+<hr class="hrlvl2">
+<blockquote>
+<p>We now have all the tools we need.</p>
+<p>To get Rey’s ship working we need to track down more of the scrap item: <strong><code>Ion engine</code></strong>.</p>
+</blockquote>
+<p><strong>Step 1:</strong></p>
+<ul>
+<li><strong>filter</strong> the data to only <code>Ion engine</code></li>
+</ul>
 <p><br></p>
-<p><details> <summary class = "btn_code_blue"><em>Show code</em></summary></p>
+<details> <summary class = "btn_code_blue"><em>Show code</em></summary>
 <p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Grab only the items named `Ion engine`
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Grab only the items named &quot;Ion engine&quot;</span>
 scrap_pounds &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap_pounds, item <span class="op">==</span><span class="st"> &quot;Ion engine&quot;</span>)</code></pre></div>
 </p>
 <p></details></p>
-<p><br></p>
-<p>Arrange the data in descending order of pounds so Rey knows where the highest amount of scrap comes from. Then she can go there, trade for some discounted parts and <strong>we’re free to FLY TO ENDOR!</strong></p>
+<br><br>
+<hr class="hr2">
+<p>Next <em>arrange</em> the data in descending order of pounds so Rey knows where the highest amount of <code>Ion engine</code> scrap comes from.</p>
+<p><strong>Step 2:</strong></p>
+<ul>
+<li><strong>arrange</strong> in descending order by <code>amount_lbs</code></li>
+</ul>
 <p><br></p>
 <details> <summary class="btn_code_blue"> <em>Show code</em> </summary>
 <p>
@@ -651,176 +711,234 @@ scrap_pounds &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap
 <span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
 </p>
 <p></details></p>
-<p><br></p>
 <div class="quiz">
-<h3 id="pop-quiz" class="unnumbered">Pop Quiz!</h3>
-<p><strong>For the item <code>Ion engine</code>, which origin had the highest <code>amount_lbs</code>?</strong></p>
-<p><input type="radio"> <em>Tuanul</em> <br> <input type="radio"> <em>Cratertown</em> <br> <input type="radio"> <em>Outskirts</em> <br> <input type="radio"> <em>Reestki</em> <br></p>
+<h3 id="complete-the-mission" class="unnumbered">Complete the mission!</h3>
+<p><strong>For the item <code>Ion engine</code>, which origin has the most <code>amount_lbs</code>?</strong></p>
+<p><input type="radio" name="ion"> <em>Tuanul</em> <br> <input type="radio" name="ion"> <em>Cratertown</em> <br> <input type="radio" name="ion"> <em>Outskirts</em> <br> <input type="radio" name="ion"> <em>Reestki</em> <br></p>
 <p><br></p>
-<p><details> <summary class = "btn_code"><em>Show solution</em></summary></p>
+<details> <summary class = "btn_code"><em>Show solution</em></summary>
 <p>
 <p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Cratertown</code></p>
-<p><em>Yes!! You receive the ship parts to repair Rey’s Millennium Falcon. Onward!</em></p>
+<em>Yes!! You receive the ship parts to repair Rey’s Millennium Falcon. Onward!</em>
 </p>
 </details>
 </div>
 <div style="clear: both;">
 
 </div>
+</div>
 <div id="first-mission-complete" class="section level2 unnumbered">
 <h2>First mission complete!</h2>
-</div>
-</div>
-<div id="save-new-data" class="section level1">
-<h1><span class="header-section-number">10</span> | Save new data</h1>
-<p>You can’t break your original dataset if you always name it something else. Let’s use the <code>readr</code> package to save our new CSV with the tons converted to pounds.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file </span>
-<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;scrap_in_pounds.csv&quot;</span>)</code></pre></div>
+<p><strong>Nice work!</strong> Rey got a great deal on her engines and even traded in some scrap for spending cash. <em>You’ve got the music in you, oh, oh, oh… Sorry.</em></p>
 <p><br></p>
 <blockquote>
-<p>Where did R save the file?</p>
+<p><strong>Time to get off this dusty planet, we’re flying to Endor!</strong></p>
 </blockquote>
-<p>Let’s create a new <code>results/</code> folder to keep our processed data separate from any raw data we receive.</p>
+<div class="figure">
+<img src="../images/blast_off_ship_jakku.gif" style="margin-left: 12%; width: 75%;" />
+
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="save-our-data" class="section level1">
+<h1><span class="header-section-number">8</span> Save our data</h1>
+<hr>
+<p>You can’t break your original dataset if you name your edited data something new. Let’s use the <code>readr</code> package to save our new CSV with the tons converted to pounds.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file </span>
+<span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;scrap_in_pounds.csv&quot;</span>)</code></pre></div>
+<blockquote>
+<p>Where did R save the file?</p>
+<p><em>Hint:</em> You can look in the lower right <code>[Files]</code> tab.</p>
+</blockquote>
+<p><br></p>
+<p>Let’s create a new <code>results/</code> folder to keep our processed data separate from any raw data we receive. Now we can add <code>results/</code> to our file path when we save the file.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Save data as a CSV file to results folder</span>
 <span class="kw">write_csv</span>(scrap_pounds, <span class="st">&quot;results/scrap_in_pounds.csv&quot;</span>)</code></pre></div>
 <p><br></p>
-<div id="time-to-get-off-this-dusty-planet-were-flying-to-endor" class="section level3 unnumbered">
-<h3>Time to get off this dusty planet, we’re flying to Endor!</h3>
+</div>
+<div id="plots-with-ggplot2" class="section level1">
+<h1><span class="header-section-number">9</span> Plots with <em>ggplot2</em></h1>
+<hr>
+<div id="plot-the-data-plot-the-data-plot-the-data" class="section level4 unnumbered">
+<h4><em>Plot the data, Plot the data, Plot the data</em></h4>
+<p><br></p>
 <div class="figure">
-<img src="..\images\blast_off_ship_jakku.gif" style="margin-left: auto; margin-right: auto; margin-top: 18px; margin-bottom: 12px;" width="500" />
+<img src="../images/ggplot2_hex.png" align="right" style="margin-right: 70px; margin-top: -124px;" width="180" />
 
 </div>
-<p><br></p>
 </div>
-<div id="bb8-has-a-new-mission" class="section level2 unnumbered">
-<h2>BB8 has a new mission</h2>
-<p>BB8 just received new data suggesting there was a large magnetic storm right before Site 1 burned down on Endor. Sounds like we’re going to be <strong>STORM CHASERS</strong>!</p>
-<p><strong>Get the dataset</strong></p>
-<p>While we’re relaxing and flying to Endor let’s get set up with our new data.</p>
-<p><a href="https://itep-r.netlify.com/data/air_endor.csv"> <span class="btn_code_blue" style="margin-bottom: 10px;"> <strong>DOWNLOAD</strong> </span></a> - Endor Air data</p>
-<ol style="list-style-type: decimal">
-<li>Download the data above.</li>
-<li>Create a new folder called “data” in your project folder.</li>
-<li>Move the Endor data to there.</li>
-<li>Open a new R script called <code>endor_air.R</code></li>
-</ol>
-<p>Now we can read in the data from the data folder with our favorite <code>read_csv</code> function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
-<span class="kw">library</span>(dplyr)
-
-air_endor &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/air_endor.csv&quot;</span>)</code></pre></div>
-<p><br></p>
-<div class="data">
-<p><strong>NOTE:</strong> When your project is open, RStudio sets the working directory to your project folder. When reading in files from a folder outside of your project, you’ll need to use the full file path location. For example: <code>C://Programs/Air_Quality/Ozone_data.csv</code></p>
-</div>
-</div>
-</div>
-<div id="welcome-to-endor" class="section level1">
-<h1><span class="header-section-number">11</span> | Welcome to Endor!</h1>
+<div id="the-ggplot-sandwich" class="section level2 unnumbered">
+<h2>The <code>ggplot()</code> sandwich</h2>
 <div class="figure">
-<img src="../images/planet_endor.jpg" align="center" style="width: 62%; margin-top: -4px;" />
+<img src="../images/auto_plot.gif" style="margin-top: -22px; margin-left: -40px; max-width: 110%;" />
 
 </div>
-<p><strong>Let’s get acquainted with the new data set.</strong> Remember the different ways?</p>
-<p>Hint: <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code></p>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glimpse</span>(air_endor)</code></pre></div>
-<pre><code>## Observations: 1,190
-## Variables: 8
-## $ Analyte        &lt;chr&gt; &quot;1-Methylnaphthalene&quot;, &quot;1-Methylnaphthalene&quot;, &quot;...
-## $ lab_code       &lt;chr&gt; &quot;HV-403&quot;, &quot;HV-408&quot;, &quot;HV-411&quot;, &quot;HV-415&quot;, &quot;HV-418...
-## $ Units          &lt;chr&gt; &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;ng/m3&quot;, &quot;n...
-## $ Start_Run_Date &lt;chr&gt; &quot;7/11/2016&quot;, &quot;7/23/2016&quot;, &quot;8/5/2016&quot;, &quot;8/16/201...
-## $ Site.Name      &lt;chr&gt; &quot;battlesite1&quot;, &quot;battlesite1&quot;, &quot;battlesite1&quot;, &quot;b...
-## $ Long.Site.Name &lt;chr&gt; &quot;Endor_Tana_forestmoon_battlesite1&quot;, &quot;Endor_Tan...
-## $ Planet         &lt;chr&gt; &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;Endor&quot;, &quot;E...
-## $ Result         &lt;dbl&gt; 0.00291, 0.00000, 0.00000, 0.00608, 0.00000, 0....</code></pre>
-<p><br></p>
-<p><strong>I see that there are more analytes than we need. Lucky for us, we only want to know about <code>magnetic_field</code> data. Let’s filter the data down to only that analyte.</strong></p>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(air_endor, Analyte <span class="op">==</span><span class="st"> &quot;magnetic_field&quot;</span>)</code></pre></div>
+<h5 style="font-size: 28px; font-weight: bold; margin-top: -42px;">
+A <code>ggplot</code> has 3 ingredients.
+</h5>
+</div>
+<div id="the-base-plot" class="section level2 unnumbered">
+<h2>1. The base plot</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap)</code></pre></div>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
-<p><strong>Boom!</strong> How many rows are left now?</p>
+<p>we load version 2 of the package <code>library(ggplot2)</code>, but the function to make the plot is only <code>ggplot()</code>. No <code>2</code>. <em>Sorry.</em></p>
 </blockquote>
+</div>
+<div id="the-the-x-y-aesthetics" class="section level2 unnumbered">
+<h2>2. The the X, Y <em>aesthetics</em></h2>
+<p>The <em>aesthetics</em> assign the columns from the data that you want to use in the chart. This is where you set the <code>X</code>-<code>Y</code> variables that determine the dimensions of the plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) </code></pre></div>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="the-layers-or-geometries" class="section level2 unnumbered">
+<h2>3. The layers or <em>geometries</em></h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><br></p>
-<div class="figure">
-<img src="../images/lubridate.png" align="left" style="margin-right: 32px; margin-top: 14px; margin-bottom: 20px;" width="150" />
-
 </div>
-<div style="margin-top: 44px;">
-
+<div id="colors" class="section level2 unnumbered">
+<h2>Colors</h2>
+<hr class="hrlvl2">
+<p>Now let’s change the fill color to match the origin.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount, <span class="dt">fill =</span> origin)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>() </code></pre></div>
+<p><img src="/page/Day1_PM_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="tip">
+<h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Try making a column plot showing the total amount of scrap for each <code>destination</code> or for each <code>item</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> amount )) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
 </div>
-<p>When you have this type of time series data it’s helpful for R to know which column is the <strong>date</strong> column. Dates come in many formats and the preferred format in R is <code>2019-01-15</code>. We can use the <code>lubridate</code> package to help modify and format dates.</p>
-<div style="clear: both;">
-
-</div>
-<p>Install the <code>lubridate</code> package and use the <code>mdy()</code> function to turn the <code>Start_Run_Date</code> column into a nicely formatted date.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
-
-mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">date =</span> <span class="kw">mdy</span>(Start_Run_Date))</code></pre></div>
 <p><br></p>
-<p><strong>According to the request we received, the Resistance is only interested in observations from after the year <code>2016</code>. So let’s filter the data down to only dates after that year.</strong></p>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, <span class="kw">year</span>(date) <span class="op">&gt;</span><span class="st"> </span><span class="dv">2016</span>)</code></pre></div>
-</div>
-<div id="time-series" class="section level1">
-<h1><span class="header-section-number">12</span> | Time series</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mag_endor, <span class="kw">aes</span>(<span class="dt">x =</span> date, <span class="dt">y =</span> Result)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">size =</span> <span class="dv">5</span>) </code></pre></div>
-<p><img src="/page/Day1_PM_files/figure-html/endor-time-1.png" width="672" /></p>
-<p>Looks like the measurements definitely picked up a signal towards the end of the year. Let’s make a different chart to better show when this was exactly.</p>
-</div>
-<div id="calendar-plots" class="section level1">
-<h1><span class="header-section-number">13</span> | Calendar plots</h1>
-<div class="figure">
-<img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" />
-
-</div>
-<p>Calendar plots are good for zooming-in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.</p>
-<div id="openair-package" class="section level2 unnumbered">
-<h2><code>openair</code> package</h2>
-<p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>) </code></pre></div>
-<p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(openair) 
-
-<span class="kw">calendarPlot</span>(mag_endor, 
-             <span class="dt">pollutant    =</span> <span class="st">&quot;Result&quot;</span>, 
-             <span class="dt">statistic    =</span> <span class="st">&quot;mean&quot;</span>, 
-             <span class="dt">year         =</span> <span class="dv">2017</span>, 
-             <span class="dt">annotate     =</span> <span class="st">&quot;date&quot;</span>,
-             <span class="dt">digits       =</span> <span class="dv">0</span>, 
-             <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>, 
-             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">14</span>), 
-                                 <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
-             <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre></div>
-<p><img src="/page/Day1_PM_files/figure-html/cal-for-web-1.png" width="2880" /></p>
-<div id="mission-accomplished" class="section level3 unnumbered">
-<h3>Mission accomplished!</h3>
-<p>It looks like there really were high magnetic field readings in November of Galactic year 9917. With luck, the Resistance will reward us handsomely for this information.</p>
 </div>
 </div>
-</div>
-<div id="operation-shut-down" class="section level1">
-<h1><span class="header-section-number">14</span> | Operation Shut Down</h1>
-<p>When you close R for the first time you will see some options about saving your workspace and other files. In general, we advise against saving these files. It’s easy enough to re-run your script next time you open your project. This will help RStudio open a fresh and clean environment every time you start it.</p>
-<p>Follow these steps to set these options permanently.</p>
-<p><strong>Turn off “Save Workspace”</strong></p>
+<div id="shutdown-complete" class="section level1">
+<h1><span class="header-section-number">10</span> Shutdown complete</h1>
+<hr>
+<p>When you close R for the first time you’ll see some options about saving your workspace, history, and other files. In general, we advise against saving these files. This will help RStudio open a fresh and clean environment every time you start it. And it’s easy enough to re-run your script next time you open your project.</p>
+<p>Follow these steps to set these options permanently, and not have to see the pop-up windows when you close R.</p>
+<p><strong>Turn off <em>Save Workspace</em> </strong></p>
 <ol style="list-style-type: decimal">
 <li>Go to <code>Tools &gt; Global Options....</code> on the top RStudio navigation bar</li>
 <li>On the first screen:
 <ul>
 <li>[ ] Uncheck Restore .Rdata into workspace at startup</li>
-<li>Set <em>Save workspace to .RData on exit</em> to [“Never”].</li>
+<li>Set <em>Save workspace to .RData on exit</em> to [“Never?].</li>
 <li>[ ] Uncheck Always save history</li>
 </ul></li>
 </ol>
 <p><br></p>
+<p><details> <summary class = "btn_code_blue"> <strong>REVIEW: Functions &amp; arguments</strong> </summary></p>
+<p>
+<div class="well" style="background-color: lightblue; margin-top: -13px;">
+<p><em>Functions</em> perform steps based on inputs called <em>arguments</em> and usually return an output object. There are <em>functions</em> in R that are really complex but most boil down to the same general setup:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">new_output &lt;-<span class="st"> </span><span class="cf">function</span>(argument_input1, argument_input2)</code></pre></div>
+<p>You can make your own functions in R and name them almost anything you like, even <code>my_amazing_starwars_function()</code>.</p>
+<p><br></p>
+<div class="figure">
+<img src="../images/clonetrooper_fathead.png" style="float: left; margin-right: 36px; margin-top: -2px;" width="220" />
+
+</div>
+<p><br></p>
+<p>You can think of a <em>function</em> like a plan for making Clone Troopers.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">create_clones</span>(<span class="dt">host       =</span> <span class="st">&quot;Jango Fett&quot;</span>, 
+              <span class="dt">n_troopers =</span> <span class="dv">2000</span>)</code></pre></div>
+<p><br></p>
+<p>The <em>function</em> above creates Clone Troopers based on two <em>arguments</em>: the <code>host</code> and <code>n_troopers</code>. When we have more than one <em>argument</em>, we use a comma to separate them. With some luck, the function will successfully return a new object - a group of 2,000 Clone Troopers.</p>
+<div style="clear: both;">
+
+</div>
+<p><strong>The <code>sum()</code> function</strong></p>
+<p>We can use the <code>sum()</code> function to find the sum age of our Star Wars characters.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_ages  &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">19</span>,<span class="dv">19</span>,<span class="dv">25</span>)
+
+<span class="co"># Call the sum function with starwars_ages as input</span>
+ages_sum &lt;-<span class="st"> </span><span class="kw">sum</span>(starwars_ages) <span class="co"># Assigns the output to starwars_ages_sum</span>
+
+<span class="co"># Print the starwars_ages_sum value to the console</span>
+ages_sum</code></pre></div>
+<pre><code>## [1] 63</code></pre>
+<p><br></p>
+<p>The <code>sum()</code> function takes the <em>starwars_ages</em> vector as input, performs a calculation, and returns a number. Note that we assigned the output to the name <code>ages_sum</code>.</p>
+<p>If we don’t assign the output it will be printed to the console and not saved.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alternative without assigning output</span>
+<span class="kw">sum</span>(starwars_ages) </code></pre></div>
+<pre><code>## [1] 63</code></pre>
+<p><br></p>
+<div class="note">
+<h3 id="note" class="unnumbered">Note</h3>
+<p>The original <code>starwars_ages</code> vector has not changed. Each function has its own “environment” and its calculations happen inside a bubble. In general, what happens inside a function won’t change your objects outside of the function.</p>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">starwars_ages</code></pre></div>
+<pre><code>## [1] 19 19 25</code></pre>
+<p><br></p>
+</div>
+</p>
+<p></details></p>
+<p><br></p>
+</div>
+<div id="new-data---new-project" class="section level1 unnumbered">
+<h1><i class="fas fa-globe-americas" style="color: #0077be;"></i> New data -&gt; New project!</h1>
+<hr class="hr2">
+<p>It’s time for some Earth data. Use your new R skills to explore some data from closer to home.</p>
+<div id="set-up-your-project" class="section level2 unnumbered">
+<h2>Set up your project</h2>
+<ul>
+<li>Open a new project</li>
+<li>Open a new R script</li>
+<li>Create a <code>data</code> folder in your project directory</li>
+<li>Copy your data to that folder</li>
+</ul>
+</div>
+<div id="begin-your-analysis" class="section level2 unnumbered">
+<h2>Begin your analysis</h2>
+</div>
+<div id="read-data-into-r" class="section level2 unnumbered">
+<h2>1. Read data into R</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(readr)
+<span class="kw">library</span>(janitor)
+
+<span class="co"># Read a CSV file</span>
+air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;data/My-data.csv&quot;</span>)
+
+
+<span class="co"># Have an EXCEL file?</span>
+## You can use read_excel() from the readxl package
+<span class="kw">install.packages</span>(readxl)
+
+<span class="kw">library</span>(readxl)
+
+<span class="co"># Read an EXCEL file</span>
+air_data &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;data/My-data.xlsx&quot;</span>)</code></pre></div>
+</div>
+<div id="clean-the-column-names" class="section level2 unnumbered">
+<h2>2. Clean the column names</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">air_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_data)</code></pre></div>
+</div>
+<div id="get-to-know-your-data" class="section level2 unnumbered">
+<h2>3. Get to know your data</h2>
+<blockquote>
+<p>Hint: <code>summary()</code>, <code>glimpse()</code>, <code>nrow()</code>, <code>names()</code></p>
+</blockquote>
+</div>
+<div id="plot-the-data" class="section level2 unnumbered">
+<h2>4. Plot the data</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="co"># Remember the ggplot sandwich!</span>
+<span class="kw">ggplot</span>(air_data, <span class="kw">aes</span>(<span class="dt">x =</span> TEMP_F, <span class="dt">y =</span> OZONE)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">color =</span> site_name))</code></pre></div>
+<blockquote>
+<p>Keep exploring…</p>
+</blockquote>
+<p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-1.html">Homebase</a></h3>
 <p><br></p>
+</div>
 </div>
 </div>

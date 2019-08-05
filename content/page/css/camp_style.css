@@ -1,9 +1,43 @@
 
 code {color: #535353}
 
+.blue {
+  color: #3498db;
+  background: #3498db;
+}
+
 hr {
-  margin-top: -24px;
-  margin-bottom: 24px;
+  margin-top: -48px;
+  margin-bottom: 30px;
+  margin-left: 12px;
+  background: #FF6347;
+  height: 0.2em;
+}
+
+.pinkcode code {
+  color: #c81888;
+}
+
+.gray {background: #ddd1cd;}
+
+.hr2 {margin-top: -38px; margin-left: 0; background: #ddd1cd; height: 0.12em; margin-bottom: 30px;}
+
+.hrlvl2 {margin-top: -31px; margin-left: 0; background: #ddd1cd; height: 0.11em; margin-bottom: 26px;}
+
+
+h1 .header-section-number {
+  background: #FF6347;
+  color: white;
+  border-radius: 27px;
+  -moz-border-radius: 27px;
+  -webkit-border-radius: 27px;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 54px;
+  margin-right: 5px;
+  text-align: center;
+  width: 54px;
+  font-size: 27px;
 }
 
 
@@ -13,6 +47,18 @@ hr {
     overflow: hidden;
     margin-top: 12px;
 }
+
+.column2
+{
+    float: left;
+    margin-right: 8%;
+    margin-left: 2px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    width: 41%;
+    overflow: hidden;
+}
+
 
 .column3
 {
@@ -47,73 +93,118 @@ blockquote
 {
      background-color: #f0f7fb;
      border-radius: 15px;
+     color: #525252;
      font-size: 17px;
      font-style: normal;
      line-height: 19px;
      overflow: hidden;
-     padding: 10px;
+     padding: 22px;
      padding-top: 12px;
      padding-bottom: 14px;
      margin-top: 18px;
      margin-bottom: 15px;
-     padding-left: 22px;
 }
 
-.note
-{
-     background-color: #f0f7fb;
-     border-left: solid 4px #3498db;
-     border-radius: 25px;
-     font-size: 17px;
-     font-style: normal;
-     line-height: 19px;
-     overflow: hidden;
-     padding: 10px;
-     padding-top: 14px;
-     padding-bottom: 14px;
-     margin-top: 28px;
-     margin-bottom: 26px;
-     padding-left: 22px;
+.card {
+  border-radius: 25px;
+  border: solid 1px #babfc28f;
+  background-color: #f0f7fb;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 19px;
+  overflow: hidden;
+  padding: 22px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+.card-top {
+  margin-top: -60px;
+  margin-left: -28px;
+  margin-bottom: 16px;
+  width: 109%;
+  height: 54px;
+}
+
+.note {
+  border-radius: 25px;
+  border: solid 1px #babfc28f;
+  background-color: #f0f7fb;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 19px;
+  overflow: hidden;
+  padding: 22px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+  margin-top: 28px;
+  margin-bottom: 26px;
+}
+
+
+.note h3 {
+  color: #eeeef3;
+  background: #6238ff;
+  margin-top: -13px;
+  margin-bottom: 16px;
+  margin-left: -26px;
+  padding-left: 26px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  width: 118%;
 }
 
 .red-note
 {
-     background-color: #f6ede7;
-     border-left: solid 6px #E15611;
+     background-color: #f8f5f3;
+     border: solid 1px #babfc28f;
+     /*border-left: solid 6px #E15611; */
      border-radius: 25px;
      font-size: 17px;
      font-style: normal;
      line-height: 19px;
      overflow: hidden;
-     padding: 10px;
-     padding-top: 14px;
+     padding: 22px;
+     padding-top: 2px;
      padding-bottom: 14px;
-     margin-top: 28px;
+     margin-top: 22px;
      margin-bottom: 26px;
-     padding-left: 22px;
+}
+
+.red-note h3 {
+  color: #f5f5f5;
+  background: #EB490C;
+  margin-top: -4px;
+  margin-bottom: 16px;
+  margin-left: -26px;
+  padding-left: 26px;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  width: 118%;
 }
 
 .tip
 {
      background-color: #d2f0c6;
-     border-left: solid 5px #86af49;
+     border: solid 2px #86af49;
      border-radius: 25px;
      font-size: 17px;
      line-height: 19px;
      overflow: hidden;
-     padding: 10px;
-     padding-top: 12px;
+     padding: 18px;
+     padding-top: 2px;
      padding-bottom: 14px;
      margin-top: 10px;
      margin-bottom: 26px;
-     padding-left: 22px;
 }
 
 table {margin-top: 20px; margin-bottom: 18px;}
 
-.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-height: 1.5;}
+.sourceCode {margin-top: 1px; margin-bottom: 20px; font-size: 14px; line-height: 1.5;}
 
-pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-height: 1.5;}
+pre.sourceCode {margin-top: 1px; margin-bottom: 20px; font-size: 14px; line-height: 1.5;}
 
 .data
 {
@@ -123,9 +214,8 @@ pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-hei
      font-size: 17px;
      line-height: 18px;
      overflow: hidden;
-     padding: 5px;
-     padding-left: 22px;
-     padding-top: 5px;
+     padding: 18px;
+     padding-top: 12px;
      padding-bottom: 14px;
      margin-top: 10px;
      margin-bottom: 14px;
@@ -140,12 +230,12 @@ pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-hei
      font-size: 15px;
      line-height: 17px;
      overflow: hidden;
-     padding: 10px;
-     padding-top: 0px;
+     padding: 22px;
+     padding-top: 4px;
      padding-bottom: 16px;
      margin-top: 45px;
      margin-bottom: 30px;
-     padding-left: 22px;
+
 }
 
 #oneline {
@@ -170,7 +260,7 @@ pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-hei
       display: inline-block;
       padding: 6px 12px;
       margin-bottom: 0;
-      font-size: 12px;
+      font-size: 15px;
       color: #fff;
       background-color: #e53256;  /* #00d1b2; #ff3860; */
       border-color: #992139;
@@ -184,7 +274,7 @@ pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-hei
       display: inline-block;
       padding: 6px 12px;
       margin-bottom: 0;
-      font-size: 12px;
+      font-size: 15px;
       color: #fff;
       background-color: #86af49;
       border-color: #a0af49;
@@ -198,7 +288,7 @@ pre.sourceCode {margin-top: 22px; margin-bottom: 26px; font-size: 14px; line-hei
       display: inline-block;
       padding: 6px 12px;
       margin-bottom: 0;
-      font-size: 12px;
+      font-size: 15px;
       color: #fff;
       background-color: #337ab7;
       border-color: #2e6da4;
@@ -247,46 +337,6 @@ h3 {
 
 body {
   font-size: 18px;
-}
-
-
-.card {
-  perspective: 500px;
-}
-
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
-.card:hover .content {
-  transform: rotateY( 180deg ) ;
-  transition: transform 0.5s;
-}
-
-.front,
-.back {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #eaeaed;
-  line-height: 200px;
-  color: #03446A;
-  text-align: center;
-  font-size: 60px;
-  border-radius: 5px;
-  backface-visibility: hidden;
-}
-
-.back {
-  position: absolute;
-  background: #03446A;
-  color: white;
-  transform: rotateY( 180deg );
 }
 
 
@@ -339,4 +389,10 @@ div.alert a {
   color: #cd0930;
   background-color: #fff5f7;
   border-color: #ff3860;
+}
+
+.note-left
+{
+     background-color: #f0f7fb;
+     border-left: solid 4px #3498db;
 }

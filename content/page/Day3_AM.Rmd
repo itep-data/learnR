@@ -19,11 +19,11 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 # Create a GitHub account
+<hr class="hrlvl2">
 
 It's time to share with the world. [Join GitHub](https://github.com/)
 
 [![](../images/join_github.png)](https://github.com/)
-
 
 
 ## Add a new repository
@@ -55,23 +55,11 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 | `summary(...)`  | summary of all column values (ex. _max_, _mean_, _median_)  | 
 | `glimpse(...)`  | column names + a glimpse of first values (requires _dplyr_ package)   |  
 
-
 <br>
 
-## Your `dplyr` toolbox {-}
 
-![](../images/hex-dplyr.png){width="128" align="left" style="margin-right: 26px; margin-top: 30px; margin-bottom: 20px;"}
-
-
-| Function      | Job                                                 |  
-|:--------------|:----------------------------------------------------|  
-| `select()`    | Choose individual columns to drop, keep, or reorder |  
-| `arrange()`   | Reorder or sort rows by value of a column           |  
-| `filter()`    | Pick a subset of rows by the value of a column      | 
-| `mutate()`    | Add new columns or update existing columns          | 
-| `summarize()` | Calculate a single summary for the entire table     |   
-| `group_by()`  | Split data into groups by values in a column        |  
-
+```{r tools, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_toolbox/general.Rmd'}
+```
 
 
 ## `dplyr` with Porgs {-}
@@ -86,23 +74,21 @@ cat(readLines("porg_tabs.txt"))
 
 
 
-# | Day 2 review
-<hr>
+## Day 2 review
+<hr class="hrlvl2">
 
 ![](../images/ggplot2_hex.png){align="right" width="145" style="margin-right: 70px; margin-top: -28px;"}
 
-
 ## The `ggplot()` sandwich {-}
-
 
 ![](../images/auto_plot.gif){style="margin-top: -22px; max-width: 108%; margin-bottom: -16px;"}
 
 
 
-### <i class="fa fa-cogs" aria-hidden="true" style="color: green"></i> Warm-up! {-}
+<div class="tip">
+### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
 
-
-### Who's the tallest of them all?
+#### Who's the tallest of them all?
 
 ```{r, eval=F}
 # Install new packages
@@ -196,13 +182,16 @@ ggplot(star_df, aes(x = mass, y = height)) +
 ```
 
 
-# | Back to Earth
-<hr>
+# <i class="fas fa-globe-americas"></i> Back to Earth
+<hr class="hrlvl2">
 
 You're free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we're back, let's look at some data to get fully reacclimated. 
  
+ 
+ ```{r aqs-format, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/air_aqs/save_aqs.Rmd'}
+```
+ 
 Choose one of the data exercises below to begin.
-
 
 <div class="row3" style="margin-top: 20px;">
 
@@ -288,4 +277,7 @@ Planet: `Earth`
 
 <br>
 
+
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../page/day3_am.html) {-}
+
+<br>

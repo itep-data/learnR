@@ -268,9 +268,10 @@ scrap_summary <- group_by(scrap, origin) %>%
 
 <details>
 <summary class="btn_code_blue"> Rounding digits </summary>
-
-<div class="note">
+<div class="note" style="margin-top: -7px;">
 <p>
+### Rounding {-}
+
 You can round the prices to a certain number of digits using the `round()` function. We can finish by adding the `arrange()` function to sort the table by our new column.
 
 ```{r mean_price-by-Origin-round, eval = F}
@@ -284,7 +285,7 @@ scrap_means <- group_by(scrap, origin) %>%
 <br>
 
 
-__NOTE:__ 
+### Note {-}
 
 The `round()` function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.
 
@@ -301,7 +302,6 @@ Who's making lots of transactions? Try using `group_by` with the column _origin_
 scrap_counts <- group_by(scrap, origin) %>% 
                 summarize(origin_count  =  n()) %>% 
                 ungroup()
-
 ```
 
 <br>
@@ -318,16 +318,16 @@ Ending with `ungroup()` is good practice. This prevents your data from staying g
 
 Let's save the mean price summary table we created to a _CSV_. That way we can transfer it to a _droid courier_ for delivery to Rey. To save a data frame we can use the `write_csv()` function from our favorite `readr` package. 
 
+<br>
+
 ```{r, eval=F}
 # Write the file to your results folder
 write_csv(scrap_means, "results/prices_by_origin.csv")
 ```
 
-<br>
-
 
 <div class="red-note">
-<h3 style="margin-top: 12px; color: #e96413;"><i class="fa fa-user-astronaut"></i> __Warning!__ </h3>
+<h3 style="margin-top: 12px; color: white; margin-top: -6px; font-size: 22px;"><i class="fas fa-exclamation-triangle"></i> __Warning!__ </h3>
 
 By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called `results/` and not to your raw `data/` folder.
 

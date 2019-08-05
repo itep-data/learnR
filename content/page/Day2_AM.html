@@ -437,21 +437,21 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 <img src="../images/comp_meltdown.jpg" style="width: 40%; float: right; border-radius: 30%;" />
 
 </div>
-<p>Due to the magnetic storm on Endor, all of the data entered that day was corrupted!</p>
-<p>We need to determine when the magnetic storm happened. Time to get out our detective hats.</p>
+<p>Oh no! BB8 got locked out of the system! You need the passcode before you can unlock the data. There’s a cryptic note on the pad next to you…“Marty’s birthday”. Could that be the hint to the passcode???</p>
+<p>We need to determine when Marty’s birthday is…time to get out our detective hats.</p>
 <p>You ask the lead engineer:</p>
-<p><strong>So when did that storm occur?</strong></p>
+<p><strong>So when is Marty’s birthday?</strong></p>
 <blockquote>
-<p>_“I think it happened on a Tuesday_</p>
+<p><em>“I think it’s on a Tuesday this year”</em></p>
 </blockquote>
 <p><strong>Any more helpful clues? Anything?</strong></p>
 <blockquote>
-<p>_“Hmmm, let’s see… that would have been around the 22nd week of the year. Yep._</p>
+<p>_“Hmmm, let’s see… it’s around the 22nd week of the year. Yep._</p>
 </blockquote>
 <p><br></p>
 <div class="tip">
 <h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
-<p>Great. So using this information and the garbled data you were able to recover, can you determine which of these dates would be the right one?</p>
+<p>After taking to some other people you now have a list of dates that could be Marty’s birthday!</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">date1 &lt;-<span class="st"> &quot;7/2/2019&quot;</span>
 
 date2 &lt;-<span class="st"> &quot;28/05/2019&quot;</span>
@@ -481,7 +481,10 @@ date3 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st"
 </div>
 <p></details></p>
 </div>
+<blockquote>
+<p>Congrats! BB8 successfully accessed the backup system. The data is back online!</p>
 <p><br></p>
+</blockquote>
 </div>
 <div id="back-on-endor" class="section level2 unnumbered">
 <h2>Back on Endor!</h2>
@@ -1195,9 +1198,11 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> <code>price_per_pound</code> in the scrap report.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre></div>
 <p><br></p>
-<blockquote>
-<p>Note the <code>na.rm = TRUE</code> in the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ if it finds a missing value in the data.</p>
-</blockquote>
+<div class="note">
+<h3 id="note-2" class="unnumbered">Note</h3>
+<p><strong>What’s the average of missing data?</strong> I don’t know.</p>
+<p>Did you see the <code>na.rm = TRUE</code> inside the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ if it finds a missing value anywhere in the data.</p>
+</div>
 </div>
 <div id="median" class="section level2 unnumbered">
 <h2><code>median()</code></h2>
@@ -1272,9 +1277,10 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) </code></pre></div>
 <p><br></p>
-<p><details> <summary class="btn_code_blue"> Rounding digits </summary></p>
-<div class="note">
+<details> <summary class="btn_code_blue"> Rounding digits </summary>
+<div class="note" style="margin-top: -7px;">
 <p>
+<h3 id="rounding" class="unnumbered">Rounding</h3>
 <p>You can round the prices to a certain number of digits using the <code>round()</code> function. We can finish by adding the <code>arrange()</code> function to sort the table by our new column.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price       =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T),
@@ -1282,7 +1288,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <span class="st">                 </span><span class="kw">arrange</span>(mean_price_round) <span class="op">%&gt;%</span>
 <span class="st">                 </span><span class="kw">ungroup</span>()</code></pre></div>
 <p><br></p>
-<p><strong>NOTE:</strong></p>
+<h3 id="note-3" class="unnumbered">Note</h3>
 <p>The <code>round()</code> function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.</p>
 </p>
 </div>
@@ -1303,12 +1309,12 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 <h1><span class="header-section-number">8</span> Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
+<p><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
 <span class="kw">write_csv</span>(scrap_means, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
-<p><br></p>
 <div class="red-note">
-<h3 style="margin-top: 12px; color: #e96413;">
-<i class="fa fa-user-astronaut"></i> <strong>Warning!</strong>
+<h3 style="margin-top: 12px; color: white; margin-top: -6px; font-size: 22px;">
+<i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong>
 </h3>
 <p>By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called <code>results/</code> and not to your raw <code>data/</code> folder.</p>
 </div>

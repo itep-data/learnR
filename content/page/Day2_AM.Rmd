@@ -70,7 +70,7 @@ cat(readLines("porg_tabs.txt"))
 >
 > __So where were we?__ 
 >
-> __Right! We we're enjoying our time on beautiful lush Endor. But aren't we missing somebody...?__
+> Right! We we're enjoying our time on beautiful lush Endor. But aren't we missing somebody...?
 >
 
 

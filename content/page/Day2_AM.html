@@ -427,16 +427,21 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 </div>
 <div id="small-problem" class="section level2 unnumbered">
 <h2>Small problem</h2>
-<p>Due to the magnetic storm on Endor, all of the data entered that day got corrupted!</p>
-<p>You need to determine when the magnetic storm happened. Time to get out our detective hats.</p>
+<hr class="hrlvl2">
+<div class="figure">
+<img src="../images/comp_meltdown.jpg" style="width: 40%; float: right;" />
+
+</div>
+<p>Due to the magnetic storm on Endor, all of the data entered that day was corrupted!</p>
+<p>We need to determine when the magnetic storm happened. Time to get out our detective hats.</p>
 <p>You ask the lead engineer:</p>
-<p>__“When did the storm occur?__</p>
+<p><strong>So when did that storm occur?</strong></p>
 <blockquote>
 <p>“I think it happened on a Tuesday</p>
 </blockquote>
-<p>__“Any more helpful clues? Anything?__</p>
+<p><strong>Any more helpful clues? Anything?</strong></p>
 <blockquote>
-<p>Hmmm, let’s see… that would have been around the 22nd week of the year.</p>
+<p>Hmmm, let’s see… that would have been around the 22nd week of the year. Yep.</p>
 </blockquote>
 <p><br></p>
 <div class="tip">
@@ -448,7 +453,8 @@ date2 &lt;-<span class="st"> &quot;28/05/2019&quot;</span>
 
 date3 &lt;-<span class="st"> &quot;June 4th, 2019&quot;</span></code></pre></div>
 <p><br></p>
-<details> <summary class = "btn_code_blue"><em>Show code</em></summary>
+<p><em>Are you sure you want to click this button?</em></p>
+<details> <summary class = "btn_code_green"><em>Show code</em></summary>
 <p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use lubridate functions to extract information!</span>
 
@@ -495,9 +501,10 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">2</span>, <span class="dt">color =</span> <span class="st">&quot;tomato&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">5</span>, <span class="dt">alpha =</span> <span class="fl">0.5</span>)  <span class="co"># alpha changes transparency</span></code></pre></div>
 <p><img src="/page/Day2_AM_files/figure-html/endor-time-1.png" width="960" /></p>
-<p>Looks like the measurements definitely picked up a signal towards the end of the year. Let’s make a different chart to show when this occurred.</p>
+<p>Looks like the measurements definitely picked up a signal towards the end of the year.</p>
 <p><br></p>
 <details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>Bonus</strong><i class="fas fa-star"></i> </span> Calendar plot </summary>
+<div class="note" style="margin-top: -6px;">
 <p>
 <h2>
 Calendar plots
@@ -508,16 +515,15 @@ Calendar plots
 
 </div>
 <p>Calendar plots are good for zooming in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.</p>
-<h2>
+<h3>
 <code>openair</code> package
-</h2>
-<p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and then use <code>calendarplot()</code> to make a calendar of the observations.</p>
+</h3>
+<p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>)</code></pre></div>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(openair)
-
-<span class="kw">calendarPlot</span>(mag_endor,
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(openair)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">calendarPlot</span>(mag_endor,
              <span class="dt">pollutant    =</span> <span class="st">&quot;result&quot;</span>,
              <span class="dt">statistic    =</span> <span class="st">&quot;mean&quot;</span>,
              <span class="dt">year         =</span> <span class="dv">2017</span>,
@@ -530,9 +536,10 @@ Calendar plots
 <p><img src="/page/Day2_AM_files/figure-html/cal-for-web-1.png" width="2880" /></p>
 <br>
 </p>
+</div>
 <p></details></p>
 <p><br></p>
-<div class="note">
+<div class="data">
 <h3 id="mystery-solved" class="unnumbered">Mystery solved!</h3>
 <p>Aha! There really was a spike in the magnetic field in November. Hopefully, the <em>Resistance</em> will reward us handsomely for this information.</p>
 </div>
@@ -596,7 +603,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p><br></p>
 <blockquote>
 <p><strong>So where were we?</strong></p>
-<p><strong>Right! We we’re enjoying our time on beautiful lush Endor. But aren’t we missing somebody…?</strong></p>
+<p>Right! We we’re enjoying our time on beautiful lush Endor. But aren’t we missing somebody…?</p>
 </blockquote>
 </div>
 </div>
@@ -707,7 +714,7 @@ convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_u
 </div>
 </div>
 <blockquote>
-<p><strong>Hey now!</strong> That’s not very helpful. Who’s who? Let’s join their names to the rest of the data.</p>
+<p><strong>Hey now!</strong> Who’s who? Let’s join their names to the rest of the data.</p>
 </blockquote>
 <div class="figure">
 <img src="../images/porgs/leftjoin_porgs.png" style="width: 90%; max-width: 85%;" />

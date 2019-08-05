@@ -62,12 +62,6 @@ cat(readLines("porg_tabs.txt"))
 ```
 
 
-## Back on Endor! {-}
-<hr class="hrlvl2">
-```{r lubridate, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor2.Rmd'}
-```
-
-
 # Pipe it together: ` A %>% B `
 <hr>
 ```{r pipe-intro, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_pipe/intro.Rmd'}

@@ -70,7 +70,6 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 
-<hr class="hr2" style="margin-top:18px">
 <div class="figure">
 <img src="../images/day1_bb8_sq.png" style="float: right; margin-right: 0; width: 260px; margin-top: -287px;" />
 
@@ -375,34 +374,34 @@ air_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span cl
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">27-137-7001</td>
-<td align="left">2016-05-31</td>
-<td align="right">15</td>
-<td align="right">67.1</td>
-</tr>
-<tr class="even">
 <td align="left">27-137-7554</td>
-<td align="left">2017-08-22</td>
+<td align="left">2016-06-06</td>
 <td align="right">12</td>
-<td align="right">66.2</td>
-</tr>
-<tr class="odd">
-<td align="left">27-137-7554</td>
-<td align="left">2018-04-08</td>
-<td align="right">5</td>
-<td align="right">44.6</td>
+<td align="right">72.8</td>
 </tr>
 <tr class="even">
 <td align="left">27-137-7001</td>
-<td align="left">2017-05-24</td>
-<td align="right">15</td>
-<td align="right">82.4</td>
+<td align="left">2018-05-12</td>
+<td align="right">10</td>
+<td align="right">42.8</td>
 </tr>
 <tr class="odd">
 <td align="left">27-137-7554</td>
-<td align="left">2018-04-14</td>
+<td align="left">2017-06-25</td>
+<td align="right">6</td>
+<td align="right">55.4</td>
+</tr>
+<tr class="even">
+<td align="left">27-137-7554</td>
+<td align="left">2016-04-24</td>
 <td align="right">5</td>
-<td align="right">29.0</td>
+<td align="right">35.6</td>
+</tr>
+<tr class="odd">
+<td align="left">27-137-7554</td>
+<td align="left">2018-08-24</td>
+<td align="right">17</td>
+<td align="right">70.4</td>
 </tr>
 </tbody>
 </table>
@@ -1161,6 +1160,7 @@ Pop Quiz!
 <li><code>feed_porgs(&quot;fish&quot;, &quot;veggies&quot;, &quot;clams&quot;)</code>.</li>
 </ul>
 <p>This works out just fine because all of the arguments were entered in the default order, the same as above.</p>
+<p><br></p>
 <h4 id="what-happens-if-we-write" class="unnumbered">What happens if we write:</h4>
 <ul>
 <li><code>feed_porgs(&quot;veggies&quot;, &quot;clams&quot;, &quot;fish&quot;)</code></li>
@@ -1178,7 +1178,7 @@ Pop Quiz!
 <li><code>read_csv(scrap_file, column_names, skip = 1)</code></li>
 </ul>
 <p>R assumes that the first argument (the data file) is <code>scrap_file</code> and that the 2nd argument “col_names” should be set to <code>column_names</code>. Next, the <code>skip =</code> argument is included explicitly because <em>skip</em> is the <strong>10th</strong> argument in <code>read_csv()</code>.</p>
-<p>If we didn’t include <code>skip =</code>, R would assume the value <code>1</code> is meant for the function’s <strong>3rd</strong> argument.</p>
+<p>If we don’t include <code>skip=</code>, R will assume the value <code>1</code> is meant for the function’s <strong>3rd</strong> argument.</p>
 </p>
 </div>
 <p></details></p>

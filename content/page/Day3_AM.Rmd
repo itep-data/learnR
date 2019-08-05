@@ -3,7 +3,7 @@ title: "Day 3 - AM"
 output: 
   blogdown::html_page: 
     toc: true
-    toc_depth: 2
+    toc_depth: 1
     highlight: tango
     css: css/camp_style.css
     number_sections: false
@@ -187,8 +187,9 @@ ggplot(star_df, aes(x = mass, y = height)) +
 
 You're free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we're back, let's look at some data to get fully reacclimated. 
  
+<br>
  
- ```{r aqs-format, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/air_aqs/save_aqs.Rmd'}
+```{r aqs-format, child="X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/air_aqs/save_aqs.Rmd"}
 ```
  
 Choose one of the data exercises below to begin.

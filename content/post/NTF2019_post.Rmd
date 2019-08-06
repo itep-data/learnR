@@ -8,7 +8,7 @@ output:
     self_contained: false
     toc: true
     toc_depth: 1
-date: '2018-12-09'
+date: '2018-12-13'
 showDate: false
 showAuthor: false
 summary: "Based on ozone monitoring data what's the best month to travel to Tatooine? Power on your droids, we are going to use R to..."

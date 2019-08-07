@@ -165,18 +165,39 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 ## Labels {-}
 
-You can also change the axis and title labels using the `labs` function.
+We can add lables to the chart by adding the `labs()` layer. Let's give our chart from above a title.
 
+__Titles and labels__
 ```{r, eval = T, echo = T}
 ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination") +
-  labs(title = "Scrap sales by origin and destination", 
-       x     = "Origin", 
-       y     = "Total sales")
+  labs(title    = "Scrap sales by origin and destination",
+       subtitle = "Planet Jakku",
+       x        = "Origin", 
+       y        = "Total sales")
 ```
 
 <br>
+
+
+## Add lines {-}
+
+> More layers! Let's say we were advised to avoid sales that were over _50 Billion_ credits. Let's add that as a horizontal line to our chart. For that, we use `geom_hline()`.
+
+__Reference lines__
+```{r}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination") +
+  labs(title    = "Scrap sales by origin and destination",
+       subtitle = "Planet Jakku",
+       x        = "Origin", 
+       y        = "Total sales") +
+     geom_hline(yintercept = 5E+10, color = "orange", size = 2)
+```
+
+
 
 ## Drop `2.2e+06` scientific notation {-}
 
@@ -198,8 +219,7 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 <br>
 
-<div class="tip">
-### Challenge {-}
+### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
 
 Let's say we don't like printing so many zeros and want the labels to be in __Millions__ of credits. Any ideas on how to make that happen?
 </div>
@@ -233,7 +253,6 @@ Be bold and make a __boxplot__. We've covered how to do a scatterplot with `geom
 ```
 
 
-
 # It's Finn time {-}
 
 Seriously, let's pay that ransom already. 
@@ -245,7 +264,7 @@ Seriously, let's pay that ransom already.
 <br>
 
 ```{r, echo=F}
-cheap_scrap <- filter(scrap,   item == "Black box"  )
+cheap_scrap <- filter(scrap, item == "Black box")
 ```
 
 

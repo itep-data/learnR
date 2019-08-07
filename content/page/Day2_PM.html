@@ -373,10 +373,9 @@ A <code>ggplot</code> has 3 ingredients.
        <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre></div>
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
 <p><br></p>
-<div id="explore-3" class="section level3 unnumbered">
-<h3><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
-Let’s say we don’t like printing so many zeros and want the labels to be in <strong>Millions</strong> of credits. Any ideas on how to make that happen?
-</div>
+<div class="tip">
+<h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Let’s say we don’t like printing so many zeros and want the labels to be in <strong>Millions</strong> of credits. Any ideas on how to make that happen?</p>
 </div>
 </div>
 <div id="themes" class="section level2 unnumbered">
@@ -430,15 +429,16 @@ my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span 
 </div>
 <div id="its-finn-time" class="section level1 unnumbered">
 <h1>It’s Finn time</h1>
+<hr class="hr2">
 <p>Seriously, let’s pay that ransom already.</p>
 <blockquote>
 <p><strong>Q:</strong> <strong>Where should we go to get our 10,000 Black boxes?</strong></p>
 </blockquote>
 <p><br></p>
 <p><strong>Step 1:</strong> Make a <code>geom_col()</code> plot showing the total pounds of Black boxes shipped to each destination.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheap_scrap, <span class="kw">aes</span>(<span class="dt">x =</span>  ______ , <span class="dt">y =</span>  ______ ) ) <span class="op">+</span><span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheap_scrap, <span class="kw">aes</span>(<span class="dt">x =</span>  ______ , <span class="dt">y =</span>  ______ )) <span class="op">+</span><span class="st"> </span>
 <span class="st">   </span>geom_</code></pre></div>
-<p><details> <summary class = "btn_code"><em>Show code</em></summary></p>
+<p><details> <summary class="btn_code"><em>Show code</em></summary></p>
 <div class="quiz" style="margin-top: -9px;">
 <p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(cheap_scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> total_pounds) ) <span class="op">+</span><span class="st"> </span>
@@ -450,22 +450,24 @@ my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span 
 <div class="quiz">
 <h3 id="pop-quiz-1" class="unnumbered">Pop Quiz!</h3>
 <p><strong>Which destination has the most pounds of the cheapest item?</strong></p>
-<p><input type="radio"> <em>Trade caravan</em> <br> <input type="radio"> <em>Niima Outpost</em> <br> <input type="radio"> <em>Raiders</em> <br> <br></p>
-<p><details> <summary class = "btn_code"><em>Show solution</em></summary></p>
+<p><input type="radio" name="town"> <em>Trade caravan</em> <br> <input type="radio" name="town"> <em>Niima Outpost</em> <br> <input type="radio" name="town"> <em>Raiders</em> <br> <br></p>
+<p><details> <summary class="btn_code"><em>Show solution</em></summary></p>
 <p>
-<p><i class="fa fa-check" aria-hidden="true" style="color: green;"></i> <code>Raiders</code></p>
+<p><i class="fa fa-check" style="color: green;"></i> <code>Raiders</code></p>
 <p><em>Woop! Go get em! So long Jakku - see you never!</em></p>
 </p>
 </details>
 </div>
 <p><br></p>
 <div id="concatulations" class="section level2 unnumbered">
-<h2><i class="fa fa-star" aria-hidden="true" style="color: gold"></i> 😻 CONCATULATIONS! 😻 <i class="fa fa-star" aria-hidden="true" style="color: gold"></i></h2>
+<h2><i class="fa fa-star" style="color: gold"></i>😻CONCATULATIONS!😻 <i class="fa fa-star" style="color: gold"></i></h2>
 <hr>
 <blockquote>
 <p><strong>Woop!</strong></p>
 <p>Super-serious kudos to you. You have earned yourself a great award.</p>
 </blockquote>
+<br><br>
+<hr>
 </div>
 </div>
 <div id="plot-glossary" class="section level1 unnumbered">

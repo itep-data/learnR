@@ -219,6 +219,7 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 <br>
 
+<div class="tip">
 ### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
 
 Let's say we don't like printing so many zeros and want the labels to be in __Millions__ of credits. Any ideas on how to make that happen?
@@ -254,6 +255,7 @@ Be bold and make a __boxplot__. We've covered how to do a scatterplot with `geom
 
 
 # It's Finn time {-}
+<hr class="hr2">
 
 Seriously, let's pay that ransom already. 
 
@@ -271,12 +273,12 @@ cheap_scrap <- filter(scrap, item == "Black box")
 __Step 1:__ Make a `geom_col()` plot showing the total pounds of Black boxes shipped to each destination. 
 
 ```{r, eval=F}
-ggplot(cheap_scrap, aes(x =  ______ , y =  ______ ) ) + 
+ggplot(cheap_scrap, aes(x =  ______ , y =  ______ )) + 
    geom_
 ```
 
 <details>
-<summary class = "btn_code">_Show code_</summary>
+<summary class="btn_code">_Show code_</summary>
 
 <div class="quiz" style="margin-top: -9px;">
 <p>
@@ -295,16 +297,16 @@ ggplot(cheap_scrap, aes(x = destination, y = total_pounds) ) +
 
 __Which destination has the most pounds of the cheapest item?__
 
-<input type="radio"> _Trade caravan_  <br> 
-<input type="radio"> _Niima Outpost_  <br> 
-<input type="radio"> _Raiders_        <br> 
+<input type="radio" name="town"> _Trade caravan_  <br> 
+<input type="radio" name="town"> _Niima Outpost_  <br> 
+<input type="radio" name="town"> _Raiders_        <br> 
 <br>
 
 <details>
-<summary class = "btn_code">_Show solution_</summary>
+<summary class="btn_code">_Show solution_</summary>
 
 <p>
-<i class="fa fa-check" aria-hidden="true" style="color: green;"></i> `Raiders`  
+<i class="fa fa-check" style="color: green;"></i> `Raiders`  
 
 _Woop! Go get em! So long Jakku - see you never!_
 
@@ -315,7 +317,7 @@ _Woop! Go get em! So long Jakku - see you never!_
 <br>
 
 
-## <i class="fa fa-star" aria-hidden="true" style="color: gold"></i> 😻   CONCATULATIONS! 😻  <i class="fa fa-star" aria-hidden="true" style="color: gold"></i> {-}
+## <i class="fa fa-star" style="color: gold"></i>😻CONCATULATIONS!😻 <i class="fa fa-star" style="color: gold"></i> {-}
 <hr>
 
 >
@@ -324,7 +326,8 @@ _Woop! Go get em! So long Jakku - see you never!_
 > Super-serious kudos to you. You have earned yourself a great award. 
 >
 
-
+<br><br>
+<hr>
 
 # Plot Glossary {-}
 <hr class="hr2">

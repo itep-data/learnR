@@ -63,7 +63,7 @@ cat(readLines("porg_tabs.txt"))
 
 # New mission! 
 <hr>
-```{r lubridate, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor1.Rmd'}
+```{r endor-all, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor1.Rmd'}
 ```
 
 
@@ -178,12 +178,6 @@ Use summarize to calculate the _minimum_ price per pound any scrapper got for th
 
 `summarize(scrap, min_price = min(price_per_pound, na.rm = T))`
 
-## `nth()` {-}
-Use `summarize()` and `nth(Origin, 12)` to find the name of the Origin City that got the  _12th_ highest scrapper haul.   
-
-_Hint: Use `arrange()` first._
-
-`arrange(scrap, desc(credits)) %>% summarize(price_12 = nth(origin, 12))`
 
 ## `sd()` {-}
 
@@ -209,15 +203,10 @@ __Hint:__ Add `na.rm = T` to `quantile()`.
 
 `n()` stands for _count_.
 
-Use summarize and `n()` to count the number of reported scrap records going to `Niima outpost`. 
-
-__Hint:__ Use `filter()` first.
+Use summarize and `n()` to count the number of reported scrap records. 
 
 ```{r, eval=F}
-niima_scrap <- filter(scrap, destination == "Niima Outpost") 
-
-niima_scrap <- summarize(niima_scrap, scrap_records = n())
-
+summarize(scrap, scrap_records = n())
 ```
 
 <br>
@@ -240,16 +229,33 @@ summary <- summarize(scrap,
 
 </div>
 
+<div class="tip">
+### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
 
-> <h3 style="margin-top: 12px;"> __Shut me down!__ </h3>
->
-> That was a whole lot of summarizing. Do we really have to filter to the Origin City that we're interested in every time? 
->
-> It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.
->
+Use summarize and `n()` to count the number of reported scrap records going to `Niima outpost`. 
 
-#### It's time for `group_by()`! {-}
+__Hint:__ Use `filter()` first.
 
+
+```{r, eval=F}
+niima_scrap <- filter(scrap, destination == "Niima Outpost") 
+
+niima_scrap <- summarize(niima_scrap, scrap_records = n())
+```
+
+
+__What if we wanted to count the number for each destination?__
+
+</div>
+
+<br>
+
+> <h3 style="margin-top: 12px;"> __Too much__ </h3>
+>
+> That sounds like a whole lot of summarizing. 
+>
+> It'd be nice if we could easily find the mean for every city. Then we could summarize once and move on.
+>
 
 
 # `group_by()` what

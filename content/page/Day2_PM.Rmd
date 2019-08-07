@@ -107,43 +107,6 @@ ggplot(scrap, aes(x = destination, y = credits, fill = origin)) +
 ```
 
 
-# Homeworld training {-}
-<hr class="hr2">
-
-![](../images/porg.png){style="float: right; margin-top: -10px;"}
-
-1. Load one of the data sets below into R
-    - Porg contamination on Ahch-To: "https://itep-r.netlify.com/data/porg_samples.csv"
-    - Planet Endor air samples: "https://itep-r.netlify.com/data/air_endor.csv"
-    - Or use data from a recent project of yours  
-
-<br>
-  
-2. Create 2 plots using the data. 
-3. _Don't worry if it looks_ __really weird__. _Consider it art and try again._  
-
-
-
-<div class="note">
-### <i class="fas fa-hand-spock"></i> Spock-tip! {-}
-
-When you add more layers using `+` remember to place it at the end of each line.
-
-```{r, eval = F, echo = T}
-# This will work
-ggplot(scrap, aes(x = origin, y = credits)) +
-  geom_point()
-
-# So will this
-ggplot(scrap, aes(x = origin, y = credits)) + geom_point()
-
-# But this won't
-ggplot(scrap, aes(x = origin, y = credits))
-  + geom_point()
-
-```
-</div>
-
 
 # More Plots
 <hr>
@@ -200,18 +163,6 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 ```
 
 
-## Themes {-}
-
-You may not like the appearance of these plots. `ggplot2` uses `theme` functions to change the appearance of a plot. Try some.
-
-```{r, eval = T, echo = T}
-ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
-  geom_col(position = "dodge") +
-  facet_wrap("destination") +
-  theme_bw()
-```
-
-
 ## Labels {-}
 
 You can also change the axis and title labels using the `labs` function.
@@ -220,7 +171,6 @@ You can also change the axis and title labels using the `labs` function.
 ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
   geom_col(position = "dodge") +
   facet_wrap("destination") +
-  theme_bw() +
   labs(title = "Scrap sales by origin and destination", 
        x     = "Origin", 
        y     = "Total sales")
@@ -230,7 +180,7 @@ ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
 
 ## Drop `2.2e+06` scientific notation {-}
 
-Want to get rid of that ugly scientific notation? We can use `options(scipen = 999)`. Note that this is a general setting in R. Once you use `options(scipen = 999)` in your current session, you don't have to use it again (like loading a package, you only need to run the line once when you start a new R session).
+Want to get rid of that ugly scientific notation? We can use `options(scipen = 999)`. Note that this is a general setting in R. Once you use `options(scipen = 999)` in your current session, you don't have to use it again. _(Like loading a package, you only need to run the line once when you start a new R session)._
 
 <br>
 
@@ -255,7 +205,17 @@ Let's say we don't like printing so many zeros and want the labels to be in __Mi
 </div>
 
 
-<br>
+## Themes {-}
+
+You may not like the appearance of these plots. `ggplot2` uses `theme` functions to change the appearance of a plot. Try some.
+
+```{r, eval=T, echo=T}
+ggplot(scrap, aes(x = origin, y = credits, fill = destination)) +
+  geom_col(position = "dodge") +
+  facet_wrap("destination") +
+  theme_bw()
+```
+
 
 <div class="tip">
 ### <i class="fa fa-user-astronaut" style="color: green;"></i> Explore! {-}
@@ -277,6 +237,44 @@ Be bold and make a __boxplot__. We've covered how to do a scatterplot with `geom
 <hr class="hr2">
 ```{r glossary, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/ggplot_glossary/glossary.Rmd'}
 ```
+
+
+# Homeworld training {-}
+<hr class="hr2">
+
+![](../images/porg.png){style="float: right; margin-top: -10px;"}
+
+1. Load one of the data sets below into R
+    - Porg contamination on Ahch-To: "https://itep-r.netlify.com/data/porg_samples.csv"
+    - Planet Endor air samples: "https://itep-r.netlify.com/data/air_endor.csv"
+    - Or use data from a recent project of yours  
+
+<br>
+  
+2. Create 2 plots using the data. 
+3. _Don't worry if it looks_ __really weird__. _Consider it art and try again._  
+
+
+
+<div class="note">
+### <i class="fas fa-hand-spock"></i> Spock-tip! {-}
+
+When you add more layers using `+` remember to place it at the end of each line.
+
+```{r, eval = F, echo = T}
+# This will work
+ggplot(scrap, aes(x = origin, y = credits)) +
+  geom_point()
+
+# So will this
+ggplot(scrap, aes(x = origin, y = credits)) + geom_point()
+
+# But this won't
+ggplot(scrap, aes(x = origin, y = credits))
+  + geom_point()
+
+```
+</div>
 
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}

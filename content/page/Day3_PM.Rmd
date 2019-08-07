@@ -19,8 +19,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 
 # Your turn
-
-<hr>
+<hr class="hrlvl2">
 
 Time to start putting what we've learned to use. Choose one of the paths below and use your new hard-earned R skills to explore data. When you feel ready, jump to the <i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i><i class="fa fa-star fa-xs" aria-hidden="true" style="color: #fa970c;"></i>Grand Moff path and begin exploring and making a report for your __own__ data. 
 
@@ -88,7 +87,7 @@ Planet: `Earth`
  
 <br>
 
-# | 🐱🐱 Concatulations!! 🐱🐱 
+# 🐱 Concatulations!
 
 #### Let the graduation celebration begin. {-}
 

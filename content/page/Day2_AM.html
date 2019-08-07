@@ -433,10 +433,11 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 <h2>Small problem</h2>
 <hr class="hrlvl2">
 <div class="figure">
-<img src="../images/access_denied.jpg" style="width: 40%; float: right; border-radius: 30%;" />
+<img src="../images/access_denied.jpg" style="width: 40%; float: left; margin-top: 4px; margin-right: 28px;" />
 
 </div>
-<p>Oh no! BB8 got locked out of the system! You need the passcode before you can unlock the data. There’s a cryptic note on the pad next to you…“Marty’s birthday”. Could that be the hint to the passcode???</p>
+<p><strong>Oh no!</strong> BB8 got locked out of the system! You need the passcode before you can unlock the data.</p>
+<p>There’s a cryptic note on the pad next to you… <em>“Marty’s birthday”.</em> Could that be the hint to the passcode???</p>
 <p>We need to determine when Marty’s birthday is…time to get out our detective hats.</p>
 <p>You ask the lead engineer:</p>
 <p><strong>So when is Marty’s birthday?</strong></p>
@@ -445,22 +446,43 @@ air_endor &lt;-<span class="st"> </span><span class="kw">clean_names</span>(air_
 </blockquote>
 <p><strong>Any more helpful clues? Anything?</strong></p>
 <blockquote>
-<p>_“Hmmm, let’s see… it’s around the 22nd week of the year. Yep._</p>
+<p><em>“Hmmm… Let’s see, I think it was around the 22nd week of the year. Yep. That’s it.”</em></p>
 </blockquote>
 <p><br></p>
 <div class="tip">
 <h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
-<p>After taking to some other people you now have a list of dates that could be Marty’s birthday!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">date1 &lt;-<span class="st"> &quot;7/2/2019&quot;</span>
+<p>After some more interviews you now have a list of dates that could be Marty’s birthday. Find the date that occurred on the Tuesday of the 22nd week of the year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+
+date1 &lt;-<span class="st"> &quot;7/2/2019&quot;</span>
 
 date2 &lt;-<span class="st"> &quot;28/05/2019&quot;</span>
 
 date3 &lt;-<span class="st"> &quot;June 4th, 2019&quot;</span></code></pre></div>
+<p><strong>Step 1:</strong> Use <code>mdy(date)</code> or <code>dmy(date)</code> to convert the dates to the universal date format.</p>
+<p><br></p>
 <p><em>Are you sure you want to click this button? There’s no going back.</em></p>
 <details> <summary class = "btn_code"><em>Show code</em></summary>
-<div class="quiz">
+<div class="card" style="margin-top: -13px;">
 <p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use lubridate functions to extract information!</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use mdy() or dmy() to format dates</span>
+
+<span class="co">#1</span>
+date1 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;7/2/2019&quot;</span>)
+
+<span class="co">#2</span>
+date2 &lt;-<span class="st"> </span><span class="kw">dmy</span>(<span class="st">&quot;28/05/2019&quot;</span>)
+
+<span class="co">#3</span>
+date3 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;June 4th, 2019&quot;</span>)</code></pre></div>
+</p>
+</div>
+<p></details></p>
+<p><strong>Step 2:</strong> Find the day of the week using <code>wday(date)</code>, and week of the year using <code>week(date)</code>.</p>
+<details> <summary class = "btn_code"><em>Show code</em></summary>
+<div class="card" style="margin-top: -13px;">
+<p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use wday() and week() to get date info</span>
 
 <span class="co">#1</span>
 date1 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st">&quot;7/2/2019&quot;</span>)
@@ -479,11 +501,19 @@ date3 &lt;-<span class="st"> </span><span class="kw">mdy</span>(<span class="st"
 </p>
 </div>
 <p></details></p>
+<p><br></p>
+<details> <summary class = "btn_code"><em>Show answer</em></summary>
+<div class="card" style="margin-top: -13px;">
+<p>
+<code>&quot;28/05/2019&quot;</code> or <code>May 28th, 2019</code>
+</p>
+</div>
+<p></details></p>
 </div>
 <blockquote>
 <p>Congrats! BB8 successfully accessed the backup system. The data is back online!</p>
-<p><br></p>
 </blockquote>
+<p><br></p>
 </div>
 <div id="back-on-endor" class="section level2 unnumbered">
 <h2>Back on Endor!</h2>
@@ -511,6 +541,11 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p><img src="/page/Day2_AM_files/figure-html/endor-time-1.png" width="960" /></p>
 <p>Looks like the measurements definitely picked up a signal towards the end of the year.</p>
 <p><br></p>
+<div class="data">
+<h3 id="mystery-solved" class="unnumbered">Mystery solved!</h3>
+<p>Aha! There really was a spike in the magnetic field in November. Hopefully, the <em>Resistance</em> will reward us handsomely for this information.</p>
+</div>
+<p><br></p>
 <details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>Bonus</strong><i class="fas fa-star"></i> </span> Calendar plot </summary>
 <div class="note" style="margin-top: -6px;">
 <p>
@@ -523,9 +558,9 @@ Calendar plots
 
 </div>
 <p>Calendar plots are good for zooming in to see specific days when elevated observations may have occurred. Maybe we can pinpoint what day that magnetic storm may have occurred.</p>
-<h3>
+<h4>
 <code>openair</code> package
-</h3>
+</h4>
 <p>There is a calendar plot function in the package <code>openair</code>. Let’s install <code>openair</code>, load it, and use <code>calendarplot()</code> to make a calendar of the observations.</p>
 <p><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;openair&quot;</span>)</code></pre></div>
@@ -546,12 +581,6 @@ Calendar plots
 </p>
 </div>
 <p></details></p>
-<p><br></p>
-<div class="data">
-<h3 id="mystery-solved" class="unnumbered">Mystery solved!</h3>
-<p>Aha! There really was a spike in the magnetic field in November. Hopefully, the <em>Resistance</em> will reward us handsomely for this information.</p>
-</div>
-<p><br></p>
 </div>
 </div>
 <div id="pipe-it-together-a-b" class="section level1">
@@ -582,7 +611,6 @@ Calendar plots
 <p><br></p>
 <div class="blockquote">
 <p><strong><code>#2:</code></strong> We can combine many processing steps into one cohesive chunk.</p>
-<p><br></p>
 <p>Here are some of the functions we’ve applied to the scrap data so far:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">arrange</span>(scrap, <span class="kw">desc</span>(price_per_pound))
 
@@ -591,8 +619,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, origin
 scrap &lt;-<span class="st"> </span><span class="kw">mutate</span>(scrap, 
                 <span class="dt">scrap_finder    =</span> <span class="st">&quot;BB8&quot;</span>,
                 <span class="dt">measure_method  =</span> <span class="st">&quot;REM-24&quot;</span>)</code></pre></div>
-<p><br></p>
-<p>We can use the <code>%&gt;%</code> operator and write it this way.</p>
+<p>We can use the <code>%&gt;%</code> operator to pipe or chain them together.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span>
 <span class="st">           </span><span class="kw">arrange</span>(<span class="kw">desc</span>(price_per_pound)) <span class="op">%&gt;%</span>
 <span class="st">           </span><span class="kw">filter</span>(origin <span class="op">!=</span><span class="st"> &quot;All&quot;</span>) <span class="op">%&gt;%</span>
@@ -1218,12 +1245,6 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <p>Use summarize to calculate the <em>minimum</em> price per pound any scrapper got for their scrap.</p>
 <p><code>summarize(scrap, min_price = min(price_per_pound, na.rm = T))</code></p>
 </div>
-<div id="nth" class="section level2 unnumbered">
-<h2><code>nth()</code></h2>
-<p>Use <code>summarize()</code> and <code>nth(Origin, 12)</code> to find the name of the Origin City that got the <em>12th</em> highest scrapper haul.</p>
-<p><em>Hint: Use <code>arrange()</code> first.</em></p>
-<p><code>arrange(scrap, desc(credits)) %&gt;% summarize(price_12 = nth(origin, 12))</code></p>
-</div>
 <div id="sd" class="section level2 unnumbered">
 <h2><code>sd()</code></h2>
 <p>What is the <em>standard deviation</em> of the credits?</p>
@@ -1240,11 +1261,8 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <div id="n" class="section level2 unnumbered">
 <h2><code>n()</code></h2>
 <p><code>n()</code> stands for <em>count</em>.</p>
-<p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
-<p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
-
-niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
+<p>Use summarize and <code>n()</code> to count the number of reported scrap records.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
 <p><br></p>
 <div class="tip">
 <h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
@@ -1255,16 +1273,23 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
                      <span class="dt">count_records    =</span> __________,</code></pre></div>
 <p><br></p>
 </div>
+<div class="tip">
+<h3 id="explore-4" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
+<p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
+
+niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
+<p><strong>What if we wanted to count the number for each destination?</strong></p>
+</div>
+<p><br></p>
 <blockquote>
 <h3 style="margin-top: 12px;">
-<strong>Shut me down!</strong>
+<strong>Too much</strong>
 </h3>
-<p>That was a whole lot of summarizing. Do we really have to filter to the Origin City that we’re interested in every time?</p>
-<p>It sure would be nice if we could easily find the mean price for every Origin City. Then we could summarize once and be done with it.</p>
+<p>That sounds like a whole lot of summarizing.</p>
+<p>It’d be nice if we could easily find the mean for every city. Then we could summarize once and move on.</p>
 </blockquote>
-<div id="its-time-for-group_by" class="section level4 unnumbered">
-<h4>It’s time for <code>group_by()</code>!</h4>
-</div>
 </div>
 </div>
 <div id="group_by-what" class="section level1">

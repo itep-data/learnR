@@ -58,9 +58,9 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#guess-who">Guess Who?</a></li>
 <li><a href="#ifelse"><span class="toc-section-number">1</span> <code>ifelse()</code></a></li>
 <li><a href="#plots-with-ggplot2"><span class="toc-section-number">2</span> Plots with <em>ggplot2</em></a></li>
-<li><a href="#homeworld-training">Homeworld training</a></li>
 <li><a href="#more-plots"><span class="toc-section-number">3</span> More Plots</a></li>
 <li><a href="#plot-glossary">Plot Glossary</a></li>
+<li><a href="#homeworld-training">Homeworld training</a></li>
 </ul>
 </div>
 
@@ -291,41 +291,6 @@ A <code>ggplot</code> has 3 ingredients.
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-4-1.png" width="960" /></p>
 </div>
 </div>
-<div id="homeworld-training" class="section level1 unnumbered">
-<h1>Homeworld training</h1>
-<hr class="hr2">
-<div class="figure">
-<img src="../images/porg.png" style="float: right; margin-top: -10px;" />
-
-</div>
-<ol style="list-style-type: decimal">
-<li>Load one of the data sets below into R
-<ul>
-<li>Porg contamination on Ahch-To: “<a href="https://itep-r.netlify.com/data/porg_samples.csv" class="uri">https://itep-r.netlify.com/data/porg_samples.csv</a>”</li>
-<li>Planet Endor air samples: “<a href="https://itep-r.netlify.com/data/air_endor.csv" class="uri">https://itep-r.netlify.com/data/air_endor.csv</a>”</li>
-<li>Or use data from a recent project of yours</li>
-</ul></li>
-</ol>
-<p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>Create 2 plots using the data.</li>
-<li><em>Don’t worry if it looks</em> <strong>really weird</strong>. <em>Consider it art and try again.</em></li>
-</ol>
-<div class="note">
-<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
-<p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()
-
-<span class="co"># So will this</span>
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
-
-<span class="co"># But this won&#39;t</span>
-<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits))
-  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
-</div>
-</div>
 <div id="more-plots" class="section level1">
 <h1><span class="header-section-number">3</span> More Plots</h1>
 <hr>
@@ -335,10 +300,10 @@ A <code>ggplot</code> has 3 ingredients.
 <p>Now let’s use color to show the destinations of the scrap.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">color =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
 <p><br></p>
 <div class="note">
-<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>One easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
 </div>
 </div>
@@ -347,12 +312,12 @@ A <code>ggplot</code> has 3 ingredients.
 <p>This is way too much detail. Let’s simplify and make a bar chart that adds up all the sales. Note that we use <code>fill=</code> inside <code>aes()</code> instead of <code>color=</code>. If we use color, we get a colorful outline and gray bars.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>()</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-6-1.png" width="960" /></p>
 <p><br></p>
 <p>Let’s change the position of the bars to make it easier to compare sales by destination for each origin? Remember, you can use <code>help(geom_col)</code> to learn about the different options for that plot. Feel free to do the same with other <code>geom_</code>’s as well.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-7-1.png" width="960" /></p>
 </div>
 <div id="facet-wrap" class="section level2 unnumbered">
 <h2>Facet wrap</h2>
@@ -360,16 +325,7 @@ A <code>ggplot</code> has 3 ingredients.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>)</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
-</div>
-<div id="themes" class="section level2 unnumbered">
-<h2>Themes</h2>
-<p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-8-1.png" width="960" /></p>
 </div>
 <div id="labels" class="section level2 unnumbered">
 <h2>Labels</h2>
@@ -377,16 +333,15 @@ A <code>ggplot</code> has 3 ingredients.
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
        <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-9-1.png" width="960" /></p>
 <p><br></p>
 </div>
 <div id="drop-2.2e06-scientific-notation" class="section level2 unnumbered">
 <h2>Drop <code>2.2e+06</code> scientific notation</h2>
-<p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again (like loading a package, you only need to run the line once when you start a new R session).</p>
+<p>Want to get rid of that ugly scientific notation? We can use <code>options(scipen = 999)</code>. Note that this is a general setting in R. Once you use <code>options(scipen = 999)</code> in your current session, you don’t have to use it again. <em>(Like loading a package, you only need to run the line once when you start a new R session).</em></p>
 <p><br></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">scipen =</span> <span class="dv">999</span>)
 
@@ -397,13 +352,21 @@ A <code>ggplot</code> has 3 ingredients.
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scrap sales by origin and destination&quot;</span>, 
        <span class="dt">x     =</span> <span class="st">&quot;Origin&quot;</span>, 
        <span class="dt">y     =</span> <span class="st">&quot;Total sales&quot;</span>)</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-12-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-10-1.png" width="960" /></p>
 <p><br></p>
 <div class="tip">
 <h3 id="challenge" class="unnumbered">Challenge</h3>
 <p>Let’s say we don’t like printing so many zeros and want the labels to be in <strong>Millions</strong> of credits. Any ideas on how to make that happen?</p>
 </div>
-<p><br></p>
+</div>
+<div id="themes" class="section level2 unnumbered">
+<h2>Themes</h2>
+<p>You may not like the appearance of these plots. <code>ggplot2</code> uses <code>theme</code> functions to change the appearance of a plot. Try some.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits, <span class="dt">fill =</span> destination)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="st">&quot;destination&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
 <div class="tip">
 <h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Be bold and make a <strong>boxplot</strong>. We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but how would you make a boxplot showing the prices at each destination? Feel free to experiment with <code>color</code> ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code>.</p>
@@ -431,7 +394,7 @@ A <code>ggplot</code> has 3 ingredients.
 <span class="kw">ggsave</span>(<span class="st">&quot;results/plot_name.png&quot;</span>)</code></pre></div>
 <p><br></p>
 <div class="note">
-<h3 id="spock-tip-2" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>Sometimes you may want to make a plot and save it for later. For that, you give your plot a name. Any name will do.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Name the ggplot you want to save</span>
 my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(...)
@@ -544,6 +507,41 @@ my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span 
 </div>
 <p></details></p>
 <p><br></p>
+</div>
+<div id="homeworld-training" class="section level1 unnumbered">
+<h1>Homeworld training</h1>
+<hr class="hr2">
+<div class="figure">
+<img src="../images/porg.png" style="float: right; margin-top: -10px;" />
+
+</div>
+<ol style="list-style-type: decimal">
+<li>Load one of the data sets below into R
+<ul>
+<li>Porg contamination on Ahch-To: “<a href="https://itep-r.netlify.com/data/porg_samples.csv" class="uri">https://itep-r.netlify.com/data/porg_samples.csv</a>”</li>
+<li>Planet Endor air samples: “<a href="https://itep-r.netlify.com/data/air_endor.csv" class="uri">https://itep-r.netlify.com/data/air_endor.csv</a>”</li>
+<li>Or use data from a recent project of yours</li>
+</ul></li>
+</ol>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Create 2 plots using the data.</li>
+<li><em>Don’t worry if it looks</em> <strong>really weird</strong>. <em>Consider it art and try again.</em></li>
+</ol>
+<div class="note">
+<h3 id="spock-tip-2" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()
+
+<span class="co"># So will this</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()
+
+<span class="co"># But this won&#39;t</span>
+<span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits))
+  <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
+</div>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>
 </div>

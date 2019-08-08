@@ -38,7 +38,7 @@ install.packages("sf")
 To load a shapefile, use the function `st_read()`. The __st__ stands for _spatial and temporal_ data.
 
 
-<a href="https://itep-r.netlify.com/data/census_shapefile/census_shapfile.zip">
+<a href="https://itep-r.netlify.com/data/census_shapefile/census_shapefile.zip">
 <span class = "btn_code_blue"> __DOWNLOAD__  </span></a> —  Census shapefile
 
 1. Download the ZIP file above for an example shapefile.

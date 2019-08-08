@@ -88,11 +88,12 @@ Planet: `Earth`
 <br>
 
 # 🐱 Concatulations!
+<hr class="hrlvl2">
 
 #### Let the graduation celebration begin. {-}
 
 > What'd the cow say?
 
 <div class="well">
-Let's find out! When an animal says your name come up to receive your well deserved certificates.
+Let's find out! When an animal says your name come up to receive your well deserved reward.
 </div>

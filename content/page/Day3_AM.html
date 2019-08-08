@@ -55,18 +55,22 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="TOC">
 <ul>
-<li><a href="#create-a-github-account">Create a GitHub account</a></li>
-<li><a href="#day-1-review">| Day 1 review</a></li>
+<li><a href="#share-with-friends"><i class="fa fa-group" style="color: steelblue;"></i> Share with friends</a></li>
+<li><a href="#day-1-review">Day 1 review</a></li>
 <li><a href="#your-analysis-toolbox"><i class="fa fa-toolbox"></i> Your analysis toolbox</a></li>
+<li><a href="#aqs-format"><i class="fas fa-cloud"></i> AQS format</a></li>
 <li><a href="#back-to-earth"><i class="fas fa-globe-americas"></i> Back to Earth</a></li>
 </ul>
 </div>
 
-<div id="create-a-github-account" class="section level1">
-<h1>Create a GitHub account</h1>
+<div id="share-with-friends" class="section level1">
+<h1><i class="fa fa-group" style="color: steelblue;"></i> Share with friends</h1>
+<div id="create-a-github-account" class="section level2 unnumbered">
+<h2>Create a GitHub account</h2>
 <hr class="hrlvl2">
 <p>It’s time to share with the world. <a href="https://github.com/">Join GitHub</a></p>
 <p><a href="https://github.com/"><img src="../images/join_github.png" /></a></p>
+</div>
 <div id="add-a-new-repository" class="section level2">
 <h2>Add a new repository</h2>
 <p>Now we can create a new <code>repository</code> to store some of our new R plots and scripts. Click the bright green <code>New</code> button to get started.</p>
@@ -91,7 +95,8 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="day-1-review" class="section level1">
-<h1>| Day 1 review</h1>
+<h1>Day 1 review</h1>
+<hr class="hrlvl2">
 <div id="get-to-know-your-data-frame" class="section level2 unnumbered">
 <h2>Get to know your <strong>Data Frame</strong></h2>
 <table style="width:51%;">
@@ -128,6 +133,61 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
+<p><br></p>
+</div>
+<div id="filtering" class="section level2 unnumbered">
+<h2>Filtering</h2>
+<blockquote>
+<h3 style="margin-top: 8px; margin-bottom: -4px;">
+Menu of comparisons
+</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>&gt;</code></td>
+<td align="left">greater than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&gt;=</code></td>
+<td align="left">greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>&lt;</code></td>
+<td align="left">less than</td>
+</tr>
+<tr class="even">
+<td align="left"><code>&lt;=</code></td>
+<td align="left">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>==</code></td>
+<td align="left">equal to</td>
+</tr>
+<tr class="even">
+<td align="left"><code>!=</code></td>
+<td align="left">NOT equal to</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>%in%</code></td>
+<td align="left">value is in a list: <code>X %in% c(1,3,7)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>is.na(...)</code></td>
+<td align="left">is the value missing?</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>str_detect(col_name, &quot;word&quot;)</code></td>
+<td align="left">“word” appears in text?</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
 <p><br></p>
 </div>
 </div>
@@ -321,15 +381,13 @@ star_df &lt;-<span class="st"> </span>starwars</code></pre></div>
 </div>
 </div>
 </div>
-<div id="back-to-earth" class="section level1">
-<h1><i class="fas fa-globe-americas"></i> Back to Earth</h1>
-<hr class="hrlvl2">
-<p>You’re free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we’re back, let’s look at some data to get fully reacclimated.</p>
-<p><br></p>
+<div id="aqs-format" class="section level1">
+<h1><i class="fas fa-cloud"></i> AQS format</h1>
+<hr class="hr2">
 <details> <summary class="btn_code"><span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>BONUS</strong><i class="fas fa-star"></i></span> Save to AQS format </summary>
 <p>
 <div class="quiz" style="margin-top: -9px;">
-<p>AQS format is similar to a CSV, but instead of a <code>,</code> it uses the <code>|</code> to separate values. Oh, and we also need to have <strong>28 columns</strong>.</p>
+<p>AQS format is similar to a CSV, but instead of a <code>,</code> it uses the <code>|</code> to separate values. Oh, and we also need to have <strong>28 columns</strong>. But don’t worry, most of them are blank.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load packages</span>
 <span class="kw">library</span>(readr)
 <span class="kw">library</span>(dplyr)
@@ -349,8 +407,10 @@ aqs_columns &lt;-<span class="st">  </span><span class="kw">c</span>(<span class
                   <span class="st">&quot;Qualifier Code - 9&quot;</span>, <span class="st">&quot;Qualifier Code - 10&quot;</span>, <span class="st">&quot;Alternate Method Detection Limit&quot;</span>,
                   <span class="st">&quot;Uncertainty Value&quot;</span>)
 
-<span class="co"># Read in our data</span>
-my_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;</span>)
+<span class="co"># Read in raw monitoring data</span>
+<span class="co">#my_data &lt;- read_csv(&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;)</span>
+
+my_data &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;https://itep-r.netlify.com/data/aqs/air_export_44201_080218.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;|&quot;</span>, <span class="dt">col_names =</span> F, <span class="dt">trim_ws =</span> T)
 
 <span class="co"># Clean the names</span>
 my_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(my_data)
@@ -421,6 +481,12 @@ aqs &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class
 </div>
 </p>
 <p></details></p>
+<p><br></p>
+</div>
+<div id="back-to-earth" class="section level1">
+<h1><i class="fas fa-globe-americas"></i> Back to Earth</h1>
+<hr class="hrlvl2">
+<p>You’re free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we’re back, let’s look at some data to get fully reacclimated.</p>
 <p><br></p>
 <p>Choose one of the data exercises below to begin.</p>
 <div class="row3" style="margin-top: 20px;">

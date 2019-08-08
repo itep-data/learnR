@@ -55,17 +55,17 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="TOC">
 <ul>
-<li><a href="#good-morning-jedis">Good morning, Jedis!</a></li>
 <li><a href="#new-mission"><span class="toc-section-number">1</span> New mission!</a></li>
 <li><a href="#dates"><span class="toc-section-number">2</span> <i class="fa fa-calendar" aria-hidden="true"></i> Dates</a></li>
-<li><a href="#pipe-it-together-a-b"><span class="toc-section-number">3</span> Pipe it together: <code>A %&gt;% B</code></a></li>
+<li><a href="#calendar-plot"><span class="toc-section-number">3</span> Calendar plot</a></li>
+<li><a href="#pipe-it-together-a-b"><span class="toc-section-number">4</span> Pipe it together: <code>A %&gt;% B</code></a></li>
 <li><a href="#finn-needs-us">Finn needs us!</a></li>
-<li><a href="#jakku-re-visited"><span class="toc-section-number">4</span> Jakku re-visited</a></li>
-<li><a href="#join-tables-with-left_join"><span class="toc-section-number">5</span> Join tables with <code>left_join()</code></a></li>
-<li><a href="#summarize-this"><span class="toc-section-number">6</span> <code>summarize()</code> this</a></li>
-<li><a href="#group_by-what"><span class="toc-section-number">7</span> <code>group_by()</code> what</a></li>
-<li><a href="#save-files"><span class="toc-section-number">8</span> Save files</a></li>
-<li><a href="#grouped-mutate"><span class="toc-section-number">9</span> Grouped <code>mutate()</code></a></li>
+<li><a href="#jakku-re-visited"><span class="toc-section-number">5</span> Jakku re-visited</a></li>
+<li><a href="#join-tables-with-left_join"><span class="toc-section-number">6</span> Join tables with <code>left_join()</code></a></li>
+<li><a href="#summarize-this"><span class="toc-section-number">7</span> <code>summarize()</code> this</a></li>
+<li><a href="#group_by-what"><span class="toc-section-number">8</span> <code>group_by()</code> what</a></li>
+<li><a href="#save-files"><span class="toc-section-number">9</span> Save files</a></li>
+<li><a href="#grouped-mutate"><span class="toc-section-number">10</span> Grouped <code>mutate()</code></a></li>
 </ul>
 </div>
 
@@ -73,12 +73,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 h1 .header-section-number {background: #62BE2C;}
 hr {background: #62BE2C;}
 </style>
-<div id="good-morning-jedis" class="section level1 unnumbered">
-<h1>Good morning, Jedis!</h1>
-<hr class="hr2">
+<div id="good-morning-jedis" class="section level2 unnumbered">
+<h2>Good morning, Jedis!</h2>
+<hr class="hrlvl2">
 <div class="figure">
 <img src="../images/day2_bb8_sq.png" style="float: left; margin-right: 60px; margin-top: -10px;" width="260" />
 
+</div>
 </div>
 <div id="schedule" class="section level2 unnumbered">
 <h2>Schedule</h2>
@@ -147,7 +148,6 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <p><br></p>
-</div>
 </div>
 <div id="new-mission" class="section level1">
 <h1><span class="header-section-number">1</span> New mission!</h1>
@@ -529,7 +529,7 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p>Let’s filter to only the rows where the <strong><code>year</code></strong> equals <strong><code>2017</code></strong>.</p>
 </blockquote>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, year <span class="op">==</span><span class="st"> &quot;2017&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, year <span class="op">==</span><span class="st"> </span><span class="dv">2017</span>)</code></pre></div>
 </div>
 <div id="time-series" class="section level2 unnumbered">
 <h2>Time series</h2>
@@ -546,6 +546,11 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p>Aha! There really was a spike in the magnetic field in November. Hopefully, the <em>Resistance</em> will reward us handsomely for this information.</p>
 </div>
 <p><br></p>
+</div>
+</div>
+<div id="calendar-plot" class="section level1">
+<h1><span class="header-section-number">3</span> Calendar plot</h1>
+<hr>
 <details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>Bonus</strong><i class="fas fa-star"></i> </span> Calendar plot </summary>
 <div class="note" style="margin-top: -6px;">
 <p>
@@ -582,9 +587,8 @@ Calendar plots
 </div>
 <p></details></p>
 </div>
-</div>
 <div id="pipe-it-together-a-b" class="section level1">
-<h1><span class="header-section-number">3</span> Pipe it together: <code>A %&gt;% B</code></h1>
+<h1><span class="header-section-number">4</span> Pipe it together: <code>A %&gt;% B</code></h1>
 <hr>
 <p><strong>Let the <code>%&gt;%</code> guide you.</strong></p>
 <blockquote>
@@ -664,7 +668,7 @@ scrap &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 </div>
 </div>
 <div id="jakku-re-visited" class="section level1">
-<h1><span class="header-section-number">4</span> Jakku re-visited</h1>
+<h1><span class="header-section-number">5</span> Jakku re-visited</h1>
 <hr>
 <p>Okay, so we’re back on this ol’ dust bucket. Let’s try not to forget anyone this time. We’re quickly running out of friends on this planet.</p>
 <div id="a-scrappy-ransom" class="section level2 unnumbered">
@@ -724,7 +728,7 @@ convert &lt;-<span class="st"> </span><span class="kw">read_csv</span>(convert_u
 </div>
 </div>
 <div id="join-tables-with-left_join" class="section level1">
-<h1><span class="header-section-number">5</span> Join tables with <code>left_join()</code></h1>
+<h1><span class="header-section-number">6</span> Join tables with <code>left_join()</code></h1>
 <hr>
 <div id="join-2-tables" class="section level2 unnumbered">
 <h2>Join 2 tables</h2>
@@ -1207,7 +1211,7 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </div>
 </div>
 <div id="summarize-this" class="section level1">
-<h1><span class="header-section-number">6</span> <code>summarize()</code> this</h1>
+<h1><span class="header-section-number">7</span> <code>summarize()</code> this</h1>
 <hr>
 <div class="figure">
 <img src="../images/summarize_diagram.png" width="490" />
@@ -1293,7 +1297,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="group_by-what" class="section level1">
-<h1><span class="header-section-number">7</span> <code>group_by()</code> what</h1>
+<h1><span class="header-section-number">8</span> <code>group_by()</code> what</h1>
 <hr>
 <div id="bargain-hunters" class="section level2 unnumbered">
 <h2>Bargain hunters</h2>
@@ -1330,7 +1334,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="save-files" class="section level1">
-<h1><span class="header-section-number">8</span> Save files</h1>
+<h1><span class="header-section-number">9</span> Save files</h1>
 <hr>
 <p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
 <p><br></p>
@@ -1344,7 +1348,7 @@ niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niim
 </div>
 </div>
 <div id="grouped-mutate" class="section level1">
-<h1><span class="header-section-number">9</span> Grouped <code>mutate()</code></h1>
+<h1><span class="header-section-number">10</span> Grouped <code>mutate()</code></h1>
 <hr>
 <p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point.</p>
 <blockquote>

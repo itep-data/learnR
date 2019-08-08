@@ -23,8 +23,8 @@ knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-# Good morning, Jedis! {-}
-<hr class="hr2">
+## Good morning, Jedis! {-}
+<hr class="hrlvl2">
 
 ![](../images/day2_bb8_sq.png){width="260" style="float: left; margin-right: 60px; margin-top: -10px;"}
 

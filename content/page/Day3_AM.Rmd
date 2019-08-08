@@ -18,7 +18,10 @@ knitr::opts_chunk$set(fig.width = 10, fig.height = 5.2)
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-# Create a GitHub account
+
+# <i class="fa fa-group" style="color: steelblue;"></i> Share with friends
+
+## Create a GitHub account {-}
 <hr class="hrlvl2">
 
 It's time to share with the world. [Join GitHub](https://github.com/)
@@ -43,7 +46,8 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 
 ![](../images/upload_files.png)
 
-# | Day 1 review
+# Day 1 review
+<hr class="hrlvl2">
 
 ## Get to know your __Data Frame__ {-}
 
@@ -57,6 +61,25 @@ Click `Upload files` to add an image of an R plot or one of your scripts as an `
 
 <br>
 
+
+## Filtering {-}
+
+> <h3 style="margin-top: 8px; margin-bottom: -4px;"> Menu of comparisons </h3>
+>
+> | Symbol | Comparison               |
+> |:-------|:-------------------------|
+> | `>`    | greater than             |
+> | `>=`   | greater than or equal to |
+> | `<`    | less than                |
+> | `<=`   | less than or equal to    |
+> | `==`   | equal to                 |
+> | `!=`   | NOT equal to             |
+> | `%in%` | value is in a list: `X %in% c(1,3,7)` |
+> | `is.na(...)`  | is the value missing? |
+> | `str_detect(col_name, "word")`  | "word" appears in text? |
+>
+
+<br>
 
 ```{r tools, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_toolbox/general.Rmd'}
 ```
@@ -182,16 +205,19 @@ ggplot(star_df, aes(x = mass, y = height)) +
 ```
 
 
+# <i class="fas fa-cloud"></i> AQS format
+<hr class="hr2">
+```{r aqs-format, child="X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/air_aqs/save_aqs.Rmd"}
+```
+ 
+
 # <i class="fas fa-globe-americas"></i> Back to Earth
 <hr class="hrlvl2">
 
 You're free! Go ahead and return to Earth: frolic in the grass, jump in a lake. Now that we're back, let's look at some data to get fully reacclimated. 
  
 <br>
- 
-```{r aqs-format, child="X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/air_aqs/save_aqs.Rmd"}
-```
- 
+
 Choose one of the data exercises below to begin.
 
 <div class="row3" style="margin-top: 20px;">

@@ -408,9 +408,8 @@ aqs_columns &lt;-<span class="st">  </span><span class="kw">c</span>(<span class
                   <span class="st">&quot;Uncertainty Value&quot;</span>)
 
 <span class="co"># Read in raw monitoring data</span>
-<span class="co">#my_data &lt;- read_csv(&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;)</span>
+my_data &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class="st">&quot;https://itep-r.netlify.com/data/ozone_samples.csv&quot;</span>)
 
-my_data &lt;-<span class="st"> </span><span class="kw">read_delim</span>(<span class="st">&quot;https://itep-r.netlify.com/data/aqs/air_export_44201_080218.txt&quot;</span>, <span class="dt">delim =</span> <span class="st">&quot;|&quot;</span>, <span class="dt">col_names =</span> F, <span class="dt">trim_ws =</span> T)
 
 <span class="co"># Clean the names</span>
 my_data &lt;-<span class="st"> </span><span class="kw">clean_names</span>(my_data)

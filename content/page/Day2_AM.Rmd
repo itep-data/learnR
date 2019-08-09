@@ -63,7 +63,7 @@ cat(readLines("porg_tabs.txt"))
 
 # New mission! 
 <hr>
-```{r endor-all, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor1.Rmd'}
+```{r endor-all, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/lubridate_examples/endor.Rmd'}
 ```
 
 
@@ -132,6 +132,7 @@ Analysts often get asked questions:
 write_csv(scrap, "scrap_day2_pm.csv")
 ```
 
+<br>
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-2.html) {-}
 

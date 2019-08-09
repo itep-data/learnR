@@ -21,9 +21,8 @@ imageFloat: 'left'
 
 Onward and upward. It's time for you to head out on your own.
 
-<br>
 
-<div style="margin-left: 4%;">
+<div style="margin-left: 4%; margin-top: 26px;">
 
 # Blast off!
 

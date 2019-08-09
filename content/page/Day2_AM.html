@@ -57,7 +57,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li><a href="#new-mission"><span class="toc-section-number">1</span> New mission!</a></li>
 <li><a href="#dates"><span class="toc-section-number">2</span> <i class="fa fa-calendar" aria-hidden="true"></i> Dates</a></li>
-<li><a href="#calendar-plot"><span class="toc-section-number">3</span> Calendar plot</a></li>
+<li><a href="#calendar-plots"><span class="toc-section-number">3</span> Calendar plots</a></li>
 <li><a href="#pipe-it-together-a-b"><span class="toc-section-number">4</span> Pipe it together: <code>A %&gt;% B</code></a></li>
 <li><a href="#finn-needs-us">Finn needs us!</a></li>
 <li><a href="#jakku-re-visited"><span class="toc-section-number">5</span> Jakku re-visited</a></li>
@@ -154,7 +154,7 @@ porgs &lt;-<span class="st"> </span><span class="kw">read_csv</span>(<span class
 <h3>Get the dataset</h3>
 <p>While we’re relaxing and flying to Endor let’s get set up with the new data.</p>
 <div class="tip">
-<h3 id="endor-setup" class="unnumbered">Endor Setup</h3>
+<h3 id="endor-setup" class="unnumbered">Endor setup</h3>
 <ol style="list-style-type: decimal">
 <li>Download the data.
 <ul>
@@ -544,16 +544,12 @@ mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor
 <p><br></p>
 </div>
 </div>
-<div id="calendar-plot" class="section level1">
-<h1><span class="header-section-number">3</span> Calendar plot</h1>
+<div id="calendar-plots" class="section level1">
+<h1><span class="header-section-number">3</span> Calendar plots</h1>
 <hr>
-<details> <summary class="btn_code_blue"> <span style="color: #f6cd00;"><i class="fas fa-star"></i><strong>Bonus</strong><i class="fas fa-star"></i> </span> Calendar plot </summary>
-<div class="note" style="margin-top: -6px;">
-<p>
-<h2>
-Calendar plots
+<div class="note">
+<h2 style="margin-top: 12px;">
 </h2>
-<hr class="hrlvl2">
 <div class="figure">
 <img src="../images/endor_lego_sq.PNG" align="left" style="width: 23%; margin-top: 6px; margin-right: 34px; margin-bottom: 10px;" />
 
@@ -578,10 +574,25 @@ Calendar plots
                                  <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
              <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre></div>
 <p><img src="/page/Day2_AM_files/figure-html/cal-for-web-1.png" width="2880" /></p>
-<br>
-</p>
+<p><br></p>
+<p>Let’s zoom in and filter the calendar to only 3 months: <em>October, November, December</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mag_endor &lt;-<span class="st"> </span><span class="kw">mutate</span>(mag_endor, <span class="dt">month =</span> <span class="kw">month</span>(date))
+                        
+mag_endor &lt;-<span class="st"> </span><span class="kw">filter</span>(mag_endor, month <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>))
+
+<span class="kw">calendarPlot</span>(mag_endor,
+             <span class="dt">pollutant    =</span> <span class="st">&quot;result&quot;</span>,
+             <span class="dt">statistic    =</span> <span class="st">&quot;mean&quot;</span>,
+             <span class="dt">year         =</span> <span class="dv">2017</span>,
+             <span class="dt">annotate     =</span> <span class="st">&quot;date&quot;</span>,
+             <span class="dt">digits       =</span> <span class="dv">0</span>,
+             <span class="dt">key.footer   =</span> <span class="st">&quot;nT&quot;</span>,
+             <span class="dt">par.settings =</span> <span class="kw">list</span>(<span class="dt">fontsize       =</span> <span class="kw">list</span>(<span class="dt">text =</span> <span class="dv">14</span>),
+                                 <span class="dt">layout.heights =</span> <span class="kw">list</span>(<span class="dt">top.padding =</span> <span class="dv">1</span>)),
+             <span class="dt">main =</span> <span class="st">&quot;Magnetic Field Strength at Endor Battle Site 1&quot;</span>)</code></pre></div>
+<p><img src="/page/Day2_AM_files/figure-html/cal-for-web-months-1.png" width="2880" /></p>
+<p><br></p>
 </div>
-<p></details></p>
 </div>
 <div id="pipe-it-together-a-b" class="section level1">
 <h1><span class="header-section-number">4</span> Pipe it together: <code>A %&gt;% B</code></h1>
@@ -1204,6 +1215,7 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 <li>Which town’s scrap was worth the most credits?</li>
 </ul>
 </div>
+<p><br></p>
 <div id="return-to-homebase" class="section level3 unnumbered">
 <h3><i class="fa fa-rocket" aria-hidden="true"></i> Return to <a href="../post/day-2.html">Homebase</a></h3>
 <p><br></p>

@@ -29,6 +29,19 @@ h1 .header-section-number {background: #62BE2C;}
 hr {background: #62BE2C;}
 </style>
 
+
+# `summarize()` this
+<hr>
+```{r summarize, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_summarize/summarize.Rmd'}
+```
+
+
+# `group_by()` what
+<hr>
+```{r group-by, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/dplyr_groupby/group_by.Rmd'}
+```
+
+
 # Guess Who? {-}
 <h2 style="margin-top: -24px;"> _Star Wars edition_ </h2>
 ```{r guesswho, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/games_guesswho/starwars.Rmd'}

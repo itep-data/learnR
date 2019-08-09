@@ -1,0 +1,83 @@
+---
+title: "Catulations"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=T)
+```
+
+
+# Graduation ceremony
+```{r, eval=T, echo=F}
+library(cowsay)
+
+say(what = "Congratulations Carma! You are Eggcelent.", by = "chicken", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Robert! Purrfect work.", by = "cat", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Brian! You took a bite out of R.", by = "shark", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Sky! You've got to be kitten your R skills are too good.", by = "cat", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Emma! You are owl in with R", by = "owl", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Andrea! Mooooove over little data it's time for HUGE data.", by = "cow", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Linda! Leapin' lizards that was great work.", by = "frog", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Lonnie! Yoda man!", by = "yoda", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Randy! fANTastic work!", by = "ant", type = "message")
+```
+
+<br><br><br>
+
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations David! Some bunny rocked this class.", by = "rabbit", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Tiffany! You spun some genius in this class.", by = "spider", type = "message")
+```
+
+<br><br><br>
+
+```{r, eval = T, echo = F}
+say(what = "Congratulations Darold! Awesome aeroBATics in this R class.", by = "bat", type = "message")
+```

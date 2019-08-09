@@ -55,10 +55,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
 <div id="TOC">
 <ul>
+<li><a href="#summarize-this"><span class="toc-section-number">1</span> <code>summarize()</code> this</a></li>
+<li><a href="#group_by-what"><span class="toc-section-number">2</span> <code>group_by()</code> what</a></li>
+<li><a href="#save-files"><span class="toc-section-number">3</span> Save files</a></li>
+<li><a href="#grouped-mutate"><span class="toc-section-number">4</span> Grouped <code>mutate()</code></a></li>
 <li><a href="#guess-who">Guess Who?</a></li>
-<li><a href="#ifelse"><span class="toc-section-number">1</span> <code>ifelse()</code></a></li>
-<li><a href="#plots-with-ggplot2"><span class="toc-section-number">2</span> Plots with <em>ggplot2</em></a></li>
-<li><a href="#more-plots"><span class="toc-section-number">3</span> More Plots</a></li>
+<li><a href="#ifelse"><span class="toc-section-number">5</span> <code>ifelse()</code></a></li>
+<li><a href="#plots-with-ggplot2"><span class="toc-section-number">6</span> Plots with <em>ggplot2</em></a></li>
+<li><a href="#more-plots"><span class="toc-section-number">7</span> More Plots</a></li>
 <li><a href="#its-finn-time">It’s Finn time</a></li>
 <li><a href="#plot-glossary">Plot Glossary</a></li>
 <li><a href="#homeworld-training">Homeworld training</a></li>
@@ -69,6 +73,156 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 h1 .header-section-number {background: #62BE2C;}
 hr {background: #62BE2C;}
 </style>
+<div id="summarize-this" class="section level1">
+<h1><span class="header-section-number">1</span> <code>summarize()</code> this</h1>
+<hr>
+<div class="figure">
+<img src="../images/summarize_diagram.png" width="490" />
+
+</div>
+<p><code>summarize()</code> allows you to apply a summary function like <code>median()</code> to a column and collapse the data down to a single row. To dig into <code>summarize</code> you’ll want to learn some more summary functions like <code>sum()</code>, <code>mean()</code>, <code>min()</code>, and <code>max()</code>.</p>
+<div id="sum" class="section level2 unnumbered">
+<h2><code>sum()</code></h2>
+<p>Use <code>summarize()</code> and <code>sum()</code> to find the total credits from all the scrap.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">total_credits =</span> <span class="kw">sum</span>(credits))</code></pre></div>
+</div>
+<div id="mean" class="section level2 unnumbered">
+<h2><code>mean()</code></h2>
+<p>Use <code>summarize()</code> and <code>mean()</code> to calculate the <em>mean</em> <code>price_per_pound</code> in the scrap report.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre></div>
+<p><br></p>
+<div class="note">
+<h3 id="note" class="unnumbered">Note</h3>
+<p><strong>What’s the average of missing data?</strong> I don’t know.</p>
+<p>Did you see the <code>na.rm = TRUE</code> inside the <code>mean()</code> function. This tells R to ignore empty cells or missing values that show up in R as <code>NA</code>. If you leave <code>na.rm</code> out, the <em>mean</em> function will return ‘NA’ if it finds a missing value anywhere in the data.</p>
+</div>
+</div>
+<div id="median" class="section level2 unnumbered">
+<h2><code>median()</code></h2>
+<p>Use summarize to calculate the <em>median</em> price_per_pound in the scrap report.</p>
+<p><code>summarize(scrap, median_price = median(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="max" class="section level2 unnumbered">
+<h2><code>max()</code></h2>
+<p>Use summarize to calculate the <em>maximum</em> price per pound any scrapper got for their scrap.</p>
+<p><code>summarize(scrap, max_price = max(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="min" class="section level2 unnumbered">
+<h2><code>min()</code></h2>
+<p>Use summarize to calculate the <em>minimum</em> price per pound any scrapper got for their scrap.</p>
+<p><code>summarize(scrap, min_price = min(price_per_pound, na.rm = T))</code></p>
+</div>
+<div id="sd" class="section level2 unnumbered">
+<h2><code>sd()</code></h2>
+<p>What is the <em>standard deviation</em> of the credits?</p>
+<p><code>summarize(scrap, stdev_credits = sd(credits))</code></p>
+</div>
+<div id="quantile" class="section level2 unnumbered">
+<h2><code>quantile()</code></h2>
+<p><em>Quantiles</em> are useful for finding the upper or lower range of a column. Use the <code>quantile()</code> function to find the the 5th and 95th quantile of the prices.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, 
+          <span class="dt">price_5th_pctile  =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.05</span>, <span class="dt">na.rm =</span> T),
+          <span class="dt">price_95th_pctile =</span> <span class="kw">quantile</span>(price_per_pound, <span class="fl">0.95</span>))</code></pre></div>
+<p><strong>Hint:</strong> Add <code>na.rm = T</code> to <code>quantile()</code>.</p>
+</div>
+<div id="n" class="section level2 unnumbered">
+<h2><code>n()</code></h2>
+<p><code>n()</code> stands for <em>count</em>.</p>
+<p>Use summarize and <code>n()</code> to count the number of reported scrap records.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summarize</span>(scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
+<p><br></p>
+<div class="tip">
+<h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Create a summary of the scrap data that includes 3 of the summary functions above. The following is one example.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">summary &lt;-<span class="st"> </span><span class="kw">summarize</span>(scrap, 
+                     <span class="dt">max_credits      =</span> __________,
+                     <span class="dt">weight_90th_pct  =</span> <span class="kw">quantile</span>(Weight, <span class="fl">0.90</span>),
+                     <span class="dt">count_records    =</span> __________,</code></pre></div>
+<p><br></p>
+</div>
+<div class="tip">
+<h3 id="explore-1" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<p>Use summarize and <code>n()</code> to count the number of reported scrap records going to <code>Niima outpost</code>.</p>
+<p><strong>Hint:</strong> Use <code>filter()</code> first.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">niima_scrap &lt;-<span class="st"> </span><span class="kw">filter</span>(scrap, destination <span class="op">==</span><span class="st"> &quot;Niima Outpost&quot;</span>) 
+
+niima_scrap &lt;-<span class="st"> </span><span class="kw">summarize</span>(niima_scrap, <span class="dt">scrap_records =</span> <span class="kw">n</span>())</code></pre></div>
+<p><strong>What if we wanted to count the number for each destination?</strong></p>
+</div>
+<p><br></p>
+<blockquote>
+<h3 style="margin-top: 12px;">
+<strong>Too much</strong>
+</h3>
+<p>That sounds like a whole lot of summarizing.</p>
+<p>It’d be nice if we could easily find the mean for every city. Then we could summarize once and move on.</p>
+</blockquote>
+</div>
+</div>
+<div id="group_by-what" class="section level1">
+<h1><span class="header-section-number">2</span> <code>group_by()</code> what</h1>
+<hr>
+<div id="bargain-hunters" class="section level2 unnumbered">
+<h2>Bargain hunters</h2>
+<p>Who’s selling goods for cheap? Use <code>group_by</code> with the column <em>Origin</em>, and then use<code>summarize</code> to find the <code>mean(price_per_pound)</code> at each Origin City.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_summary &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span>
+<span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T))</code></pre></div>
+<p><br></p>
+<details> <summary class="btn_code_blue"> Rounding digits </summary>
+<div class="note" style="margin-top: -7px;">
+<p>
+<h3 id="rounding" class="unnumbered">Rounding</h3>
+<p>You can round the prices to a certain number of digits using the <code>round()</code> function. We can finish by adding the <code>arrange()</code> function to sort the table by our new column.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_means &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span>
+<span class="st">                 </span><span class="kw">summarize</span>(<span class="dt">mean_price       =</span>  <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T),
+                           <span class="dt">mean_price_round =</span> <span class="kw">round</span>(mean_price, <span class="dt">digits =</span> <span class="dv">2</span>)) <span class="op">%&gt;%</span>
+<span class="st">                 </span><span class="kw">arrange</span>(mean_price_round) <span class="op">%&gt;%</span>
+<span class="st">                 </span><span class="kw">ungroup</span>()</code></pre></div>
+<p><br></p>
+<h3 id="note-1" class="unnumbered">Note</h3>
+<p>The <code>round()</code> function in R does not automatically round values ending in 5 up. Instead it uses scientific rounding, which rounds values ending in 5 to the nearest even number. So 2.5 rounded to the nearest whole number rounds down to 2, and 3.5 rounded to the nearest whole number rounds up 4.</p>
+</p>
+</div>
+<p></details></p>
+<p><br></p>
+<p>Who’s making lots of transactions? Try using <code>group_by</code> with the column <em>origin</em> and then <code>summarize</code> to count the number of scrap records at each city.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap_counts &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span>
+<span class="st">                </span><span class="kw">summarize</span>(<span class="dt">origin_count  =</span>  <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">                </span><span class="kw">ungroup</span>()</code></pre></div>
+<p><br></p>
+<div class="note">
+<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<p>Ending with <code>ungroup()</code> is good practice. This prevents your data from staying grouped after the summarizing has been completed.</p>
+</div>
+</div>
+</div>
+<div id="save-files" class="section level1">
+<h1><span class="header-section-number">3</span> Save files</h1>
+<hr>
+<p>Let’s save the mean price summary table we created to a <em>CSV</em>. That way we can transfer it to a <em>droid courier</em> for delivery to Rey. To save a data frame we can use the <code>write_csv()</code> function from our favorite <code>readr</code> package.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Write the file to your results folder</span>
+<span class="kw">write_csv</span>(scrap_means, <span class="st">&quot;results/prices_by_origin.csv&quot;</span>)</code></pre></div>
+<div class="red-note">
+<h3 style="margin-top: 12px; color: white; margin-top: -6px; font-size: 22px;">
+<i class="fas fa-exclamation-triangle"></i> <strong>Warning!</strong>
+</h3>
+<p>By default, when saving R will overwrite a file if the file already exists in the same folder. It will not ask for confirmation. To be safe, save processed data to a new folder called <code>results/</code> and not to your raw <code>data/</code> folder.</p>
+</div>
+</div>
+<div id="grouped-mutate" class="section level1">
+<h1><span class="header-section-number">4</span> Grouped <code>mutate()</code></h1>
+<hr>
+<p>We can bring back <code>mutate</code> to add a column based on the grouped values in a data set. For example, you may want to add a column showing the mean price by origin to the whole table, but still keep all of the records. This is a good way to add values to the table to serve as a reference point.</p>
+<blockquote>
+<p>How does the price of Item X compare to the average price?</p>
+</blockquote>
+<p>When you combine <code>group_by</code> and <code>mutate</code> the new column will be calculated based on the values within each group. Let’s group by <code>origin</code> to find the <code>mean()</code> price per pound at each origin.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">scrap &lt;-<span class="st"> </span><span class="kw">group_by</span>(scrap, origin) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">mutate</span>(<span class="dt">origin_mean_price =</span> <span class="kw">mean</span>(price_per_pound, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">            </span><span class="kw">ungroup</span>()</code></pre></div>
+<p><br></p>
+</div>
 <div id="guess-who" class="section level1 unnumbered">
 <h1>Guess Who?</h1>
 <h2 style="margin-top: -24px;">
@@ -151,7 +305,7 @@ people &lt;-<span class="st"> </span>starwars</code></pre></div>
 </div>
 </div>
 <div id="ifelse" class="section level1">
-<h1><span class="header-section-number">1</span> <code>ifelse()</code></h1>
+<h1><span class="header-section-number">5</span> <code>ifelse()</code></h1>
 <hr>
 <div id="if-this-is-true-do-this-otherwise-do-this" class="section level3 unnumbered">
 <h3><code>[If this is true]</code>, <code>&quot;Do this&quot;</code>, <code>&quot;Otherwise do this&quot;</code></h3>
@@ -185,7 +339,7 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
                                     <span class="st">&quot;Cheap&quot;</span>, 
                                     <span class="st">&quot;Expensive&quot;</span>))</code></pre></div>
 <div class="tip">
-<h3 id="explore" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<h3 id="explore-2" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Use your new column and <code>filter()</code> to create a new <code>cheap_scrap</code> table.</p>
 </div>
 <div class="quiz">
@@ -211,7 +365,7 @@ scrap &lt;-<span class="st"> </span>scrap <span class="op">%&gt;%</span><span cl
 </div>
 </div>
 <div id="plots-with-ggplot2" class="section level1">
-<h1><span class="header-section-number">2</span> Plots with <em>ggplot2</em></h1>
+<h1><span class="header-section-number">6</span> Plots with <em>ggplot2</em></h1>
 <hr>
 <div id="plot-the-data-plot-the-data-plot-the-data" class="section level4 unnumbered">
 <h4><em>Plot the data, Plot the data, Plot the data</em></h4>
@@ -235,7 +389,7 @@ A <code>ggplot</code> has 3 ingredients.
 <h2>1. The base plot</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap)</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-20-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-26-1.png" width="960" /></p>
 <p><br></p>
 <blockquote>
 <p>we load version 2 of the package <code>library(ggplot2)</code>, but the function to make the plot is only <code>ggplot()</code>. No <code>2</code>. <em>Sorry.</em></p>
@@ -245,12 +399,12 @@ A <code>ggplot</code> has 3 ingredients.
 <h2>2. The the X, Y <em>aesthetics</em></h2>
 <p>The <em>aesthetics</em> assign the columns from the data that you want to use in the chart. This is where you set the <code>X</code>-<code>Y</code> variables that determine the dimensions of the plot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) </code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-21-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-27-1.png" width="960" /></p>
 </div>
 <div id="the-layers-or-geometries" class="section level2 unnumbered">
 <h2>3. The layers or <em>geometries</em></h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-22-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-28-1.png" width="960" /></p>
 <p><br></p>
 </div>
 <div id="colors" class="section level2 unnumbered">
@@ -259,15 +413,15 @@ A <code>ggplot</code> has 3 ingredients.
 <p>Now let’s change the fill color to match the origin.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> amount, <span class="dt">fill =</span> origin)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_col</span>() </code></pre></div>
-<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-23-1.png" width="960" /></p>
+<p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-29-1.png" width="960" /></p>
 <div class="tip">
-<h3 id="explore-1" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Try making a column plot showing the total amount of scrap for each <code>destination</code> or for each <code>item</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> destination, <span class="dt">y =</span> amount )) <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>()</code></pre></div>
 </div>
 <p><br></p>
 <div class="tip">
-<h3 id="explore-2" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<h3 id="explore-4" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Try making a scatterplot of any two columns.</p>
 <p><em>Hint: Numeric variables will be more informative.</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> __column1__, <span class="dt">y =</span> __column2__)) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
@@ -293,7 +447,7 @@ A <code>ggplot</code> has 3 ingredients.
 </div>
 </div>
 <div id="more-plots" class="section level1">
-<h1><span class="header-section-number">3</span> More Plots</h1>
+<h1><span class="header-section-number">7</span> More Plots</h1>
 <hr>
 <div id="colors-2" class="section level2 unnumbered">
 <h2>Colors</h2>
@@ -304,7 +458,7 @@ A <code>ggplot</code> has 3 ingredients.
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-5-1.png" width="960" /></p>
 <p><br></p>
 <div class="note">
-<h3 id="spock-tip" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>One easy way to experiment with colors is to add layers like <code>scale_fill_brewer</code> or <code>scale_colour_brewer</code> to your plot which will link to RcolorBrewer palettes so you can have accessible color schemes.</p>
 </div>
 </div>
@@ -374,7 +528,7 @@ A <code>ggplot</code> has 3 ingredients.
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-11-1.png" width="960" /></p>
 <p><br></p>
 <div class="tip">
-<h3 id="explore-3" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<h3 id="explore-5" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Let’s say we don’t like printing so many zeros and want the labels to be in <strong>Millions</strong> of credits. Any ideas on how to make that happen?</p>
 </div>
 </div>
@@ -387,7 +541,7 @@ A <code>ggplot</code> has 3 ingredients.
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre></div>
 <p><img src="/page/Day2_PM_files/figure-html/unnamed-chunk-12-1.png" width="960" /></p>
 <div class="tip">
-<h3 id="explore-4" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
+<h3 id="explore-6" class="unnumbered"><i class="fa fa-user-astronaut" style="color: green;"></i> Explore!</h3>
 <p>Be bold and make a <strong>boxplot</strong>. We’ve covered how to do a scatterplot with <code>geom_point</code> and a bar chart with <code>geom_col</code>, but how would you make a boxplot showing the prices at each destination? Feel free to experiment with <code>color</code> ,<code>facet_wrap</code>, <code>theme</code>, and <code>labs</code>.</p>
 <blockquote>
 <p>May the force be with you.</p>
@@ -413,7 +567,7 @@ A <code>ggplot</code> has 3 ingredients.
 <span class="kw">ggsave</span>(<span class="st">&quot;results/plot_name.png&quot;</span>)</code></pre></div>
 <p><br></p>
 <div class="note">
-<h3 id="spock-tip-1" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<h3 id="spock-tip-2" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>Sometimes you may want to make a plot and save it for later. For that, you give your plot a name. Any name will do.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Name the ggplot you want to save</span>
 my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(...)
@@ -591,7 +745,7 @@ my_plot &lt;-<span class="st"> </span><span class="kw">ggplot</span>(...) <span 
 <li><em>Don’t worry if it looks</em> <strong>really weird</strong>. <em>Consider it art and try again.</em></li>
 </ol>
 <div class="note">
-<h3 id="spock-tip-2" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
+<h3 id="spock-tip-3" class="unnumbered"><i class="fas fa-hand-spock"></i> Spock-tip!</h3>
 <p>When you add more layers using <code>+</code> remember to place it at the end of each line.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This will work</span>
 <span class="kw">ggplot</span>(scrap, <span class="kw">aes</span>(<span class="dt">x =</span> origin, <span class="dt">y =</span> credits)) <span class="op">+</span>

@@ -121,6 +121,7 @@ Let's calculate some new columns to help focus Rey's scavenging work.
 ```{r earth-data, child='X:/Agency_Files/Outcomes/Risk_Eval_Air_Mod/_Air_Risk_Evaluation/R/R_Camp/modules/_yourdata/ozone_start.Rmd'}
 ```
 
+![](../images/scaryR.jpg){style="margin-left: 11%; width: 78%;"}
 
 ### <i class="fa fa-rocket" aria-hidden="true"></i> Return to [Homebase](../post/day-1.html) {-}
 
